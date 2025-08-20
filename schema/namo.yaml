@@ -1,0 +1,5016 @@
+name: namo
+description: New Approach Methodology Ontology and Schema
+title: namo
+see_also:
+- https://monarch-initiative.github.io/namo
+id: https://w3id.org/monarch-initiative/namo
+imports:
+- linkml:types
+license: BSD-3-Clause
+prefixes:
+  namo:
+    prefix_prefix: namo
+    prefix_reference: https://w3id.org/monarch-initiative/namo/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  biolink:
+    prefix_prefix: biolink
+    prefix_reference: https://w3id.org/biolink/
+  schema:
+    prefix_prefix: schema
+    prefix_reference: http://schema.org/
+  PATO:
+    prefix_prefix: PATO
+    prefix_reference: http://purl.obolibrary.org/obo/PATO_
+  example:
+    prefix_prefix: example
+    prefix_reference: https://example.org/
+  OBI:
+    prefix_prefix: OBI
+    prefix_reference: http://purl.obolibrary.org/obo/OBI_
+  EDAM:
+    prefix_prefix: EDAM
+    prefix_reference: http://edamontology.org/
+  UBERON:
+    prefix_prefix: UBERON
+    prefix_reference: http://purl.obolibrary.org/obo/UBERON_
+  EFO:
+    prefix_prefix: EFO
+    prefix_reference: http://www.ebi.ac.uk/efo/EFO_
+  MAMO:
+    prefix_prefix: MAMO
+    prefix_reference: http://identifiers.org/mamo/MAMO_
+  MESH:
+    prefix_prefix: MESH
+    prefix_reference: http://id.nlm.nih.gov/mesh/
+  CHEBI:
+    prefix_prefix: CHEBI
+    prefix_reference: http://purl.obolibrary.org/obo/CHEBI_
+  NCIT:
+    prefix_prefix: NCIT
+    prefix_reference: http://purl.obolibrary.org/obo/NCIT_
+default_prefix: namo
+default_range: string
+types:
+  string:
+    name: string
+    definition_uri: https://w3id.org/linkml/String
+    description: A character string
+    notes:
+    - In RDF serializations, a slot with range of string is treated as a literal or
+      type xsd:string.   If you are authoring schemas in LinkML YAML, the type is
+      referenced with the lower case "string".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    exact_mappings:
+    - schema:Text
+    base: str
+    uri: xsd:string
+  integer:
+    name: integer
+    definition_uri: https://w3id.org/linkml/Integer
+    description: An integer
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "integer".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    exact_mappings:
+    - schema:Integer
+    base: int
+    uri: xsd:integer
+  boolean:
+    name: boolean
+    definition_uri: https://w3id.org/linkml/Boolean
+    description: A binary (true or false) value
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "boolean".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    exact_mappings:
+    - schema:Boolean
+    base: Bool
+    uri: xsd:boolean
+    repr: bool
+  float:
+    name: float
+    definition_uri: https://w3id.org/linkml/Float
+    description: A real number that conforms to the xsd:float specification
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "float".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    exact_mappings:
+    - schema:Float
+    base: float
+    uri: xsd:float
+  double:
+    name: double
+    definition_uri: https://w3id.org/linkml/Double
+    description: A real number that conforms to the xsd:double specification
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "double".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    close_mappings:
+    - schema:Float
+    base: float
+    uri: xsd:double
+  decimal:
+    name: decimal
+    definition_uri: https://w3id.org/linkml/Decimal
+    description: A real number with arbitrary precision that conforms to the xsd:decimal
+      specification
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "decimal".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    broad_mappings:
+    - schema:Number
+    base: Decimal
+    uri: xsd:decimal
+  time:
+    name: time
+    definition_uri: https://w3id.org/linkml/Time
+    description: A time object represents a (local) time of day, independent of any
+      particular day
+    notes:
+    - URI is dateTime because OWL reasoners do not work with straight date or time
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "time".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    exact_mappings:
+    - schema:Time
+    base: XSDTime
+    uri: xsd:time
+    repr: str
+  date:
+    name: date
+    definition_uri: https://w3id.org/linkml/Date
+    description: a date (year, month and day) in an idealized calendar
+    notes:
+    - URI is dateTime because OWL reasoners don't work with straight date or time
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "date".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    exact_mappings:
+    - schema:Date
+    base: XSDDate
+    uri: xsd:date
+    repr: str
+  datetime:
+    name: datetime
+    definition_uri: https://w3id.org/linkml/Datetime
+    description: The combination of a date and time
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "datetime".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    exact_mappings:
+    - schema:DateTime
+    base: XSDDateTime
+    uri: xsd:dateTime
+    repr: str
+  date_or_datetime:
+    name: date_or_datetime
+    definition_uri: https://w3id.org/linkml/DateOrDatetime
+    description: Either a date or a datetime
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "date_or_datetime".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: str
+    uri: linkml:DateOrDatetime
+    repr: str
+  uriorcurie:
+    name: uriorcurie
+    definition_uri: https://w3id.org/linkml/Uriorcurie
+    description: a URI or a CURIE
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "uriorcurie".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: URIorCURIE
+    uri: xsd:anyURI
+    repr: str
+  curie:
+    name: curie
+    definition_uri: https://w3id.org/linkml/Curie
+    conforms_to: https://www.w3.org/TR/curie/
+    description: a compact URI
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "curie".
+    comments:
+    - in RDF serializations this MUST be expanded to a URI
+    - in non-RDF serializations MAY be serialized as the compact representation
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: Curie
+    uri: xsd:string
+    repr: str
+  uri:
+    name: uri
+    definition_uri: https://w3id.org/linkml/Uri
+    conforms_to: https://www.ietf.org/rfc/rfc3987.txt
+    description: a complete URI
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "uri".
+    comments:
+    - in RDF serializations a slot with range of uri is treated as a literal or type
+      xsd:anyURI unless it is an identifier or a reference to an identifier, in which
+      case it is translated directly to a node
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    close_mappings:
+    - schema:URL
+    base: URI
+    uri: xsd:anyURI
+    repr: str
+  ncname:
+    name: ncname
+    definition_uri: https://w3id.org/linkml/Ncname
+    description: Prefix part of CURIE
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "ncname".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: NCName
+    uri: xsd:string
+    repr: str
+  objectidentifier:
+    name: objectidentifier
+    definition_uri: https://w3id.org/linkml/Objectidentifier
+    description: A URI or CURIE that represents an object in the model.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "objectidentifier".
+    comments:
+    - Used for inheritance and type checking
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: ElementIdentifier
+    uri: shex:iri
+    repr: str
+  nodeidentifier:
+    name: nodeidentifier
+    definition_uri: https://w3id.org/linkml/Nodeidentifier
+    description: A URI, CURIE or BNODE that represents a node in a model.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "nodeidentifier".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: NodeIdentifier
+    uri: shex:nonLiteral
+    repr: str
+  jsonpointer:
+    name: jsonpointer
+    definition_uri: https://w3id.org/linkml/Jsonpointer
+    conforms_to: https://datatracker.ietf.org/doc/html/rfc6901
+    description: A string encoding a JSON Pointer. The value of the string MUST conform
+      to JSON Point syntax and SHOULD dereference to a valid object within the current
+      instance document when encoded in tree form.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "jsonpointer".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: str
+    uri: xsd:string
+    repr: str
+  jsonpath:
+    name: jsonpath
+    definition_uri: https://w3id.org/linkml/Jsonpath
+    conforms_to: https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html
+    description: A string encoding a JSON Path. The value of the string MUST conform
+      to JSON Point syntax and SHOULD dereference to zero or more valid objects within
+      the current instance document when encoded in tree form.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "jsonpath".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: str
+    uri: xsd:string
+    repr: str
+  sparqlpath:
+    name: sparqlpath
+    definition_uri: https://w3id.org/linkml/Sparqlpath
+    conforms_to: https://www.w3.org/TR/sparql11-query/#propertypaths
+    description: A string encoding a SPARQL Property Path. The value of the string
+      MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects
+      within the current instance document when encoded as RDF.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "sparqlpath".
+    from_schema: https://w3id.org/linkml/types
+    imported_from: linkml:types
+    base: str
+    uri: xsd:string
+    repr: str
+enums:
+  SpeciesEnum:
+    name: SpeciesEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/SpeciesEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    reachable_from:
+      source_nodes:
+      - NCBITaxon:1
+      relationship_types:
+      - rdfs:subClassOf
+      is_direct: false
+  OrganEnum:
+    name: OrganEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/OrganEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    reachable_from:
+      source_nodes:
+      - UBERON:0001062
+      relationship_types:
+      - rdfs:subClassOf
+      - BFO:0000050
+      is_direct: false
+  CellTypeEnum:
+    name: CellTypeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/CellTypeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    reachable_from:
+      source_nodes:
+      - CL:0000000
+      relationship_types:
+      - rdfs:subClassOf
+      is_direct: false
+  StrainEnum:
+    name: StrainEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/StrainEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+  AgeEnum:
+    name: AgeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/AgeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+  RelativeTimeEnum:
+    name: RelativeTimeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/RelativeTimeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      BEFORE:
+        text: BEFORE
+      AFTER:
+        text: AFTER
+      AT_SAME_TIME_AS:
+        text: AT_SAME_TIME_AS
+  CaseOrControlEnum:
+    name: CaseOrControlEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/CaseOrControlEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      CASE:
+        text: CASE
+        meaning: OBI:0002492
+        title: case role in case-control study
+      CONTROL:
+        text: CONTROL
+        meaning: OBI:0002493
+        title: control role in case-control study
+  StudyDesignEnum:
+    name: StudyDesignEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/StudyDesignEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    reachable_from:
+      source_nodes:
+      - OBI:0500000
+      relationship_types:
+      - rdfs:subClassOf
+      is_direct: false
+  InvestigativeProtocolEnum:
+    name: InvestigativeProtocolEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/InvestigativeProtocolEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    reachable_from:
+      source_nodes:
+      - OBI:0000272
+      relationship_types:
+      - rdfs:subClassOf
+      is_direct: false
+  SampleProcessingEnum:
+    name: SampleProcessingEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/SampleProcessingEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    reachable_from:
+      source_nodes:
+      - OBI:0000094
+      relationship_types:
+      - rdfs:subClassOf
+      is_direct: false
+  PresenceEnum:
+    name: PresenceEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/PresenceEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      PRESENT:
+        text: PRESENT
+        description: The entity is present
+      ABSENT:
+        text: ABSENT
+        description: The entity is absent
+      BELOW_DETECTION_LIMIT:
+        text: BELOW_DETECTION_LIMIT
+        description: The entity is below the detection limit
+      ABOVE_DETECTION_LIMIT:
+        text: ABOVE_DETECTION_LIMIT
+        description: The entity is above the detection limit
+  PredictionOutcomeEnum:
+    name: PredictionOutcomeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      TP:
+        text: TP
+        description: True Positive
+      FP:
+        text: FP
+        description: False Positive
+      TN:
+        text: TN
+        description: True Negative
+      FN:
+        text: FN
+        description: False Negative
+  MicrofluidicArchitectureEnum:
+    name: MicrofluidicArchitectureEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      SINGLE_CHANNEL:
+        text: SINGLE_CHANNEL
+        description: Single channel design
+      TWO_CHANNEL:
+        text: TWO_CHANNEL
+        description: Two-channel design with separated compartments
+      MULTI_CHANNEL:
+        text: MULTI_CHANNEL
+        description: Multiple channels (>2) design
+      LAYERED:
+        text: LAYERED
+        description: Layered/stacked channel architecture
+      RADIAL:
+        text: RADIAL
+        description: Radial channel architecture
+      NETWORK:
+        text: NETWORK
+        description: Network of interconnected channels
+  ChannelConfigurationEnum:
+    name: ChannelConfigurationEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      PARALLEL:
+        text: PARALLEL
+        description: Parallel channel configuration
+      SERIAL:
+        text: SERIAL
+        description: Serial/sequential channel configuration
+      BRANCHING:
+        text: BRANCHING
+        description: Branching channel configuration
+      CIRCULAR:
+        text: CIRCULAR
+        description: Circular/loop channel configuration
+      SERPENTINE:
+        text: SERPENTINE
+        description: Serpentine channel pattern
+      Y_SHAPED:
+        text: Y_SHAPED
+        description: Y-shaped channel junction
+      T_SHAPED:
+        text: T_SHAPED
+        description: T-shaped channel junction
+  MembraneTypeEnum:
+    name: MembraneTypeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/MembraneTypeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      POROUS_POLYMER:
+        text: POROUS_POLYMER
+        description: Porous polymer membrane (e.g., PET, PC)
+      PDMS:
+        text: PDMS
+        description: Polydimethylsiloxane membrane
+      COLLAGEN:
+        text: COLLAGEN
+        description: Collagen-based membrane
+      ECM_COATED:
+        text: ECM_COATED
+        description: Extracellular matrix-coated membrane
+      TRACK_ETCHED:
+        text: TRACK_ETCHED
+        description: Track-etched membrane
+      ELECTROSPUN:
+        text: ELECTROSPUN
+        description: Electrospun fiber membrane
+      HYDROGEL:
+        text: HYDROGEL
+        description: Hydrogel membrane
+  InterfaceTypeEnum:
+    name: InterfaceTypeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      AIR_LIQUID:
+        text: AIR_LIQUID
+        description: Air-liquid interface
+      LIQUID_LIQUID:
+        text: LIQUID_LIQUID
+        description: Liquid-liquid interface
+      CELL_CELL:
+        text: CELL_CELL
+        description: Direct cell-cell interface
+      TISSUE_TISSUE:
+        text: TISSUE_TISSUE
+        description: Tissue-tissue interface
+      VASCULAR_EPITHELIAL:
+        text: VASCULAR_EPITHELIAL
+        description: Vascular-epithelial interface
+  DeviceMaterialEnum:
+    name: DeviceMaterialEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      PDMS:
+        text: PDMS
+        description: Polydimethylsiloxane
+      GLASS:
+        text: GLASS
+        description: Glass
+      PLASTIC:
+        text: PLASTIC
+        description: Plastic (general)
+      POLYSTYRENE:
+        text: POLYSTYRENE
+        description: Polystyrene
+      POLYCARBONATE:
+        text: POLYCARBONATE
+        description: Polycarbonate
+      PMMA:
+        text: PMMA
+        description: Poly(methyl methacrylate)
+      COC:
+        text: COC
+        description: Cyclic olefin copolymer
+      SILICON:
+        text: SILICON
+        description: Silicon
+      HYDROGEL:
+        text: HYDROGEL
+        description: Hydrogel materials
+  SurfaceCoatingEnum:
+    name: SurfaceCoatingEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      FIBRONECTIN:
+        text: FIBRONECTIN
+        description: Fibronectin coating
+        meaning: CHEBI:5058
+      COLLAGEN:
+        text: COLLAGEN
+        description: Collagen coating
+        meaning: CHEBI:3815
+      LAMININ:
+        text: LAMININ
+        description: Laminin coating
+        meaning: MESH:D007797
+      MATRIGEL:
+        text: MATRIGEL
+        description: Matrigel coating
+      POLY_L_LYSINE:
+        text: POLY_L_LYSINE
+        description: Poly-L-lysine coating
+        meaning: CHEBI:53412
+      GELATIN:
+        text: GELATIN
+        description: Gelatin coating
+        meaning: CHEBI:5291
+      RGD_PEPTIDE:
+        text: RGD_PEPTIDE
+        description: RGD peptide coating
+        meaning: NCIT:C13288
+      ANTI_FOULING:
+        text: ANTI_FOULING
+        description: Anti-fouling coating
+      OXYGEN_PLASMA:
+        text: OXYGEN_PLASMA
+        description: Oxygen plasma treatment
+  FlowControlMethodEnum:
+    name: FlowControlMethodEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      SYRINGE_PUMP:
+        text: SYRINGE_PUMP
+        description: Syringe pump-driven flow
+      PERISTALTIC_PUMP:
+        text: PERISTALTIC_PUMP
+        description: Peristaltic pump-driven flow
+      GRAVITY_DRIVEN:
+        text: GRAVITY_DRIVEN
+        description: Gravity-driven flow
+      PRESSURE_DRIVEN:
+        text: PRESSURE_DRIVEN
+        description: Pressure-driven flow
+      ELECTROOSMOTIC:
+        text: ELECTROOSMOTIC
+        description: Electroosmotic flow
+      CAPILLARY_ACTION:
+        text: CAPILLARY_ACTION
+        description: Capillary action-driven flow
+      PNEUMATIC_VALVES:
+        text: PNEUMATIC_VALVES
+        description: Pneumatic valve control
+      MICROVALVES:
+        text: MICROVALVES
+        description: Integrated microvalves
+  IntegratedSensorEnum:
+    name: IntegratedSensorEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      TEER:
+        text: TEER
+        description: Trans-epithelial electrical resistance sensor
+      OXYGEN:
+        text: OXYGEN
+        description: Oxygen sensor
+      PH:
+        text: PH
+        description: pH sensor
+      TEMPERATURE:
+        text: TEMPERATURE
+        description: Temperature sensor
+      PRESSURE:
+        text: PRESSURE
+        description: Pressure sensor
+      FLOW_RATE:
+        text: FLOW_RATE
+        description: Flow rate sensor
+      ELECTROCHEMICAL:
+        text: ELECTROCHEMICAL
+        description: Electrochemical sensors
+      OPTICAL:
+        text: OPTICAL
+        description: Optical sensors
+      IMPEDANCE:
+        text: IMPEDANCE
+        description: Impedance sensors
+  MechanicalStimulationTypeEnum:
+    name: MechanicalStimulationTypeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      CYCLIC_STRETCH:
+        text: CYCLIC_STRETCH
+        description: Cyclic stretching
+      SHEAR_STRESS:
+        text: SHEAR_STRESS
+        description: Fluid shear stress
+        meaning: EFO:0022075
+      COMPRESSION:
+        text: COMPRESSION
+        description: Compression forces
+      TENSION:
+        text: TENSION
+        description: Tensile forces
+      HYDROSTATIC_PRESSURE:
+        text: HYDROSTATIC_PRESSURE
+        description: Hydrostatic pressure
+        meaning: EFO:0000534
+      PULSATILE_FLOW:
+        text: PULSATILE_FLOW
+        description: Pulsatile flow
+      BREATHING_MOTION:
+        text: BREATHING_MOTION
+        description: Breathing-like cyclic motion
+      PERISTALTIC_MOTION:
+        text: PERISTALTIC_MOTION
+        description: Peristaltic-like motion
+  BiologicalOrganizationLevelEnum:
+    name: BiologicalOrganizationLevelEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      SUBCELLULAR:
+        text: SUBCELLULAR
+        description: Within a cell - subcellular components and molecular interactions
+      CELLULAR:
+        text: CELLULAR
+        description: Individual cell level - single cell behavior and properties
+      CELLULAR_NEIGHBORHOOD:
+        text: CELLULAR_NEIGHBORHOOD
+        description: Cell-cell interactions and local microenvironments
+      TISSUE:
+        text: TISSUE
+        description: Tissue-level organization and multicellular structures
+      ORGAN:
+        text: ORGAN
+        description: Organ-level physiology and function
+      SYSTEM:
+        text: SYSTEM
+        description: Organ system and whole-body physiological integration
+  ComplexityLevelEnum:
+    name: ComplexityLevelEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      LOW:
+        text: LOW
+        description: Simple, well-defined system with limited variables
+      MODERATE:
+        text: MODERATE
+        description: Intermediate complexity with multiple interacting components
+      HIGH:
+        text: HIGH
+        description: Complex system with many variables and emergent properties
+  ThreeDArchitectureEnum:
+    name: ThreeDArchitectureEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      SPHEROID:
+        text: SPHEROID
+        description: Spherical 3D cell aggregates
+      ORGANOID:
+        text: ORGANOID
+        description: Self-organizing 3D structures with organ-like features
+      SCAFFOLD_BASED:
+        text: SCAFFOLD_BASED
+        description: Cells grown on 3D scaffolds or matrices
+      HYDROGEL_EMBEDDED:
+        text: HYDROGEL_EMBEDDED
+        description: Cells embedded in hydrogel matrices
+      BIOPRINTED:
+        text: BIOPRINTED
+        description: 3D bioprinted structures
+      HANGING_DROP:
+        text: HANGING_DROP
+        description: Spheroids formed using hanging drop method
+  CocultureConfigurationEnum:
+    name: CocultureConfigurationEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      DIRECT_CONTACT:
+        text: DIRECT_CONTACT
+        description: Cells in direct physical contact
+      TRANSWELL:
+        text: TRANSWELL
+        description: Cells separated by permeable membrane
+      CONDITIONED_MEDIA:
+        text: CONDITIONED_MEDIA
+        description: Cells exposed to media conditioned by other cells
+      MICROPATTERN:
+        text: MICROPATTERN
+        description: Cells patterned in defined spatial arrangements
+      GRADIENT:
+        text: GRADIENT
+        description: Cells exposed to chemical or physical gradients
+  RatioTypeEnum:
+    name: RatioTypeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/RatioTypeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      PERCENTAGE:
+        text: PERCENTAGE
+        description: Percentage of total cells
+      ABSOLUTE:
+        text: ABSOLUTE
+        description: Absolute cell numbers
+      FOLD:
+        text: FOLD
+        description: Fold ratio relative to reference
+  PBPKCompartmentEnum:
+    name: PBPKCompartmentEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      LIVER:
+        text: LIVER
+        description: Hepatic compartment
+        meaning: UBERON:0002107
+      KIDNEY:
+        text: KIDNEY
+        description: Renal compartment
+        meaning: UBERON:0002113
+      LUNG:
+        text: LUNG
+        description: Pulmonary compartment
+        meaning: UBERON:0002048
+      BRAIN:
+        text: BRAIN
+        description: Central nervous system compartment
+        meaning: UBERON:0000955
+      HEART:
+        text: HEART
+        description: Cardiac compartment
+        meaning: UBERON:0000948
+      MUSCLE:
+        text: MUSCLE
+        description: Skeletal muscle compartment
+        meaning: UBERON:0001134
+      FAT:
+        text: FAT
+        description: Adipose tissue compartment
+      SKIN:
+        text: SKIN
+        description: Dermal compartment
+      BONE:
+        text: BONE
+        description: Bone tissue compartment
+      GI_TRACT:
+        text: GI_TRACT
+        description: Gastrointestinal tract compartment
+      PLASMA:
+        text: PLASMA
+        description: Plasma compartment
+        meaning: UBERON:0001969
+      BLOOD:
+        text: BLOOD
+        description: Blood compartment
+  DigitalTwinScopeEnum:
+    name: DigitalTwinScopeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      ORGAN:
+        text: ORGAN
+        description: Digital twin of a specific organ
+      PATIENT:
+        text: PATIENT
+        description: Digital twin of an individual patient
+      POPULATION:
+        text: POPULATION
+        description: Digital twin representing a population
+        meaning: MAMO:0000028
+      PATHWAY:
+        text: PATHWAY
+        description: Digital twin of biological pathways
+      DISEASE:
+        text: DISEASE
+        description: Digital twin of disease progression
+  MLAlgorithmEnum:
+    name: MLAlgorithmEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      RANDOM_FOREST:
+        text: RANDOM_FOREST
+        description: Random Forest algorithm
+      SUPPORT_VECTOR_MACHINE:
+        text: SUPPORT_VECTOR_MACHINE
+        description: Support Vector Machine
+        meaning: OBI:0000700
+      NEURAL_NETWORK:
+        text: NEURAL_NETWORK
+        description: Artificial Neural Networks
+      DEEP_LEARNING:
+        text: DEEP_LEARNING
+        description: Deep learning models
+      GRADIENT_BOOSTING:
+        text: GRADIENT_BOOSTING
+        description: Gradient boosting methods
+        meaning: MESH:D000098404
+      LINEAR_REGRESSION:
+        text: LINEAR_REGRESSION
+        description: Linear regression models
+        meaning: OBI:0200103
+      LOGISTIC_REGRESSION:
+        text: LOGISTIC_REGRESSION
+        description: Logistic regression models
+        meaning: OBI:0200002
+      NAIVE_BAYES:
+        text: NAIVE_BAYES
+        description: Naive Bayes classifier
+      K_MEANS:
+        text: K_MEANS
+        description: K-means clustering
+        meaning: OBI:0200041
+      REINFORCEMENT_LEARNING:
+        text: REINFORCEMENT_LEARNING
+        description: Reinforcement learning approaches
+  FeatureTypeEnum:
+    name: FeatureTypeEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/FeatureTypeEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      MOLECULAR:
+        text: MOLECULAR
+        description: Molecular descriptors and chemical features
+      PHENOTYPIC:
+        text: PHENOTYPIC
+        description: Phenotypic and physiological features
+      GENOMIC:
+        text: GENOMIC
+        description: Genomic and genetic features
+      TRANSCRIPTOMIC:
+        text: TRANSCRIPTOMIC
+        description: Gene expression features
+        meaning: EDAM:3308
+      PROTEOMIC:
+        text: PROTEOMIC
+        description: Protein abundance and modification features
+        meaning: EDAM:0121
+      METABOLOMIC:
+        text: METABOLOMIC
+        description: Metabolite concentration features
+        meaning: EDAM:3172
+      IMAGING:
+        text: IMAGING
+        description: Image-derived features
+        meaning: EDAM:3382
+      CLINICAL:
+        text: CLINICAL
+        description: Clinical and demographic features
+      TEMPORAL:
+        text: TEMPORAL
+        description: Time-series and temporal features
+  InterpretabilityLevelEnum:
+    name: InterpretabilityLevelEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      BLACK_BOX:
+        text: BLACK_BOX
+        description: No interpretability - predictions only
+      INTERPRETABLE:
+        text: INTERPRETABLE
+        description: Some level of feature importance available
+      EXPLAINABLE:
+        text: EXPLAINABLE
+        description: Full mechanistic interpretation possible
+      CAUSAL:
+        text: CAUSAL
+        description: Causal relationships can be inferred
+  CrossValidationMethodEnum:
+    name: CrossValidationMethodEnum
+    definition_uri: https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum
+    from_schema: https://w3id.org/monarch-initiative/namo
+    permissible_values:
+      K_FOLD:
+        text: K_FOLD
+        description: K-fold cross-validation
+        meaning: OBI:0200032
+      STRATIFIED_K_FOLD:
+        text: STRATIFIED_K_FOLD
+        description: Stratified k-fold cross-validation
+      LEAVE_ONE_OUT:
+        text: LEAVE_ONE_OUT
+        description: Leave-one-out cross-validation
+        meaning: OBI:0200033
+      TIME_SERIES_SPLIT:
+        text: TIME_SERIES_SPLIT
+        description: Time series cross-validation
+      MONTE_CARLO:
+        text: MONTE_CARLO
+        description: Monte Carlo cross-validation
+slots:
+  id:
+    name: id
+    definition_uri: https://w3id.org/monarch-initiative/namo/id
+    description: A unique identifier for a thing
+    from_schema: https://w3id.org/monarch-initiative/namo
+    mappings:
+    - schema:identifier
+    slot_uri: schema:identifier
+    identifier: true
+    owner: NamedThing
+    domain_of:
+    - NamedThing
+    range: uriorcurie
+    required: true
+  name:
+    name: name
+    definition_uri: https://w3id.org/monarch-initiative/namo/name
+    description: A human-readable name for a thing
+    from_schema: https://w3id.org/monarch-initiative/namo
+    mappings:
+    - schema:name
+    slot_uri: schema:name
+    owner: NamedThing
+    domain_of:
+    - NamedThing
+    range: string
+  description:
+    name: description
+    definition_uri: https://w3id.org/monarch-initiative/namo/description
+    description: A human-readable description for a thing
+    from_schema: https://w3id.org/monarch-initiative/namo
+    mappings:
+    - schema:description
+    slot_uri: schema:description
+    owner: NamedThing
+    domain_of:
+    - NamedThing
+    range: string
+  type:
+    name: type
+    definition_uri: https://w3id.org/monarch-initiative/namo/type
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:type
+    designates_type: true
+    owner: NamedThing
+    domain_of:
+    - NamedThing
+    range: string
+  dataset__model_systems:
+    name: dataset__model_systems
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:model_systems
+    alias: model_systems
+    owner: Dataset
+    domain_of:
+    - Dataset
+    range: ModelSystem
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  dataset__studies:
+    name: dataset__studies
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:studies
+    alias: studies
+    owner: Dataset
+    domain_of:
+    - Dataset
+    range: Study
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  study__context_of_use:
+    name: study__context_of_use
+    description: What decision will this inform? Care? Policy? Drug approval?
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:context_of_use
+    alias: context_of_use
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__biological_context:
+    name: study__biological_context
+    description: tissue/region (anatomy), cell types, sex/age equivalents, mechanics
+      (e.g., cyclic stretch), microenvironment
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:biological_context
+    alias: biological_context
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__perturbations:
+    name: study__perturbations
+    description: exposure/dose/time; diet/drugs/toxicants
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:perturbations
+    alias: perturbations
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__endpoints:
+    name: study__endpoints
+    description: phenotypes, function (TEER/leak, beating rate), and multi-omics
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:endpoints
+    alias: endpoints
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  study__plan_comparators:
+    name: study__plan_comparators
+    description: human data, gold-standard assays, or high-quality animal references
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:plan_comparators
+    alias: plan_comparators
+    owner: Study
+    domain_of:
+    - Study
+    range: string
+  modelSystem__models:
+    name: modelSystem__models
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:models
+    alias: models
+    owner: ModelSystem
+    domain_of:
+    - ModelSystem
+    range: ModelsRelationship
+    multivalued: true
+    inlined: true
+  animalModel__species:
+    name: animalModel__species
+    description: The species of the animal used in the model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:species
+    alias: species
+    owner: AnimalModel
+    domain_of:
+    - AnimalModel
+    range: Term
+    bindings:
+    - range: SpeciesEnum
+      obligation_level:
+        text: REQUIRED
+        description: The metadata element is required to be present in the model
+      binds_value_of: id
+    required: true
+  animalModel__strain:
+    name: animalModel__strain
+    description: The specific strain of the animal used in the model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:strain
+    alias: strain
+    owner: AnimalModel
+    domain_of:
+    - AnimalModel
+    range: Term
+    bindings:
+    - range: StrainEnum
+      obligation_level:
+        text: REQUIRED
+        description: The metadata element is required to be present in the model
+      binds_value_of: id
+  animalModel__age:
+    name: animalModel__age
+    description: The age of the animal used in the model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:age
+    alias: age
+    owner: AnimalModel
+    domain_of:
+    - AnimalModel
+    range: Term
+    bindings:
+    - range: OrganismAgeEnum
+      obligation_level:
+        text: REQUIRED
+        description: The metadata element is required to be present in the model
+      binds_value_of: id
+  animalModel__environment:
+    name: animalModel__environment
+    description: The environmental conditions under which the animal model is maintained.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:environment
+    alias: environment
+    owner: AnimalModel
+    domain_of:
+    - AnimalModel
+    range: Term
+  nAMModel__biological_organization_level:
+    name: nAMModel__biological_organization_level
+    description: The level of biological organization represented by the model
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:biological_organization_level
+    alias: biological_organization_level
+    owner: NAMModel
+    domain_of:
+    - NAMModel
+    range: BiologicalOrganizationLevelEnum
+  nAMModel__spatial_context:
+    name: nAMModel__spatial_context
+    description: Description of spatial organization and context captured by the model
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:spatial_context
+    alias: spatial_context
+    owner: NAMModel
+    domain_of:
+    - NAMModel
+    range: string
+  nAMModel__complexity_level:
+    name: nAMModel__complexity_level
+    description: Level of biological complexity represented (subcellular, cellular,
+      tissue, organ, system)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:complexity_level
+    alias: complexity_level
+    owner: NAMModel
+    domain_of:
+    - NAMModel
+    range: ComplexityLevelEnum
+  nAMModel__references:
+    name: nAMModel__references
+    description: Literature references that describe, validate, or support this model
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:references
+    alias: references
+    owner: NAMModel
+    domain_of:
+    - NAMModel
+    range: Reference
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  cellularSystem__cell_types:
+    name: cellularSystem__cell_types
+    description: Cell types present in the cellular system
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_types
+    alias: cell_types
+    owner: CellularSystem
+    domain_of:
+    - CellularSystem
+    range: Term
+    bindings:
+    - range: CellTypeEnum
+      obligation_level:
+        text: REQUIRED
+        description: The metadata element is required to be present in the model
+      binds_value_of: id
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  cellularSystem__cell_source:
+    name: cellularSystem__cell_source
+    description: Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_source
+    alias: cell_source
+    owner: CellularSystem
+    domain_of:
+    - CellularSystem
+    range: string
+  cellularSystem__culture_conditions:
+    name: cellularSystem__culture_conditions
+    description: Standard culture conditions and media used
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:culture_conditions
+    alias: culture_conditions
+    owner: CellularSystem
+    domain_of:
+    - CellularSystem
+    range: string
+  twoDCellCulture__substrate_type:
+    name: twoDCellCulture__substrate_type
+    description: Type of culture substrate (e.g., plastic, glass, coated surfaces)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:substrate_type
+    alias: substrate_type
+    owner: TwoDCellCulture
+    domain_of:
+    - TwoDCellCulture
+    range: string
+  twoDCellCulture__confluence_level:
+    name: twoDCellCulture__confluence_level
+    description: Typical confluence level maintained (0.0-1.0)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:confluence_level
+    alias: confluence_level
+    owner: TwoDCellCulture
+    domain_of:
+    - TwoDCellCulture
+    range: float
+  twoDCellCulture__passage_protocol:
+    name: twoDCellCulture__passage_protocol
+    description: Standard passaging protocol and frequency
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:passage_protocol
+    alias: passage_protocol
+    owner: TwoDCellCulture
+    domain_of:
+    - TwoDCellCulture
+    range: string
+  threeDCellCulture__three_d_architecture:
+    name: threeDCellCulture__three_d_architecture
+    description: Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:three_d_architecture
+    alias: three_d_architecture
+    owner: ThreeDCellCulture
+    domain_of:
+    - ThreeDCellCulture
+    range: ThreeDArchitectureEnum
+  threeDCellCulture__matrix_composition:
+    name: threeDCellCulture__matrix_composition
+    description: Composition of extracellular matrix or scaffold material
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:matrix_composition
+    alias: matrix_composition
+    owner: ThreeDCellCulture
+    domain_of:
+    - ThreeDCellCulture
+    range: string
+  threeDCellCulture__size_range:
+    name: threeDCellCulture__size_range
+    description: Typical size range of 3D structures
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:size_range
+    alias: size_range
+    owner: ThreeDCellCulture
+    domain_of:
+    - ThreeDCellCulture
+    range: string
+  coCulture__coculture_configuration:
+    name: coCulture__coculture_configuration
+    description: Configuration of co-culture (direct contact, transwell, conditioned
+      media)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:coculture_configuration
+    alias: coculture_configuration
+    owner: CoCulture
+    domain_of:
+    - CoCulture
+    range: CocultureConfigurationEnum
+  coCulture__cell_ratios:
+    name: coCulture__cell_ratios
+    description: Ratios of different cell types in the co-culture
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_ratios
+    alias: cell_ratios
+    owner: CoCulture
+    domain_of:
+    - CoCulture
+    range: CellRatio
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  coCulture__interaction_mechanisms:
+    name: coCulture__interaction_mechanisms
+    description: Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:interaction_mechanisms
+    alias: interaction_mechanisms
+    owner: CoCulture
+    domain_of:
+    - CoCulture
+    range: string
+    multivalued: true
+  organoid__organ_modeled:
+    name: organoid__organ_modeled
+    description: The organ or tissue being modeled
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:organ_modeled
+    alias: organ_modeled
+    owner: Organoid
+    domain_of:
+    - Organoid
+    range: Term
+    bindings:
+    - range: OrganEnum
+      obligation_level:
+        text: REQUIRED
+        description: The metadata element is required to be present in the model
+      binds_value_of: id
+    inlined: true
+  organoid__differentiation_method:
+    name: organoid__differentiation_method
+    description: Method used to differentiate cells into organoid (e.g., directed
+      differentiation protocol)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:differentiation_method
+    alias: differentiation_method
+    owner: Organoid
+    domain_of:
+    - Organoid
+    range: string
+  organoid__culture_system:
+    name: organoid__culture_system
+    description: Culture system used (e.g., Matrigel dome, suspension culture, air-liquid
+      interface)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:culture_system
+    alias: culture_system
+    owner: Organoid
+    domain_of:
+    - Organoid
+    range: string
+  cellLineModel__passage_range:
+    name: cellLineModel__passage_range
+    description: Recommended passage number range for experimental use
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:passage_range
+    alias: passage_range
+    owner: CellLineModel
+    domain_of:
+    - CellLineModel
+    range: string
+  cellLineModel__authentication_method:
+    name: cellLineModel__authentication_method
+    description: Method used for cell line authentication (e.g., STR profiling, mycoplasma
+      testing)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:authentication_method
+    alias: authentication_method
+    owner: CellLineModel
+    domain_of:
+    - CellLineModel
+    range: string
+  microphysiologicalSystem__microfluidic_design:
+    name: microphysiologicalSystem__microfluidic_design
+    description: Detailed design specifications of the microfluidic device
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:microfluidic_design
+    alias: microfluidic_design
+    owner: MicrophysiologicalSystem
+    domain_of:
+    - MicrophysiologicalSystem
+    range: MicrofluidicDesign
+    inlined: true
+  microphysiologicalSystem__mechanical_forces:
+    name: microphysiologicalSystem__mechanical_forces
+    description: Mechanical forces applied to the model system
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:mechanical_forces
+    alias: mechanical_forces
+    owner: MicrophysiologicalSystem
+    domain_of:
+    - MicrophysiologicalSystem
+    range: MechanicalStimulation
+    inlined: true
+  microphysiologicalSystem__perfusion_system:
+    name: microphysiologicalSystem__perfusion_system
+    description: Description of perfusion and flow systems
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:perfusion_system
+    alias: perfusion_system
+    owner: MicrophysiologicalSystem
+    domain_of:
+    - MicrophysiologicalSystem
+    range: string
+  microphysiologicalSystem__sensor_integration:
+    name: microphysiologicalSystem__sensor_integration
+    description: Sensors integrated for real-time monitoring
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:sensor_integration
+    alias: sensor_integration
+    owner: MicrophysiologicalSystem
+    domain_of:
+    - MicrophysiologicalSystem
+    range: IntegratedSensorEnum
+    multivalued: true
+  organOnChip__organ_modeled:
+    name: organOnChip__organ_modeled
+    description: The organ or anatomical structure being modeled (e.g., lung, airway,
+      alveolus)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:organ_modeled
+    alias: organ_modeled
+    owner: OrganOnChip
+    domain_of:
+    - OrganOnChip
+    range: Term
+    bindings:
+    - range: OrganEnum
+      obligation_level:
+        text: REQUIRED
+        description: The metadata element is required to be present in the model
+      binds_value_of: id
+    inlined: true
+  organOnChip__cell_types:
+    name: organOnChip__cell_types
+    description: Cell types present in the organ-on-chip model
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_types
+    alias: cell_types
+    owner: OrganOnChip
+    domain_of:
+    - OrganOnChip
+    range: Term
+    bindings:
+    - range: CellTypeEnum
+      obligation_level:
+        text: REQUIRED
+        description: The metadata element is required to be present in the model
+      binds_value_of: id
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  organOnChip__cell_source:
+    name: organOnChip__cell_source
+    description: Source of cells (e.g., primary human cells, iPSC-derived, cell line,
+      patient-derived)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_source
+    alias: cell_source
+    owner: OrganOnChip
+    domain_of:
+    - OrganOnChip
+    range: string
+  tissueOnChip__tissue_modeled:
+    name: tissueOnChip__tissue_modeled
+    description: The specific tissue being modeled
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:tissue_modeled
+    alias: tissue_modeled
+    owner: TissueOnChip
+    domain_of:
+    - TissueOnChip
+    range: Term
+    inlined: true
+  tissueOnChip__tissue_architecture:
+    name: tissueOnChip__tissue_architecture
+    description: Description of tissue-level architecture and organization
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:tissue_architecture
+    alias: tissue_architecture
+    owner: TissueOnChip
+    domain_of:
+    - TissueOnChip
+    range: string
+  tissueOnChip__barrier_functions:
+    name: tissueOnChip__barrier_functions
+    description: Tissue barrier functions modeled (epithelial, endothelial, etc.)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:barrier_functions
+    alias: barrier_functions
+    owner: TissueOnChip
+    domain_of:
+    - TissueOnChip
+    range: string
+    multivalued: true
+  inSilicoModel__computational_method:
+    name: inSilicoModel__computational_method
+    description: Primary computational method or algorithm used
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:computational_method
+    alias: computational_method
+    owner: InSilicoModel
+    domain_of:
+    - InSilicoModel
+    range: string
+  inSilicoModel__software_platform:
+    name: inSilicoModel__software_platform
+    description: Software platform or programming language used
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:software_platform
+    alias: software_platform
+    owner: InSilicoModel
+    domain_of:
+    - InSilicoModel
+    range: string
+  inSilicoModel__validation_datasets:
+    name: inSilicoModel__validation_datasets
+    description: Datasets used for model training and validation
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:validation_datasets
+    alias: validation_datasets
+    owner: InSilicoModel
+    domain_of:
+    - InSilicoModel
+    range: string
+    multivalued: true
+  inSilicoModel__prediction_scope:
+    name: inSilicoModel__prediction_scope
+    description: Scope and limitations of model predictions
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:prediction_scope
+    alias: prediction_scope
+    owner: InSilicoModel
+    domain_of:
+    - InSilicoModel
+    range: string
+  qSARModel__molecular_descriptors:
+    name: qSARModel__molecular_descriptors
+    description: Types of molecular descriptors used (topological, electronic, etc.)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:molecular_descriptors
+    alias: molecular_descriptors
+    owner: QSARModel
+    domain_of:
+    - QSARModel
+    range: string
+    multivalued: true
+  qSARModel__activity_endpoint:
+    name: qSARModel__activity_endpoint
+    description: Biological activity or property being predicted
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:activity_endpoint
+    alias: activity_endpoint
+    owner: QSARModel
+    domain_of:
+    - QSARModel
+    range: string
+  qSARModel__training_dataset_size:
+    name: qSARModel__training_dataset_size
+    description: Number of compounds in training dataset
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:training_dataset_size
+    alias: training_dataset_size
+    owner: QSARModel
+    domain_of:
+    - QSARModel
+    range: integer
+  qSARModel__model_performance:
+    name: qSARModel__model_performance
+    description: Statistical performance metrics of the model
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:model_performance
+    alias: model_performance
+    owner: QSARModel
+    domain_of:
+    - QSARModel
+    range: ModelPerformance
+    inlined: true
+  pBPKModel__compartments:
+    name: pBPKModel__compartments
+    description: Physiological compartments included in the model
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:compartments
+    alias: compartments
+    owner: PBPKModel
+    domain_of:
+    - PBPKModel
+    range: PBPKCompartment
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  pBPKModel__species_modeled:
+    name: pBPKModel__species_modeled
+    description: Species for which the model is designed
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:species_modeled
+    alias: species_modeled
+    owner: PBPKModel
+    domain_of:
+    - PBPKModel
+    range: Term
+    inlined: true
+  pBPKModel__drug_properties:
+    name: pBPKModel__drug_properties
+    description: Physicochemical and pharmacological properties modeled
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:drug_properties
+    alias: drug_properties
+    owner: PBPKModel
+    domain_of:
+    - PBPKModel
+    range: DrugProperties
+    inlined: true
+  pBPKModel__elimination_pathways:
+    name: pBPKModel__elimination_pathways
+    description: Drug elimination and metabolism pathways included
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:elimination_pathways
+    alias: elimination_pathways
+    owner: PBPKModel
+    domain_of:
+    - PBPKModel
+    range: string
+    multivalued: true
+  digitalTwin__twin_scope:
+    name: digitalTwin__twin_scope
+    description: Scope of digital twin (organ, patient, population)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:twin_scope
+    alias: twin_scope
+    owner: DigitalTwin
+    domain_of:
+    - DigitalTwin
+    range: DigitalTwinScopeEnum
+  digitalTwin__real_time_data_sources:
+    name: digitalTwin__real_time_data_sources
+    description: Sources of real-time data for model updating
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:real_time_data_sources
+    alias: real_time_data_sources
+    owner: DigitalTwin
+    domain_of:
+    - DigitalTwin
+    range: string
+    multivalued: true
+  digitalTwin__personalization_parameters:
+    name: digitalTwin__personalization_parameters
+    description: Parameters used for personalization (genetic, phenotypic, etc.)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:personalization_parameters
+    alias: personalization_parameters
+    owner: DigitalTwin
+    domain_of:
+    - DigitalTwin
+    range: string
+    multivalued: true
+  digitalTwin__update_frequency:
+    name: digitalTwin__update_frequency
+    description: Frequency of model updates based on new data
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:update_frequency
+    alias: update_frequency
+    owner: DigitalTwin
+    domain_of:
+    - DigitalTwin
+    range: string
+  mLModel__ml_algorithm:
+    name: mLModel__ml_algorithm
+    description: Type of machine learning algorithm used
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:ml_algorithm
+    alias: ml_algorithm
+    owner: MLModel
+    domain_of:
+    - MLModel
+    range: MLAlgorithmEnum
+  mLModel__feature_types:
+    name: mLModel__feature_types
+    description: Types of features used (molecular, phenotypic, imaging, etc.)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:feature_types
+    alias: feature_types
+    owner: MLModel
+    domain_of:
+    - MLModel
+    range: FeatureTypeEnum
+    multivalued: true
+  mLModel__training_data_size:
+    name: mLModel__training_data_size
+    description: Size of training dataset
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:training_data_size
+    alias: training_data_size
+    owner: MLModel
+    domain_of:
+    - MLModel
+    range: integer
+  mLModel__model_interpretability:
+    name: mLModel__model_interpretability
+    description: Level of model interpretability (black box, interpretable, explainable)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:model_interpretability
+    alias: model_interpretability
+    owner: MLModel
+    domain_of:
+    - MLModel
+    range: InterpretabilityLevelEnum
+  mLModel__cross_validation:
+    name: mLModel__cross_validation
+    description: Cross-validation strategy and results
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cross_validation
+    alias: cross_validation
+    owner: MLModel
+    domain_of:
+    - MLModel
+    range: CrossValidation
+    inlined: true
+  cellRatio__cell_type:
+    name: cellRatio__cell_type
+    description: The cell type for which the ratio is specified
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_type
+    alias: cell_type
+    owner: CellRatio
+    domain_of:
+    - CellRatio
+    range: Term
+    inlined: true
+  cellRatio__ratio:
+    name: cellRatio__ratio
+    description: Proportion or ratio of this cell type (0.0-1.0 or absolute numbers)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:ratio
+    alias: ratio
+    owner: CellRatio
+    domain_of:
+    - CellRatio
+    range: float
+  cellRatio__ratio_type:
+    name: cellRatio__ratio_type
+    description: Type of ratio specification (percentage, absolute, fold)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:ratio_type
+    alias: ratio_type
+    owner: CellRatio
+    domain_of:
+    - CellRatio
+    range: RatioTypeEnum
+  modelPerformance__accuracy:
+    name: modelPerformance__accuracy
+    description: Overall accuracy of the model (0.0-1.0)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:accuracy
+    alias: accuracy
+    owner: ModelPerformance
+    domain_of:
+    - ModelPerformance
+    range: float
+  modelPerformance__sensitivity:
+    name: modelPerformance__sensitivity
+    description: Sensitivity/recall of the model (0.0-1.0)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:sensitivity
+    alias: sensitivity
+    owner: ModelPerformance
+    domain_of:
+    - ModelPerformance
+    range: float
+  modelPerformance__specificity:
+    name: modelPerformance__specificity
+    description: Specificity of the model (0.0-1.0)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:specificity
+    alias: specificity
+    owner: ModelPerformance
+    domain_of:
+    - ModelPerformance
+    range: float
+  modelPerformance__r_squared:
+    name: modelPerformance__r_squared
+    description: R-squared value for regression models
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:r_squared
+    alias: r_squared
+    owner: ModelPerformance
+    domain_of:
+    - ModelPerformance
+    range: float
+  modelPerformance__rmse:
+    name: modelPerformance__rmse
+    description: Root mean square error
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:rmse
+    alias: rmse
+    owner: ModelPerformance
+    domain_of:
+    - ModelPerformance
+    range: float
+  modelPerformance__auc:
+    name: modelPerformance__auc
+    description: Area under the ROC curve
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:auc
+    alias: auc
+    owner: ModelPerformance
+    domain_of:
+    - ModelPerformance
+    range: float
+  pBPKCompartment__compartment_type:
+    name: pBPKCompartment__compartment_type
+    description: Type of physiological compartment
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:compartment_type
+    alias: compartment_type
+    owner: PBPKCompartment
+    domain_of:
+    - PBPKCompartment
+    range: PBPKCompartmentEnum
+  pBPKCompartment__volume:
+    name: pBPKCompartment__volume
+    description: Volume of the compartment (L)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:volume
+    alias: volume
+    owner: PBPKCompartment
+    domain_of:
+    - PBPKCompartment
+    range: float
+  pBPKCompartment__blood_flow:
+    name: pBPKCompartment__blood_flow
+    description: Blood flow to the compartment (L/h)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:blood_flow
+    alias: blood_flow
+    owner: PBPKCompartment
+    domain_of:
+    - PBPKCompartment
+    range: float
+  pBPKCompartment__partition_coefficient:
+    name: pBPKCompartment__partition_coefficient
+    description: Tissue-to-plasma partition coefficient
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:partition_coefficient
+    alias: partition_coefficient
+    owner: PBPKCompartment
+    domain_of:
+    - PBPKCompartment
+    range: float
+  drugProperties__molecular_weight:
+    name: drugProperties__molecular_weight
+    description: Molecular weight (g/mol)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:molecular_weight
+    alias: molecular_weight
+    owner: DrugProperties
+    domain_of:
+    - DrugProperties
+    range: float
+  drugProperties__logp:
+    name: drugProperties__logp
+    description: Lipophilicity (log P)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:logp
+    alias: logp
+    owner: DrugProperties
+    domain_of:
+    - DrugProperties
+    range: float
+  drugProperties__pka:
+    name: drugProperties__pka
+    description: Acid dissociation constant
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pka
+    alias: pka
+    owner: DrugProperties
+    domain_of:
+    - DrugProperties
+    range: float
+  drugProperties__protein_binding:
+    name: drugProperties__protein_binding
+    description: Fraction bound to plasma proteins (0.0-1.0)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:protein_binding
+    alias: protein_binding
+    owner: DrugProperties
+    domain_of:
+    - DrugProperties
+    range: float
+  drugProperties__clearance:
+    name: drugProperties__clearance
+    description: Total body clearance (L/h)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:clearance
+    alias: clearance
+    owner: DrugProperties
+    domain_of:
+    - DrugProperties
+    range: float
+  crossValidation__cv_method:
+    name: crossValidation__cv_method
+    description: Type of cross-validation used
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cv_method
+    alias: cv_method
+    owner: CrossValidation
+    domain_of:
+    - CrossValidation
+    range: CrossValidationMethodEnum
+  crossValidation__n_folds:
+    name: crossValidation__n_folds
+    description: Number of folds in cross-validation
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:n_folds
+    alias: n_folds
+    owner: CrossValidation
+    domain_of:
+    - CrossValidation
+    range: integer
+  crossValidation__cv_score:
+    name: crossValidation__cv_score
+    description: Average cross-validation score
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cv_score
+    alias: cv_score
+    owner: CrossValidation
+    domain_of:
+    - CrossValidation
+    range: float
+  crossValidation__cv_std:
+    name: crossValidation__cv_std
+    description: Standard deviation of cross-validation scores
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cv_std
+    alias: cv_std
+    owner: CrossValidation
+    domain_of:
+    - CrossValidation
+    range: float
+  microfluidicDesign__architecture_type:
+    name: microfluidicDesign__architecture_type
+    description: The overall architecture type of the microfluidic device
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:architecture_type
+    alias: architecture_type
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: MicrofluidicArchitectureEnum
+  microfluidicDesign__number_of_channels:
+    name: microfluidicDesign__number_of_channels
+    description: Total number of channels in the device
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:number_of_channels
+    alias: number_of_channels
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: integer
+  microfluidicDesign__channel_configuration:
+    name: microfluidicDesign__channel_configuration
+    description: Configuration of channels (e.g., parallel, serial, branching)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:channel_configuration
+    alias: channel_configuration
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: ChannelConfigurationEnum
+    multivalued: true
+  microfluidicDesign__membrane_type:
+    name: microfluidicDesign__membrane_type
+    description: Type of membrane used in the device if applicable
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:membrane_type
+    alias: membrane_type
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: MembraneTypeEnum
+  microfluidicDesign__membrane_pore_size:
+    name: microfluidicDesign__membrane_pore_size
+    description: Pore size of the membrane in micrometers
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:membrane_pore_size
+    alias: membrane_pore_size
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: float
+  microfluidicDesign__membrane_thickness:
+    name: microfluidicDesign__membrane_thickness
+    description: Thickness of the membrane in micrometers
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:membrane_thickness
+    alias: membrane_thickness
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: float
+  microfluidicDesign__interface_type:
+    name: microfluidicDesign__interface_type
+    description: Type of interface(s) present in the device
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:interface_type
+    alias: interface_type
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: InterfaceTypeEnum
+    multivalued: true
+  microfluidicDesign__channel_dimensions:
+    name: microfluidicDesign__channel_dimensions
+    description: Dimensions of the channels in the device
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:channel_dimensions
+    alias: channel_dimensions
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: ChannelDimensions
+    multivalued: true
+    inlined: true
+  microfluidicDesign__material:
+    name: microfluidicDesign__material
+    description: Materials used to construct the device
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:material
+    alias: material
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: DeviceMaterialEnum
+    multivalued: true
+  microfluidicDesign__surface_treatment:
+    name: microfluidicDesign__surface_treatment
+    description: Surface treatments or coatings applied to the device
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:surface_treatment
+    alias: surface_treatment
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: SurfaceCoatingEnum
+    multivalued: true
+  microfluidicDesign__flow_control_method:
+    name: microfluidicDesign__flow_control_method
+    description: Methods used to control fluid flow in the device
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:flow_control_method
+    alias: flow_control_method
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: FlowControlMethodEnum
+    multivalued: true
+  microfluidicDesign__sensors_integrated:
+    name: microfluidicDesign__sensors_integrated
+    description: Sensors integrated into the device for monitoring
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:sensors_integrated
+    alias: sensors_integrated
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: IntegratedSensorEnum
+    multivalued: true
+  microfluidicDesign__special_features:
+    name: microfluidicDesign__special_features
+    description: Additional special features of the device (e.g., valves, mixers,
+      gradient generators)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:special_features
+    alias: special_features
+    owner: MicrofluidicDesign
+    domain_of:
+    - MicrofluidicDesign
+    range: string
+    multivalued: true
+  channelDimensions__channel_name:
+    name: channelDimensions__channel_name
+    description: Name or identifier of the channel (e.g., apical, basolateral, vascular)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:channel_name
+    alias: channel_name
+    owner: ChannelDimensions
+    domain_of:
+    - ChannelDimensions
+    range: string
+  channelDimensions__width:
+    name: channelDimensions__width
+    description: Width of the channel in micrometers
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:width
+    alias: width
+    owner: ChannelDimensions
+    domain_of:
+    - ChannelDimensions
+    range: float
+  channelDimensions__height:
+    name: channelDimensions__height
+    description: Height of the channel in micrometers
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:height
+    alias: height
+    owner: ChannelDimensions
+    domain_of:
+    - ChannelDimensions
+    range: float
+  channelDimensions__length:
+    name: channelDimensions__length
+    description: Length of the channel in millimeters
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:length
+    alias: length
+    owner: ChannelDimensions
+    domain_of:
+    - ChannelDimensions
+    range: float
+  mechanicalStimulation__stimulation_type:
+    name: mechanicalStimulation__stimulation_type
+    description: Type of mechanical stimulation applied
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:stimulation_type
+    alias: stimulation_type
+    owner: MechanicalStimulation
+    domain_of:
+    - MechanicalStimulation
+    range: MechanicalStimulationTypeEnum
+    multivalued: true
+  mechanicalStimulation__cyclic_stretch_percent:
+    name: mechanicalStimulation__cyclic_stretch_percent
+    description: Percentage of cyclic stretch applied (if applicable)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cyclic_stretch_percent
+    alias: cyclic_stretch_percent
+    owner: MechanicalStimulation
+    domain_of:
+    - MechanicalStimulation
+    range: float
+  mechanicalStimulation__frequency_hz:
+    name: mechanicalStimulation__frequency_hz
+    description: Frequency of mechanical stimulation in Hertz
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:frequency_hz
+    alias: frequency_hz
+    owner: MechanicalStimulation
+    domain_of:
+    - MechanicalStimulation
+    range: float
+  mechanicalStimulation__shear_stress:
+    name: mechanicalStimulation__shear_stress
+    description: "Shear stress applied in dyn/cm\xB2"
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:shear_stress
+    alias: shear_stress
+    owner: MechanicalStimulation
+    domain_of:
+    - MechanicalStimulation
+    range: float
+  mechanicalStimulation__pressure_pascal:
+    name: mechanicalStimulation__pressure_pascal
+    description: Pressure applied in Pascals
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pressure_pascal
+    alias: pressure_pascal
+    owner: MechanicalStimulation
+    domain_of:
+    - MechanicalStimulation
+    range: float
+  mechanicalStimulation__duration_minutes:
+    name: mechanicalStimulation__duration_minutes
+    description: Duration of mechanical stimulation in minutes
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:duration_minutes
+    alias: duration_minutes
+    owner: MechanicalStimulation
+    domain_of:
+    - MechanicalStimulation
+    range: float
+  modelsRelationship__biological_system_modeled:
+    name: modelsRelationship__biological_system_modeled
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:biological_system_modeled
+    alias: biological_system_modeled
+    owner: ModelsRelationship
+    domain_of:
+    - ModelsRelationship
+    range: BiologicalSystem
+  modelsRelationship__is_computed:
+    name: modelsRelationship__is_computed
+    description: Indicates whether the model is computed or derived from experimental
+      data.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:is_computed
+    alias: is_computed
+    owner: ModelsRelationship
+    domain_of:
+    - ModelsRelationship
+    range: boolean
+  modelsRelationship__concordance:
+    name: modelsRelationship__concordance
+    description: Metrics used to assess the concordance between the model system and
+      the biological system, such as sensitivity, specificity, and accuracy.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:concordance
+    alias: concordance
+    owner: ModelsRelationship
+    domain_of:
+    - ModelsRelationship
+    range: ConcordanceResult
+    inlined: true
+  modelsRelationship__structured_concordance:
+    name: modelsRelationship__structured_concordance
+    description: Detailed structured assessment of concordance between the model system
+      and the biological system, with rich metadata and supporting evidence.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:structured_concordance
+    alias: structured_concordance
+    owner: ModelsRelationship
+    domain_of:
+    - ModelsRelationship
+    range: StructuredConcordanceResult
+    inlined: true
+  concordanceResult__phenotype_overlap:
+    name: concordanceResult__phenotype_overlap
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:phenotype_overlap
+    alias: phenotype_overlap
+    owner: ConcordanceResult
+    domain_of:
+    - ConcordanceResult
+    range: string
+  concordanceResult__molecular_similarity:
+    name: concordanceResult__molecular_similarity
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:molecular_similarity
+    alias: molecular_similarity
+    owner: ConcordanceResult
+    domain_of:
+    - ConcordanceResult
+    range: string
+  concordanceResult__pathway_concordance:
+    name: concordanceResult__pathway_concordance
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pathway_concordance
+    alias: pathway_concordance
+    owner: ConcordanceResult
+    domain_of:
+    - ConcordanceResult
+    range: string
+  concordanceResult__cell_type_coverage:
+    name: concordanceResult__cell_type_coverage
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_type_coverage
+    alias: cell_type_coverage
+    owner: ConcordanceResult
+    domain_of:
+    - ConcordanceResult
+    range: string
+  concordanceResult__functional_parity:
+    name: concordanceResult__functional_parity
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:functional_parity
+    alias: functional_parity
+    owner: ConcordanceResult
+    domain_of:
+    - ConcordanceResult
+    range: string
+  concordanceResult__reproducibility:
+    name: concordanceResult__reproducibility
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:reproducibility
+    alias: reproducibility
+    owner: ConcordanceResult
+    domain_of:
+    - ConcordanceResult
+    range: string
+  structuredConcordanceResult__molecular_similarity:
+    name: structuredConcordanceResult__molecular_similarity
+    description: Detailed assessment of molecular-level similarity including gene
+      expression, protein levels, and metabolic profiles.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:molecular_similarity
+    alias: molecular_similarity
+    owner: StructuredConcordanceResult
+    domain_of:
+    - StructuredConcordanceResult
+    range: MolecularSimilarity
+    inlined: true
+  structuredConcordanceResult__pathway_concordance:
+    name: structuredConcordanceResult__pathway_concordance
+    description: Assessment of biological pathway conservation and activity levels.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pathway_concordance
+    alias: pathway_concordance
+    owner: StructuredConcordanceResult
+    domain_of:
+    - StructuredConcordanceResult
+    range: PathwayConcordance
+    inlined: true
+  structuredConcordanceResult__phenotype_overlap:
+    name: structuredConcordanceResult__phenotype_overlap
+    description: Comparison of phenotypic manifestations between model and biological
+      system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:phenotype_overlap
+    alias: phenotype_overlap
+    owner: StructuredConcordanceResult
+    domain_of:
+    - StructuredConcordanceResult
+    range: PhenotypeOverlap
+    inlined: true
+  structuredConcordanceResult__cell_type_coverage:
+    name: structuredConcordanceResult__cell_type_coverage
+    description: Assessment of cell type representation and cellular diversity.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_type_coverage
+    alias: cell_type_coverage
+    owner: StructuredConcordanceResult
+    domain_of:
+    - StructuredConcordanceResult
+    range: CellTypeCoverage
+    inlined: true
+  structuredConcordanceResult__functional_parity:
+    name: structuredConcordanceResult__functional_parity
+    description: Evaluation of functional capabilities and physiological responses.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:functional_parity
+    alias: functional_parity
+    owner: StructuredConcordanceResult
+    domain_of:
+    - StructuredConcordanceResult
+    range: FunctionalParity
+    inlined: true
+  structuredConcordanceResult__reproducibility:
+    name: structuredConcordanceResult__reproducibility
+    description: Assessment of experimental reproducibility and consistency.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:reproducibility
+    alias: reproducibility
+    owner: StructuredConcordanceResult
+    domain_of:
+    - StructuredConcordanceResult
+    range: Reproducibility
+    inlined: true
+  molecularSimilarity__similarity_score:
+    name: molecularSimilarity__similarity_score
+    description: Quantitative similarity score (0.0-1.0) based on molecular profiles.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:similarity_score
+    alias: similarity_score
+    owner: MolecularSimilarity
+    domain_of:
+    - MolecularSimilarity
+    range: float
+  molecularSimilarity__correlation_coefficient:
+    name: molecularSimilarity__correlation_coefficient
+    description: Pearson correlation coefficient for expression profiles.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:correlation_coefficient
+    alias: correlation_coefficient
+    owner: MolecularSimilarity
+    domain_of:
+    - MolecularSimilarity
+    range: float
+  molecularSimilarity__differentially_expressed_genes:
+    name: molecularSimilarity__differentially_expressed_genes
+    description: List of genes that are differentially expressed in the model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:differentially_expressed_genes
+    alias: differentially_expressed_genes
+    owner: MolecularSimilarity
+    domain_of:
+    - MolecularSimilarity
+    range: Gene
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  molecularSimilarity__conserved_genes:
+    name: molecularSimilarity__conserved_genes
+    description: List of genes with conserved expression patterns between model and
+      target.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:conserved_genes
+    alias: conserved_genes
+    owner: MolecularSimilarity
+    domain_of:
+    - MolecularSimilarity
+    range: Gene
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  molecularSimilarity__methodology:
+    name: molecularSimilarity__methodology
+    description: Description of experimental methods used for molecular comparison.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:methodology
+    alias: methodology
+    owner: MolecularSimilarity
+    domain_of:
+    - MolecularSimilarity
+    range: string
+  molecularSimilarity__data_source:
+    name: molecularSimilarity__data_source
+    description: Source of molecular data (e.g., RNA-seq, proteomics, metabolomics).
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:data_source
+    alias: data_source
+    owner: MolecularSimilarity
+    domain_of:
+    - MolecularSimilarity
+    range: string
+  molecularSimilarity__statistical_significance:
+    name: molecularSimilarity__statistical_significance
+    description: Statistical measures of significance for the molecular similarity.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:statistical_significance
+    alias: statistical_significance
+    owner: MolecularSimilarity
+    domain_of:
+    - MolecularSimilarity
+    range: StatisticalSignificance
+    inlined: true
+  pathwayConcordance__pathway_overlap_score:
+    name: pathwayConcordance__pathway_overlap_score
+    description: Quantitative score (0.0-1.0) representing pathway overlap.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pathway_overlap_score
+    alias: pathway_overlap_score
+    owner: PathwayConcordance
+    domain_of:
+    - PathwayConcordance
+    range: float
+  pathwayConcordance__active_pathways:
+    name: pathwayConcordance__active_pathways
+    description: List of biological pathways that are active in both systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:active_pathways
+    alias: active_pathways
+    owner: PathwayConcordance
+    domain_of:
+    - PathwayConcordance
+    range: Pathway
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  pathwayConcordance__divergent_pathways:
+    name: pathwayConcordance__divergent_pathways
+    description: List of pathways that show different activity patterns.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:divergent_pathways
+    alias: divergent_pathways
+    owner: PathwayConcordance
+    domain_of:
+    - PathwayConcordance
+    range: Pathway
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  pathwayConcordance__pathway_analysis_method:
+    name: pathwayConcordance__pathway_analysis_method
+    description: Method used for pathway analysis (e.g., GSEA, Over-representation
+      analysis).
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pathway_analysis_method
+    alias: pathway_analysis_method
+    owner: PathwayConcordance
+    domain_of:
+    - PathwayConcordance
+    range: string
+  pathwayConcordance__enrichment_statistics:
+    name: pathwayConcordance__enrichment_statistics
+    description: Statistical measures of pathway enrichment.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:enrichment_statistics
+    alias: enrichment_statistics
+    owner: PathwayConcordance
+    domain_of:
+    - PathwayConcordance
+    range: EnrichmentStatistics
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  phenotypeOverlap__phenotype_similarity_score:
+    name: phenotypeOverlap__phenotype_similarity_score
+    description: Quantitative score (0.0-1.0) representing phenotypic similarity.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:phenotype_similarity_score
+    alias: phenotype_similarity_score
+    owner: PhenotypeOverlap
+    domain_of:
+    - PhenotypeOverlap
+    range: float
+  phenotypeOverlap__shared_phenotypes:
+    name: phenotypeOverlap__shared_phenotypes
+    description: List of phenotypes present in both model and biological system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:shared_phenotypes
+    alias: shared_phenotypes
+    owner: PhenotypeOverlap
+    domain_of:
+    - PhenotypeOverlap
+    range: Term
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  phenotypeOverlap__model_specific_phenotypes:
+    name: phenotypeOverlap__model_specific_phenotypes
+    description: List of phenotypes present only in the model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:model_specific_phenotypes
+    alias: model_specific_phenotypes
+    owner: PhenotypeOverlap
+    domain_of:
+    - PhenotypeOverlap
+    range: Term
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  phenotypeOverlap__biological_specific_phenotypes:
+    name: phenotypeOverlap__biological_specific_phenotypes
+    description: List of phenotypes present only in the biological system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:biological_specific_phenotypes
+    alias: biological_specific_phenotypes
+    owner: PhenotypeOverlap
+    domain_of:
+    - PhenotypeOverlap
+    range: Term
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  phenotypeOverlap__phenotype_ontology:
+    name: phenotypeOverlap__phenotype_ontology
+    description: Ontology used for phenotype classification (e.g., HPO, MP).
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:phenotype_ontology
+    alias: phenotype_ontology
+    owner: PhenotypeOverlap
+    domain_of:
+    - PhenotypeOverlap
+    range: string
+  cellTypeCoverage__coverage_percentage:
+    name: cellTypeCoverage__coverage_percentage
+    description: Percentage of target cell types represented in the model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:coverage_percentage
+    alias: coverage_percentage
+    owner: CellTypeCoverage
+    domain_of:
+    - CellTypeCoverage
+    range: float
+  cellTypeCoverage__represented_cell_types:
+    name: cellTypeCoverage__represented_cell_types
+    description: List of cell types present in both model and biological system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:represented_cell_types
+    alias: represented_cell_types
+    owner: CellTypeCoverage
+    domain_of:
+    - CellTypeCoverage
+    range: Term
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  cellTypeCoverage__missing_cell_types:
+    name: cellTypeCoverage__missing_cell_types
+    description: List of cell types present in biological system but missing in model.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:missing_cell_types
+    alias: missing_cell_types
+    owner: CellTypeCoverage
+    domain_of:
+    - CellTypeCoverage
+    range: Term
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  cellTypeCoverage__cell_type_proportions:
+    name: cellTypeCoverage__cell_type_proportions
+    description: Quantitative comparison of cell type proportions.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_type_proportions
+    alias: cell_type_proportions
+    owner: CellTypeCoverage
+    domain_of:
+    - CellTypeCoverage
+    range: CellTypeProportion
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  cellTypeCoverage__single_cell_method:
+    name: cellTypeCoverage__single_cell_method
+    description: Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry).
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:single_cell_method
+    alias: single_cell_method
+    owner: CellTypeCoverage
+    domain_of:
+    - CellTypeCoverage
+    range: string
+  functionalParity__functional_similarity_score:
+    name: functionalParity__functional_similarity_score
+    description: Quantitative score (0.0-1.0) representing functional similarity.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:functional_similarity_score
+    alias: functional_similarity_score
+    owner: FunctionalParity
+    domain_of:
+    - FunctionalParity
+    range: float
+  functionalParity__conserved_functions:
+    name: functionalParity__conserved_functions
+    description: List of biological functions conserved between model and biological
+      system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:conserved_functions
+    alias: conserved_functions
+    owner: FunctionalParity
+    domain_of:
+    - FunctionalParity
+    range: string
+    multivalued: true
+  functionalParity__impaired_functions:
+    name: functionalParity__impaired_functions
+    description: List of functions that are impaired or absent in the model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:impaired_functions
+    alias: impaired_functions
+    owner: FunctionalParity
+    domain_of:
+    - FunctionalParity
+    range: string
+    multivalued: true
+  functionalParity__functional_assays:
+    name: functionalParity__functional_assays
+    description: List of functional assays used to assess parity.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:functional_assays
+    alias: functional_assays
+    owner: FunctionalParity
+    domain_of:
+    - FunctionalParity
+    range: FunctionalAssay
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  functionalParity__dose_response_similarity:
+    name: functionalParity__dose_response_similarity
+    description: Comparison of dose-response relationships for therapeutic compounds.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:dose_response_similarity
+    alias: dose_response_similarity
+    owner: FunctionalParity
+    domain_of:
+    - FunctionalParity
+    range: DoseResponseSimilarity
+    inlined: true
+  reproducibility__reproducibility_score:
+    name: reproducibility__reproducibility_score
+    description: Quantitative score (0.0-1.0) representing reproducibility.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:reproducibility_score
+    alias: reproducibility_score
+    owner: Reproducibility
+    domain_of:
+    - Reproducibility
+    range: float
+  reproducibility__coefficient_of_variation:
+    name: reproducibility__coefficient_of_variation
+    description: Coefficient of variation across experimental replicates.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:coefficient_of_variation
+    alias: coefficient_of_variation
+    owner: Reproducibility
+    domain_of:
+    - Reproducibility
+    range: float
+  reproducibility__batch_to_batch_variation:
+    name: reproducibility__batch_to_batch_variation
+    description: Measure of variation between different experimental batches.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:batch_to_batch_variation
+    alias: batch_to_batch_variation
+    owner: Reproducibility
+    domain_of:
+    - Reproducibility
+    range: float
+  reproducibility__inter_laboratory_consistency:
+    name: reproducibility__inter_laboratory_consistency
+    description: Measure of consistency across different laboratories.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:inter_laboratory_consistency
+    alias: inter_laboratory_consistency
+    owner: Reproducibility
+    domain_of:
+    - Reproducibility
+    range: float
+  reproducibility__replicate_count:
+    name: reproducibility__replicate_count
+    description: Number of experimental replicates used in assessment.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:replicate_count
+    alias: replicate_count
+    owner: Reproducibility
+    domain_of:
+    - Reproducibility
+    range: integer
+  reproducibility__quality_control_metrics:
+    name: reproducibility__quality_control_metrics
+    description: List of quality control measures and their values.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:quality_control_metrics
+    alias: quality_control_metrics
+    owner: Reproducibility
+    domain_of:
+    - Reproducibility
+    range: QualityControlMetric
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  gene__gene_symbol:
+    name: gene__gene_symbol
+    description: Standard gene symbol (e.g., HGNC symbol for human genes).
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:gene_symbol
+    alias: gene_symbol
+    owner: Gene
+    domain_of:
+    - Gene
+    range: string
+  gene__ensembl_id:
+    name: gene__ensembl_id
+    description: Ensembl gene identifier.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:ensembl_id
+    alias: ensembl_id
+    owner: Gene
+    domain_of:
+    - Gene
+    range: string
+  gene__entrez_id:
+    name: gene__entrez_id
+    description: NCBI Entrez gene identifier.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:entrez_id
+    alias: entrez_id
+    owner: Gene
+    domain_of:
+    - Gene
+    range: integer
+  gene__fold_change:
+    name: gene__fold_change
+    description: Fold change in expression compared to control or reference.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:fold_change
+    alias: fold_change
+    owner: Gene
+    domain_of:
+    - Gene
+    range: float
+  gene__p_value:
+    name: gene__p_value
+    description: Statistical p-value for differential expression.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:p_value
+    alias: p_value
+    owner: Gene
+    domain_of:
+    - Gene
+    range: float
+  gene__adjusted_p_value:
+    name: gene__adjusted_p_value
+    description: Multiple testing corrected p-value.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:adjusted_p_value
+    alias: adjusted_p_value
+    owner: Gene
+    domain_of:
+    - Gene
+    range: float
+  pathway__pathway_database:
+    name: pathway__pathway_database
+    description: Source database (e.g., KEGG, Reactome, GO).
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pathway_database
+    alias: pathway_database
+    owner: Pathway
+    domain_of:
+    - Pathway
+    range: string
+  pathway__pathway_id:
+    name: pathway__pathway_id
+    description: Database-specific pathway identifier.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pathway_id
+    alias: pathway_id
+    owner: Pathway
+    domain_of:
+    - Pathway
+    range: string
+  pathway__activity_score:
+    name: pathway__activity_score
+    description: Quantitative measure of pathway activity.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:activity_score
+    alias: activity_score
+    owner: Pathway
+    domain_of:
+    - Pathway
+    range: float
+  pathway__enrichment_score:
+    name: pathway__enrichment_score
+    description: Statistical enrichment score for the pathway.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:enrichment_score
+    alias: enrichment_score
+    owner: Pathway
+    domain_of:
+    - Pathway
+    range: float
+  statisticalSignificance__p_value:
+    name: statisticalSignificance__p_value
+    description: Statistical p-value.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:p_value
+    alias: p_value
+    owner: StatisticalSignificance
+    domain_of:
+    - StatisticalSignificance
+    range: float
+  statisticalSignificance__adjusted_p_value:
+    name: statisticalSignificance__adjusted_p_value
+    description: Multiple testing corrected p-value.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:adjusted_p_value
+    alias: adjusted_p_value
+    owner: StatisticalSignificance
+    domain_of:
+    - StatisticalSignificance
+    range: float
+  statisticalSignificance__confidence_interval_lower:
+    name: statisticalSignificance__confidence_interval_lower
+    description: Lower bound of confidence interval.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:confidence_interval_lower
+    alias: confidence_interval_lower
+    owner: StatisticalSignificance
+    domain_of:
+    - StatisticalSignificance
+    range: float
+  statisticalSignificance__confidence_interval_upper:
+    name: statisticalSignificance__confidence_interval_upper
+    description: Upper bound of confidence interval.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:confidence_interval_upper
+    alias: confidence_interval_upper
+    owner: StatisticalSignificance
+    domain_of:
+    - StatisticalSignificance
+    range: float
+  statisticalSignificance__statistical_test:
+    name: statisticalSignificance__statistical_test
+    description: Name of statistical test used.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:statistical_test
+    alias: statistical_test
+    owner: StatisticalSignificance
+    domain_of:
+    - StatisticalSignificance
+    range: string
+  enrichmentStatistics__enrichment_score:
+    name: enrichmentStatistics__enrichment_score
+    description: Quantitative enrichment score.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:enrichment_score
+    alias: enrichment_score
+    owner: EnrichmentStatistics
+    domain_of:
+    - EnrichmentStatistics
+    range: float
+  enrichmentStatistics__p_value:
+    name: enrichmentStatistics__p_value
+    description: Statistical p-value for enrichment.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:p_value
+    alias: p_value
+    owner: EnrichmentStatistics
+    domain_of:
+    - EnrichmentStatistics
+    range: float
+  enrichmentStatistics__q_value:
+    name: enrichmentStatistics__q_value
+    description: False discovery rate corrected p-value.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:q_value
+    alias: q_value
+    owner: EnrichmentStatistics
+    domain_of:
+    - EnrichmentStatistics
+    range: float
+  enrichmentStatistics__genes_in_pathway:
+    name: enrichmentStatistics__genes_in_pathway
+    description: Number of genes in the pathway.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:genes_in_pathway
+    alias: genes_in_pathway
+    owner: EnrichmentStatistics
+    domain_of:
+    - EnrichmentStatistics
+    range: integer
+  enrichmentStatistics__genes_in_dataset:
+    name: enrichmentStatistics__genes_in_dataset
+    description: Number of genes from dataset found in pathway.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:genes_in_dataset
+    alias: genes_in_dataset
+    owner: EnrichmentStatistics
+    domain_of:
+    - EnrichmentStatistics
+    range: integer
+  cellTypeProportion__cell_type:
+    name: cellTypeProportion__cell_type
+    description: The cell type being compared.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:cell_type
+    alias: cell_type
+    owner: CellTypeProportion
+    domain_of:
+    - CellTypeProportion
+    range: Term
+    inlined: true
+  cellTypeProportion__model_proportion:
+    name: cellTypeProportion__model_proportion
+    description: Proportion of this cell type in the model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:model_proportion
+    alias: model_proportion
+    owner: CellTypeProportion
+    domain_of:
+    - CellTypeProportion
+    range: float
+  cellTypeProportion__biological_proportion:
+    name: cellTypeProportion__biological_proportion
+    description: Proportion of this cell type in the biological system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:biological_proportion
+    alias: biological_proportion
+    owner: CellTypeProportion
+    domain_of:
+    - CellTypeProportion
+    range: float
+  cellTypeProportion__proportion_ratio:
+    name: cellTypeProportion__proportion_ratio
+    description: Ratio of model to biological proportions.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:proportion_ratio
+    alias: proportion_ratio
+    owner: CellTypeProportion
+    domain_of:
+    - CellTypeProportion
+    range: float
+  functionalAssay__assay_type:
+    name: functionalAssay__assay_type
+    description: Type of functional assay (e.g., TEER, permeability, metabolic activity).
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:assay_type
+    alias: assay_type
+    owner: FunctionalAssay
+    domain_of:
+    - FunctionalAssay
+    range: string
+  functionalAssay__assay_result:
+    name: functionalAssay__assay_result
+    description: Quantitative result of the assay.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:assay_result
+    alias: assay_result
+    owner: FunctionalAssay
+    domain_of:
+    - FunctionalAssay
+    range: float
+  functionalAssay__reference_value:
+    name: functionalAssay__reference_value
+    description: Reference or control value for comparison.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:reference_value
+    alias: reference_value
+    owner: FunctionalAssay
+    domain_of:
+    - FunctionalAssay
+    range: float
+  functionalAssay__units:
+    name: functionalAssay__units
+    description: Units of measurement for the assay result.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:units
+    alias: units
+    owner: FunctionalAssay
+    domain_of:
+    - FunctionalAssay
+    range: string
+  functionalAssay__methodology:
+    name: functionalAssay__methodology
+    description: Detailed methodology for the assay.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:methodology
+    alias: methodology
+    owner: FunctionalAssay
+    domain_of:
+    - FunctionalAssay
+    range: string
+  doseResponseSimilarity__correlation_coefficient:
+    name: doseResponseSimilarity__correlation_coefficient
+    description: Correlation coefficient between dose-response curves.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:correlation_coefficient
+    alias: correlation_coefficient
+    owner: DoseResponseSimilarity
+    domain_of:
+    - DoseResponseSimilarity
+    range: float
+  doseResponseSimilarity__ec50_ratio:
+    name: doseResponseSimilarity__ec50_ratio
+    description: Ratio of EC50 values between model and biological system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:ec50_ratio
+    alias: ec50_ratio
+    owner: DoseResponseSimilarity
+    domain_of:
+    - DoseResponseSimilarity
+    range: float
+  doseResponseSimilarity__max_response_ratio:
+    name: doseResponseSimilarity__max_response_ratio
+    description: Ratio of maximum responses between systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:max_response_ratio
+    alias: max_response_ratio
+    owner: DoseResponseSimilarity
+    domain_of:
+    - DoseResponseSimilarity
+    range: float
+  doseResponseSimilarity__compound_tested:
+    name: doseResponseSimilarity__compound_tested
+    description: Name of compound used in dose-response testing.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:compound_tested
+    alias: compound_tested
+    owner: DoseResponseSimilarity
+    domain_of:
+    - DoseResponseSimilarity
+    range: string
+  qualityControlMetric__metric_name:
+    name: qualityControlMetric__metric_name
+    description: Name of the quality control metric.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:metric_name
+    alias: metric_name
+    owner: QualityControlMetric
+    domain_of:
+    - QualityControlMetric
+    range: string
+  qualityControlMetric__metric_value:
+    name: qualityControlMetric__metric_value
+    description: Value of the quality control metric.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:metric_value
+    alias: metric_value
+    owner: QualityControlMetric
+    domain_of:
+    - QualityControlMetric
+    range: float
+  qualityControlMetric__threshold:
+    name: qualityControlMetric__threshold
+    description: Acceptable threshold for this metric.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:threshold
+    alias: threshold
+    owner: QualityControlMetric
+    domain_of:
+    - QualityControlMetric
+    range: float
+  qualityControlMetric__pass_fail_status:
+    name: qualityControlMetric__pass_fail_status
+    description: Whether this metric passes quality control criteria.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:pass_fail_status
+    alias: pass_fail_status
+    owner: QualityControlMetric
+    domain_of:
+    - QualityControlMetric
+    range: boolean
+  reference__id:
+    name: reference__id
+    description: Persistent identifier for the reference (DOI, PMID, PMCID, etc.)
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:id
+    identifier: true
+    alias: id
+    owner: Reference
+    domain_of:
+    - Reference
+    range: uriorcurie
+    required: true
+  reference__title:
+    name: reference__title
+    description: Title of the referenced publication or dataset
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:title
+    alias: title
+    owner: Reference
+    domain_of:
+    - Reference
+    range: string
+    required: true
+  reference__authors:
+    name: reference__authors
+    description: Authors of the publication
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:authors
+    alias: authors
+    owner: Reference
+    domain_of:
+    - Reference
+    range: string
+    multivalued: true
+  reference__journal:
+    name: reference__journal
+    description: Journal or publication venue
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:journal
+    alias: journal
+    owner: Reference
+    domain_of:
+    - Reference
+    range: string
+  reference__year:
+    name: reference__year
+    description: Publication year
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:year
+    alias: year
+    owner: Reference
+    domain_of:
+    - Reference
+    range: integer
+  reference__url:
+    name: reference__url
+    description: URL to access the publication
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slot_uri: namo:url
+    alias: url
+    owner: Reference
+    domain_of:
+    - Reference
+    range: uri
+classes:
+  Dataset:
+    name: Dataset
+    definition_uri: https://w3id.org/monarch-initiative/namo/Dataset
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - dataset__model_systems
+    - dataset__studies
+    attributes:
+      model_systems:
+        name: model_systems
+        range: ModelSystem
+        multivalued: true
+        inlined_as_list: true
+      studies:
+        name: studies
+        range: Study
+        multivalued: true
+        inlined_as_list: true
+    class_uri: namo:Dataset
+  NamedThing:
+    name: NamedThing
+    definition_uri: https://w3id.org/monarch-initiative/namo/NamedThing
+    description: A generic grouping for any identifiable entity
+    from_schema: https://w3id.org/monarch-initiative/namo
+    mappings:
+    - schema:Thing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    class_uri: schema:Thing
+  Study:
+    name: Study
+    definition_uri: https://w3id.org/monarch-initiative/namo/Study
+    description: A study is a structured investigation or analysis, often involving
+      the collection and interpretation of data, to answer specific research questions
+      or test hypotheses.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - study__context_of_use
+    - study__biological_context
+    - study__perturbations
+    - study__endpoints
+    - study__plan_comparators
+    attributes:
+      context_of_use:
+        name: context_of_use
+        description: What decision will this inform? Care? Policy? Drug approval?
+      biological_context:
+        name: biological_context
+        description: tissue/region (anatomy), cell types, sex/age equivalents, mechanics
+          (e.g., cyclic stretch), microenvironment
+      perturbations:
+        name: perturbations
+        description: exposure/dose/time; diet/drugs/toxicants
+      endpoints:
+        name: endpoints
+        description: phenotypes, function (TEER/leak, beating rate), and multi-omics
+      plan_comparators:
+        name: plan_comparators
+        description: human data, gold-standard assays, or high-quality animal references
+    class_uri: namo:Study
+  ModelSystem:
+    name: ModelSystem
+    definition_uri: https://w3id.org/monarch-initiative/namo/ModelSystem
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    abstract: true
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    attributes:
+      models:
+        name: models
+        range: ModelsRelationship
+        multivalued: true
+    class_uri: namo:ModelSystem
+  AnimalModel:
+    name: AnimalModel
+    definition_uri: https://w3id.org/monarch-initiative/namo/AnimalModel
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: ModelSystem
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - animalModel__species
+    - animalModel__strain
+    - animalModel__age
+    - animalModel__environment
+    attributes:
+      species:
+        name: species
+        description: The species of the animal used in the model system.
+        range: Term
+        bindings:
+        - range: SpeciesEnum
+          obligation_level:
+            text: REQUIRED
+            description: The metadata element is required to be present in the model
+          binds_value_of: id
+        required: true
+      strain:
+        name: strain
+        description: The specific strain of the animal used in the model system.
+        range: Term
+        bindings:
+        - range: StrainEnum
+          obligation_level:
+            text: REQUIRED
+            description: The metadata element is required to be present in the model
+          binds_value_of: id
+      age:
+        name: age
+        description: The age of the animal used in the model system.
+        range: Term
+        bindings:
+        - range: OrganismAgeEnum
+          obligation_level:
+            text: REQUIRED
+            description: The metadata element is required to be present in the model
+          binds_value_of: id
+      environment:
+        name: environment
+        description: The environmental conditions under which the animal model is
+          maintained.
+        range: Term
+    class_uri: namo:AnimalModel
+  NAMModel:
+    name: NAMModel
+    definition_uri: https://w3id.org/monarch-initiative/namo/NAMModel
+    description: A New Approach Methodology (NAM) model, which is a type of model
+      system that does not involve the use of animals.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: ModelSystem
+    abstract: true
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    attributes:
+      biological_organization_level:
+        name: biological_organization_level
+        description: The level of biological organization represented by the model
+        range: BiologicalOrganizationLevelEnum
+      spatial_context:
+        name: spatial_context
+        description: Description of spatial organization and context captured by the
+          model
+      complexity_level:
+        name: complexity_level
+        description: Level of biological complexity represented (subcellular, cellular,
+          tissue, organ, system)
+        range: ComplexityLevelEnum
+      references:
+        name: references
+        description: Literature references that describe, validate, or support this
+          model
+        range: Reference
+        multivalued: true
+        inlined_as_list: true
+    class_uri: namo:NAMModel
+  CellularSystem:
+    name: CellularSystem
+    definition_uri: https://w3id.org/monarch-initiative/namo/CellularSystem
+    description: Cell-based model systems that use living cells to model biological
+      processes. Includes 2D cultures, 3D systems, and co-cultures.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NAMModel
+    abstract: true
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - cellularSystem__cell_types
+    - cellularSystem__cell_source
+    - cellularSystem__culture_conditions
+    attributes:
+      cell_types:
+        name: cell_types
+        description: Cell types present in the cellular system
+        range: Term
+        bindings:
+        - range: CellTypeEnum
+          obligation_level:
+            text: REQUIRED
+            description: The metadata element is required to be present in the model
+          binds_value_of: id
+        multivalued: true
+        inlined_as_list: true
+      cell_source:
+        name: cell_source
+        description: Source of cells (e.g., primary, iPSC-derived, immortalized cell
+          lines)
+      culture_conditions:
+        name: culture_conditions
+        description: Standard culture conditions and media used
+    class_uri: namo:CellularSystem
+  TwoDCellCulture:
+    name: TwoDCellCulture
+    definition_uri: https://w3id.org/monarch-initiative/namo/TwoDCellCulture
+    description: Conventional monolayer cell cultures grown on flat surfaces. Simple
+      but limited in physiological relevance.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: CellularSystem
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - cellularSystem__cell_types
+    - cellularSystem__cell_source
+    - cellularSystem__culture_conditions
+    - twoDCellCulture__substrate_type
+    - twoDCellCulture__confluence_level
+    - twoDCellCulture__passage_protocol
+    attributes:
+      substrate_type:
+        name: substrate_type
+        description: Type of culture substrate (e.g., plastic, glass, coated surfaces)
+      confluence_level:
+        name: confluence_level
+        description: Typical confluence level maintained (0.0-1.0)
+        range: float
+      passage_protocol:
+        name: passage_protocol
+        description: Standard passaging protocol and frequency
+    class_uri: namo:TwoDCellCulture
+  ThreeDCellCulture:
+    name: ThreeDCellCulture
+    definition_uri: https://w3id.org/monarch-initiative/namo/ThreeDCellCulture
+    description: Three-dimensional cell culture systems including spheroids and organoids.
+      More physiologically relevant with 3D architecture.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: CellularSystem
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - cellularSystem__cell_types
+    - cellularSystem__cell_source
+    - cellularSystem__culture_conditions
+    - threeDCellCulture__three_d_architecture
+    - threeDCellCulture__matrix_composition
+    - threeDCellCulture__size_range
+    attributes:
+      three_d_architecture:
+        name: three_d_architecture
+        description: Type of 3D architecture (spheroid, organoid, scaffold-based,
+          etc.)
+        range: ThreeDArchitectureEnum
+      matrix_composition:
+        name: matrix_composition
+        description: Composition of extracellular matrix or scaffold material
+      size_range:
+        name: size_range
+        description: Typical size range of 3D structures
+    class_uri: namo:ThreeDCellCulture
+  CoCulture:
+    name: CoCulture
+    definition_uri: https://w3id.org/monarch-initiative/namo/CoCulture
+    description: Co-culture systems combining multiple cell types to mimic  microenvironments
+      and cell-cell interactions.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: CellularSystem
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - cellularSystem__cell_types
+    - cellularSystem__cell_source
+    - cellularSystem__culture_conditions
+    - coCulture__coculture_configuration
+    - coCulture__cell_ratios
+    - coCulture__interaction_mechanisms
+    attributes:
+      coculture_configuration:
+        name: coculture_configuration
+        description: Configuration of co-culture (direct contact, transwell, conditioned
+          media)
+        range: CocultureConfigurationEnum
+      cell_ratios:
+        name: cell_ratios
+        description: Ratios of different cell types in the co-culture
+        range: CellRatio
+        multivalued: true
+        inlined_as_list: true
+      interaction_mechanisms:
+        name: interaction_mechanisms
+        description: Mechanisms of cell-cell interaction (paracrine, direct contact,
+          mechanical)
+        multivalued: true
+    class_uri: namo:CoCulture
+  Organoid:
+    name: Organoid
+    definition_uri: https://w3id.org/monarch-initiative/namo/Organoid
+    description: A 3D cell culture system that self-organizes to recapitulate key
+      structural and functional aspects of an organ or tissue
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: ThreeDCellCulture
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - cellularSystem__cell_types
+    - cellularSystem__cell_source
+    - cellularSystem__culture_conditions
+    - threeDCellCulture__three_d_architecture
+    - threeDCellCulture__matrix_composition
+    - threeDCellCulture__size_range
+    - organoid__organ_modeled
+    - organoid__differentiation_method
+    - organoid__culture_system
+    attributes:
+      organ_modeled:
+        name: organ_modeled
+        description: The organ or tissue being modeled
+        range: Term
+        bindings:
+        - range: OrganEnum
+          obligation_level:
+            text: REQUIRED
+            description: The metadata element is required to be present in the model
+          binds_value_of: id
+        inlined: true
+      differentiation_method:
+        name: differentiation_method
+        description: Method used to differentiate cells into organoid (e.g., directed
+          differentiation protocol)
+      culture_system:
+        name: culture_system
+        description: Culture system used (e.g., Matrigel dome, suspension culture,
+          air-liquid interface)
+    class_uri: namo:Organoid
+  CellLineModel:
+    name: CellLineModel
+    definition_uri: https://w3id.org/monarch-initiative/namo/CellLineModel
+    description: 'A model system based on immortalized cell lines that can be maintained
+      in culture indefinitely. Examples: HepG2, A549, Caco-2, etc.'
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: TwoDCellCulture
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - cellularSystem__cell_types
+    - cellularSystem__cell_source
+    - cellularSystem__culture_conditions
+    - twoDCellCulture__substrate_type
+    - twoDCellCulture__confluence_level
+    - twoDCellCulture__passage_protocol
+    - cellLineModel__passage_range
+    - cellLineModel__authentication_method
+    attributes:
+      passage_range:
+        name: passage_range
+        description: Recommended passage number range for experimental use
+      authentication_method:
+        name: authentication_method
+        description: Method used for cell line authentication (e.g., STR profiling,
+          mycoplasma testing)
+    class_uri: namo:CellLineModel
+  MicrophysiologicalSystem:
+    name: MicrophysiologicalSystem
+    definition_uri: https://w3id.org/monarch-initiative/namo/MicrophysiologicalSystem
+    description: Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,  and
+      living cells to replicate tissue-level physiology and dynamics.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NAMModel
+    abstract: true
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - microphysiologicalSystem__microfluidic_design
+    - microphysiologicalSystem__mechanical_forces
+    - microphysiologicalSystem__perfusion_system
+    - microphysiologicalSystem__sensor_integration
+    attributes:
+      microfluidic_design:
+        name: microfluidic_design
+        description: Detailed design specifications of the microfluidic device
+        range: MicrofluidicDesign
+        inlined: true
+      mechanical_forces:
+        name: mechanical_forces
+        description: Mechanical forces applied to the model system
+        range: MechanicalStimulation
+        inlined: true
+      perfusion_system:
+        name: perfusion_system
+        description: Description of perfusion and flow systems
+      sensor_integration:
+        name: sensor_integration
+        description: Sensors integrated for real-time monitoring
+        range: IntegratedSensorEnum
+        multivalued: true
+    class_uri: namo:MicrophysiologicalSystem
+  OrganOnChip:
+    name: OrganOnChip
+    definition_uri: https://w3id.org/monarch-initiative/namo/OrganOnChip
+    description: 'A model system that simulates the physiological functions of an
+      organ using a microfluidic device. Examples: Airway-on-chip, ...'
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: MicrophysiologicalSystem
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - microphysiologicalSystem__microfluidic_design
+    - microphysiologicalSystem__mechanical_forces
+    - microphysiologicalSystem__perfusion_system
+    - microphysiologicalSystem__sensor_integration
+    - organOnChip__organ_modeled
+    - organOnChip__cell_types
+    - organOnChip__cell_source
+    attributes:
+      organ_modeled:
+        name: organ_modeled
+        description: The organ or anatomical structure being modeled (e.g., lung,
+          airway, alveolus)
+        range: Term
+        bindings:
+        - range: OrganEnum
+          obligation_level:
+            text: REQUIRED
+            description: The metadata element is required to be present in the model
+          binds_value_of: id
+        inlined: true
+      cell_types:
+        name: cell_types
+        description: Cell types present in the organ-on-chip model
+        range: Term
+        bindings:
+        - range: CellTypeEnum
+          obligation_level:
+            text: REQUIRED
+            description: The metadata element is required to be present in the model
+          binds_value_of: id
+        multivalued: true
+        inlined_as_list: true
+      cell_source:
+        name: cell_source
+        description: Source of cells (e.g., primary human cells, iPSC-derived, cell
+          line, patient-derived)
+    class_uri: namo:OrganOnChip
+  TissueOnChip:
+    name: TissueOnChip
+    definition_uri: https://w3id.org/monarch-initiative/namo/TissueOnChip
+    description: Tissue-level microphysiological systems that model specific tissue
+      functions and multi-cellular interactions.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: MicrophysiologicalSystem
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - microphysiologicalSystem__microfluidic_design
+    - microphysiologicalSystem__mechanical_forces
+    - microphysiologicalSystem__perfusion_system
+    - microphysiologicalSystem__sensor_integration
+    - tissueOnChip__tissue_modeled
+    - tissueOnChip__tissue_architecture
+    - tissueOnChip__barrier_functions
+    attributes:
+      tissue_modeled:
+        name: tissue_modeled
+        description: The specific tissue being modeled
+        range: Term
+        inlined: true
+      tissue_architecture:
+        name: tissue_architecture
+        description: Description of tissue-level architecture and organization
+      barrier_functions:
+        name: barrier_functions
+        description: Tissue barrier functions modeled (epithelial, endothelial, etc.)
+        multivalued: true
+    class_uri: namo:TissueOnChip
+  InSilicoModel:
+    name: InSilicoModel
+    definition_uri: https://w3id.org/monarch-initiative/namo/InSilicoModel
+    description: Computational models that simulate biological processes without physical
+      biological components.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NAMModel
+    abstract: true
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - inSilicoModel__computational_method
+    - inSilicoModel__software_platform
+    - inSilicoModel__validation_datasets
+    - inSilicoModel__prediction_scope
+    attributes:
+      computational_method:
+        name: computational_method
+        description: Primary computational method or algorithm used
+      software_platform:
+        name: software_platform
+        description: Software platform or programming language used
+      validation_datasets:
+        name: validation_datasets
+        description: Datasets used for model training and validation
+        multivalued: true
+      prediction_scope:
+        name: prediction_scope
+        description: Scope and limitations of model predictions
+    class_uri: namo:InSilicoModel
+  QSARModel:
+    name: QSARModel
+    definition_uri: https://w3id.org/monarch-initiative/namo/QSARModel
+    description: Quantitative Structure-Activity Relationship models that predict  chemical/biological
+      activity from molecular structure.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: InSilicoModel
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - inSilicoModel__computational_method
+    - inSilicoModel__software_platform
+    - inSilicoModel__validation_datasets
+    - inSilicoModel__prediction_scope
+    - qSARModel__molecular_descriptors
+    - qSARModel__activity_endpoint
+    - qSARModel__training_dataset_size
+    - qSARModel__model_performance
+    attributes:
+      molecular_descriptors:
+        name: molecular_descriptors
+        description: Types of molecular descriptors used (topological, electronic,
+          etc.)
+        multivalued: true
+      activity_endpoint:
+        name: activity_endpoint
+        description: Biological activity or property being predicted
+      training_dataset_size:
+        name: training_dataset_size
+        description: Number of compounds in training dataset
+        range: integer
+      model_performance:
+        name: model_performance
+        description: Statistical performance metrics of the model
+        range: ModelPerformance
+        inlined: true
+    class_uri: namo:QSARModel
+  PBPKModel:
+    name: PBPKModel
+    definition_uri: https://w3id.org/monarch-initiative/namo/PBPKModel
+    description: Physiologically Based Pharmacokinetic models that simulate drug  absorption,
+      distribution, metabolism, and excretion.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: InSilicoModel
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - inSilicoModel__computational_method
+    - inSilicoModel__software_platform
+    - inSilicoModel__validation_datasets
+    - inSilicoModel__prediction_scope
+    - pBPKModel__compartments
+    - pBPKModel__species_modeled
+    - pBPKModel__drug_properties
+    - pBPKModel__elimination_pathways
+    attributes:
+      compartments:
+        name: compartments
+        description: Physiological compartments included in the model
+        range: PBPKCompartment
+        multivalued: true
+        inlined_as_list: true
+      species_modeled:
+        name: species_modeled
+        description: Species for which the model is designed
+        range: Term
+        inlined: true
+      drug_properties:
+        name: drug_properties
+        description: Physicochemical and pharmacological properties modeled
+        range: DrugProperties
+        inlined: true
+      elimination_pathways:
+        name: elimination_pathways
+        description: Drug elimination and metabolism pathways included
+        multivalued: true
+    class_uri: namo:PBPKModel
+  DigitalTwin:
+    name: DigitalTwin
+    definition_uri: https://w3id.org/monarch-initiative/namo/DigitalTwin
+    description: Computational replicas of biological systems for real-time prediction
+      and personalized modeling.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: InSilicoModel
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - inSilicoModel__computational_method
+    - inSilicoModel__software_platform
+    - inSilicoModel__validation_datasets
+    - inSilicoModel__prediction_scope
+    - digitalTwin__twin_scope
+    - digitalTwin__real_time_data_sources
+    - digitalTwin__personalization_parameters
+    - digitalTwin__update_frequency
+    attributes:
+      twin_scope:
+        name: twin_scope
+        description: Scope of digital twin (organ, patient, population)
+        range: DigitalTwinScopeEnum
+      real_time_data_sources:
+        name: real_time_data_sources
+        description: Sources of real-time data for model updating
+        multivalued: true
+      personalization_parameters:
+        name: personalization_parameters
+        description: Parameters used for personalization (genetic, phenotypic, etc.)
+        multivalued: true
+      update_frequency:
+        name: update_frequency
+        description: Frequency of model updates based on new data
+    class_uri: namo:DigitalTwin
+  MLModel:
+    name: MLModel
+    definition_uri: https://w3id.org/monarch-initiative/namo/MLModel
+    description: Machine Learning and AI-based models for prediction, mechanism inference,
+      and hypothesis generation.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: InSilicoModel
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - inSilicoModel__computational_method
+    - inSilicoModel__software_platform
+    - inSilicoModel__validation_datasets
+    - inSilicoModel__prediction_scope
+    - mLModel__ml_algorithm
+    - mLModel__feature_types
+    - mLModel__training_data_size
+    - mLModel__model_interpretability
+    - mLModel__cross_validation
+    attributes:
+      ml_algorithm:
+        name: ml_algorithm
+        description: Type of machine learning algorithm used
+        range: MLAlgorithmEnum
+      feature_types:
+        name: feature_types
+        description: Types of features used (molecular, phenotypic, imaging, etc.)
+        range: FeatureTypeEnum
+        multivalued: true
+      training_data_size:
+        name: training_data_size
+        description: Size of training dataset
+        range: integer
+      model_interpretability:
+        name: model_interpretability
+        description: Level of model interpretability (black box, interpretable, explainable)
+        range: InterpretabilityLevelEnum
+      cross_validation:
+        name: cross_validation
+        description: Cross-validation strategy and results
+        range: CrossValidation
+        inlined: true
+    class_uri: namo:MLModel
+  MetabolicModel:
+    name: MetabolicModel
+    definition_uri: https://w3id.org/monarch-initiative/namo/MetabolicModel
+    description: 'A model that simulates the metabolic processes of an organism or
+      system. Examples: Virtual Physiological Human, ...'
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: InSilicoModel
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - modelSystem__models
+    - nAMModel__biological_organization_level
+    - nAMModel__spatial_context
+    - nAMModel__complexity_level
+    - nAMModel__references
+    - inSilicoModel__computational_method
+    - inSilicoModel__software_platform
+    - inSilicoModel__validation_datasets
+    - inSilicoModel__prediction_scope
+    class_uri: namo:MetabolicModel
+  CellRatio:
+    name: CellRatio
+    definition_uri: https://w3id.org/monarch-initiative/namo/CellRatio
+    description: Ratio specification for different cell types in co-culture systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - cellRatio__cell_type
+    - cellRatio__ratio
+    - cellRatio__ratio_type
+    attributes:
+      cell_type:
+        name: cell_type
+        description: The cell type for which the ratio is specified
+        range: Term
+        inlined: true
+      ratio:
+        name: ratio
+        description: Proportion or ratio of this cell type (0.0-1.0 or absolute numbers)
+        range: float
+      ratio_type:
+        name: ratio_type
+        description: Type of ratio specification (percentage, absolute, fold)
+        range: RatioTypeEnum
+    class_uri: namo:CellRatio
+  ModelPerformance:
+    name: ModelPerformance
+    definition_uri: https://w3id.org/monarch-initiative/namo/ModelPerformance
+    description: Statistical performance metrics for computational models.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - modelPerformance__accuracy
+    - modelPerformance__sensitivity
+    - modelPerformance__specificity
+    - modelPerformance__r_squared
+    - modelPerformance__rmse
+    - modelPerformance__auc
+    attributes:
+      accuracy:
+        name: accuracy
+        description: Overall accuracy of the model (0.0-1.0)
+        range: float
+      sensitivity:
+        name: sensitivity
+        description: Sensitivity/recall of the model (0.0-1.0)
+        range: float
+      specificity:
+        name: specificity
+        description: Specificity of the model (0.0-1.0)
+        range: float
+      r_squared:
+        name: r_squared
+        description: R-squared value for regression models
+        range: float
+      rmse:
+        name: rmse
+        description: Root mean square error
+        range: float
+      auc:
+        name: auc
+        description: Area under the ROC curve
+        range: float
+    class_uri: namo:ModelPerformance
+  PBPKCompartment:
+    name: PBPKCompartment
+    definition_uri: https://w3id.org/monarch-initiative/namo/PBPKCompartment
+    description: A physiological compartment in a PBPK model.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - pBPKCompartment__compartment_type
+    - pBPKCompartment__volume
+    - pBPKCompartment__blood_flow
+    - pBPKCompartment__partition_coefficient
+    attributes:
+      compartment_type:
+        name: compartment_type
+        description: Type of physiological compartment
+        range: PBPKCompartmentEnum
+      volume:
+        name: volume
+        description: Volume of the compartment (L)
+        range: float
+      blood_flow:
+        name: blood_flow
+        description: Blood flow to the compartment (L/h)
+        range: float
+      partition_coefficient:
+        name: partition_coefficient
+        description: Tissue-to-plasma partition coefficient
+        range: float
+    class_uri: namo:PBPKCompartment
+  DrugProperties:
+    name: DrugProperties
+    definition_uri: https://w3id.org/monarch-initiative/namo/DrugProperties
+    description: Physicochemical and pharmacological properties of a drug in PBPK
+      models.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - drugProperties__molecular_weight
+    - drugProperties__logp
+    - drugProperties__pka
+    - drugProperties__protein_binding
+    - drugProperties__clearance
+    attributes:
+      molecular_weight:
+        name: molecular_weight
+        description: Molecular weight (g/mol)
+        range: float
+      logp:
+        name: logp
+        description: Lipophilicity (log P)
+        range: float
+      pka:
+        name: pka
+        description: Acid dissociation constant
+        range: float
+      protein_binding:
+        name: protein_binding
+        description: Fraction bound to plasma proteins (0.0-1.0)
+        range: float
+      clearance:
+        name: clearance
+        description: Total body clearance (L/h)
+        range: float
+    class_uri: namo:DrugProperties
+  CrossValidation:
+    name: CrossValidation
+    definition_uri: https://w3id.org/monarch-initiative/namo/CrossValidation
+    description: Cross-validation strategy and results for ML models.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - crossValidation__cv_method
+    - crossValidation__n_folds
+    - crossValidation__cv_score
+    - crossValidation__cv_std
+    attributes:
+      cv_method:
+        name: cv_method
+        description: Type of cross-validation used
+        range: CrossValidationMethodEnum
+      n_folds:
+        name: n_folds
+        description: Number of folds in cross-validation
+        range: integer
+      cv_score:
+        name: cv_score
+        description: Average cross-validation score
+        range: float
+      cv_std:
+        name: cv_std
+        description: Standard deviation of cross-validation scores
+        range: float
+    class_uri: namo:CrossValidation
+  MicrofluidicDesign:
+    name: MicrofluidicDesign
+    definition_uri: https://w3id.org/monarch-initiative/namo/MicrofluidicDesign
+    description: Detailed specification of a microfluidic device design including
+      its architecture, materials, dimensions, and functional features.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - microfluidicDesign__architecture_type
+    - microfluidicDesign__number_of_channels
+    - microfluidicDesign__channel_configuration
+    - microfluidicDesign__membrane_type
+    - microfluidicDesign__membrane_pore_size
+    - microfluidicDesign__membrane_thickness
+    - microfluidicDesign__interface_type
+    - microfluidicDesign__channel_dimensions
+    - microfluidicDesign__material
+    - microfluidicDesign__surface_treatment
+    - microfluidicDesign__flow_control_method
+    - microfluidicDesign__sensors_integrated
+    - microfluidicDesign__special_features
+    attributes:
+      architecture_type:
+        name: architecture_type
+        description: The overall architecture type of the microfluidic device
+        range: MicrofluidicArchitectureEnum
+      number_of_channels:
+        name: number_of_channels
+        description: Total number of channels in the device
+        range: integer
+      channel_configuration:
+        name: channel_configuration
+        description: Configuration of channels (e.g., parallel, serial, branching)
+        range: ChannelConfigurationEnum
+        multivalued: true
+      membrane_type:
+        name: membrane_type
+        description: Type of membrane used in the device if applicable
+        range: MembraneTypeEnum
+      membrane_pore_size:
+        name: membrane_pore_size
+        description: Pore size of the membrane in micrometers
+        range: float
+      membrane_thickness:
+        name: membrane_thickness
+        description: Thickness of the membrane in micrometers
+        range: float
+      interface_type:
+        name: interface_type
+        description: Type of interface(s) present in the device
+        range: InterfaceTypeEnum
+        multivalued: true
+      channel_dimensions:
+        name: channel_dimensions
+        description: Dimensions of the channels in the device
+        range: ChannelDimensions
+        multivalued: true
+      material:
+        name: material
+        description: Materials used to construct the device
+        range: DeviceMaterialEnum
+        multivalued: true
+      surface_treatment:
+        name: surface_treatment
+        description: Surface treatments or coatings applied to the device
+        range: SurfaceCoatingEnum
+        multivalued: true
+      flow_control_method:
+        name: flow_control_method
+        description: Methods used to control fluid flow in the device
+        range: FlowControlMethodEnum
+        multivalued: true
+      sensors_integrated:
+        name: sensors_integrated
+        description: Sensors integrated into the device for monitoring
+        range: IntegratedSensorEnum
+        multivalued: true
+      special_features:
+        name: special_features
+        description: Additional special features of the device (e.g., valves, mixers,
+          gradient generators)
+        multivalued: true
+    class_uri: namo:MicrofluidicDesign
+  ChannelDimensions:
+    name: ChannelDimensions
+    definition_uri: https://w3id.org/monarch-initiative/namo/ChannelDimensions
+    description: Dimensions of a microfluidic channel
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - channelDimensions__channel_name
+    - channelDimensions__width
+    - channelDimensions__height
+    - channelDimensions__length
+    attributes:
+      channel_name:
+        name: channel_name
+        description: Name or identifier of the channel (e.g., apical, basolateral,
+          vascular)
+      width:
+        name: width
+        description: Width of the channel in micrometers
+        range: float
+      height:
+        name: height
+        description: Height of the channel in micrometers
+        range: float
+      length:
+        name: length
+        description: Length of the channel in millimeters
+        range: float
+    class_uri: namo:ChannelDimensions
+  MechanicalStimulation:
+    name: MechanicalStimulation
+    definition_uri: https://w3id.org/monarch-initiative/namo/MechanicalStimulation
+    description: Specification of mechanical forces applied to the model system
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - mechanicalStimulation__stimulation_type
+    - mechanicalStimulation__cyclic_stretch_percent
+    - mechanicalStimulation__frequency_hz
+    - mechanicalStimulation__shear_stress
+    - mechanicalStimulation__pressure_pascal
+    - mechanicalStimulation__duration_minutes
+    attributes:
+      stimulation_type:
+        name: stimulation_type
+        description: Type of mechanical stimulation applied
+        range: MechanicalStimulationTypeEnum
+        multivalued: true
+      cyclic_stretch_percent:
+        name: cyclic_stretch_percent
+        description: Percentage of cyclic stretch applied (if applicable)
+        range: float
+      frequency_hz:
+        name: frequency_hz
+        description: Frequency of mechanical stimulation in Hertz
+        range: float
+      shear_stress:
+        name: shear_stress
+        description: "Shear stress applied in dyn/cm\xB2"
+        range: float
+      pressure_pascal:
+        name: pressure_pascal
+        description: Pressure applied in Pascals
+        range: float
+      duration_minutes:
+        name: duration_minutes
+        description: Duration of mechanical stimulation in minutes
+        range: float
+    class_uri: namo:MechanicalStimulation
+  BiologicalSystem:
+    name: BiologicalSystem
+    definition_uri: https://w3id.org/monarch-initiative/namo/BiologicalSystem
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    class_uri: namo:BiologicalSystem
+  ModelsRelationship:
+    name: ModelsRelationship
+    definition_uri: https://w3id.org/monarch-initiative/namo/ModelsRelationship
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - modelsRelationship__biological_system_modeled
+    - modelsRelationship__is_computed
+    - modelsRelationship__concordance
+    - modelsRelationship__structured_concordance
+    attributes:
+      biological_system_modeled:
+        name: biological_system_modeled
+        range: BiologicalSystem
+      is_computed:
+        name: is_computed
+        description: Indicates whether the model is computed or derived from experimental
+          data.
+        range: boolean
+      concordance:
+        name: concordance
+        description: Metrics used to assess the concordance between the model system
+          and the biological system, such as sensitivity, specificity, and accuracy.
+        range: ConcordanceResult
+      structured_concordance:
+        name: structured_concordance
+        description: Detailed structured assessment of concordance between the model
+          system and the biological system, with rich metadata and supporting evidence.
+        range: StructuredConcordanceResult
+        inlined: true
+    class_uri: namo:ModelsRelationship
+  ConcordanceResult:
+    name: ConcordanceResult
+    definition_uri: https://w3id.org/monarch-initiative/namo/ConcordanceResult
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - concordanceResult__phenotype_overlap
+    - concordanceResult__molecular_similarity
+    - concordanceResult__pathway_concordance
+    - concordanceResult__cell_type_coverage
+    - concordanceResult__functional_parity
+    - concordanceResult__reproducibility
+    attributes:
+      phenotype_overlap:
+        name: phenotype_overlap
+      molecular_similarity:
+        name: molecular_similarity
+      pathway_concordance:
+        name: pathway_concordance
+      cell_type_coverage:
+        name: cell_type_coverage
+      functional_parity:
+        name: functional_parity
+      reproducibility:
+        name: reproducibility
+    class_uri: namo:ConcordanceResult
+  StructuredConcordanceResult:
+    name: StructuredConcordanceResult
+    definition_uri: https://w3id.org/monarch-initiative/namo/StructuredConcordanceResult
+    description: Detailed structured assessment of concordance between model and biological
+      systems with rich metadata, evidence, and quantitative measures.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - structuredConcordanceResult__molecular_similarity
+    - structuredConcordanceResult__pathway_concordance
+    - structuredConcordanceResult__phenotype_overlap
+    - structuredConcordanceResult__cell_type_coverage
+    - structuredConcordanceResult__functional_parity
+    - structuredConcordanceResult__reproducibility
+    attributes:
+      molecular_similarity:
+        name: molecular_similarity
+        description: Detailed assessment of molecular-level similarity including gene
+          expression, protein levels, and metabolic profiles.
+        range: MolecularSimilarity
+        inlined: true
+      pathway_concordance:
+        name: pathway_concordance
+        description: Assessment of biological pathway conservation and activity levels.
+        range: PathwayConcordance
+        inlined: true
+      phenotype_overlap:
+        name: phenotype_overlap
+        description: Comparison of phenotypic manifestations between model and biological
+          system.
+        range: PhenotypeOverlap
+        inlined: true
+      cell_type_coverage:
+        name: cell_type_coverage
+        description: Assessment of cell type representation and cellular diversity.
+        range: CellTypeCoverage
+        inlined: true
+      functional_parity:
+        name: functional_parity
+        description: Evaluation of functional capabilities and physiological responses.
+        range: FunctionalParity
+        inlined: true
+      reproducibility:
+        name: reproducibility
+        description: Assessment of experimental reproducibility and consistency.
+        range: Reproducibility
+        inlined: true
+    class_uri: namo:StructuredConcordanceResult
+  MolecularSimilarity:
+    name: MolecularSimilarity
+    definition_uri: https://w3id.org/monarch-initiative/namo/MolecularSimilarity
+    description: Detailed assessment of molecular-level concordance between model
+      and biological systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - molecularSimilarity__similarity_score
+    - molecularSimilarity__correlation_coefficient
+    - molecularSimilarity__differentially_expressed_genes
+    - molecularSimilarity__conserved_genes
+    - molecularSimilarity__methodology
+    - molecularSimilarity__data_source
+    - molecularSimilarity__statistical_significance
+    attributes:
+      similarity_score:
+        name: similarity_score
+        description: Quantitative similarity score (0.0-1.0) based on molecular profiles.
+        range: float
+      correlation_coefficient:
+        name: correlation_coefficient
+        description: Pearson correlation coefficient for expression profiles.
+        range: float
+      differentially_expressed_genes:
+        name: differentially_expressed_genes
+        description: List of genes that are differentially expressed in the model
+          system.
+        range: Gene
+        multivalued: true
+        inlined_as_list: true
+      conserved_genes:
+        name: conserved_genes
+        description: List of genes with conserved expression patterns between model
+          and target.
+        range: Gene
+        multivalued: true
+        inlined_as_list: true
+      methodology:
+        name: methodology
+        description: Description of experimental methods used for molecular comparison.
+      data_source:
+        name: data_source
+        description: Source of molecular data (e.g., RNA-seq, proteomics, metabolomics).
+      statistical_significance:
+        name: statistical_significance
+        description: Statistical measures of significance for the molecular similarity.
+        range: StatisticalSignificance
+        inlined: true
+    class_uri: namo:MolecularSimilarity
+  PathwayConcordance:
+    name: PathwayConcordance
+    definition_uri: https://w3id.org/monarch-initiative/namo/PathwayConcordance
+    description: Assessment of biological pathway conservation and activity between
+      model and biological systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - pathwayConcordance__pathway_overlap_score
+    - pathwayConcordance__active_pathways
+    - pathwayConcordance__divergent_pathways
+    - pathwayConcordance__pathway_analysis_method
+    - pathwayConcordance__enrichment_statistics
+    attributes:
+      pathway_overlap_score:
+        name: pathway_overlap_score
+        description: Quantitative score (0.0-1.0) representing pathway overlap.
+        range: float
+      active_pathways:
+        name: active_pathways
+        description: List of biological pathways that are active in both systems.
+        range: Pathway
+        multivalued: true
+        inlined_as_list: true
+      divergent_pathways:
+        name: divergent_pathways
+        description: List of pathways that show different activity patterns.
+        range: Pathway
+        multivalued: true
+        inlined_as_list: true
+      pathway_analysis_method:
+        name: pathway_analysis_method
+        description: Method used for pathway analysis (e.g., GSEA, Over-representation
+          analysis).
+      enrichment_statistics:
+        name: enrichment_statistics
+        description: Statistical measures of pathway enrichment.
+        range: EnrichmentStatistics
+        multivalued: true
+        inlined_as_list: true
+    class_uri: namo:PathwayConcordance
+  PhenotypeOverlap:
+    name: PhenotypeOverlap
+    definition_uri: https://w3id.org/monarch-initiative/namo/PhenotypeOverlap
+    description: Comparison of phenotypic manifestations between model and biological
+      systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - phenotypeOverlap__phenotype_similarity_score
+    - phenotypeOverlap__shared_phenotypes
+    - phenotypeOverlap__model_specific_phenotypes
+    - phenotypeOverlap__biological_specific_phenotypes
+    - phenotypeOverlap__phenotype_ontology
+    attributes:
+      phenotype_similarity_score:
+        name: phenotype_similarity_score
+        description: Quantitative score (0.0-1.0) representing phenotypic similarity.
+        range: float
+      shared_phenotypes:
+        name: shared_phenotypes
+        description: List of phenotypes present in both model and biological system.
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+      model_specific_phenotypes:
+        name: model_specific_phenotypes
+        description: List of phenotypes present only in the model system.
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+      biological_specific_phenotypes:
+        name: biological_specific_phenotypes
+        description: List of phenotypes present only in the biological system.
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+      phenotype_ontology:
+        name: phenotype_ontology
+        description: Ontology used for phenotype classification (e.g., HPO, MP).
+    class_uri: namo:PhenotypeOverlap
+  CellTypeCoverage:
+    name: CellTypeCoverage
+    definition_uri: https://w3id.org/monarch-initiative/namo/CellTypeCoverage
+    description: Assessment of cell type representation and cellular diversity between
+      systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - cellTypeCoverage__coverage_percentage
+    - cellTypeCoverage__represented_cell_types
+    - cellTypeCoverage__missing_cell_types
+    - cellTypeCoverage__cell_type_proportions
+    - cellTypeCoverage__single_cell_method
+    attributes:
+      coverage_percentage:
+        name: coverage_percentage
+        description: Percentage of target cell types represented in the model system.
+        range: float
+      represented_cell_types:
+        name: represented_cell_types
+        description: List of cell types present in both model and biological system.
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+      missing_cell_types:
+        name: missing_cell_types
+        description: List of cell types present in biological system but missing in
+          model.
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+      cell_type_proportions:
+        name: cell_type_proportions
+        description: Quantitative comparison of cell type proportions.
+        range: CellTypeProportion
+        multivalued: true
+        inlined_as_list: true
+      single_cell_method:
+        name: single_cell_method
+        description: Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry).
+    class_uri: namo:CellTypeCoverage
+  FunctionalParity:
+    name: FunctionalParity
+    definition_uri: https://w3id.org/monarch-initiative/namo/FunctionalParity
+    description: Evaluation of functional capabilities and physiological responses
+      between systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - functionalParity__functional_similarity_score
+    - functionalParity__conserved_functions
+    - functionalParity__impaired_functions
+    - functionalParity__functional_assays
+    - functionalParity__dose_response_similarity
+    attributes:
+      functional_similarity_score:
+        name: functional_similarity_score
+        description: Quantitative score (0.0-1.0) representing functional similarity.
+        range: float
+      conserved_functions:
+        name: conserved_functions
+        description: List of biological functions conserved between model and biological
+          system.
+        multivalued: true
+      impaired_functions:
+        name: impaired_functions
+        description: List of functions that are impaired or absent in the model system.
+        multivalued: true
+      functional_assays:
+        name: functional_assays
+        description: List of functional assays used to assess parity.
+        range: FunctionalAssay
+        multivalued: true
+        inlined_as_list: true
+      dose_response_similarity:
+        name: dose_response_similarity
+        description: Comparison of dose-response relationships for therapeutic compounds.
+        range: DoseResponseSimilarity
+        inlined: true
+    class_uri: namo:FunctionalParity
+  Reproducibility:
+    name: Reproducibility
+    definition_uri: https://w3id.org/monarch-initiative/namo/Reproducibility
+    description: Assessment of experimental reproducibility and consistency of the
+      model system.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - reproducibility__reproducibility_score
+    - reproducibility__coefficient_of_variation
+    - reproducibility__batch_to_batch_variation
+    - reproducibility__inter_laboratory_consistency
+    - reproducibility__replicate_count
+    - reproducibility__quality_control_metrics
+    attributes:
+      reproducibility_score:
+        name: reproducibility_score
+        description: Quantitative score (0.0-1.0) representing reproducibility.
+        range: float
+      coefficient_of_variation:
+        name: coefficient_of_variation
+        description: Coefficient of variation across experimental replicates.
+        range: float
+      batch_to_batch_variation:
+        name: batch_to_batch_variation
+        description: Measure of variation between different experimental batches.
+        range: float
+      inter_laboratory_consistency:
+        name: inter_laboratory_consistency
+        description: Measure of consistency across different laboratories.
+        range: float
+      replicate_count:
+        name: replicate_count
+        description: Number of experimental replicates used in assessment.
+        range: integer
+      quality_control_metrics:
+        name: quality_control_metrics
+        description: List of quality control measures and their values.
+        range: QualityControlMetric
+        multivalued: true
+        inlined_as_list: true
+    class_uri: namo:Reproducibility
+  Gene:
+    name: Gene
+    definition_uri: https://w3id.org/monarch-initiative/namo/Gene
+    description: A gene entity with identifiers and expression information.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - gene__gene_symbol
+    - gene__ensembl_id
+    - gene__entrez_id
+    - gene__fold_change
+    - gene__p_value
+    - gene__adjusted_p_value
+    attributes:
+      gene_symbol:
+        name: gene_symbol
+        description: Standard gene symbol (e.g., HGNC symbol for human genes).
+      ensembl_id:
+        name: ensembl_id
+        description: Ensembl gene identifier.
+      entrez_id:
+        name: entrez_id
+        description: NCBI Entrez gene identifier.
+        range: integer
+      fold_change:
+        name: fold_change
+        description: Fold change in expression compared to control or reference.
+        range: float
+      p_value:
+        name: p_value
+        description: Statistical p-value for differential expression.
+        range: float
+      adjusted_p_value:
+        name: adjusted_p_value
+        description: Multiple testing corrected p-value.
+        range: float
+    class_uri: namo:Gene
+  Pathway:
+    name: Pathway
+    definition_uri: https://w3id.org/monarch-initiative/namo/Pathway
+    description: A biological pathway with activity and enrichment information.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - pathway__pathway_database
+    - pathway__pathway_id
+    - pathway__activity_score
+    - pathway__enrichment_score
+    attributes:
+      pathway_database:
+        name: pathway_database
+        description: Source database (e.g., KEGG, Reactome, GO).
+      pathway_id:
+        name: pathway_id
+        description: Database-specific pathway identifier.
+      activity_score:
+        name: activity_score
+        description: Quantitative measure of pathway activity.
+        range: float
+      enrichment_score:
+        name: enrichment_score
+        description: Statistical enrichment score for the pathway.
+        range: float
+    class_uri: namo:Pathway
+  StatisticalSignificance:
+    name: StatisticalSignificance
+    definition_uri: https://w3id.org/monarch-initiative/namo/StatisticalSignificance
+    description: Statistical measures of significance for molecular comparisons.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - statisticalSignificance__p_value
+    - statisticalSignificance__adjusted_p_value
+    - statisticalSignificance__confidence_interval_lower
+    - statisticalSignificance__confidence_interval_upper
+    - statisticalSignificance__statistical_test
+    attributes:
+      p_value:
+        name: p_value
+        description: Statistical p-value.
+        range: float
+      adjusted_p_value:
+        name: adjusted_p_value
+        description: Multiple testing corrected p-value.
+        range: float
+      confidence_interval_lower:
+        name: confidence_interval_lower
+        description: Lower bound of confidence interval.
+        range: float
+      confidence_interval_upper:
+        name: confidence_interval_upper
+        description: Upper bound of confidence interval.
+        range: float
+      statistical_test:
+        name: statistical_test
+        description: Name of statistical test used.
+    class_uri: namo:StatisticalSignificance
+  EnrichmentStatistics:
+    name: EnrichmentStatistics
+    definition_uri: https://w3id.org/monarch-initiative/namo/EnrichmentStatistics
+    description: Statistical measures for pathway enrichment analysis.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - enrichmentStatistics__enrichment_score
+    - enrichmentStatistics__p_value
+    - enrichmentStatistics__q_value
+    - enrichmentStatistics__genes_in_pathway
+    - enrichmentStatistics__genes_in_dataset
+    attributes:
+      enrichment_score:
+        name: enrichment_score
+        description: Quantitative enrichment score.
+        range: float
+      p_value:
+        name: p_value
+        description: Statistical p-value for enrichment.
+        range: float
+      q_value:
+        name: q_value
+        description: False discovery rate corrected p-value.
+        range: float
+      genes_in_pathway:
+        name: genes_in_pathway
+        description: Number of genes in the pathway.
+        range: integer
+      genes_in_dataset:
+        name: genes_in_dataset
+        description: Number of genes from dataset found in pathway.
+        range: integer
+    class_uri: namo:EnrichmentStatistics
+  CellTypeProportion:
+    name: CellTypeProportion
+    definition_uri: https://w3id.org/monarch-initiative/namo/CellTypeProportion
+    description: Quantitative comparison of cell type proportions between systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - cellTypeProportion__cell_type
+    - cellTypeProportion__model_proportion
+    - cellTypeProportion__biological_proportion
+    - cellTypeProportion__proportion_ratio
+    attributes:
+      cell_type:
+        name: cell_type
+        description: The cell type being compared.
+        range: Term
+        inlined: true
+      model_proportion:
+        name: model_proportion
+        description: Proportion of this cell type in the model system.
+        range: float
+      biological_proportion:
+        name: biological_proportion
+        description: Proportion of this cell type in the biological system.
+        range: float
+      proportion_ratio:
+        name: proportion_ratio
+        description: Ratio of model to biological proportions.
+        range: float
+    class_uri: namo:CellTypeProportion
+  FunctionalAssay:
+    name: FunctionalAssay
+    definition_uri: https://w3id.org/monarch-initiative/namo/FunctionalAssay
+    description: A functional assay used to assess biological capabilities.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    - functionalAssay__assay_type
+    - functionalAssay__assay_result
+    - functionalAssay__reference_value
+    - functionalAssay__units
+    - functionalAssay__methodology
+    attributes:
+      assay_type:
+        name: assay_type
+        description: Type of functional assay (e.g., TEER, permeability, metabolic
+          activity).
+      assay_result:
+        name: assay_result
+        description: Quantitative result of the assay.
+        range: float
+      reference_value:
+        name: reference_value
+        description: Reference or control value for comparison.
+        range: float
+      units:
+        name: units
+        description: Units of measurement for the assay result.
+      methodology:
+        name: methodology
+        description: Detailed methodology for the assay.
+    class_uri: namo:FunctionalAssay
+  DoseResponseSimilarity:
+    name: DoseResponseSimilarity
+    definition_uri: https://w3id.org/monarch-initiative/namo/DoseResponseSimilarity
+    description: Comparison of dose-response relationships between model and biological
+      systems.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - doseResponseSimilarity__correlation_coefficient
+    - doseResponseSimilarity__ec50_ratio
+    - doseResponseSimilarity__max_response_ratio
+    - doseResponseSimilarity__compound_tested
+    attributes:
+      correlation_coefficient:
+        name: correlation_coefficient
+        description: Correlation coefficient between dose-response curves.
+        range: float
+      ec50_ratio:
+        name: ec50_ratio
+        description: Ratio of EC50 values between model and biological system.
+        range: float
+      max_response_ratio:
+        name: max_response_ratio
+        description: Ratio of maximum responses between systems.
+        range: float
+      compound_tested:
+        name: compound_tested
+        description: Name of compound used in dose-response testing.
+    class_uri: namo:DoseResponseSimilarity
+  QualityControlMetric:
+    name: QualityControlMetric
+    definition_uri: https://w3id.org/monarch-initiative/namo/QualityControlMetric
+    description: A quality control measure and its associated value.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - qualityControlMetric__metric_name
+    - qualityControlMetric__metric_value
+    - qualityControlMetric__threshold
+    - qualityControlMetric__pass_fail_status
+    attributes:
+      metric_name:
+        name: metric_name
+        description: Name of the quality control metric.
+      metric_value:
+        name: metric_value
+        description: Value of the quality control metric.
+        range: float
+      threshold:
+        name: threshold
+        description: Acceptable threshold for this metric.
+        range: float
+      pass_fail_status:
+        name: pass_fail_status
+        description: Whether this metric passes quality control criteria.
+        range: boolean
+    class_uri: namo:QualityControlMetric
+  Reference:
+    name: Reference
+    definition_uri: https://w3id.org/monarch-initiative/namo/Reference
+    description: A literature reference with identifier and title for citing published
+      work.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    slots:
+    - reference__id
+    - reference__title
+    - reference__authors
+    - reference__journal
+    - reference__year
+    - reference__url
+    attributes:
+      id:
+        name: id
+        description: Persistent identifier for the reference (DOI, PMID, PMCID, etc.)
+        identifier: true
+        range: uriorcurie
+        required: true
+      title:
+        name: title
+        description: Title of the referenced publication or dataset
+        required: true
+      authors:
+        name: authors
+        description: Authors of the publication
+        multivalued: true
+      journal:
+        name: journal
+        description: Journal or publication venue
+      year:
+        name: year
+        description: Publication year
+        range: integer
+      url:
+        name: url
+        description: URL to access the publication
+        range: uri
+    class_uri: namo:Reference
+  Term:
+    name: Term
+    definition_uri: https://w3id.org/monarch-initiative/namo/Term
+    description: A term is a concept or entity that can be defined and used in a specific
+      context, often within a controlled vocabulary or ontology.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    is_a: NamedThing
+    slots:
+    - id
+    - name
+    - description
+    - type
+    class_uri: namo:Term
+metamodel_version: 1.7.0
+source_file: namo.yaml
+source_file_date: '2025-08-20T18:33:49'
+source_file_size: 50605
+generation_date: '2025-08-20T18:33:58'
+
