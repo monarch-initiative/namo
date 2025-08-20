@@ -1,0 +1,585 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
+message AnimalModel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  term species = 0
+  term strain = 0
+  term age = 0
+  term environment = 0
+ }
+message BiologicalSystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ }
+// A model system based on immortalized cell lines that can be maintained in culture indefinitely. Examples: HepG2, A549, Caco-2, etc.
+message CellLineModel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+ repeated  term cellTypes = 0
+  string cellSource = 0
+  string cultureConditions = 0
+  string substrateType = 0
+  float confluenceLevel = 0
+  string passageProtocol = 0
+  string passageRange = 0
+  string authenticationMethod = 0
+ }
+// Ratio specification for different cell types in co-culture systems.
+message CellRatio
+ {
+  term cellType = 0
+  float ratio = 0
+  ratioTypeEnum ratioType = 0
+ }
+// Assessment of cell type representation and cellular diversity between systems.
+message CellTypeCoverage
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  float coveragePercentage = 0
+ repeated  term representedCellTypes = 0
+ repeated  term missingCellTypes = 0
+ repeated  cellTypeProportion cellTypeProportions = 0
+  string singleCellMethod = 0
+ }
+// Quantitative comparison of cell type proportions between systems.
+message CellTypeProportion
+ {
+  term cellType = 0
+  float modelProportion = 0
+  float biologicalProportion = 0
+  float proportionRatio = 0
+ }
+// Dimensions of a microfluidic channel
+message ChannelDimensions
+ {
+  string channelName = 0
+  float width = 0
+  float height = 0
+  float length = 0
+ }
+// Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions.
+message CoCulture
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+ repeated  term cellTypes = 0
+  string cellSource = 0
+  string cultureConditions = 0
+  cocultureConfigurationEnum cocultureConfiguration = 0
+ repeated  cellRatio cellRatios = 0
+ repeated  string interactionMechanisms = 0
+ }
+message ConcordanceResult
+ {
+  string phenotypeOverlap = 0
+  string molecularSimilarity = 0
+  string pathwayConcordance = 0
+  string cellTypeCoverage = 0
+  string functionalParity = 0
+  string reproducibility = 0
+ }
+// Cross-validation strategy and results for ML models.
+message CrossValidation
+ {
+  crossValidationMethodEnum cvMethod = 0
+  integer nFolds = 0
+  float cvScore = 0
+  float cvStd = 0
+ }
+message Dataset
+ {
+ repeated  modelSystem modelSystems = 0
+ repeated  study studies = 0
+ }
+// Computational replicas of biological systems for real-time prediction and personalized modeling.
+message DigitalTwin
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+  string computationalMethod = 0
+  string softwarePlatform = 0
+ repeated  string validationDatasets = 0
+  string predictionScope = 0
+  digitalTwinScopeEnum twinScope = 0
+ repeated  string realTimeDataSources = 0
+ repeated  string personalizationParameters = 0
+  string updateFrequency = 0
+ }
+// Comparison of dose-response relationships between model and biological systems.
+message DoseResponseSimilarity
+ {
+  float correlationCoefficient = 0
+  float ec50Ratio = 0
+  float maxResponseRatio = 0
+  string compoundTested = 0
+ }
+// Physicochemical and pharmacological properties of a drug in PBPK models.
+message DrugProperties
+ {
+  float molecularWeight = 0
+  float logp = 0
+  float pka = 0
+  float proteinBinding = 0
+  float clearance = 0
+ }
+// Statistical measures for pathway enrichment analysis.
+message EnrichmentStatistics
+ {
+  float enrichmentScore = 0
+  float pValue = 0
+  float qValue = 0
+  integer genesInPathway = 0
+  integer genesInDataset = 0
+ }
+// A functional assay used to assess biological capabilities.
+message FunctionalAssay
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  string assayType = 0
+  float assayResult = 0
+  float referenceValue = 0
+  string units = 0
+  string methodology = 0
+ }
+// Evaluation of functional capabilities and physiological responses between systems.
+message FunctionalParity
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  float functionalSimilarityScore = 0
+ repeated  string conservedFunctions = 0
+ repeated  string impairedFunctions = 0
+ repeated  functionalAssay functionalAssays = 0
+  doseResponseSimilarity doseResponseSimilarity = 0
+ }
+// A gene entity with identifiers and expression information.
+message Gene
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  string geneSymbol = 0
+  string ensemblId = 0
+  integer entrezId = 0
+  float foldChange = 0
+  float pValue = 0
+  float adjustedPValue = 0
+ }
+// Specification of mechanical forces applied to the model system
+message MechanicalStimulation
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  mechanicalStimulationTypeEnum stimulationType = 0
+  float cyclicStretchPercent = 0
+  float frequencyHz = 0
+  float shearStress = 0
+  float pressurePascal = 0
+  float durationMinutes = 0
+ }
+// A model that simulates the metabolic processes of an organism or system. Examples: Virtual Physiological Human, ...
+message MetabolicModel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+  string computationalMethod = 0
+  string softwarePlatform = 0
+ repeated  string validationDatasets = 0
+  string predictionScope = 0
+ }
+// Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features.
+message MicrofluidicDesign
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  microfluidicArchitectureEnum architectureType = 0
+  integer numberOfChannels = 0
+ repeated  channelConfigurationEnum channelConfiguration = 0
+  membraneTypeEnum membraneType = 0
+  float membranePoreSize = 0
+  float membraneThickness = 0
+ repeated  interfaceTypeEnum interfaceType = 0
+ repeated  channelDimensions channelDimensions = 0
+ repeated  deviceMaterialEnum material = 0
+ repeated  surfaceCoatingEnum surfaceTreatment = 0
+ repeated  flowControlMethodEnum flowControlMethod = 0
+ repeated  integratedSensorEnum sensorsIntegrated = 0
+ repeated  string specialFeatures = 0
+ }
+// Machine Learning and AI-based models for prediction, mechanism inference, and hypothesis generation.
+message MLModel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+  string computationalMethod = 0
+  string softwarePlatform = 0
+ repeated  string validationDatasets = 0
+  string predictionScope = 0
+  mLAlgorithmEnum mlAlgorithm = 0
+ repeated  featureTypeEnum featureTypes = 0
+  integer trainingDataSize = 0
+  interpretabilityLevelEnum modelInterpretability = 0
+  crossValidation crossValidation = 0
+ }
+// Statistical performance metrics for computational models.
+message ModelPerformance
+ {
+  float accuracy = 0
+  float sensitivity = 0
+  float specificity = 0
+  float rSquared = 0
+  float rmse = 0
+  float auc = 0
+ }
+message ModelsRelationship
+ {
+  biologicalSystem biologicalSystemModeled = 0
+  boolean isComputed = 0
+  concordanceResult concordance = 0
+  structuredConcordanceResult structuredConcordance = 0
+ }
+// Detailed assessment of molecular-level concordance between model and biological systems.
+message MolecularSimilarity
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  float similarityScore = 0
+  float correlationCoefficient = 0
+ repeated  gene differentiallyExpressedGenes = 0
+ repeated  gene conservedGenes = 0
+  string methodology = 0
+  string dataSource = 0
+  statisticalSignificance statisticalSignificance = 0
+ }
+// A generic grouping for any identifiable entity
+message NamedThing
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ }
+// A 3D cell culture system that self-organizes to recapitulate key structural and functional aspects of an organ or tissue
+message Organoid
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+ repeated  term cellTypes = 0
+  string cellSource = 0
+  string cultureConditions = 0
+  threeDArchitectureEnum threeDArchitecture = 0
+  string matrixComposition = 0
+  string sizeRange = 0
+  term organModeled = 0
+  string differentiationMethod = 0
+  string cultureSystem = 0
+ }
+// A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ...
+message OrganOnChip
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+  microfluidicDesign microfluidicDesign = 0
+  mechanicalStimulation mechanicalForces = 0
+  string perfusionSystem = 0
+ repeated  integratedSensorEnum sensorIntegration = 0
+  term organModeled = 0
+ repeated  term cellTypes = 0
+  string cellSource = 0
+ }
+// A biological pathway with activity and enrichment information.
+message Pathway
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  string pathwayDatabase = 0
+  string pathwayId = 0
+  float activityScore = 0
+  float enrichmentScore = 0
+ }
+// Assessment of biological pathway conservation and activity between model and biological systems.
+message PathwayConcordance
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  float pathwayOverlapScore = 0
+ repeated  pathway activePathways = 0
+ repeated  pathway divergentPathways = 0
+  string pathwayAnalysisMethod = 0
+ repeated  enrichmentStatistics enrichmentStatistics = 0
+ }
+// A physiological compartment in a PBPK model.
+message PBPKCompartment
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  pBPKCompartmentEnum compartmentType = 0
+  float volume = 0
+  float bloodFlow = 0
+  float partitionCoefficient = 0
+ }
+// Physiologically Based Pharmacokinetic models that simulate drug  absorption, distribution, metabolism, and excretion.
+message PBPKModel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+  string computationalMethod = 0
+  string softwarePlatform = 0
+ repeated  string validationDatasets = 0
+  string predictionScope = 0
+ repeated  pBPKCompartment compartments = 0
+  term speciesModeled = 0
+  drugProperties drugProperties = 0
+ repeated  string eliminationPathways = 0
+ }
+// Comparison of phenotypic manifestations between model and biological systems.
+message PhenotypeOverlap
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  float phenotypeSimilarityScore = 0
+ repeated  term sharedPhenotypes = 0
+ repeated  term modelSpecificPhenotypes = 0
+ repeated  term biologicalSpecificPhenotypes = 0
+  string phenotypeOntology = 0
+ }
+// Quantitative Structure-Activity Relationship models that predict  chemical/biological activity from molecular structure.
+message QSARModel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+  string computationalMethod = 0
+  string softwarePlatform = 0
+ repeated  string validationDatasets = 0
+  string predictionScope = 0
+ repeated  string molecularDescriptors = 0
+  string activityEndpoint = 0
+  integer trainingDatasetSize = 0
+  modelPerformance modelPerformance = 0
+ }
+// A quality control measure and its associated value.
+message QualityControlMetric
+ {
+  string metricName = 0
+  float metricValue = 0
+  float threshold = 0
+  boolean passFailStatus = 0
+ }
+// A literature reference with identifier and title for citing published work.
+message Reference
+ {
+  uriorcurie id = 0
+  string title = 0
+ repeated  string authors = 0
+  string journal = 0
+  integer year = 0
+  uri url = 0
+ }
+// Assessment of experimental reproducibility and consistency of the model system.
+message Reproducibility
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  float reproducibilityScore = 0
+  float coefficientOfVariation = 0
+  float batchToBatchVariation = 0
+  float interLaboratoryConsistency = 0
+  integer replicateCount = 0
+ repeated  qualityControlMetric qualityControlMetrics = 0
+ }
+// Statistical measures of significance for molecular comparisons.
+message StatisticalSignificance
+ {
+  float pValue = 0
+  float adjustedPValue = 0
+  float confidenceIntervalLower = 0
+  float confidenceIntervalUpper = 0
+  string statisticalTest = 0
+ }
+// Detailed structured assessment of concordance between model and biological systems with rich metadata, evidence, and quantitative measures.
+message StructuredConcordanceResult
+ {
+  molecularSimilarity molecularSimilarity = 0
+  pathwayConcordance pathwayConcordance = 0
+  phenotypeOverlap phenotypeOverlap = 0
+  cellTypeCoverage cellTypeCoverage = 0
+  functionalParity functionalParity = 0
+  reproducibility reproducibility = 0
+ }
+// A study is a structured investigation or analysis, often involving the collection and interpretation of data, to answer specific research questions or test hypotheses.
+message Study
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+  string contextOfUse = 0
+  string biologicalContext = 0
+  string perturbations = 0
+  string endpoints = 0
+  string planComparators = 0
+ }
+// A term is a concept or entity that can be defined and used in a specific context, often within a controlled vocabulary or ontology.
+message Term
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ }
+// Three-dimensional cell culture systems including spheroids and organoids. More physiologically relevant with 3D architecture.
+message ThreeDCellCulture
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+ repeated  term cellTypes = 0
+  string cellSource = 0
+  string cultureConditions = 0
+  threeDArchitectureEnum threeDArchitecture = 0
+  string matrixComposition = 0
+  string sizeRange = 0
+ }
+// Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions.
+message TissueOnChip
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+  microfluidicDesign microfluidicDesign = 0
+  mechanicalStimulation mechanicalForces = 0
+  string perfusionSystem = 0
+ repeated  integratedSensorEnum sensorIntegration = 0
+  term tissueModeled = 0
+  string tissueArchitecture = 0
+ repeated  string barrierFunctions = 0
+ }
+// Conventional monolayer cell cultures grown on flat surfaces. Simple but limited in physiological relevance.
+message TwoDCellCulture
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string type = 0
+ repeated  modelsRelationship models = 0
+  biologicalOrganizationLevelEnum biologicalOrganizationLevel = 0
+  string spatialContext = 0
+  complexityLevelEnum complexityLevel = 0
+ repeated  reference references = 0
+ repeated  term cellTypes = 0
+  string cellSource = 0
+  string cultureConditions = 0
+  string substrateType = 0
+  float confluenceLevel = 0
+  string passageProtocol = 0
+ }

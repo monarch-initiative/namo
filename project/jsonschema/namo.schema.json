@@ -1,0 +1,3878 @@
+{
+    "$defs": {
+        "AgeEnum": {
+            "description": "",
+            "title": "AgeEnum",
+            "type": "string"
+        },
+        "AnimalModel": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "age": {
+                    "description": "The age of the animal used in the model system.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "environment": {
+                    "description": "The environmental conditions under which the animal model is maintained.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "species": {
+                    "description": "The species of the animal used in the model system.",
+                    "type": "string"
+                },
+                "strain": {
+                    "description": "The specific strain of the animal used in the model system.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "AnimalModel"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "species",
+                "id"
+            ],
+            "title": "AnimalModel",
+            "type": "object"
+        },
+        "BiologicalOrganizationLevelEnum": {
+            "description": "",
+            "enum": [
+                "SUBCELLULAR",
+                "CELLULAR",
+                "CELLULAR_NEIGHBORHOOD",
+                "TISSUE",
+                "ORGAN",
+                "SYSTEM"
+            ],
+            "title": "BiologicalOrganizationLevelEnum",
+            "type": "string"
+        },
+        "BiologicalSystem": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "BiologicalSystem"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "BiologicalSystem",
+            "type": "object"
+        },
+        "CaseOrControlEnum": {
+            "description": "",
+            "enum": [
+                "CASE",
+                "CONTROL"
+            ],
+            "title": "CaseOrControlEnum",
+            "type": "string"
+        },
+        "CellLineModel": {
+            "additionalProperties": false,
+            "description": "A model system based on immortalized cell lines that can be maintained in culture indefinitely. Examples: HepG2, A549, Caco-2, etc.",
+            "properties": {
+                "authentication_method": {
+                    "description": "Method used for cell line authentication (e.g., STR profiling, mycoplasma testing)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "cell_source": {
+                    "description": "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cell_types": {
+                    "description": "Cell types present in the cellular system",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "confluence_level": {
+                    "description": "Typical confluence level maintained (0.0-1.0)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "culture_conditions": {
+                    "description": "Standard culture conditions and media used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "passage_protocol": {
+                    "description": "Standard passaging protocol and frequency",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "passage_range": {
+                    "description": "Recommended passage number range for experimental use",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "substrate_type": {
+                    "description": "Type of culture substrate (e.g., plastic, glass, coated surfaces)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "CellLineModel"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "CellLineModel",
+            "type": "object"
+        },
+        "CellRatio": {
+            "additionalProperties": false,
+            "description": "Ratio specification for different cell types in co-culture systems.",
+            "properties": {
+                "cell_type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Term"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The cell type for which the ratio is specified"
+                },
+                "ratio": {
+                    "description": "Proportion or ratio of this cell type (0.0-1.0 or absolute numbers)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "ratio_type": {
+                    "$ref": "#/$defs/RatioTypeEnum",
+                    "description": "Type of ratio specification (percentage, absolute, fold)"
+                }
+            },
+            "title": "CellRatio",
+            "type": "object"
+        },
+        "CellTypeCoverage": {
+            "additionalProperties": false,
+            "description": "Assessment of cell type representation and cellular diversity between systems.",
+            "properties": {
+                "cell_type_proportions": {
+                    "description": "Quantitative comparison of cell type proportions.",
+                    "items": {
+                        "$ref": "#/$defs/CellTypeProportion"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coverage_percentage": {
+                    "description": "Percentage of target cell types represented in the model system.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "missing_cell_types": {
+                    "description": "List of cell types present in biological system but missing in model.",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "represented_cell_types": {
+                    "description": "List of cell types present in both model and biological system.",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "single_cell_method": {
+                    "description": "Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "CellTypeCoverage"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "CellTypeCoverage",
+            "type": "object"
+        },
+        "CellTypeEnum": {
+            "description": "",
+            "title": "CellTypeEnum",
+            "type": "string"
+        },
+        "CellTypeProportion": {
+            "additionalProperties": false,
+            "description": "Quantitative comparison of cell type proportions between systems.",
+            "properties": {
+                "biological_proportion": {
+                    "description": "Proportion of this cell type in the biological system.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "cell_type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Term"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The cell type being compared."
+                },
+                "model_proportion": {
+                    "description": "Proportion of this cell type in the model system.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "proportion_ratio": {
+                    "description": "Ratio of model to biological proportions.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "CellTypeProportion",
+            "type": "object"
+        },
+        "ChannelConfigurationEnum": {
+            "description": "",
+            "enum": [
+                "PARALLEL",
+                "SERIAL",
+                "BRANCHING",
+                "CIRCULAR",
+                "SERPENTINE",
+                "Y_SHAPED",
+                "T_SHAPED"
+            ],
+            "title": "ChannelConfigurationEnum",
+            "type": "string"
+        },
+        "ChannelDimensions": {
+            "additionalProperties": false,
+            "description": "Dimensions of a microfluidic channel",
+            "properties": {
+                "channel_name": {
+                    "description": "Name or identifier of the channel (e.g., apical, basolateral, vascular)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "Height of the channel in micrometers",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "length": {
+                    "description": "Length of the channel in millimeters",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "Width of the channel in micrometers",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ChannelDimensions",
+            "type": "object"
+        },
+        "CoCulture": {
+            "additionalProperties": false,
+            "description": "Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "cell_ratios": {
+                    "description": "Ratios of different cell types in the co-culture",
+                    "items": {
+                        "$ref": "#/$defs/CellRatio"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "cell_source": {
+                    "description": "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cell_types": {
+                    "description": "Cell types present in the cellular system",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coculture_configuration": {
+                    "$ref": "#/$defs/CocultureConfigurationEnum",
+                    "description": "Configuration of co-culture (direct contact, transwell, conditioned media)"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "culture_conditions": {
+                    "description": "Standard culture conditions and media used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "interaction_mechanisms": {
+                    "description": "Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "CoCulture"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "CoCulture",
+            "type": "object"
+        },
+        "CocultureConfigurationEnum": {
+            "description": "",
+            "enum": [
+                "DIRECT_CONTACT",
+                "TRANSWELL",
+                "CONDITIONED_MEDIA",
+                "MICROPATTERN",
+                "GRADIENT"
+            ],
+            "title": "CocultureConfigurationEnum",
+            "type": "string"
+        },
+        "ComplexityLevelEnum": {
+            "description": "",
+            "enum": [
+                "LOW",
+                "MODERATE",
+                "HIGH"
+            ],
+            "title": "ComplexityLevelEnum",
+            "type": "string"
+        },
+        "ConcordanceResult": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "cell_type_coverage": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "functional_parity": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "molecular_similarity": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "pathway_concordance": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "phenotype_overlap": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "reproducibility": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ConcordanceResult",
+            "type": "object"
+        },
+        "CrossValidation": {
+            "additionalProperties": false,
+            "description": "Cross-validation strategy and results for ML models.",
+            "properties": {
+                "cv_method": {
+                    "$ref": "#/$defs/CrossValidationMethodEnum",
+                    "description": "Type of cross-validation used"
+                },
+                "cv_score": {
+                    "description": "Average cross-validation score",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "cv_std": {
+                    "description": "Standard deviation of cross-validation scores",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "n_folds": {
+                    "description": "Number of folds in cross-validation",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "CrossValidation",
+            "type": "object"
+        },
+        "CrossValidationMethodEnum": {
+            "description": "",
+            "enum": [
+                "K_FOLD",
+                "STRATIFIED_K_FOLD",
+                "LEAVE_ONE_OUT",
+                "TIME_SERIES_SPLIT",
+                "MONTE_CARLO"
+            ],
+            "title": "CrossValidationMethodEnum",
+            "type": "string"
+        },
+        "Dataset": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "model_systems": {
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/AnimalModel"
+                            },
+                            {
+                                "$ref": "#/$defs/QSARModel"
+                            },
+                            {
+                                "$ref": "#/$defs/PBPKModel"
+                            },
+                            {
+                                "$ref": "#/$defs/DigitalTwin"
+                            },
+                            {
+                                "$ref": "#/$defs/MLModel"
+                            },
+                            {
+                                "$ref": "#/$defs/MetabolicModel"
+                            },
+                            {
+                                "$ref": "#/$defs/OrganOnChip"
+                            },
+                            {
+                                "$ref": "#/$defs/TissueOnChip"
+                            },
+                            {
+                                "$ref": "#/$defs/TwoDCellCulture"
+                            },
+                            {
+                                "$ref": "#/$defs/ThreeDCellCulture"
+                            },
+                            {
+                                "$ref": "#/$defs/CoCulture"
+                            },
+                            {
+                                "$ref": "#/$defs/Organoid"
+                            },
+                            {
+                                "$ref": "#/$defs/CellLineModel"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "studies": {
+                    "items": {
+                        "$ref": "#/$defs/Study"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Dataset",
+            "type": "object"
+        },
+        "DeviceMaterialEnum": {
+            "description": "",
+            "enum": [
+                "PDMS",
+                "GLASS",
+                "PLASTIC",
+                "POLYSTYRENE",
+                "POLYCARBONATE",
+                "PMMA",
+                "COC",
+                "SILICON",
+                "HYDROGEL"
+            ],
+            "title": "DeviceMaterialEnum",
+            "type": "string"
+        },
+        "DigitalTwin": {
+            "additionalProperties": false,
+            "description": "Computational replicas of biological systems for real-time prediction and personalized modeling.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "computational_method": {
+                    "description": "Primary computational method or algorithm used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "personalization_parameters": {
+                    "description": "Parameters used for personalization (genetic, phenotypic, etc.)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "prediction_scope": {
+                    "description": "Scope and limitations of model predictions",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "real_time_data_sources": {
+                    "description": "Sources of real-time data for model updating",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "software_platform": {
+                    "description": "Software platform or programming language used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "twin_scope": {
+                    "$ref": "#/$defs/DigitalTwinScopeEnum",
+                    "description": "Scope of digital twin (organ, patient, population)"
+                },
+                "type": {
+                    "enum": [
+                        "DigitalTwin"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "update_frequency": {
+                    "description": "Frequency of model updates based on new data",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "validation_datasets": {
+                    "description": "Datasets used for model training and validation",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "DigitalTwin",
+            "type": "object"
+        },
+        "DigitalTwinScopeEnum": {
+            "description": "",
+            "enum": [
+                "ORGAN",
+                "PATIENT",
+                "POPULATION",
+                "PATHWAY",
+                "DISEASE"
+            ],
+            "title": "DigitalTwinScopeEnum",
+            "type": "string"
+        },
+        "DoseResponseSimilarity": {
+            "additionalProperties": false,
+            "description": "Comparison of dose-response relationships between model and biological systems.",
+            "properties": {
+                "compound_tested": {
+                    "description": "Name of compound used in dose-response testing.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "correlation_coefficient": {
+                    "description": "Correlation coefficient between dose-response curves.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "ec50_ratio": {
+                    "description": "Ratio of EC50 values between model and biological system.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "max_response_ratio": {
+                    "description": "Ratio of maximum responses between systems.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "DoseResponseSimilarity",
+            "type": "object"
+        },
+        "DrugProperties": {
+            "additionalProperties": false,
+            "description": "Physicochemical and pharmacological properties of a drug in PBPK models.",
+            "properties": {
+                "clearance": {
+                    "description": "Total body clearance (L/h)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "logp": {
+                    "description": "Lipophilicity (log P)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "molecular_weight": {
+                    "description": "Molecular weight (g/mol)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "pka": {
+                    "description": "Acid dissociation constant",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "protein_binding": {
+                    "description": "Fraction bound to plasma proteins (0.0-1.0)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "DrugProperties",
+            "type": "object"
+        },
+        "EnrichmentStatistics": {
+            "additionalProperties": false,
+            "description": "Statistical measures for pathway enrichment analysis.",
+            "properties": {
+                "enrichment_score": {
+                    "description": "Quantitative enrichment score.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "genes_in_dataset": {
+                    "description": "Number of genes from dataset found in pathway.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "genes_in_pathway": {
+                    "description": "Number of genes in the pathway.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "p_value": {
+                    "description": "Statistical p-value for enrichment.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "q_value": {
+                    "description": "False discovery rate corrected p-value.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "EnrichmentStatistics",
+            "type": "object"
+        },
+        "FeatureTypeEnum": {
+            "description": "",
+            "enum": [
+                "MOLECULAR",
+                "PHENOTYPIC",
+                "GENOMIC",
+                "TRANSCRIPTOMIC",
+                "PROTEOMIC",
+                "METABOLOMIC",
+                "IMAGING",
+                "CLINICAL",
+                "TEMPORAL"
+            ],
+            "title": "FeatureTypeEnum",
+            "type": "string"
+        },
+        "FlowControlMethodEnum": {
+            "description": "",
+            "enum": [
+                "SYRINGE_PUMP",
+                "PERISTALTIC_PUMP",
+                "GRAVITY_DRIVEN",
+                "PRESSURE_DRIVEN",
+                "ELECTROOSMOTIC",
+                "CAPILLARY_ACTION",
+                "PNEUMATIC_VALVES",
+                "MICROVALVES"
+            ],
+            "title": "FlowControlMethodEnum",
+            "type": "string"
+        },
+        "FunctionalAssay": {
+            "additionalProperties": false,
+            "description": "A functional assay used to assess biological capabilities.",
+            "properties": {
+                "assay_result": {
+                    "description": "Quantitative result of the assay.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "assay_type": {
+                    "description": "Type of functional assay (e.g., TEER, permeability, metabolic activity).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "methodology": {
+                    "description": "Detailed methodology for the assay.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "reference_value": {
+                    "description": "Reference or control value for comparison.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "FunctionalAssay"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "units": {
+                    "description": "Units of measurement for the assay result.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "FunctionalAssay",
+            "type": "object"
+        },
+        "FunctionalParity": {
+            "additionalProperties": false,
+            "description": "Evaluation of functional capabilities and physiological responses between systems.",
+            "properties": {
+                "conserved_functions": {
+                    "description": "List of biological functions conserved between model and biological system.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "dose_response_similarity": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DoseResponseSimilarity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Comparison of dose-response relationships for therapeutic compounds."
+                },
+                "functional_assays": {
+                    "description": "List of functional assays used to assess parity.",
+                    "items": {
+                        "$ref": "#/$defs/FunctionalAssay"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "functional_similarity_score": {
+                    "description": "Quantitative score (0.0-1.0) representing functional similarity.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "impaired_functions": {
+                    "description": "List of functions that are impaired or absent in the model system.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "FunctionalParity"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "FunctionalParity",
+            "type": "object"
+        },
+        "Gene": {
+            "additionalProperties": false,
+            "description": "A gene entity with identifiers and expression information.",
+            "properties": {
+                "adjusted_p_value": {
+                    "description": "Multiple testing corrected p-value.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ensembl_id": {
+                    "description": "Ensembl gene identifier.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "entrez_id": {
+                    "description": "NCBI Entrez gene identifier.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "fold_change": {
+                    "description": "Fold change in expression compared to control or reference.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "gene_symbol": {
+                    "description": "Standard gene symbol (e.g., HGNC symbol for human genes).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "p_value": {
+                    "description": "Statistical p-value for differential expression.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "Gene"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Gene",
+            "type": "object"
+        },
+        "IntegratedSensorEnum": {
+            "description": "",
+            "enum": [
+                "TEER",
+                "OXYGEN",
+                "PH",
+                "TEMPERATURE",
+                "PRESSURE",
+                "FLOW_RATE",
+                "ELECTROCHEMICAL",
+                "OPTICAL",
+                "IMPEDANCE"
+            ],
+            "title": "IntegratedSensorEnum",
+            "type": "string"
+        },
+        "InterfaceTypeEnum": {
+            "description": "",
+            "enum": [
+                "AIR_LIQUID",
+                "LIQUID_LIQUID",
+                "CELL_CELL",
+                "TISSUE_TISSUE",
+                "VASCULAR_EPITHELIAL"
+            ],
+            "title": "InterfaceTypeEnum",
+            "type": "string"
+        },
+        "InterpretabilityLevelEnum": {
+            "description": "",
+            "enum": [
+                "BLACK_BOX",
+                "INTERPRETABLE",
+                "EXPLAINABLE",
+                "CAUSAL"
+            ],
+            "title": "InterpretabilityLevelEnum",
+            "type": "string"
+        },
+        "InvestigativeProtocolEnum": {
+            "description": "",
+            "title": "InvestigativeProtocolEnum",
+            "type": "string"
+        },
+        "MLAlgorithmEnum": {
+            "description": "",
+            "enum": [
+                "RANDOM_FOREST",
+                "SUPPORT_VECTOR_MACHINE",
+                "NEURAL_NETWORK",
+                "DEEP_LEARNING",
+                "GRADIENT_BOOSTING",
+                "LINEAR_REGRESSION",
+                "LOGISTIC_REGRESSION",
+                "NAIVE_BAYES",
+                "K_MEANS",
+                "REINFORCEMENT_LEARNING"
+            ],
+            "title": "MLAlgorithmEnum",
+            "type": "string"
+        },
+        "MLModel": {
+            "additionalProperties": false,
+            "description": "Machine Learning and AI-based models for prediction, mechanism inference, and hypothesis generation.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "computational_method": {
+                    "description": "Primary computational method or algorithm used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cross_validation": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CrossValidation"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Cross-validation strategy and results"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "feature_types": {
+                    "description": "Types of features used (molecular, phenotypic, imaging, etc.)",
+                    "items": {
+                        "$ref": "#/$defs/FeatureTypeEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "ml_algorithm": {
+                    "$ref": "#/$defs/MLAlgorithmEnum",
+                    "description": "Type of machine learning algorithm used"
+                },
+                "model_interpretability": {
+                    "$ref": "#/$defs/InterpretabilityLevelEnum",
+                    "description": "Level of model interpretability (black box, interpretable, explainable)"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prediction_scope": {
+                    "description": "Scope and limitations of model predictions",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "software_platform": {
+                    "description": "Software platform or programming language used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "training_data_size": {
+                    "description": "Size of training dataset",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "MLModel"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "validation_datasets": {
+                    "description": "Datasets used for model training and validation",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MLModel",
+            "type": "object"
+        },
+        "MechanicalStimulation": {
+            "additionalProperties": false,
+            "description": "Specification of mechanical forces applied to the model system",
+            "properties": {
+                "cyclic_stretch_percent": {
+                    "description": "Percentage of cyclic stretch applied (if applicable)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "duration_minutes": {
+                    "description": "Duration of mechanical stimulation in minutes",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "frequency_hz": {
+                    "description": "Frequency of mechanical stimulation in Hertz",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "pressure_pascal": {
+                    "description": "Pressure applied in Pascals",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "shear_stress": {
+                    "description": "Shear stress applied in dyn/cm\u00b2",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "stimulation_type": {
+                    "description": "Type of mechanical stimulation applied",
+                    "items": {
+                        "$ref": "#/$defs/MechanicalStimulationTypeEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "MechanicalStimulation"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MechanicalStimulation",
+            "type": "object"
+        },
+        "MechanicalStimulationTypeEnum": {
+            "description": "",
+            "enum": [
+                "CYCLIC_STRETCH",
+                "SHEAR_STRESS",
+                "COMPRESSION",
+                "TENSION",
+                "HYDROSTATIC_PRESSURE",
+                "PULSATILE_FLOW",
+                "BREATHING_MOTION",
+                "PERISTALTIC_MOTION"
+            ],
+            "title": "MechanicalStimulationTypeEnum",
+            "type": "string"
+        },
+        "MembraneTypeEnum": {
+            "description": "",
+            "enum": [
+                "POROUS_POLYMER",
+                "PDMS",
+                "COLLAGEN",
+                "ECM_COATED",
+                "TRACK_ETCHED",
+                "ELECTROSPUN",
+                "HYDROGEL"
+            ],
+            "title": "MembraneTypeEnum",
+            "type": "string"
+        },
+        "MetabolicModel": {
+            "additionalProperties": false,
+            "description": "A model that simulates the metabolic processes of an organism or system. Examples: Virtual Physiological Human, ...",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "computational_method": {
+                    "description": "Primary computational method or algorithm used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prediction_scope": {
+                    "description": "Scope and limitations of model predictions",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "software_platform": {
+                    "description": "Software platform or programming language used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "MetabolicModel"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "validation_datasets": {
+                    "description": "Datasets used for model training and validation",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MetabolicModel",
+            "type": "object"
+        },
+        "MicrofluidicArchitectureEnum": {
+            "description": "",
+            "enum": [
+                "SINGLE_CHANNEL",
+                "TWO_CHANNEL",
+                "MULTI_CHANNEL",
+                "LAYERED",
+                "RADIAL",
+                "NETWORK"
+            ],
+            "title": "MicrofluidicArchitectureEnum",
+            "type": "string"
+        },
+        "MicrofluidicDesign": {
+            "additionalProperties": false,
+            "description": "Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features.",
+            "properties": {
+                "architecture_type": {
+                    "$ref": "#/$defs/MicrofluidicArchitectureEnum",
+                    "description": "The overall architecture type of the microfluidic device"
+                },
+                "channel_configuration": {
+                    "description": "Configuration of channels (e.g., parallel, serial, branching)",
+                    "items": {
+                        "$ref": "#/$defs/ChannelConfigurationEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "channel_dimensions": {
+                    "description": "Dimensions of the channels in the device",
+                    "items": {
+                        "$ref": "#/$defs/ChannelDimensions"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "flow_control_method": {
+                    "description": "Methods used to control fluid flow in the device",
+                    "items": {
+                        "$ref": "#/$defs/FlowControlMethodEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "interface_type": {
+                    "description": "Type of interface(s) present in the device",
+                    "items": {
+                        "$ref": "#/$defs/InterfaceTypeEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "material": {
+                    "description": "Materials used to construct the device",
+                    "items": {
+                        "$ref": "#/$defs/DeviceMaterialEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "membrane_pore_size": {
+                    "description": "Pore size of the membrane in micrometers",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "membrane_thickness": {
+                    "description": "Thickness of the membrane in micrometers",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "membrane_type": {
+                    "$ref": "#/$defs/MembraneTypeEnum",
+                    "description": "Type of membrane used in the device if applicable"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "number_of_channels": {
+                    "description": "Total number of channels in the device",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "sensors_integrated": {
+                    "description": "Sensors integrated into the device for monitoring",
+                    "items": {
+                        "$ref": "#/$defs/IntegratedSensorEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "special_features": {
+                    "description": "Additional special features of the device (e.g., valves, mixers, gradient generators)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "surface_treatment": {
+                    "description": "Surface treatments or coatings applied to the device",
+                    "items": {
+                        "$ref": "#/$defs/SurfaceCoatingEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "MicrofluidicDesign"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MicrofluidicDesign",
+            "type": "object"
+        },
+        "ModelPerformance": {
+            "additionalProperties": false,
+            "description": "Statistical performance metrics for computational models.",
+            "properties": {
+                "accuracy": {
+                    "description": "Overall accuracy of the model (0.0-1.0)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "auc": {
+                    "description": "Area under the ROC curve",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "r_squared": {
+                    "description": "R-squared value for regression models",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "rmse": {
+                    "description": "Root mean square error",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "sensitivity": {
+                    "description": "Sensitivity/recall of the model (0.0-1.0)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "specificity": {
+                    "description": "Specificity of the model (0.0-1.0)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ModelPerformance",
+            "type": "object"
+        },
+        "ModelsRelationship": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "biological_system_modeled": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "concordance": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ConcordanceResult"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Metrics used to assess the concordance between the model system and the biological system, such as sensitivity, specificity, and accuracy."
+                },
+                "is_computed": {
+                    "description": "Indicates whether the model is computed or derived from experimental data.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "structured_concordance": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/StructuredConcordanceResult"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Detailed structured assessment of concordance between the model system and the biological system, with rich metadata and supporting evidence."
+                }
+            },
+            "title": "ModelsRelationship",
+            "type": "object"
+        },
+        "MolecularSimilarity": {
+            "additionalProperties": false,
+            "description": "Detailed assessment of molecular-level concordance between model and biological systems.",
+            "properties": {
+                "conserved_genes": {
+                    "description": "List of genes with conserved expression patterns between model and target.",
+                    "items": {
+                        "$ref": "#/$defs/Gene"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "correlation_coefficient": {
+                    "description": "Pearson correlation coefficient for expression profiles.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "data_source": {
+                    "description": "Source of molecular data (e.g., RNA-seq, proteomics, metabolomics).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "differentially_expressed_genes": {
+                    "description": "List of genes that are differentially expressed in the model system.",
+                    "items": {
+                        "$ref": "#/$defs/Gene"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "methodology": {
+                    "description": "Description of experimental methods used for molecular comparison.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "similarity_score": {
+                    "description": "Quantitative similarity score (0.0-1.0) based on molecular profiles.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "statistical_significance": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/StatisticalSignificance"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Statistical measures of significance for the molecular similarity."
+                },
+                "type": {
+                    "enum": [
+                        "MolecularSimilarity"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MolecularSimilarity",
+            "type": "object"
+        },
+        "NamedThing": {
+            "additionalProperties": false,
+            "description": "A generic grouping for any identifiable entity",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "NamedThing"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "NamedThing",
+            "type": "object"
+        },
+        "OrganEnum": {
+            "description": "",
+            "title": "OrganEnum",
+            "type": "string"
+        },
+        "OrganOnChip": {
+            "additionalProperties": false,
+            "description": "A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ...",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "cell_source": {
+                    "description": "Source of cells (e.g., primary human cells, iPSC-derived, cell line, patient-derived)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cell_types": {
+                    "description": "Cell types present in the organ-on-chip model",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "mechanical_forces": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MechanicalStimulation"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Mechanical forces applied to the model system"
+                },
+                "microfluidic_design": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrofluidicDesign"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Detailed design specifications of the microfluidic device"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organ_modeled": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Term"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The organ or anatomical structure being modeled (e.g., lung, airway, alveolus)"
+                },
+                "perfusion_system": {
+                    "description": "Description of perfusion and flow systems",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "sensor_integration": {
+                    "description": "Sensors integrated for real-time monitoring",
+                    "items": {
+                        "$ref": "#/$defs/IntegratedSensorEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "OrganOnChip"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "OrganOnChip",
+            "type": "object"
+        },
+        "Organoid": {
+            "additionalProperties": false,
+            "description": "A 3D cell culture system that self-organizes to recapitulate key structural and functional aspects of an organ or tissue",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "cell_source": {
+                    "description": "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cell_types": {
+                    "description": "Cell types present in the cellular system",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "culture_conditions": {
+                    "description": "Standard culture conditions and media used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "culture_system": {
+                    "description": "Culture system used (e.g., Matrigel dome, suspension culture, air-liquid interface)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "differentiation_method": {
+                    "description": "Method used to differentiate cells into organoid (e.g., directed differentiation protocol)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "matrix_composition": {
+                    "description": "Composition of extracellular matrix or scaffold material",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organ_modeled": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Term"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The organ or tissue being modeled"
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "size_range": {
+                    "description": "Typical size range of 3D structures",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "three_d_architecture": {
+                    "$ref": "#/$defs/ThreeDArchitectureEnum",
+                    "description": "Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)"
+                },
+                "type": {
+                    "enum": [
+                        "Organoid"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Organoid",
+            "type": "object"
+        },
+        "PBPKCompartment": {
+            "additionalProperties": false,
+            "description": "A physiological compartment in a PBPK model.",
+            "properties": {
+                "blood_flow": {
+                    "description": "Blood flow to the compartment (L/h)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "compartment_type": {
+                    "$ref": "#/$defs/PBPKCompartmentEnum",
+                    "description": "Type of physiological compartment"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "partition_coefficient": {
+                    "description": "Tissue-to-plasma partition coefficient",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "PBPKCompartment"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "volume": {
+                    "description": "Volume of the compartment (L)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "PBPKCompartment",
+            "type": "object"
+        },
+        "PBPKCompartmentEnum": {
+            "description": "",
+            "enum": [
+                "LIVER",
+                "KIDNEY",
+                "LUNG",
+                "BRAIN",
+                "HEART",
+                "MUSCLE",
+                "FAT",
+                "SKIN",
+                "BONE",
+                "GI_TRACT",
+                "PLASMA",
+                "BLOOD"
+            ],
+            "title": "PBPKCompartmentEnum",
+            "type": "string"
+        },
+        "PBPKModel": {
+            "additionalProperties": false,
+            "description": "Physiologically Based Pharmacokinetic models that simulate drug  absorption, distribution, metabolism, and excretion.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "compartments": {
+                    "description": "Physiological compartments included in the model",
+                    "items": {
+                        "$ref": "#/$defs/PBPKCompartment"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "computational_method": {
+                    "description": "Primary computational method or algorithm used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "drug_properties": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DrugProperties"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Physicochemical and pharmacological properties modeled"
+                },
+                "elimination_pathways": {
+                    "description": "Drug elimination and metabolism pathways included",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prediction_scope": {
+                    "description": "Scope and limitations of model predictions",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "software_platform": {
+                    "description": "Software platform or programming language used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "species_modeled": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Term"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Species for which the model is designed"
+                },
+                "type": {
+                    "enum": [
+                        "PBPKModel"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "validation_datasets": {
+                    "description": "Datasets used for model training and validation",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "PBPKModel",
+            "type": "object"
+        },
+        "Pathway": {
+            "additionalProperties": false,
+            "description": "A biological pathway with activity and enrichment information.",
+            "properties": {
+                "activity_score": {
+                    "description": "Quantitative measure of pathway activity.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "enrichment_score": {
+                    "description": "Statistical enrichment score for the pathway.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "pathway_database": {
+                    "description": "Source database (e.g., KEGG, Reactome, GO).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "pathway_id": {
+                    "description": "Database-specific pathway identifier.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "Pathway"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Pathway",
+            "type": "object"
+        },
+        "PathwayConcordance": {
+            "additionalProperties": false,
+            "description": "Assessment of biological pathway conservation and activity between model and biological systems.",
+            "properties": {
+                "active_pathways": {
+                    "description": "List of biological pathways that are active in both systems.",
+                    "items": {
+                        "$ref": "#/$defs/Pathway"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "divergent_pathways": {
+                    "description": "List of pathways that show different activity patterns.",
+                    "items": {
+                        "$ref": "#/$defs/Pathway"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "enrichment_statistics": {
+                    "description": "Statistical measures of pathway enrichment.",
+                    "items": {
+                        "$ref": "#/$defs/EnrichmentStatistics"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "pathway_analysis_method": {
+                    "description": "Method used for pathway analysis (e.g., GSEA, Over-representation analysis).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "pathway_overlap_score": {
+                    "description": "Quantitative score (0.0-1.0) representing pathway overlap.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "PathwayConcordance"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "PathwayConcordance",
+            "type": "object"
+        },
+        "PhenotypeOverlap": {
+            "additionalProperties": false,
+            "description": "Comparison of phenotypic manifestations between model and biological systems.",
+            "properties": {
+                "biological_specific_phenotypes": {
+                    "description": "List of phenotypes present only in the biological system.",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "model_specific_phenotypes": {
+                    "description": "List of phenotypes present only in the model system.",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "phenotype_ontology": {
+                    "description": "Ontology used for phenotype classification (e.g., HPO, MP).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "phenotype_similarity_score": {
+                    "description": "Quantitative score (0.0-1.0) representing phenotypic similarity.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "shared_phenotypes": {
+                    "description": "List of phenotypes present in both model and biological system.",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "PhenotypeOverlap"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "PhenotypeOverlap",
+            "type": "object"
+        },
+        "PredictionOutcomeEnum": {
+            "description": "",
+            "enum": [
+                "TP",
+                "FP",
+                "TN",
+                "FN"
+            ],
+            "title": "PredictionOutcomeEnum",
+            "type": "string"
+        },
+        "PresenceEnum": {
+            "description": "",
+            "enum": [
+                "PRESENT",
+                "ABSENT",
+                "BELOW_DETECTION_LIMIT",
+                "ABOVE_DETECTION_LIMIT"
+            ],
+            "title": "PresenceEnum",
+            "type": "string"
+        },
+        "QSARModel": {
+            "additionalProperties": false,
+            "description": "Quantitative Structure-Activity Relationship models that predict  chemical/biological activity from molecular structure.",
+            "properties": {
+                "activity_endpoint": {
+                    "description": "Biological activity or property being predicted",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "computational_method": {
+                    "description": "Primary computational method or algorithm used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "model_performance": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ModelPerformance"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Statistical performance metrics of the model"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "molecular_descriptors": {
+                    "description": "Types of molecular descriptors used (topological, electronic, etc.)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prediction_scope": {
+                    "description": "Scope and limitations of model predictions",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "software_platform": {
+                    "description": "Software platform or programming language used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "training_dataset_size": {
+                    "description": "Number of compounds in training dataset",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "QSARModel"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "validation_datasets": {
+                    "description": "Datasets used for model training and validation",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "QSARModel",
+            "type": "object"
+        },
+        "QualityControlMetric": {
+            "additionalProperties": false,
+            "description": "A quality control measure and its associated value.",
+            "properties": {
+                "metric_name": {
+                    "description": "Name of the quality control metric.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metric_value": {
+                    "description": "Value of the quality control metric.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "pass_fail_status": {
+                    "description": "Whether this metric passes quality control criteria.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "threshold": {
+                    "description": "Acceptable threshold for this metric.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "QualityControlMetric",
+            "type": "object"
+        },
+        "RatioTypeEnum": {
+            "description": "",
+            "enum": [
+                "PERCENTAGE",
+                "ABSOLUTE",
+                "FOLD"
+            ],
+            "title": "RatioTypeEnum",
+            "type": "string"
+        },
+        "Reference": {
+            "additionalProperties": false,
+            "description": "A literature reference with identifier and title for citing published work.",
+            "properties": {
+                "authors": {
+                    "description": "Authors of the publication",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Persistent identifier for the reference (DOI, PMID, PMCID, etc.)",
+                    "type": "string"
+                },
+                "journal": {
+                    "description": "Journal or publication venue",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "Title of the referenced publication or dataset",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL to access the publication",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "year": {
+                    "description": "Publication year",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "title"
+            ],
+            "title": "Reference",
+            "type": "object"
+        },
+        "RelativeTimeEnum": {
+            "description": "",
+            "enum": [
+                "BEFORE",
+                "AFTER",
+                "AT_SAME_TIME_AS"
+            ],
+            "title": "RelativeTimeEnum",
+            "type": "string"
+        },
+        "Reproducibility": {
+            "additionalProperties": false,
+            "description": "Assessment of experimental reproducibility and consistency of the model system.",
+            "properties": {
+                "batch_to_batch_variation": {
+                    "description": "Measure of variation between different experimental batches.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "coefficient_of_variation": {
+                    "description": "Coefficient of variation across experimental replicates.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "inter_laboratory_consistency": {
+                    "description": "Measure of consistency across different laboratories.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "quality_control_metrics": {
+                    "description": "List of quality control measures and their values.",
+                    "items": {
+                        "$ref": "#/$defs/QualityControlMetric"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "replicate_count": {
+                    "description": "Number of experimental replicates used in assessment.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "reproducibility_score": {
+                    "description": "Quantitative score (0.0-1.0) representing reproducibility.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "Reproducibility"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Reproducibility",
+            "type": "object"
+        },
+        "SampleProcessingEnum": {
+            "description": "",
+            "title": "SampleProcessingEnum",
+            "type": "string"
+        },
+        "SpeciesEnum": {
+            "description": "",
+            "title": "SpeciesEnum",
+            "type": "string"
+        },
+        "StatisticalSignificance": {
+            "additionalProperties": false,
+            "description": "Statistical measures of significance for molecular comparisons.",
+            "properties": {
+                "adjusted_p_value": {
+                    "description": "Multiple testing corrected p-value.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "confidence_interval_lower": {
+                    "description": "Lower bound of confidence interval.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "confidence_interval_upper": {
+                    "description": "Upper bound of confidence interval.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "p_value": {
+                    "description": "Statistical p-value.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "statistical_test": {
+                    "description": "Name of statistical test used.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "StatisticalSignificance",
+            "type": "object"
+        },
+        "StrainEnum": {
+            "description": "",
+            "title": "StrainEnum",
+            "type": "string"
+        },
+        "StructuredConcordanceResult": {
+            "additionalProperties": false,
+            "description": "Detailed structured assessment of concordance between model and biological systems with rich metadata, evidence, and quantitative measures.",
+            "properties": {
+                "cell_type_coverage": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CellTypeCoverage"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Assessment of cell type representation and cellular diversity."
+                },
+                "functional_parity": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FunctionalParity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Evaluation of functional capabilities and physiological responses."
+                },
+                "molecular_similarity": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MolecularSimilarity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Detailed assessment of molecular-level similarity including gene expression, protein levels, and metabolic profiles."
+                },
+                "pathway_concordance": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PathwayConcordance"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Assessment of biological pathway conservation and activity levels."
+                },
+                "phenotype_overlap": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PhenotypeOverlap"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Comparison of phenotypic manifestations between model and biological system."
+                },
+                "reproducibility": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Reproducibility"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Assessment of experimental reproducibility and consistency."
+                }
+            },
+            "title": "StructuredConcordanceResult",
+            "type": "object"
+        },
+        "Study": {
+            "additionalProperties": false,
+            "description": "A study is a structured investigation or analysis, often involving the collection and interpretation of data, to answer specific research questions or test hypotheses.",
+            "properties": {
+                "biological_context": {
+                    "description": "tissue/region (anatomy), cell types, sex/age equivalents, mechanics (e.g., cyclic stretch), microenvironment",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "context_of_use": {
+                    "description": "What decision will this inform? Care? Policy? Drug approval?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "endpoints": {
+                    "description": "phenotypes, function (TEER/leak, beating rate), and multi-omics",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "perturbations": {
+                    "description": "exposure/dose/time; diet/drugs/toxicants",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "plan_comparators": {
+                    "description": "human data, gold-standard assays, or high-quality animal references",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "Study"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Study",
+            "type": "object"
+        },
+        "StudyDesignEnum": {
+            "description": "",
+            "title": "StudyDesignEnum",
+            "type": "string"
+        },
+        "SurfaceCoatingEnum": {
+            "description": "",
+            "enum": [
+                "FIBRONECTIN",
+                "COLLAGEN",
+                "LAMININ",
+                "MATRIGEL",
+                "POLY_L_LYSINE",
+                "GELATIN",
+                "RGD_PEPTIDE",
+                "ANTI_FOULING",
+                "OXYGEN_PLASMA"
+            ],
+            "title": "SurfaceCoatingEnum",
+            "type": "string"
+        },
+        "Term": {
+            "additionalProperties": false,
+            "description": "A term is a concept or entity that can be defined and used in a specific context, often within a controlled vocabulary or ontology.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "Term"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Term",
+            "type": "object"
+        },
+        "ThreeDArchitectureEnum": {
+            "description": "",
+            "enum": [
+                "SPHEROID",
+                "ORGANOID",
+                "SCAFFOLD_BASED",
+                "HYDROGEL_EMBEDDED",
+                "BIOPRINTED",
+                "HANGING_DROP"
+            ],
+            "title": "ThreeDArchitectureEnum",
+            "type": "string"
+        },
+        "ThreeDCellCulture": {
+            "additionalProperties": false,
+            "description": "Three-dimensional cell culture systems including spheroids and organoids. More physiologically relevant with 3D architecture.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "cell_source": {
+                    "description": "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cell_types": {
+                    "description": "Cell types present in the cellular system",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "culture_conditions": {
+                    "description": "Standard culture conditions and media used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "matrix_composition": {
+                    "description": "Composition of extracellular matrix or scaffold material",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "size_range": {
+                    "description": "Typical size range of 3D structures",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "three_d_architecture": {
+                    "$ref": "#/$defs/ThreeDArchitectureEnum",
+                    "description": "Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)"
+                },
+                "type": {
+                    "enum": [
+                        "ThreeDCellCulture"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ThreeDCellCulture",
+            "type": "object"
+        },
+        "TissueOnChip": {
+            "additionalProperties": false,
+            "description": "Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions.",
+            "properties": {
+                "barrier_functions": {
+                    "description": "Tissue barrier functions modeled (epithelial, endothelial, etc.)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "mechanical_forces": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MechanicalStimulation"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Mechanical forces applied to the model system"
+                },
+                "microfluidic_design": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrofluidicDesign"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Detailed design specifications of the microfluidic device"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "perfusion_system": {
+                    "description": "Description of perfusion and flow systems",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "sensor_integration": {
+                    "description": "Sensors integrated for real-time monitoring",
+                    "items": {
+                        "$ref": "#/$defs/IntegratedSensorEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tissue_architecture": {
+                    "description": "Description of tissue-level architecture and organization",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tissue_modeled": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Term"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The specific tissue being modeled"
+                },
+                "type": {
+                    "enum": [
+                        "TissueOnChip"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "TissueOnChip",
+            "type": "object"
+        },
+        "TwoDCellCulture": {
+            "additionalProperties": false,
+            "description": "Conventional monolayer cell cultures grown on flat surfaces. Simple but limited in physiological relevance.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "cell_source": {
+                    "description": "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cell_types": {
+                    "description": "Cell types present in the cellular system",
+                    "items": {
+                        "$ref": "#/$defs/Term"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "confluence_level": {
+                    "description": "Typical confluence level maintained (0.0-1.0)",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "culture_conditions": {
+                    "description": "Standard culture conditions and media used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "passage_protocol": {
+                    "description": "Standard passaging protocol and frequency",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "substrate_type": {
+                    "description": "Type of culture substrate (e.g., plastic, glass, coated surfaces)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "TwoDCellCulture"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "TwoDCellCulture",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/monarch-initiative/namo",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "namo",
+    "type": "object",
+    "version": null
+}

@@ -1,0 +1,4113 @@
+@prefix EDAM: <http://edamontology.org/> .
+@prefix EFO: <http://www.ebi.ac.uk/efo/EFO_> .
+@prefix MAMO: <http://identifiers.org/mamo/MAMO_> .
+@prefix MESH: <http://id.nlm.nih.gov/mesh/> .
+@prefix OBI: <http://purl.obolibrary.org/obo/OBI_> .
+@prefix UBERON: <http://purl.obolibrary.org/obo/UBERON_> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix namo: <https://w3id.org/monarch-initiative/namo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+namo:AgeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition .
+
+namo:CellTypeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition .
+
+namo:Dataset a owl:Class ;
+    rdfs:label "Dataset" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:studies ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:ModelSystem ;
+            owl:onProperty namo:model_systems ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Study ;
+            owl:onProperty namo:studies ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:model_systems ],
+        linkml:ClassDefinition ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:InvestigativeProtocolEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition .
+
+namo:OrganEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition .
+
+namo:SampleProcessingEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition .
+
+namo:SpeciesEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition .
+
+namo:StrainEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition .
+
+namo:StudyDesignEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition .
+
+namo:CellRatio a owl:Class ;
+    rdfs:label "CellRatio" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom namo:RatioTypeEnum ;
+            owl:onProperty namo:ratio_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:ratio_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cell_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:ratio ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:ratio_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:cell_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:ratio ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:ratio ],
+        linkml:ClassDefinition ;
+    skos:definition "Ratio specification for different cell types in co-culture systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:CellTypeProportion a owl:Class ;
+    rdfs:label "CellTypeProportion" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:proportion_ratio ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:proportion_ratio ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cell_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:biological_proportion ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:proportion_ratio ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:model_proportion ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:model_proportion ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:biological_proportion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:biological_proportion ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:model_proportion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:cell_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_type ],
+        linkml:ClassDefinition ;
+    skos:definition "Quantitative comparison of cell type proportions between systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ChannelDimensions a owl:Class ;
+    rdfs:label "ChannelDimensions" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:channel_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:width ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:width ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:height ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:width ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:height ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:height ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:length ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:length ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:channel_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:channel_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:length ],
+        linkml:ClassDefinition ;
+    skos:definition "Dimensions of a microfluidic channel" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ConcordanceResult a owl:Class ;
+    rdfs:label "ConcordanceResult" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pathway_concordance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:cell_type_coverage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:phenotype_overlap ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:phenotype_overlap ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:functional_parity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:functional_parity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:reproducibility ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:pathway_concordance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pathway_concordance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:molecular_similarity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:reproducibility ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:phenotype_overlap ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:functional_parity ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_type_coverage ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:molecular_similarity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cell_type_coverage ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:reproducibility ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:molecular_similarity ],
+        linkml:ClassDefinition ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:CrossValidation a owl:Class ;
+    rdfs:label "CrossValidation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cv_score ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:n_folds ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:n_folds ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:cv_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:cv_std ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cv_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cv_method ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cv_std ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cv_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cv_std ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:CrossValidationMethodEnum ;
+            owl:onProperty namo:cv_method ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:n_folds ],
+        linkml:ClassDefinition ;
+    skos:definition "Cross-validation strategy and results for ML models." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:DoseResponseSimilarity a owl:Class ;
+    rdfs:label "DoseResponseSimilarity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:max_response_ratio ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:ec50_ratio ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:ec50_ratio ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:compound_tested ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:max_response_ratio ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:correlation_coefficient ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:ec50_ratio ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:correlation_coefficient ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:max_response_ratio ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:compound_tested ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:compound_tested ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:correlation_coefficient ],
+        linkml:ClassDefinition ;
+    skos:definition "Comparison of dose-response relationships between model and biological systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:DrugProperties a owl:Class ;
+    rdfs:label "DrugProperties" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:protein_binding ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:molecular_weight ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:clearance ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:protein_binding ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:logp ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:clearance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:pka ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:logp ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:molecular_weight ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:protein_binding ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:logp ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:molecular_weight ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pka ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:clearance ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pka ],
+        linkml:ClassDefinition ;
+    skos:definition "Physicochemical and pharmacological properties of a drug in PBPK models." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:EnrichmentStatistics a owl:Class ;
+    rdfs:label "EnrichmentStatistics" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:genes_in_pathway ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:enrichment_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:q_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:q_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:p_value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:genes_in_pathway ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:genes_in_dataset ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:genes_in_dataset ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:genes_in_dataset ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:q_value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:enrichment_score ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:p_value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:enrichment_score ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:genes_in_pathway ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:p_value ],
+        linkml:ClassDefinition ;
+    skos:definition "Statistical measures for pathway enrichment analysis." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ModelPerformance a owl:Class ;
+    rdfs:label "ModelPerformance" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:sensitivity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:specificity ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:auc ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:sensitivity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:rmse ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:r_squared ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:r_squared ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:accuracy ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:rmse ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:specificity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:rmse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:sensitivity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:accuracy ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:auc ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:r_squared ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:accuracy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:auc ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:specificity ],
+        linkml:ClassDefinition ;
+    skos:definition "Statistical performance metrics for computational models." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ModelsRelationship a owl:Class ;
+    rdfs:label "ModelsRelationship" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:is_computed ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:biological_system_modeled ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:concordance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:BiologicalSystem ;
+            owl:onProperty namo:biological_system_modeled ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty namo:is_computed ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:StructuredConcordanceResult ;
+            owl:onProperty namo:structured_concordance ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:is_computed ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:ConcordanceResult ;
+            owl:onProperty namo:concordance ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:biological_system_modeled ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:structured_concordance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:structured_concordance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:concordance ],
+        linkml:ClassDefinition ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:QualityControlMetric a owl:Class ;
+    rdfs:label "QualityControlMetric" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:metric_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:metric_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty namo:pass_fail_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:metric_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pass_fail_status ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pass_fail_status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:threshold ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:threshold ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:threshold ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:metric_value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:metric_value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:metric_name ],
+        linkml:ClassDefinition ;
+    skos:definition "A quality control measure and its associated value." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:Reference a owl:Class ;
+    rdfs:label "Reference" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:journal ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty namo:title ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:journal ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:title ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:authors ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty namo:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:year ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:year ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:title ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty namo:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:journal ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:year ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty namo:url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:authors ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:url ],
+        linkml:ClassDefinition ;
+    skos:definition "A literature reference with identifier and title for citing published work." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:StatisticalSignificance a owl:Class ;
+    rdfs:label "StatisticalSignificance" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:confidence_interval_upper ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:statistical_test ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:statistical_test ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:confidence_interval_lower ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:adjusted_p_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:confidence_interval_upper ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:adjusted_p_value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:p_value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:confidence_interval_lower ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:statistical_test ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:adjusted_p_value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:confidence_interval_lower ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:p_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:p_value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:confidence_interval_upper ],
+        linkml:ClassDefinition ;
+    skos:definition "Statistical measures of significance for molecular comparisons." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:StructuredConcordanceResult a owl:Class ;
+    rdfs:label "StructuredConcordanceResult" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:reproducibility ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:functional_parity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:molecular_similarity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:PathwayConcordance ;
+            owl:onProperty namo:pathway_concordance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:phenotype_overlap ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:phenotype_overlap ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pathway_concordance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:CellTypeCoverage ;
+            owl:onProperty namo:cell_type_coverage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:PhenotypeOverlap ;
+            owl:onProperty namo:phenotype_overlap ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:molecular_similarity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pathway_concordance ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:reproducibility ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cell_type_coverage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:MolecularSimilarity ;
+            owl:onProperty namo:molecular_similarity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Reproducibility ;
+            owl:onProperty namo:reproducibility ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_type_coverage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:FunctionalParity ;
+            owl:onProperty namo:functional_parity ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:functional_parity ],
+        linkml:ClassDefinition ;
+    skos:definition "Detailed structured assessment of concordance between model and biological systems with rich metadata, evidence, and quantitative measures." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+EDAM:0121 a owl:Class ;
+    rdfs:label "PROTEOMIC" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+EDAM:3172 a owl:Class ;
+    rdfs:label "METABOLOMIC" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+EDAM:3308 a owl:Class ;
+    rdfs:label "TRANSCRIPTOMIC" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+EDAM:3382 a owl:Class ;
+    rdfs:label "IMAGING" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+MESH:D000098404 a owl:Class ;
+    rdfs:label "GRADIENT_BOOSTING" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+MAMO:0000028 a owl:Class ;
+    rdfs:label "POPULATION" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DigitalTwinScopeEnum .
+
+OBI:0000700 a owl:Class ;
+    rdfs:label "SUPPORT_VECTOR_MACHINE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+OBI:0002492 a owl:Class ;
+    rdfs:label "CASE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CaseOrControlEnum .
+
+OBI:0002493 a owl:Class ;
+    rdfs:label "CONTROL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CaseOrControlEnum .
+
+OBI:0200002 a owl:Class ;
+    rdfs:label "LOGISTIC_REGRESSION" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+OBI:0200032 a owl:Class ;
+    rdfs:label "K_FOLD" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CrossValidationMethodEnum .
+
+OBI:0200033 a owl:Class ;
+    rdfs:label "LEAVE_ONE_OUT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CrossValidationMethodEnum .
+
+OBI:0200041 a owl:Class ;
+    rdfs:label "K_MEANS" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+OBI:0200103 a owl:Class ;
+    rdfs:label "LINEAR_REGRESSION" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+UBERON:0000948 a owl:Class ;
+    rdfs:label "HEART" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+UBERON:0000955 a owl:Class ;
+    rdfs:label "BRAIN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+UBERON:0001134 a owl:Class ;
+    rdfs:label "MUSCLE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+UBERON:0001969 a owl:Class ;
+    rdfs:label "PLASMA" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+UBERON:0002048 a owl:Class ;
+    rdfs:label "LUNG" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+UBERON:0002107 a owl:Class ;
+    rdfs:label "LIVER" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+UBERON:0002113 a owl:Class ;
+    rdfs:label "KIDNEY" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+EFO:0000534 a owl:Class ;
+    rdfs:label "HYDROSTATIC_PRESSURE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MechanicalStimulationTypeEnum .
+
+EFO:0022075 a owl:Class ;
+    rdfs:label "SHEAR_STRESS" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MechanicalStimulationTypeEnum .
+
+namo:AnimalModel a owl:Class ;
+    rdfs:label "AnimalModel" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:species ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:age ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:strain ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:age ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:environment ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:species ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:environment ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:environment ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:strain ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty namo:species ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:strain ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:age ],
+        namo:ModelSystem ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#CELLULAR> a owl:Class ;
+    rdfs:label "CELLULAR" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:BiologicalOrganizationLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#CELLULAR_NEIGHBORHOOD> a owl:Class ;
+    rdfs:label "CELLULAR_NEIGHBORHOOD" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:BiologicalOrganizationLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#ORGAN> a owl:Class ;
+    rdfs:label "ORGAN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:BiologicalOrganizationLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#SUBCELLULAR> a owl:Class ;
+    rdfs:label "SUBCELLULAR" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:BiologicalOrganizationLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#SYSTEM> a owl:Class ;
+    rdfs:label "SYSTEM" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:BiologicalOrganizationLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#TISSUE> a owl:Class ;
+    rdfs:label "TISSUE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:BiologicalOrganizationLevelEnum .
+
+namo:CaseOrControlEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( OBI:0002492 OBI:0002493 ) ;
+    linkml:permissible_values OBI:0002492,
+        OBI:0002493 .
+
+namo:CellLineModel a owl:Class ;
+    rdfs:label "CellLineModel" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:authentication_method ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:passage_range ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:authentication_method ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:passage_range ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:passage_range ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:authentication_method ],
+        namo:TwoDCellCulture ;
+    skos:definition "A model system based on immortalized cell lines that can be maintained in culture indefinitely. Examples: HepG2, A549, Caco-2, etc." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#BRANCHING> a owl:Class ;
+    rdfs:label "BRANCHING" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ChannelConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#CIRCULAR> a owl:Class ;
+    rdfs:label "CIRCULAR" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ChannelConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#PARALLEL> a owl:Class ;
+    rdfs:label "PARALLEL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ChannelConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#SERIAL> a owl:Class ;
+    rdfs:label "SERIAL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ChannelConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#SERPENTINE> a owl:Class ;
+    rdfs:label "SERPENTINE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ChannelConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#T_SHAPED> a owl:Class ;
+    rdfs:label "T_SHAPED" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ChannelConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#Y_SHAPED> a owl:Class ;
+    rdfs:label "Y_SHAPED" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ChannelConfigurationEnum .
+
+namo:CoCulture a owl:Class ;
+    rdfs:label "CoCulture" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_ratios ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:coculture_configuration ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:interaction_mechanisms ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:coculture_configuration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:CocultureConfigurationEnum ;
+            owl:onProperty namo:coculture_configuration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:interaction_mechanisms ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:CellRatio ;
+            owl:onProperty namo:cell_ratios ],
+        namo:CellularSystem ;
+    skos:definition "Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#CONDITIONED_MEDIA> a owl:Class ;
+    rdfs:label "CONDITIONED_MEDIA" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CocultureConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#DIRECT_CONTACT> a owl:Class ;
+    rdfs:label "DIRECT_CONTACT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CocultureConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#GRADIENT> a owl:Class ;
+    rdfs:label "GRADIENT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CocultureConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#MICROPATTERN> a owl:Class ;
+    rdfs:label "MICROPATTERN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CocultureConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#TRANSWELL> a owl:Class ;
+    rdfs:label "TRANSWELL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CocultureConfigurationEnum .
+
+<https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#HIGH> a owl:Class ;
+    rdfs:label "HIGH" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ComplexityLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#LOW> a owl:Class ;
+    rdfs:label "LOW" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ComplexityLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#MODERATE> a owl:Class ;
+    rdfs:label "MODERATE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ComplexityLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#MONTE_CARLO> a owl:Class ;
+    rdfs:label "MONTE_CARLO" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CrossValidationMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#STRATIFIED_K_FOLD> a owl:Class ;
+    rdfs:label "STRATIFIED_K_FOLD" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CrossValidationMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#TIME_SERIES_SPLIT> a owl:Class ;
+    rdfs:label "TIME_SERIES_SPLIT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:CrossValidationMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#COC> a owl:Class ;
+    rdfs:label "COC" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#GLASS> a owl:Class ;
+    rdfs:label "GLASS" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#HYDROGEL> a owl:Class ;
+    rdfs:label "HYDROGEL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PDMS> a owl:Class ;
+    rdfs:label "PDMS" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PLASTIC> a owl:Class ;
+    rdfs:label "PLASTIC" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PMMA> a owl:Class ;
+    rdfs:label "PMMA" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#POLYCARBONATE> a owl:Class ;
+    rdfs:label "POLYCARBONATE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#POLYSTYRENE> a owl:Class ;
+    rdfs:label "POLYSTYRENE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+<https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#SILICON> a owl:Class ;
+    rdfs:label "SILICON" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DeviceMaterialEnum .
+
+namo:DigitalTwin a owl:Class ;
+    rdfs:label "DigitalTwin" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:real_time_data_sources ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:twin_scope ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:update_frequency ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:twin_scope ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:update_frequency ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:DigitalTwinScopeEnum ;
+            owl:onProperty namo:twin_scope ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:update_frequency ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:personalization_parameters ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:personalization_parameters ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:real_time_data_sources ],
+        namo:InSilicoModel ;
+    skos:definition "Computational replicas of biological systems for real-time prediction and personalized modeling." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#DISEASE> a owl:Class ;
+    rdfs:label "DISEASE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DigitalTwinScopeEnum .
+
+<https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#ORGAN> a owl:Class ;
+    rdfs:label "ORGAN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DigitalTwinScopeEnum .
+
+<https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#PATHWAY> a owl:Class ;
+    rdfs:label "PATHWAY" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DigitalTwinScopeEnum .
+
+<https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#PATIENT> a owl:Class ;
+    rdfs:label "PATIENT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:DigitalTwinScopeEnum .
+
+<https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#CLINICAL> a owl:Class ;
+    rdfs:label "CLINICAL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#GENOMIC> a owl:Class ;
+    rdfs:label "GENOMIC" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#MOLECULAR> a owl:Class ;
+    rdfs:label "MOLECULAR" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#PHENOTYPIC> a owl:Class ;
+    rdfs:label "PHENOTYPIC" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#TEMPORAL> a owl:Class ;
+    rdfs:label "TEMPORAL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FeatureTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#CAPILLARY_ACTION> a owl:Class ;
+    rdfs:label "CAPILLARY_ACTION" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FlowControlMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#ELECTROOSMOTIC> a owl:Class ;
+    rdfs:label "ELECTROOSMOTIC" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FlowControlMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#GRAVITY_DRIVEN> a owl:Class ;
+    rdfs:label "GRAVITY_DRIVEN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FlowControlMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#MICROVALVES> a owl:Class ;
+    rdfs:label "MICROVALVES" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FlowControlMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PERISTALTIC_PUMP> a owl:Class ;
+    rdfs:label "PERISTALTIC_PUMP" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FlowControlMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PNEUMATIC_VALVES> a owl:Class ;
+    rdfs:label "PNEUMATIC_VALVES" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FlowControlMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PRESSURE_DRIVEN> a owl:Class ;
+    rdfs:label "PRESSURE_DRIVEN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FlowControlMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#SYRINGE_PUMP> a owl:Class ;
+    rdfs:label "SYRINGE_PUMP" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:FlowControlMethodEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#ELECTROCHEMICAL> a owl:Class ;
+    rdfs:label "ELECTROCHEMICAL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#FLOW_RATE> a owl:Class ;
+    rdfs:label "FLOW_RATE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#IMPEDANCE> a owl:Class ;
+    rdfs:label "IMPEDANCE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OPTICAL> a owl:Class ;
+    rdfs:label "OPTICAL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OXYGEN> a owl:Class ;
+    rdfs:label "OXYGEN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PH> a owl:Class ;
+    rdfs:label "PH" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PRESSURE> a owl:Class ;
+    rdfs:label "PRESSURE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEER> a owl:Class ;
+    rdfs:label "TEER" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEMPERATURE> a owl:Class ;
+    rdfs:label "TEMPERATURE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:IntegratedSensorEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#AIR_LIQUID> a owl:Class ;
+    rdfs:label "AIR_LIQUID" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterfaceTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#CELL_CELL> a owl:Class ;
+    rdfs:label "CELL_CELL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterfaceTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#LIQUID_LIQUID> a owl:Class ;
+    rdfs:label "LIQUID_LIQUID" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterfaceTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#TISSUE_TISSUE> a owl:Class ;
+    rdfs:label "TISSUE_TISSUE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterfaceTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#VASCULAR_EPITHELIAL> a owl:Class ;
+    rdfs:label "VASCULAR_EPITHELIAL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterfaceTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#BLACK_BOX> a owl:Class ;
+    rdfs:label "BLACK_BOX" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterpretabilityLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#CAUSAL> a owl:Class ;
+    rdfs:label "CAUSAL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterpretabilityLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#EXPLAINABLE> a owl:Class ;
+    rdfs:label "EXPLAINABLE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterpretabilityLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#INTERPRETABLE> a owl:Class ;
+    rdfs:label "INTERPRETABLE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:InterpretabilityLevelEnum .
+
+<https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#DEEP_LEARNING> a owl:Class ;
+    rdfs:label "DEEP_LEARNING" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+<https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#NAIVE_BAYES> a owl:Class ;
+    rdfs:label "NAIVE_BAYES" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+<https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#NEURAL_NETWORK> a owl:Class ;
+    rdfs:label "NEURAL_NETWORK" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+<https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#RANDOM_FOREST> a owl:Class ;
+    rdfs:label "RANDOM_FOREST" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+<https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#REINFORCEMENT_LEARNING> a owl:Class ;
+    rdfs:label "REINFORCEMENT_LEARNING" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MLAlgorithmEnum .
+
+namo:MLModel a owl:Class ;
+    rdfs:label "MLModel" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cross_validation ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:feature_types ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:ml_algorithm ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:InterpretabilityLevelEnum ;
+            owl:onProperty namo:model_interpretability ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:CrossValidation ;
+            owl:onProperty namo:cross_validation ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:model_interpretability ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:training_data_size ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:model_interpretability ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cross_validation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:training_data_size ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:ml_algorithm ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:training_data_size ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:FeatureTypeEnum ;
+            owl:onProperty namo:feature_types ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:MLAlgorithmEnum ;
+            owl:onProperty namo:ml_algorithm ],
+        namo:InSilicoModel ;
+    skos:definition "Machine Learning and AI-based models for prediction, mechanism inference, and hypothesis generation." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#BREATHING_MOTION> a owl:Class ;
+    rdfs:label "BREATHING_MOTION" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MechanicalStimulationTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#COMPRESSION> a owl:Class ;
+    rdfs:label "COMPRESSION" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MechanicalStimulationTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#CYCLIC_STRETCH> a owl:Class ;
+    rdfs:label "CYCLIC_STRETCH" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MechanicalStimulationTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#PERISTALTIC_MOTION> a owl:Class ;
+    rdfs:label "PERISTALTIC_MOTION" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MechanicalStimulationTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#PULSATILE_FLOW> a owl:Class ;
+    rdfs:label "PULSATILE_FLOW" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MechanicalStimulationTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#TENSION> a owl:Class ;
+    rdfs:label "TENSION" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MechanicalStimulationTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#COLLAGEN> a owl:Class ;
+    rdfs:label "COLLAGEN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MembraneTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#ECM_COATED> a owl:Class ;
+    rdfs:label "ECM_COATED" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MembraneTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#ELECTROSPUN> a owl:Class ;
+    rdfs:label "ELECTROSPUN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MembraneTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#HYDROGEL> a owl:Class ;
+    rdfs:label "HYDROGEL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MembraneTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#PDMS> a owl:Class ;
+    rdfs:label "PDMS" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MembraneTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#POROUS_POLYMER> a owl:Class ;
+    rdfs:label "POROUS_POLYMER" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MembraneTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#TRACK_ETCHED> a owl:Class ;
+    rdfs:label "TRACK_ETCHED" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MembraneTypeEnum .
+
+namo:MetabolicModel a owl:Class ;
+    rdfs:label "MetabolicModel" ;
+    rdfs:subClassOf namo:InSilicoModel ;
+    skos:definition "A model that simulates the metabolic processes of an organism or system. Examples: Virtual Physiological Human, ..." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#LAYERED> a owl:Class ;
+    rdfs:label "LAYERED" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MicrofluidicArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#MULTI_CHANNEL> a owl:Class ;
+    rdfs:label "MULTI_CHANNEL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MicrofluidicArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#NETWORK> a owl:Class ;
+    rdfs:label "NETWORK" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MicrofluidicArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#RADIAL> a owl:Class ;
+    rdfs:label "RADIAL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MicrofluidicArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#SINGLE_CHANNEL> a owl:Class ;
+    rdfs:label "SINGLE_CHANNEL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MicrofluidicArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#TWO_CHANNEL> a owl:Class ;
+    rdfs:label "TWO_CHANNEL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:MicrofluidicArchitectureEnum .
+
+namo:OrganOnChip a owl:Class ;
+    rdfs:label "OrganOnChip" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:cell_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:organ_modeled ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cell_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_types ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:cell_types ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:organ_modeled ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:organ_modeled ],
+        namo:MicrophysiologicalSystem ;
+    skos:definition "A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ..." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:Organoid a owl:Class ;
+    rdfs:label "Organoid" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:differentiation_method ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:organ_modeled ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:culture_system ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:differentiation_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:organ_modeled ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:organ_modeled ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:culture_system ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:differentiation_method ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:culture_system ],
+        namo:ThreeDCellCulture ;
+    skos:definition "A 3D cell culture system that self-organizes to recapitulate key structural and functional aspects of an organ or tissue" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#BLOOD> a owl:Class ;
+    rdfs:label "BLOOD" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+<https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#BONE> a owl:Class ;
+    rdfs:label "BONE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+<https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#FAT> a owl:Class ;
+    rdfs:label "FAT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+<https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#GI_TRACT> a owl:Class ;
+    rdfs:label "GI_TRACT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+<https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#SKIN> a owl:Class ;
+    rdfs:label "SKIN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PBPKCompartmentEnum .
+
+namo:PBPKModel a owl:Class ;
+    rdfs:label "PBPKModel" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:species_modeled ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:elimination_pathways ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:elimination_pathways ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:PBPKCompartment ;
+            owl:onProperty namo:compartments ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:compartments ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:drug_properties ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:drug_properties ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:DrugProperties ;
+            owl:onProperty namo:drug_properties ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:species_modeled ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:species_modeled ],
+        namo:InSilicoModel ;
+    skos:definition "Physiologically Based Pharmacokinetic models that simulate drug  absorption, distribution, metabolism, and excretion." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#FN> a owl:Class ;
+    rdfs:label "FN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PredictionOutcomeEnum .
+
+<https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#FP> a owl:Class ;
+    rdfs:label "FP" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PredictionOutcomeEnum .
+
+<https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#TN> a owl:Class ;
+    rdfs:label "TN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PredictionOutcomeEnum .
+
+<https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#TP> a owl:Class ;
+    rdfs:label "TP" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PredictionOutcomeEnum .
+
+<https://w3id.org/monarch-initiative/namo/PresenceEnum#ABOVE_DETECTION_LIMIT> a owl:Class ;
+    rdfs:label "ABOVE_DETECTION_LIMIT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PresenceEnum .
+
+<https://w3id.org/monarch-initiative/namo/PresenceEnum#ABSENT> a owl:Class ;
+    rdfs:label "ABSENT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PresenceEnum .
+
+<https://w3id.org/monarch-initiative/namo/PresenceEnum#BELOW_DETECTION_LIMIT> a owl:Class ;
+    rdfs:label "BELOW_DETECTION_LIMIT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PresenceEnum .
+
+<https://w3id.org/monarch-initiative/namo/PresenceEnum#PRESENT> a owl:Class ;
+    rdfs:label "PRESENT" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:PresenceEnum .
+
+namo:QSARModel a owl:Class ;
+    rdfs:label "QSARModel" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:training_dataset_size ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:molecular_descriptors ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:activity_endpoint ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:molecular_descriptors ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:activity_endpoint ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:activity_endpoint ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:model_performance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:training_dataset_size ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:model_performance ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:training_dataset_size ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:ModelPerformance ;
+            owl:onProperty namo:model_performance ],
+        namo:InSilicoModel ;
+    skos:definition "Quantitative Structure-Activity Relationship models that predict  chemical/biological activity from molecular structure." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo/RatioTypeEnum#ABSOLUTE> a owl:Class ;
+    rdfs:label "ABSOLUTE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:RatioTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/RatioTypeEnum#FOLD> a owl:Class ;
+    rdfs:label "FOLD" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:RatioTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/RatioTypeEnum#PERCENTAGE> a owl:Class ;
+    rdfs:label "PERCENTAGE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:RatioTypeEnum .
+
+<https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#AFTER> a owl:Class ;
+    rdfs:label "AFTER" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:RelativeTimeEnum .
+
+<https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#AT_SAME_TIME_AS> a owl:Class ;
+    rdfs:label "AT_SAME_TIME_AS" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:RelativeTimeEnum .
+
+<https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#BEFORE> a owl:Class ;
+    rdfs:label "BEFORE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:RelativeTimeEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#ANTI_FOULING> a owl:Class ;
+    rdfs:label "ANTI_FOULING" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#COLLAGEN> a owl:Class ;
+    rdfs:label "COLLAGEN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#FIBRONECTIN> a owl:Class ;
+    rdfs:label "FIBRONECTIN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#GELATIN> a owl:Class ;
+    rdfs:label "GELATIN" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#LAMININ> a owl:Class ;
+    rdfs:label "LAMININ" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#MATRIGEL> a owl:Class ;
+    rdfs:label "MATRIGEL" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#OXYGEN_PLASMA> a owl:Class ;
+    rdfs:label "OXYGEN_PLASMA" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#POLY_L_LYSINE> a owl:Class ;
+    rdfs:label "POLY_L_LYSINE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#RGD_PEPTIDE> a owl:Class ;
+    rdfs:label "RGD_PEPTIDE" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:SurfaceCoatingEnum .
+
+<https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#BIOPRINTED> a owl:Class ;
+    rdfs:label "BIOPRINTED" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ThreeDArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#HANGING_DROP> a owl:Class ;
+    rdfs:label "HANGING_DROP" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ThreeDArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#HYDROGEL_EMBEDDED> a owl:Class ;
+    rdfs:label "HYDROGEL_EMBEDDED" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ThreeDArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#ORGANOID> a owl:Class ;
+    rdfs:label "ORGANOID" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ThreeDArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#SCAFFOLD_BASED> a owl:Class ;
+    rdfs:label "SCAFFOLD_BASED" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ThreeDArchitectureEnum .
+
+<https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#SPHEROID> a owl:Class ;
+    rdfs:label "SPHEROID" ;
+    rdfs:subClassOf linkml:PermissibleValue,
+        namo:ThreeDArchitectureEnum .
+
+namo:TissueOnChip a owl:Class ;
+    rdfs:label "TissueOnChip" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:tissue_modeled ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:barrier_functions ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:tissue_architecture ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:tissue_architecture ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:barrier_functions ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:tissue_modeled ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:tissue_modeled ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:tissue_architecture ],
+        namo:MicrophysiologicalSystem ;
+    skos:definition "Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:active_pathways a owl:ObjectProperty ;
+    rdfs:label "active_pathways" ;
+    skos:definition "List of biological pathways that are active in both systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:authors a owl:DatatypeProperty ;
+    rdfs:label "authors" ;
+    skos:definition "Authors of the publication" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:barrier_functions a owl:DatatypeProperty ;
+    rdfs:label "barrier_functions" ;
+    skos:definition "Tissue barrier functions modeled (epithelial, endothelial, etc.)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:biological_specific_phenotypes a owl:ObjectProperty ;
+    rdfs:label "biological_specific_phenotypes" ;
+    skos:definition "List of phenotypes present only in the biological system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:cell_ratios a owl:ObjectProperty ;
+    rdfs:label "cell_ratios" ;
+    skos:definition "Ratios of different cell types in the co-culture" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:cell_type_proportions a owl:ObjectProperty ;
+    rdfs:label "cell_type_proportions" ;
+    skos:definition "Quantitative comparison of cell type proportions." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:channel_configuration a owl:ObjectProperty ;
+    rdfs:label "channel_configuration" ;
+    skos:definition "Configuration of channels (e.g., parallel, serial, branching)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:channel_dimensions a owl:ObjectProperty ;
+    rdfs:label "channel_dimensions" ;
+    skos:definition "Dimensions of the channels in the device" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:compartments a owl:ObjectProperty ;
+    rdfs:label "compartments" ;
+    skos:definition "Physiological compartments included in the model" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:conserved_functions a owl:DatatypeProperty ;
+    rdfs:label "conserved_functions" ;
+    skos:definition "List of biological functions conserved between model and biological system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:conserved_genes a owl:ObjectProperty ;
+    rdfs:label "conserved_genes" ;
+    skos:definition "List of genes with conserved expression patterns between model and target." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:differentially_expressed_genes a owl:ObjectProperty ;
+    rdfs:label "differentially_expressed_genes" ;
+    skos:definition "List of genes that are differentially expressed in the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:divergent_pathways a owl:ObjectProperty ;
+    rdfs:label "divergent_pathways" ;
+    skos:definition "List of pathways that show different activity patterns." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:elimination_pathways a owl:DatatypeProperty ;
+    rdfs:label "elimination_pathways" ;
+    skos:definition "Drug elimination and metabolism pathways included" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:enrichment_statistics a owl:ObjectProperty ;
+    rdfs:label "enrichment_statistics" ;
+    skos:definition "Statistical measures of pathway enrichment." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:feature_types a owl:ObjectProperty ;
+    rdfs:label "feature_types" ;
+    skos:definition "Types of features used (molecular, phenotypic, imaging, etc.)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:flow_control_method a owl:ObjectProperty ;
+    rdfs:label "flow_control_method" ;
+    skos:definition "Methods used to control fluid flow in the device" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:functional_assays a owl:ObjectProperty ;
+    rdfs:label "functional_assays" ;
+    skos:definition "List of functional assays used to assess parity." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:impaired_functions a owl:DatatypeProperty ;
+    rdfs:label "impaired_functions" ;
+    skos:definition "List of functions that are impaired or absent in the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:interaction_mechanisms a owl:DatatypeProperty ;
+    rdfs:label "interaction_mechanisms" ;
+    skos:definition "Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:interface_type a owl:ObjectProperty ;
+    rdfs:label "interface_type" ;
+    skos:definition "Type of interface(s) present in the device" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:material a owl:ObjectProperty ;
+    rdfs:label "material" ;
+    skos:definition "Materials used to construct the device" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:missing_cell_types a owl:ObjectProperty ;
+    rdfs:label "missing_cell_types" ;
+    skos:definition "List of cell types present in biological system but missing in model." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:model_specific_phenotypes a owl:ObjectProperty ;
+    rdfs:label "model_specific_phenotypes" ;
+    skos:definition "List of phenotypes present only in the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:model_systems a owl:ObjectProperty ;
+    rdfs:label "model_systems" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:models a owl:ObjectProperty ;
+    rdfs:label "models" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:molecular_descriptors a owl:DatatypeProperty ;
+    rdfs:label "molecular_descriptors" ;
+    skos:definition "Types of molecular descriptors used (topological, electronic, etc.)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:personalization_parameters a owl:DatatypeProperty ;
+    rdfs:label "personalization_parameters" ;
+    skos:definition "Parameters used for personalization (genetic, phenotypic, etc.)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:quality_control_metrics a owl:ObjectProperty ;
+    rdfs:label "quality_control_metrics" ;
+    skos:definition "List of quality control measures and their values." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:real_time_data_sources a owl:DatatypeProperty ;
+    rdfs:label "real_time_data_sources" ;
+    skos:definition "Sources of real-time data for model updating" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:references a owl:ObjectProperty ;
+    rdfs:label "references" ;
+    skos:definition "Literature references that describe, validate, or support this model" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:represented_cell_types a owl:ObjectProperty ;
+    rdfs:label "represented_cell_types" ;
+    skos:definition "List of cell types present in both model and biological system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:sensor_integration a owl:ObjectProperty ;
+    rdfs:label "sensor_integration" ;
+    skos:definition "Sensors integrated for real-time monitoring" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:sensors_integrated a owl:ObjectProperty ;
+    rdfs:label "sensors_integrated" ;
+    skos:definition "Sensors integrated into the device for monitoring" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:shared_phenotypes a owl:ObjectProperty ;
+    rdfs:label "shared_phenotypes" ;
+    skos:definition "List of phenotypes present in both model and biological system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:special_features a owl:DatatypeProperty ;
+    rdfs:label "special_features" ;
+    skos:definition "Additional special features of the device (e.g., valves, mixers, gradient generators)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:stimulation_type a owl:ObjectProperty ;
+    rdfs:label "stimulation_type" ;
+    skos:definition "Type of mechanical stimulation applied" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:studies a owl:ObjectProperty ;
+    rdfs:label "studies" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:surface_treatment a owl:ObjectProperty ;
+    rdfs:label "surface_treatment" ;
+    skos:definition "Surface treatments or coatings applied to the device" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:validation_datasets a owl:DatatypeProperty ;
+    rdfs:label "validation_datasets" ;
+    skos:definition "Datasets used for model training and validation" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:BiologicalSystem a owl:Class ;
+    rdfs:label "BiologicalSystem" ;
+    rdfs:subClassOf namo:NamedThing ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:CellTypeCoverage a owl:Class ;
+    rdfs:label "CellTypeCoverage" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:coverage_percentage ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:represented_cell_types ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:coverage_percentage ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:coverage_percentage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:CellTypeProportion ;
+            owl:onProperty namo:cell_type_proportions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:single_cell_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_type_proportions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:missing_cell_types ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:single_cell_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:single_cell_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:missing_cell_types ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:represented_cell_types ],
+        namo:NamedThing ;
+    skos:definition "Assessment of cell type representation and cellular diversity between systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:FunctionalAssay a owl:Class ;
+    rdfs:label "FunctionalAssay" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:reference_value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:methodology ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:assay_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:reference_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:reference_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:assay_result ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:units ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:assay_result ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:units ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:methodology ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:assay_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:units ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:assay_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:methodology ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:assay_result ],
+        namo:NamedThing ;
+    skos:definition "A functional assay used to assess biological capabilities." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:FunctionalParity a owl:Class ;
+    rdfs:label "FunctionalParity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:functional_similarity_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:dose_response_similarity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:FunctionalAssay ;
+            owl:onProperty namo:functional_assays ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:dose_response_similarity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:functional_similarity_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:functional_assays ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:impaired_functions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:conserved_functions ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:functional_similarity_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:DoseResponseSimilarity ;
+            owl:onProperty namo:dose_response_similarity ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:conserved_functions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:impaired_functions ],
+        namo:NamedThing ;
+    skos:definition "Evaluation of functional capabilities and physiological responses between systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:MechanicalStimulation a owl:Class ;
+    rdfs:label "MechanicalStimulation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:pressure_pascal ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:frequency_hz ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:cyclic_stretch_percent ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:duration_minutes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:stimulation_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:duration_minutes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:frequency_hz ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pressure_pascal ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:shear_stress ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:shear_stress ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cyclic_stretch_percent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:shear_stress ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:MechanicalStimulationTypeEnum ;
+            owl:onProperty namo:stimulation_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:frequency_hz ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pressure_pascal ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:duration_minutes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cyclic_stretch_percent ],
+        namo:NamedThing ;
+    skos:definition "Specification of mechanical forces applied to the model system" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:MicrofluidicDesign a owl:Class ;
+    rdfs:label "MicrofluidicDesign" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:membrane_pore_size ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:ChannelConfigurationEnum ;
+            owl:onProperty namo:channel_configuration ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:membrane_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:special_features ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:membrane_pore_size ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:MembraneTypeEnum ;
+            owl:onProperty namo:membrane_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:membrane_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:interface_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:number_of_channels ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:flow_control_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:channel_configuration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:FlowControlMethodEnum ;
+            owl:onProperty namo:flow_control_method ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:DeviceMaterialEnum ;
+            owl:onProperty namo:material ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:IntegratedSensorEnum ;
+            owl:onProperty namo:sensors_integrated ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:membrane_thickness ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:SurfaceCoatingEnum ;
+            owl:onProperty namo:surface_treatment ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:sensors_integrated ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:architecture_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:membrane_thickness ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:membrane_thickness ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:membrane_pore_size ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:material ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:architecture_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:InterfaceTypeEnum ;
+            owl:onProperty namo:interface_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:number_of_channels ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:MicrofluidicArchitectureEnum ;
+            owl:onProperty namo:architecture_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:channel_dimensions ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:surface_treatment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:number_of_channels ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:special_features ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:ChannelDimensions ;
+            owl:onProperty namo:channel_dimensions ],
+        namo:NamedThing ;
+    skos:definition "Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:MolecularSimilarity a owl:Class ;
+    rdfs:label "MolecularSimilarity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:statistical_significance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Gene ;
+            owl:onProperty namo:conserved_genes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:similarity_score ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:similarity_score ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:data_source ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:statistical_significance ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:methodology ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:correlation_coefficient ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:correlation_coefficient ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:StatisticalSignificance ;
+            owl:onProperty namo:statistical_significance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Gene ;
+            owl:onProperty namo:differentially_expressed_genes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:methodology ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:similarity_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:differentially_expressed_genes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:methodology ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:data_source ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:correlation_coefficient ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:data_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:conserved_genes ],
+        namo:NamedThing ;
+    skos:definition "Detailed assessment of molecular-level concordance between model and biological systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:PBPKCompartment a owl:Class ;
+    rdfs:label "PBPKCompartment" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:compartment_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:partition_coefficient ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:blood_flow ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:volume ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:compartment_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:volume ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:volume ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:partition_coefficient ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:partition_coefficient ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:PBPKCompartmentEnum ;
+            owl:onProperty namo:compartment_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:blood_flow ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:blood_flow ],
+        namo:NamedThing ;
+    skos:definition "A physiological compartment in a PBPK model." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:PathwayConcordance a owl:Class ;
+    rdfs:label "PathwayConcordance" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pathway_analysis_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:active_pathways ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:EnrichmentStatistics ;
+            owl:onProperty namo:enrichment_statistics ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pathway_overlap_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pathway_overlap_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Pathway ;
+            owl:onProperty namo:active_pathways ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:pathway_analysis_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pathway_analysis_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:enrichment_statistics ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:divergent_pathways ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:pathway_overlap_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Pathway ;
+            owl:onProperty namo:divergent_pathways ],
+        namo:NamedThing ;
+    skos:definition "Assessment of biological pathway conservation and activity between model and biological systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:PhenotypeOverlap a owl:Class ;
+    rdfs:label "PhenotypeOverlap" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:phenotype_similarity_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:model_specific_phenotypes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:shared_phenotypes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:phenotype_ontology ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:biological_specific_phenotypes ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:phenotype_ontology ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:shared_phenotypes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:model_specific_phenotypes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:biological_specific_phenotypes ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:phenotype_similarity_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:phenotype_ontology ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:phenotype_similarity_score ],
+        namo:NamedThing ;
+    skos:definition "Comparison of phenotypic manifestations between model and biological systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:RelativeTimeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#BEFORE> <https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#AFTER> <https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#AT_SAME_TIME_AS> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#AFTER>,
+        <https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#AT_SAME_TIME_AS>,
+        <https://w3id.org/monarch-initiative/namo/RelativeTimeEnum#BEFORE> .
+
+namo:Reproducibility a owl:Class ;
+    rdfs:label "Reproducibility" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:replicate_count ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:QualityControlMetric ;
+            owl:onProperty namo:quality_control_metrics ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:inter_laboratory_consistency ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:reproducibility_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:inter_laboratory_consistency ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:coefficient_of_variation ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:batch_to_batch_variation ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:reproducibility_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:coefficient_of_variation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:batch_to_batch_variation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:batch_to_batch_variation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:replicate_count ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:reproducibility_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:replicate_count ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:quality_control_metrics ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:coefficient_of_variation ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:inter_laboratory_consistency ],
+        namo:NamedThing ;
+    skos:definition "Assessment of experimental reproducibility and consistency of the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:Study a owl:Class ;
+    rdfs:label "Study" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:context_of_use ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:biological_context ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:perturbations ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:perturbations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:endpoints ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:biological_context ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:context_of_use ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:biological_context ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:plan_comparators ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:endpoints ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:context_of_use ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:plan_comparators ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:perturbations ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:endpoints ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:plan_comparators ],
+        namo:NamedThing ;
+    skos:definition "A study is a structured investigation or analysis, often involving the collection and interpretation of data, to answer specific research questions or test hypotheses." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ThreeDCellCulture a owl:Class ;
+    rdfs:label "ThreeDCellCulture" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:three_d_architecture ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:size_range ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:three_d_architecture ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:size_range ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:matrix_composition ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:size_range ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:matrix_composition ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:matrix_composition ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:ThreeDArchitectureEnum ;
+            owl:onProperty namo:three_d_architecture ],
+        namo:CellularSystem ;
+    skos:definition "Three-dimensional cell culture systems including spheroids and organoids. More physiologically relevant with 3D architecture." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:TwoDCellCulture a owl:Class ;
+    rdfs:label "TwoDCellCulture" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:confluence_level ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:confluence_level ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:passage_protocol ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:substrate_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:substrate_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:passage_protocol ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:substrate_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:confluence_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:passage_protocol ],
+        namo:CellularSystem ;
+    skos:definition "Conventional monolayer cell cultures grown on flat surfaces. Simple but limited in physiological relevance." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:accuracy a owl:DatatypeProperty ;
+    rdfs:label "accuracy" ;
+    skos:definition "Overall accuracy of the model (0.0-1.0)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:activity_endpoint a owl:DatatypeProperty ;
+    rdfs:label "activity_endpoint" ;
+    skos:definition "Biological activity or property being predicted" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:activity_score a owl:DatatypeProperty ;
+    rdfs:label "activity_score" ;
+    skos:definition "Quantitative measure of pathway activity." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:age a owl:ObjectProperty ;
+    rdfs:label "age" ;
+    skos:definition "The age of the animal used in the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:architecture_type a owl:ObjectProperty ;
+    rdfs:label "architecture_type" ;
+    skos:definition "The overall architecture type of the microfluidic device" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:assay_result a owl:DatatypeProperty ;
+    rdfs:label "assay_result" ;
+    skos:definition "Quantitative result of the assay." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:assay_type a owl:DatatypeProperty ;
+    rdfs:label "assay_type" ;
+    skos:definition "Type of functional assay (e.g., TEER, permeability, metabolic activity)." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:auc a owl:DatatypeProperty ;
+    rdfs:label "auc" ;
+    skos:definition "Area under the ROC curve" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:authentication_method a owl:DatatypeProperty ;
+    rdfs:label "authentication_method" ;
+    skos:definition "Method used for cell line authentication (e.g., STR profiling, mycoplasma testing)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:batch_to_batch_variation a owl:DatatypeProperty ;
+    rdfs:label "batch_to_batch_variation" ;
+    skos:definition "Measure of variation between different experimental batches." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:biological_context a owl:DatatypeProperty ;
+    rdfs:label "biological_context" ;
+    skos:definition "tissue/region (anatomy), cell types, sex/age equivalents, mechanics (e.g., cyclic stretch), microenvironment" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:biological_organization_level a owl:ObjectProperty ;
+    rdfs:label "biological_organization_level" ;
+    skos:definition "The level of biological organization represented by the model" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:biological_proportion a owl:DatatypeProperty ;
+    rdfs:label "biological_proportion" ;
+    skos:definition "Proportion of this cell type in the biological system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:biological_system_modeled a owl:ObjectProperty ;
+    rdfs:label "biological_system_modeled" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:blood_flow a owl:DatatypeProperty ;
+    rdfs:label "blood_flow" ;
+    skos:definition "Blood flow to the compartment (L/h)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:channel_name a owl:DatatypeProperty ;
+    rdfs:label "channel_name" ;
+    skos:definition "Name or identifier of the channel (e.g., apical, basolateral, vascular)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:clearance a owl:DatatypeProperty ;
+    rdfs:label "clearance" ;
+    skos:definition "Total body clearance (L/h)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:coculture_configuration a owl:ObjectProperty ;
+    rdfs:label "coculture_configuration" ;
+    skos:definition "Configuration of co-culture (direct contact, transwell, conditioned media)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:coefficient_of_variation a owl:DatatypeProperty ;
+    rdfs:label "coefficient_of_variation" ;
+    skos:definition "Coefficient of variation across experimental replicates." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:compartment_type a owl:ObjectProperty ;
+    rdfs:label "compartment_type" ;
+    skos:definition "Type of physiological compartment" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:complexity_level a owl:ObjectProperty ;
+    rdfs:label "complexity_level" ;
+    skos:definition "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:compound_tested a owl:DatatypeProperty ;
+    rdfs:label "compound_tested" ;
+    skos:definition "Name of compound used in dose-response testing." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:computational_method a owl:DatatypeProperty ;
+    rdfs:label "computational_method" ;
+    skos:definition "Primary computational method or algorithm used" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:concordance a owl:ObjectProperty ;
+    rdfs:label "concordance" ;
+    skos:definition "Metrics used to assess the concordance between the model system and the biological system, such as sensitivity, specificity, and accuracy." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:confidence_interval_lower a owl:DatatypeProperty ;
+    rdfs:label "confidence_interval_lower" ;
+    skos:definition "Lower bound of confidence interval." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:confidence_interval_upper a owl:DatatypeProperty ;
+    rdfs:label "confidence_interval_upper" ;
+    skos:definition "Upper bound of confidence interval." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:confluence_level a owl:DatatypeProperty ;
+    rdfs:label "confluence_level" ;
+    skos:definition "Typical confluence level maintained (0.0-1.0)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:context_of_use a owl:DatatypeProperty ;
+    rdfs:label "context_of_use" ;
+    skos:definition "What decision will this inform? Care? Policy? Drug approval?" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:coverage_percentage a owl:DatatypeProperty ;
+    rdfs:label "coverage_percentage" ;
+    skos:definition "Percentage of target cell types represented in the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:cross_validation a owl:ObjectProperty ;
+    rdfs:label "cross_validation" ;
+    skos:definition "Cross-validation strategy and results" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:culture_conditions a owl:DatatypeProperty ;
+    rdfs:label "culture_conditions" ;
+    skos:definition "Standard culture conditions and media used" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:culture_system a owl:DatatypeProperty ;
+    rdfs:label "culture_system" ;
+    skos:definition "Culture system used (e.g., Matrigel dome, suspension culture, air-liquid interface)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:cv_method a owl:ObjectProperty ;
+    rdfs:label "cv_method" ;
+    skos:definition "Type of cross-validation used" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:cv_score a owl:DatatypeProperty ;
+    rdfs:label "cv_score" ;
+    skos:definition "Average cross-validation score" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:cv_std a owl:DatatypeProperty ;
+    rdfs:label "cv_std" ;
+    skos:definition "Standard deviation of cross-validation scores" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:cyclic_stretch_percent a owl:DatatypeProperty ;
+    rdfs:label "cyclic_stretch_percent" ;
+    skos:definition "Percentage of cyclic stretch applied (if applicable)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:data_source a owl:DatatypeProperty ;
+    rdfs:label "data_source" ;
+    skos:definition "Source of molecular data (e.g., RNA-seq, proteomics, metabolomics)." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:description a owl:DatatypeProperty ;
+    rdfs:label "description" ;
+    skos:definition "A human-readable description for a thing" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:differentiation_method a owl:DatatypeProperty ;
+    rdfs:label "differentiation_method" ;
+    skos:definition "Method used to differentiate cells into organoid (e.g., directed differentiation protocol)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:dose_response_similarity a owl:ObjectProperty ;
+    rdfs:label "dose_response_similarity" ;
+    skos:definition "Comparison of dose-response relationships for therapeutic compounds." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:drug_properties a owl:ObjectProperty ;
+    rdfs:label "drug_properties" ;
+    skos:definition "Physicochemical and pharmacological properties modeled" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:duration_minutes a owl:DatatypeProperty ;
+    rdfs:label "duration_minutes" ;
+    skos:definition "Duration of mechanical stimulation in minutes" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ec50_ratio a owl:DatatypeProperty ;
+    rdfs:label "ec50_ratio" ;
+    skos:definition "Ratio of EC50 values between model and biological system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:endpoints a owl:DatatypeProperty ;
+    rdfs:label "endpoints" ;
+    skos:definition "phenotypes, function (TEER/leak, beating rate), and multi-omics" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ensembl_id a owl:DatatypeProperty ;
+    rdfs:label "ensembl_id" ;
+    skos:definition "Ensembl gene identifier." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:entrez_id a owl:DatatypeProperty ;
+    rdfs:label "entrez_id" ;
+    skos:definition "NCBI Entrez gene identifier." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:environment a owl:ObjectProperty ;
+    rdfs:label "environment" ;
+    skos:definition "The environmental conditions under which the animal model is maintained." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:fold_change a owl:DatatypeProperty ;
+    rdfs:label "fold_change" ;
+    skos:definition "Fold change in expression compared to control or reference." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:frequency_hz a owl:DatatypeProperty ;
+    rdfs:label "frequency_hz" ;
+    skos:definition "Frequency of mechanical stimulation in Hertz" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:functional_similarity_score a owl:DatatypeProperty ;
+    rdfs:label "functional_similarity_score" ;
+    skos:definition "Quantitative score (0.0-1.0) representing functional similarity." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:gene_symbol a owl:DatatypeProperty ;
+    rdfs:label "gene_symbol" ;
+    skos:definition "Standard gene symbol (e.g., HGNC symbol for human genes)." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:genes_in_dataset a owl:DatatypeProperty ;
+    rdfs:label "genes_in_dataset" ;
+    skos:definition "Number of genes from dataset found in pathway." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:genes_in_pathway a owl:DatatypeProperty ;
+    rdfs:label "genes_in_pathway" ;
+    skos:definition "Number of genes in the pathway." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:height a owl:DatatypeProperty ;
+    rdfs:label "height" ;
+    skos:definition "Height of the channel in micrometers" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:inter_laboratory_consistency a owl:DatatypeProperty ;
+    rdfs:label "inter_laboratory_consistency" ;
+    skos:definition "Measure of consistency across different laboratories." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:is_computed a owl:DatatypeProperty ;
+    rdfs:label "is_computed" ;
+    skos:definition "Indicates whether the model is computed or derived from experimental data." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:journal a owl:DatatypeProperty ;
+    rdfs:label "journal" ;
+    skos:definition "Journal or publication venue" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:length a owl:DatatypeProperty ;
+    rdfs:label "length" ;
+    skos:definition "Length of the channel in millimeters" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:logp a owl:DatatypeProperty ;
+    rdfs:label "logp" ;
+    skos:definition "Lipophilicity (log P)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:matrix_composition a owl:DatatypeProperty ;
+    rdfs:label "matrix_composition" ;
+    skos:definition "Composition of extracellular matrix or scaffold material" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:max_response_ratio a owl:DatatypeProperty ;
+    rdfs:label "max_response_ratio" ;
+    skos:definition "Ratio of maximum responses between systems." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:mechanical_forces a owl:ObjectProperty ;
+    rdfs:label "mechanical_forces" ;
+    skos:definition "Mechanical forces applied to the model system" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:membrane_pore_size a owl:DatatypeProperty ;
+    rdfs:label "membrane_pore_size" ;
+    skos:definition "Pore size of the membrane in micrometers" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:membrane_thickness a owl:DatatypeProperty ;
+    rdfs:label "membrane_thickness" ;
+    skos:definition "Thickness of the membrane in micrometers" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:membrane_type a owl:ObjectProperty ;
+    rdfs:label "membrane_type" ;
+    skos:definition "Type of membrane used in the device if applicable" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:metric_name a owl:DatatypeProperty ;
+    rdfs:label "metric_name" ;
+    skos:definition "Name of the quality control metric." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:metric_value a owl:DatatypeProperty ;
+    rdfs:label "metric_value" ;
+    skos:definition "Value of the quality control metric." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:microfluidic_design a owl:ObjectProperty ;
+    rdfs:label "microfluidic_design" ;
+    skos:definition "Detailed design specifications of the microfluidic device" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ml_algorithm a owl:ObjectProperty ;
+    rdfs:label "ml_algorithm" ;
+    skos:definition "Type of machine learning algorithm used" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:model_interpretability a owl:ObjectProperty ;
+    rdfs:label "model_interpretability" ;
+    skos:definition "Level of model interpretability (black box, interpretable, explainable)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:model_performance a owl:ObjectProperty ;
+    rdfs:label "model_performance" ;
+    skos:definition "Statistical performance metrics of the model" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:model_proportion a owl:DatatypeProperty ;
+    rdfs:label "model_proportion" ;
+    skos:definition "Proportion of this cell type in the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:molecular_weight a owl:DatatypeProperty ;
+    rdfs:label "molecular_weight" ;
+    skos:definition "Molecular weight (g/mol)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:n_folds a owl:DatatypeProperty ;
+    rdfs:label "n_folds" ;
+    skos:definition "Number of folds in cross-validation" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    skos:definition "A human-readable name for a thing" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:number_of_channels a owl:DatatypeProperty ;
+    rdfs:label "number_of_channels" ;
+    skos:definition "Total number of channels in the device" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:partition_coefficient a owl:DatatypeProperty ;
+    rdfs:label "partition_coefficient" ;
+    skos:definition "Tissue-to-plasma partition coefficient" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:pass_fail_status a owl:DatatypeProperty ;
+    rdfs:label "pass_fail_status" ;
+    skos:definition "Whether this metric passes quality control criteria." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:passage_protocol a owl:DatatypeProperty ;
+    rdfs:label "passage_protocol" ;
+    skos:definition "Standard passaging protocol and frequency" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:passage_range a owl:DatatypeProperty ;
+    rdfs:label "passage_range" ;
+    skos:definition "Recommended passage number range for experimental use" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:pathway_analysis_method a owl:DatatypeProperty ;
+    rdfs:label "pathway_analysis_method" ;
+    skos:definition "Method used for pathway analysis (e.g., GSEA, Over-representation analysis)." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:pathway_database a owl:DatatypeProperty ;
+    rdfs:label "pathway_database" ;
+    skos:definition "Source database (e.g., KEGG, Reactome, GO)." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:pathway_id a owl:DatatypeProperty ;
+    rdfs:label "pathway_id" ;
+    skos:definition "Database-specific pathway identifier." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:pathway_overlap_score a owl:DatatypeProperty ;
+    rdfs:label "pathway_overlap_score" ;
+    skos:definition "Quantitative score (0.0-1.0) representing pathway overlap." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:perfusion_system a owl:DatatypeProperty ;
+    rdfs:label "perfusion_system" ;
+    skos:definition "Description of perfusion and flow systems" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:perturbations a owl:DatatypeProperty ;
+    rdfs:label "perturbations" ;
+    skos:definition "exposure/dose/time; diet/drugs/toxicants" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:phenotype_ontology a owl:DatatypeProperty ;
+    rdfs:label "phenotype_ontology" ;
+    skos:definition "Ontology used for phenotype classification (e.g., HPO, MP)." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:phenotype_similarity_score a owl:DatatypeProperty ;
+    rdfs:label "phenotype_similarity_score" ;
+    skos:definition "Quantitative score (0.0-1.0) representing phenotypic similarity." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:pka a owl:DatatypeProperty ;
+    rdfs:label "pka" ;
+    skos:definition "Acid dissociation constant" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:plan_comparators a owl:DatatypeProperty ;
+    rdfs:label "plan_comparators" ;
+    skos:definition "human data, gold-standard assays, or high-quality animal references" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:prediction_scope a owl:DatatypeProperty ;
+    rdfs:label "prediction_scope" ;
+    skos:definition "Scope and limitations of model predictions" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:pressure_pascal a owl:DatatypeProperty ;
+    rdfs:label "pressure_pascal" ;
+    skos:definition "Pressure applied in Pascals" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:proportion_ratio a owl:DatatypeProperty ;
+    rdfs:label "proportion_ratio" ;
+    skos:definition "Ratio of model to biological proportions." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:protein_binding a owl:DatatypeProperty ;
+    rdfs:label "protein_binding" ;
+    skos:definition "Fraction bound to plasma proteins (0.0-1.0)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:q_value a owl:DatatypeProperty ;
+    rdfs:label "q_value" ;
+    skos:definition "False discovery rate corrected p-value." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:r_squared a owl:DatatypeProperty ;
+    rdfs:label "r_squared" ;
+    skos:definition "R-squared value for regression models" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ratio a owl:DatatypeProperty ;
+    rdfs:label "ratio" ;
+    skos:definition "Proportion or ratio of this cell type (0.0-1.0 or absolute numbers)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ratio_type a owl:ObjectProperty ;
+    rdfs:label "ratio_type" ;
+    skos:definition "Type of ratio specification (percentage, absolute, fold)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:reference_value a owl:DatatypeProperty ;
+    rdfs:label "reference_value" ;
+    skos:definition "Reference or control value for comparison." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:replicate_count a owl:DatatypeProperty ;
+    rdfs:label "replicate_count" ;
+    skos:definition "Number of experimental replicates used in assessment." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:reproducibility_score a owl:DatatypeProperty ;
+    rdfs:label "reproducibility_score" ;
+    skos:definition "Quantitative score (0.0-1.0) representing reproducibility." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:rmse a owl:DatatypeProperty ;
+    rdfs:label "rmse" ;
+    skos:definition "Root mean square error" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:sensitivity a owl:DatatypeProperty ;
+    rdfs:label "sensitivity" ;
+    skos:definition "Sensitivity/recall of the model (0.0-1.0)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:shear_stress a owl:DatatypeProperty ;
+    rdfs:label "shear_stress" ;
+    skos:definition "Shear stress applied in dyn/cm²" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:similarity_score a owl:DatatypeProperty ;
+    rdfs:label "similarity_score" ;
+    skos:definition "Quantitative similarity score (0.0-1.0) based on molecular profiles." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:single_cell_method a owl:DatatypeProperty ;
+    rdfs:label "single_cell_method" ;
+    skos:definition "Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry)." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:size_range a owl:DatatypeProperty ;
+    rdfs:label "size_range" ;
+    skos:definition "Typical size range of 3D structures" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:software_platform a owl:DatatypeProperty ;
+    rdfs:label "software_platform" ;
+    skos:definition "Software platform or programming language used" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:spatial_context a owl:DatatypeProperty ;
+    rdfs:label "spatial_context" ;
+    skos:definition "Description of spatial organization and context captured by the model" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:species a owl:ObjectProperty ;
+    rdfs:label "species" ;
+    skos:definition "The species of the animal used in the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:species_modeled a owl:ObjectProperty ;
+    rdfs:label "species_modeled" ;
+    skos:definition "Species for which the model is designed" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:specificity a owl:DatatypeProperty ;
+    rdfs:label "specificity" ;
+    skos:definition "Specificity of the model (0.0-1.0)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:statistical_significance a owl:ObjectProperty ;
+    rdfs:label "statistical_significance" ;
+    skos:definition "Statistical measures of significance for the molecular similarity." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:statistical_test a owl:DatatypeProperty ;
+    rdfs:label "statistical_test" ;
+    skos:definition "Name of statistical test used." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:strain a owl:ObjectProperty ;
+    rdfs:label "strain" ;
+    skos:definition "The specific strain of the animal used in the model system." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:structured_concordance a owl:ObjectProperty ;
+    rdfs:label "structured_concordance" ;
+    skos:definition "Detailed structured assessment of concordance between the model system and the biological system, with rich metadata and supporting evidence." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:substrate_type a owl:DatatypeProperty ;
+    rdfs:label "substrate_type" ;
+    skos:definition "Type of culture substrate (e.g., plastic, glass, coated surfaces)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:three_d_architecture a owl:ObjectProperty ;
+    rdfs:label "three_d_architecture" ;
+    skos:definition "Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:threshold a owl:DatatypeProperty ;
+    rdfs:label "threshold" ;
+    skos:definition "Acceptable threshold for this metric." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:tissue_architecture a owl:DatatypeProperty ;
+    rdfs:label "tissue_architecture" ;
+    skos:definition "Description of tissue-level architecture and organization" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:tissue_modeled a owl:ObjectProperty ;
+    rdfs:label "tissue_modeled" ;
+    skos:definition "The specific tissue being modeled" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:title a owl:DatatypeProperty ;
+    rdfs:label "title" ;
+    skos:definition "Title of the referenced publication or dataset" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:training_data_size a owl:DatatypeProperty ;
+    rdfs:label "training_data_size" ;
+    skos:definition "Size of training dataset" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:training_dataset_size a owl:DatatypeProperty ;
+    rdfs:label "training_dataset_size" ;
+    skos:definition "Number of compounds in training dataset" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:twin_scope a owl:ObjectProperty ;
+    rdfs:label "twin_scope" ;
+    skos:definition "Scope of digital twin (organ, patient, population)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:units a owl:DatatypeProperty ;
+    rdfs:label "units" ;
+    skos:definition "Units of measurement for the assay result." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:update_frequency a owl:DatatypeProperty ;
+    rdfs:label "update_frequency" ;
+    skos:definition "Frequency of model updates based on new data" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:url a owl:DatatypeProperty ;
+    rdfs:label "url" ;
+    skos:definition "URL to access the publication" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:volume a owl:DatatypeProperty ;
+    rdfs:label "volume" ;
+    skos:definition "Volume of the compartment (L)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:width a owl:DatatypeProperty ;
+    rdfs:label "width" ;
+    skos:definition "Width of the channel in micrometers" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:year a owl:DatatypeProperty ;
+    rdfs:label "year" ;
+    skos:definition "Publication year" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:ComplexityLevelEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#LOW> <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#MODERATE> <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#HIGH> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#HIGH>,
+        <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#LOW>,
+        <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#MODERATE> .
+
+namo:Gene a owl:Class ;
+    rdfs:label "Gene" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:gene_symbol ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:ensembl_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:p_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:ensembl_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:adjusted_p_value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:p_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:p_value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:entrez_id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:fold_change ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty namo:entrez_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:fold_change ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:gene_symbol ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:gene_symbol ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:adjusted_p_value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:adjusted_p_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:fold_change ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:entrez_id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:ensembl_id ],
+        namo:NamedThing ;
+    skos:definition "A gene entity with identifiers and expression information." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:MicrophysiologicalSystem a owl:Class ;
+    rdfs:label "MicrophysiologicalSystem" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:mechanical_forces ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:microfluidic_design ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:perfusion_system ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:microfluidic_design ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:IntegratedSensorEnum ;
+            owl:onProperty namo:sensor_integration ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:mechanical_forces ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:MechanicalStimulation ;
+            owl:onProperty namo:mechanical_forces ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:MicrofluidicDesign ;
+            owl:onProperty namo:microfluidic_design ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:sensor_integration ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:perfusion_system ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:perfusion_system ],
+        namo:NAMModel ;
+    skos:definition "Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,  and living cells to replicate tissue-level physiology and dynamics." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:Pathway a owl:Class ;
+    rdfs:label "Pathway" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pathway_database ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pathway_database ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:pathway_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:enrichment_score ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:activity_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:enrichment_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:pathway_database ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:pathway_id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:activity_score ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:enrichment_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty namo:activity_score ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:pathway_id ],
+        namo:NamedThing ;
+    skos:definition "A biological pathway with activity and enrichment information." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:PredictionOutcomeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#TP> <https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#FP> <https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#TN> <https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#FN> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#FN>,
+        <https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#FP>,
+        <https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#TN>,
+        <https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum#TP> .
+
+namo:PresenceEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/PresenceEnum#PRESENT> <https://w3id.org/monarch-initiative/namo/PresenceEnum#ABSENT> <https://w3id.org/monarch-initiative/namo/PresenceEnum#BELOW_DETECTION_LIMIT> <https://w3id.org/monarch-initiative/namo/PresenceEnum#ABOVE_DETECTION_LIMIT> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/PresenceEnum#ABOVE_DETECTION_LIMIT>,
+        <https://w3id.org/monarch-initiative/namo/PresenceEnum#ABSENT>,
+        <https://w3id.org/monarch-initiative/namo/PresenceEnum#BELOW_DETECTION_LIMIT>,
+        <https://w3id.org/monarch-initiative/namo/PresenceEnum#PRESENT> .
+
+namo:RatioTypeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#PERCENTAGE> <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#ABSOLUTE> <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#FOLD> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#ABSOLUTE>,
+        <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#FOLD>,
+        <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#PERCENTAGE> .
+
+namo:cell_types a owl:ObjectProperty .
+
+namo:CellularSystem a owl:Class ;
+    rdfs:label "CellularSystem" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:culture_conditions ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:culture_conditions ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:cell_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:culture_conditions ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:cell_types ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Term ;
+            owl:onProperty namo:cell_types ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:cell_source ],
+        namo:NAMModel ;
+    skos:definition "Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:InterpretabilityLevelEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#BLACK_BOX> <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#INTERPRETABLE> <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#EXPLAINABLE> <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#CAUSAL> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#BLACK_BOX>,
+        <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#CAUSAL>,
+        <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#EXPLAINABLE>,
+        <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#INTERPRETABLE> .
+
+namo:ModelSystem a owl:Class ;
+    rdfs:label "ModelSystem" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:models ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:ModelsRelationship ;
+            owl:onProperty namo:models ],
+        namo:NamedThing ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:NAMModel a owl:Class ;
+    rdfs:label "NAMModel" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:complexity_level ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:spatial_context ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:Reference ;
+            owl:onProperty namo:references ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:BiologicalOrganizationLevelEnum ;
+            owl:onProperty namo:biological_organization_level ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom namo:ComplexityLevelEnum ;
+            owl:onProperty namo:complexity_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:biological_organization_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:spatial_context ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:biological_organization_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:references ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:complexity_level ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:spatial_context ],
+        namo:ModelSystem ;
+    skos:definition "A New Approach Methodology (NAM) model, which is a type of model system that does not involve the use of animals." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:CocultureConfigurationEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#DIRECT_CONTACT> <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#TRANSWELL> <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#CONDITIONED_MEDIA> <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#MICROPATTERN> <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#GRADIENT> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#CONDITIONED_MEDIA>,
+        <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#DIRECT_CONTACT>,
+        <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#GRADIENT>,
+        <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#MICROPATTERN>,
+        <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#TRANSWELL> .
+
+namo:CrossValidationMethodEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( OBI:0200032 <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#STRATIFIED_K_FOLD> OBI:0200033 <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#TIME_SERIES_SPLIT> <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#MONTE_CARLO> ) ;
+    linkml:permissible_values OBI:0200032,
+        OBI:0200033,
+        <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#MONTE_CARLO>,
+        <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#STRATIFIED_K_FOLD>,
+        <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#TIME_SERIES_SPLIT> .
+
+namo:DigitalTwinScopeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#ORGAN> <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#PATIENT> MAMO:0000028 <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#PATHWAY> <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#DISEASE> ) ;
+    linkml:permissible_values MAMO:0000028,
+        <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#DISEASE>,
+        <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#ORGAN>,
+        <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#PATHWAY>,
+        <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#PATIENT> .
+
+namo:InterfaceTypeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#AIR_LIQUID> <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#LIQUID_LIQUID> <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#CELL_CELL> <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#TISSUE_TISSUE> <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#VASCULAR_EPITHELIAL> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#AIR_LIQUID>,
+        <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#CELL_CELL>,
+        <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#LIQUID_LIQUID>,
+        <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#TISSUE_TISSUE>,
+        <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#VASCULAR_EPITHELIAL> .
+
+namo:adjusted_p_value a owl:DatatypeProperty .
+
+namo:cell_source a owl:DatatypeProperty .
+
+namo:cell_type a owl:ObjectProperty .
+
+namo:cell_type_coverage a owl:DatatypeProperty,
+        owl:ObjectProperty .
+
+namo:correlation_coefficient a owl:DatatypeProperty .
+
+namo:enrichment_score a owl:DatatypeProperty .
+
+namo:functional_parity a owl:DatatypeProperty,
+        owl:ObjectProperty .
+
+namo:id a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "A unique identifier for a thing",
+        "Persistent identifier for the reference (DOI, PMID, PMCID, etc.)" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:methodology a owl:DatatypeProperty .
+
+namo:molecular_similarity a owl:DatatypeProperty,
+        owl:ObjectProperty .
+
+namo:organ_modeled a owl:ObjectProperty .
+
+namo:pathway_concordance a owl:DatatypeProperty,
+        owl:ObjectProperty .
+
+namo:phenotype_overlap a owl:DatatypeProperty,
+        owl:ObjectProperty .
+
+namo:reproducibility a owl:DatatypeProperty,
+        owl:ObjectProperty .
+
+namo:BiologicalOrganizationLevelEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#SUBCELLULAR> <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#CELLULAR> <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#CELLULAR_NEIGHBORHOOD> <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#TISSUE> <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#ORGAN> <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#SYSTEM> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#CELLULAR>,
+        <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#CELLULAR_NEIGHBORHOOD>,
+        <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#ORGAN>,
+        <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#SUBCELLULAR>,
+        <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#SYSTEM>,
+        <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#TISSUE> .
+
+namo:InSilicoModel a owl:Class ;
+    rdfs:label "InSilicoModel" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:computational_method ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:validation_datasets ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:prediction_scope ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:software_platform ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:software_platform ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:computational_method ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:prediction_scope ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:computational_method ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:software_platform ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:validation_datasets ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:prediction_scope ],
+        namo:NAMModel ;
+    skos:definition "Computational models that simulate biological processes without physical biological components." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:MicrofluidicArchitectureEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#SINGLE_CHANNEL> <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#TWO_CHANNEL> <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#MULTI_CHANNEL> <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#LAYERED> <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#RADIAL> <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#NETWORK> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#LAYERED>,
+        <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#MULTI_CHANNEL>,
+        <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#NETWORK>,
+        <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#RADIAL>,
+        <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#SINGLE_CHANNEL>,
+        <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#TWO_CHANNEL> .
+
+namo:ThreeDArchitectureEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#SPHEROID> <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#ORGANOID> <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#SCAFFOLD_BASED> <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#HYDROGEL_EMBEDDED> <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#BIOPRINTED> <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#HANGING_DROP> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#BIOPRINTED>,
+        <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#HANGING_DROP>,
+        <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#HYDROGEL_EMBEDDED>,
+        <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#ORGANOID>,
+        <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#SCAFFOLD_BASED>,
+        <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#SPHEROID> .
+
+namo:ChannelConfigurationEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#PARALLEL> <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#SERIAL> <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#BRANCHING> <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#CIRCULAR> <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#SERPENTINE> <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#Y_SHAPED> <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#T_SHAPED> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#BRANCHING>,
+        <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#CIRCULAR>,
+        <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#PARALLEL>,
+        <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#SERIAL>,
+        <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#SERPENTINE>,
+        <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#T_SHAPED>,
+        <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#Y_SHAPED> .
+
+namo:MembraneTypeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#POROUS_POLYMER> <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#PDMS> <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#COLLAGEN> <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#ECM_COATED> <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#TRACK_ETCHED> <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#ELECTROSPUN> <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#HYDROGEL> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#COLLAGEN>,
+        <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#ECM_COATED>,
+        <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#ELECTROSPUN>,
+        <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#HYDROGEL>,
+        <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#PDMS>,
+        <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#POROUS_POLYMER>,
+        <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#TRACK_ETCHED> .
+
+namo:FlowControlMethodEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#SYRINGE_PUMP> <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PERISTALTIC_PUMP> <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#GRAVITY_DRIVEN> <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PRESSURE_DRIVEN> <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#ELECTROOSMOTIC> <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#CAPILLARY_ACTION> <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PNEUMATIC_VALVES> <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#MICROVALVES> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#CAPILLARY_ACTION>,
+        <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#ELECTROOSMOTIC>,
+        <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#GRAVITY_DRIVEN>,
+        <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#MICROVALVES>,
+        <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PERISTALTIC_PUMP>,
+        <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PNEUMATIC_VALVES>,
+        <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PRESSURE_DRIVEN>,
+        <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#SYRINGE_PUMP> .
+
+namo:MechanicalStimulationTypeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#CYCLIC_STRETCH> EFO:0022075 <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#COMPRESSION> <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#TENSION> EFO:0000534 <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#PULSATILE_FLOW> <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#BREATHING_MOTION> <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#PERISTALTIC_MOTION> ) ;
+    linkml:permissible_values EFO:0000534,
+        EFO:0022075,
+        <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#BREATHING_MOTION>,
+        <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#COMPRESSION>,
+        <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#CYCLIC_STRETCH>,
+        <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#PERISTALTIC_MOTION>,
+        <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#PULSATILE_FLOW>,
+        <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#TENSION> .
+
+namo:p_value a owl:DatatypeProperty .
+
+namo:DeviceMaterialEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PDMS> <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#GLASS> <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PLASTIC> <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#POLYSTYRENE> <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#POLYCARBONATE> <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PMMA> <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#COC> <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#SILICON> <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#HYDROGEL> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#COC>,
+        <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#GLASS>,
+        <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#HYDROGEL>,
+        <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PDMS>,
+        <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PLASTIC>,
+        <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PMMA>,
+        <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#POLYCARBONATE>,
+        <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#POLYSTYRENE>,
+        <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#SILICON> .
+
+namo:FeatureTypeEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#MOLECULAR> <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#PHENOTYPIC> <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#GENOMIC> EDAM:3308 EDAM:0121 EDAM:3172 EDAM:3382 <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#CLINICAL> <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#TEMPORAL> ) ;
+    linkml:permissible_values EDAM:0121,
+        EDAM:3172,
+        EDAM:3308,
+        EDAM:3382,
+        <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#CLINICAL>,
+        <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#GENOMIC>,
+        <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#MOLECULAR>,
+        <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#PHENOTYPIC>,
+        <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#TEMPORAL> .
+
+namo:SurfaceCoatingEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#FIBRONECTIN> <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#COLLAGEN> <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#LAMININ> <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#MATRIGEL> <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#POLY_L_LYSINE> <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#GELATIN> <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#RGD_PEPTIDE> <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#ANTI_FOULING> <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#OXYGEN_PLASMA> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#ANTI_FOULING>,
+        <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#COLLAGEN>,
+        <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#FIBRONECTIN>,
+        <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#GELATIN>,
+        <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#LAMININ>,
+        <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#MATRIGEL>,
+        <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#OXYGEN_PLASMA>,
+        <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#POLY_L_LYSINE>,
+        <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#RGD_PEPTIDE> .
+
+namo:IntegratedSensorEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEER> <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OXYGEN> <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PH> <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEMPERATURE> <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PRESSURE> <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#FLOW_RATE> <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#ELECTROCHEMICAL> <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OPTICAL> <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#IMPEDANCE> ) ;
+    linkml:permissible_values <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#ELECTROCHEMICAL>,
+        <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#FLOW_RATE>,
+        <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#IMPEDANCE>,
+        <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OPTICAL>,
+        <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OXYGEN>,
+        <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PH>,
+        <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PRESSURE>,
+        <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEER>,
+        <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEMPERATURE> .
+
+namo:MLAlgorithmEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#RANDOM_FOREST> OBI:0000700 <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#NEURAL_NETWORK> <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#DEEP_LEARNING> MESH:D000098404 OBI:0200103 OBI:0200002 <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#NAIVE_BAYES> OBI:0200041 <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#REINFORCEMENT_LEARNING> ) ;
+    linkml:permissible_values MESH:D000098404,
+        OBI:0000700,
+        OBI:0200002,
+        OBI:0200041,
+        OBI:0200103,
+        <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#DEEP_LEARNING>,
+        <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#NAIVE_BAYES>,
+        <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#NEURAL_NETWORK>,
+        <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#RANDOM_FOREST>,
+        <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#REINFORCEMENT_LEARNING> .
+
+namo:PBPKCompartmentEnum a owl:Class ;
+    rdfs:subClassOf linkml:EnumDefinition ;
+    owl:unionOf ( UBERON:0002107 UBERON:0002113 UBERON:0002048 UBERON:0000955 UBERON:0000948 UBERON:0001134 <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#FAT> <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#SKIN> <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#BONE> <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#GI_TRACT> UBERON:0001969 <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#BLOOD> ) ;
+    linkml:permissible_values UBERON:0000948,
+        UBERON:0000955,
+        UBERON:0001134,
+        UBERON:0001969,
+        UBERON:0002048,
+        UBERON:0002107,
+        UBERON:0002113,
+        <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#BLOOD>,
+        <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#BONE>,
+        <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#FAT>,
+        <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#GI_TRACT>,
+        <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#SKIN> .
+
+namo:NamedThing a owl:Class ;
+    rdfs:label "NamedThing" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty namo:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty namo:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty namo:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty namo:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty namo:type ],
+        linkml:ClassDefinition ;
+    skos:definition "A generic grouping for any identifiable entity" ;
+    skos:exactMatch schema1:Thing ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:Term a owl:Class ;
+    rdfs:label "Term" ;
+    rdfs:subClassOf namo:NamedThing ;
+    skos:definition "A term is a concept or entity that can be defined and used in a specific context, often within a controlled vocabulary or ontology." ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+namo:type a owl:DatatypeProperty ;
+    rdfs:label "type" ;
+    skos:inScheme <https://w3id.org/monarch-initiative/namo> .
+
+<https://w3id.org/monarch-initiative/namo> a owl:Ontology ;
+    rdfs:label "namo" ;
+    dcterms:license "BSD-3-Clause" ;
+    dcterms:title "namo" ;
+    rdfs:seeAlso <https://monarch-initiative.github.io/namo> ;
+    skos:definition "New Approach Methodology Ontology and Schema" .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:CellTypeCoverage ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:CellTypeCoverage .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:MicrofluidicDesign ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:MicrofluidicDesign .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:MicrophysiologicalSystem ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:MicrophysiologicalSystem .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:DigitalTwin ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:DigitalTwin .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:PBPKCompartment ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:PBPKCompartment .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:Reproducibility ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:Reproducibility .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:CoCulture ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:CoCulture .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:Gene ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:Gene .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:BiologicalSystem ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:BiologicalSystem .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:Organoid ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:Organoid .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:Pathway ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:Pathway .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:MolecularSimilarity ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:MolecularSimilarity .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:MechanicalStimulation ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:MechanicalStimulation .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:PBPKModel ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:PBPKModel .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:CellLineModel ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:CellLineModel .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:Term ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:Term .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:CellularSystem ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:CellularSystem .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:Study ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:Study .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:NamedThing ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:NamedThing .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:ThreeDCellCulture ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:ThreeDCellCulture .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:FunctionalAssay ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:FunctionalAssay .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:ModelSystem ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:ModelSystem .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:TwoDCellCulture ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:TwoDCellCulture .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:QSARModel ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:QSARModel .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:InSilicoModel ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:InSilicoModel .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:AnimalModel ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:AnimalModel .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:MLModel ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:MLModel .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:TissueOnChip ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:TissueOnChip .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:FunctionalParity ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:FunctionalParity .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:PhenotypeOverlap ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:PhenotypeOverlap .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:OrganOnChip ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:OrganOnChip .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:PathwayConcordance ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:PathwayConcordance .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:NAMModel ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:NAMModel .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf namo:MetabolicModel ;
+    owl:onProperty namo:type ;
+    owl:someValuesFrom namo:MetabolicModel .
+

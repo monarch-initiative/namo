@@ -1,0 +1,750 @@
+# metamodel_version: 1.7.0
+BASE <https://w3id.org/monarch-initiative/namo/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX schema1: <http://schema.org/>
+PREFIX EDAM: <http://edamontology.org/>
+PREFIX MESH: <http://id.nlm.nih.gov/mesh/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+linkml:Jsonpointer xsd:string
+
+linkml:Jsonpath xsd:string
+
+linkml:Sparqlpath xsd:string
+
+<AnimalModel> CLOSED {
+    (  $<AnimalModel_tes> (  &<ModelSystem_tes> ;
+          rdf:type [ <ModelSystem> ] ? ;
+          <species> @<Term> ;
+          <strain> @<Term> ? ;
+          <age> @<Term> ? ;
+          <environment> @<Term> ?
+       ) ;
+       rdf:type [ <AnimalModel> ]
+    )
+}
+
+<BiologicalSystem> CLOSED {
+    (  $<BiologicalSystem_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ?
+       ) ;
+       rdf:type [ <BiologicalSystem> ]
+    )
+}
+
+<CellLineModel> CLOSED {
+    (  $<CellLineModel_tes> (  &<TwoDCellCulture_tes> ;
+          rdf:type [ <TwoDCellCulture> ] ? ;
+          <passage_range> @linkml:String ? ;
+          <authentication_method> @linkml:String ?
+       ) ;
+       rdf:type [ <CellLineModel> ]
+    )
+}
+
+<CellRatio> CLOSED {
+    (  $<CellRatio_tes> (  <cell_type> @<Term> ? ;
+          <ratio> @linkml:Float ? ;
+          <ratio_type> [ <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#PERCENTAGE>
+             <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#ABSOLUTE>
+             <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#FOLD> ] ?
+       ) ;
+       rdf:type [ <CellRatio> ] ?
+    )
+}
+
+<CellTypeCoverage> CLOSED {
+    (  $<CellTypeCoverage_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <coverage_percentage> @linkml:Float ? ;
+          <represented_cell_types> @<Term> * ;
+          <missing_cell_types> @<Term> * ;
+          <cell_type_proportions> @<CellTypeProportion> * ;
+          <single_cell_method> @linkml:String ?
+       ) ;
+       rdf:type [ <CellTypeCoverage> ]
+    )
+}
+
+<CellTypeProportion> CLOSED {
+    (  $<CellTypeProportion_tes> (  <cell_type> @<Term> ? ;
+          <model_proportion> @linkml:Float ? ;
+          <biological_proportion> @linkml:Float ? ;
+          <proportion_ratio> @linkml:Float ?
+       ) ;
+       rdf:type [ <CellTypeProportion> ] ?
+    )
+}
+
+<CellularSystem>  (
+    @<CoCulture> OR @<ThreeDCellCulture> OR @<TwoDCellCulture>
+)
+
+<CellularSystem_struct> {
+    (  $<CellularSystem_tes> (  &<NAMModel_tes> ;
+          rdf:type [ <NAMModel> ] ? ;
+          <cell_types> @<Term> * ;
+          <cell_source> @linkml:String ? ;
+          <culture_conditions> @linkml:String ?
+       ) ;
+       rdf:type [ <CellularSystem> ]
+    )
+}
+
+<ChannelDimensions> CLOSED {
+    (  $<ChannelDimensions_tes> (  <channel_name> @linkml:String ? ;
+          <width> @linkml:Float ? ;
+          <height> @linkml:Float ? ;
+          <length> @linkml:Float ?
+       ) ;
+       rdf:type [ <ChannelDimensions> ] ?
+    )
+}
+
+<CoCulture> CLOSED {
+    (  $<CoCulture_tes> (  &<CellularSystem_tes> ;
+          rdf:type [ <CellularSystem> ] ? ;
+          <coculture_configuration> [ <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#DIRECT_CONTACT>
+             <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#TRANSWELL>
+             <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#CONDITIONED_MEDIA>
+             <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#MICROPATTERN>
+             <https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum#GRADIENT> ] ? ;
+          <cell_ratios> @<CellRatio> * ;
+          <interaction_mechanisms> @linkml:String *
+       ) ;
+       rdf:type [ <CoCulture> ]
+    )
+}
+
+<ConcordanceResult> CLOSED {
+    (  $<ConcordanceResult_tes> (  <phenotype_overlap> @linkml:String ? ;
+          <molecular_similarity> @linkml:String ? ;
+          <pathway_concordance> @linkml:String ? ;
+          <cell_type_coverage> @linkml:String ? ;
+          <functional_parity> @linkml:String ? ;
+          <reproducibility> @linkml:String ?
+       ) ;
+       rdf:type [ <ConcordanceResult> ] ?
+    )
+}
+
+<CrossValidation> CLOSED {
+    (  $<CrossValidation_tes> (  <cv_method> [ <http://purl.obolibrary.org/obo/OBI_0200032>
+             <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#STRATIFIED_K_FOLD>
+             <http://purl.obolibrary.org/obo/OBI_0200033>
+             <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#TIME_SERIES_SPLIT>
+             <https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum#MONTE_CARLO> ] ? ;
+          <n_folds> @linkml:Integer ? ;
+          <cv_score> @linkml:Float ? ;
+          <cv_std> @linkml:Float ?
+       ) ;
+       rdf:type [ <CrossValidation> ] ?
+    )
+}
+
+<Dataset> CLOSED {
+    (  $<Dataset_tes> (  <model_systems> @<ModelSystem> * ;
+          <studies> @<Study> *
+       ) ;
+       rdf:type [ <Dataset> ] ?
+    )
+}
+
+<DigitalTwin> CLOSED {
+    (  $<DigitalTwin_tes> (  &<InSilicoModel_tes> ;
+          rdf:type [ <InSilicoModel> ] ? ;
+          <twin_scope> [ <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#ORGAN>
+             <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#PATIENT> <http://identifiers.org/mamo/MAMO_0000028>
+             <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#PATHWAY>
+             <https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum#DISEASE> ] ? ;
+          <real_time_data_sources> @linkml:String * ;
+          <personalization_parameters> @linkml:String * ;
+          <update_frequency> @linkml:String ?
+       ) ;
+       rdf:type [ <DigitalTwin> ]
+    )
+}
+
+<DoseResponseSimilarity> CLOSED {
+    (  $<DoseResponseSimilarity_tes> (  <correlation_coefficient> @linkml:Float ? ;
+          <ec50_ratio> @linkml:Float ? ;
+          <max_response_ratio> @linkml:Float ? ;
+          <compound_tested> @linkml:String ?
+       ) ;
+       rdf:type [ <DoseResponseSimilarity> ] ?
+    )
+}
+
+<DrugProperties> CLOSED {
+    (  $<DrugProperties_tes> (  <molecular_weight> @linkml:Float ? ;
+          <logp> @linkml:Float ? ;
+          <pka> @linkml:Float ? ;
+          <protein_binding> @linkml:Float ? ;
+          <clearance> @linkml:Float ?
+       ) ;
+       rdf:type [ <DrugProperties> ] ?
+    )
+}
+
+<EnrichmentStatistics> CLOSED {
+    (  $<EnrichmentStatistics_tes> (  <enrichment_score> @linkml:Float ? ;
+          <p_value> @linkml:Float ? ;
+          <q_value> @linkml:Float ? ;
+          <genes_in_pathway> @linkml:Integer ? ;
+          <genes_in_dataset> @linkml:Integer ?
+       ) ;
+       rdf:type [ <EnrichmentStatistics> ] ?
+    )
+}
+
+<FunctionalAssay> CLOSED {
+    (  $<FunctionalAssay_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <assay_type> @linkml:String ? ;
+          <assay_result> @linkml:Float ? ;
+          <reference_value> @linkml:Float ? ;
+          <units> @linkml:String ? ;
+          <methodology> @linkml:String ?
+       ) ;
+       rdf:type [ <FunctionalAssay> ]
+    )
+}
+
+<FunctionalParity> CLOSED {
+    (  $<FunctionalParity_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <functional_similarity_score> @linkml:Float ? ;
+          <conserved_functions> @linkml:String * ;
+          <impaired_functions> @linkml:String * ;
+          <functional_assays> @<FunctionalAssay> * ;
+          <dose_response_similarity> @<DoseResponseSimilarity> ?
+       ) ;
+       rdf:type [ <FunctionalParity> ]
+    )
+}
+
+<Gene> CLOSED {
+    (  $<Gene_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <gene_symbol> @linkml:String ? ;
+          <ensembl_id> @linkml:String ? ;
+          <entrez_id> @linkml:Integer ? ;
+          <fold_change> @linkml:Float ? ;
+          <p_value> @linkml:Float ? ;
+          <adjusted_p_value> @linkml:Float ?
+       ) ;
+       rdf:type [ <Gene> ]
+    )
+}
+
+<InSilicoModel>  (
+    @<DigitalTwin> OR @<MLModel> OR @<MetabolicModel> OR @<PBPKModel> OR @<QSARModel>
+)
+
+<InSilicoModel_struct> {
+    (  $<InSilicoModel_tes> (  &<NAMModel_tes> ;
+          rdf:type [ <NAMModel> ] ? ;
+          <computational_method> @linkml:String ? ;
+          <software_platform> @linkml:String ? ;
+          <validation_datasets> @linkml:String * ;
+          <prediction_scope> @linkml:String ?
+       ) ;
+       rdf:type [ <InSilicoModel> ]
+    )
+}
+
+<MechanicalStimulation> CLOSED {
+    (  $<MechanicalStimulation_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <stimulation_type> [ <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#CYCLIC_STRETCH>
+             <http://www.ebi.ac.uk/efo/EFO_0022075>
+             <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#COMPRESSION>
+             <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#TENSION>
+             <http://www.ebi.ac.uk/efo/EFO_0000534>
+             <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#PULSATILE_FLOW>
+             <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#BREATHING_MOTION>
+             <https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum#PERISTALTIC_MOTION> ] * ;
+          <cyclic_stretch_percent> @linkml:Float ? ;
+          <frequency_hz> @linkml:Float ? ;
+          <shear_stress> @linkml:Float ? ;
+          <pressure_pascal> @linkml:Float ? ;
+          <duration_minutes> @linkml:Float ?
+       ) ;
+       rdf:type [ <MechanicalStimulation> ]
+    )
+}
+
+<MetabolicModel> CLOSED {
+    (  $<MetabolicModel_tes> (  &<InSilicoModel_tes> ;
+          rdf:type [ <InSilicoModel> ] ?
+       ) ;
+       rdf:type [ <MetabolicModel> ]
+    )
+}
+
+<MicrofluidicDesign> CLOSED {
+    (  $<MicrofluidicDesign_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <architecture_type> [ <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#SINGLE_CHANNEL>
+             <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#TWO_CHANNEL>
+             <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#MULTI_CHANNEL>
+             <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#LAYERED>
+             <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#RADIAL>
+             <https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum#NETWORK> ] ? ;
+          <number_of_channels> @linkml:Integer ? ;
+          <channel_configuration> [ <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#PARALLEL>
+             <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#SERIAL>
+             <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#BRANCHING>
+             <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#CIRCULAR>
+             <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#SERPENTINE>
+             <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#Y_SHAPED>
+             <https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum#T_SHAPED> ] * ;
+          <membrane_type> [ <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#POROUS_POLYMER>
+             <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#PDMS>
+             <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#COLLAGEN>
+             <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#ECM_COATED>
+             <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#TRACK_ETCHED>
+             <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#ELECTROSPUN>
+             <https://w3id.org/monarch-initiative/namo/MembraneTypeEnum#HYDROGEL> ] ? ;
+          <membrane_pore_size> @linkml:Float ? ;
+          <membrane_thickness> @linkml:Float ? ;
+          <interface_type> [ <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#AIR_LIQUID>
+             <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#LIQUID_LIQUID>
+             <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#CELL_CELL>
+             <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#TISSUE_TISSUE>
+             <https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum#VASCULAR_EPITHELIAL> ] * ;
+          <channel_dimensions> @<ChannelDimensions> * ;
+          <material> [ <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PDMS>
+             <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#GLASS>
+             <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PLASTIC>
+             <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#POLYSTYRENE>
+             <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#POLYCARBONATE>
+             <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#PMMA>
+             <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#COC>
+             <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#SILICON>
+             <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#HYDROGEL> ] * ;
+          <surface_treatment> [ <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#FIBRONECTIN>
+             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#COLLAGEN>
+             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#LAMININ>
+             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#MATRIGEL>
+             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#POLY_L_LYSINE>
+             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#GELATIN>
+             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#RGD_PEPTIDE>
+             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#ANTI_FOULING>
+             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#OXYGEN_PLASMA> ] * ;
+          <flow_control_method> [ <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#SYRINGE_PUMP>
+             <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PERISTALTIC_PUMP>
+             <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#GRAVITY_DRIVEN>
+             <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PRESSURE_DRIVEN>
+             <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#ELECTROOSMOTIC>
+             <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#CAPILLARY_ACTION>
+             <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#PNEUMATIC_VALVES>
+             <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#MICROVALVES> ] * ;
+          <sensors_integrated> [ <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEER>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OXYGEN>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PH>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEMPERATURE>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PRESSURE>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#FLOW_RATE>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#ELECTROCHEMICAL>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OPTICAL>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#IMPEDANCE> ] * ;
+          <special_features> @linkml:String *
+       ) ;
+       rdf:type [ <MicrofluidicDesign> ]
+    )
+}
+
+<MicrophysiologicalSystem>  (
+    @<OrganOnChip> OR @<TissueOnChip>
+)
+
+<MicrophysiologicalSystem_struct> {
+    (  $<MicrophysiologicalSystem_tes> (  &<NAMModel_tes> ;
+          rdf:type [ <NAMModel> ] ? ;
+          <microfluidic_design> @<MicrofluidicDesign> ? ;
+          <mechanical_forces> @<MechanicalStimulation> ? ;
+          <perfusion_system> @linkml:String ? ;
+          <sensor_integration> [ <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEER>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OXYGEN>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PH>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#TEMPERATURE>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#PRESSURE>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#FLOW_RATE>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#ELECTROCHEMICAL>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#OPTICAL>
+             <https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum#IMPEDANCE> ] *
+       ) ;
+       rdf:type [ <MicrophysiologicalSystem> ]
+    )
+}
+
+<MLModel> CLOSED {
+    (  $<MLModel_tes> (  &<InSilicoModel_tes> ;
+          rdf:type [ <InSilicoModel> ] ? ;
+          <ml_algorithm> [ <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#RANDOM_FOREST>
+             <http://purl.obolibrary.org/obo/OBI_0000700> <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#NEURAL_NETWORK>
+             <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#DEEP_LEARNING> MESH:D000098404
+             <http://purl.obolibrary.org/obo/OBI_0200103> <http://purl.obolibrary.org/obo/OBI_0200002>
+             <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#NAIVE_BAYES> <http://purl.obolibrary.org/obo/OBI_0200041>
+             <https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum#REINFORCEMENT_LEARNING> ] ? ;
+          <feature_types> [ <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#MOLECULAR>
+             <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#PHENOTYPIC>
+             <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#GENOMIC> EDAM:3308 EDAM:0121 EDAM:3172 EDAM:3382
+             <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#CLINICAL>
+             <https://w3id.org/monarch-initiative/namo/FeatureTypeEnum#TEMPORAL> ] * ;
+          <training_data_size> @linkml:Integer ? ;
+          <model_interpretability> [ <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#BLACK_BOX>
+             <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#INTERPRETABLE>
+             <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#EXPLAINABLE>
+             <https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum#CAUSAL> ] ? ;
+          <cross_validation> @<CrossValidation> ?
+       ) ;
+       rdf:type [ <MLModel> ]
+    )
+}
+
+<ModelPerformance> CLOSED {
+    (  $<ModelPerformance_tes> (  <accuracy> @linkml:Float ? ;
+          <sensitivity> @linkml:Float ? ;
+          <specificity> @linkml:Float ? ;
+          <r_squared> @linkml:Float ? ;
+          <rmse> @linkml:Float ? ;
+          <auc> @linkml:Float ?
+       ) ;
+       rdf:type [ <ModelPerformance> ] ?
+    )
+}
+
+<ModelsRelationship> CLOSED {
+    (  $<ModelsRelationship_tes> (  <biological_system_modeled> @<BiologicalSystem> ? ;
+          <is_computed> @linkml:Boolean ? ;
+          <concordance> @<ConcordanceResult> ? ;
+          <structured_concordance> @<StructuredConcordanceResult> ?
+       ) ;
+       rdf:type [ <ModelsRelationship> ] ?
+    )
+}
+
+<ModelSystem>  (
+    @<AnimalModel> OR @<NAMModel>
+)
+
+<ModelSystem_struct> {
+    (  $<ModelSystem_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <models> @<ModelsRelationship> *
+       ) ;
+       rdf:type [ <ModelSystem> ]
+    )
+}
+
+<MolecularSimilarity> CLOSED {
+    (  $<MolecularSimilarity_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <similarity_score> @linkml:Float ? ;
+          <correlation_coefficient> @linkml:Float ? ;
+          <differentially_expressed_genes> @<Gene> * ;
+          <conserved_genes> @<Gene> * ;
+          <methodology> @linkml:String ? ;
+          <data_source> @linkml:String ? ;
+          <statistical_significance> @<StatisticalSignificance> ?
+       ) ;
+       rdf:type [ <MolecularSimilarity> ]
+    )
+}
+
+<NamedThing>  (
+    CLOSED {
+       (  $<NamedThing_tes> (  schema1:name @linkml:String ? ;
+             schema1:description @linkml:String ? ;
+             <type> @linkml:String ?
+          ) ;
+          rdf:type [ schema1:Thing ]
+       )
+    } OR @<BiologicalSystem> OR @<CellTypeCoverage> OR @<FunctionalAssay> OR @<FunctionalParity> OR @<Gene> OR
+    @<MechanicalStimulation> OR @<MicrofluidicDesign> OR @<ModelSystem> OR @<MolecularSimilarity> OR @<PBPKCompartment> OR
+    @<Pathway> OR @<PathwayConcordance> OR @<PhenotypeOverlap> OR @<Reproducibility> OR @<Study> OR @<Term>
+)
+
+<NAMModel>  (
+    @<CellularSystem> OR @<InSilicoModel> OR @<MicrophysiologicalSystem>
+)
+
+<NAMModel_struct> {
+    (  $<NAMModel_tes> (  &<ModelSystem_tes> ;
+          rdf:type [ <ModelSystem> ] ? ;
+          <biological_organization_level> [ <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#SUBCELLULAR>
+             <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#CELLULAR>
+             <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#CELLULAR_NEIGHBORHOOD>
+             <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#TISSUE>
+             <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#ORGAN>
+             <https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum#SYSTEM> ] ? ;
+          <spatial_context> @linkml:String ? ;
+          <complexity_level> [ <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#LOW>
+             <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#MODERATE>
+             <https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum#HIGH> ] ? ;
+          <references> @<Reference> *
+       ) ;
+       rdf:type [ <NAMModel> ]
+    )
+}
+
+<Organoid> CLOSED {
+    (  $<Organoid_tes> (  &<ThreeDCellCulture_tes> ;
+          rdf:type [ <ThreeDCellCulture> ] ? ;
+          <organ_modeled> @<Term> ? ;
+          <differentiation_method> @linkml:String ? ;
+          <culture_system> @linkml:String ?
+       ) ;
+       rdf:type [ <Organoid> ]
+    )
+}
+
+<OrganOnChip> CLOSED {
+    (  $<OrganOnChip_tes> (  &<MicrophysiologicalSystem_tes> ;
+          rdf:type [ <MicrophysiologicalSystem> ] ? ;
+          <organ_modeled> @<Term> ? ;
+          <cell_types> @<Term> * ;
+          <cell_source> @linkml:String ?
+       ) ;
+       rdf:type [ <OrganOnChip> ]
+    )
+}
+
+<Pathway> CLOSED {
+    (  $<Pathway_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <pathway_database> @linkml:String ? ;
+          <pathway_id> @linkml:String ? ;
+          <activity_score> @linkml:Float ? ;
+          <enrichment_score> @linkml:Float ?
+       ) ;
+       rdf:type [ <Pathway> ]
+    )
+}
+
+<PathwayConcordance> CLOSED {
+    (  $<PathwayConcordance_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <pathway_overlap_score> @linkml:Float ? ;
+          <active_pathways> @<Pathway> * ;
+          <divergent_pathways> @<Pathway> * ;
+          <pathway_analysis_method> @linkml:String ? ;
+          <enrichment_statistics> @<EnrichmentStatistics> *
+       ) ;
+       rdf:type [ <PathwayConcordance> ]
+    )
+}
+
+<PBPKCompartment> CLOSED {
+    (  $<PBPKCompartment_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <compartment_type> [ <http://purl.obolibrary.org/obo/UBERON_0002107> <http://purl.obolibrary.org/obo/UBERON_0002113>
+             <http://purl.obolibrary.org/obo/UBERON_0002048> <http://purl.obolibrary.org/obo/UBERON_0000955>
+             <http://purl.obolibrary.org/obo/UBERON_0000948> <http://purl.obolibrary.org/obo/UBERON_0001134>
+             <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#FAT>
+             <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#SKIN>
+             <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#BONE>
+             <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#GI_TRACT>
+             <http://purl.obolibrary.org/obo/UBERON_0001969> <https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum#BLOOD> ]
+          ? ;
+          <volume> @linkml:Float ? ;
+          <blood_flow> @linkml:Float ? ;
+          <partition_coefficient> @linkml:Float ?
+       ) ;
+       rdf:type [ <PBPKCompartment> ]
+    )
+}
+
+<PBPKModel> CLOSED {
+    (  $<PBPKModel_tes> (  &<InSilicoModel_tes> ;
+          rdf:type [ <InSilicoModel> ] ? ;
+          <compartments> @<PBPKCompartment> * ;
+          <species_modeled> @<Term> ? ;
+          <drug_properties> @<DrugProperties> ? ;
+          <elimination_pathways> @linkml:String *
+       ) ;
+       rdf:type [ <PBPKModel> ]
+    )
+}
+
+<PhenotypeOverlap> CLOSED {
+    (  $<PhenotypeOverlap_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <phenotype_similarity_score> @linkml:Float ? ;
+          <shared_phenotypes> @<Term> * ;
+          <model_specific_phenotypes> @<Term> * ;
+          <biological_specific_phenotypes> @<Term> * ;
+          <phenotype_ontology> @linkml:String ?
+       ) ;
+       rdf:type [ <PhenotypeOverlap> ]
+    )
+}
+
+<QSARModel> CLOSED {
+    (  $<QSARModel_tes> (  &<InSilicoModel_tes> ;
+          rdf:type [ <InSilicoModel> ] ? ;
+          <molecular_descriptors> @linkml:String * ;
+          <activity_endpoint> @linkml:String ? ;
+          <training_dataset_size> @linkml:Integer ? ;
+          <model_performance> @<ModelPerformance> ?
+       ) ;
+       rdf:type [ <QSARModel> ]
+    )
+}
+
+<QualityControlMetric> CLOSED {
+    (  $<QualityControlMetric_tes> (  <metric_name> @linkml:String ? ;
+          <metric_value> @linkml:Float ? ;
+          <threshold> @linkml:Float ? ;
+          <pass_fail_status> @linkml:Boolean ?
+       ) ;
+       rdf:type [ <QualityControlMetric> ] ?
+    )
+}
+
+<Reference> CLOSED {
+    (  $<Reference_tes> (  <title> @linkml:String ;
+          <authors> @linkml:String * ;
+          <journal> @linkml:String ? ;
+          <year> @linkml:Integer ? ;
+          <url> @linkml:Uri ?
+       ) ;
+       rdf:type [ <Reference> ]
+    )
+}
+
+<Reproducibility> CLOSED {
+    (  $<Reproducibility_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <reproducibility_score> @linkml:Float ? ;
+          <coefficient_of_variation> @linkml:Float ? ;
+          <batch_to_batch_variation> @linkml:Float ? ;
+          <inter_laboratory_consistency> @linkml:Float ? ;
+          <replicate_count> @linkml:Integer ? ;
+          <quality_control_metrics> @<QualityControlMetric> *
+       ) ;
+       rdf:type [ <Reproducibility> ]
+    )
+}
+
+<StatisticalSignificance> CLOSED {
+    (  $<StatisticalSignificance_tes> (  <p_value> @linkml:Float ? ;
+          <adjusted_p_value> @linkml:Float ? ;
+          <confidence_interval_lower> @linkml:Float ? ;
+          <confidence_interval_upper> @linkml:Float ? ;
+          <statistical_test> @linkml:String ?
+       ) ;
+       rdf:type [ <StatisticalSignificance> ] ?
+    )
+}
+
+<StructuredConcordanceResult> CLOSED {
+    (  $<StructuredConcordanceResult_tes> (  <molecular_similarity> @<MolecularSimilarity> ? ;
+          <pathway_concordance> @<PathwayConcordance> ? ;
+          <phenotype_overlap> @<PhenotypeOverlap> ? ;
+          <cell_type_coverage> @<CellTypeCoverage> ? ;
+          <functional_parity> @<FunctionalParity> ? ;
+          <reproducibility> @<Reproducibility> ?
+       ) ;
+       rdf:type [ <StructuredConcordanceResult> ] ?
+    )
+}
+
+<Study> CLOSED {
+    (  $<Study_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <context_of_use> @linkml:String ? ;
+          <biological_context> @linkml:String ? ;
+          <perturbations> @linkml:String ? ;
+          <endpoints> @linkml:String ? ;
+          <plan_comparators> @linkml:String ?
+       ) ;
+       rdf:type [ <Study> ]
+    )
+}
+
+<Term> CLOSED {
+    (  $<Term_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ?
+       ) ;
+       rdf:type [ <Term> ]
+    )
+}
+
+<ThreeDCellCulture>  (
+    CLOSED {
+       (  $<ThreeDCellCulture_tes> (  &<CellularSystem_tes> ;
+             rdf:type [ <CellularSystem> ] ? ;
+             <three_d_architecture> [ <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#SPHEROID>
+                <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#ORGANOID>
+                <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#SCAFFOLD_BASED>
+                <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#HYDROGEL_EMBEDDED>
+                <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#BIOPRINTED>
+                <https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum#HANGING_DROP> ] ? ;
+             <matrix_composition> @linkml:String ? ;
+             <size_range> @linkml:String ?
+          ) ;
+          rdf:type [ <ThreeDCellCulture> ]
+       )
+    } OR @<Organoid>
+)
+
+<TissueOnChip> CLOSED {
+    (  $<TissueOnChip_tes> (  &<MicrophysiologicalSystem_tes> ;
+          rdf:type [ <MicrophysiologicalSystem> ] ? ;
+          <tissue_modeled> @<Term> ? ;
+          <tissue_architecture> @linkml:String ? ;
+          <barrier_functions> @linkml:String *
+       ) ;
+       rdf:type [ <TissueOnChip> ]
+    )
+}
+
+<TwoDCellCulture>  (
+    CLOSED {
+       (  $<TwoDCellCulture_tes> (  &<CellularSystem_tes> ;
+             rdf:type [ <CellularSystem> ] ? ;
+             <substrate_type> @linkml:String ? ;
+             <confluence_level> @linkml:Float ? ;
+             <passage_protocol> @linkml:String ?
+          ) ;
+          rdf:type [ <TwoDCellCulture> ]
+       )
+    } OR @<CellLineModel>
+)

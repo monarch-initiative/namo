@@ -1,0 +1,17 @@
+{
+   "EDAM": "http://edamontology.org/",
+   "EFO": "http://www.ebi.ac.uk/efo/EFO_",
+   "MAMO": "http://identifiers.org/mamo/MAMO_",
+   "MESH": "http://id.nlm.nih.gov/mesh/",
+   "OBI": "http://purl.obolibrary.org/obo/OBI_",
+   "PATO": "http://purl.obolibrary.org/obo/PATO_",
+   "UBERON": "http://purl.obolibrary.org/obo/UBERON_",
+   "biolink": "https://w3id.org/biolink/",
+   "example": "https://example.org/",
+   "linkml": "https://w3id.org/linkml/",
+   "namo": "https://w3id.org/monarch-initiative/namo/",
+   "schema": "http://schema.org/",
+   "NamedThing": {
+      "@id": "schema:Thing"
+   }
+}

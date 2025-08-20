@@ -1,0 +1,904 @@
+# metamodel_version: 1.7.0
+enum BiologicalOrganizationLevelEnum
+  {
+    SUBCELLULAR
+    CELLULAR
+    CELLULAR_NEIGHBORHOOD
+    TISSUE
+    ORGAN
+    SYSTEM
+  }
+
+enum CaseOrControlEnum
+  {
+    CASE
+    CONTROL
+  }
+
+enum ChannelConfigurationEnum
+  {
+    PARALLEL
+    SERIAL
+    BRANCHING
+    CIRCULAR
+    SERPENTINE
+    Y_SHAPED
+    T_SHAPED
+  }
+
+enum CocultureConfigurationEnum
+  {
+    DIRECT_CONTACT
+    TRANSWELL
+    CONDITIONED_MEDIA
+    MICROPATTERN
+    GRADIENT
+  }
+
+enum ComplexityLevelEnum
+  {
+    LOW
+    MODERATE
+    HIGH
+  }
+
+enum CrossValidationMethodEnum
+  {
+    K_FOLD
+    STRATIFIED_K_FOLD
+    LEAVE_ONE_OUT
+    TIME_SERIES_SPLIT
+    MONTE_CARLO
+  }
+
+enum DeviceMaterialEnum
+  {
+    PDMS
+    GLASS
+    PLASTIC
+    POLYSTYRENE
+    POLYCARBONATE
+    PMMA
+    COC
+    SILICON
+    HYDROGEL
+  }
+
+enum DigitalTwinScopeEnum
+  {
+    ORGAN
+    PATIENT
+    POPULATION
+    PATHWAY
+    DISEASE
+  }
+
+enum FeatureTypeEnum
+  {
+    MOLECULAR
+    PHENOTYPIC
+    GENOMIC
+    TRANSCRIPTOMIC
+    PROTEOMIC
+    METABOLOMIC
+    IMAGING
+    CLINICAL
+    TEMPORAL
+  }
+
+enum FlowControlMethodEnum
+  {
+    SYRINGE_PUMP
+    PERISTALTIC_PUMP
+    GRAVITY_DRIVEN
+    PRESSURE_DRIVEN
+    ELECTROOSMOTIC
+    CAPILLARY_ACTION
+    PNEUMATIC_VALVES
+    MICROVALVES
+  }
+
+enum IntegratedSensorEnum
+  {
+    TEER
+    OXYGEN
+    PH
+    TEMPERATURE
+    PRESSURE
+    FLOW_RATE
+    ELECTROCHEMICAL
+    OPTICAL
+    IMPEDANCE
+  }
+
+enum InterfaceTypeEnum
+  {
+    AIR_LIQUID
+    LIQUID_LIQUID
+    CELL_CELL
+    TISSUE_TISSUE
+    VASCULAR_EPITHELIAL
+  }
+
+enum InterpretabilityLevelEnum
+  {
+    BLACK_BOX
+    INTERPRETABLE
+    EXPLAINABLE
+    CAUSAL
+  }
+
+enum MechanicalStimulationTypeEnum
+  {
+    CYCLIC_STRETCH
+    SHEAR_STRESS
+    COMPRESSION
+    TENSION
+    HYDROSTATIC_PRESSURE
+    PULSATILE_FLOW
+    BREATHING_MOTION
+    PERISTALTIC_MOTION
+  }
+
+enum MembraneTypeEnum
+  {
+    POROUS_POLYMER
+    PDMS
+    COLLAGEN
+    ECM_COATED
+    TRACK_ETCHED
+    ELECTROSPUN
+    HYDROGEL
+  }
+
+enum MicrofluidicArchitectureEnum
+  {
+    SINGLE_CHANNEL
+    TWO_CHANNEL
+    MULTI_CHANNEL
+    LAYERED
+    RADIAL
+    NETWORK
+  }
+
+enum MLAlgorithmEnum
+  {
+    RANDOM_FOREST
+    SUPPORT_VECTOR_MACHINE
+    NEURAL_NETWORK
+    DEEP_LEARNING
+    GRADIENT_BOOSTING
+    LINEAR_REGRESSION
+    LOGISTIC_REGRESSION
+    NAIVE_BAYES
+    K_MEANS
+    REINFORCEMENT_LEARNING
+  }
+
+enum PBPKCompartmentEnum
+  {
+    LIVER
+    KIDNEY
+    LUNG
+    BRAIN
+    HEART
+    MUSCLE
+    FAT
+    SKIN
+    BONE
+    GI_TRACT
+    PLASMA
+    BLOOD
+  }
+
+enum PredictionOutcomeEnum
+  {
+    TP
+    FP
+    TN
+    FN
+  }
+
+enum PresenceEnum
+  {
+    PRESENT
+    ABSENT
+    BELOW_DETECTION_LIMIT
+    ABOVE_DETECTION_LIMIT
+  }
+
+enum RatioTypeEnum
+  {
+    PERCENTAGE
+    ABSOLUTE
+    FOLD
+  }
+
+enum RelativeTimeEnum
+  {
+    BEFORE
+    AFTER
+    AT_SAME_TIME_AS
+  }
+
+enum SurfaceCoatingEnum
+  {
+    FIBRONECTIN
+    COLLAGEN
+    LAMININ
+    MATRIGEL
+    POLY_L_LYSINE
+    GELATIN
+    RGD_PEPTIDE
+    ANTI_FOULING
+    OXYGEN_PLASMA
+  }
+
+enum ThreeDArchitectureEnum
+  {
+    SPHEROID
+    ORGANOID
+    SCAFFOLD_BASED
+    HYDROGEL_EMBEDDED
+    BIOPRINTED
+    HANGING_DROP
+  }
+
+type AnimalModel
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    species: Term!
+    strain: Term
+    age: Term
+    environment: Term
+  }
+
+type BiologicalSystem
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+  }
+
+type CellLineModel
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    cellTypes: [Term]
+    cellSource: String
+    cultureConditions: String
+    substrateType: String
+    confluenceLevel: Float
+    passageProtocol: String
+    passageRange: String
+    authenticationMethod: String
+  }
+
+type CellRatio
+  {
+    cellType: Term
+    ratio: Float
+    ratioType: RatioTypeEnum
+  }
+
+type CellTypeCoverage
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    coveragePercentage: Float
+    representedCellTypes: [Term]
+    missingCellTypes: [Term]
+    cellTypeProportions: [CellTypeProportion]
+    singleCellMethod: String
+  }
+
+type CellTypeProportion
+  {
+    cellType: Term
+    modelProportion: Float
+    biologicalProportion: Float
+    proportionRatio: Float
+  }
+
+interface CellularSystem
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    cellTypes: [Term]
+    cellSource: String
+    cultureConditions: String
+  }
+
+type ChannelDimensions
+  {
+    channelName: String
+    width: Float
+    height: Float
+    length: Float
+  }
+
+type CoCulture
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    cellTypes: [Term]
+    cellSource: String
+    cultureConditions: String
+    cocultureConfiguration: CocultureConfigurationEnum
+    cellRatios: [CellRatio]
+    interactionMechanisms: [String]
+  }
+
+type ConcordanceResult
+  {
+    phenotypeOverlap: String
+    molecularSimilarity: String
+    pathwayConcordance: String
+    cellTypeCoverage: String
+    functionalParity: String
+    reproducibility: String
+  }
+
+type CrossValidation
+  {
+    cvMethod: CrossValidationMethodEnum
+    nFolds: Integer
+    cvScore: Float
+    cvStd: Float
+  }
+
+type Dataset
+  {
+    modelSystems: [ModelSystem]
+    studies: [Study]
+  }
+
+type DigitalTwin
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    computationalMethod: String
+    softwarePlatform: String
+    validationDatasets: [String]
+    predictionScope: String
+    twinScope: DigitalTwinScopeEnum
+    realTimeDataSources: [String]
+    personalizationParameters: [String]
+    updateFrequency: String
+  }
+
+type DoseResponseSimilarity
+  {
+    correlationCoefficient: Float
+    ec50Ratio: Float
+    maxResponseRatio: Float
+    compoundTested: String
+  }
+
+type DrugProperties
+  {
+    molecularWeight: Float
+    logp: Float
+    pka: Float
+    proteinBinding: Float
+    clearance: Float
+  }
+
+type EnrichmentStatistics
+  {
+    enrichmentScore: Float
+    pValue: Float
+    qValue: Float
+    genesInPathway: Integer
+    genesInDataset: Integer
+  }
+
+type FunctionalAssay
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    assayType: String
+    assayResult: Float
+    referenceValue: Float
+    units: String
+    methodology: String
+  }
+
+type FunctionalParity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    functionalSimilarityScore: Float
+    conservedFunctions: [String]
+    impairedFunctions: [String]
+    functionalAssays: [FunctionalAssay]
+    doseResponseSimilarity: DoseResponseSimilarity
+  }
+
+type Gene
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    geneSymbol: String
+    ensemblId: String
+    entrezId: Integer
+    foldChange: Float
+    pValue: Float
+    adjustedPValue: Float
+  }
+
+interface InSilicoModel
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    computationalMethod: String
+    softwarePlatform: String
+    validationDatasets: [String]
+    predictionScope: String
+  }
+
+type MechanicalStimulation
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    stimulationType: [MechanicalStimulationTypeEnum]
+    cyclicStretchPercent: Float
+    frequencyHz: Float
+    shearStress: Float
+    pressurePascal: Float
+    durationMinutes: Float
+  }
+
+type MetabolicModel
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    computationalMethod: String
+    softwarePlatform: String
+    validationDatasets: [String]
+    predictionScope: String
+  }
+
+type MicrofluidicDesign
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    architectureType: MicrofluidicArchitectureEnum
+    numberOfChannels: Integer
+    channelConfiguration: [ChannelConfigurationEnum]
+    membraneType: MembraneTypeEnum
+    membranePoreSize: Float
+    membraneThickness: Float
+    interfaceType: [InterfaceTypeEnum]
+    channelDimensions: [ChannelDimensions]
+    material: [DeviceMaterialEnum]
+    surfaceTreatment: [SurfaceCoatingEnum]
+    flowControlMethod: [FlowControlMethodEnum]
+    sensorsIntegrated: [IntegratedSensorEnum]
+    specialFeatures: [String]
+  }
+
+interface MicrophysiologicalSystem
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    microfluidicDesign: MicrofluidicDesign
+    mechanicalForces: MechanicalStimulation
+    perfusionSystem: String
+    sensorIntegration: [IntegratedSensorEnum]
+  }
+
+type MLModel
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    computationalMethod: String
+    softwarePlatform: String
+    validationDatasets: [String]
+    predictionScope: String
+    mlAlgorithm: MLAlgorithmEnum
+    featureTypes: [FeatureTypeEnum]
+    trainingDataSize: Integer
+    modelInterpretability: InterpretabilityLevelEnum
+    crossValidation: CrossValidation
+  }
+
+type ModelPerformance
+  {
+    accuracy: Float
+    sensitivity: Float
+    specificity: Float
+    rSquared: Float
+    rmse: Float
+    auc: Float
+  }
+
+type ModelsRelationship
+  {
+    biologicalSystemModeled: BiologicalSystem
+    isComputed: Boolean
+    concordance: ConcordanceResult
+    structuredConcordance: StructuredConcordanceResult
+  }
+
+interface ModelSystem
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+  }
+
+type MolecularSimilarity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    similarityScore: Float
+    correlationCoefficient: Float
+    differentiallyExpressedGenes: [Gene]
+    conservedGenes: [Gene]
+    methodology: String
+    dataSource: String
+    statisticalSignificance: StatisticalSignificance
+  }
+
+type NamedThing
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+  }
+
+interface NAMModel
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+  }
+
+type Organoid
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    cellTypes: [Term]
+    cellSource: String
+    cultureConditions: String
+    threeDArchitecture: ThreeDArchitectureEnum
+    matrixComposition: String
+    sizeRange: String
+    organModeled: Term
+    differentiationMethod: String
+    cultureSystem: String
+  }
+
+type OrganOnChip
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    microfluidicDesign: MicrofluidicDesign
+    mechanicalForces: MechanicalStimulation
+    perfusionSystem: String
+    sensorIntegration: [IntegratedSensorEnum]
+    organModeled: Term
+    cellTypes: [Term]
+    cellSource: String
+  }
+
+type Pathway
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    pathwayDatabase: String
+    pathwayId: String
+    activityScore: Float
+    enrichmentScore: Float
+  }
+
+type PathwayConcordance
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    pathwayOverlapScore: Float
+    activePathways: [Pathway]
+    divergentPathways: [Pathway]
+    pathwayAnalysisMethod: String
+    enrichmentStatistics: [EnrichmentStatistics]
+  }
+
+type PBPKCompartment
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    compartmentType: PBPKCompartmentEnum
+    volume: Float
+    bloodFlow: Float
+    partitionCoefficient: Float
+  }
+
+type PBPKModel
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    computationalMethod: String
+    softwarePlatform: String
+    validationDatasets: [String]
+    predictionScope: String
+    compartments: [PBPKCompartment]
+    speciesModeled: Term
+    drugProperties: DrugProperties
+    eliminationPathways: [String]
+  }
+
+type PhenotypeOverlap
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    phenotypeSimilarityScore: Float
+    sharedPhenotypes: [Term]
+    modelSpecificPhenotypes: [Term]
+    biologicalSpecificPhenotypes: [Term]
+    phenotypeOntology: String
+  }
+
+type QSARModel
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    computationalMethod: String
+    softwarePlatform: String
+    validationDatasets: [String]
+    predictionScope: String
+    molecularDescriptors: [String]
+    activityEndpoint: String
+    trainingDatasetSize: Integer
+    modelPerformance: ModelPerformance
+  }
+
+type QualityControlMetric
+  {
+    metricName: String
+    metricValue: Float
+    threshold: Float
+    passFailStatus: Boolean
+  }
+
+type Reference
+  {
+    id: Uriorcurie!
+    title: String!
+    authors: [String]
+    journal: String
+    year: Integer
+    url: Uri
+  }
+
+type Reproducibility
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    reproducibilityScore: Float
+    coefficientOfVariation: Float
+    batchToBatchVariation: Float
+    interLaboratoryConsistency: Float
+    replicateCount: Integer
+    qualityControlMetrics: [QualityControlMetric]
+  }
+
+type StatisticalSignificance
+  {
+    pValue: Float
+    adjustedPValue: Float
+    confidenceIntervalLower: Float
+    confidenceIntervalUpper: Float
+    statisticalTest: String
+  }
+
+type StructuredConcordanceResult
+  {
+    molecularSimilarity: MolecularSimilarity
+    pathwayConcordance: PathwayConcordance
+    phenotypeOverlap: PhenotypeOverlap
+    cellTypeCoverage: CellTypeCoverage
+    functionalParity: FunctionalParity
+    reproducibility: Reproducibility
+  }
+
+type Study
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    contextOfUse: String
+    biologicalContext: String
+    perturbations: String
+    endpoints: String
+    planComparators: String
+  }
+
+type Term
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+  }
+
+type ThreeDCellCulture
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    cellTypes: [Term]
+    cellSource: String
+    cultureConditions: String
+    threeDArchitecture: ThreeDArchitectureEnum
+    matrixComposition: String
+    sizeRange: String
+  }
+
+type TissueOnChip
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    microfluidicDesign: MicrofluidicDesign
+    mechanicalForces: MechanicalStimulation
+    perfusionSystem: String
+    sensorIntegration: [IntegratedSensorEnum]
+    tissueModeled: Term
+    tissueArchitecture: String
+    barrierFunctions: [String]
+  }
+
+type TwoDCellCulture
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    type: String
+    models: [ModelsRelationship]
+    biologicalOrganizationLevel: BiologicalOrganizationLevelEnum
+    spatialContext: String
+    complexityLevel: ComplexityLevelEnum
+    references: [Reference]
+    cellTypes: [Term]
+    cellSource: String
+    cultureConditions: String
+    substrateType: String
+    confluenceLevel: Float
+    passageProtocol: String
+  }

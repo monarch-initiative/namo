@@ -3,8 +3,8 @@
 
 # Derived schemas, generated from the schema.yaml
 tmp/
-project/
-!project/README.md
+project/excel/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
