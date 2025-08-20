@@ -1,0 +1,189 @@
+{
+  "id": "pbpk:001",
+  "name": "Human Acetaminophen PBPK Model",
+  "description": "A physiologically-based pharmacokinetic model for acetaminophen in humans,  incorporating hepatic metabolism, renal clearance, and tissue distribution.  The model predicts plasma concentrations and hepatotoxicity risk following  oral administration across different dosing regimens.",
+  "type": "PBPKModel",
+  "models": [
+    {
+      "biological_system_modeled": "acetaminophen_pk:001",
+      "is_computed": true,
+      "concordance": {
+        "molecular_similarity": "Mechanistic representation of drug metabolism",
+        "functional_parity": "Predicts clinical PK profiles within 2-fold",
+        "reproducibility": "Validated across multiple clinical studies"
+      },
+      "structured_concordance": {
+        "molecular_similarity": {
+          "id": "molsim:006",
+          "name": "PBPK Mechanistic Similarity",
+          "description": "Comparison of predicted vs observed pharmacokinetic parameters",
+          "type": "MolecularSimilarity",
+          "similarity_score": 0.76,
+          "correlation_coefficient": 0.82,
+          "methodology": "Physiological parameter validation against clinical data",
+          "data_source": "Clinical pharmacokinetic studies and in vitro metabolism data",
+          "statistical_significance": {
+            "p_value": 0.001,
+            "adjusted_p_value": 0.005,
+            "confidence_interval_lower": 0.71,
+            "confidence_interval_upper": 0.89,
+            "statistical_test": "Linear regression of predicted vs observed"
+          }
+        },
+        "functional_parity": {
+          "id": "funcpar:006",
+          "name": "Pharmacokinetic Prediction Performance",
+          "description": "Evaluation of PBPK model performance in predicting clinical outcomes",
+          "type": "FunctionalParity",
+          "functional_similarity_score": 0.84,
+          "conserved_functions": [
+            "Plasma concentration-time profiles",
+            "Hepatic metabolism prediction",
+            "Renal clearance modeling"
+          ],
+          "impaired_functions": [
+            "Inter-individual variability",
+            "Drug-drug interaction prediction"
+          ],
+          "functional_assays": [
+            {
+              "id": "assay:011",
+              "name": "Cmax prediction accuracy",
+              "type": "FunctionalAssay",
+              "assay_type": "Pharmacokinetic parameter",
+              "assay_result": 1.8,
+              "reference_value": 2.0,
+              "units": "fold error",
+              "methodology": "Predicted/observed Cmax ratio analysis"
+            },
+            {
+              "id": "assay:012",
+              "name": "AUC prediction accuracy",
+              "type": "FunctionalAssay",
+              "assay_type": "Pharmacokinetic parameter",
+              "assay_result": 1.3,
+              "reference_value": 2.0,
+              "units": "fold error",
+              "methodology": "Predicted/observed AUC ratio analysis"
+            },
+            {
+              "id": "assay:013",
+              "name": "Clearance prediction",
+              "type": "FunctionalAssay",
+              "assay_type": "Pharmacokinetic parameter",
+              "assay_result": 16.5,
+              "reference_value": 18.0,
+              "units": "L/h",
+              "methodology": "Total body clearance prediction validation"
+            }
+          ],
+          "dose_response_similarity": {
+            "correlation_coefficient": 0.89,
+            "ec50_ratio": 1.12,
+            "max_response_ratio": 0.96,
+            "compound_tested": "Acetaminophen dose range 325-1000mg"
+          }
+        },
+        "reproducibility": {
+          "id": "repro:006",
+          "name": "PBPK Model Reproducibility",
+          "description": "Model consistency across different populations and scenarios",
+          "type": "Reproducibility",
+          "reproducibility_score": 0.87,
+          "coefficient_of_variation": 0.15,
+          "batch_to_batch_variation": 0.08,
+          "inter_laboratory_consistency": 0.91,
+          "replicate_count": 150,
+          "quality_control_metrics": [
+            {
+              "metric_name": "Model convergence",
+              "metric_value": 1.0,
+              "threshold": 0.95,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Parameter sensitivity",
+              "metric_value": 0.85,
+              "threshold": 0.8,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Clinical validation score",
+              "metric_value": 0.82,
+              "threshold": 0.75,
+              "pass_fail_status": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "biological_organization_level": "SYSTEM",
+  "spatial_context": "Whole-body physiological representation with organ-specific kinetics",
+  "complexity_level": "HIGH",
+  "computational_method": "Ordinary differential equations with physiological parameters",
+  "software_platform": "MATLAB with SimBiology toolbox",
+  "validation_datasets": [
+    "Clinical pharmacokinetic studies (n=120 subjects)",
+    "Hepatotoxicity biomarker data",
+    "Pediatric dosing studies"
+  ],
+  "prediction_scope": "Plasma and tissue concentrations, hepatotoxicity biomarkers",
+  "compartments": [
+    {
+      "id": "pbpk_liver:001",
+      "name": "Liver compartment",
+      "type": "PBPKCompartment",
+      "compartment_type": "LIVER",
+      "volume": 1.8,
+      "blood_flow": 90.0,
+      "partition_coefficient": 0.8
+    },
+    {
+      "id": "pbpk_kidney:001",
+      "name": "Kidney compartment",
+      "type": "PBPKCompartment",
+      "compartment_type": "KIDNEY",
+      "volume": 0.31,
+      "blood_flow": 60.0,
+      "partition_coefficient": 0.7
+    },
+    {
+      "id": "pbpk_muscle:001",
+      "name": "Muscle compartment",
+      "type": "PBPKCompartment",
+      "compartment_type": "MUSCLE",
+      "volume": 35.0,
+      "blood_flow": 12.0,
+      "partition_coefficient": 0.6
+    },
+    {
+      "id": "pbpk_fat:001",
+      "name": "Fat compartment",
+      "type": "PBPKCompartment",
+      "compartment_type": "FAT",
+      "volume": 14.0,
+      "blood_flow": 5.0,
+      "partition_coefficient": 0.4
+    }
+  ],
+  "species_modeled": {
+    "id": "NCBITaxon:9606",
+    "name": "Homo sapiens",
+    "type": "Term"
+  },
+  "drug_properties": {
+    "molecular_weight": 151.16,
+    "logp": 0.46,
+    "pka": 9.38,
+    "protein_binding": 0.1,
+    "clearance": 18.0
+  },
+  "elimination_pathways": [
+    "Hepatic glucuronidation (UGT1A1, UGT1A6)",
+    "Hepatic sulfation (SULT1A1)",
+    "CYP2E1-mediated oxidation to NAPQI",
+    "Renal clearance"
+  ],
+  "@type": "PBPKModel"
+}

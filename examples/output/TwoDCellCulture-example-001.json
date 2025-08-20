@@ -1,0 +1,249 @@
+{
+  "id": "twodcellculture:001",
+  "name": "Primary Human Hepatocyte Monolayer Drug Screening Model",
+  "description": "A two-dimensional cell culture system using primary human hepatocytes in monolayer  configuration for high-throughput drug metabolism and hepatotoxicity screening.  The model maintains hepatocyte-specific functions including CYP enzyme activity,  albumin production, and bile acid synthesis for pharmaceutical safety assessment  and drug-drug interaction studies.",
+  "type": "TwoDCellCulture",
+  "models": [
+    {
+      "biological_system_modeled": "hepatic_drug_metabolism:001",
+      "is_computed": false,
+      "concordance": {
+        "molecular_similarity": "High expression of hepatic metabolism enzymes",
+        "functional_parity": "Physiological drug metabolism and detoxification",
+        "reproducibility": "Consistent metabolic activity across donor batches"
+      },
+      "structured_concordance": {
+        "molecular_similarity": {
+          "id": "molsim:026",
+          "name": "Primary Hepatocyte Expression Profile",
+          "description": "RNA-seq comparison with fresh human liver tissue",
+          "type": "MolecularSimilarity",
+          "similarity_score": 0.95,
+          "correlation_coefficient": 0.92,
+          "differentially_expressed_genes": [
+            {
+              "id": "gene:083",
+              "name": "CYP3A4",
+              "type": "Gene",
+              "gene_symbol": "CYP3A4",
+              "ensembl_id": "ENSG00000160868",
+              "fold_change": 12.5,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            },
+            {
+              "id": "gene:084",
+              "name": "CYP1A2",
+              "type": "Gene",
+              "gene_symbol": "CYP1A2",
+              "ensembl_id": "ENSG00000140505",
+              "fold_change": 8.2,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            },
+            {
+              "id": "gene:085",
+              "name": "ALB",
+              "type": "Gene",
+              "gene_symbol": "ALB",
+              "ensembl_id": "ENSG00000163631",
+              "fold_change": 25.8,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            }
+          ],
+          "conserved_genes": [
+            {
+              "id": "gene:086",
+              "name": "ACTB",
+              "type": "Gene",
+              "gene_symbol": "ACTB",
+              "ensembl_id": "ENSG00000075624",
+              "fold_change": 1.0,
+              "p_value": 0.823,
+              "adjusted_p_value": 0.901
+            }
+          ],
+          "methodology": "Bulk RNA sequencing with hepatic function gene panel",
+          "data_source": "Human liver tissue reference dataset from organ donors",
+          "statistical_significance": {
+            "p_value": 0.0001,
+            "adjusted_p_value": 0.001,
+            "confidence_interval_lower": 0.89,
+            "confidence_interval_upper": 0.97,
+            "statistical_test": "Pearson correlation"
+          }
+        },
+        "cell_type_coverage": {
+          "id": "cellcov:014",
+          "name": "Hepatocyte Purity and Function",
+          "description": "Analysis of hepatocyte identity and functional markers",
+          "type": "CellTypeCoverage",
+          "coverage_percentage": 95.0,
+          "represented_cell_types": [
+            {
+              "id": "CL:0000182",
+              "name": "hepatocyte",
+              "type": "Term"
+            }
+          ],
+          "missing_cell_types": [
+            {
+              "id": "CL:0000091",
+              "name": "Kupffer cell",
+              "type": "Term"
+            },
+            {
+              "id": "CL:0002293",
+              "name": "epithelial cell of thymus",
+              "type": "Term"
+            }
+          ],
+          "cell_type_proportions": [
+            {
+              "cell_type": {
+                "id": "CL:0000182",
+                "name": "hepatocyte",
+                "type": "Term"
+              },
+              "model_proportion": 0.95,
+              "biological_proportion": 0.75,
+              "proportion_ratio": 1.27
+            }
+          ],
+          "single_cell_method": "Flow cytometry with hepatocyte-specific markers"
+        },
+        "functional_parity": {
+          "id": "funcpar:026",
+          "name": "Hepatocyte Metabolic Function Assessment",
+          "description": "Evaluation of drug metabolism and hepatocyte-specific functions",
+          "type": "FunctionalParity",
+          "functional_similarity_score": 0.93,
+          "conserved_functions": [
+            "Phase I drug metabolism",
+            "Phase II conjugation reactions",
+            "Albumin synthesis",
+            "Urea cycle activity",
+            "Bile acid synthesis"
+          ],
+          "impaired_functions": [
+            "Hepatic regeneration capacity",
+            "3D architectural organization"
+          ],
+          "functional_assays": [
+            {
+              "id": "assay:068",
+              "name": "CYP3A4 testosterone hydroxylation",
+              "type": "FunctionalAssay",
+              "assay_type": "Enzyme activity",
+              "assay_result": 89.5,
+              "reference_value": 95.2,
+              "units": "pmol/min/mg protein",
+              "methodology": "LC-MS/MS analysis of 6β-hydroxytestosterone formation"
+            },
+            {
+              "id": "assay:069",
+              "name": "Albumin secretion rate",
+              "type": "FunctionalAssay",
+              "assay_type": "Protein synthesis",
+              "assay_result": 14.2,
+              "reference_value": 16.8,
+              "units": "μg/day/mg protein",
+              "methodology": "ELISA quantification in culture medium"
+            },
+            {
+              "id": "assay:070",
+              "name": "Acetaminophen hepatotoxicity",
+              "type": "FunctionalAssay",
+              "assay_type": "Drug toxicity",
+              "assay_result": 0.35,
+              "reference_value": 0.31,
+              "units": "EC50 (mM)",
+              "methodology": "ATP-based cell viability assay"
+            }
+          ],
+          "dose_response_similarity": {
+            "correlation_coefficient": 0.91,
+            "ec50_ratio": 1.13,
+            "max_response_ratio": 0.94,
+            "compound_tested": "Rifampicin CYP3A4 induction"
+          }
+        },
+        "reproducibility": {
+          "id": "repro:026",
+          "name": "Primary Hepatocyte Culture Reproducibility",
+          "description": "Inter-donor and inter-batch functional consistency",
+          "type": "Reproducibility",
+          "reproducibility_score": 0.87,
+          "coefficient_of_variation": 0.13,
+          "batch_to_batch_variation": 0.16,
+          "inter_laboratory_consistency": 0.84,
+          "replicate_count": 45,
+          "quality_control_metrics": [
+            {
+              "metric_name": "Cell viability at plating",
+              "metric_value": 0.91,
+              "threshold": 0.85,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "CYP enzyme activity retention",
+              "metric_value": 0.88,
+              "threshold": 0.8,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Albumin synthesis consistency",
+              "metric_value": 0.85,
+              "threshold": 0.75,
+              "pass_fail_status": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "biological_organization_level": "CELLULAR",
+  "spatial_context": "2D monolayer culture with hepatocyte polarization and bile canaliculi formation",
+  "complexity_level": "MODERATE",
+  "references": [
+    {
+      "id": "doi:10.1016/j.tox.2024.153456",
+      "title": "Primary human hepatocyte culture systems for drug safety assessment: current practices and future directions",
+      "authors": [
+        "Anderson K",
+        "Williams J",
+        "Brown M",
+        "Davis L"
+      ],
+      "journal": "Toxicology",
+      "year": 2024,
+      "url": "https://www.sciencedirect.com/science/article/pii/S0300483X24001234"
+    },
+    {
+      "id": "doi:10.1007/s00204-024-03567-2",
+      "title": "Advances in hepatotoxicity screening using primary human hepatocyte models",
+      "authors": [
+        "Mueller R",
+        "Schmidt T",
+        "Weber H",
+        "Koch S"
+      ],
+      "journal": "Archives of Toxicology",
+      "year": 2024,
+      "url": "https://link.springer.com/article/10.1007/s00204-024-03567-2"
+    }
+  ],
+  "cell_types": [
+    {
+      "id": "CL:0000182",
+      "name": "hepatocyte",
+      "type": "Term"
+    }
+  ],
+  "cell_source": "Primary human hepatocytes isolated from healthy donor liver tissue",
+  "substrate_type": "Collagen-coated tissue culture plates with hepatocyte attachment factor",
+  "confluence_level": 0.85,
+  "passage_protocol": "Primary cells, passage 0 - no passaging required, maintained for 3-7 days",
+  "@type": "TwoDCellCulture"
+}

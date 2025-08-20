@@ -1,0 +1,197 @@
+{
+  "id": "cellline:001",
+  "name": "HepG2 Hepatotoxicity Model",
+  "description": "HepG2 human hepatocellular carcinoma cell line used as an in vitro model for drug-induced liver injury (DILI) screening and hepatotoxicity assessment. While not recapitulating all aspects of primary hepatocytes, it provides a standardized, reproducible platform for initial toxicity screening.",
+  "type": "CellLineModel",
+  "models": [
+    {
+      "biological_system_modeled": "hepatotoxicity:001",
+      "is_computed": false,
+      "concordance": {
+        "molecular_similarity": "Moderate similarity to primary hepatocytes",
+        "functional_parity": "Limited drug metabolism capacity",
+        "reproducibility": "High reproducibility across laboratories"
+      },
+      "structured_concordance": {
+        "molecular_similarity": {
+          "id": "molsim:002",
+          "name": "HepG2 vs Primary Hepatocyte Comparison",
+          "description": "Transcriptomic comparison with primary human hepatocytes",
+          "type": "MolecularSimilarity",
+          "similarity_score": 0.62,
+          "correlation_coefficient": 0.58,
+          "differentially_expressed_genes": [
+            {
+              "id": "gene:004",
+              "name": "CYP3A4",
+              "type": "Gene",
+              "gene_symbol": "CYP3A4",
+              "ensembl_id": "ENSG00000160868",
+              "fold_change": -15.2,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            },
+            {
+              "id": "gene:005",
+              "name": "CYP1A2",
+              "type": "Gene",
+              "gene_symbol": "CYP1A2",
+              "ensembl_id": "ENSG00000140505",
+              "fold_change": -8.7,
+              "p_value": 0.0002,
+              "adjusted_p_value": 0.002
+            }
+          ],
+          "conserved_genes": [
+            {
+              "id": "gene:006",
+              "name": "ALB",
+              "type": "Gene",
+              "gene_symbol": "ALB",
+              "ensembl_id": "ENSG00000163631",
+              "fold_change": 0.9,
+              "p_value": 0.678,
+              "adjusted_p_value": 0.723
+            }
+          ],
+          "methodology": "Bulk RNA sequencing with DESeq2 analysis",
+          "data_source": "RNA-seq comparison with freshly isolated primary hepatocytes",
+          "statistical_significance": {
+            "p_value": 0.0001,
+            "adjusted_p_value": 0.001,
+            "confidence_interval_lower": 0.52,
+            "confidence_interval_upper": 0.67,
+            "statistical_test": "Pearson correlation"
+          }
+        },
+        "cell_type_coverage": {
+          "id": "cellcov:004",
+          "name": "HepG2 Hepatocyte Representation",
+          "description": "Analysis of hepatocyte-like characteristics in HepG2 cells",
+          "type": "CellTypeCoverage",
+          "coverage_percentage": 62.0,
+          "represented_cell_types": [
+            {
+              "id": "CL:0000182",
+              "name": "hepatocyte",
+              "type": "Term"
+            }
+          ],
+          "missing_cell_types": [
+            {
+              "id": "CL:0000091",
+              "name": "Kupffer cell",
+              "type": "Term"
+            },
+            {
+              "id": "CL:0002138",
+              "name": "hepatic stellate cell",
+              "type": "Term"
+            }
+          ],
+          "cell_type_proportions": [
+            {
+              "cell_type": {
+                "id": "CL:0000182",
+                "name": "hepatocyte",
+                "type": "Term"
+              },
+              "model_proportion": 1.0,
+              "biological_proportion": 0.78,
+              "proportion_ratio": 1.28
+            }
+          ],
+          "single_cell_method": "Flow cytometry with hepatocyte markers"
+        },
+        "functional_parity": {
+          "id": "funcpar:002",
+          "name": "Hepatic Function Assessment",
+          "description": "Evaluation of drug metabolism and hepatic functions",
+          "type": "FunctionalParity",
+          "functional_similarity_score": 0.45,
+          "conserved_functions": [
+            "Albumin production",
+            "Basic glucose metabolism",
+            "Cell viability assessment"
+          ],
+          "impaired_functions": [
+            "Phase I drug metabolism",
+            "Phase II conjugation reactions",
+            "Bile acid synthesis"
+          ],
+          "functional_assays": [
+            {
+              "id": "assay:002",
+              "name": "CYP3A4 activity assay",
+              "type": "FunctionalAssay",
+              "assay_type": "Enzymatic activity",
+              "assay_result": 0.15,
+              "reference_value": 2.8,
+              "units": "pmol/min/mg protein",
+              "methodology": "Luciferin-IPA substrate conversion assay"
+            },
+            {
+              "id": "assay:003",
+              "name": "Albumin production",
+              "type": "FunctionalAssay",
+              "assay_type": "Protein secretion",
+              "assay_result": 12.5,
+              "reference_value": 45.2,
+              "units": "μg/mg protein/24h",
+              "methodology": "ELISA-based albumin quantification"
+            }
+          ],
+          "dose_response_similarity": {
+            "correlation_coefficient": 0.73,
+            "ec50_ratio": 2.1,
+            "max_response_ratio": 0.85,
+            "compound_tested": "Acetaminophen"
+          }
+        },
+        "reproducibility": {
+          "id": "repro:002",
+          "name": "HepG2 Model Reproducibility",
+          "description": "Inter-laboratory and inter-passage consistency",
+          "type": "Reproducibility",
+          "reproducibility_score": 0.91,
+          "coefficient_of_variation": 0.08,
+          "batch_to_batch_variation": 0.12,
+          "inter_laboratory_consistency": 0.89,
+          "replicate_count": 48,
+          "quality_control_metrics": [
+            {
+              "metric_name": "Cell confluence",
+              "metric_value": 85.0,
+              "threshold": 80.0,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Passage number",
+              "metric_value": 15.0,
+              "threshold": 25.0,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Doubling time",
+              "metric_value": 22.5,
+              "threshold": 30.0,
+              "pass_fail_status": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "cell_types": [
+    {
+      "id": "CL:0000182",
+      "name": "hepatocyte",
+      "type": "Term"
+    }
+  ],
+  "cell_source": "Immortalized human hepatocellular carcinoma cell line (ATCC HB-8065)",
+  "culture_conditions": "DMEM + 10% FBS, 37°C, 5% CO2, sub-confluent passage every 2-3 days",
+  "passage_range": "5-25 passages recommended for experimental use",
+  "authentication_method": "STR profiling and mycoplasma testing performed quarterly",
+  "@type": "CellLineModel"
+}

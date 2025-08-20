@@ -1,0 +1,221 @@
+id: organoid:005
+name: Human Cardiac Organoid Cardiotoxicity Model
+description: A 3D cardiac organoid derived from human induced pluripotent stem cells
+  that  recapitulates key aspects of human heart development and function. The organoid  contains
+  cardiomyocytes, cardiac fibroblasts, and endothelial cells organized  in chamber-like
+  structures with spontaneous contractile activity. Used for  cardiotoxicity screening,
+  particularly doxorubicin-induced cardiomyopathy  and drug safety assessment.
+type: Organoid
+models:
+- biological_system_modeled: cardiac_toxicity:001
+  is_computed: false
+  concordance:
+    molecular_similarity: High expression of cardiac-specific markers and cardiotoxicity
+      genes
+    functional_parity: Recapitulates doxorubicin-induced cardiomyopathy
+    reproducibility: Consistent cardiotoxic response across experimental batches
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:013
+      name: Cardiac Organoid Cardiotoxicity Gene Expression
+      description: RNA-seq comparison with human heart samples and cardiomyopathy
+        patients
+      type: MolecularSimilarity
+      similarity_score: 0.86
+      correlation_coefficient: 0.83
+      differentially_expressed_genes:
+      - id: gene:033
+        name: TNNT2
+        type: Gene
+        gene_symbol: TNNT2
+        ensembl_id: ENSG00000118194
+        fold_change: 5.8
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:034
+        name: MYH7
+        type: Gene
+        gene_symbol: MYH7
+        ensembl_id: ENSG00000092054
+        fold_change: 4.2
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:035
+        name: BAX
+        type: Gene
+        gene_symbol: BAX
+        ensembl_id: ENSG00000087088
+        fold_change: 3.1
+        p_value: 0.0005
+        adjusted_p_value: 0.005
+      conserved_genes:
+      - id: gene:036
+        name: ACTC1
+        type: Gene
+        gene_symbol: ACTC1
+        ensembl_id: ENSG00000159251
+        fold_change: 1.2
+        p_value: 0.456
+        adjusted_p_value: 0.567
+      methodology: Bulk RNA sequencing with cardiac-specific gene panel analysis
+      data_source: Human heart biopsy samples and doxorubicin cardiomyopathy patients
+      statistical_significance:
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.79
+        confidence_interval_upper: 0.91
+        statistical_test: Pearson correlation
+    cell_type_coverage:
+      id: cellcov:006
+      name: Cardiac Cell Type Representation
+      description: Analysis of cardiac cell type diversity and organization
+      type: CellTypeCoverage
+      coverage_percentage: 82.5
+      represented_cell_types:
+      - id: CL:0000746
+        name: cardiac muscle cell
+        type: Term
+      - id: CL:0002548
+        name: fibroblast of cardiac tissue
+        type: Term
+      - id: CL:0000071
+        name: blood vessel endothelial cell
+        type: Term
+      missing_cell_types:
+      - id: CL:0000182
+        name: hepatocyte
+        type: Term
+      - id: CL:0002072
+        name: nodal myocyte
+        type: Term
+      cell_type_proportions:
+      - cell_type:
+          id: CL:0000746
+          name: cardiac muscle cell
+          type: Term
+        model_proportion: 0.75
+        biological_proportion: 0.7
+        proportion_ratio: 1.07
+      - cell_type:
+          id: CL:0002548
+          name: fibroblast of cardiac tissue
+          type: Term
+        model_proportion: 0.15
+        biological_proportion: 0.2
+        proportion_ratio: 0.75
+      single_cell_method: scRNA-seq with cardiac lineage markers
+    functional_parity:
+      id: funcpar:013
+      name: Cardiotoxicity Function Assessment
+      description: Evaluation of cardiac contractile function and drug-induced injury
+      type: FunctionalParity
+      functional_similarity_score: 0.81
+      conserved_functions:
+      - Spontaneous contractile activity
+      - Calcium handling mechanisms
+      - Drug-induced injury response
+      impaired_functions:
+      - Complex electrophysiological patterns
+      - Metabolic stress response
+      functional_assays:
+      - id: assay:029
+        name: Contractile force measurement
+        type: FunctionalAssay
+        assay_type: Mechanical function
+        assay_result: 0.58
+        reference_value: 0.75
+        units: relative force
+        methodology: Video-based motion tracking analysis of organoid contraction
+      - id: assay:030
+        name: Beat frequency analysis
+        type: FunctionalAssay
+        assay_type: Electrophysiology
+        assay_result: 45.2
+        reference_value: 60.8
+        units: beats per minute
+        methodology: Optical mapping of calcium transients
+      - id: assay:031
+        name: Troponin I release
+        type: FunctionalAssay
+        assay_type: Biomarker quantification
+        assay_result: 125.6
+        reference_value: 98.2
+        units: ng/mL
+        methodology: ELISA-based troponin I quantification in culture medium
+      dose_response_similarity:
+        correlation_coefficient: 0.78
+        ec50_ratio: 1.25
+        max_response_ratio: 0.89
+        compound_tested: Doxorubicin cardiotoxicity
+    reproducibility:
+      id: repro:013
+      name: Cardiac Organoid Reproducibility
+      description: Inter-batch and inter-laboratory consistency assessment
+      type: Reproducibility
+      reproducibility_score: 0.89
+      coefficient_of_variation: 0.11
+      batch_to_batch_variation: 0.13
+      inter_laboratory_consistency: 0.86
+      replicate_count: 42
+      quality_control_metrics:
+      - metric_name: Contractile activity onset
+        metric_value: 0.94
+        threshold: 0.85
+        pass_fail_status: true
+      - metric_name: Cardiac marker expression
+        metric_value: 0.91
+        threshold: 0.8
+        pass_fail_status: true
+      - metric_name: Organoid morphology score
+        metric_value: 0.87
+        threshold: 0.75
+        pass_fail_status: true
+biological_organization_level: ORGAN
+spatial_context: 3D cardiac chamber-like structures with organized sarcomeric architecture
+complexity_level: HIGH
+references:
+- id: PMID:37879593
+  title: 'Assessment of doxorubicin toxicity using human cardiac organoids: A novel
+    model for evaluating drug cardiotoxicity'
+  authors:
+  - Chen X
+  - Li Y
+  - Wang H
+  - Zhang L
+  journal: Heliyon
+  year: 2023
+  url: https://pubmed.ncbi.nlm.nih.gov/37879593/
+- id: doi:10.3389/fcvm.2025.1537730
+  title: 'Cardiac organoids: a new tool for disease modeling and drug screening applications'
+  authors:
+  - Rodriguez-Gonzalez M
+  - Martinez-Sanchez A
+  journal: Frontiers in Cardiovascular Medicine
+  year: 2025
+  url: https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1537730/full
+cell_types:
+- id: CL:0000746
+  name: cardiac muscle cell
+  type: Term
+- id: CL:0002494
+  name: cardiocyte
+  type: Term
+- id: CL:0002548
+  name: fibroblast of cardiac tissue
+  type: Term
+- id: CL:0000071
+  name: blood vessel endothelial cell
+  type: Term
+cell_source: Human induced pluripotent stem cells (iPSCs) from healthy donors and
+  cardiac disease patients
+organ_modeled:
+  id: UBERON:0000948
+  name: heart
+  type: Term
+differentiation_method: Cardiac differentiation protocol using temporal modulation
+  of Wnt signaling  with CHIR99021 and IWP2, followed by metabolic selection with
+  lactate medium  to enrich for cardiomyocytes. Self-assembly into 3D organoids through  hanging
+  drop aggregation.
+culture_system: Hanging drop culture followed by suspension culture in cardiac differentiation  medium.
+  Organoids maintained for 14-21 days with regular medium changes and  monitoring
+  of spontaneous contractile activity.

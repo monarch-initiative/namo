@@ -1,0 +1,214 @@
+id: organonchip:003
+name: Smoking COPD Airway-on-Chip
+description: A smoking airway-on-chip model for chronic obstructive pulmonary disease
+  (COPD)  research. Contains living human small-airway epithelium from healthy or
+  COPD donors  cultured at air-liquid interface, coupled to a mechanical respirator
+  that breathes  whole cigarette smoke in and out. The model demonstrates COPD-specific
+  pathological  changes including ciliary dysfunction, micropathologies, and distinct
+  molecular  signatures matching those seen in COPD patient airways. Also captures
+  inflammatory  cytokine release and tissue-level damage responses under smoke exposure,
+  providing  molecular, cellular, and tissue-level analysis capabilities.
+type: OrganOnChip
+models:
+- biological_system_modeled: copd_bronchiole:001
+  is_computed: false
+  concordance:
+    molecular_similarity: Expression of COPD-related inflammatory and damage markers
+    functional_parity: Recapitulates smoke-induced airway damage and COPD phenotype
+    reproducibility: Consistent smoke exposure response across replicates
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:011
+      name: COPD Bronchiole Expression Analysis
+      description: RNA-seq comparison with COPD patient bronchiole samples
+      type: MolecularSimilarity
+      similarity_score: 0.74
+      correlation_coefficient: 0.71
+      differentially_expressed_genes:
+      - id: gene:026
+        name: MMP9
+        type: Gene
+        gene_symbol: MMP9
+        ensembl_id: ENSG00000100985
+        fold_change: 4.8
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:027
+        name: IL1B
+        type: Gene
+        gene_symbol: IL1B
+        ensembl_id: ENSG00000125538
+        fold_change: 6.2
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      conserved_genes:
+      - id: gene:028
+        name: SERPINA1
+        type: Gene
+        gene_symbol: SERPINA1
+        ensembl_id: ENSG00000197249
+        fold_change: -2.1
+        p_value: 0.002
+        adjusted_p_value: 0.01
+      methodology: Bulk RNA sequencing with COPD biomarker panel
+      data_source: COPD patient bronchial biopsy and sputum cell data
+      statistical_significance:
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.66
+        confidence_interval_upper: 0.79
+        statistical_test: Pearson correlation
+    pathway_concordance:
+      id: pathconcord:005
+      name: COPD Inflammatory Pathway Analysis
+      description: Analysis of smoking-induced inflammatory and damage pathways
+      type: PathwayConcordance
+      pathway_overlap_score: 0.78
+      active_pathways:
+      - id: pathway:009
+        name: TNF signaling pathway
+        type: Pathway
+        pathway_database: KEGG
+        pathway_id: hsa04668
+        activity_score: 0.86
+        enrichment_score: 3.1
+      - id: pathway:010
+        name: NF-kappa B signaling pathway
+        type: Pathway
+        pathway_database: KEGG
+        pathway_id: hsa04064
+        activity_score: 0.82
+        enrichment_score: 2.8
+      pathway_analysis_method: KEGG pathway enrichment analysis
+      enrichment_statistics:
+      - enrichment_score: 3.1
+        p_value: 0.0001
+        q_value: 0.001
+        genes_in_pathway: 112
+        genes_in_dataset: 78
+    functional_parity:
+      id: funcpar:011
+      name: COPD Bronchiole Function Assessment
+      description: Evaluation of smoke-induced airway dysfunction
+      type: FunctionalParity
+      functional_similarity_score: 0.76
+      conserved_functions:
+      - Inflammatory cytokine production
+      - Matrix metalloproteinase activity
+      - Epithelial barrier disruption
+      impaired_functions:
+      - Ciliary clearance function
+      - Antioxidant response
+      functional_assays:
+      - id: assay:023
+        name: MMP activity
+        type: FunctionalAssay
+        assay_type: Enzymatic activity
+        assay_result: 2.8
+        reference_value: 2.1
+        units: fold increase vs control
+        methodology: Fluorogenic MMP substrate assay
+      - id: assay:024
+        name: Barrier function
+        type: FunctionalAssay
+        assay_type: Permeability
+        assay_result: 3.2e-05
+        reference_value: 1.8e-05
+        units: cm/s
+        methodology: FITC-dextran permeability measurement
+      - id: assay:025
+        name: TNF-α release
+        type: FunctionalAssay
+        assay_type: Cytokine assay
+        assay_result: 425.6
+        reference_value: 380.2
+        units: pg/mL
+        methodology: ELISA-based TNF-α quantification
+    reproducibility:
+      id: repro:011
+      name: COPD Bronchiole Chip Reproducibility
+      description: Consistency of smoke exposure model
+      type: Reproducibility
+      reproducibility_score: 0.85
+      coefficient_of_variation: 0.15
+      batch_to_batch_variation: 0.18
+      inter_laboratory_consistency: 0.79
+      replicate_count: 20
+      quality_control_metrics:
+      - metric_name: Smoke exposure efficiency
+        metric_value: 0.92
+        threshold: 0.85
+        pass_fail_status: true
+      - metric_name: Cell viability post-exposure
+        metric_value: 0.74
+        threshold: 0.7
+        pass_fail_status: true
+      - metric_name: COPD phenotype penetrance
+        metric_value: 0.88
+        threshold: 0.8
+        pass_fail_status: true
+microfluidic_design:
+  id: microfluidic:003
+  name: Smoking COPD Airway Chip Design
+  description: Airway chip with air-liquid interface and integrated smoking machine
+  type: MicrofluidicDesign
+  architecture_type: TWO_CHANNEL
+  number_of_channels: 2
+  channel_configuration:
+  - PARALLEL
+  membrane_type: POROUS_POLYMER
+  membrane_pore_size: 0.4
+  membrane_thickness: 10.0
+  interface_type:
+  - AIR_LIQUID
+  channel_dimensions:
+  - channel_name: airway
+    width: 1000.0
+    height: 1000.0
+    length: 20.0
+  - channel_name: vascular
+    width: 1000.0
+    height: 200.0
+    length: 20.0
+  material:
+  - PDMS
+  surface_treatment:
+  - COLLAGEN
+  - FIBRONECTIN
+  flow_control_method:
+  - PNEUMATIC_VALVES
+  - SYRINGE_PUMP
+  sensors_integrated:
+  - TEER
+  - FLOW_RATE
+  special_features:
+  - Integrated smoking machine for controlled smoke delivery
+  - Real-time TEER monitoring
+  - Compatible with cigarette smoke exposure
+mechanical_forces:
+  id: mechanical:003
+  name: Breathing with smoke exposure
+  description: Rhythmic air flow simulating breathing with cigarette smoke
+  type: MechanicalStimulation
+  stimulation_type:
+  - BREATHING_MOTION
+  - PULSATILE_FLOW
+  frequency_hz: 0.25
+organ_modeled:
+  id: UBERON:0002186
+  name: bronchiole
+  type: Term
+cell_types:
+- id: CL:0002633
+  name: respiratory basal cell
+  type: Term
+- id: CL:0002145
+  name: ciliated epithelial cell
+  type: Term
+- id: CL:0002370
+  name: respiratory goblet cell
+  type: Term
+- id: CL:0019018
+  name: blood vessel smooth muscle cell
+  type: Term
+cell_source: Primary human small airway epithelial cells from healthy or COPD donors

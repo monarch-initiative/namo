@@ -1,0 +1,288 @@
+{
+  "id": "tissueonchip:001",
+  "name": "Blood-Brain Barrier Tissue Chip",
+  "description": "A microfluidic tissue-on-chip model that recreates the blood-brain barrier (BBB)  using human brain microvascular endothelial cells, pericytes, and astrocytes.  The model features physiological shear stress, tight junction formation, and  selective permeability for drug transport studies.",
+  "type": "TissueOnChip",
+  "models": [
+    {
+      "biological_system_modeled": "bbb_transport:001",
+      "is_computed": false,
+      "concordance": {
+        "molecular_similarity": "Expression of BBB-specific transporters",
+        "functional_parity": "Physiological TEER values and selective permeability",
+        "reproducibility": "Consistent barrier formation across batches"
+      },
+      "structured_concordance": {
+        "molecular_similarity": {
+          "id": "molsim:005",
+          "name": "BBB Transporter Expression Profile",
+          "description": "RNA-seq comparison with human blood-brain barrier samples",
+          "type": "MolecularSimilarity",
+          "similarity_score": 0.83,
+          "correlation_coefficient": 0.79,
+          "differentially_expressed_genes": [
+            {
+              "id": "gene:011",
+              "name": "ABCB1",
+              "type": "Gene",
+              "gene_symbol": "ABCB1",
+              "ensembl_id": "ENSG00000085563",
+              "fold_change": 8.5,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            },
+            {
+              "id": "gene:012",
+              "name": "SLC2A1",
+              "type": "Gene",
+              "gene_symbol": "SLC2A1",
+              "ensembl_id": "ENSG00000117394",
+              "fold_change": 4.2,
+              "p_value": 0.0002,
+              "adjusted_p_value": 0.002
+            }
+          ],
+          "conserved_genes": [
+            {
+              "id": "gene:013",
+              "name": "CLDN5",
+              "type": "Gene",
+              "gene_symbol": "CLDN5",
+              "ensembl_id": "ENSG00000213937",
+              "fold_change": 1.2,
+              "p_value": 0.234,
+              "adjusted_p_value": 0.345
+            }
+          ],
+          "methodology": "Single-cell RNA sequencing with transporter-focused analysis",
+          "data_source": "Human brain microvascular endothelial cell reference data",
+          "statistical_significance": {
+            "p_value": 0.0001,
+            "adjusted_p_value": 0.001,
+            "confidence_interval_lower": 0.75,
+            "confidence_interval_upper": 0.87,
+            "statistical_test": "Pearson correlation"
+          }
+        },
+        "cell_type_coverage": {
+          "id": "cellcov:002",
+          "name": "BBB Cell Type Representation",
+          "description": "Analysis of BBB-relevant cell types in the tissue chip",
+          "type": "CellTypeCoverage",
+          "coverage_percentage": 75.0,
+          "represented_cell_types": [
+            {
+              "id": "CL:0000071",
+              "name": "blood vessel endothelial cell",
+              "type": "Term"
+            },
+            {
+              "id": "CL:0000669",
+              "name": "pericyte",
+              "type": "Term"
+            }
+          ],
+          "missing_cell_types": [
+            {
+              "id": "CL:0000129",
+              "name": "microglial cell",
+              "type": "Term"
+            }
+          ],
+          "cell_type_proportions": [
+            {
+              "cell_type": {
+                "id": "CL:0000071",
+                "name": "blood vessel endothelial cell",
+                "type": "Term"
+              },
+              "model_proportion": 0.65,
+              "biological_proportion": 0.7,
+              "proportion_ratio": 0.93
+            },
+            {
+              "cell_type": {
+                "id": "CL:0000669",
+                "name": "pericyte",
+                "type": "Term"
+              },
+              "model_proportion": 0.35,
+              "biological_proportion": 0.3,
+              "proportion_ratio": 1.17
+            }
+          ],
+          "single_cell_method": "Immunofluorescence with cell-specific markers"
+        },
+        "functional_parity": {
+          "id": "funcpar:005",
+          "name": "BBB Function Assessment",
+          "description": "Evaluation of blood-brain barrier integrity and transport",
+          "type": "FunctionalParity",
+          "functional_similarity_score": 0.88,
+          "conserved_functions": [
+            "Tight junction barrier formation",
+            "P-glycoprotein efflux activity",
+            "Selective paracellular transport"
+          ],
+          "impaired_functions": [
+            "Dynamic regulation by astrocytes",
+            "Immune cell trafficking"
+          ],
+          "functional_assays": [
+            {
+              "id": "assay:008",
+              "name": "Trans-epithelial electrical resistance",
+              "type": "FunctionalAssay",
+              "assay_type": "Electrical impedance",
+              "assay_result": 1850.0,
+              "reference_value": 2000.0,
+              "units": "Ω⋅cm²",
+              "methodology": "EVOM2 epithelial voltohmmeter measurement"
+            },
+            {
+              "id": "assay:009",
+              "name": "Sodium fluorescein permeability",
+              "type": "FunctionalAssay",
+              "assay_type": "Permeability",
+              "assay_result": 2.1e-06,
+              "reference_value": 1.8e-06,
+              "units": "cm/s",
+              "methodology": "Transwell permeability assay with fluorescent tracer"
+            },
+            {
+              "id": "assay:010",
+              "name": "P-glycoprotein efflux activity",
+              "type": "FunctionalAssay",
+              "assay_type": "Efflux transport",
+              "assay_result": 3.8,
+              "reference_value": 4.2,
+              "units": "efflux ratio",
+              "methodology": "Rhodamine 123 bidirectional transport assay"
+            }
+          ],
+          "dose_response_similarity": {
+            "correlation_coefficient": 0.81,
+            "ec50_ratio": 1.15,
+            "max_response_ratio": 0.94,
+            "compound_tested": "Mannitol permeability marker"
+          }
+        },
+        "reproducibility": {
+          "id": "repro:005",
+          "name": "BBB Chip Reproducibility",
+          "description": "Inter-chip and inter-batch consistency assessment",
+          "type": "Reproducibility",
+          "reproducibility_score": 0.91,
+          "coefficient_of_variation": 0.09,
+          "batch_to_batch_variation": 0.12,
+          "inter_laboratory_consistency": 0.85,
+          "replicate_count": 36,
+          "quality_control_metrics": [
+            {
+              "metric_name": "TEER baseline",
+              "metric_value": 1850.0,
+              "threshold": 1500.0,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Barrier integrity",
+              "metric_value": 0.95,
+              "threshold": 0.9,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Cell viability",
+              "metric_value": 0.93,
+              "threshold": 0.85,
+              "pass_fail_status": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "biological_organization_level": "TISSUE",
+  "spatial_context": "3D tissue architecture with vascular and neural compartments separated by BBB",
+  "complexity_level": "HIGH",
+  "microfluidic_design": {
+    "id": "microfluidic:003",
+    "name": "BBB Chip Design",
+    "description": "Three-channel microfluidic device with permeable membranes",
+    "type": "MicrofluidicDesign",
+    "architecture_type": "MULTI_CHANNEL",
+    "number_of_channels": 3,
+    "channel_configuration": [
+      "PARALLEL"
+    ],
+    "membrane_type": "POROUS_POLYMER",
+    "membrane_pore_size": 0.4,
+    "membrane_thickness": 10.0,
+    "interface_type": [
+      "LIQUID_LIQUID",
+      "CELL_CELL"
+    ],
+    "channel_dimensions": [
+      {
+        "channel_name": "vascular",
+        "width": 1000.0,
+        "height": 200.0,
+        "length": 12.0
+      },
+      {
+        "channel_name": "brain",
+        "width": 1000.0,
+        "height": 200.0,
+        "length": 12.0
+      },
+      {
+        "channel_name": "astrocyte",
+        "width": 1000.0,
+        "height": 100.0,
+        "length": 12.0
+      }
+    ],
+    "material": [
+      "PDMS"
+    ],
+    "surface_treatment": [
+      "FIBRONECTIN",
+      "COLLAGEN"
+    ],
+    "flow_control_method": [
+      "SYRINGE_PUMP"
+    ],
+    "sensors_integrated": [
+      "TEER",
+      "IMPEDANCE"
+    ]
+  },
+  "mechanical_forces": {
+    "id": "mechanical:003",
+    "name": "Physiological BBB shear stress",
+    "description": "Shear stress mimicking cerebral blood flow",
+    "type": "MechanicalStimulation",
+    "stimulation_type": [
+      "SHEAR_STRESS"
+    ],
+    "frequency_hz": 1.0,
+    "shear_stress": 1.2,
+    "duration_minutes": 1440.0
+  },
+  "perfusion_system": "Continuous perfusion with physiological flow rates (2 μL/min)",
+  "sensor_integration": [
+    "TEER",
+    "IMPEDANCE"
+  ],
+  "tissue_modeled": {
+    "id": "UBERON:0000120",
+    "name": "blood-brain barrier",
+    "type": "Term"
+  },
+  "tissue_architecture": "Trilayer structure with endothelial cells, pericytes, and astrocytes in spatial arrangement",
+  "barrier_functions": [
+    "Selective molecular transport",
+    "Tight junction integrity",
+    "P-glycoprotein efflux activity"
+  ],
+  "@type": "TissueOnChip"
+}

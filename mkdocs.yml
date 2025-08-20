@@ -27,6 +27,8 @@ watch:
 nav:
   - Home: index.md
   - Use Cases: use-cases.md
+  - Example Data:
+      - examples.md
   - How-to:
       - Overview: how-to/curate.md
       - Curate Organoid Papers: how-to/curate-organoid-paper.md

@@ -1,0 +1,261 @@
+id: tissueonchip:003
+name: Human Skin-On-Chip Dermatotoxicity Model
+description: A microfluidic skin-on-chip model that recreates the human skin barrier
+  function  using primary human keratinocytes, fibroblasts, and melanocytes in a 3D
+  configuration.  The model features an air-liquid interface, physiological skin architecture,
+  and  real-time monitoring capabilities for cosmetics safety testing and dermatotoxicity  assessment
+  without animal testing.
+type: TissueOnChip
+models:
+- biological_system_modeled: skin_barrier:001
+  is_computed: false
+  concordance:
+    molecular_similarity: Expression of skin barrier proteins and differentiation
+      markers
+    functional_parity: Physiological barrier function and permeability
+    reproducibility: Consistent barrier formation across chip batches
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:018
+      name: Skin Barrier Gene Expression Profile
+      description: Transcriptomic comparison with human skin biopsy samples
+      type: MolecularSimilarity
+      similarity_score: 0.91
+      correlation_coefficient: 0.87
+      differentially_expressed_genes:
+      - id: gene:051
+        name: KRT10
+        type: Gene
+        gene_symbol: KRT10
+        ensembl_id: ENSG00000186395
+        fold_change: 8.2
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:052
+        name: FLG
+        type: Gene
+        gene_symbol: FLG
+        ensembl_id: ENSG00000143631
+        fold_change: 12.5
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:053
+        name: ABCC1
+        type: Gene
+        gene_symbol: ABCC1
+        ensembl_id: ENSG00000103222
+        fold_change: 3.8
+        p_value: 0.0002
+        adjusted_p_value: 0.002
+      conserved_genes:
+      - id: gene:054
+        name: KRT14
+        type: Gene
+        gene_symbol: KRT14
+        ensembl_id: ENSG00000186847
+        fold_change: 1.2
+        p_value: 0.234
+        adjusted_p_value: 0.345
+      methodology: Bulk RNA sequencing with skin differentiation marker analysis
+      data_source: Human skin biopsy reference dataset from healthy volunteers
+      statistical_significance:
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.84
+        confidence_interval_upper: 0.95
+        statistical_test: Spearman correlation
+    cell_type_coverage:
+      id: cellcov:009
+      name: Skin Cell Type Representation
+      description: Analysis of skin cell diversity and organization
+      type: CellTypeCoverage
+      coverage_percentage: 82.0
+      represented_cell_types:
+      - id: CL:0000312
+        name: keratinocyte
+        type: Term
+      - id: CL:0000057
+        name: fibroblast
+        type: Term
+      - id: CL:0000148
+        name: melanocyte
+        type: Term
+      missing_cell_types:
+      - id: CL:0000451
+        name: dendritic cell
+        type: Term
+      - id: CL:0000771
+        name: eosinophil
+        type: Term
+      cell_type_proportions:
+      - cell_type:
+          id: CL:0000312
+          name: keratinocyte
+          type: Term
+        model_proportion: 0.8
+        biological_proportion: 0.85
+        proportion_ratio: 0.94
+      - cell_type:
+          id: CL:0000057
+          name: fibroblast
+          type: Term
+        model_proportion: 0.15
+        biological_proportion: 0.12
+        proportion_ratio: 1.25
+      single_cell_method: Immunofluorescence with skin-specific markers
+    functional_parity:
+      id: funcpar:018
+      name: Skin Barrier Function Assessment
+      description: Evaluation of barrier integrity and chemical permeability
+      type: FunctionalParity
+      functional_similarity_score: 0.93
+      conserved_functions:
+      - Stratum corneum formation
+      - Tight junction integrity
+      - Chemical barrier function
+      - Inflammatory response
+      impaired_functions:
+      - Sebaceous gland function
+      - Hair follicle development
+      functional_assays:
+      - id: assay:044
+        name: Transepidermal water loss
+        type: FunctionalAssay
+        assay_type: Barrier integrity
+        assay_result: 8.5
+        reference_value: 9.2
+        units: g/m²/h
+        methodology: Gravimetric water loss measurement
+      - id: assay:045
+        name: Caffeine permeability
+        type: FunctionalAssay
+        assay_type: Chemical penetration
+        assay_result: 1.2e-06
+        reference_value: 1.5e-06
+        units: cm/s
+        methodology: Franz cell diffusion assay
+      - id: assay:046
+        name: SDS irritation response
+        type: FunctionalAssay
+        assay_type: Inflammatory biomarker
+        assay_result: 2.8
+        reference_value: 3.1
+        units: fold increase IL-1α
+        methodology: ELISA-based cytokine quantification
+      dose_response_similarity:
+        correlation_coefficient: 0.89
+        ec50_ratio: 1.07
+        max_response_ratio: 0.95
+        compound_tested: Sodium dodecyl sulfate irritation
+    reproducibility:
+      id: repro:018
+      name: Skin Chip Reproducibility
+      description: Inter-chip barrier function and response consistency
+      type: Reproducibility
+      reproducibility_score: 0.91
+      coefficient_of_variation: 0.09
+      batch_to_batch_variation: 0.11
+      inter_laboratory_consistency: 0.87
+      replicate_count: 32
+      quality_control_metrics:
+      - metric_name: Barrier formation time
+        metric_value: 0.92
+        threshold: 0.85
+        pass_fail_status: true
+      - metric_name: TEER stability
+        metric_value: 0.89
+        threshold: 0.8
+        pass_fail_status: true
+      - metric_name: Differentiation marker expression
+        metric_value: 0.94
+        threshold: 0.85
+        pass_fail_status: true
+biological_organization_level: TISSUE
+spatial_context: 3D skin architecture with epidermis, dermis, and air-liquid interface
+complexity_level: HIGH
+references:
+- id: PMID:37938128
+  title: Towards skin-on-a-chip for screening the dermal absorption of cosmetics
+  authors:
+  - Chen L
+  - Wang H
+  - Liu Y
+  - Zhang M
+  journal: Lab on a Chip
+  year: 2024
+  url: https://pubmed.ncbi.nlm.nih.gov/37938128/
+- id: doi:10.1177/09636897241235464
+  title: Applications of Engineered Skin Tissue for Cosmetic Component and Toxicology
+    Detection
+  authors:
+  - Wang M
+  - Zhang L
+  - Hao H
+  - Yan M
+  - Zhu Z
+  journal: Cell Transplantation
+  year: 2024
+  url: https://journals.sagepub.com/doi/10.1177/09636897241235464
+microfluidic_design:
+  id: microfluidic:005
+  name: Skin-On-Chip Design
+  description: Multi-chamber device with air-liquid interface and perfusion channels
+  type: MicrofluidicDesign
+  architecture_type: MULTI_CHANNEL
+  number_of_channels: 4
+  channel_configuration:
+  - PARALLEL
+  membrane_type: POROUS_POLYMER
+  membrane_pore_size: 0.4
+  membrane_thickness: 25.0
+  interface_type:
+  - AIR_LIQUID
+  - CELL_CELL
+  channel_dimensions:
+  - channel_name: epidermal_chamber
+    width: 8000.0
+    height: 500.0
+    length: 15.0
+  - channel_name: dermal_chamber
+    width: 8000.0
+    height: 1000.0
+    length: 15.0
+  - channel_name: media_channel
+    width: 500.0
+    height: 200.0
+    length: 15.0
+  material:
+  - PDMS
+  surface_treatment:
+  - COLLAGEN
+  - FIBRONECTIN
+  flow_control_method:
+  - SYRINGE_PUMP
+  sensors_integrated:
+  - TEER
+  - OPTICAL
+mechanical_forces:
+  id: mechanical:005
+  name: Physiological skin tension
+  description: Static mechanical tension to maintain skin architecture
+  type: MechanicalStimulation
+  stimulation_type:
+  - TENSION
+  duration_minutes: 2880.0
+perfusion_system: Continuous perfusion of basal medium at 5 μL/hr with air exposure
+  to apical surface
+sensor_integration:
+- TEER
+- OPTICAL
+- IMPEDANCE
+tissue_modeled:
+  id: UBERON:0002097
+  name: skin of body
+  type: Term
+tissue_architecture: Multilayer structure with stratified epidermis and dermal fibroblast
+  layer
+barrier_functions:
+- Stratum corneum barrier integrity
+- Transepidermal water loss control
+- UV protection mechanisms
+- Chemical penetration resistance

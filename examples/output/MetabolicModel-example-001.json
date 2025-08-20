@@ -1,0 +1,197 @@
+{
+  "id": "metabolicmodel:001",
+  "name": "Flux Balance Analysis Cancer Metabolism Model",
+  "description": "A genome-scale metabolic network model using flux balance analysis to identify  metabolic vulnerabilities in cancer cells. The model integrates transcriptomic  data from cancer patients with metabolic pathway databases to predict optimal  drug targets with minimal side effects. Used for systematic identification  of anti-cancer therapeutic targets and metabolic biomarkers.",
+  "type": "MetabolicModel",
+  "models": [
+    {
+      "biological_system_modeled": "cancer_metabolism:001",
+      "is_computed": true,
+      "concordance": {
+        "molecular_similarity": "High correlation with cancer cell metabolic profiles",
+        "functional_parity": "Accurate prediction of metabolic flux distributions",
+        "reproducibility": "Consistent target identification across cancer types"
+      },
+      "structured_concordance": {
+        "molecular_similarity": {
+          "id": "molsim:025",
+          "name": "Metabolic Flux Correlation Analysis",
+          "description": "FBA predictions compared with experimental flux measurements",
+          "type": "MolecularSimilarity",
+          "similarity_score": 0.88,
+          "correlation_coefficient": 0.84,
+          "differentially_expressed_genes": [
+            {
+              "id": "gene:079",
+              "name": "LDHA",
+              "type": "Gene",
+              "gene_symbol": "LDHA",
+              "ensembl_id": "ENSG00000134333",
+              "fold_change": 4.5,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            },
+            {
+              "id": "gene:080",
+              "name": "PFKFB3",
+              "type": "Gene",
+              "gene_symbol": "PFKFB3",
+              "ensembl_id": "ENSG00000170525",
+              "fold_change": 3.8,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            },
+            {
+              "id": "gene:081",
+              "name": "GLUT1",
+              "type": "Gene",
+              "gene_symbol": "SLC2A1",
+              "ensembl_id": "ENSG00000117394",
+              "fold_change": 6.2,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            }
+          ],
+          "conserved_genes": [
+            {
+              "id": "gene:082",
+              "name": "GAPDH",
+              "type": "Gene",
+              "gene_symbol": "GAPDH",
+              "ensembl_id": "ENSG00000111640",
+              "fold_change": 1.1,
+              "p_value": 0.456,
+              "adjusted_p_value": 0.567
+            }
+          ],
+          "methodology": "13C metabolic flux analysis validation with cancer cell lines",
+          "data_source": "Cancer Cell Line Encyclopedia metabolomics data",
+          "statistical_significance": {
+            "p_value": 0.0001,
+            "adjusted_p_value": 0.001,
+            "confidence_interval_lower": 0.81,
+            "confidence_interval_upper": 0.92,
+            "statistical_test": "FBA flux variability analysis"
+          }
+        },
+        "functional_parity": {
+          "id": "funcpar:025",
+          "name": "Metabolic Target Prediction Performance",
+          "description": "Drug target identification accuracy and side effect prediction",
+          "type": "FunctionalParity",
+          "functional_similarity_score": 0.86,
+          "conserved_functions": [
+            "Essential gene identification",
+            "Growth rate prediction",
+            "Metabolic flux distribution",
+            "Biomarker identification"
+          ],
+          "impaired_functions": [
+            "Regulatory network integration",
+            "Temporal dynamics modeling"
+          ],
+          "functional_assays": [
+            {
+              "id": "assay:065",
+              "name": "Essential gene prediction",
+              "type": "FunctionalAssay",
+              "assay_type": "Gene knockout simulation",
+              "assay_result": 0.82,
+              "reference_value": 0.78,
+              "units": "AUC",
+              "methodology": "ROC analysis against CRISPR essentiality screens"
+            },
+            {
+              "id": "assay:066",
+              "name": "Drug sensitivity prediction",
+              "type": "FunctionalAssay",
+              "assay_type": "Metabolic inhibitor screening",
+              "assay_result": 0.79,
+              "reference_value": 0.75,
+              "units": "Spearman correlation",
+              "methodology": "FBA predictions vs GDSC drug response data"
+            },
+            {
+              "id": "assay:067",
+              "name": "Side effect prediction",
+              "type": "FunctionalAssay",
+              "assay_type": "Normal tissue impact",
+              "assay_result": 0.74,
+              "reference_value": 0.71,
+              "units": "specificity",
+              "methodology": "Normal cell line viability prediction"
+            }
+          ],
+          "dose_response_similarity": {
+            "correlation_coefficient": 0.77,
+            "ec50_ratio": 1.22,
+            "max_response_ratio": 0.86,
+            "compound_tested": "2-Deoxyglucose glycolysis inhibition"
+          }
+        },
+        "reproducibility": {
+          "id": "repro:025",
+          "name": "FBA Model Reproducibility",
+          "description": "Cross-validation and multi-dataset consistency",
+          "type": "Reproducibility",
+          "reproducibility_score": 0.85,
+          "coefficient_of_variation": 0.15,
+          "batch_to_batch_variation": 0.12,
+          "inter_laboratory_consistency": 0.82,
+          "replicate_count": 156,
+          "quality_control_metrics": [
+            {
+              "metric_name": "Flux solution uniqueness",
+              "metric_value": 0.88,
+              "threshold": 0.8,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Target ranking stability",
+              "metric_value": 0.84,
+              "threshold": 0.75,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Cross-cancer type consistency",
+              "metric_value": 0.81,
+              "threshold": 0.7,
+              "pass_fail_status": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "biological_organization_level": "CELLULAR",
+  "spatial_context": "Cellular metabolic network with flux distributions and pathway interactions",
+  "complexity_level": "HIGH",
+  "references": [
+    {
+      "id": "doi:10.1186/1752-0509-5-S1-S11",
+      "title": "Two-stage flux balance analysis of metabolic networks for drug target identification",
+      "authors": [
+        "Liu L",
+        "Zhou X",
+        "Chen L",
+        "Wang Y"
+      ],
+      "journal": "BMC Systems Biology",
+      "year": 2024,
+      "url": "https://bmcsystbiol.biomedcentral.com/articles/10.1186/1752-0509-5-S1-S11"
+    },
+    {
+      "id": "doi:10.1002/btpr.3413",
+      "title": "Model validation and selection in metabolic flux analysis and flux balance analysis",
+      "authors": [
+        "Kaste JAV",
+        "Campos AD",
+        "Navid A"
+      ],
+      "journal": "Biotechnology Progress",
+      "year": 2024,
+      "url": "https://aiche.onlinelibrary.wiley.com/doi/10.1002/btpr.3413"
+    }
+  ],
+  "@type": "MetabolicModel"
+}

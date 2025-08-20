@@ -1,0 +1,195 @@
+id: organonchip:002
+name: Human Lung Alveolus Chip for COVID-19
+description: A human lung alveolus-on-chip model designed to study SARS-CoV-2 infection
+  and  viral pneumonia. Features alveolar epithelial cells (enriched in AT2 cells
+  expressing  ACE2 receptor) interfaced with pulmonary microvascular endothelium.
+  The chip  incorporates cyclic mechanical strain to simulate breathing motions, which
+  amplifies  innate immune responses via mechanosensitive pathways (TRPV4 and RAGE
+  signaling).  Upon infection, the model exhibits cytokine storm-like responses and
+  transcriptomic  changes closely resembling severe viral infections in human lungs.
+type: OrganOnChip
+models:
+- biological_system_modeled: covid_lung:001
+  is_computed: false
+  concordance:
+    molecular_similarity: Viral response gene expression similar to COVID-19 patients
+    functional_parity: Recapitulates SARS-CoV-2 infection and inflammatory response
+    reproducibility: Consistent viral infection model across experiments
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:010
+      name: COVID-19 Lung Response Analysis
+      description: RNA-seq comparison with COVID-19 patient lung samples
+      type: MolecularSimilarity
+      similarity_score: 0.81
+      correlation_coefficient: 0.77
+      differentially_expressed_genes:
+      - id: gene:023
+        name: ACE2
+        type: Gene
+        gene_symbol: ACE2
+        ensembl_id: ENSG00000130234
+        fold_change: 2.8
+        p_value: 0.001
+        adjusted_p_value: 0.01
+      - id: gene:024
+        name: IL6
+        type: Gene
+        gene_symbol: IL6
+        ensembl_id: ENSG00000136244
+        fold_change: 12.5
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      conserved_genes:
+      - id: gene:025
+        name: TMPRSS2
+        type: Gene
+        gene_symbol: TMPRSS2
+        ensembl_id: ENSG00000184012
+        fold_change: 1.4
+        p_value: 0.156
+        adjusted_p_value: 0.245
+      methodology: Single-cell RNA sequencing with viral response analysis
+      data_source: COVID-19 patient lung autopsy and BAL fluid data
+      statistical_significance:
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.73
+        confidence_interval_upper: 0.85
+        statistical_test: Spearman correlation
+    pathway_concordance:
+      id: pathconcord:004
+      name: COVID-19 Inflammatory Pathway Analysis
+      description: Analysis of viral infection and inflammatory response pathways
+      type: PathwayConcordance
+      pathway_overlap_score: 0.84
+      active_pathways:
+      - id: pathway:007
+        name: Cytokine signaling in immune system
+        type: Pathway
+        pathway_database: Reactome
+        pathway_id: R-HSA-1280215
+        activity_score: 0.92
+        enrichment_score: 4.1
+      - id: pathway:008
+        name: Interferon signaling
+        type: Pathway
+        pathway_database: Reactome
+        pathway_id: R-HSA-913531
+        activity_score: 0.88
+        enrichment_score: 3.7
+      pathway_analysis_method: Reactome pathway enrichment analysis
+      enrichment_statistics:
+      - enrichment_score: 4.1
+        p_value: 0.0001
+        q_value: 0.001
+        genes_in_pathway: 234
+        genes_in_dataset: 145
+    functional_parity:
+      id: funcpar:010
+      name: COVID-19 Lung Function Assessment
+      description: Evaluation of viral infection effects on lung function
+      type: FunctionalParity
+      functional_similarity_score: 0.79
+      conserved_functions:
+      - SARS-CoV-2 viral entry
+      - Cytokine storm response
+      - Barrier dysfunction
+      impaired_functions:
+      - Gas exchange efficiency
+      - Surfactant production
+      functional_assays:
+      - id: assay:021
+        name: Viral replication
+        type: FunctionalAssay
+        assay_type: qPCR
+        assay_result: 8500000.0
+        reference_value: 7200000.0
+        units: viral copies/mL
+        methodology: SARS-CoV-2 N gene qPCR
+      - id: assay:022
+        name: Cytokine release
+        type: FunctionalAssay
+        assay_type: Multiplex immunoassay
+        assay_result: 2850.0
+        reference_value: 2200.0
+        units: pg/mL total cytokines
+        methodology: Luminex cytokine panel
+    reproducibility:
+      id: repro:010
+      name: COVID-19 Lung Chip Reproducibility
+      description: Consistency of viral infection model
+      type: Reproducibility
+      reproducibility_score: 0.87
+      coefficient_of_variation: 0.13
+      batch_to_batch_variation: 0.16
+      inter_laboratory_consistency: 0.81
+      replicate_count: 24
+      quality_control_metrics:
+      - metric_name: Infection efficiency
+        metric_value: 0.89
+        threshold: 0.8
+        pass_fail_status: true
+      - metric_name: Cell viability post-infection
+        metric_value: 0.78
+        threshold: 0.7
+        pass_fail_status: true
+microfluidic_design:
+  id: microfluidic:002
+  name: Lung Alveolus Chip Design
+  description: Biomimetic alveolar-capillary interface with flexible PDMS membrane
+  type: MicrofluidicDesign
+  architecture_type: TWO_CHANNEL
+  number_of_channels: 2
+  channel_configuration:
+  - PARALLEL
+  membrane_type: PDMS
+  membrane_pore_size: 0.4
+  membrane_thickness: 10.0
+  interface_type:
+  - AIR_LIQUID
+  - VASCULAR_EPITHELIAL
+  channel_dimensions:
+  - channel_name: alveolar
+    width: 1000.0
+    height: 1000.0
+    length: 10.0
+  - channel_name: vascular
+    width: 1000.0
+    height: 200.0
+    length: 10.0
+  material:
+  - PDMS
+  surface_treatment:
+  - COLLAGEN
+  flow_control_method:
+  - SYRINGE_PUMP
+  special_features:
+  - Flexible membrane for strain application
+  - Transparent for real-time imaging
+mechanical_forces:
+  id: mechanical:002
+  name: Alveolar breathing forces
+  description: Cyclic mechanical strain mimicking breathing motions
+  type: MechanicalStimulation
+  stimulation_type:
+  - CYCLIC_STRETCH
+  - BREATHING_MOTION
+  cyclic_stretch_percent: 10.0
+  frequency_hz: 0.2
+organ_modeled:
+  id: UBERON:0002299
+  name: alveolus of lung
+  type: Term
+cell_types:
+- id: CL:0002063
+  name: type II pneumocyte
+  type: Term
+- id: CL:0002062
+  name: type I pneumocyte
+  type: Term
+- id: CL:0002543
+  name: vein endothelial cell
+  type: Term
+cell_source: Primary human alveolar epithelial cells and lung microvascular endothelial
+  cells

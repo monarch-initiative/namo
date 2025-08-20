@@ -1,0 +1,172 @@
+id: digitaltwin:001
+name: Maternal-Fetal Pharmacokinetic Digital Twin
+description: A digital twin model integrating gut-liver-placenta microphysiological
+  systems  to simulate drug pharmacokinetics in pregnant women. The model combines
+  real-time  physiological data with mechanistic simulations to predict drug absorption,  distribution,
+  metabolism, and placental transfer. Used for personalized dosing  recommendations
+  and fetal safety assessment during pregnancy.
+type: DigitalTwin
+models:
+- biological_system_modeled: maternal_fetal_pharmacokinetics:001
+  is_computed: true
+  concordance:
+    molecular_similarity: High fidelity physiological parameter modeling
+    functional_parity: Accurate prediction of drug disposition in pregnancy
+    reproducibility: Consistent predictive performance across patient populations
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:024
+      name: Physiological Parameter Concordance
+      description: Digital twin parameter calibration against clinical pharmacokinetic
+        data
+      type: MolecularSimilarity
+      similarity_score: 0.94
+      correlation_coefficient: 0.91
+      differentially_expressed_genes:
+      - id: gene:075
+        name: CYP3A4
+        type: Gene
+        gene_symbol: CYP3A4
+        ensembl_id: ENSG00000160868
+        fold_change: 1.8
+        p_value: 0.001
+        adjusted_p_value: 0.01
+      - id: gene:076
+        name: ABCB1
+        type: Gene
+        gene_symbol: ABCB1
+        ensembl_id: ENSG00000085563
+        fold_change: 2.3
+        p_value: 0.0005
+        adjusted_p_value: 0.005
+      - id: gene:077
+        name: SLCO1B1
+        type: Gene
+        gene_symbol: SLCO1B1
+        ensembl_id: ENSG00000134538
+        fold_change: 1.5
+        p_value: 0.002
+        adjusted_p_value: 0.02
+      conserved_genes:
+      - id: gene:078
+        name: ALB
+        type: Gene
+        gene_symbol: ALB
+        ensembl_id: ENSG00000163631
+        fold_change: 1.0
+        p_value: 0.567
+        adjusted_p_value: 0.678
+      methodology: Bayesian parameter estimation with clinical PK data
+      data_source: Maternal-fetal pharmacokinetic studies database
+      statistical_significance:
+        p_value: 0.0005
+        adjusted_p_value: 0.005
+        confidence_interval_lower: 0.88
+        confidence_interval_upper: 0.96
+        statistical_test: Bayesian credible intervals
+    functional_parity:
+      id: funcpar:024
+      name: Pharmacokinetic Prediction Performance
+      description: Digital twin accuracy in predicting drug disposition
+      type: FunctionalParity
+      functional_similarity_score: 0.92
+      conserved_functions:
+      - Maternal drug clearance
+      - Placental drug transfer
+      - Fetal drug exposure
+      - First-pass metabolism
+      impaired_functions:
+      - Individual genetic variation
+      - Disease state modifications
+      functional_assays:
+      - id: assay:062
+        name: Maternal plasma concentration
+        type: FunctionalAssay
+        assay_type: Pharmacokinetic prediction
+        assay_result: 0.94
+        reference_value: 0.91
+        units: R²
+        methodology: Comparison with clinical PK data for prednisone
+      - id: assay:063
+        name: Placental transfer ratio
+        type: FunctionalAssay
+        assay_type: Drug transport prediction
+        assay_result: 0.87
+        reference_value: 0.84
+        units: correlation coefficient
+        methodology: Maternal-fetal concentration ratio prediction
+      - id: assay:064
+        name: Metabolite formation
+        type: FunctionalAssay
+        assay_type: Metabolism prediction
+        assay_result: 0.89
+        reference_value: 0.86
+        units: R²
+        methodology: Prednisolone formation from prednisone
+      dose_response_similarity:
+        correlation_coefficient: 0.91
+        ec50_ratio: 1.05
+        max_response_ratio: 0.97
+        compound_tested: Prednisone maternal-fetal pharmacokinetics
+    reproducibility:
+      id: repro:024
+      name: Digital Twin Reproducibility
+      description: Cross-patient and cross-study validation performance
+      type: Reproducibility
+      reproducibility_score: 0.9
+      coefficient_of_variation: 0.1
+      batch_to_batch_variation: 0.08
+      inter_laboratory_consistency: 0.88
+      replicate_count: 75
+      quality_control_metrics:
+      - metric_name: Parameter estimation convergence
+        metric_value: 0.96
+        threshold: 0.9
+        pass_fail_status: true
+      - metric_name: Real-time data integration
+        metric_value: 0.92
+        threshold: 0.85
+        pass_fail_status: true
+      - metric_name: Clinical validation accuracy
+        metric_value: 0.89
+        threshold: 0.8
+        pass_fail_status: true
+biological_organization_level: SYSTEM
+spatial_context: Multi-organ system with maternal circulation and fetal compartments
+complexity_level: HIGH
+references:
+- id: doi:10.3389/fphar.2025.1528748
+  title: Digital twin-enhanced three-organ microphysiological system for studying
+    drug pharmacokinetics in pregnant women
+  authors:
+  - Zhang L
+  - Chen M
+  - Wang Y
+  - Liu X
+  journal: Frontiers in Pharmacology
+  year: 2025
+  url: https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2025.1528748/full
+- id: doi:10.1038/s41746-024-01402-3
+  title: Challenges and opportunities for digital twins in precision medicine from
+    a complex systems perspective
+  authors:
+  - Kumar A
+  - Smith R
+  - Johnson K
+  - Davis M
+  journal: npj Digital Medicine
+  year: 2024
+  url: https://www.nature.com/articles/s41746-024-01402-3
+twin_scope: PATIENT
+real_time_data_sources:
+- Maternal vital signs monitoring
+- Drug concentration measurements
+- IoT sensor data
+- Clinical monitoring systems
+personalization_parameters:
+- Maternal weight and BMI
+- Gestational age
+- Placental blood flow
+- Hepatic enzyme activity
+- Gastrointestinal transit time
+update_frequency: Continuous real-time updating with clinical data integration

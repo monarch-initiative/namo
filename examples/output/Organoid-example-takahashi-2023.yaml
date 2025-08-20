@@ -1,0 +1,212 @@
+id: organoid:takahashi_2023
+name: Cost-Reduced Human Intestinal Organoid Drug Screening Model
+description: Human intestinal organoids derived from induced pluripotent stem cells
+  using cost-reduction strategies for high-throughput drug cytotoxicity screening.
+  Features collagen gel matrix and conditioned medium to reduce culture costs while
+  maintaining physiological relevance for drug absorption and metabolism studies.
+type: Organoid
+models:
+- biological_system_modeled: intestinal_drug_toxicity:001
+  is_computed: false
+  concordance:
+    molecular_similarity: Expression of intestinal epithelial markers and drug metabolism
+      enzymes
+    functional_parity: Physiological drug absorption and metabolism responses comparable
+      to in vivo
+    reproducibility: Consistent organoid formation and drug screening results across
+      batches
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:takahashi_001
+      name: Intestinal Epithelial Gene Expression Profile
+      description: Comparison of organoid gene expression with native intestinal tissue
+      type: MolecularSimilarity
+      similarity_score: 0.87
+      correlation_coefficient: 0.83
+      differentially_expressed_genes:
+      - id: gene:083
+        name: VILLIN1
+        type: Gene
+        gene_symbol: VIL1
+        ensembl_id: ENSG00000096384
+        fold_change: 8.5
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:084
+        name: CDX2
+        type: Gene
+        gene_symbol: CDX2
+        ensembl_id: ENSG00000165556
+        fold_change: 6.2
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:085
+        name: FABP2
+        type: Gene
+        gene_symbol: FABP2
+        ensembl_id: ENSG00000145384
+        fold_change: 4.8
+        p_value: 0.0002
+        adjusted_p_value: 0.002
+      conserved_genes:
+      - id: gene:086
+        name: ACTB
+        type: Gene
+        gene_symbol: ACTB
+        ensembl_id: ENSG00000075624
+        fold_change: 1.0
+        p_value: 0.789
+        adjusted_p_value: 0.856
+      methodology: RNA sequencing with intestinal epithelial marker analysis
+      data_source: Human intestinal biopsy reference dataset
+      statistical_significance:
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.8
+        confidence_interval_upper: 0.91
+        statistical_test: DESeq2 differential expression analysis
+    cell_type_coverage:
+      id: cellcov:011
+      name: Intestinal Cell Type Representation
+      description: Analysis of cell type diversity in cost-reduced organoids
+      type: CellTypeCoverage
+      coverage_percentage: 75.0
+      represented_cell_types:
+      - id: CL:0002563
+        name: intestinal epithelial cell
+        type: Term
+      - id: CL:0000584
+        name: enterocyte
+        type: Term
+      - id: CL:0000160
+        name: goblet cell
+        type: Term
+      missing_cell_types:
+      - id: CL:0000451
+        name: dendritic cell
+        type: Term
+      - id: CL:0000235
+        name: macrophage
+        type: Term
+      cell_type_proportions:
+      - cell_type:
+          id: CL:0000584
+          name: enterocyte
+          type: Term
+        model_proportion: 0.7
+        biological_proportion: 0.75
+        proportion_ratio: 0.93
+      - cell_type:
+          id: CL:0000160
+          name: goblet cell
+          type: Term
+        model_proportion: 0.15
+        biological_proportion: 0.12
+        proportion_ratio: 1.25
+      single_cell_method: Immunofluorescence with intestinal lineage markers
+    functional_parity:
+      id: funcpar:takahashi_001
+      name: Drug Screening Performance Assessment
+      description: Validation of organoid-based screening vs conventional Caco-2 assays
+      type: FunctionalParity
+      functional_similarity_score: 0.85
+      conserved_functions:
+      - Drug absorption modeling
+      - Cytotoxicity assessment
+      - Metabolic enzyme activity
+      - Barrier function
+      impaired_functions:
+      - Immune system interactions
+      - Microbial interactions
+      functional_assays:
+      - id: assay:068
+        name: CellTiter-Glo 3D viability
+        type: FunctionalAssay
+        assay_type: Cell viability
+        assay_result: 0.89
+        reference_value: 0.85
+        units: Z'-factor
+        methodology: Luminescence-based ATP quantification for screening validation
+      - id: assay:069
+        name: Compound cytotoxicity screening
+        type: FunctionalAssay
+        assay_type: Drug screening
+        assay_result: 3500.0
+        reference_value: 3500.0
+        units: compounds tested
+        methodology: High-throughput screening at 2 μM with >40% inhibition cutoff
+      - id: assay:070
+        name: Caco-2 correlation
+        type: FunctionalAssay
+        assay_type: Cross-validation
+        assay_result: 0.78
+        reference_value: 0.75
+        units: correlation coefficient
+        methodology: Comparison of hit compounds between organoid and Caco-2 screening
+      dose_response_similarity:
+        correlation_coefficient: 0.82
+        ec50_ratio: 1.18
+        max_response_ratio: 0.91
+        compound_tested: Representative cytotoxic compounds
+    reproducibility:
+      id: repro:takahashi_001
+      name: Cost-Reduced Organoid Reproducibility
+      description: Inter-batch consistency of cost-reduced culture system
+      type: Reproducibility
+      reproducibility_score: 0.88
+      coefficient_of_variation: 0.12
+      batch_to_batch_variation: 0.14
+      inter_laboratory_consistency: 0.85
+      replicate_count: 48
+      quality_control_metrics:
+      - metric_name: Organoid formation efficiency
+        metric_value: 0.91
+        threshold: 0.8
+        pass_fail_status: true
+      - metric_name: Epithelial marker expression
+        metric_value: 0.89
+        threshold: 0.75
+        pass_fail_status: true
+      - metric_name: Drug screening Z'-factor
+        metric_value: 0.87
+        threshold: 0.7
+        pass_fail_status: true
+biological_organization_level: ORGAN
+spatial_context: 3D intestinal epithelial architecture with cost-reduced culture matrix
+complexity_level: HIGH
+references:
+- id: doi:10.1038/s41598-023-32438-2
+  title: Drug cytotoxicity screening using human intestinal organoids propagated with
+    extensive cost-reduction strategies
+  authors:
+  - Takahashi Y
+  - Mizuno T
+  - Morikawa Y
+  - Fukuda K
+  journal: Scientific Reports
+  year: 2023
+  url: https://www.nature.com/articles/s41598-023-32438-2
+cell_types:
+- id: CL:0002563
+  name: intestinal epithelial cell
+  type: Term
+- id: CL:0000036
+  name: epithelial cell
+  type: Term
+- id: CL:0000584
+  name: enterocyte
+  type: Term
+cell_source: Human induced pluripotent stem cells differentiated using established
+  protocol
+organ_modeled:
+  id: UBERON:0000160
+  name: intestine
+  type: Term
+differentiation_method: Multi-step endoderm and intestinal lineage induction from
+  human iPS cells. Initial endoderm differentiation followed by intestinal specification
+  using growth factors in defined medium conditions. Cost-reduced protocol utilizing
+  L-WRNH conditioned medium and collagen gel matrix instead of expensive Matrigel.
+culture_system: Cost-reduced culture system using type I collagen gel instead of Matrigel.
+  Advanced DMEM/F12 medium supplemented with L-WRNH conditioned medium to reduce growth
+  factor costs. Organoids maintained at 37°C in 5% CO2 incubator with medium changes
+  every 2-3 days and passaging every 6-7 days.

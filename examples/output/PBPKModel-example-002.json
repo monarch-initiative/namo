@@ -1,0 +1,226 @@
+{
+  "id": "pbpkmodel:002",
+  "name": "Multi-Species Developmental Toxicity PBPK Model",
+  "description": "A physiologically-based pharmacokinetic model for predicting developmental  toxicity across multiple species (human, rat, rabbit) during pregnancy.  The model incorporates maternal-fetal transfer, placental metabolism, and  developmental stage-specific pharmacokinetics to predict teratogenic risk  for pharmaceutical compounds and environmental chemicals.",
+  "type": "PBPKModel",
+  "models": [
+    {
+      "biological_system_modeled": "developmental_toxicity:001",
+      "is_computed": true,
+      "concordance": {
+        "molecular_similarity": "Physiological parameter scaling across species",
+        "functional_parity": "Accurate prediction of maternal-fetal drug distribution",
+        "reproducibility": "Consistent performance across validation compounds"
+      },
+      "structured_concordance": {
+        "molecular_similarity": {
+          "id": "molsim:016",
+          "name": "Physiological Parameter Concordance",
+          "description": "Cross-species physiological parameter correlation analysis",
+          "type": "MolecularSimilarity",
+          "similarity_score": 0.86,
+          "correlation_coefficient": 0.82,
+          "differentially_expressed_genes": [
+            {
+              "id": "gene:044",
+              "name": "CYP1A2",
+              "type": "Gene",
+              "gene_symbol": "CYP1A2",
+              "ensembl_id": "ENSG00000140505",
+              "fold_change": 0.6,
+              "p_value": 0.001,
+              "adjusted_p_value": 0.01
+            },
+            {
+              "id": "gene:045",
+              "name": "UGT1A1",
+              "type": "Gene",
+              "gene_symbol": "UGT1A1",
+              "ensembl_id": "ENSG00000241635",
+              "fold_change": 1.8,
+              "p_value": 0.002,
+              "adjusted_p_value": 0.02
+            }
+          ],
+          "conserved_genes": [
+            {
+              "id": "gene:046",
+              "name": "ALB",
+              "type": "Gene",
+              "gene_symbol": "ALB",
+              "ensembl_id": "ENSG00000163631",
+              "fold_change": 1.0,
+              "p_value": 0.856,
+              "adjusted_p_value": 0.923
+            }
+          ],
+          "methodology": "Allometric scaling with physiological compartment analysis",
+          "data_source": "Published physiological parameters and pregnancy-specific changes",
+          "statistical_significance": {
+            "p_value": 0.001,
+            "adjusted_p_value": 0.01,
+            "confidence_interval_lower": 0.78,
+            "confidence_interval_upper": 0.9,
+            "statistical_test": "Linear regression analysis"
+          }
+        },
+        "functional_parity": {
+          "id": "funcpar:016",
+          "name": "Developmental Toxicity Prediction",
+          "description": "PBPK model performance for teratogenicity prediction",
+          "type": "FunctionalParity",
+          "functional_similarity_score": 0.83,
+          "conserved_functions": [
+            "Maternal-fetal drug transfer",
+            "Developmental stage-specific clearance",
+            "Placental barrier modeling"
+          ],
+          "impaired_functions": [
+            "Individual genetic variation",
+            "Complex multi-generational effects"
+          ],
+          "functional_assays": [
+            {
+              "id": "assay:038",
+              "name": "Fetal tissue concentration prediction",
+              "type": "FunctionalAssay",
+              "assay_type": "Pharmacokinetic modeling",
+              "assay_result": 0.79,
+              "reference_value": 0.75,
+              "units": "R²",
+              "methodology": "Comparison with experimental fetal tissue data"
+            },
+            {
+              "id": "assay:039",
+              "name": "Teratogenic risk classification",
+              "type": "FunctionalAssay",
+              "assay_type": "Binary classification",
+              "assay_result": 0.81,
+              "reference_value": 0.78,
+              "units": "accuracy",
+              "methodology": "ROC analysis against known teratogens"
+            },
+            {
+              "id": "assay:040",
+              "name": "Critical window prediction",
+              "type": "FunctionalAssay",
+              "assay_type": "Temporal modeling",
+              "assay_result": 0.74,
+              "reference_value": 0.7,
+              "units": "temporal correlation",
+              "methodology": "Developmental stage-specific exposure modeling"
+            }
+          ],
+          "dose_response_similarity": {
+            "correlation_coefficient": 0.77,
+            "ec50_ratio": 1.32,
+            "max_response_ratio": 0.88,
+            "compound_tested": "Thalidomide developmental toxicity"
+          }
+        },
+        "reproducibility": {
+          "id": "repro:016",
+          "name": "PBPK Model Reproducibility",
+          "description": "Cross-study validation and parameter sensitivity analysis",
+          "type": "Reproducibility",
+          "reproducibility_score": 0.85,
+          "coefficient_of_variation": 0.15,
+          "batch_to_batch_variation": 0.12,
+          "inter_laboratory_consistency": 0.81,
+          "replicate_count": 25,
+          "quality_control_metrics": [
+            {
+              "metric_name": "Parameter sensitivity stability",
+              "metric_value": 0.88,
+              "threshold": 0.8,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Cross-species extrapolation accuracy",
+              "metric_value": 0.82,
+              "threshold": 0.75,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Model convergence reliability",
+              "metric_value": 0.95,
+              "threshold": 0.9,
+              "pass_fail_status": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "biological_organization_level": "SYSTEM",
+  "spatial_context": "Multi-compartment maternal-fetal physiological model with placental barrier",
+  "complexity_level": "HIGH",
+  "references": [
+    {
+      "id": "doi:10.1016/j.reprotox.2024.108456",
+      "title": "PBPK modeling for developmental and reproductive toxicity: recent advances and regulatory applications",
+      "authors": [
+        "Kapraun DF",
+        "Wambaugh JF",
+        "Ring CL",
+        "Tornero-Velez R"
+      ],
+      "journal": "Reproductive Toxicology",
+      "year": 2024,
+      "url": "https://www.sciencedirect.com/science/article/pii/S0890623824001023"
+    },
+    {
+      "id": "PMID:38234567",
+      "title": "Maternal-fetal PBPK models for risk assessment: a comprehensive review and future directions",
+      "authors": [
+        "Zhang Q",
+        "Fisher JW",
+        "Louisse J",
+        "Bois FY"
+      ],
+      "journal": "Critical Reviews in Toxicology",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38234567/"
+    }
+  ],
+  "compartments": [
+    {
+      "id": "pbpk_comp:001",
+      "name": "Maternal Blood",
+      "description": "Maternal circulatory system compartment",
+      "type": "PBPKCompartment",
+      "volume": 3.5,
+      "blood_flow": 5.0
+    },
+    {
+      "id": "pbpk_comp:002",
+      "name": "Maternal Liver",
+      "description": "Maternal hepatic compartment with metabolism",
+      "type": "PBPKCompartment",
+      "volume": 1.8,
+      "blood_flow": 1.5
+    },
+    {
+      "id": "pbpk_comp:003",
+      "name": "Placenta",
+      "description": "Placental barrier compartment",
+      "type": "PBPKCompartment",
+      "volume": 0.5,
+      "blood_flow": 0.7
+    },
+    {
+      "id": "pbpk_comp:004",
+      "name": "Fetal Circulation",
+      "description": "Fetal circulatory system",
+      "type": "PBPKCompartment",
+      "volume": 0.3,
+      "blood_flow": 0.2
+    }
+  ],
+  "species_modeled": {
+    "id": "NCBITaxon:9606",
+    "name": "Homo sapiens",
+    "type": "Term"
+  },
+  "@type": "PBPKModel"
+}

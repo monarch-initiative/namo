@@ -1,0 +1,165 @@
+id: qsarmodel:002
+name: Deep Learning ADMET Prediction Model
+description: A deep neural network model for predicting multiple ADMET (Absorption,
+  Distribution,  Metabolism, Excretion, Toxicity) endpoints using molecular descriptors
+  and fingerprints.  The model integrates multiple data sources and uses transfer
+  learning from large  chemical databases to predict drug-drug interactions, cytotoxicity,
+  and  pharmacokinetic properties across multiple species.
+type: QSARModel
+models:
+- biological_system_modeled: hepatotoxicity_prediction:002
+  is_computed: true
+  concordance:
+    molecular_similarity: High correlation with experimental cytotoxicity data
+    functional_parity: Accurate prediction of hepatotoxic mechanisms
+    reproducibility: Consistent performance across validation sets
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:015
+      name: Chemical Structure-Activity Relationship
+      description: Molecular similarity analysis for hepatotoxicity prediction
+      type: MolecularSimilarity
+      similarity_score: 0.91
+      correlation_coefficient: 0.88
+      differentially_expressed_genes:
+      - id: gene:041
+        name: CYP3A4
+        type: Gene
+        gene_symbol: CYP3A4
+        ensembl_id: ENSG00000160868
+        fold_change: 2.8
+        p_value: 0.001
+        adjusted_p_value: 0.01
+      - id: gene:042
+        name: GSTP1
+        type: Gene
+        gene_symbol: GSTP1
+        ensembl_id: ENSG00000084207
+        fold_change: 3.2
+        p_value: 0.0005
+        adjusted_p_value: 0.005
+      conserved_genes:
+      - id: gene:043
+        name: ALB
+        type: Gene
+        gene_symbol: ALB
+        ensembl_id: ENSG00000163631
+        fold_change: 1.1
+        p_value: 0.423
+        adjusted_p_value: 0.512
+      methodology: Tanimoto coefficient analysis with Morgan fingerprints
+      data_source: ChEMBL hepatotoxicity annotations and ToxCast assay data
+      statistical_significance:
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.85
+        confidence_interval_upper: 0.93
+        statistical_test: Permutation test
+    functional_parity:
+      id: funcpar:015
+      name: ADMET Prediction Performance
+      description: Multi-endpoint toxicity prediction accuracy assessment
+      type: FunctionalParity
+      functional_similarity_score: 0.89
+      conserved_functions:
+      - Cytochrome P450 metabolism prediction
+      - Drug-drug interaction identification
+      - Acute toxicity classification
+      impaired_functions:
+      - Chronic toxicity mechanisms
+      - Individual variation modeling
+      functional_assays:
+      - id: assay:035
+        name: Hepatotoxicity classification
+        type: FunctionalAssay
+        assay_type: Binary classification
+        assay_result: 0.87
+        reference_value: 0.85
+        units: accuracy
+        methodology: Random forest benchmark on DILIrank dataset
+      - id: assay:036
+        name: CYP inhibition prediction
+        type: FunctionalAssay
+        assay_type: IC50 regression
+        assay_result: 0.82
+        reference_value: 0.8
+        units: R²
+        methodology: Gradient boosting regression with molecular descriptors
+      - id: assay:037
+        name: Drug clearance prediction
+        type: FunctionalAssay
+        assay_type: Pharmacokinetic modeling
+        assay_result: 0.76
+        reference_value: 0.74
+        units: R²
+        methodology: Multi-species allometric scaling with machine learning
+      dose_response_similarity:
+        correlation_coefficient: 0.83
+        ec50_ratio: 1.18
+        max_response_ratio: 0.91
+        compound_tested: Acetaminophen hepatotoxicity dose-response
+    reproducibility:
+      id: repro:015
+      name: Model Validation Reproducibility
+      description: Cross-validation and external test set performance
+      type: Reproducibility
+      reproducibility_score: 0.92
+      coefficient_of_variation: 0.08
+      batch_to_batch_variation: 0.05
+      inter_laboratory_consistency: 0.88
+      replicate_count: 50
+      quality_control_metrics:
+      - metric_name: Cross-validation stability
+        metric_value: 0.91
+        threshold: 0.85
+        pass_fail_status: true
+      - metric_name: External validation performance
+        metric_value: 0.89
+        threshold: 0.8
+        pass_fail_status: true
+      - metric_name: Feature importance consistency
+        metric_value: 0.94
+        threshold: 0.9
+        pass_fail_status: true
+biological_organization_level: SUBCELLULAR
+spatial_context: Chemical space defined by molecular descriptors and pharmacophore
+  features
+complexity_level: HIGH
+references:
+- id: doi:10.1021/acs.jcim.4c00123
+  title: 'Deep learning approaches for comprehensive ADMET prediction: integrating
+    multi-task learning and transfer learning'
+  authors:
+  - Yang K
+  - Swanson K
+  - Jin W
+  - Coley C
+  - Eiden P
+  - Gao H
+  journal: Journal of Chemical Information and Modeling
+  year: 2024
+  url: https://pubs.acs.org/doi/10.1021/acs.jcim.4c00123
+- id: PMID:38445678
+  title: Transformer-based molecular property prediction for drug discovery applications
+  authors:
+  - Chen H
+  - Wang Y
+  - Liu Z
+  - Zhang S
+  - Li X
+  journal: Nature Machine Intelligence
+  year: 2024
+  url: https://pubmed.ncbi.nlm.nih.gov/38445678/
+molecular_descriptors:
+- MORGAN_FINGERPRINTS
+- RDKIT_DESCRIPTORS
+- MACCS_KEYS
+- PHARMACOPHORE_FEATURES
+activity_endpoint: Hepatotoxicity and multi-organ ADMET properties
+training_dataset_size: 45000
+model_performance:
+  accuracy: 0.87
+  sensitivity: 0.89
+  specificity: 0.84
+  r_squared: 0.82
+  auc: 0.91

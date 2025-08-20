@@ -1,0 +1,122 @@
+id: qsar:001
+name: Hepatotoxicity QSAR Model
+description: A Random Forest-based QSAR model for predicting drug-induced liver injury
+  (DILI)  based on molecular descriptors. The model was trained on a curated dataset
+  of  compounds with known hepatotoxicity profiles and achieves high accuracy in  predicting
+  liver toxicity risk.
+type: QSARModel
+models:
+- biological_system_modeled: liver_toxicity:001
+  is_computed: true
+  concordance:
+    molecular_similarity: Based on chemical structure similarity
+    functional_parity: Predicts hepatotoxicity endpoints
+    reproducibility: Cross-validation AUC 0.87 ± 0.03
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:004
+      name: Chemical Structure-Toxicity Relationship
+      description: Molecular descriptor-based similarity to known hepatotoxicants
+      type: MolecularSimilarity
+      similarity_score: 0.71
+      correlation_coefficient: 0.68
+      differentially_expressed_genes:
+      - id: gene:010
+        name: CYP3A4
+        type: Gene
+        gene_symbol: CYP3A4
+        ensembl_id: ENSG00000160868
+        fold_change: -2.1
+        p_value: 0.01
+        adjusted_p_value: 0.05
+      methodology: Tanimoto similarity with Morgan fingerprints
+      data_source: ChEMBL and ToxCast hepatotoxicity databases
+      statistical_significance:
+        p_value: 0.001
+        adjusted_p_value: 0.005
+        confidence_interval_lower: 0.63
+        confidence_interval_upper: 0.75
+        statistical_test: Bootstrap confidence intervals
+    functional_parity:
+      id: funcpar:004
+      name: Hepatotoxicity Prediction Performance
+      description: Evaluation of model performance in predicting liver toxicity
+      type: FunctionalParity
+      functional_similarity_score: 0.82
+      conserved_functions:
+      - DILI risk classification
+      - Severity prediction
+      - Chemical space coverage
+      impaired_functions:
+      - Mechanistic interpretation
+      - Rare toxicity prediction
+      functional_assays:
+      - id: assay:006
+        name: DILI classification accuracy
+        type: FunctionalAssay
+        assay_type: Binary classification
+        assay_result: 0.82
+        reference_value: 0.85
+        units: accuracy score
+        methodology: Balanced accuracy on held-out test set
+      - id: assay:007
+        name: Sensitivity analysis
+        type: FunctionalAssay
+        assay_type: Performance metric
+        assay_result: 0.78
+        reference_value: 0.8
+        units: sensitivity score
+        methodology: True positive rate for hepatotoxic compounds
+      dose_response_similarity:
+        correlation_coefficient: 0.65
+        ec50_ratio: 1.8
+        max_response_ratio: 0.92
+        compound_tested: Representative hepatotoxicants
+    reproducibility:
+      id: repro:004
+      name: QSAR Model Reproducibility
+      description: Cross-validation and external validation consistency
+      type: Reproducibility
+      reproducibility_score: 0.89
+      coefficient_of_variation: 0.04
+      batch_to_batch_variation: 0.02
+      inter_laboratory_consistency: 0.88
+      replicate_count: 100
+      quality_control_metrics:
+      - metric_name: Cross-validation AUC
+        metric_value: 0.87
+        threshold: 0.8
+        pass_fail_status: true
+      - metric_name: External validation AUC
+        metric_value: 0.84
+        threshold: 0.75
+        pass_fail_status: true
+      - metric_name: Model coverage
+        metric_value: 0.92
+        threshold: 0.85
+        pass_fail_status: true
+biological_organization_level: ORGAN
+spatial_context: Whole liver toxicity prediction without spatial resolution
+complexity_level: MODERATE
+computational_method: Random Forest with molecular fingerprints and physicochemical
+  descriptors
+software_platform: Python with scikit-learn and RDKit
+validation_datasets:
+- DILIrank dataset (1036 compounds)
+- FDA adverse event database compounds
+- ToxCast hepatotoxicity screening data
+prediction_scope: Binary classification of hepatotoxicity risk for small molecules
+molecular_descriptors:
+- Morgan fingerprints (radius=2, 2048 bits)
+- Physicochemical properties (MW, LogP, PSA)
+- Lipinski descriptors
+- ADMET properties
+activity_endpoint: Drug-induced liver injury (DILI) binary classification
+training_dataset_size: 1036
+model_performance:
+  accuracy: 0.82
+  sensitivity: 0.78
+  specificity: 0.85
+  r_squared: 0.73
+  rmse: 0.31
+  auc: 0.87

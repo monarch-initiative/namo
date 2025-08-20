@@ -1,0 +1,164 @@
+id: coculture:001
+name: Hepatocyte-Stellate Cell Co-culture
+description: A co-culture model combining primary human hepatocytes with hepatic stellate  cells
+  to study liver fibrosis development. The model captures paracrine  signaling between
+  cell types and enables investigation of fibrosis mechanisms  and potential therapeutic
+  interventions.
+type: CoCulture
+models:
+- biological_system_modeled: liver_fibrosis:001
+  is_computed: false
+  concordance:
+    molecular_similarity: High expression of fibrosis markers
+    functional_parity: Recapitulates key fibrosis pathways
+    reproducibility: Consistent activation across replicates
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:003
+      name: Fibrosis Marker Expression Analysis
+      description: RNA-seq comparison with human liver fibrosis samples
+      type: MolecularSimilarity
+      similarity_score: 0.78
+      correlation_coefficient: 0.74
+      differentially_expressed_genes:
+      - id: gene:007
+        name: COL1A1
+        type: Gene
+        gene_symbol: COL1A1
+        ensembl_id: ENSG00000108821
+        fold_change: 5.2
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:008
+        name: ACTA2
+        type: Gene
+        gene_symbol: ACTA2
+        ensembl_id: ENSG00000107796
+        fold_change: 3.8
+        p_value: 0.0002
+        adjusted_p_value: 0.002
+      conserved_genes:
+      - id: gene:009
+        name: TGFB1
+        type: Gene
+        gene_symbol: TGFB1
+        ensembl_id: ENSG00000105329
+        fold_change: 2.1
+        p_value: 0.001
+        adjusted_p_value: 0.005
+      methodology: Bulk RNA sequencing with pathway enrichment analysis
+      data_source: Comparison with human liver biopsy samples from fibrosis patients
+      statistical_significance:
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.71
+        confidence_interval_upper: 0.82
+        statistical_test: Spearman correlation
+    pathway_concordance:
+      id: pathconcord:002
+      name: Fibrosis Pathway Activation
+      description: Analysis of fibrosis-related signaling pathways
+      type: PathwayConcordance
+      pathway_overlap_score: 0.82
+      active_pathways:
+      - id: pathway:003
+        name: TGF-β signaling pathway
+        type: Pathway
+        pathway_database: KEGG
+        pathway_id: hsa04350
+        activity_score: 0.89
+        enrichment_score: 3.2
+      - id: pathway:004
+        name: ECM-receptor interaction
+        type: Pathway
+        pathway_database: KEGG
+        pathway_id: hsa04512
+        activity_score: 0.76
+        enrichment_score: 2.8
+      pathway_analysis_method: Ingenuity Pathway Analysis (IPA)
+      enrichment_statistics:
+      - enrichment_score: 3.2
+        p_value: 0.0001
+        q_value: 0.001
+        genes_in_pathway: 84
+        genes_in_dataset: 52
+    functional_parity:
+      id: funcpar:003
+      name: Fibrosis Function Assessment
+      description: Evaluation of key fibrotic processes and responses
+      type: FunctionalParity
+      functional_similarity_score: 0.75
+      conserved_functions:
+      - Collagen deposition
+      - Stellate cell activation
+      - TGF-β responsiveness
+      impaired_functions:
+      - Matrix metalloproteinase regulation
+      - Immune cell infiltration
+      functional_assays:
+      - id: assay:004
+        name: Collagen production assay
+        type: FunctionalAssay
+        assay_type: Protein quantification
+        assay_result: 180.5
+        reference_value: 210.2
+        units: μg/mg protein
+        methodology: Hydroxyproline assay for total collagen
+      - id: assay:005
+        name: α-SMA expression
+        type: FunctionalAssay
+        assay_type: Immunofluorescence
+        assay_result: 78.2
+        reference_value: 85.6
+        units: '% positive cells'
+        methodology: Anti-α-SMA antibody staining
+    reproducibility:
+      id: repro:003
+      name: Co-culture Reproducibility
+      description: Inter-experimental and inter-laboratory consistency
+      type: Reproducibility
+      reproducibility_score: 0.86
+      coefficient_of_variation: 0.14
+      batch_to_batch_variation: 0.18
+      inter_laboratory_consistency: 0.79
+      replicate_count: 18
+      quality_control_metrics:
+      - metric_name: Cell viability
+        metric_value: 0.91
+        threshold: 0.85
+        pass_fail_status: true
+      - metric_name: Co-culture ratio
+        metric_value: 0.82
+        threshold: 0.75
+        pass_fail_status: true
+biological_organization_level: CELLULAR_NEIGHBORHOOD
+spatial_context: Hepatocytes and stellate cells in defined spatial arrangement with
+  paracrine interactions
+complexity_level: MODERATE
+cell_types:
+- id: CL:0000182
+  name: hepatocyte
+  type: Term
+- id: CL:0002138
+  name: hepatic stellate cell
+  type: Term
+cell_source: Primary human hepatocytes and hepatic stellate cells from liver donors
+culture_conditions: Williams E medium + hepatocyte supplements, 37°C, 5% CO2
+coculture_configuration: TRANSWELL
+cell_ratios:
+- cell_type:
+    id: CL:0000182
+    name: hepatocyte
+    type: Term
+  ratio: 0.8
+  ratio_type: PERCENTAGE
+- cell_type:
+    id: CL:0002138
+    name: hepatic stellate cell
+    type: Term
+  ratio: 0.2
+  ratio_type: PERCENTAGE
+interaction_mechanisms:
+- Paracrine signaling via TGF-β and PDGF
+- Extracellular matrix deposition
+- Cytokine-mediated inflammation response

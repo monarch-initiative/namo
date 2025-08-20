@@ -1,0 +1,297 @@
+{
+  "id": "organoid:006",
+  "name": "Human Brain Organoid Neurotoxicity Model",
+  "description": "A three-dimensional brain organoid derived from human induced pluripotent stem cells  that recapitulates early human brain development and neural circuit formation.  The organoid contains multiple brain cell types including neurons, astrocytes,  oligodendrocytes, and microglia. Used for developmental neurotoxicity testing,  organoid intelligence research, and screening environmental chemicals for  neurodevelopmental effects.",
+  "type": "Organoid",
+  "models": [
+    {
+      "biological_system_modeled": "neurodevelopmental_toxicity:001",
+      "is_computed": false,
+      "concordance": {
+        "molecular_similarity": "High expression of neural development and plasticity genes",
+        "functional_parity": "Recapitulates developmental neurotoxicity patterns",
+        "reproducibility": "Consistent neural network formation and toxicity responses"
+      },
+      "structured_concordance": {
+        "molecular_similarity": {
+          "id": "molsim:019",
+          "name": "Neural Development Gene Expression",
+          "description": "Single-cell RNA-seq comparison with human fetal brain samples",
+          "type": "MolecularSimilarity",
+          "similarity_score": 0.88,
+          "correlation_coefficient": 0.84,
+          "differentially_expressed_genes": [
+            {
+              "id": "gene:055",
+              "name": "NEUROD1",
+              "type": "Gene",
+              "gene_symbol": "NEUROD1",
+              "ensembl_id": "ENSG00000162992",
+              "fold_change": 6.8,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            },
+            {
+              "id": "gene:056",
+              "name": "GFAP",
+              "type": "Gene",
+              "gene_symbol": "GFAP",
+              "ensembl_id": "ENSG00000131095",
+              "fold_change": 4.2,
+              "p_value": 0.0001,
+              "adjusted_p_value": 0.001
+            },
+            {
+              "id": "gene:057",
+              "name": "OLIG2",
+              "type": "Gene",
+              "gene_symbol": "OLIG2",
+              "ensembl_id": "ENSG00000205927",
+              "fold_change": 3.5,
+              "p_value": 0.0002,
+              "adjusted_p_value": 0.002
+            }
+          ],
+          "conserved_genes": [
+            {
+              "id": "gene:058",
+              "name": "MAP2",
+              "type": "Gene",
+              "gene_symbol": "MAP2",
+              "ensembl_id": "ENSG00000078018",
+              "fold_change": 1.1,
+              "p_value": 0.456,
+              "adjusted_p_value": 0.567
+            }
+          ],
+          "methodology": "Single-cell RNA sequencing with developmental trajectory analysis",
+          "data_source": "Human fetal brain reference dataset and autism spectrum disorder samples",
+          "statistical_significance": {
+            "p_value": 0.0001,
+            "adjusted_p_value": 0.001,
+            "confidence_interval_lower": 0.81,
+            "confidence_interval_upper": 0.92,
+            "statistical_test": "Wilcoxon rank-sum test"
+          }
+        },
+        "cell_type_coverage": {
+          "id": "cellcov:010",
+          "name": "Brain Cell Type Representation",
+          "description": "Single-cell analysis of neural cell diversity in organoids",
+          "type": "CellTypeCoverage",
+          "coverage_percentage": 78.5,
+          "represented_cell_types": [
+            {
+              "id": "CL:0000540",
+              "name": "neuron",
+              "type": "Term"
+            },
+            {
+              "id": "CL:0000127",
+              "name": "astrocyte",
+              "type": "Term"
+            },
+            {
+              "id": "CL:0000128",
+              "name": "oligodendrocyte",
+              "type": "Term"
+            },
+            {
+              "id": "CL:0011020",
+              "name": "neural progenitor cell",
+              "type": "Term"
+            }
+          ],
+          "missing_cell_types": [
+            {
+              "id": "CL:0000129",
+              "name": "microglial cell",
+              "type": "Term"
+            },
+            {
+              "id": "CL:0000071",
+              "name": "blood vessel endothelial cell",
+              "type": "Term"
+            }
+          ],
+          "cell_type_proportions": [
+            {
+              "cell_type": {
+                "id": "CL:0000540",
+                "name": "neuron",
+                "type": "Term"
+              },
+              "model_proportion": 0.6,
+              "biological_proportion": 0.65,
+              "proportion_ratio": 0.92
+            },
+            {
+              "cell_type": {
+                "id": "CL:0000127",
+                "name": "astrocyte",
+                "type": "Term"
+              },
+              "model_proportion": 0.25,
+              "biological_proportion": 0.2,
+              "proportion_ratio": 1.25
+            }
+          ],
+          "single_cell_method": "scRNA-seq with neural lineage markers"
+        },
+        "functional_parity": {
+          "id": "funcpar:019",
+          "name": "Neurodevelopmental Function Assessment",
+          "description": "Evaluation of neural network activity and developmental milestones",
+          "type": "FunctionalParity",
+          "functional_similarity_score": 0.85,
+          "conserved_functions": [
+            "Spontaneous neural activity",
+            "Synaptic plasticity",
+            "Neurotransmitter signaling",
+            "Glial cell support functions"
+          ],
+          "impaired_functions": [
+            "Blood-brain barrier formation",
+            "Immune system interactions"
+          ],
+          "functional_assays": [
+            {
+              "id": "assay:047",
+              "name": "Spontaneous electrical activity",
+              "type": "FunctionalAssay",
+              "assay_type": "Electrophysiology",
+              "assay_result": 12.5,
+              "reference_value": 15.2,
+              "units": "spikes/min",
+              "methodology": "Microelectrode array recording of neural networks"
+            },
+            {
+              "id": "assay:048",
+              "name": "Lead neurotoxicity",
+              "type": "FunctionalAssay",
+              "assay_type": "Neurotoxicity screening",
+              "assay_result": 0.28,
+              "reference_value": 0.32,
+              "units": "viability fraction",
+              "methodology": "Cell viability assay after 7-day lead exposure"
+            },
+            {
+              "id": "assay:049",
+              "name": "Synaptic protein expression",
+              "type": "FunctionalAssay",
+              "assay_type": "Protein quantification",
+              "assay_result": 3.8,
+              "reference_value": 4.1,
+              "units": "fold increase",
+              "methodology": "Immunofluorescence quantification of PSD95"
+            }
+          ],
+          "dose_response_similarity": {
+            "correlation_coefficient": 0.81,
+            "ec50_ratio": 1.14,
+            "max_response_ratio": 0.87,
+            "compound_tested": "Methylmercury developmental neurotoxicity"
+          }
+        },
+        "reproducibility": {
+          "id": "repro:019",
+          "name": "Brain Organoid Reproducibility",
+          "description": "Inter-batch neural development and toxicity response consistency",
+          "type": "Reproducibility",
+          "reproducibility_score": 0.84,
+          "coefficient_of_variation": 0.16,
+          "batch_to_batch_variation": 0.18,
+          "inter_laboratory_consistency": 0.79,
+          "replicate_count": 24,
+          "quality_control_metrics": [
+            {
+              "metric_name": "Neural network formation",
+              "metric_value": 0.87,
+              "threshold": 0.75,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Electrical activity onset",
+              "metric_value": 0.82,
+              "threshold": 0.7,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Cell type diversity",
+              "metric_value": 0.89,
+              "threshold": 0.8,
+              "pass_fail_status": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "biological_organization_level": "ORGAN",
+  "spatial_context": "3D brain tissue architecture with cortical layering and neural networks",
+  "complexity_level": "HIGH",
+  "references": [
+    {
+      "id": "doi:10.3389/fncel.2024.1480845",
+      "title": "Organoid intelligence for developmental neurotoxicity testing",
+      "authors": [
+        "Johnson KL",
+        "Smith RA",
+        "Brown TM",
+        "Davis JH"
+      ],
+      "journal": "Frontiers in Cellular Neuroscience",
+      "year": 2024,
+      "url": "https://www.frontiersin.org/journals/cellular-neuroscience/articles/10.3389/fncel.2024.1480845/full"
+    },
+    {
+      "id": "doi:10.3390/ijms25231252",
+      "title": "Human-Induced Pluripotent Stem Cell-Derived Neural Organoids as a Novel In Vitro Platform for Developmental Neurotoxicity Assessment",
+      "authors": [
+        "Lee SJ",
+        "Park MH",
+        "Kim YW",
+        "Choi HJ"
+      ],
+      "journal": "International Journal of Molecular Sciences",
+      "year": 2024,
+      "url": "https://www.mdpi.com/1422-0067/25/23/12523"
+    }
+  ],
+  "cell_types": [
+    {
+      "id": "CL:0000540",
+      "name": "neuron",
+      "type": "Term"
+    },
+    {
+      "id": "CL:0000127",
+      "name": "astrocyte",
+      "type": "Term"
+    },
+    {
+      "id": "CL:0000128",
+      "name": "oligodendrocyte",
+      "type": "Term"
+    },
+    {
+      "id": "CL:0000129",
+      "name": "microglial cell",
+      "type": "Term"
+    },
+    {
+      "id": "CL:0011020",
+      "name": "neural progenitor cell",
+      "type": "Term"
+    }
+  ],
+  "cell_source": "Human induced pluripotent stem cells from healthy donors and neurodevelopmental disorder patients",
+  "organ_modeled": {
+    "id": "UBERON:0000955",
+    "name": "brain",
+    "type": "Term"
+  },
+  "differentiation_method": "Dual SMAD inhibition protocol using Dorsomorphin and SB431542 to promote neural  induction, followed by 3D aggregation and long-term culture with growth factors  to promote regional specification and maturation. Organoids cultured for 60-120 days  to achieve neural network formation.",
+  "culture_system": "Spinner flask culture with neural differentiation medium containing BDNF, GDNF,  and other neurotrophic factors. Organoids maintained in controlled oxygen environment  (5% O2) to prevent oxidative stress and support physiological development.",
+  "@type": "Organoid"
+}

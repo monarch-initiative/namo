@@ -1,0 +1,167 @@
+{
+  "id": "organoid:002",
+  "name": "Hepatic Organoid Model",
+  "description": "A liver organoid system derived from human hepatocytes and cholangiocytes  that recapitulates key hepatic functions including albumin production,  urea synthesis, and cytochrome P450 metabolism. The organoid maintains  hepatocyte polarity and bile canaliculi formation, making it suitable  for drug metabolism and hepatotoxicity studies.",
+  "type": "Organoid",
+  "models": [
+    {
+      "biological_system_modeled": "hepatic_function:001",
+      "is_computed": false,
+      "concordance": {
+        "phenotype_overlap": "Maintains key hepatic functions including albumin and urea production",
+        "molecular_similarity": "High expression of hepatic markers CYP3A4, ALB, AFP",
+        "pathway_concordance": "Active Phase I and Phase II drug metabolism pathways",
+        "cell_type_coverage": "Contains primary hepatic cell types with maintained polarity",
+        "functional_parity": "Exhibits drug-metabolizing enzyme activity comparable to primary hepatocytes",
+        "reproducibility": "Consistent albumin production across biological replicates"
+      },
+      "structured_concordance": {
+        "molecular_similarity": {
+          "id": "molsim:007",
+          "name": "Hepatic Organoid Gene Expression",
+          "description": "RNA-seq comparison with primary human hepatocytes",
+          "type": "MolecularSimilarity",
+          "similarity_score": 0.81,
+          "correlation_coefficient": 0.78,
+          "differentially_expressed_genes": [
+            {
+              "id": "gene:014",
+              "name": "ALB",
+              "type": "Gene",
+              "gene_symbol": "ALB",
+              "ensembl_id": "ENSG00000163631",
+              "fold_change": 0.8,
+              "p_value": 0.234,
+              "adjusted_p_value": 0.345
+            },
+            {
+              "id": "gene:015",
+              "name": "CYP3A4",
+              "type": "Gene",
+              "gene_symbol": "CYP3A4",
+              "ensembl_id": "ENSG00000160868",
+              "fold_change": -3.2,
+              "p_value": 0.001,
+              "adjusted_p_value": 0.01
+            }
+          ],
+          "conserved_genes": [
+            {
+              "id": "gene:016",
+              "name": "HNF4A",
+              "type": "Gene",
+              "gene_symbol": "HNF4A",
+              "ensembl_id": "ENSG00000101076",
+              "fold_change": 1.1,
+              "p_value": 0.567,
+              "adjusted_p_value": 0.634
+            }
+          ],
+          "methodology": "Bulk RNA sequencing with hepatic marker analysis",
+          "data_source": "Primary human hepatocyte reference transcriptomes",
+          "statistical_significance": {
+            "p_value": 0.001,
+            "adjusted_p_value": 0.005,
+            "confidence_interval_lower": 0.74,
+            "confidence_interval_upper": 0.86,
+            "statistical_test": "Pearson correlation"
+          }
+        },
+        "functional_parity": {
+          "id": "funcpar:007",
+          "name": "Hepatic Function Assessment",
+          "description": "Evaluation of liver-specific metabolic and synthetic functions",
+          "type": "FunctionalParity",
+          "functional_similarity_score": 0.71,
+          "conserved_functions": [
+            "Albumin synthesis and secretion",
+            "Urea cycle activity",
+            "Glucose metabolism"
+          ],
+          "impaired_functions": [
+            "CYP450 enzyme activity",
+            "Bile acid synthesis"
+          ],
+          "functional_assays": [
+            {
+              "id": "assay:014",
+              "name": "Albumin production rate",
+              "type": "FunctionalAssay",
+              "assay_type": "Protein secretion",
+              "assay_result": 28.5,
+              "reference_value": 45.2,
+              "units": "μg/mg protein/24h",
+              "methodology": "ELISA-based albumin quantification"
+            },
+            {
+              "id": "assay:015",
+              "name": "Urea synthesis capacity",
+              "type": "FunctionalAssay",
+              "assay_type": "Metabolic function",
+              "assay_result": 12.8,
+              "reference_value": 18.5,
+              "units": "μg/mg protein/24h",
+              "methodology": "Colorimetric urea assay"
+            }
+          ]
+        },
+        "reproducibility": {
+          "id": "repro:007",
+          "name": "Hepatic Organoid Reproducibility",
+          "description": "Inter-batch consistency of hepatic organoid generation",
+          "type": "Reproducibility",
+          "reproducibility_score": 0.84,
+          "coefficient_of_variation": 0.16,
+          "batch_to_batch_variation": 0.19,
+          "inter_laboratory_consistency": 0.78,
+          "replicate_count": 24,
+          "quality_control_metrics": [
+            {
+              "metric_name": "Organoid size",
+              "metric_value": 380.0,
+              "threshold": 300.0,
+              "pass_fail_status": true
+            },
+            {
+              "metric_name": "Hepatocyte marker expression",
+              "metric_value": 0.89,
+              "threshold": 0.8,
+              "pass_fail_status": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "cell_types": [
+    {
+      "id": "CL:0000182",
+      "name": "hepatocyte",
+      "type": "Term"
+    },
+    {
+      "id": "CL:0000183",
+      "name": "cholangiocyte",
+      "type": "Term"
+    },
+    {
+      "id": "CL:0002138",
+      "name": "hepatic stellate cell",
+      "type": "Term"
+    },
+    {
+      "id": "CL:0000091",
+      "name": "Kupffer cell",
+      "type": "Term"
+    }
+  ],
+  "cell_source": "Primary human hepatocytes and cholangiocytes isolated from donor liver tissue",
+  "organ_modeled": {
+    "id": "UBERON:0002107",
+    "name": "liver",
+    "type": "Term"
+  },
+  "differentiation_method": "Co-culture of primary hepatocytes and cholangiocytes in hepatocyte  culture medium supplemented with hepatocyte growth factor (HGF) and  epidermal growth factor (EGF). Organoids form through self-organization  over 7-10 days.",
+  "culture_system": "Low-attachment plates with hepatocyte organoid medium containing  Wnt3a, R-spondin, and Noggin. Cultures maintained at 37°C with 5% CO2  and medium changed every 2-3 days.",
+  "@type": "Organoid"
+}

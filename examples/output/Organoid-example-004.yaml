@@ -1,0 +1,224 @@
+id: organoid:004
+name: Human Kidney Organoid Nephrotoxicity Model
+description: A 3D kidney organoid derived from human pluripotent stem cells that recapitulates  key
+  aspects of human kidney development and function. The organoid contains podocytes,  proximal
+  tubule cells, distal tubule cells, and endothelial cells organized in  nephron-like
+  structures. Used for nephrotoxicity screening and modeling acute  kidney injury,
+  particularly cisplatin-induced nephrotoxicity.
+type: Organoid
+models:
+- biological_system_modeled: kidney_nephrotoxicity:001
+  is_computed: false
+  concordance:
+    molecular_similarity: High expression of kidney-specific markers and nephrotoxicity
+      genes
+    functional_parity: Recapitulates cisplatin-induced acute kidney injury
+    reproducibility: Consistent nephrotoxicity response across experimental batches
+  structured_concordance:
+    molecular_similarity:
+      id: molsim:012
+      name: Kidney Organoid Nephrotoxicity Gene Expression
+      description: RNA-seq comparison with human kidney samples and AKI patients
+      type: MolecularSimilarity
+      similarity_score: 0.82
+      correlation_coefficient: 0.79
+      differentially_expressed_genes:
+      - id: gene:029
+        name: NPHS1
+        type: Gene
+        gene_symbol: NPHS1
+        ensembl_id: ENSG00000161270
+        fold_change: 3.5
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:030
+        name: LRP2
+        type: Gene
+        gene_symbol: LRP2
+        ensembl_id: ENSG00000081479
+        fold_change: 4.2
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      - id: gene:031
+        name: KIM1
+        type: Gene
+        gene_symbol: HAVCR1
+        ensembl_id: ENSG00000113249
+        fold_change: 8.5
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+      conserved_genes:
+      - id: gene:032
+        name: WT1
+        type: Gene
+        gene_symbol: WT1
+        ensembl_id: ENSG00000184937
+        fold_change: 1.3
+        p_value: 0.123
+        adjusted_p_value: 0.234
+      methodology: Single-cell RNA sequencing with nephron segment-specific analysis
+      data_source: Human kidney biopsy samples and AKI patient data
+      statistical_significance:
+        p_value: 0.0001
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.75
+        confidence_interval_upper: 0.87
+        statistical_test: Spearman correlation
+    cell_type_coverage:
+      id: cellcov:005
+      name: Kidney Cell Type Representation
+      description: Analysis of nephron cell type diversity and organization
+      type: CellTypeCoverage
+      coverage_percentage: 85.2
+      represented_cell_types:
+      - id: CL:0000653
+        name: podocyte
+        type: Term
+      - id: CL:1000849
+        name: kidney proximal tubule epithelial cell
+        type: Term
+      - id: CL:1001431
+        name: kidney distal tubule epithelial cell
+        type: Term
+      - id: CL:0000071
+        name: blood vessel endothelial cell
+        type: Term
+      missing_cell_types:
+      - id: CL:1000452
+        name: kidney collecting duct principal cell
+        type: Term
+      - id: CL:1000453
+        name: kidney collecting duct intercalated cell
+        type: Term
+      cell_type_proportions:
+      - cell_type:
+          id: CL:0000653
+          name: podocyte
+          type: Term
+        model_proportion: 0.15
+        biological_proportion: 0.12
+        proportion_ratio: 1.25
+      - cell_type:
+          id: CL:1000849
+          name: kidney proximal tubule epithelial cell
+          type: Term
+        model_proportion: 0.55
+        biological_proportion: 0.62
+        proportion_ratio: 0.89
+      single_cell_method: scRNA-seq with kidney lineage markers
+    functional_parity:
+      id: funcpar:012
+      name: Nephrotoxicity Function Assessment
+      description: Evaluation of kidney-specific functions and drug-induced injury
+      type: FunctionalParity
+      functional_similarity_score: 0.84
+      conserved_functions:
+      - Glomerular filtration barrier formation
+      - Proximal tubule transport function
+      - Drug-induced injury response
+      impaired_functions:
+      - Urine concentration ability
+      - Complex ion homeostasis
+      functional_assays:
+      - id: assay:026
+        name: Cisplatin cytotoxicity
+        type: FunctionalAssay
+        assay_type: Cell viability
+        assay_result: 0.42
+        reference_value: 0.45
+        units: viability fraction
+        methodology: ATP-based cell viability assay after 72h cisplatin treatment
+      - id: assay:027
+        name: KIM-1 biomarker release
+        type: FunctionalAssay
+        assay_type: Biomarker quantification
+        assay_result: 185.2
+        reference_value: 200.5
+        units: pg/mL
+        methodology: ELISA-based KIM-1 quantification in culture medium
+      - id: assay:028
+        name: Filtration barrier integrity
+        type: FunctionalAssay
+        assay_type: Permeability assay
+        assay_result: 2.5e-06
+        reference_value: 2.1e-06
+        units: cm/s
+        methodology: FITC-albumin permeability across organoid barrier
+    reproducibility:
+      id: repro:012
+      name: Kidney Organoid Reproducibility
+      description: Inter-batch and inter-laboratory consistency assessment
+      type: Reproducibility
+      reproducibility_score: 0.88
+      coefficient_of_variation: 0.12
+      batch_to_batch_variation: 0.14
+      inter_laboratory_consistency: 0.84
+      replicate_count: 36
+      quality_control_metrics:
+      - metric_name: Nephron formation efficiency
+        metric_value: 0.89
+        threshold: 0.8
+        pass_fail_status: true
+      - metric_name: Podocyte marker expression
+        metric_value: 0.92
+        threshold: 0.85
+        pass_fail_status: true
+      - metric_name: Organoid size consistency
+        metric_value: 0.86
+        threshold: 0.8
+        pass_fail_status: true
+biological_organization_level: ORGAN
+spatial_context: 3D nephron-like structures with tubular organization and glomerular-like
+  domains
+complexity_level: HIGH
+references:
+- id: doi:10.1101/2025.04.30.651410
+  title: Development and Validation of a Stem Cell-Based Kidney Organoid Platform
+    for Nephrotoxicity Assessment
+  authors:
+  - Nakanoh S
+  - Takasato M
+  - Little MH
+  journal: bioRxiv
+  year: 2025
+  url: https://www.biorxiv.org/content/10.1101/2025.04.30.651410v1
+- id: PMID:38547531
+  title: Advancing preclinical drug evaluation through automated 3D imaging for high-throughput
+    screening with kidney organoids
+  authors:
+  - Ramzy A
+  - Tomov ML
+  - Tran TT
+  - Sharma AD
+  - Feric NT
+  journal: Cell Reports Medicine
+  year: 2024
+  url: https://pubmed.ncbi.nlm.nih.gov/38547531/
+cell_types:
+- id: CL:0000653
+  name: podocyte
+  type: Term
+- id: CL:1000849
+  name: kidney proximal tubule epithelial cell
+  type: Term
+- id: CL:1001431
+  name: kidney distal tubule epithelial cell
+  type: Term
+- id: CL:0000071
+  name: blood vessel endothelial cell
+  type: Term
+- id: CL:1000507
+  name: kidney interstitial fibroblast
+  type: Term
+cell_source: Human induced pluripotent stem cells (iPSCs) from healthy donors
+organ_modeled:
+  id: UBERON:0002113
+  name: kidney
+  type: Term
+differentiation_method: Protocol based on developmental kidney organogenesis using
+  sequential growth  factor treatment including activating canonical Wnt signaling,
+  followed by  FGF9 and BMP signaling to induce metanephric mesenchyme and nephron
+  progenitors.
+culture_system: Suspension culture in ultra-low attachment plates with nephron differentiation  medium.
+  Organoids maintained for 18-25 days with medium changes every 2-3 days  to allow
+  full nephron maturation.
