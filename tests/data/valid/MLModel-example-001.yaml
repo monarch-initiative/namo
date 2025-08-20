@@ -1,0 +1,150 @@
+id: "mlmodel:001"
+name: "Deep Learning Cardiotoxicity Prediction Model"
+description: >-
+  A deep neural network model for predicting cardiotoxicity from chemical structure 
+  and molecular descriptors. The model uses transfer learning from large chemical 
+  databases and incorporates multiple endpoints including QT prolongation, 
+  arrhythmia risk, and cardiomyocyte viability. Designed for early-stage 
+  drug development and regulatory safety assessment.
+type: "MLModel"
+biological_organization_level: "SUBCELLULAR"
+spatial_context: "Chemical-biological interaction space with molecular target predictions"
+complexity_level: "HIGH"
+ml_algorithm: "DEEP_LEARNING"
+feature_types:
+  - "MOLECULAR"
+  - "PHENOTYPIC"
+  - "TRANSCRIPTOMIC"
+training_data_size: 125000
+cross_validation:
+  cv_method: "STRATIFIED_K_FOLD"
+  n_folds: 5
+  cv_score: 0.89
+model_interpretability: "INTERPRETABLE"
+references:
+  - id: "doi:10.1016/j.compbiomed.2024.108445"
+    title: "Deep learning for cardiotoxicity prediction: integrating molecular descriptors and biological pathways"
+    authors: ["Chen X", "Liu Y", "Wang Z", "Zhang H"]
+    journal: "Computers in Biology and Medicine"
+    year: 2024
+    url: "https://www.sciencedirect.com/science/article/pii/S001048252400123X"
+  - id: "doi:10.1021/acs.jcim.4c00789"
+    title: "Multi-task learning for comprehensive cardiotoxicity assessment using chemical structure information"
+    authors: ["Rodriguez M", "Kim J", "Anderson L", "Thompson R"]
+    journal: "Journal of Chemical Information and Modeling"
+    year: 2024
+    url: "https://pubs.acs.org/doi/10.1021/acs.jcim.4c00789"
+models:
+  - biological_system_modeled: "cardiotoxicity_prediction:001"
+    is_computed: true
+    concordance:
+      molecular_similarity: "High correlation with experimental cardiotoxicity endpoints"
+      functional_parity: "Accurate prediction of multiple cardiotoxicity mechanisms"
+      reproducibility: "Consistent performance across validation datasets"
+    structured_concordance:
+      molecular_similarity:
+        id: "molsim:023"
+        name: "Cardiotoxicity Molecular Targets"
+        description: "Chemical-target interaction predictions for cardiac toxicity"
+        similarity_score: 0.92
+        correlation_coefficient: 0.89
+        methodology: "Molecular docking and target prediction with known cardiotoxic compounds"
+        data_source: "ChEMBL cardiotoxicity dataset and FDA Adverse Event Reporting System"
+        differentially_expressed_genes:
+          - id: "gene:071"
+            name: "KCNH2"
+            gene_symbol: "KCNH2"
+            ensembl_id: "ENSG00000055118"
+            fold_change: 3.8
+            p_value: 0.001
+            adjusted_p_value: 0.01
+          - id: "gene:072"
+            name: "SCN5A"
+            gene_symbol: "SCN5A"
+            ensembl_id: "ENSG00000183873"
+            fold_change: 2.5
+            p_value: 0.002
+            adjusted_p_value: 0.02
+          - id: "gene:073"
+            name: "CACNA1C"
+            gene_symbol: "CACNA1C"
+            ensembl_id: "ENSG00000151067"
+            fold_change: 2.8
+            p_value: 0.001
+            adjusted_p_value: 0.01
+        conserved_genes:
+          - id: "gene:074"
+            name: "ACTB"
+            gene_symbol: "ACTB"
+            ensembl_id: "ENSG00000075624"
+            fold_change: 1.0
+            p_value: 0.782
+            adjusted_p_value: 0.856
+        statistical_significance:
+          p_value: 0.001
+          adjusted_p_value: 0.01
+          confidence_interval_lower: 0.86
+          confidence_interval_upper: 0.95
+          statistical_test: "Bootstrap confidence intervals"
+      functional_parity:
+        id: "funcpar:023"
+        name: "Cardiotoxicity Prediction Performance"
+        description: "Multi-endpoint cardiotoxicity prediction accuracy"
+        functional_similarity_score: 0.88
+        conserved_functions:
+          - "hERG channel binding prediction"
+          - "QT prolongation risk assessment"
+          - "Arrhythmia classification"
+          - "Cardiomyocyte viability prediction"
+        impaired_functions:
+          - "Long-term chronic effects"
+          - "Individual variability modeling"
+        functional_assays:
+          - id: "assay:059"
+            name: "hERG inhibition prediction"
+            assay_type: "Binary classification"
+            assay_result: 0.91
+            reference_value: 0.87
+            units: "AUC"
+            methodology: "ROC analysis against experimental hERG patch clamp data"
+          - id: "assay:060"
+            name: "QT prolongation prediction"
+            assay_type: "Regression"
+            assay_result: 0.84
+            reference_value: 0.81
+            units: "R²"
+            methodology: "Linear correlation with clinical QTc measurements"
+          - id: "assay:061"
+            name: "Cardiomyocyte cytotoxicity"
+            assay_type: "Binary classification"
+            assay_result: 0.86
+            reference_value: 0.83
+            units: "F1-score"
+            methodology: "Precision-recall analysis of cell viability data"
+        dose_response_similarity:
+          correlation_coefficient: 0.82
+          ec50_ratio: 1.15
+          max_response_ratio: 0.89
+          compound_tested: "Dofetilide hERG inhibition"
+      reproducibility:
+        id: "repro:023"
+        name: "Model Validation Reproducibility"
+        description: "Cross-validation and external test set consistency"
+        reproducibility_score: 0.93
+        coefficient_of_variation: 0.07
+        batch_to_batch_variation: 0.04
+        inter_laboratory_consistency: 0.91
+        replicate_count: 100
+        quality_control_metrics:
+          - metric_name: "Cross-validation stability"
+            metric_value: 0.94
+            threshold: 0.90
+            pass_fail_status: true
+          - metric_name: "External validation performance"
+            metric_value: 0.91
+            threshold: 0.85
+            pass_fail_status: true
+          - metric_name: "Feature importance consistency"
+            metric_value: 0.89
+            threshold: 0.80
+            pass_fail_status: true

@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier
+_commit: v0.4.1
+_src_path: https://github.com/dalito/linkml-project-copier
+add_example: true
+copyright_year: '2025'
+email: cjmungall@lbl.gov
+full_name: Chris Mungall
+gh_action_docs_preview: false
+gh_action_pypi: true
+github_org: monarch-initiative
+license: BSD-3-Clause
+project_description: New Approach Methodology Ontology and Schema
+project_name: namo
+project_slug: namo
+

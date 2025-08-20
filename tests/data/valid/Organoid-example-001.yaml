@@ -1,0 +1,172 @@
+id: "organoid:001"
+name: "3D Brain Organoid Model"
+description: >-
+  A 3D brain organoid derived from human induced pluripotent stem cells (iPSCs) 
+  that recapitulates key aspects of early human brain development. The organoid 
+  contains neural progenitor cells, mature neurons, astrocytes, and oligodendrocytes 
+  organized in cortical-like structures with defined layers. Used for modeling 
+  neurodevelopmental disorders and drug screening.
+type: "Organoid"
+organ_modeled:
+  id: "UBERON:0000955"
+  name: "brain"
+cell_types:
+  - id: "CL:0000540"
+    name: "neuron"
+  - id: "CL:0000127"
+    name: "astrocyte"
+  - id: "CL:0000128"
+    name: "oligodendrocyte"
+  - id: "CL:0011020"
+    name: "neural progenitor cell"
+  - id: "CL:0000125"
+    name: "glial cell"
+cell_source: "Human induced pluripotent stem cells (iPSCs) from healthy donors"
+differentiation_method: >-
+  Dual SMAD inhibition protocol with LDN193189 and SB431542 followed by 
+  neural induction using N2B27 medium. Organoids are generated using 
+  hanging drop method followed by embedding in Matrigel droplets.
+culture_system: >-
+  Matrigel dome culture with orbital shaking at 80 rpm. Organoids are 
+  maintained in neural differentiation medium with regular feeding every 
+  3-4 days for up to 60 days.
+models:
+  - biological_system_modeled: "neurodevelopment:001"
+    is_computed: false
+    concordance:
+      phenotype_overlap: "High concordance with human fetal brain gene expression"
+      molecular_similarity: "85% similarity in transcriptomic profiles"
+      pathway_concordance: "Strong overlap in Wnt and Notch signaling pathways"
+      cell_type_coverage: "Contains major brain cell types found in developing cortex"
+      functional_parity: "Exhibits spontaneous electrical activity and synaptic transmission"
+      reproducibility: "Batch-to-batch coefficient of variation <20%"
+    structured_concordance:
+      molecular_similarity:
+        id: "molsim:001"
+        name: "Brain Organoid Transcriptomic Similarity"
+        description: "RNA-seq based comparison with human fetal brain tissue"
+        similarity_score: 0.85
+        correlation_coefficient: 0.82
+        methodology: "Single-cell RNA sequencing with 10X Genomics platform"
+        data_source: "scRNA-seq comparison with gestational week 12-16 human fetal brain"
+        differentially_expressed_genes:
+          - id: "gene:001"
+            name: "SOX2"
+            gene_symbol: "SOX2"
+            ensembl_id: "ENSG00000181449"
+            fold_change: 2.3
+            p_value: 0.001
+            adjusted_p_value: 0.01
+          - id: "gene:002"
+            name: "NESTIN"
+            gene_symbol: "NES"
+            ensembl_id: "ENSG00000132688"
+            fold_change: 1.8
+            p_value: 0.005
+            adjusted_p_value: 0.02
+        conserved_genes:
+          - id: "gene:003"
+            name: "PAX6"
+            gene_symbol: "PAX6"
+            ensembl_id: "ENSG00000007372"
+            fold_change: 1.1
+            p_value: 0.456
+            adjusted_p_value: 0.523
+        statistical_significance:
+          p_value: 0.001
+          adjusted_p_value: 0.005
+          confidence_interval_lower: 0.78
+          confidence_interval_upper: 0.88
+          statistical_test: "Spearman correlation"
+      pathway_concordance:
+        id: "pathconcord:001"
+        name: "Neurodevelopmental Pathway Analysis"
+        description: "GSEA analysis of key brain development pathways"
+        pathway_overlap_score: 0.75
+        pathway_analysis_method: "Gene Set Enrichment Analysis (GSEA)"
+        active_pathways:
+          - id: "pathway:001"
+            name: "Wnt signaling pathway"
+            pathway_database: "KEGG"
+            pathway_id: "hsa04310"
+            activity_score: 0.82
+            enrichment_score: 2.1
+          - id: "pathway:002"
+            name: "Notch signaling pathway"
+            pathway_database: "KEGG"
+            pathway_id: "hsa04330"
+            activity_score: 0.78
+            enrichment_score: 1.9
+        enrichment_statistics:
+          - enrichment_score: 2.1
+            p_value: 0.001
+            q_value: 0.01
+            genes_in_pathway: 143
+            genes_in_dataset: 89
+      cell_type_coverage:
+        id: "cellcov:001"
+        name: "Brain Cell Type Representation"
+        description: "Single-cell analysis of cell type diversity"
+        coverage_percentage: 78.5
+        single_cell_method: "scRNA-seq with cell type deconvolution"
+        represented_cell_types:
+          - id: "CL:0000540"
+            name: "neuron"
+          - id: "CL:0000127"
+            name: "astrocyte"
+          - id: "CL:0011020"
+            name: "neural progenitor cell"
+        missing_cell_types:
+          - id: "CL:0000129"
+            name: "microglial cell"
+        cell_type_proportions:
+          - cell_type:
+              id: "CL:0000540"
+              name: "neuron"
+            model_proportion: 0.45
+            biological_proportion: 0.52
+            proportion_ratio: 0.87
+          - cell_type:
+              id: "CL:0011020"
+              name: "neural progenitor cell"
+            model_proportion: 0.32
+            biological_proportion: 0.28
+            proportion_ratio: 1.14
+      functional_parity:
+        id: "funcpar:001"
+        name: "Neuronal Function Assessment"
+        description: "Electrophysiological and synaptic function evaluation"
+        functional_similarity_score: 0.72
+        conserved_functions:
+          - "Spontaneous electrical activity"
+          - "Synaptic transmission"
+          - "Action potential generation"
+        impaired_functions:
+          - "Complex network oscillations"
+          - "Long-term potentiation"
+        functional_assays:
+          - id: "assay:001"
+            name: "Multi-electrode array recording"
+            assay_type: "Electrophysiology"
+            assay_result: 12.5
+            reference_value: 15.2
+            units: "spikes/min"
+            methodology: "60-channel MEA recording for 30 minutes"
+      reproducibility:
+        id: "repro:001"
+        name: "Organoid Reproducibility Assessment"
+        description: "Inter-batch and inter-laboratory consistency"
+        reproducibility_score: 0.83
+        coefficient_of_variation: 0.18
+        batch_to_batch_variation: 0.15
+        inter_laboratory_consistency: 0.75
+        replicate_count: 24
+        quality_control_metrics:
+          - metric_name: "Organoid diameter"
+            metric_value: 450.0
+            threshold: 400.0
+            pass_fail_status: true
+          - metric_name: "Cell viability"
+            metric_value: 0.92
+            threshold: 0.85
+            pass_fail_status: true

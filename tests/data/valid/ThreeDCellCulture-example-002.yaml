@@ -1,0 +1,180 @@
+id: "spheroid:001"
+name: "3D Multicellular Ovarian Cancer Spheroid Model"
+description: >-
+  A three-dimensional multicellular tumor spheroid model that recapitulates the 
+  complex heterogeneity of ovarian cancer tumors. The spheroid contains cancer cells, 
+  cancer-associated fibroblasts, and endothelial cells to mimic the tumor 
+  microenvironment. Used for high-throughput drug screening and studying 
+  drug resistance mechanisms in ovarian cancer.
+type: "ThreeDCellCulture"
+biological_organization_level: "CELLULAR_NEIGHBORHOOD"
+spatial_context: "3D tumor microenvironment with hypoxic core and proliferative outer layers"
+complexity_level: "MODERATE"
+three_d_architecture: "SPHEROID"
+matrix_composition: "Self-assembled cell aggregates in ultra-low attachment conditions"
+size_range: "200-500 micrometers diameter"
+cell_types:
+  - id: "CL:0002418"
+    name: "epithelial cell of ovary"
+  - id: "CL:0002548"
+    name: "fibroblast of cardiac tissue"
+  - id: "CL:0000071"
+    name: "blood vessel endothelial cell"
+cell_source: "Primary ovarian cancer cells, cancer-associated fibroblasts, and endothelial cells"
+references:
+  - id: "doi:10.1038/s41598-024-73680-6"
+    title: "Multicellular ovarian cancer spheroids: novel 3D model to mimic tumour complexity"
+    authors: ["Smith JA", "Johnson MD", "Brown KL", "Davis RT"]
+    journal: "Scientific Reports"
+    year: 2024
+    url: "https://www.nature.com/articles/s41598-024-73680-6"
+  - id: "doi:10.1002/cai2.102"
+    title: "A comprehensive review of 3D cancer models for drug screening and translational research"
+    authors: ["Sharma P", "Kumar A", "Singh R"]
+    journal: "Cancer Innovation"
+    year: 2024
+    url: "https://onlinelibrary.wiley.com/doi/10.1002/cai2.102"
+models:
+  - biological_system_modeled: "ovarian_cancer:001"
+    is_computed: false
+    concordance:
+      molecular_similarity: "High expression of ovarian cancer markers and drug resistance genes"
+      functional_parity: "Recapitulates chemotherapy resistance patterns"
+      reproducibility: "Consistent spheroid formation and drug response"
+    structured_concordance:
+      molecular_similarity:
+        id: "molsim:017"
+        name: "Ovarian Cancer Spheroid Expression Profile"
+        description: "RNA-seq comparison with patient ovarian tumor samples"
+        similarity_score: 0.84
+        correlation_coefficient: 0.81
+        methodology: "Single-cell RNA sequencing with tumor microenvironment analysis"
+        data_source: "The Cancer Genome Atlas ovarian adenocarcinoma dataset"
+        differentially_expressed_genes:
+          - id: "gene:047"
+            name: "TP53"
+            gene_symbol: "TP53"
+            ensembl_id: "ENSG00000141510"
+            fold_change: 0.3
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+          - id: "gene:048"
+            name: "BRCA1"
+            gene_symbol: "BRCA1"
+            ensembl_id: "ENSG00000012048"
+            fold_change: 2.8
+            p_value: 0.0002
+            adjusted_p_value: 0.002
+          - id: "gene:049"
+            name: "ABCB1"
+            gene_symbol: "ABCB1"
+            ensembl_id: "ENSG00000085563"
+            fold_change: 4.5
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+        conserved_genes:
+          - id: "gene:050"
+            name: "ACTB"
+            gene_symbol: "ACTB"
+            ensembl_id: "ENSG00000075624"
+            fold_change: 1.0
+            p_value: 0.823
+            adjusted_p_value: 0.901
+        statistical_significance:
+          p_value: 0.0001
+          adjusted_p_value: 0.001
+          confidence_interval_lower: 0.77
+          confidence_interval_upper: 0.89
+          statistical_test: "Pearson correlation"
+      functional_parity:
+        id: "funcpar:017"
+        name: "Cancer Drug Response Assessment"
+        description: "Evaluation of chemotherapy sensitivity and resistance mechanisms"
+        functional_similarity_score: 0.86
+        conserved_functions:
+          - "Cisplatin resistance development"
+          - "Hypoxia-induced gene expression"
+          - "Cell-cell adhesion maintenance"
+        impaired_functions:
+          - "Vascular invasion capacity"
+          - "Metastatic spread simulation"
+        functional_assays:
+          - id: "assay:041"
+            name: "Cisplatin cytotoxicity"
+            assay_type: "Cell viability"
+            assay_result: 0.35
+            reference_value: 0.32
+            units: "IC50 (μM)"
+            methodology: "ATP-based cell viability assay after 72h treatment"
+          - id: "assay:042"
+            name: "Hypoxia marker expression"
+            assay_type: "Protein quantification"
+            assay_result: 3.8
+            reference_value: 4.2
+            units: "fold change"
+            methodology: "HIF-1α immunofluorescence quantification"
+          - id: "assay:043"
+            name: "Spheroid growth rate"
+            assay_type: "Volume measurement"
+            assay_result: 1.24
+            reference_value: 1.18
+            units: "mm³/day"
+            methodology: "Automated imaging and volume analysis"
+        dose_response_similarity:
+          correlation_coefficient: 0.82
+          ec50_ratio: 1.09
+          max_response_ratio: 0.91
+          compound_tested: "Paclitaxel sensitivity"
+      cell_type_coverage:
+        id: "cellcov:008"
+        name: "Tumor Microenvironment Cell Representation"
+        description: "Analysis of cell type diversity in cancer spheroids"
+        coverage_percentage: 75.0
+        single_cell_method: "Flow cytometry with cancer cell markers"
+        represented_cell_types:
+          - id: "CL:0002418"
+            name: "epithelial cell of ovary"
+          - id: "CL:0002548"
+            name: "fibroblast of cardiac tissue"
+          - id: "CL:0000071"
+            name: "blood vessel endothelial cell"
+        missing_cell_types:
+          - id: "CL:0000576"
+            name: "monocyte"
+          - id: "CL:0000084"
+            name: "T cell"
+        cell_type_proportions:
+          - cell_type:
+              id: "CL:0002418"
+              name: "epithelial cell of ovary"
+            model_proportion: 0.70
+            biological_proportion: 0.65
+            proportion_ratio: 1.08
+          - cell_type:
+              id: "CL:0002548"
+              name: "fibroblast of cardiac tissue"
+            model_proportion: 0.20
+            biological_proportion: 0.25
+            proportion_ratio: 0.80
+      reproducibility:
+        id: "repro:017"
+        name: "Spheroid Formation Reproducibility"
+        description: "Inter-batch consistency and drug response variability"
+        reproducibility_score: 0.87
+        coefficient_of_variation: 0.13
+        batch_to_batch_variation: 0.15
+        inter_laboratory_consistency: 0.83
+        replicate_count: 48
+        quality_control_metrics:
+          - metric_name: "Spheroid size uniformity"
+            metric_value: 0.89
+            threshold: 0.80
+            pass_fail_status: true
+          - metric_name: "Cell viability"
+            metric_value: 0.94
+            threshold: 0.85
+            pass_fail_status: true
+          - metric_name: "Drug response consistency"
+            metric_value: 0.86
+            threshold: 0.75
+            pass_fail_status: true

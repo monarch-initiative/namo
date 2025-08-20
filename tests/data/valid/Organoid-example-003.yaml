@@ -1,0 +1,182 @@
+id: "organoid:003"
+name: "Human Intestinal Organoid"
+description: >-
+  A 3D intestinal organoid derived from human intestinal stem cells that 
+  recapitulates the architecture and function of the small intestine. 
+  Contains crypt-villus structures with stem cells, Paneth cells, 
+  enterocytes, and goblet cells. Exhibits barrier function, nutrient 
+  absorption, and antimicrobial peptide secretion.
+type: "Organoid"
+organ_modeled:
+  id: "UBERON:0002108"
+  name: "small intestine"
+cell_types:
+  - id: "CL:0000584"
+    name: "enterocyte"
+  - id: "CL:0000160"
+    name: "goblet cell"
+  - id: "CL:0000510"
+    name: "paneth cell"
+  - id: "CL:1001516"
+    name: "intestinal enteroendocrine cell"
+  - id: "CL:0002250"
+    name: "intestinal crypt stem cell"
+cell_source: "Human small intestinal crypts isolated from biopsy samples"
+differentiation_method: >-
+  Intestinal stem cells are embedded in Matrigel and cultured in 
+  IntestiCult medium containing Wnt3a, R-spondin1, Noggin, and EGF. 
+  Organoids develop crypt-villus architecture through self-organization 
+  over 5-7 days.
+culture_system: >-
+  Matrigel dome culture in 24-well plates with IntestiCult Organoid 
+  Growth Medium. Cultures maintained at 37°C with 5% CO2, passaged 
+  every 7-10 days by mechanical dissociation.
+models:
+  - biological_system_modeled: "intestinal_barrier:001"
+    is_computed: false
+    concordance:
+      phenotype_overlap: "Exhibits tight junction formation and barrier function"
+      molecular_similarity: "High expression of intestinal markers LGR5, OLFM4, MUC2"
+      pathway_concordance: "Active Wnt signaling and Notch pathways"
+      cell_type_coverage: "Contains all major intestinal epithelial cell types"
+      functional_parity: "Demonstrates nutrient transport and antimicrobial secretion"
+      reproducibility: "Consistent organoid formation efficiency >80%"
+    structured_concordance:
+      molecular_similarity:
+        id: "molsim:008"
+        name: "Intestinal Organoid Expression Profile"
+        description: "RNA-seq comparison with human small intestine tissue"
+        similarity_score: 0.85
+        correlation_coefficient: 0.81
+        methodology: "Single-cell RNA sequencing with intestinal lineage analysis"
+        data_source: "Human small intestine biopsy reference data"
+        differentially_expressed_genes:
+          - id: "gene:017"
+            name: "LGR5"
+            gene_symbol: "LGR5"
+            ensembl_id: "ENSG00000139292"
+            fold_change: 3.2
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+          - id: "gene:018"
+            name: "MUC2"
+            gene_symbol: "MUC2"
+            ensembl_id: "ENSG00000198788"
+            fold_change: 2.8
+            p_value: 0.0002
+            adjusted_p_value: 0.002
+        conserved_genes:
+          - id: "gene:019"
+            name: "CLDN1"
+            gene_symbol: "CLDN1"
+            ensembl_id: "ENSG00000163347"
+            fold_change: 1.1
+            p_value: 0.456
+            adjusted_p_value: 0.523
+        statistical_significance:
+          p_value: 0.0001
+          adjusted_p_value: 0.001
+          confidence_interval_lower: 0.78
+          confidence_interval_upper: 0.88
+          statistical_test: "Spearman correlation"
+      pathway_concordance:
+        id: "pathconcord:003"
+        name: "Intestinal Signaling Pathway Analysis"
+        description: "Analysis of key intestinal development and maintenance pathways"
+        pathway_overlap_score: 0.87
+        pathway_analysis_method: "Gene Set Enrichment Analysis (GSEA)"
+        active_pathways:
+          - id: "pathway:005"
+            name: "Wnt signaling pathway"
+            pathway_database: "KEGG"
+            pathway_id: "hsa04310"
+            activity_score: 0.91
+            enrichment_score: 3.5
+          - id: "pathway:006"
+            name: "Notch signaling pathway"
+            pathway_database: "KEGG"
+            pathway_id: "hsa04330"
+            activity_score: 0.83
+            enrichment_score: 2.7
+        enrichment_statistics:
+          - enrichment_score: 3.5
+            p_value: 0.0001
+            q_value: 0.001
+            genes_in_pathway: 167
+            genes_in_dataset: 102
+      cell_type_coverage:
+        id: "cellcov:003"
+        name: "Intestinal Cell Type Representation"
+        description: "Single-cell analysis of intestinal epithelial cell diversity"
+        coverage_percentage: 88.5
+        single_cell_method: "scRNA-seq with intestinal lineage markers"
+        represented_cell_types:
+          - id: "CL:0000584"
+            name: "enterocyte"
+          - id: "CL:0000160"
+            name: "goblet cell"
+          - id: "CL:0000510"
+            name: "paneth cell"
+          - id: "CL:0002250"
+            name: "intestinal crypt stem cell"
+        missing_cell_types:
+          - id: "CL:0009019"
+            name: "tuft cell"
+        cell_type_proportions:
+          - cell_type:
+              id: "CL:0000584"
+              name: "enterocyte"
+            model_proportion: 0.65
+            biological_proportion: 0.70
+            proportion_ratio: 0.93
+          - cell_type:
+              id: "CL:0000160"
+              name: "goblet cell"
+            model_proportion: 0.15
+            biological_proportion: 0.12
+            proportion_ratio: 1.25
+      functional_parity:
+        id: "funcpar:008"
+        name: "Intestinal Barrier Function Assessment"
+        description: "Evaluation of intestinal barrier integrity and transport"
+        functional_similarity_score: 0.79
+        conserved_functions:
+          - "Tight junction barrier formation"
+          - "Mucus production and secretion"
+          - "Antimicrobial peptide secretion"
+        impaired_functions:
+          - "Immune cell interaction"
+          - "Microbiome response"
+        functional_assays:
+          - id: "assay:016"
+            name: "Barrier permeability"
+            assay_type: "Permeability assay"
+            assay_result: 0.0000018
+            reference_value: 0.0000015
+            units: "cm/s"
+            methodology: "FITC-dextran permeability measurement"
+          - id: "assay:017"
+            name: "Mucin production"
+            assay_type: "Protein quantification"
+            assay_result: 42.5
+            reference_value: 50.2
+            units: "μg/mg protein"
+            methodology: "Alcian blue staining quantification"
+      reproducibility:
+        id: "repro:008"
+        name: "Intestinal Organoid Reproducibility"
+        description: "Consistency of organoid formation and differentiation"
+        reproducibility_score: 0.88
+        coefficient_of_variation: 0.12
+        batch_to_batch_variation: 0.15
+        inter_laboratory_consistency: 0.82
+        replicate_count: 32
+        quality_control_metrics:
+          - metric_name: "Formation efficiency"
+            metric_value: 0.85
+            threshold: 0.75
+            pass_fail_status: true
+          - metric_name: "Crypt-villus organization"
+            metric_value: 0.91
+            threshold: 0.80
+            pass_fail_status: true

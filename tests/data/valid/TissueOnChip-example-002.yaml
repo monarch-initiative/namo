@@ -1,0 +1,225 @@
+id: "tissueonchip:002"
+name: "Human Intestinal Barrier Gut-On-Chip"
+description: >-
+  A microfluidic intestinal barrier model that recreates the human small intestine 
+  environment using primary human intestinal epithelial cells and immune cells. 
+  The model features physiological peristalsis-like motion, mucus production, and 
+  intestinal barrier function for drug permeability and inflammation studies.
+type: "TissueOnChip"
+biological_organization_level: "TISSUE"
+spatial_context: "3D intestinal villus-like architecture with apical-basal polarity and tight junctions"
+complexity_level: "HIGH"
+tissue_modeled:
+  id: "UBERON:0001555"
+  name: "digestive tract"
+tissue_architecture: "Villus-like epithelial layer with crypt-like invaginations and basal immune compartment"
+barrier_functions:
+  - "Selective nutrient absorption"
+  - "Tight junction integrity"
+  - "Mucus barrier formation"
+  - "Antimicrobial peptide secretion"
+microfluidic_design:
+  id: "microfluidic:004"
+  name: "Gut-On-Chip Design"
+  description: "Dual-channel microfluidic device with flexible membranes for peristalsis"
+  architecture_type: "TWO_CHANNEL"
+  number_of_channels: 2
+  channel_configuration:
+    - "PARALLEL"
+  membrane_type: "POROUS_POLYMER"
+  membrane_pore_size: 0.4
+  membrane_thickness: 50
+  interface_type:
+    - "LIQUID_LIQUID"
+    - "CELL_CELL"
+  channel_dimensions:
+    - channel_name: "apical"
+      width: 1000
+      height: 1000
+      length: 18.0
+    - channel_name: "basolateral"
+      width: 1000
+      height: 1000
+      length: 18.0
+  material:
+    - "PDMS"
+  surface_treatment:
+    - "MATRIGEL"
+    - "COLLAGEN"
+  flow_control_method:
+    - "PRESSURE_DRIVEN"
+  sensors_integrated:
+    - "TEER"
+    - "OXYGEN"
+mechanical_forces:
+  id: "mechanical:004"
+  name: "Peristalsis-like motion"
+  description: "Cyclic mechanical stretch mimicking intestinal peristalsis"
+  stimulation_type:
+    - "CYCLIC_STRETCH"
+  cyclic_stretch_percent: 15.0
+  frequency_hz: 0.15
+  duration_minutes: 1440
+perfusion_system: "Bidirectional flow with nutrient gradients (30 μL/hr)"
+sensor_integration:
+  - "TEER"
+  - "OXYGEN"
+  - "PH"
+references:
+  - id: "PMID:38112345"
+    title: "Gut-on-chip models for investigating intestinal drug absorption and barrier function"
+    authors: ["Kim HJ", "Li H", "Collins JJ", "Ingber DE"]
+    journal: "Nature Protocols"
+    year: 2024
+    url: "https://pubmed.ncbi.nlm.nih.gov/38112345/"
+  - id: "doi:10.1038/s41587-024-02156-x"
+    title: "Human organ-on-chip models of intestinal inflammation and drug transport"
+    authors: ["Workman MJ", "Gleeson JP", "Troisi EJ", "Estrada HQ", "Kerns SJ"]
+    journal: "Nature Biotechnology"
+    year: 2024
+    url: "https://www.nature.com/articles/s41587-024-02156-x"
+models:
+  - biological_system_modeled: "intestinal_absorption:001"
+    is_computed: false
+    concordance:
+      molecular_similarity: "Expression of intestinal transporters and tight junction proteins"
+      functional_parity: "Physiological permeability to nutrients and drugs"
+      reproducibility: "Consistent barrier function across chips"
+    structured_concordance:
+      molecular_similarity:
+        id: "molsim:014"
+        name: "Intestinal Barrier Gene Expression"
+        description: "Transcriptomic comparison with human small intestine tissue"
+        similarity_score: 0.89
+        correlation_coefficient: 0.85
+        methodology: "Bulk RNA sequencing with intestinal transporter analysis"
+        data_source: "Human duodenal biopsy reference samples"
+        differentially_expressed_genes:
+          - id: "gene:037"
+            name: "SGLT1"
+            gene_symbol: "SLC5A1"
+            ensembl_id: "ENSG00000100170"
+            fold_change: 6.2
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+          - id: "gene:038"
+            name: "PEPT1"
+            gene_symbol: "SLC15A1"
+            ensembl_id: "ENSG00000088386"
+            fold_change: 4.8
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+          - id: "gene:039"
+            name: "MUC2"
+            gene_symbol: "MUC2"
+            ensembl_id: "ENSG00000198788"
+            fold_change: 7.3
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+        conserved_genes:
+          - id: "gene:040"
+            name: "CLDN1"
+            gene_symbol: "CLDN1"
+            ensembl_id: "ENSG00000163347"
+            fold_change: 1.1
+            p_value: 0.567
+            adjusted_p_value: 0.634
+        statistical_significance:
+          p_value: 0.0001
+          adjusted_p_value: 0.001
+          confidence_interval_lower: 0.82
+          confidence_interval_upper: 0.94
+          statistical_test: "Spearman correlation"
+      functional_parity:
+        id: "funcpar:014"
+        name: "Intestinal Absorption Function"
+        description: "Assessment of nutrient transport and barrier integrity"
+        functional_similarity_score: 0.87
+        conserved_functions:
+          - "Glucose transport via SGLT1"
+          - "Peptide absorption via PEPT1"
+          - "Tight junction barrier maintenance"
+          - "Mucus secretion"
+        impaired_functions:
+          - "Complex immune responses"
+          - "Microbiome interactions"
+        functional_assays:
+          - id: "assay:032"
+            name: "Glucose permeability"
+            assay_type: "Transport assay"
+            assay_result: 0.000035
+            reference_value: 0.000032
+            units: "cm/s"
+            methodology: "14C-glucose bidirectional transport measurement"
+          - id: "assay:033"
+            name: "Mannitol permeability"
+            assay_type: "Paracellular marker"
+            assay_result: 0.0000008
+            reference_value: 0.0000006
+            units: "cm/s"
+            methodology: "14C-mannitol paracellular transport assay"
+          - id: "assay:034"
+            name: "TEER measurement"
+            assay_type: "Electrical resistance"
+            assay_result: 890.0
+            reference_value: 950.0
+            units: "Ω⋅cm²"
+            methodology: "Chopstick electrode TEER measurement"
+        dose_response_similarity:
+          correlation_coefficient: 0.84
+          ec50_ratio: 1.12
+          max_response_ratio: 0.92
+          compound_tested: "Caffeine absorption"
+      cell_type_coverage:
+        id: "cellcov:007"
+        name: "Intestinal Epithelial Cell Representation"
+        description: "Analysis of intestinal cell type diversity in gut chip"
+        coverage_percentage: 78.5
+        single_cell_method: "Immunofluorescence with lineage-specific markers"
+        represented_cell_types:
+          - id: "CL:0000584"
+            name: "enterocyte"
+          - id: "CL:0000160"
+            name: "goblet cell"
+          - id: "CL:1001516"
+            name: "intestinal enteroendocrine cell"
+        missing_cell_types:
+          - id: "CL:0000510"
+            name: "paneth cell"
+          - id: "CL:0009019"
+            name: "tuft cell"
+        cell_type_proportions:
+          - cell_type:
+              id: "CL:0000584"
+              name: "enterocyte"
+            model_proportion: 0.80
+            biological_proportion: 0.85
+            proportion_ratio: 0.94
+          - cell_type:
+              id: "CL:0000160"
+              name: "goblet cell"
+            model_proportion: 0.20
+            biological_proportion: 0.15
+            proportion_ratio: 1.33
+      reproducibility:
+        id: "repro:014"
+        name: "Gut Chip Reproducibility"
+        description: "Inter-chip consistency and functional stability"
+        reproducibility_score: 0.86
+        coefficient_of_variation: 0.14
+        batch_to_batch_variation: 0.16
+        inter_laboratory_consistency: 0.82
+        replicate_count: 28
+        quality_control_metrics:
+          - metric_name: "Barrier formation time"
+            metric_value: 0.89
+            threshold: 0.80
+            pass_fail_status: true
+          - metric_name: "Transport function"
+            metric_value: 0.85
+            threshold: 0.75
+            pass_fail_status: true
+          - metric_name: "Cell differentiation markers"
+            metric_value: 0.91
+            threshold: 0.85
+            pass_fail_status: true

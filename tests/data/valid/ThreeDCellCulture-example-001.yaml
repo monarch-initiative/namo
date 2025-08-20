@@ -1,0 +1,184 @@
+id: "threedcellculture:001"
+name: "3D Bioprinted Liver Tissue Model"
+description: >-
+  A three-dimensional bioprinted liver tissue construct created using bioink containing 
+  primary human hepatocytes, hepatic stellate cells, and Kupffer cells. The tissue is 
+  printed with precise spatial organization to mimic liver lobule architecture and 
+  includes perfusable vascular channels. Used for drug metabolism studies, 
+  hepatotoxicity screening, and disease modeling.
+type: "ThreeDCellCulture"
+biological_organization_level: "TISSUE"
+spatial_context: "3D liver lobule architecture with hepatocyte cords and sinusoidal spaces"
+complexity_level: "HIGH"
+three_d_architecture: "SCAFFOLD_BASED"
+matrix_composition: >-
+  Alginate-gelatin methacrylate bioink with collagen Type I, crosslinked with 
+  calcium chloride and UV exposure. Includes sacrificial gelatin channels for 
+  vascularization and perfusion network.
+size_range: "10 x 10 x 2 mm tissue constructs"
+cell_types:
+  - id: "CL:0000182"
+    name: "hepatocyte"
+  - id: "CL:0000091"
+    name: "Kupffer cell"
+  - id: "CL:0002293"
+    name: "epithelial cell of thymus"
+cell_source: "Primary human hepatocytes, hepatic stellate cells, and Kupffer cells from healthy donors"
+references:
+  - id: "doi:10.1080/17452759.2024.2384662"
+    title: "Recent advances in 3D bioprinting of tissues and organs for transplantation and drug screening"
+    authors: ["Zhang W", "Liu H", "Chen Y", "Wang X"]
+    journal: "Virtual and Physical Prototyping"
+    year: 2024
+    url: "https://www.tandfonline.com/doi/full/10.1080/17452759.2024.2384662"
+  - id: "doi:10.3389/fbioe.2025.1457872"
+    title: "3D bioprinting for the construction of drug testing models-development strategies and regulatory concerns"
+    authors: ["Kim SH", "Park JY", "Lee MK", "Cho DW"]
+    journal: "Frontiers in Bioengineering and Biotechnology"
+    year: 2025
+    url: "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2025.1457872/full"
+models:
+  - biological_system_modeled: "liver_metabolism:002"
+    is_computed: false
+    concordance:
+      molecular_similarity: "High expression of hepatic metabolism enzymes and transporters"
+      functional_parity: "Physiological drug metabolism and albumin production"
+      reproducibility: "Consistent printing quality and metabolic function"
+    structured_concordance:
+      molecular_similarity:
+        id: "molsim:021"
+        name: "Bioprinted Hepatic Function Gene Expression"
+        description: "RNA-seq comparison with human liver tissue samples"
+        similarity_score: 0.89
+        correlation_coefficient: 0.86
+        methodology: "Bulk RNA sequencing with hepatic function panel analysis"
+        data_source: "Human liver biopsy reference dataset from healthy donors"
+        differentially_expressed_genes:
+          - id: "gene:063"
+            name: "CYP3A4"
+            gene_symbol: "CYP3A4"
+            ensembl_id: "ENSG00000160868"
+            fold_change: 8.5
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+          - id: "gene:064"
+            name: "ALB"
+            gene_symbol: "ALB"
+            ensembl_id: "ENSG00000163631"
+            fold_change: 15.2
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+          - id: "gene:065"
+            name: "UGT1A1"
+            gene_symbol: "UGT1A1"
+            ensembl_id: "ENSG00000241635"
+            fold_change: 6.8
+            p_value: 0.0001
+            adjusted_p_value: 0.001
+        conserved_genes:
+          - id: "gene:066"
+            name: "GAPDH"
+            gene_symbol: "GAPDH"
+            ensembl_id: "ENSG00000111640"
+            fold_change: 1.0
+            p_value: 0.892
+            adjusted_p_value: 0.934
+        statistical_significance:
+          p_value: 0.0001
+          adjusted_p_value: 0.001
+          confidence_interval_lower: 0.83
+          confidence_interval_upper: 0.93
+          statistical_test: "Pearson correlation"
+      functional_parity:
+        id: "funcpar:021"
+        name: "Bioprinted Hepatic Metabolism Assessment"
+        description: "Evaluation of drug metabolism and liver-specific functions"
+        functional_similarity_score: 0.91
+        conserved_functions:
+          - "Cytochrome P450 metabolism"
+          - "Albumin synthesis"
+          - "Bile acid production"
+          - "Urea synthesis"
+        impaired_functions:
+          - "Immune surveillance function"
+          - "Regenerative capacity"
+        functional_assays:
+          - id: "assay:053"
+            name: "CYP3A4 activity"
+            assay_type: "Enzyme activity"
+            assay_result: 85.6
+            reference_value: 92.3
+            units: "pmol/min/mg protein"
+            methodology: "Testosterone 6β-hydroxylation assay"
+          - id: "assay:054"
+            name: "Albumin secretion"
+            assay_type: "Protein production"
+            assay_result: 12.8
+            reference_value: 14.2
+            units: "μg/day/mg tissue"
+            methodology: "ELISA-based albumin quantification in culture medium"
+          - id: "assay:055"
+            name: "Acetaminophen toxicity"
+            assay_type: "Hepatotoxicity"
+            assay_result: 0.42
+            reference_value: 0.38
+            units: "viability fraction"
+            methodology: "MTT viability assay after 24h APAP exposure"
+        dose_response_similarity:
+          correlation_coefficient: 0.87
+          ec50_ratio: 1.12
+          max_response_ratio: 0.93
+          compound_tested: "Acetaminophen hepatotoxicity"
+      cell_type_coverage:
+        id: "cellcov:012"
+        name: "Bioprinted Liver Cell Type Representation"
+        description: "Analysis of hepatic cell diversity in bioprinted tissue"
+        coverage_percentage: 85.0
+        single_cell_method: "Immunofluorescence with hepatic lineage markers"
+        represented_cell_types:
+          - id: "CL:0000182"
+            name: "hepatocyte"
+          - id: "CL:0000091"
+            name: "Kupffer cell"
+          - id: "CL:0002293"
+            name: "epithelial cell of thymus"
+        missing_cell_types:
+          - id: "CL:0000071"
+            name: "blood vessel endothelial cell"
+          - id: "CL:0000738"
+            name: "leukocyte"
+        cell_type_proportions:
+          - cell_type:
+              id: "CL:0000182"
+              name: "hepatocyte"
+            model_proportion: 0.80
+            biological_proportion: 0.75
+            proportion_ratio: 1.07
+          - cell_type:
+              id: "CL:0000091"
+              name: "Kupffer cell"
+            model_proportion: 0.15
+            biological_proportion: 0.20
+            proportion_ratio: 0.75
+      reproducibility:
+        id: "repro:021"
+        name: "Bioprinted Tissue Reproducibility"
+        description: "Print quality and functional consistency assessment"
+        reproducibility_score: 0.88
+        coefficient_of_variation: 0.12
+        batch_to_batch_variation: 0.14
+        inter_laboratory_consistency: 0.85
+        replicate_count: 18
+        quality_control_metrics:
+          - metric_name: "Print fidelity"
+            metric_value: 0.92
+            threshold: 0.85
+            pass_fail_status: true
+          - metric_name: "Cell viability post-printing"
+            metric_value: 0.89
+            threshold: 0.80
+            pass_fail_status: true
+          - metric_name: "Metabolic function stability"
+            metric_value: 0.86
+            threshold: 0.75
+            pass_fail_status: true

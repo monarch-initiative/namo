@@ -1,0 +1,1662 @@
+id: https://w3id.org/monarch-initiative/namo
+name: namo
+title: namo
+description: |-
+  New Approach Methodology Ontology and Schema
+license: BSD-3-Clause
+see_also:
+  - https://monarch-initiative.github.io/namo
+
+prefixes:
+  namo: https://w3id.org/monarch-initiative/namo/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  example: https://example.org/
+  OBI: http://purl.obolibrary.org/obo/OBI_
+  EDAM: http://edamontology.org/
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  EFO: http://www.ebi.ac.uk/efo/EFO_
+  MAMO: http://identifiers.org/mamo/MAMO_
+  MESH: http://id.nlm.nih.gov/mesh/
+  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+default_prefix: namo
+default_range: string
+
+imports:
+  - linkml:types
+
+classes:
+
+  Dataset:
+    attributes:
+      model_systems:
+        range: ModelSystem
+        inlined_as_list: true
+        multivalued: true
+      studies:
+        range: Study
+        inlined_as_list: true
+        multivalued: true
+
+  NamedThing:
+    description: >-
+      A generic grouping for any identifiable entity
+    slots:
+      - id
+      - name
+      - description
+      - type
+    class_uri: schema:Thing
+
+  Study:
+    is_a: NamedThing
+    description: >-
+      A study is a structured investigation or analysis, often involving the
+      collection and interpretation of data, to answer specific research
+      questions or test hypotheses.
+    attributes:
+      context_of_use:
+        description: >-
+          What decision will this inform? Care? Policy? Drug approval?
+      biological_context:
+        description: >-
+          tissue/region (anatomy), cell types, sex/age equivalents, mechanics
+          (e.g., cyclic stretch), microenvironment
+      perturbations:
+        description: >-
+          exposure/dose/time; diet/drugs/toxicants
+      endpoints:
+        description: >-
+          phenotypes, function (TEER/leak, beating rate), and multi-omics
+      plan_comparators:
+        description: >-
+          human data, gold-standard assays, or high-quality animal references
+
+  ModelSystem:
+    abstract: true
+    is_a: NamedThing
+    attributes:
+      models:
+        range: ModelsRelationship
+        multivalued: true
+
+  AnimalModel:
+    is_a: ModelSystem
+    attributes:
+      species:
+        range: Term
+        required: true
+        description: >-
+          The species of the animal used in the model system.
+        bindings:
+          - binds_value_of: id
+            range: SpeciesEnum
+            obligation_level: REQUIRED
+      strain:
+        range: Term
+        description: >-
+          The specific strain of the animal used in the model system.
+        bindings:
+          - binds_value_of: id
+            range: StrainEnum
+            obligation_level: REQUIRED
+      age:
+        range: Term
+        description: >-
+          The age of the animal used in the model system.
+        bindings:
+          - binds_value_of: id
+            range: OrganismAgeEnum
+            obligation_level: REQUIRED
+      environment:
+        range: Term
+        description: >-
+          The environmental conditions under which the animal model is maintained.
+  NAMModel:
+    is_a: ModelSystem
+    description: >-
+      A New Approach Methodology (NAM) model, which is a type of model system
+      that does not involve the use of animals.
+    abstract: true
+    attributes:
+      biological_organization_level:
+        range: BiologicalOrganizationLevelEnum
+        description: >-
+          The level of biological organization represented by the model
+      spatial_context:
+        description: >-
+          Description of spatial organization and context captured by the model
+      complexity_level:
+        range: ComplexityLevelEnum
+        description: >-
+          Level of biological complexity represented (subcellular, cellular, tissue, organ, system)
+      references:
+        range: Reference
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Literature references that describe, validate, or support this model
+
+  # ==========================================
+  # CELLULAR SYSTEMS - Category 1
+  # ==========================================
+  
+  CellularSystem:
+    is_a: NAMModel
+    description: >-
+      Cell-based model systems that use living cells to model biological processes.
+      Includes 2D cultures, 3D systems, and co-cultures.
+    abstract: true
+    attributes:
+      cell_types:
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Cell types present in the cellular system
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
+      cell_source:
+        description: >-
+          Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)
+      culture_conditions:
+        description: >-
+          Standard culture conditions and media used
+
+  TwoDCellCulture:
+    is_a: CellularSystem
+    description: >-
+      Conventional monolayer cell cultures grown on flat surfaces.
+      Simple but limited in physiological relevance.
+    attributes:
+      substrate_type:
+        description: >-
+          Type of culture substrate (e.g., plastic, glass, coated surfaces)
+      confluence_level:
+        range: float
+        description: >-
+          Typical confluence level maintained (0.0-1.0)
+      passage_protocol:
+        description: >-
+          Standard passaging protocol and frequency
+
+  ThreeDCellCulture:
+    is_a: CellularSystem
+    description: >-
+      Three-dimensional cell culture systems including spheroids and organoids.
+      More physiologically relevant with 3D architecture.
+    attributes:
+      three_d_architecture:
+        range: ThreeDArchitectureEnum
+        description: >-
+          Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)
+      matrix_composition:
+        description: >-
+          Composition of extracellular matrix or scaffold material
+      size_range:
+        description: >-
+          Typical size range of 3D structures
+
+  CoCulture:
+    is_a: CellularSystem
+    description: >-
+      Co-culture systems combining multiple cell types to mimic 
+      microenvironments and cell-cell interactions.
+    attributes:
+      coculture_configuration:
+        range: CocultureConfigurationEnum
+        description: >-
+          Configuration of co-culture (direct contact, transwell, conditioned media)
+      cell_ratios:
+        range: CellRatio
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Ratios of different cell types in the co-culture
+      interaction_mechanisms:
+        multivalued: true
+        description: >-
+          Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)
+
+  # Legacy classes - now specific types of cellular systems
+  Organoid:
+    is_a: ThreeDCellCulture
+    description: >-
+      A 3D cell culture system that self-organizes to recapitulate key structural
+      and functional aspects of an organ or tissue
+    attributes:
+      organ_modeled:
+        range: Term
+        inlined: true
+        description: >-
+          The organ or tissue being modeled
+        bindings:
+          - binds_value_of: id
+            range: OrganEnum
+            obligation_level: REQUIRED
+      differentiation_method:
+        description: >-
+          Method used to differentiate cells into organoid (e.g., directed differentiation protocol)
+      culture_system:
+        description: >-
+          Culture system used (e.g., Matrigel dome, suspension culture, air-liquid interface)
+
+  CellLineModel:
+    is_a: TwoDCellCulture  # Most cell lines are 2D, can be overridden
+    description: >-
+      A model system based on immortalized cell lines that can be maintained
+      in culture indefinitely. Examples: HepG2, A549, Caco-2, etc.
+    attributes:
+      passage_range:
+        description: >-
+          Recommended passage number range for experimental use
+      authentication_method:
+        description: >-
+          Method used for cell line authentication (e.g., STR profiling, mycoplasma testing)
+
+  # ==========================================
+  # MICROPHYSIOLOGICAL SYSTEMS - Category 2  
+  # ==========================================
+
+  MicrophysiologicalSystem:
+    is_a: NAMModel
+    description: >-
+      Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, 
+      and living cells to replicate tissue-level physiology and dynamics.
+    abstract: true
+    attributes:
+      microfluidic_design:
+        range: MicrofluidicDesign
+        inlined: true
+        description: >-
+          Detailed design specifications of the microfluidic device
+      mechanical_forces:
+        range: MechanicalStimulation
+        inlined: true
+        description: >-
+          Mechanical forces applied to the model system
+      perfusion_system:
+        description: >-
+          Description of perfusion and flow systems
+      sensor_integration:
+        range: IntegratedSensorEnum
+        multivalued: true
+        description: >-
+          Sensors integrated for real-time monitoring
+
+  OrganOnChip:
+    is_a: MicrophysiologicalSystem
+    description: >-
+      A model system that simulates the physiological functions of an organ
+      using a microfluidic device. Examples: Airway-on-chip, ...
+    attributes:
+      organ_modeled:
+        range: Term
+        inlined: true
+        description: >-
+          The organ or anatomical structure being modeled (e.g., lung, airway, alveolus)
+        bindings:
+          - binds_value_of: id
+            range: OrganEnum
+            obligation_level: REQUIRED
+      cell_types:
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Cell types present in the organ-on-chip model
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
+      cell_source:
+        description: >-
+          Source of cells (e.g., primary human cells, iPSC-derived, cell line, patient-derived)
+
+  TissueOnChip:
+    is_a: MicrophysiologicalSystem
+    description: >-
+      Tissue-level microphysiological systems that model specific tissue functions
+      and multi-cellular interactions.
+    attributes:
+      tissue_modeled:
+        range: Term
+        inlined: true
+        description: >-
+          The specific tissue being modeled
+      tissue_architecture:
+        description: >-
+          Description of tissue-level architecture and organization
+      barrier_functions:
+        multivalued: true
+        description: >-
+          Tissue barrier functions modeled (epithelial, endothelial, etc.)
+
+  # ==========================================
+  # IN SILICO MODELS - Category 3
+  # ==========================================
+
+  InSilicoModel:
+    is_a: NAMModel
+    description: >-
+      Computational models that simulate biological processes without
+      physical biological components.
+    abstract: true
+    attributes:
+      computational_method:
+        description: >-
+          Primary computational method or algorithm used
+      software_platform:
+        description: >-
+          Software platform or programming language used
+      validation_datasets:
+        multivalued: true
+        description: >-
+          Datasets used for model training and validation
+      prediction_scope:
+        description: >-
+          Scope and limitations of model predictions
+
+  QSARModel:
+    is_a: InSilicoModel
+    description: >-
+      Quantitative Structure-Activity Relationship models that predict 
+      chemical/biological activity from molecular structure.
+    attributes:
+      molecular_descriptors:
+        multivalued: true
+        description: >-
+          Types of molecular descriptors used (topological, electronic, etc.)
+      activity_endpoint:
+        description: >-
+          Biological activity or property being predicted
+      training_dataset_size:
+        range: integer
+        description: >-
+          Number of compounds in training dataset
+      model_performance:
+        range: ModelPerformance
+        inlined: true
+        description: >-
+          Statistical performance metrics of the model
+
+  PBPKModel:
+    is_a: InSilicoModel
+    description: >-
+      Physiologically Based Pharmacokinetic models that simulate drug 
+      absorption, distribution, metabolism, and excretion.
+    attributes:
+      compartments:
+        range: PBPKCompartment
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Physiological compartments included in the model
+      species_modeled:
+        range: Term
+        inlined: true
+        description: >-
+          Species for which the model is designed
+      drug_properties:
+        range: DrugProperties
+        inlined: true
+        description: >-
+          Physicochemical and pharmacological properties modeled
+      elimination_pathways:
+        multivalued: true
+        description: >-
+          Drug elimination and metabolism pathways included
+
+  DigitalTwin:
+    is_a: InSilicoModel
+    description: >-
+      Computational replicas of biological systems for real-time prediction
+      and personalized modeling.
+    attributes:
+      twin_scope:
+        range: DigitalTwinScopeEnum
+        description: >-
+          Scope of digital twin (organ, patient, population)
+      real_time_data_sources:
+        multivalued: true
+        description: >-
+          Sources of real-time data for model updating
+      personalization_parameters:
+        multivalued: true
+        description: >-
+          Parameters used for personalization (genetic, phenotypic, etc.)
+      update_frequency:
+        description: >-
+          Frequency of model updates based on new data
+
+  MLModel:
+    is_a: InSilicoModel
+    description: >-
+      Machine Learning and AI-based models for prediction, mechanism inference,
+      and hypothesis generation.
+    attributes:
+      ml_algorithm:
+        range: MLAlgorithmEnum
+        description: >-
+          Type of machine learning algorithm used
+      feature_types:
+        range: FeatureTypeEnum
+        multivalued: true
+        description: >-
+          Types of features used (molecular, phenotypic, imaging, etc.)
+      training_data_size:
+        range: integer
+        description: >-
+          Size of training dataset
+      model_interpretability:
+        range: InterpretabilityLevelEnum
+        description: >-
+          Level of model interpretability (black box, interpretable, explainable)
+      cross_validation:
+        range: CrossValidation
+        inlined: true
+        description: >-
+          Cross-validation strategy and results
+
+  # Legacy for backward compatibility
+  MetabolicModel:
+    is_a: InSilicoModel
+    description: >-
+      A model that simulates the metabolic processes of an organism or system.
+      Examples: Virtual Physiological Human, ...
+
+  # ==========================================
+  # SUPPORTING CLASSES FOR NEW TAXONOMY
+  # ==========================================
+
+  CellRatio:
+    description: >-
+      Ratio specification for different cell types in co-culture systems.
+    attributes:
+      cell_type:
+        range: Term
+        inlined: true
+        description: >-
+          The cell type for which the ratio is specified
+      ratio:
+        range: float
+        description: >-
+          Proportion or ratio of this cell type (0.0-1.0 or absolute numbers)
+      ratio_type:
+        range: RatioTypeEnum
+        description: >-
+          Type of ratio specification (percentage, absolute, fold)
+
+  ModelPerformance:
+    description: >-
+      Statistical performance metrics for computational models.
+    attributes:
+      accuracy:
+        range: float
+        description: >-
+          Overall accuracy of the model (0.0-1.0)
+      sensitivity:
+        range: float
+        description: >-
+          Sensitivity/recall of the model (0.0-1.0)
+      specificity:
+        range: float
+        description: >-
+          Specificity of the model (0.0-1.0)
+      r_squared:
+        range: float
+        description: >-
+          R-squared value for regression models
+      rmse:
+        range: float
+        description: >-
+          Root mean square error
+      auc:
+        range: float
+        description: >-
+          Area under the ROC curve
+
+  PBPKCompartment:
+    is_a: NamedThing
+    description: >-
+      A physiological compartment in a PBPK model.
+    attributes:
+      compartment_type:
+        range: PBPKCompartmentEnum
+        description: >-
+          Type of physiological compartment
+      volume:
+        range: float
+        description: >-
+          Volume of the compartment (L)
+      blood_flow:
+        range: float
+        description: >-
+          Blood flow to the compartment (L/h)
+      partition_coefficient:
+        range: float
+        description: >-
+          Tissue-to-plasma partition coefficient
+
+  DrugProperties:
+    description: >-
+      Physicochemical and pharmacological properties of a drug in PBPK models.
+    attributes:
+      molecular_weight:
+        range: float
+        description: >-
+          Molecular weight (g/mol)
+      logp:
+        range: float
+        description: >-
+          Lipophilicity (log P)
+      pka:
+        range: float
+        description: >-
+          Acid dissociation constant
+      protein_binding:
+        range: float
+        description: >-
+          Fraction bound to plasma proteins (0.0-1.0)
+      clearance:
+        range: float
+        description: >-
+          Total body clearance (L/h)
+
+  CrossValidation:
+    description: >-
+      Cross-validation strategy and results for ML models.
+    attributes:
+      cv_method:
+        range: CrossValidationMethodEnum
+        description: >-
+          Type of cross-validation used
+      n_folds:
+        range: integer
+        description: >-
+          Number of folds in cross-validation
+      cv_score:
+        range: float
+        description: >-
+          Average cross-validation score
+      cv_std:
+        range: float
+        description: >-
+          Standard deviation of cross-validation scores
+
+
+  MicrofluidicDesign:
+    is_a: NamedThing
+    description: >-
+      Detailed specification of a microfluidic device design including its architecture,
+      materials, dimensions, and functional features.
+    attributes:
+      architecture_type:
+        range: MicrofluidicArchitectureEnum
+        description: >-
+          The overall architecture type of the microfluidic device
+      number_of_channels:
+        range: integer
+        description: >-
+          Total number of channels in the device
+      channel_configuration:
+        range: ChannelConfigurationEnum
+        multivalued: true
+        description: >-
+          Configuration of channels (e.g., parallel, serial, branching)
+      membrane_type:
+        range: MembraneTypeEnum
+        description: >-
+          Type of membrane used in the device if applicable
+      membrane_pore_size:
+        range: float
+        description: >-
+          Pore size of the membrane in micrometers
+      membrane_thickness:
+        range: float
+        description: >-
+          Thickness of the membrane in micrometers
+      interface_type:
+        range: InterfaceTypeEnum
+        multivalued: true
+        description: >-
+          Type of interface(s) present in the device
+      channel_dimensions:
+        range: ChannelDimensions
+        multivalued: true
+        description: >-
+          Dimensions of the channels in the device
+      material:
+        range: DeviceMaterialEnum
+        multivalued: true
+        description: >-
+          Materials used to construct the device
+      surface_treatment:
+        range: SurfaceCoatingEnum
+        multivalued: true
+        description: >-
+          Surface treatments or coatings applied to the device
+      flow_control_method:
+        range: FlowControlMethodEnum
+        multivalued: true
+        description: >-
+          Methods used to control fluid flow in the device
+      sensors_integrated:
+        range: IntegratedSensorEnum
+        multivalued: true
+        description: >-
+          Sensors integrated into the device for monitoring
+      special_features:
+        multivalued: true
+        description: >-
+          Additional special features of the device (e.g., valves, mixers, gradient generators)
+
+  ChannelDimensions:
+    description: >-
+      Dimensions of a microfluidic channel
+    attributes:
+      channel_name:
+        description: >-
+          Name or identifier of the channel (e.g., apical, basolateral, vascular)
+      width:
+        range: float
+        description: >-
+          Width of the channel in micrometers
+      height:
+        range: float
+        description: >-
+          Height of the channel in micrometers
+      length:
+        range: float
+        description: >-
+          Length of the channel in millimeters
+
+  MechanicalStimulation:
+    is_a: NamedThing
+    description: >-
+      Specification of mechanical forces applied to the model system
+    attributes:
+      stimulation_type:
+        range: MechanicalStimulationTypeEnum
+        multivalued: true
+        description: >-
+          Type of mechanical stimulation applied
+      cyclic_stretch_percent:
+        range: float
+        description: >-
+          Percentage of cyclic stretch applied (if applicable)
+      frequency_hz:
+        range: float
+        description: >-
+          Frequency of mechanical stimulation in Hertz
+      shear_stress:
+        range: float
+        description: >-
+          Shear stress applied in dyn/cm²
+      pressure_pascal:
+        range: float
+        description: >-
+          Pressure applied in Pascals
+      duration_minutes:
+        range: float
+        description: >-
+          Duration of mechanical stimulation in minutes
+
+  BiologicalSystem:
+    is_a: NamedThing
+
+  ModelsRelationship:
+    attributes:
+      biological_system_modeled:
+        range: BiologicalSystem
+      is_computed:
+        description: >-
+          Indicates whether the model is computed or derived from experimental
+          data.
+        range: boolean
+      concordance:
+        description: >-
+          Metrics used to assess the concordance between the model system and
+          the biological system, such as sensitivity, specificity, and accuracy.
+        range: ConcordanceResult
+      structured_concordance:
+        description: >-
+          Detailed structured assessment of concordance between the model system and
+          the biological system, with rich metadata and supporting evidence.
+        range: StructuredConcordanceResult
+        inlined: true
+
+  ConcordanceResult:
+    attributes:
+      phenotype_overlap:
+      molecular_similarity:
+      pathway_concordance:
+      cell_type_coverage:
+      functional_parity:
+      reproducibility:
+
+  StructuredConcordanceResult:
+    description: >-
+      Detailed structured assessment of concordance between model and biological systems
+      with rich metadata, evidence, and quantitative measures.
+    attributes:
+      molecular_similarity:
+        range: MolecularSimilarity
+        inlined: true
+        description: >-
+          Detailed assessment of molecular-level similarity including gene expression,
+          protein levels, and metabolic profiles.
+      pathway_concordance:
+        range: PathwayConcordance
+        inlined: true
+        description: >-
+          Assessment of biological pathway conservation and activity levels.
+      phenotype_overlap:
+        range: PhenotypeOverlap
+        inlined: true
+        description: >-
+          Comparison of phenotypic manifestations between model and biological system.
+      cell_type_coverage:
+        range: CellTypeCoverage
+        inlined: true
+        description: >-
+          Assessment of cell type representation and cellular diversity.
+      functional_parity:
+        range: FunctionalParity
+        inlined: true
+        description: >-
+          Evaluation of functional capabilities and physiological responses.
+      reproducibility:
+        range: Reproducibility
+        inlined: true
+        description: >-
+          Assessment of experimental reproducibility and consistency.
+
+  MolecularSimilarity:
+    is_a: NamedThing
+    description: >-
+      Detailed assessment of molecular-level concordance between model and biological systems.
+    attributes:
+      similarity_score:
+        range: float
+        description: >-
+          Quantitative similarity score (0.0-1.0) based on molecular profiles.
+      correlation_coefficient:
+        range: float
+        description: >-
+          Pearson correlation coefficient for expression profiles.
+      differentially_expressed_genes:
+        range: Gene
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of genes that are differentially expressed in the model system.
+      conserved_genes:
+        range: Gene
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of genes with conserved expression patterns between model and target.
+      methodology:
+        description: >-
+          Description of experimental methods used for molecular comparison.
+      data_source:
+        description: >-
+          Source of molecular data (e.g., RNA-seq, proteomics, metabolomics).
+      statistical_significance:
+        range: StatisticalSignificance
+        inlined: true
+        description: >-
+          Statistical measures of significance for the molecular similarity.
+
+  PathwayConcordance:
+    is_a: NamedThing
+    description: >-
+      Assessment of biological pathway conservation and activity between model and biological systems.
+    attributes:
+      pathway_overlap_score:
+        range: float
+        description: >-
+          Quantitative score (0.0-1.0) representing pathway overlap.
+      active_pathways:
+        range: Pathway
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of biological pathways that are active in both systems.
+      divergent_pathways:
+        range: Pathway
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of pathways that show different activity patterns.
+      pathway_analysis_method:
+        description: >-
+          Method used for pathway analysis (e.g., GSEA, Over-representation analysis).
+      enrichment_statistics:
+        range: EnrichmentStatistics
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Statistical measures of pathway enrichment.
+
+  PhenotypeOverlap:
+    is_a: NamedThing
+    description: >-
+      Comparison of phenotypic manifestations between model and biological systems.
+    attributes:
+      phenotype_similarity_score:
+        range: float
+        description: >-
+          Quantitative score (0.0-1.0) representing phenotypic similarity.
+      shared_phenotypes:
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of phenotypes present in both model and biological system.
+      model_specific_phenotypes:
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of phenotypes present only in the model system.
+      biological_specific_phenotypes:
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of phenotypes present only in the biological system.
+      phenotype_ontology:
+        description: >-
+          Ontology used for phenotype classification (e.g., HPO, MP).
+
+  CellTypeCoverage:
+    is_a: NamedThing
+    description: >-
+      Assessment of cell type representation and cellular diversity between systems.
+    attributes:
+      coverage_percentage:
+        range: float
+        description: >-
+          Percentage of target cell types represented in the model system.
+      represented_cell_types:
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of cell types present in both model and biological system.
+      missing_cell_types:
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of cell types present in biological system but missing in model.
+      cell_type_proportions:
+        range: CellTypeProportion
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Quantitative comparison of cell type proportions.
+      single_cell_method:
+        description: >-
+          Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry).
+
+  FunctionalParity:
+    is_a: NamedThing
+    description: >-
+      Evaluation of functional capabilities and physiological responses between systems.
+    attributes:
+      functional_similarity_score:
+        range: float
+        description: >-
+          Quantitative score (0.0-1.0) representing functional similarity.
+      conserved_functions:
+        multivalued: true
+        description: >-
+          List of biological functions conserved between model and biological system.
+      impaired_functions:
+        multivalued: true
+        description: >-
+          List of functions that are impaired or absent in the model system.
+      functional_assays:
+        range: FunctionalAssay
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of functional assays used to assess parity.
+      dose_response_similarity:
+        range: DoseResponseSimilarity
+        inlined: true
+        description: >-
+          Comparison of dose-response relationships for therapeutic compounds.
+
+  Reproducibility:
+    is_a: NamedThing
+    description: >-
+      Assessment of experimental reproducibility and consistency of the model system.
+    attributes:
+      reproducibility_score:
+        range: float
+        description: >-
+          Quantitative score (0.0-1.0) representing reproducibility.
+      coefficient_of_variation:
+        range: float
+        description: >-
+          Coefficient of variation across experimental replicates.
+      batch_to_batch_variation:
+        range: float
+        description: >-
+          Measure of variation between different experimental batches.
+      inter_laboratory_consistency:
+        range: float
+        description: >-
+          Measure of consistency across different laboratories.
+      replicate_count:
+        range: integer
+        description: >-
+          Number of experimental replicates used in assessment.
+      quality_control_metrics:
+        range: QualityControlMetric
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          List of quality control measures and their values.
+
+  Gene:
+    is_a: NamedThing
+    description: >-
+      A gene entity with identifiers and expression information.
+    attributes:
+      gene_symbol:
+        description: >-
+          Standard gene symbol (e.g., HGNC symbol for human genes).
+      ensembl_id:
+        description: >-
+          Ensembl gene identifier.
+      entrez_id:
+        range: integer
+        description: >-
+          NCBI Entrez gene identifier.
+      fold_change:
+        range: float
+        description: >-
+          Fold change in expression compared to control or reference.
+      p_value:
+        range: float
+        description: >-
+          Statistical p-value for differential expression.
+      adjusted_p_value:
+        range: float
+        description: >-
+          Multiple testing corrected p-value.
+
+  Pathway:
+    is_a: NamedThing
+    description: >-
+      A biological pathway with activity and enrichment information.
+    attributes:
+      pathway_database:
+        description: >-
+          Source database (e.g., KEGG, Reactome, GO).
+      pathway_id:
+        description: >-
+          Database-specific pathway identifier.
+      activity_score:
+        range: float
+        description: >-
+          Quantitative measure of pathway activity.
+      enrichment_score:
+        range: float
+        description: >-
+          Statistical enrichment score for the pathway.
+
+  StatisticalSignificance:
+    description: >-
+      Statistical measures of significance for molecular comparisons.
+    attributes:
+      p_value:
+        range: float
+        description: >-
+          Statistical p-value.
+      adjusted_p_value:
+        range: float
+        description: >-
+          Multiple testing corrected p-value.
+      confidence_interval_lower:
+        range: float
+        description: >-
+          Lower bound of confidence interval.
+      confidence_interval_upper:
+        range: float
+        description: >-
+          Upper bound of confidence interval.
+      statistical_test:
+        description: >-
+          Name of statistical test used.
+
+  EnrichmentStatistics:
+    description: >-
+      Statistical measures for pathway enrichment analysis.
+    attributes:
+      enrichment_score:
+        range: float
+        description: >-
+          Quantitative enrichment score.
+      p_value:
+        range: float
+        description: >-
+          Statistical p-value for enrichment.
+      q_value:
+        range: float
+        description: >-
+          False discovery rate corrected p-value.
+      genes_in_pathway:
+        range: integer
+        description: >-
+          Number of genes in the pathway.
+      genes_in_dataset:
+        range: integer
+        description: >-
+          Number of genes from dataset found in pathway.
+
+  CellTypeProportion:
+    description: >-
+      Quantitative comparison of cell type proportions between systems.
+    attributes:
+      cell_type:
+        range: Term
+        inlined: true
+        description: >-
+          The cell type being compared.
+      model_proportion:
+        range: float
+        description: >-
+          Proportion of this cell type in the model system.
+      biological_proportion:
+        range: float
+        description: >-
+          Proportion of this cell type in the biological system.
+      proportion_ratio:
+        range: float
+        description: >-
+          Ratio of model to biological proportions.
+
+  FunctionalAssay:
+    is_a: NamedThing
+    description: >-
+      A functional assay used to assess biological capabilities.
+    attributes:
+      assay_type:
+        description: >-
+          Type of functional assay (e.g., TEER, permeability, metabolic activity).
+      assay_result:
+        range: float
+        description: >-
+          Quantitative result of the assay.
+      reference_value:
+        range: float
+        description: >-
+          Reference or control value for comparison.
+      units:
+        description: >-
+          Units of measurement for the assay result.
+      methodology:
+        description: >-
+          Detailed methodology for the assay.
+
+  DoseResponseSimilarity:
+    description: >-
+      Comparison of dose-response relationships between model and biological systems.
+    attributes:
+      correlation_coefficient:
+        range: float
+        description: >-
+          Correlation coefficient between dose-response curves.
+      ec50_ratio:
+        range: float
+        description: >-
+          Ratio of EC50 values between model and biological system.
+      max_response_ratio:
+        range: float
+        description: >-
+          Ratio of maximum responses between systems.
+      compound_tested:
+        description: >-
+          Name of compound used in dose-response testing.
+
+  QualityControlMetric:
+    description: >-
+      A quality control measure and its associated value.
+    attributes:
+      metric_name:
+        description: >-
+          Name of the quality control metric.
+      metric_value:
+        range: float
+        description: >-
+          Value of the quality control metric.
+      threshold:
+        range: float
+        description: >-
+          Acceptable threshold for this metric.
+      pass_fail_status:
+        range: boolean
+        description: >-
+          Whether this metric passes quality control criteria.
+
+  Reference:
+    description: >-
+      A literature reference with identifier and title for citing published work.
+    attributes:
+      id:
+        description: >-
+          Persistent identifier for the reference (DOI, PMID, PMCID, etc.)
+        identifier: true
+        range: uriorcurie
+        required: true
+      title:
+        description: >-
+          Title of the referenced publication or dataset
+        required: true
+      authors:
+        description: >-
+          Authors of the publication
+        multivalued: true
+      journal:
+        description: >-
+          Journal or publication venue
+      year:
+        range: integer
+        description: >-
+          Publication year
+      url:
+        range: uri
+        description: >-
+          URL to access the publication
+
+  Term:
+    is_a: NamedThing
+    description: >-
+      A term is a concept or entity that can be defined and used in a specific
+      context, often within a controlled vocabulary or ontology.
+
+
+slots:
+  id:
+    identifier: true
+    slot_uri: schema:identifier
+    range: uriorcurie
+    description: A unique identifier for a thing
+  name:
+    slot_uri: schema:name
+    description: A human-readable name for a thing
+  description:
+    slot_uri: schema:description
+    description: A human-readable description for a thing
+  type:
+    designates_type: true
+
+enums:
+
+  SpeciesEnum:
+    reachable_from:
+      source_nodes:
+          - NCBITaxon:1
+      is_direct: false
+      relationship_types:
+          - rdfs:subClassOf
+
+  OrganEnum:
+    reachable_from:
+      source_nodes:
+        - UBERON:0001062
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+        - BFO:0000050
+
+  CellTypeEnum:
+    reachable_from:
+      source_nodes:
+        - CL:0000000
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+
+  StrainEnum:
+
+  AgeEnum:
+
+  RelativeTimeEnum:
+    permissible_values:
+      BEFORE:
+      AFTER:
+      AT_SAME_TIME_AS:
+
+  CaseOrControlEnum:
+    permissible_values:
+      CASE:
+        title: case role in case-control study
+        meaning: OBI:0002492
+      CONTROL:
+        title: control role in case-control study
+        meaning: OBI:0002493
+
+  StudyDesignEnum:
+    reachable_from:
+      source_nodes:
+        - OBI:0500000
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+
+  InvestigativeProtocolEnum:
+    reachable_from:
+      source_nodes:
+        - OBI:0000272
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+
+  SampleProcessingEnum:
+    reachable_from:
+      source_nodes:
+        - OBI:0000094
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+
+  PresenceEnum:
+    permissible_values:
+      PRESENT:
+        description: The entity is present
+      ABSENT:
+        description: The entity is absent
+      BELOW_DETECTION_LIMIT:
+        description: The entity is below the detection limit
+      ABOVE_DETECTION_LIMIT:
+        description: The entity is above the detection limit
+
+  PredictionOutcomeEnum:
+    permissible_values:
+      TP:
+        description: True Positive
+      FP:
+        description: False Positive
+      TN:
+        description: True Negative
+      FN:
+        description: False Negative
+
+  MicrofluidicArchitectureEnum:
+    permissible_values:
+      SINGLE_CHANNEL:
+        description: Single channel design
+      TWO_CHANNEL:
+        description: Two-channel design with separated compartments
+      MULTI_CHANNEL:
+        description: Multiple channels (>2) design
+      LAYERED:
+        description: Layered/stacked channel architecture
+      RADIAL:
+        description: Radial channel architecture
+      NETWORK:
+        description: Network of interconnected channels
+
+  ChannelConfigurationEnum:
+    permissible_values:
+      PARALLEL:
+        description: Parallel channel configuration
+      SERIAL:
+        description: Serial/sequential channel configuration
+      BRANCHING:
+        description: Branching channel configuration
+      CIRCULAR:
+        description: Circular/loop channel configuration
+      SERPENTINE:
+        description: Serpentine channel pattern
+      Y_SHAPED:
+        description: Y-shaped channel junction
+      T_SHAPED:
+        description: T-shaped channel junction
+
+  MembraneTypeEnum:
+    permissible_values:
+      POROUS_POLYMER:
+        description: Porous polymer membrane (e.g., PET, PC)
+      PDMS:
+        description: Polydimethylsiloxane membrane
+      COLLAGEN:
+        description: Collagen-based membrane
+      ECM_COATED:
+        description: Extracellular matrix-coated membrane
+      TRACK_ETCHED:
+        description: Track-etched membrane
+      ELECTROSPUN:
+        description: Electrospun fiber membrane
+      HYDROGEL:
+        description: Hydrogel membrane
+
+  InterfaceTypeEnum:
+    permissible_values:
+      AIR_LIQUID:
+        description: Air-liquid interface
+      LIQUID_LIQUID:
+        description: Liquid-liquid interface
+      CELL_CELL:
+        description: Direct cell-cell interface
+      TISSUE_TISSUE:
+        description: Tissue-tissue interface
+      VASCULAR_EPITHELIAL:
+        description: Vascular-epithelial interface
+
+  DeviceMaterialEnum:
+    permissible_values:
+      PDMS:
+        description: Polydimethylsiloxane
+      GLASS:
+        description: Glass
+      PLASTIC:
+        description: Plastic (general)
+      POLYSTYRENE:
+        description: Polystyrene
+      POLYCARBONATE:
+        description: Polycarbonate
+      PMMA:
+        description: Poly(methyl methacrylate)
+      COC:
+        description: Cyclic olefin copolymer
+      SILICON:
+        description: Silicon
+      HYDROGEL:
+        description: Hydrogel materials
+
+  SurfaceCoatingEnum:
+    permissible_values:
+      FIBRONECTIN:
+        description: Fibronectin coating
+        meaning: CHEBI:5058
+      COLLAGEN:
+        description: Collagen coating
+        meaning: CHEBI:3815
+      LAMININ:
+        description: Laminin coating
+        meaning: MESH:D007797
+      MATRIGEL:
+        description: Matrigel coating
+      POLY_L_LYSINE:
+        description: Poly-L-lysine coating
+        meaning: CHEBI:53412
+      GELATIN:
+        description: Gelatin coating
+        meaning: CHEBI:5291
+      RGD_PEPTIDE:
+        description: RGD peptide coating
+        meaning: NCIT:C13288
+      ANTI_FOULING:
+        description: Anti-fouling coating
+      OXYGEN_PLASMA:
+        description: Oxygen plasma treatment
+
+  FlowControlMethodEnum:
+    permissible_values:
+      SYRINGE_PUMP:
+        description: Syringe pump-driven flow
+      PERISTALTIC_PUMP:
+        description: Peristaltic pump-driven flow
+      GRAVITY_DRIVEN:
+        description: Gravity-driven flow
+      PRESSURE_DRIVEN:
+        description: Pressure-driven flow
+      ELECTROOSMOTIC:
+        description: Electroosmotic flow
+      CAPILLARY_ACTION:
+        description: Capillary action-driven flow
+      PNEUMATIC_VALVES:
+        description: Pneumatic valve control
+      MICROVALVES:
+        description: Integrated microvalves
+
+  IntegratedSensorEnum:
+    permissible_values:
+      TEER:
+        description: Trans-epithelial electrical resistance sensor
+      OXYGEN:
+        description: Oxygen sensor
+      PH:
+        description: pH sensor
+      TEMPERATURE:
+        description: Temperature sensor
+      PRESSURE:
+        description: Pressure sensor
+      FLOW_RATE:
+        description: Flow rate sensor
+      ELECTROCHEMICAL:
+        description: Electrochemical sensors
+      OPTICAL:
+        description: Optical sensors
+      IMPEDANCE:
+        description: Impedance sensors
+
+  MechanicalStimulationTypeEnum:
+    permissible_values:
+      CYCLIC_STRETCH:
+        description: Cyclic stretching
+      SHEAR_STRESS:
+        description: Fluid shear stress
+        meaning: EFO:0022075
+      COMPRESSION:
+        description: Compression forces
+      TENSION:
+        description: Tensile forces
+      HYDROSTATIC_PRESSURE:
+        description: Hydrostatic pressure
+        meaning: EFO:0000534
+      PULSATILE_FLOW:
+        description: Pulsatile flow
+      BREATHING_MOTION:
+        description: Breathing-like cyclic motion
+      PERISTALTIC_MOTION:
+        description: Peristaltic-like motion
+
+  # ==========================================
+  # NEW ENUMS FOR ENHANCED NAM TAXONOMY
+  # ==========================================
+
+  BiologicalOrganizationLevelEnum:
+    permissible_values:
+      SUBCELLULAR:
+        description: Within a cell - subcellular components and molecular interactions
+      CELLULAR:
+        description: Individual cell level - single cell behavior and properties
+      CELLULAR_NEIGHBORHOOD:
+        description: Cell-cell interactions and local microenvironments
+      TISSUE:
+        description: Tissue-level organization and multicellular structures
+      ORGAN:
+        description: Organ-level physiology and function
+      SYSTEM:
+        description: Organ system and whole-body physiological integration
+
+  ComplexityLevelEnum:
+    permissible_values:
+      LOW:
+        description: Simple, well-defined system with limited variables
+      MODERATE:
+        description: Intermediate complexity with multiple interacting components
+      HIGH:
+        description: Complex system with many variables and emergent properties
+
+  ThreeDArchitectureEnum:
+    permissible_values:
+      SPHEROID:
+        description: Spherical 3D cell aggregates
+      ORGANOID:
+        description: Self-organizing 3D structures with organ-like features
+      SCAFFOLD_BASED:
+        description: Cells grown on 3D scaffolds or matrices
+      HYDROGEL_EMBEDDED:
+        description: Cells embedded in hydrogel matrices
+      BIOPRINTED:
+        description: 3D bioprinted structures
+      HANGING_DROP:
+        description: Spheroids formed using hanging drop method
+
+  CocultureConfigurationEnum:
+    permissible_values:
+      DIRECT_CONTACT:
+        description: Cells in direct physical contact
+      TRANSWELL:
+        description: Cells separated by permeable membrane
+      CONDITIONED_MEDIA:
+        description: Cells exposed to media conditioned by other cells
+      MICROPATTERN:
+        description: Cells patterned in defined spatial arrangements
+      GRADIENT:
+        description: Cells exposed to chemical or physical gradients
+
+  RatioTypeEnum:
+    permissible_values:
+      PERCENTAGE:
+        description: Percentage of total cells
+      ABSOLUTE:
+        description: Absolute cell numbers
+      FOLD:
+        description: Fold ratio relative to reference
+
+  PBPKCompartmentEnum:
+    permissible_values:
+      LIVER:
+        description: Hepatic compartment
+        meaning: UBERON:0002107
+      KIDNEY:
+        description: Renal compartment
+        meaning: UBERON:0002113
+      LUNG:
+        description: Pulmonary compartment
+        meaning: UBERON:0002048
+      BRAIN:
+        description: Central nervous system compartment
+        meaning: UBERON:0000955
+      HEART:
+        description: Cardiac compartment
+        meaning: UBERON:0000948
+      MUSCLE:
+        description: Skeletal muscle compartment
+        meaning: UBERON:0001134
+      FAT:
+        description: Adipose tissue compartment
+      SKIN:
+        description: Dermal compartment
+      BONE:
+        description: Bone tissue compartment
+      GI_TRACT:
+        description: Gastrointestinal tract compartment
+      PLASMA:
+        description: Plasma compartment
+        meaning: UBERON:0001969
+      BLOOD:
+        description: Blood compartment
+
+  DigitalTwinScopeEnum:
+    permissible_values:
+      ORGAN:
+        description: Digital twin of a specific organ
+      PATIENT:
+        description: Digital twin of an individual patient
+      POPULATION:
+        description: Digital twin representing a population
+        meaning: MAMO:0000028
+      PATHWAY:
+        description: Digital twin of biological pathways
+      DISEASE:
+        description: Digital twin of disease progression
+
+  MLAlgorithmEnum:
+    permissible_values:
+      RANDOM_FOREST:
+        description: Random Forest algorithm
+      SUPPORT_VECTOR_MACHINE:
+        description: Support Vector Machine
+        meaning: OBI:0000700
+      NEURAL_NETWORK:
+        description: Artificial Neural Networks
+      DEEP_LEARNING:
+        description: Deep learning models
+      GRADIENT_BOOSTING:
+        description: Gradient boosting methods
+        meaning: MESH:D000098404
+      LINEAR_REGRESSION:
+        description: Linear regression models
+        meaning: OBI:0200103
+      LOGISTIC_REGRESSION:
+        description: Logistic regression models
+        meaning: OBI:0200002
+      NAIVE_BAYES:
+        description: Naive Bayes classifier
+      K_MEANS:
+        description: K-means clustering
+        meaning: OBI:0200041
+      REINFORCEMENT_LEARNING:
+        description: Reinforcement learning approaches
+
+  FeatureTypeEnum:
+    permissible_values:
+      MOLECULAR:
+        description: Molecular descriptors and chemical features
+      PHENOTYPIC:
+        description: Phenotypic and physiological features
+      GENOMIC:
+        description: Genomic and genetic features
+      TRANSCRIPTOMIC:
+        description: Gene expression features
+        meaning: EDAM:3308
+      PROTEOMIC:
+        description: Protein abundance and modification features
+        meaning: EDAM:0121
+      METABOLOMIC:
+        description: Metabolite concentration features
+        meaning: EDAM:3172
+      IMAGING:
+        description: Image-derived features
+        meaning: EDAM:3382
+      CLINICAL:
+        description: Clinical and demographic features
+      TEMPORAL:
+        description: Time-series and temporal features
+
+  InterpretabilityLevelEnum:
+    permissible_values:
+      BLACK_BOX:
+        description: No interpretability - predictions only
+      INTERPRETABLE:
+        description: Some level of feature importance available
+      EXPLAINABLE:
+        description: Full mechanistic interpretation possible
+      CAUSAL:
+        description: Causal relationships can be inferred
+
+  CrossValidationMethodEnum:
+    permissible_values:
+      K_FOLD:
+        description: K-fold cross-validation
+        meaning: OBI:0200032
+      STRATIFIED_K_FOLD:
+        description: Stratified k-fold cross-validation
+      LEAVE_ONE_OUT:
+        description: Leave-one-out cross-validation
+        meaning: OBI:0200033
+      TIME_SERIES_SPLIT:
+        description: Time series cross-validation
+      MONTE_CARLO:
+        description: Monte Carlo cross-validation
+
+
+
+
