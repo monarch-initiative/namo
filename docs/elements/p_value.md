@@ -17,9 +17,9 @@ Alias: p_value
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EnrichmentStatistics](EnrichmentStatistics.md) | Statistical measures for pathway enrichment analysis |  no  |
 | [StatisticalSignificance](StatisticalSignificance.md) | Statistical measures of significance for molecular comparisons |  no  |
 | [Gene](Gene.md) | A gene entity with identifiers and expression information |  no  |
+| [EnrichmentStatistics](EnrichmentStatistics.md) | Statistical measures for pathway enrichment analysis |  no  |
 
 
 

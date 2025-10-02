@@ -3,7 +3,7 @@
 # Class: ChannelDimensions 
 
 
-_Dimensions of a microfluidic channel_
+_Dimensions of a microfluidic channel according to ISO 10991:2023 definitions for microchannel geometry and dimensions_
 
 
 
@@ -61,6 +61,10 @@ URI: [namo:ChannelDimensions](https://w3id.org/monarch-initiative/namo/ChannelDi
 
 
 
+## See Also
+
+* [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
+
 ## Identifier and Mapping Information
 
 
@@ -82,6 +86,7 @@ URI: [namo:ChannelDimensions](https://w3id.org/monarch-initiative/namo/ChannelDi
 | ---  | ---  |
 | self | namo:ChannelDimensions |
 | native | namo:ChannelDimensions |
+| exact | ISO10991:microchannel |
 
 
 
@@ -97,8 +102,13 @@ URI: [namo:ChannelDimensions](https://w3id.org/monarch-initiative/namo/ChannelDi
 <details>
 ```yaml
 name: ChannelDimensions
-description: Dimensions of a microfluidic channel
+description: Dimensions of a microfluidic channel according to ISO 10991:2023 definitions
+  for microchannel geometry and dimensions
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/82146.html
+exact_mappings:
+- ISO10991:microchannel
 attributes:
   channel_name:
     name: channel_name
@@ -140,8 +150,13 @@ attributes:
 <details>
 ```yaml
 name: ChannelDimensions
-description: Dimensions of a microfluidic channel
+description: Dimensions of a microfluidic channel according to ISO 10991:2023 definitions
+  for microchannel geometry and dimensions
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/82146.html
+exact_mappings:
+- ISO10991:microchannel
 attributes:
   channel_name:
     name: channel_name

@@ -3,7 +3,7 @@
 # Class: MicrofluidicDesign 
 
 
-_Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features._
+_Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features. Terms aligned with ISO 10991:2023 Microfluidics Vocabulary standard._
 
 
 
@@ -190,6 +190,10 @@ URI: [namo:MicrofluidicDesign](https://w3id.org/monarch-initiative/namo/Microflu
 
 
 
+## See Also
+
+* [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
+
 ## Identifier and Mapping Information
 
 
@@ -211,6 +215,7 @@ URI: [namo:MicrofluidicDesign](https://w3id.org/monarch-initiative/namo/Microflu
 | ---  | ---  |
 | self | namo:MicrofluidicDesign |
 | native | namo:MicrofluidicDesign |
+| exact | ISO10991:microfluidic_device |
 
 
 
@@ -227,8 +232,13 @@ URI: [namo:MicrofluidicDesign](https://w3id.org/monarch-initiative/namo/Microflu
 ```yaml
 name: MicrofluidicDesign
 description: Detailed specification of a microfluidic device design including its
-  architecture, materials, dimensions, and functional features.
+  architecture, materials, dimensions, and functional features. Terms aligned with
+  ISO 10991:2023 Microfluidics Vocabulary standard.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/82146.html
+exact_mappings:
+- ISO10991:microfluidic_device
 is_a: NamedThing
 attributes:
   architecture_type:
@@ -353,8 +363,13 @@ attributes:
 ```yaml
 name: MicrofluidicDesign
 description: Detailed specification of a microfluidic device design including its
-  architecture, materials, dimensions, and functional features.
+  architecture, materials, dimensions, and functional features. Terms aligned with
+  ISO 10991:2023 Microfluidics Vocabulary standard.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/82146.html
+exact_mappings:
+- ISO10991:microfluidic_device
 is_a: NamedThing
 attributes:
   architecture_type:

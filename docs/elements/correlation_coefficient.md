@@ -17,8 +17,8 @@ Alias: correlation_coefficient
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [MolecularSimilarity](MolecularSimilarity.md) | Detailed assessment of molecular-level concordance between model and biologic... |  no  |
 | [DoseResponseSimilarity](DoseResponseSimilarity.md) | Comparison of dose-response relationships between model and biological system... |  no  |
+| [MolecularSimilarity](MolecularSimilarity.md) | Detailed assessment of molecular-level concordance between model and biologic... |  no  |
 
 
 

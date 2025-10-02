@@ -280,20 +280,36 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
      'imports': ['linkml:types'],
      'license': 'BSD-3-Clause',
      'name': 'namo',
-     'prefixes': {'CHEBI': {'prefix_prefix': 'CHEBI',
+     'prefixes': {'ARRIVE': {'prefix_prefix': 'ARRIVE',
+                             'prefix_reference': 'https://doi.org/10.1371/journal.pbio.3000410#'},
+                  'ASTM': {'prefix_prefix': 'ASTM',
+                           'prefix_reference': 'https://www.astm.org/standards/'},
+                  'CHEBI': {'prefix_prefix': 'CHEBI',
                             'prefix_reference': 'http://purl.obolibrary.org/obo/CHEBI_'},
                   'EDAM': {'prefix_prefix': 'EDAM',
                            'prefix_reference': 'http://edamontology.org/'},
                   'EFO': {'prefix_prefix': 'EFO',
                           'prefix_reference': 'http://www.ebi.ac.uk/efo/EFO_'},
+                  'GIVReST': {'prefix_prefix': 'GIVReST',
+                              'prefix_reference': 'https://doi.org/10.14573/altex.2501011#'},
+                  'ISO10991': {'prefix_prefix': 'ISO10991',
+                               'prefix_reference': 'https://www.iso.org/standard/82146.html#'},
+                  'ISO22916': {'prefix_prefix': 'ISO22916',
+                               'prefix_reference': 'https://www.iso.org/standard/74157.html#'},
                   'MAMO': {'prefix_prefix': 'MAMO',
                            'prefix_reference': 'http://identifiers.org/mamo/MAMO_'},
                   'MESH': {'prefix_prefix': 'MESH',
                            'prefix_reference': 'http://id.nlm.nih.gov/mesh/'},
+                  'MIACA': {'prefix_prefix': 'MIACA',
+                            'prefix_reference': 'https://doi.org/10.5966/sctm.2015-0393#'},
+                  'MISpheroID': {'prefix_prefix': 'MISpheroID',
+                                 'prefix_reference': 'https://doi.org/10.3390/jdb10010007#'},
                   'NCIT': {'prefix_prefix': 'NCIT',
                            'prefix_reference': 'http://purl.obolibrary.org/obo/NCIT_'},
                   'OBI': {'prefix_prefix': 'OBI',
                           'prefix_reference': 'http://purl.obolibrary.org/obo/OBI_'},
+                  'OECD': {'prefix_prefix': 'OECD',
+                           'prefix_reference': 'https://www.oecd.org/chemicalsafety/testing/'},
                   'PATO': {'prefix_prefix': 'PATO',
                            'prefix_reference': 'http://purl.obolibrary.org/obo/PATO_'},
                   'UBERON': {'prefix_prefix': 'UBERON',
@@ -394,6 +410,9 @@ class PredictionOutcomeEnum(str, Enum):
 
 
 class MicrofluidicArchitectureEnum(str, Enum):
+    """
+    Architecture types for microfluidic devices as defined in ISO 10991:2023
+    """
     SINGLE_CHANNEL = "SINGLE_CHANNEL"
     """
     Single channel design
@@ -421,6 +440,9 @@ class MicrofluidicArchitectureEnum(str, Enum):
 
 
 class ChannelConfigurationEnum(str, Enum):
+    """
+    Channel configurations for microfluidic devices aligned with ISO 22916:2022 interoperability requirements for dimensions and connections
+    """
     PARALLEL = "PARALLEL"
     """
     Parallel channel configuration
@@ -584,6 +606,9 @@ class SurfaceCoatingEnum(str, Enum):
 
 
 class FlowControlMethodEnum(str, Enum):
+    """
+    Flow control methods for microfluidic devices as defined in ISO 10991:2023
+    """
     SYRINGE_PUMP = "SYRINGE_PUMP"
     """
     Syringe pump-driven flow
@@ -1026,7 +1051,10 @@ class Study(NamedThing):
     """
     A study is a structured investigation or analysis, often involving the collection and interpretation of data, to answer specific research questions or test hypotheses.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['OECD:OHT210_study', 'ARRIVE:in_vivo_experiment'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://www.oecd.org/chemicalsafety/testing/',
+                      'https://doi.org/10.1371/journal.pbio.3000410']})
 
     context_of_use: Optional[str] = Field(default=None, description="""What decision will this inform? Care? Policy? Drug approval?""", json_schema_extra = { "linkml_meta": {'alias': 'context_of_use', 'domain_of': ['Study']} })
     biological_context: Optional[str] = Field(default=None, description="""tissue/region (anatomy), cell types, sex/age equivalents, mechanics (e.g., cyclic stretch), microenvironment""", json_schema_extra = { "linkml_meta": {'alias': 'biological_context', 'domain_of': ['Study']} })
@@ -1058,7 +1086,9 @@ class ModelSystem(NamedThing):
 
 
 class AnimalModel(ModelSystem):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['ARRIVE:animal_model'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://doi.org/10.1371/journal.pbio.3000410']})
 
     species: str = Field(default=..., description="""The species of the animal used in the model system.""", json_schema_extra = { "linkml_meta": {'alias': 'species',
          'bindings': [{'binds_value_of': 'id',
@@ -1091,7 +1121,10 @@ class NAMModel(ModelSystem):
     """
     A New Approach Methodology (NAM) model, which is a type of model system that does not involve the use of animals.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True, 'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+         'exact_mappings': ['GIVReST:in_vitro_model', 'OECD:new_approach_methodology'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://doi.org/10.14573/altex.2501011']})
 
     biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'alias': 'biological_organization_level', 'domain_of': ['NAMModel']} })
     spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'alias': 'spatial_context', 'domain_of': ['NAMModel']} })
@@ -1110,9 +1143,12 @@ class NAMModel(ModelSystem):
 
 class CellularSystem(NAMModel):
     """
-    Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures.
+    Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA (Minimal Information About a Cellular Assay) standards.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True, 'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+         'exact_mappings': ['MIACA:cellular_assay'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://doi.org/10.5966/sctm.2015-0393']})
 
     cell_types: Optional[list[Term]] = Field(default=None, description="""Cell types present in the cellular system""", json_schema_extra = { "linkml_meta": {'alias': 'cell_types',
          'bindings': [{'binds_value_of': 'id',
@@ -1233,7 +1269,9 @@ class Organoid(ThreeDCellCulture):
     """
     A 3D cell culture system that self-organizes to recapitulate key structural and functional aspects of an organ or tissue
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['MISpheroID:organoid', 'MISpheroID:spheroid'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://doi.org/10.3390/jdb10010007']})
 
     organ_modeled: Optional[Term] = Field(default=None, description="""The organ or tissue being modeled""", json_schema_extra = { "linkml_meta": {'alias': 'organ_modeled',
          'bindings': [{'binds_value_of': 'id',
@@ -1302,9 +1340,12 @@ class CellLineModel(TwoDCellCulture):
 
 class MicrophysiologicalSystem(NAMModel):
     """
-    Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,  and living cells to replicate tissue-level physiology and dynamics.
+    Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, and living cells to replicate tissue-level physiology and dynamics. Conforms to ISO 22916:2022 interoperability requirements for dimensions, connections, and device classification.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True, 'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+         'exact_mappings': ['ISO22916:microfluidic_device'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://www.iso.org/standard/74157.html']})
 
     microfluidic_design: Optional[MicrofluidicDesign] = Field(default=None, description="""Detailed design specifications of the microfluidic device""", json_schema_extra = { "linkml_meta": {'alias': 'microfluidic_design', 'domain_of': ['MicrophysiologicalSystem']} })
     mechanical_forces: Optional[MechanicalStimulation] = Field(default=None, description="""Mechanical forces applied to the model system""", json_schema_extra = { "linkml_meta": {'alias': 'mechanical_forces', 'domain_of': ['MicrophysiologicalSystem']} })
@@ -1327,9 +1368,11 @@ class MicrophysiologicalSystem(NAMModel):
 
 class OrganOnChip(MicrophysiologicalSystem):
     """
-    A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ...
+    A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ... Aligned with ISO 10991:2023 microfluidics terminology.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['ISO10991:organ_on_chip'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://www.iso.org/standard/82146.html']})
 
     organ_modeled: Optional[Term] = Field(default=None, description="""The organ or anatomical structure being modeled (e.g., lung, airway, alveolus)""", json_schema_extra = { "linkml_meta": {'alias': 'organ_modeled',
          'bindings': [{'binds_value_of': 'id',
@@ -1363,9 +1406,11 @@ class OrganOnChip(MicrophysiologicalSystem):
 
 class TissueOnChip(MicrophysiologicalSystem):
     """
-    Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions.
+    Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['ISO10991:tissue_on_chip'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://www.iso.org/standard/82146.html']})
 
     tissue_modeled: Optional[Term] = Field(default=None, description="""The specific tissue being modeled""", json_schema_extra = { "linkml_meta": {'alias': 'tissue_modeled', 'domain_of': ['TissueOnChip']} })
     tissue_architecture: Optional[str] = Field(default=None, description="""Description of tissue-level architecture and organization""", json_schema_extra = { "linkml_meta": {'alias': 'tissue_architecture', 'domain_of': ['TissueOnChip']} })
@@ -1628,9 +1673,11 @@ class CrossValidation(ConfiguredBaseModel):
 
 class MicrofluidicDesign(NamedThing):
     """
-    Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features.
+    Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features. Terms aligned with ISO 10991:2023 Microfluidics Vocabulary standard.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['ISO10991:microfluidic_device'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://www.iso.org/standard/82146.html']})
 
     architecture_type: Optional[MicrofluidicArchitectureEnum] = Field(default=None, description="""The overall architecture type of the microfluidic device""", json_schema_extra = { "linkml_meta": {'alias': 'architecture_type', 'domain_of': ['MicrofluidicDesign']} })
     number_of_channels: Optional[int] = Field(default=None, description="""Total number of channels in the device""", json_schema_extra = { "linkml_meta": {'alias': 'number_of_channels', 'domain_of': ['MicrofluidicDesign']} })
@@ -1657,9 +1704,11 @@ class MicrofluidicDesign(NamedThing):
 
 class ChannelDimensions(ConfiguredBaseModel):
     """
-    Dimensions of a microfluidic channel
+    Dimensions of a microfluidic channel according to ISO 10991:2023 definitions for microchannel geometry and dimensions
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['ISO10991:microchannel'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'see_also': ['https://www.iso.org/standard/82146.html']})
 
     channel_name: Optional[str] = Field(default=None, description="""Name or identifier of the channel (e.g., apical, basolateral, vascular)""", json_schema_extra = { "linkml_meta": {'alias': 'channel_name', 'domain_of': ['ChannelDimensions']} })
     width: Optional[float] = Field(default=None, description="""Width of the channel in micrometers""", json_schema_extra = { "linkml_meta": {'alias': 'width', 'domain_of': ['ChannelDimensions']} })

@@ -117,6 +117,10 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
 
 
 
+## See Also
+
+* [https://doi.org/10.1371/journal.pbio.3000410](https://doi.org/10.1371/journal.pbio.3000410)
+
 ## Identifier and Mapping Information
 
 
@@ -138,6 +142,7 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
 | ---  | ---  |
 | self | namo:AnimalModel |
 | native | namo:AnimalModel |
+| exact | ARRIVE:animal_model |
 
 
 
@@ -154,6 +159,10 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
 ```yaml
 name: AnimalModel
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://doi.org/10.1371/journal.pbio.3000410
+exact_mappings:
+- ARRIVE:animal_model
 is_a: ModelSystem
 attributes:
   species:
@@ -211,6 +220,10 @@ attributes:
 ```yaml
 name: AnimalModel
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://doi.org/10.1371/journal.pbio.3000410
+exact_mappings:
+- ARRIVE:animal_model
 is_a: ModelSystem
 attributes:
   species:

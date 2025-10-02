@@ -3,7 +3,7 @@
 # Class: TissueOnChip 
 
 
-_Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions._
+_Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology._
 
 
 
@@ -172,6 +172,10 @@ URI: [namo:TissueOnChip](https://w3id.org/monarch-initiative/namo/TissueOnChip)
 
 
 
+## See Also
+
+* [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
+
 ## Identifier and Mapping Information
 
 
@@ -193,6 +197,7 @@ URI: [namo:TissueOnChip](https://w3id.org/monarch-initiative/namo/TissueOnChip)
 | ---  | ---  |
 | self | namo:TissueOnChip |
 | native | namo:TissueOnChip |
+| exact | ISO10991:tissue_on_chip |
 
 
 
@@ -209,8 +214,12 @@ URI: [namo:TissueOnChip](https://w3id.org/monarch-initiative/namo/TissueOnChip)
 ```yaml
 name: TissueOnChip
 description: Tissue-level microphysiological systems that model specific tissue functions
-  and multi-cellular interactions.
+  and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/82146.html
+exact_mappings:
+- ISO10991:tissue_on_chip
 is_a: MicrophysiologicalSystem
 attributes:
   tissue_modeled:
@@ -247,8 +256,12 @@ attributes:
 ```yaml
 name: TissueOnChip
 description: Tissue-level microphysiological systems that model specific tissue functions
-  and multi-cellular interactions.
+  and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/82146.html
+exact_mappings:
+- ISO10991:tissue_on_chip
 is_a: MicrophysiologicalSystem
 attributes:
   tissue_modeled:

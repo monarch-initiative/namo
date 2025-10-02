@@ -1,5 +1,100 @@
 name: namo
-description: New Approach Methodology Ontology and Schema
+description: "NAMO (New Approach Methodology Ontology) is a comprehensive schema for\
+  \ representing diverse \nin vitro and in silico model systems used as alternatives\
+  \ to traditional animal testing. \nIt supports organoids, organ-on-chip systems,\
+  \ 3D cell cultures, computational models, and \nother New Approach Methodologies\
+  \ (NAMs) used in toxicology, drug discovery, and biomedical research.\n\n## Schema\
+  \ Organization\n\nThe schema follows a hierarchical structure that mirrors how NAM\
+  \ research is organized and conducted:\n\nThe top-level entity is a [Dataset](Dataset.md),\
+  \ which serves as a container for related research\nactivities. A dataset might\
+  \ represent all NAM models from a specific laboratory, regulatory study, \nor collaborative\
+  \ research program.\n\nEach dataset contains one or more [Studies](Study.md), which\
+  \ are focused investigations using\nspecific NAM approaches. For example, a study\
+  \ might investigate \"Hepatotoxicity screening using\nliver organoids\" or \"Multi-organ\
+  \ drug ADMET assessment using microphysiological systems.\"\n\nWithin each study,\
+  \ you'll find:\n\n### Model Systems\nThe core of NAMO is the representation of different\
+  \ [NAM model types](NAMModel.md):\n\n- **[Organoids](Organoid.md)**: Self-organizing\
+  \ 3D tissue models derived from stem cells that \n  recapitulate organ-specific\
+  \ architecture and function. Examples include brain organoids for \n  neurotoxicity\
+  \ testing, intestinal organoids for drug absorption studies, and liver organoids\
+  \ \n  for metabolism research.\n\n- **[Organ-on-Chip Systems](OrganOnChip.md)**:\
+  \ Microfluidic devices that simulate organ-level \n  physiology with precise control\
+  \ over cellular microenvironment. These include lung-on-chip \n  for inhalation\
+  \ toxicology, heart-on-chip for cardiotoxicity assessment, and multi-organ \n  chips\
+  \ for systemic drug effects.\n\n- **[Tissue-on-Chip Systems](TissueOnChip.md)**:\
+  \ Microfluidic models focused on specific tissue\n  functions such as blood-brain\
+  \ barrier chips, skin models for dermatological testing, and \n  kidney proximal\
+  \ tubule chips for nephrotoxicity screening.\n\n- **[3D Cell Cultures](ThreeDCellCulture.md)**:\
+  \ Three-dimensional cell culture systems including\n  spheroids, scaffold-based\
+  \ cultures, and bioengineered tissues that provide more physiologically\n  relevant\
+  \ environments than traditional 2D cultures.\n\n- **[2D Cell Cultures](TwoDCellCulture.md)**:\
+  \ Monolayer cell culture systems with specialized\n  configurations, substrates,\
+  \ and culture conditions optimized for specific applications.\n\n- **[Co-Culture\
+  \ Systems](CoCulture.md)**: Multi-cell-type culture systems that model cellular\n\
+  \  interactions, tissue interfaces, and organ-level communication pathways.\n\n\
+  ### Computational Models\nNAMO supports various in silico approaches:\n\n- **[Machine\
+  \ Learning Models](MLModel.md)**: AI/ML systems for toxicity prediction, including\n\
+  \  deep learning models for chemical structure-activity relationships, neural networks\
+  \ for \n  dose-response modeling, and ensemble methods for multi-endpoint prediction.\n\
+  \n- **[QSAR Models](QSARModel.md)**: Quantitative Structure-Activity Relationship\
+  \ models that\n  predict biological activity from molecular structure, including\
+  \ traditional statistical\n  approaches and modern machine learning implementations.\n\
+  \n- **[PBPK Models](PBPKModel.md)**: Physiologically-based pharmacokinetic models\
+  \ that simulate\n  drug absorption, distribution, metabolism, and excretion using\
+  \ mathematical representations\n  of biological processes.\n\n- **[Digital Twins](DigitalTwin.md)**:\
+  \ Integrated computational models that combine multiple\n  data sources and modeling\
+  \ approaches to create personalized, real-time simulations of \n  biological systems.\n\
+  \n- **[Metabolic Models](MetabolicModel.md)**: Systems biology models of cellular\
+  \ metabolism,\n  including flux balance analysis, kinetic modeling, and constraint-based\
+  \ approaches for\n  understanding metabolic perturbations.\n\n### Technical Specifications\n\
+  \n#### Microfluidic Design\nFor chip-based systems, detailed [microfluidic design](MicrofluidicDesign.md)\
+  \ specifications \ncapture device architecture, including channel configurations,\
+  \ flow control methods, sensor\nintegration, and material properties essential for\
+  \ reproducibility and standardization.\n\n#### Validation and Concordance\nNAMO\
+  \ emphasizes validation through [structured concordance analysis](StructuredConcordanceResult.md):\n\
+  \n- **[Molecular Similarity](MolecularSimilarity.md)**: Gene expression profiles,\
+  \ protein markers,\n  and metabolomic signatures compared to reference biological\
+  \ systems\n- **[Functional Parity](FunctionalParity.md)**: Physiological responses,\
+  \ barrier functions,\n  and cellular behaviors that match in vivo counterparts\n\
+  - **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch\
+  \ \n  variation, and quality control metrics\n\n#### Performance Metrics\nQuantitative\
+  \ assessment through standardized [functional assays](FunctionalAssay.md) that\n\
+  measure model performance, sensitivity, specificity, and predictive accuracy against\
+  \ known\noutcomes and regulatory endpoints.\n\n## Use Cases\n\nNAMO supports diverse\
+  \ applications across multiple domains:\n\n### Regulatory Toxicology\n- **Chemical\
+  \ Safety Assessment**: Systematic evaluation of chemical toxicity using integrated\n\
+  \  NAM approaches, supporting regulatory submissions to EPA, FDA, and ECHA\n- **Cosmetics\
+  \ Testing**: Non-animal approaches for skin sensitization, eye irritation, and\n\
+  \  systemic toxicity assessment as required by regulations worldwide\n- **Pesticide\
+  \ Evaluation**: Environmental and human health risk assessment using NAMs for \n\
+  \  neurotoxicity, endocrine disruption, and developmental toxicity endpoints\n\n\
+  ### Pharmaceutical Development\n- **Drug Discovery**: Early-stage compound screening\
+  \ using organ-specific models to identify\n  promising candidates and eliminate\
+  \ toxic compounds\n- **ADMET Profiling**: Absorption, Distribution, Metabolism,\
+  \ Excretion, and Toxicity assessment\n  using integrated organ-on-chip platforms\
+  \ and computational models\n- **Precision Medicine**: Patient-derived organoids\
+  \ and digital twins for personalized drug\n  selection and dosing strategies\n\n\
+  ### Academic Research\n- **Disease Modeling**: Patient-specific organoids for studying\
+  \ rare diseases, cancer biology,\n  and genetic disorders in controlled laboratory\
+  \ environments\n- **Mechanistic Studies**: Investigation of toxicity pathways, cellular\
+  \ responses, and \n  molecular mechanisms using well-characterized NAM systems\n\
+  - **Method Development**: Innovation in NAM technologies, validation approaches,\
+  \ and \n  standardization protocols\n\n## Key Features\n\n- **Multi-Modal Integration**:\
+  \ Support for combining multiple NAM approaches in integrated\n  testing strategies\
+  \ (ITS) and adverse outcome pathways (AOPs)\n- **Standardization Focus**: Emphasis\
+  \ on reproducibility, quality control, and inter-laboratory\n  harmonization essential\
+  \ for regulatory acceptance\n- **Literature Integration**: Comprehensive [reference](Reference.md)\
+  \ system linking models\n  to peer-reviewed publications, regulatory guidance, and\
+  \ validation studies\n- **Ontology Alignment**: Integration with established ontologies\
+  \ including UBERON (anatomy),\n  CL (cell types), CHEBI (chemicals), and OBI (biomedical\
+  \ investigations)\n\nFor detailed curation guidelines, see:\n- [How to Curate Organoid\
+  \ Papers](https://monarch-initiative.github.io/namo/how-to/curate-organoid-paper/)\n\
+  - [How to Curate Organ-on-Chip Papers](https://monarch-initiative.github.io/namo/how-to/curate-organ-on-chip-paper/)\n\
+  \n## Community and Standards\n\nNAMO is developed in collaboration with the NAM\
+  \ research community, regulatory agencies, and \nstandards organizations including\
+  \ OECD, ICCVAM, and ESTIV. It supports the 3Rs principles \n(Replacement, Reduction,\
+  \ Refinement) and contributes to the transition toward animal-free \ntesting methodologies\
+  \ in safety assessment and biomedical research.\n"
 title: namo
 see_also:
 - https://monarch-initiative.github.io/namo
@@ -44,6 +139,36 @@ prefixes:
   MESH:
     prefix_prefix: MESH
     prefix_reference: http://id.nlm.nih.gov/mesh/
+  CHEBI:
+    prefix_prefix: CHEBI
+    prefix_reference: http://purl.obolibrary.org/obo/CHEBI_
+  NCIT:
+    prefix_prefix: NCIT
+    prefix_reference: http://purl.obolibrary.org/obo/NCIT_
+  ISO10991:
+    prefix_prefix: ISO10991
+    prefix_reference: https://www.iso.org/standard/82146.html#
+  ISO22916:
+    prefix_prefix: ISO22916
+    prefix_reference: https://www.iso.org/standard/74157.html#
+  ASTM:
+    prefix_prefix: ASTM
+    prefix_reference: https://www.astm.org/standards/
+  OECD:
+    prefix_prefix: OECD
+    prefix_reference: https://www.oecd.org/chemicalsafety/testing/
+  MIACA:
+    prefix_prefix: MIACA
+    prefix_reference: https://doi.org/10.5966/sctm.2015-0393#
+  MISpheroID:
+    prefix_prefix: MISpheroID
+    prefix_reference: https://doi.org/10.3390/jdb10010007#
+  GIVReST:
+    prefix_prefix: GIVReST
+    prefix_reference: https://doi.org/10.14573/altex.2501011#
+  ARRIVE:
+    prefix_prefix: ARRIVE
+    prefix_reference: https://doi.org/10.1371/journal.pbio.3000410#
 default_prefix: namo
 default_range: string
 types:
@@ -446,52 +571,85 @@ enums:
   MicrofluidicArchitectureEnum:
     name: MicrofluidicArchitectureEnum
     definition_uri: https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum
+    description: Architecture types for microfluidic devices as defined in ISO 10991:2023
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.iso.org/standard/82146.html
     permissible_values:
       SINGLE_CHANNEL:
         text: SINGLE_CHANNEL
         description: Single channel design
+        exact_mappings:
+        - ISO10991:single_channel_device
       TWO_CHANNEL:
         text: TWO_CHANNEL
         description: Two-channel design with separated compartments
+        exact_mappings:
+        - ISO10991:dual_channel_device
       MULTI_CHANNEL:
         text: MULTI_CHANNEL
         description: Multiple channels (>2) design
+        exact_mappings:
+        - ISO10991:multichannel_device
       LAYERED:
         text: LAYERED
         description: Layered/stacked channel architecture
+        exact_mappings:
+        - ISO10991:multilayer_device
       RADIAL:
         text: RADIAL
         description: Radial channel architecture
+        exact_mappings:
+        - ISO10991:radial_flow_device
       NETWORK:
         text: NETWORK
         description: Network of interconnected channels
+        exact_mappings:
+        - ISO10991:microfluidic_network
   ChannelConfigurationEnum:
     name: ChannelConfigurationEnum
     definition_uri: https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum
+    description: Channel configurations for microfluidic devices aligned with ISO
+      22916:2022 interoperability requirements for dimensions and connections
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.iso.org/standard/74157.html
     permissible_values:
       PARALLEL:
         text: PARALLEL
         description: Parallel channel configuration
+        exact_mappings:
+        - ISO22916:parallel_configuration
       SERIAL:
         text: SERIAL
         description: Serial/sequential channel configuration
+        exact_mappings:
+        - ISO22916:serial_configuration
       BRANCHING:
         text: BRANCHING
         description: Branching channel configuration
+        exact_mappings:
+        - ISO22916:branching_configuration
       CIRCULAR:
         text: CIRCULAR
         description: Circular/loop channel configuration
+        exact_mappings:
+        - ISO22916:circular_configuration
       SERPENTINE:
         text: SERPENTINE
         description: Serpentine channel pattern
+        exact_mappings:
+        - ISO22916:serpentine_configuration
       Y_SHAPED:
         text: Y_SHAPED
         description: Y-shaped channel junction
+        exact_mappings:
+        - ISO22916:y_junction
       T_SHAPED:
         text: T_SHAPED
         description: T-shaped channel junction
+        exact_mappings:
+        - ISO22916:t_junction
   MembraneTypeEnum:
     name: MembraneTypeEnum
     definition_uri: https://w3id.org/monarch-initiative/namo/MembraneTypeEnum
@@ -578,24 +736,30 @@ enums:
       FIBRONECTIN:
         text: FIBRONECTIN
         description: Fibronectin coating
+        meaning: CHEBI:5058
       COLLAGEN:
         text: COLLAGEN
         description: Collagen coating
+        meaning: CHEBI:3815
       LAMININ:
         text: LAMININ
         description: Laminin coating
+        meaning: MESH:D007797
       MATRIGEL:
         text: MATRIGEL
         description: Matrigel coating
       POLY_L_LYSINE:
         text: POLY_L_LYSINE
         description: Poly-L-lysine coating
+        meaning: CHEBI:53412
       GELATIN:
         text: GELATIN
         description: Gelatin coating
+        meaning: CHEBI:5291
       RGD_PEPTIDE:
         text: RGD_PEPTIDE
         description: RGD peptide coating
+        meaning: NCIT:C13288
       ANTI_FOULING:
         text: ANTI_FOULING
         description: Anti-fouling coating
@@ -605,32 +769,51 @@ enums:
   FlowControlMethodEnum:
     name: FlowControlMethodEnum
     definition_uri: https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum
+    description: Flow control methods for microfluidic devices as defined in ISO 10991:2023
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.iso.org/standard/82146.html
     permissible_values:
       SYRINGE_PUMP:
         text: SYRINGE_PUMP
         description: Syringe pump-driven flow
+        exact_mappings:
+        - ISO10991:syringe_pump
       PERISTALTIC_PUMP:
         text: PERISTALTIC_PUMP
         description: Peristaltic pump-driven flow
+        exact_mappings:
+        - ISO10991:peristaltic_pump
       GRAVITY_DRIVEN:
         text: GRAVITY_DRIVEN
         description: Gravity-driven flow
+        exact_mappings:
+        - ISO10991:gravity_flow
       PRESSURE_DRIVEN:
         text: PRESSURE_DRIVEN
         description: Pressure-driven flow
+        exact_mappings:
+        - ISO10991:pressure_driven_flow
       ELECTROOSMOTIC:
         text: ELECTROOSMOTIC
         description: Electroosmotic flow
+        exact_mappings:
+        - ISO10991:electroosmotic_flow
       CAPILLARY_ACTION:
         text: CAPILLARY_ACTION
         description: Capillary action-driven flow
+        exact_mappings:
+        - ISO10991:capillary_flow
       PNEUMATIC_VALVES:
         text: PNEUMATIC_VALVES
         description: Pneumatic valve control
+        exact_mappings:
+        - ISO10991:pneumatic_valve
       MICROVALVES:
         text: MICROVALVES
         description: Integrated microvalves
+        exact_mappings:
+        - ISO10991:microvalve
   IntegratedSensorEnum:
     name: IntegratedSensorEnum
     definition_uri: https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum
@@ -3229,6 +3412,12 @@ classes:
       the collection and interpretation of data, to answer specific research questions
       or test hypotheses.
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.oecd.org/chemicalsafety/testing/
+    - https://doi.org/10.1371/journal.pbio.3000410
+    exact_mappings:
+    - OECD:OHT210_study
+    - ARRIVE:in_vivo_experiment
     is_a: NamedThing
     slots:
     - id
@@ -3280,6 +3469,10 @@ classes:
     name: AnimalModel
     definition_uri: https://w3id.org/monarch-initiative/namo/AnimalModel
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://doi.org/10.1371/journal.pbio.3000410
+    exact_mappings:
+    - ARRIVE:animal_model
     is_a: ModelSystem
     slots:
     - id
@@ -3335,6 +3528,11 @@ classes:
     description: A New Approach Methodology (NAM) model, which is a type of model
       system that does not involve the use of animals.
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://doi.org/10.14573/altex.2501011
+    exact_mappings:
+    - GIVReST:in_vitro_model
+    - OECD:new_approach_methodology
     is_a: ModelSystem
     abstract: true
     slots:
@@ -3373,8 +3571,13 @@ classes:
     name: CellularSystem
     definition_uri: https://w3id.org/monarch-initiative/namo/CellularSystem
     description: Cell-based model systems that use living cells to model biological
-      processes. Includes 2D cultures, 3D systems, and co-cultures.
+      processes. Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA
+      (Minimal Information About a Cellular Assay) standards.
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://doi.org/10.5966/sctm.2015-0393
+    exact_mappings:
+    - MIACA:cellular_assay
     is_a: NAMModel
     abstract: true
     slots:
@@ -3529,6 +3732,11 @@ classes:
     description: A 3D cell culture system that self-organizes to recapitulate key
       structural and functional aspects of an organ or tissue
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://doi.org/10.3390/jdb10010007
+    exact_mappings:
+    - MISpheroID:organoid
+    - MISpheroID:spheroid
     is_a: ThreeDCellCulture
     slots:
     - id
@@ -3607,9 +3815,15 @@ classes:
   MicrophysiologicalSystem:
     name: MicrophysiologicalSystem
     definition_uri: https://w3id.org/monarch-initiative/namo/MicrophysiologicalSystem
-    description: Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,  and
-      living cells to replicate tissue-level physiology and dynamics.
+    description: Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,
+      and living cells to replicate tissue-level physiology and dynamics. Conforms
+      to ISO 22916:2022 interoperability requirements for dimensions, connections,
+      and device classification.
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.iso.org/standard/74157.html
+    exact_mappings:
+    - ISO22916:microfluidic_device
     is_a: NAMModel
     abstract: true
     slots:
@@ -3650,8 +3864,13 @@ classes:
     name: OrganOnChip
     definition_uri: https://w3id.org/monarch-initiative/namo/OrganOnChip
     description: 'A model system that simulates the physiological functions of an
-      organ using a microfluidic device. Examples: Airway-on-chip, ...'
+      organ using a microfluidic device. Examples: Airway-on-chip, ... Aligned with
+      ISO 10991:2023 microfluidics terminology.'
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.iso.org/standard/82146.html
+    exact_mappings:
+    - ISO10991:organ_on_chip
     is_a: MicrophysiologicalSystem
     slots:
     - id
@@ -3704,8 +3923,13 @@ classes:
     name: TissueOnChip
     definition_uri: https://w3id.org/monarch-initiative/namo/TissueOnChip
     description: Tissue-level microphysiological systems that model specific tissue
-      functions and multi-cellular interactions.
+      functions and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics
+      terminology.
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.iso.org/standard/82146.html
+    exact_mappings:
+    - ISO10991:tissue_on_chip
     is_a: MicrophysiologicalSystem
     slots:
     - id
@@ -4141,8 +4365,13 @@ classes:
     name: MicrofluidicDesign
     definition_uri: https://w3id.org/monarch-initiative/namo/MicrofluidicDesign
     description: Detailed specification of a microfluidic device design including
-      its architecture, materials, dimensions, and functional features.
+      its architecture, materials, dimensions, and functional features. Terms aligned
+      with ISO 10991:2023 Microfluidics Vocabulary standard.
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.iso.org/standard/82146.html
+    exact_mappings:
+    - ISO10991:microfluidic_device
     is_a: NamedThing
     slots:
     - id
@@ -4227,8 +4456,13 @@ classes:
   ChannelDimensions:
     name: ChannelDimensions
     definition_uri: https://w3id.org/monarch-initiative/namo/ChannelDimensions
-    description: Dimensions of a microfluidic channel
+    description: Dimensions of a microfluidic channel according to ISO 10991:2023
+      definitions for microchannel geometry and dimensions
     from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - https://www.iso.org/standard/82146.html
+    exact_mappings:
+    - ISO10991:microchannel
     slots:
     - channelDimensions__channel_name
     - channelDimensions__width
@@ -4998,7 +5232,7 @@ classes:
     class_uri: namo:Term
 metamodel_version: 1.7.0
 source_file: namo.yaml
-source_file_date: '2025-08-19T23:53:38'
-source_file_size: 50341
-generation_date: '2025-08-20T11:15:49'
+source_file_date: '2025-09-27T14:30:41'
+source_file_size: 62642
+generation_date: '2025-10-01T23:16:55'
 

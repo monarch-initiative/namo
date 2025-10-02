@@ -83,6 +83,11 @@ URI: [namo:Study](https://w3id.org/monarch-initiative/namo/Study)
 
 
 
+## See Also
+
+* [https://www.oecd.org/chemicalsafety/testing/](https://www.oecd.org/chemicalsafety/testing/)
+* [https://doi.org/10.1371/journal.pbio.3000410](https://doi.org/10.1371/journal.pbio.3000410)
+
 ## Identifier and Mapping Information
 
 
@@ -104,6 +109,7 @@ URI: [namo:Study](https://w3id.org/monarch-initiative/namo/Study)
 | ---  | ---  |
 | self | namo:Study |
 | native | namo:Study |
+| exact | OECD:OHT210_study, ARRIVE:in_vivo_experiment |
 
 
 
@@ -123,6 +129,12 @@ description: A study is a structured investigation or analysis, often involving 
   collection and interpretation of data, to answer specific research questions or
   test hypotheses.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.oecd.org/chemicalsafety/testing/
+- https://doi.org/10.1371/journal.pbio.3000410
+exact_mappings:
+- OECD:OHT210_study
+- ARRIVE:in_vivo_experiment
 is_a: NamedThing
 attributes:
   context_of_use:
@@ -174,6 +186,12 @@ description: A study is a structured investigation or analysis, often involving 
   collection and interpretation of data, to answer specific research questions or
   test hypotheses.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.oecd.org/chemicalsafety/testing/
+- https://doi.org/10.1371/journal.pbio.3000410
+exact_mappings:
+- OECD:OHT210_study
+- ARRIVE:in_vivo_experiment
 is_a: NamedThing
 attributes:
   context_of_use:

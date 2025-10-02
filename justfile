@@ -97,9 +97,10 @@ lint:
 gen-doc: _gen-yaml
   uv run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
-# Build docs and run test server
+# Build docs and run test server (optional: port and/or address)
+# Usage: just testdoc [port] or just testdoc [address:port]
 [group('model development')]
-testdoc: gen-doc _serve
+testdoc server_config="": gen-doc (_serve server_config)
 
 # Generate the Python data models (dataclasses & pydantic)
 gen-python:
@@ -202,9 +203,18 @@ _gen-yaml:
   -mkdir -p docs/schema
   uv run gen-yaml {{source_schema_path}} > {{merged_schema_path}}
 
-# Run documentation server
-_serve:
-  uv run mkdocs serve
+# Run documentation server with optional port/address configuration
+_serve server_config="":
+  #!/usr/bin/env bash
+  if [ -z "{{server_config}}" ]; then
+    uv run mkdocs serve
+  elif [[ "{{server_config}}" =~ ^[0-9]+$ ]]; then
+    # Just a port number
+    uv run mkdocs serve --dev-addr 127.0.0.1:{{server_config}}
+  else
+    # Full address:port specification
+    uv run mkdocs serve --dev-addr {{server_config}}
+  fi
 
 # Initialize git repository
 _git-init:

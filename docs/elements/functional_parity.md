@@ -17,8 +17,8 @@ Alias: functional_parity
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ConcordanceResult](ConcordanceResult.md) |  |  no  |
 | [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
+| [ConcordanceResult](ConcordanceResult.md) |  |  no  |
 
 
 

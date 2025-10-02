@@ -34,6 +34,8 @@ nav:
       - Curate Organoid Papers: how-to/curate-organoid-paper.md
       - Curate Organ-on-Chip Papers: how-to/curate-organ-on-chip-paper.md
   - Schema: elements/index.md
+  - Publications:
+      - NAMO Manuscript: manuscript/namo_ontology_manuscript.md
   - About: about.md
 
 exclude_docs: |

@@ -17,8 +17,8 @@ Alias: enrichment_score
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Pathway](Pathway.md) | A biological pathway with activity and enrichment information |  no  |
 | [EnrichmentStatistics](EnrichmentStatistics.md) | Statistical measures for pathway enrichment analysis |  no  |
+| [Pathway](Pathway.md) | A biological pathway with activity and enrichment information |  no  |
 
 
 

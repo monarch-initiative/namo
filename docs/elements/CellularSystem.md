@@ -3,7 +3,7 @@
 # Class: CellularSystem 
 
 
-_Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures._
+_Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA (Minimal Information About a Cellular Assay) standards._
 
 
 
@@ -146,6 +146,10 @@ URI: [namo:CellularSystem](https://w3id.org/monarch-initiative/namo/CellularSyst
 
 
 
+## See Also
+
+* [https://doi.org/10.5966/sctm.2015-0393](https://doi.org/10.5966/sctm.2015-0393)
+
 ## Identifier and Mapping Information
 
 
@@ -167,6 +171,7 @@ URI: [namo:CellularSystem](https://w3id.org/monarch-initiative/namo/CellularSyst
 | ---  | ---  |
 | self | namo:CellularSystem |
 | native | namo:CellularSystem |
+| exact | MIACA:cellular_assay |
 
 
 
@@ -183,8 +188,13 @@ URI: [namo:CellularSystem](https://w3id.org/monarch-initiative/namo/CellularSyst
 ```yaml
 name: CellularSystem
 description: Cell-based model systems that use living cells to model biological processes.
-  Includes 2D cultures, 3D systems, and co-cultures.
+  Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA (Minimal Information
+  About a Cellular Assay) standards.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://doi.org/10.5966/sctm.2015-0393
+exact_mappings:
+- MIACA:cellular_assay
 is_a: NAMModel
 abstract: true
 attributes:
@@ -229,8 +239,13 @@ attributes:
 ```yaml
 name: CellularSystem
 description: Cell-based model systems that use living cells to model biological processes.
-  Includes 2D cultures, 3D systems, and co-cultures.
+  Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA (Minimal Information
+  About a Cellular Assay) standards.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://doi.org/10.5966/sctm.2015-0393
+exact_mappings:
+- MIACA:cellular_assay
 is_a: NAMModel
 abstract: true
 attributes:

@@ -3,7 +3,7 @@
 # Class: MicrophysiologicalSystem 
 
 
-_Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,  and living cells to replicate tissue-level physiology and dynamics._
+_Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, and living cells to replicate tissue-level physiology and dynamics. Conforms to ISO 22916:2022 interoperability requirements for dimensions, connections, and device classification._
 
 
 
@@ -164,6 +164,10 @@ URI: [namo:MicrophysiologicalSystem](https://w3id.org/monarch-initiative/namo/Mi
 
 
 
+## See Also
+
+* [https://www.iso.org/standard/74157.html](https://www.iso.org/standard/74157.html)
+
 ## Identifier and Mapping Information
 
 
@@ -185,6 +189,7 @@ URI: [namo:MicrophysiologicalSystem](https://w3id.org/monarch-initiative/namo/Mi
 | ---  | ---  |
 | self | namo:MicrophysiologicalSystem |
 | native | namo:MicrophysiologicalSystem |
+| exact | ISO22916:microfluidic_device |
 
 
 
@@ -200,9 +205,15 @@ URI: [namo:MicrophysiologicalSystem](https://w3id.org/monarch-initiative/namo/Mi
 <details>
 ```yaml
 name: MicrophysiologicalSystem
-description: Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,  and
-  living cells to replicate tissue-level physiology and dynamics.
+description: Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,
+  and living cells to replicate tissue-level physiology and dynamics. Conforms to
+  ISO 22916:2022 interoperability requirements for dimensions, connections, and device
+  classification.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/74157.html
+exact_mappings:
+- ISO22916:microfluidic_device
 is_a: NAMModel
 abstract: true
 attributes:
@@ -249,9 +260,15 @@ attributes:
 <details>
 ```yaml
 name: MicrophysiologicalSystem
-description: Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,  and
-  living cells to replicate tissue-level physiology and dynamics.
+description: Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,
+  and living cells to replicate tissue-level physiology and dynamics. Conforms to
+  ISO 22916:2022 interoperability requirements for dimensions, connections, and device
+  classification.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/74157.html
+exact_mappings:
+- ISO22916:microfluidic_device
 is_a: NAMModel
 abstract: true
 attributes:

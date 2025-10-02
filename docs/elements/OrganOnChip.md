@@ -3,7 +3,7 @@
 # Class: OrganOnChip 
 
 
-_A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ..._
+_A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ... Aligned with ISO 10991:2023 microfluidics terminology._
 
 
 
@@ -181,6 +181,10 @@ URI: [namo:OrganOnChip](https://w3id.org/monarch-initiative/namo/OrganOnChip)
 
 
 
+## See Also
+
+* [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
+
 ## Identifier and Mapping Information
 
 
@@ -202,6 +206,7 @@ URI: [namo:OrganOnChip](https://w3id.org/monarch-initiative/namo/OrganOnChip)
 | ---  | ---  |
 | self | namo:OrganOnChip |
 | native | namo:OrganOnChip |
+| exact | ISO10991:organ_on_chip |
 
 
 
@@ -218,8 +223,13 @@ URI: [namo:OrganOnChip](https://w3id.org/monarch-initiative/namo/OrganOnChip)
 ```yaml
 name: OrganOnChip
 description: 'A model system that simulates the physiological functions of an organ
-  using a microfluidic device. Examples: Airway-on-chip, ...'
+  using a microfluidic device. Examples: Airway-on-chip, ... Aligned with ISO 10991:2023
+  microfluidics terminology.'
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/82146.html
+exact_mappings:
+- ISO10991:organ_on_chip
 is_a: MicrophysiologicalSystem
 attributes:
   organ_modeled:
@@ -269,8 +279,13 @@ attributes:
 ```yaml
 name: OrganOnChip
 description: 'A model system that simulates the physiological functions of an organ
-  using a microfluidic device. Examples: Airway-on-chip, ...'
+  using a microfluidic device. Examples: Airway-on-chip, ... Aligned with ISO 10991:2023
+  microfluidics terminology.'
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://www.iso.org/standard/82146.html
+exact_mappings:
+- ISO10991:organ_on_chip
 is_a: MicrophysiologicalSystem
 attributes:
   organ_modeled:

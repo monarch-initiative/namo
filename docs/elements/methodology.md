@@ -17,8 +17,8 @@ Alias: methodology
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FunctionalAssay](FunctionalAssay.md) | A functional assay used to assess biological capabilities |  no  |
 | [MolecularSimilarity](MolecularSimilarity.md) | Detailed assessment of molecular-level concordance between model and biologic... |  no  |
+| [FunctionalAssay](FunctionalAssay.md) | A functional assay used to assess biological capabilities |  no  |
 
 
 

@@ -161,6 +161,14 @@ prefixes:
   MESH: http://id.nlm.nih.gov/mesh/
   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
+  ISO10991: https://www.iso.org/standard/82146.html#
+  ISO22916: https://www.iso.org/standard/74157.html#
+  ASTM: https://www.astm.org/standards/
+  OECD: https://www.oecd.org/chemicalsafety/testing/
+  MIACA: https://doi.org/10.5966/sctm.2015-0393#
+  MISpheroID: https://doi.org/10.3390/jdb10010007#
+  GIVReST: https://doi.org/10.14573/altex.2501011#
+  ARRIVE: https://doi.org/10.1371/journal.pbio.3000410#
 default_prefix: namo
 default_range: string
 
@@ -196,6 +204,12 @@ classes:
       A study is a structured investigation or analysis, often involving the
       collection and interpretation of data, to answer specific research
       questions or test hypotheses.
+    see_also:
+      - https://www.oecd.org/chemicalsafety/testing/
+      - https://doi.org/10.1371/journal.pbio.3000410
+    exact_mappings:
+      - OECD:OHT210_study
+      - ARRIVE:in_vivo_experiment
     attributes:
       context_of_use:
         description: >-
@@ -224,6 +238,10 @@ classes:
 
   AnimalModel:
     is_a: ModelSystem
+    see_also:
+      - https://doi.org/10.1371/journal.pbio.3000410
+    exact_mappings:
+      - ARRIVE:animal_model
     attributes:
       species:
         range: Term
@@ -260,6 +278,11 @@ classes:
       A New Approach Methodology (NAM) model, which is a type of model system
       that does not involve the use of animals.
     abstract: true
+    see_also:
+      - https://doi.org/10.14573/altex.2501011
+    exact_mappings:
+      - GIVReST:in_vitro_model
+      - OECD:new_approach_methodology
     attributes:
       biological_organization_level:
         range: BiologicalOrganizationLevelEnum
@@ -288,7 +311,12 @@ classes:
     description: >-
       Cell-based model systems that use living cells to model biological processes.
       Includes 2D cultures, 3D systems, and co-cultures.
+      Conforms to MIACA (Minimal Information About a Cellular Assay) standards.
     abstract: true
+    see_also:
+      - https://doi.org/10.5966/sctm.2015-0393
+    exact_mappings:
+      - MIACA:cellular_assay
     attributes:
       cell_types:
         range: Term
@@ -368,6 +396,11 @@ classes:
     description: >-
       A 3D cell culture system that self-organizes to recapitulate key structural
       and functional aspects of an organ or tissue
+    see_also:
+      - https://doi.org/10.3390/jdb10010007
+    exact_mappings:
+      - MISpheroID:organoid
+      - MISpheroID:spheroid
     attributes:
       organ_modeled:
         range: Term
@@ -405,9 +438,15 @@ classes:
   MicrophysiologicalSystem:
     is_a: NAMModel
     description: >-
-      Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, 
+      Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,
       and living cells to replicate tissue-level physiology and dynamics.
+      Conforms to ISO 22916:2022 interoperability requirements for dimensions,
+      connections, and device classification.
     abstract: true
+    see_also:
+      - https://www.iso.org/standard/74157.html
+    exact_mappings:
+      - ISO22916:microfluidic_device
     attributes:
       microfluidic_design:
         range: MicrofluidicDesign
@@ -433,6 +472,11 @@ classes:
     description: >-
       A model system that simulates the physiological functions of an organ
       using a microfluidic device. Examples: Airway-on-chip, ...
+      Aligned with ISO 10991:2023 microfluidics terminology.
+    see_also:
+      - https://www.iso.org/standard/82146.html
+    exact_mappings:
+      - ISO10991:organ_on_chip
     attributes:
       organ_modeled:
         range: Term
@@ -461,7 +505,11 @@ classes:
     is_a: MicrophysiologicalSystem
     description: >-
       Tissue-level microphysiological systems that model specific tissue functions
-      and multi-cellular interactions.
+      and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology.
+    see_also:
+      - https://www.iso.org/standard/82146.html
+    exact_mappings:
+      - ISO10991:tissue_on_chip
     attributes:
       tissue_modeled:
         range: Term
@@ -733,7 +781,12 @@ classes:
     is_a: NamedThing
     description: >-
       Detailed specification of a microfluidic device design including its architecture,
-      materials, dimensions, and functional features.
+      materials, dimensions, and functional features. Terms aligned with ISO 10991:2023
+      Microfluidics Vocabulary standard.
+    see_also:
+      - https://www.iso.org/standard/82146.html
+    exact_mappings:
+      - ISO10991:microfluidic_device
     attributes:
       architecture_type:
         range: MicrofluidicArchitectureEnum
@@ -797,7 +850,12 @@ classes:
 
   ChannelDimensions:
     description: >-
-      Dimensions of a microfluidic channel
+      Dimensions of a microfluidic channel according to ISO 10991:2023 definitions
+      for microchannel geometry and dimensions
+    see_also:
+      - https://www.iso.org/standard/82146.html
+    exact_mappings:
+      - ISO10991:microchannel
     attributes:
       channel_name:
         description: >-
@@ -1434,36 +1492,71 @@ enums:
         description: False Negative
 
   MicrofluidicArchitectureEnum:
+    description: >-
+      Architecture types for microfluidic devices as defined in ISO 10991:2023
+    see_also:
+      - https://www.iso.org/standard/82146.html
     permissible_values:
       SINGLE_CHANNEL:
         description: Single channel design
+        exact_mappings:
+          - ISO10991:single_channel_device
       TWO_CHANNEL:
         description: Two-channel design with separated compartments
+        exact_mappings:
+          - ISO10991:dual_channel_device
       MULTI_CHANNEL:
         description: Multiple channels (>2) design
+        exact_mappings:
+          - ISO10991:multichannel_device
       LAYERED:
         description: Layered/stacked channel architecture
+        exact_mappings:
+          - ISO10991:multilayer_device
       RADIAL:
         description: Radial channel architecture
+        exact_mappings:
+          - ISO10991:radial_flow_device
       NETWORK:
         description: Network of interconnected channels
+        exact_mappings:
+          - ISO10991:microfluidic_network
 
   ChannelConfigurationEnum:
+    description: >-
+      Channel configurations for microfluidic devices aligned with ISO 22916:2022
+      interoperability requirements for dimensions and connections
+    see_also:
+      - https://www.iso.org/standard/74157.html
     permissible_values:
       PARALLEL:
         description: Parallel channel configuration
+        exact_mappings:
+          - ISO22916:parallel_configuration
       SERIAL:
         description: Serial/sequential channel configuration
+        exact_mappings:
+          - ISO22916:serial_configuration
       BRANCHING:
         description: Branching channel configuration
+        exact_mappings:
+          - ISO22916:branching_configuration
       CIRCULAR:
         description: Circular/loop channel configuration
+        exact_mappings:
+          - ISO22916:circular_configuration
       SERPENTINE:
         description: Serpentine channel pattern
+        exact_mappings:
+          - ISO22916:serpentine_configuration
       Y_SHAPED:
         description: Y-shaped channel junction
+        exact_mappings:
+          - ISO22916:y_junction
       T_SHAPED:
         description: T-shaped channel junction
+        exact_mappings:
+          - ISO22916:t_junction
 
   MembraneTypeEnum:
     permissible_values:
@@ -1544,23 +1637,43 @@ enums:
         description: Oxygen plasma treatment
 
   FlowControlMethodEnum:
+    description: >-
+      Flow control methods for microfluidic devices as defined in ISO 10991:2023
+    see_also:
+      - https://www.iso.org/standard/82146.html
     permissible_values:
       SYRINGE_PUMP:
         description: Syringe pump-driven flow
+        exact_mappings:
+          - ISO10991:syringe_pump
       PERISTALTIC_PUMP:
         description: Peristaltic pump-driven flow
+        exact_mappings:
+          - ISO10991:peristaltic_pump
       GRAVITY_DRIVEN:
         description: Gravity-driven flow
+        exact_mappings:
+          - ISO10991:gravity_flow
       PRESSURE_DRIVEN:
         description: Pressure-driven flow
+        exact_mappings:
+          - ISO10991:pressure_driven_flow
       ELECTROOSMOTIC:
         description: Electroosmotic flow
+        exact_mappings:
+          - ISO10991:electroosmotic_flow
       CAPILLARY_ACTION:
         description: Capillary action-driven flow
+        exact_mappings:
+          - ISO10991:capillary_flow
       PNEUMATIC_VALVES:
         description: Pneumatic valve control
+        exact_mappings:
+          - ISO10991:pneumatic_valve
       MICROVALVES:
         description: Integrated microvalves
+        exact_mappings:
+          - ISO10991:microvalve
 
   IntegratedSensorEnum:
     permissible_values:

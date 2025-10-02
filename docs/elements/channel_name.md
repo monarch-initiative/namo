@@ -22,7 +22,7 @@ Alias: channel_name
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ChannelDimensions](ChannelDimensions.md) | Dimensions of a microfluidic channel |  no  |
+| [ChannelDimensions](ChannelDimensions.md) | Dimensions of a microfluidic channel according to ISO 10991:2023 definitions ... |  no  |
 
 
 

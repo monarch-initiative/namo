@@ -170,6 +170,10 @@ URI: [namo:Organoid](https://w3id.org/monarch-initiative/namo/Organoid)
 
 
 
+## See Also
+
+* [https://doi.org/10.3390/jdb10010007](https://doi.org/10.3390/jdb10010007)
+
 ## Identifier and Mapping Information
 
 
@@ -191,6 +195,7 @@ URI: [namo:Organoid](https://w3id.org/monarch-initiative/namo/Organoid)
 | ---  | ---  |
 | self | namo:Organoid |
 | native | namo:Organoid |
+| exact | MISpheroID:organoid, MISpheroID:spheroid |
 
 
 
@@ -209,6 +214,11 @@ name: Organoid
 description: A 3D cell culture system that self-organizes to recapitulate key structural
   and functional aspects of an organ or tissue
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://doi.org/10.3390/jdb10010007
+exact_mappings:
+- MISpheroID:organoid
+- MISpheroID:spheroid
 is_a: ThreeDCellCulture
 attributes:
   organ_modeled:
@@ -253,6 +263,11 @@ name: Organoid
 description: A 3D cell culture system that self-organizes to recapitulate key structural
   and functional aspects of an organ or tissue
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://doi.org/10.3390/jdb10010007
+exact_mappings:
+- MISpheroID:organoid
+- MISpheroID:spheroid
 is_a: ThreeDCellCulture
 attributes:
   organ_modeled:

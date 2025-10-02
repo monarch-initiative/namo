@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-20T11:54:58
+# Generation date: 2025-09-27T14:31:05
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -203,13 +203,21 @@ metamodel_version = "1.7.0"
 version = None
 
 # Namespaces
+ARRIVE = CurieNamespace('ARRIVE', 'https://doi.org/10.1371/journal.pbio.3000410#')
+ASTM = CurieNamespace('ASTM', 'https://www.astm.org/standards/')
 CHEBI = CurieNamespace('CHEBI', 'http://purl.obolibrary.org/obo/CHEBI_')
 EDAM = CurieNamespace('EDAM', 'http://edamontology.org/')
 EFO = CurieNamespace('EFO', 'http://www.ebi.ac.uk/efo/EFO_')
+GIVREST = CurieNamespace('GIVReST', 'https://doi.org/10.14573/altex.2501011#')
+ISO10991 = CurieNamespace('ISO10991', 'https://www.iso.org/standard/82146.html#')
+ISO22916 = CurieNamespace('ISO22916', 'https://www.iso.org/standard/74157.html#')
 MAMO = CurieNamespace('MAMO', 'http://identifiers.org/mamo/MAMO_')
 MESH = CurieNamespace('MESH', 'http://id.nlm.nih.gov/mesh/')
+MIACA = CurieNamespace('MIACA', 'https://doi.org/10.5966/sctm.2015-0393#')
+MISPHEROID = CurieNamespace('MISpheroID', 'https://doi.org/10.3390/jdb10010007#')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 OBI = CurieNamespace('OBI', 'http://purl.obolibrary.org/obo/OBI_')
+OECD = CurieNamespace('OECD', 'https://www.oecd.org/chemicalsafety/testing/')
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
 UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
@@ -577,7 +585,7 @@ class NAMModel(ModelSystem):
 class CellularSystem(NAMModel):
     """
     Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems,
-    and co-cultures.
+    and co-cultures. Conforms to MIACA (Minimal Information About a Cellular Assay) standards.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -789,7 +797,8 @@ class CellLineModel(TwoDCellCulture):
 class MicrophysiologicalSystem(NAMModel):
     """
     Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, and living cells to replicate
-    tissue-level physiology and dynamics.
+    tissue-level physiology and dynamics. Conforms to ISO 22916:2022 interoperability requirements for dimensions,
+    connections, and device classification.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -826,7 +835,7 @@ class MicrophysiologicalSystem(NAMModel):
 class OrganOnChip(MicrophysiologicalSystem):
     """
     A model system that simulates the physiological functions of an organ using a microfluidic device. Examples:
-    Airway-on-chip, ...
+    Airway-on-chip, ... Aligned with ISO 10991:2023 microfluidics terminology.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -862,6 +871,7 @@ class OrganOnChip(MicrophysiologicalSystem):
 class TissueOnChip(MicrophysiologicalSystem):
     """
     Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions.
+    Aligned with ISO 10991:2023 microfluidics terminology.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -1309,7 +1319,7 @@ class CrossValidation(YAMLRoot):
 class MicrofluidicDesign(NamedThing):
     """
     Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and
-    functional features.
+    functional features. Terms aligned with ISO 10991:2023 Microfluidics Vocabulary standard.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -1393,7 +1403,8 @@ class MicrofluidicDesign(NamedThing):
 @dataclass(repr=False)
 class ChannelDimensions(YAMLRoot):
     """
-    Dimensions of a microfluidic channel
+    Dimensions of a microfluidic channel according to ISO 10991:2023 definitions for microchannel geometry and
+    dimensions
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -2363,7 +2374,9 @@ class PredictionOutcomeEnum(EnumDefinitionImpl):
     )
 
 class MicrofluidicArchitectureEnum(EnumDefinitionImpl):
-
+    """
+    Architecture types for microfluidic devices as defined in ISO 10991:2023
+    """
     SINGLE_CHANNEL = PermissibleValue(
         text="SINGLE_CHANNEL",
         description="Single channel design")
@@ -2385,10 +2398,14 @@ class MicrofluidicArchitectureEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="MicrofluidicArchitectureEnum",
+        description="Architecture types for microfluidic devices as defined in ISO 10991:2023",
     )
 
 class ChannelConfigurationEnum(EnumDefinitionImpl):
-
+    """
+    Channel configurations for microfluidic devices aligned with ISO 22916:2022 interoperability requirements for
+    dimensions and connections
+    """
     PARALLEL = PermissibleValue(
         text="PARALLEL",
         description="Parallel channel configuration")
@@ -2413,6 +2430,7 @@ class ChannelConfigurationEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="ChannelConfigurationEnum",
+        description="""Channel configurations for microfluidic devices aligned with ISO 22916:2022 interoperability requirements for dimensions and connections""",
     )
 
 class MembraneTypeEnum(EnumDefinitionImpl):
@@ -2540,7 +2558,9 @@ class SurfaceCoatingEnum(EnumDefinitionImpl):
     )
 
 class FlowControlMethodEnum(EnumDefinitionImpl):
-
+    """
+    Flow control methods for microfluidic devices as defined in ISO 10991:2023
+    """
     SYRINGE_PUMP = PermissibleValue(
         text="SYRINGE_PUMP",
         description="Syringe pump-driven flow")
@@ -2568,6 +2588,7 @@ class FlowControlMethodEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="FlowControlMethodEnum",
+        description="Flow control methods for microfluidic devices as defined in ISO 10991:2023",
     )
 
 class IntegratedSensorEnum(EnumDefinitionImpl):

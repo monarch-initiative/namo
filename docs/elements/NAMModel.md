@@ -127,6 +127,10 @@ URI: [namo:NAMModel](https://w3id.org/monarch-initiative/namo/NAMModel)
 
 
 
+## See Also
+
+* [https://doi.org/10.14573/altex.2501011](https://doi.org/10.14573/altex.2501011)
+
 ## Identifier and Mapping Information
 
 
@@ -148,6 +152,7 @@ URI: [namo:NAMModel](https://w3id.org/monarch-initiative/namo/NAMModel)
 | ---  | ---  |
 | self | namo:NAMModel |
 | native | namo:NAMModel |
+| exact | GIVReST:in_vitro_model, OECD:new_approach_methodology |
 
 
 
@@ -166,6 +171,11 @@ name: NAMModel
 description: A New Approach Methodology (NAM) model, which is a type of model system
   that does not involve the use of animals.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://doi.org/10.14573/altex.2501011
+exact_mappings:
+- GIVReST:in_vitro_model
+- OECD:new_approach_methodology
 is_a: ModelSystem
 abstract: true
 attributes:
@@ -216,6 +226,11 @@ name: NAMModel
 description: A New Approach Methodology (NAM) model, which is a type of model system
   that does not involve the use of animals.
 from_schema: https://w3id.org/monarch-initiative/namo
+see_also:
+- https://doi.org/10.14573/altex.2501011
+exact_mappings:
+- GIVReST:in_vitro_model
+- OECD:new_approach_methodology
 is_a: ModelSystem
 abstract: true
 attributes:

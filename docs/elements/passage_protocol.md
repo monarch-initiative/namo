@@ -22,8 +22,8 @@ Alias: passage_protocol
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TwoDCellCulture](TwoDCellCulture.md) | Conventional monolayer cell cultures grown on flat surfaces |  no  |
 | [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
+| [TwoDCellCulture](TwoDCellCulture.md) | Conventional monolayer cell cultures grown on flat surfaces |  no  |
 
 
 
