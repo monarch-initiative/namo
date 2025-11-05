@@ -1,3 +1,449 @@
+## Dataset-GI-toxicity-example
+### Input
+```yaml
+model_systems:
+- cell_source: Human donor-derived intestinal organoids generated from tissue biopsy.
+    Organoids contain mixed epithelial cell types and are expanded through multiple
+    passages, then dissociated and seeded as polarized epithelial monolayers on porous
+    membranes with accessible apical and basal compartments.
+  cell_types:
+  - id: CL:0000066
+    name: epithelial cell
+  - id: CL:0000584
+    name: enterocyte
+  - id: CL:0000160
+    name: goblet cell
+  - id: CL:0000678
+    name: Paneth cell
+  - id: CL:0000683
+    name: enteroendocrine cell
+  description: Human intestinal organoid-derived epithelial monolayers cultured in
+    a dual-chamber system with accessible apical and basal compartments. Organoids
+    are seeded from donor tissue, differentiated to contain mixed epithelial cell
+    types, and then dissociated and seeded as polarized monolayers. This model system
+    quantifies cellular and molecular readouts of epithelial damage resulting from
+    Phase IV drug metabolites across multiple throughput scales (high, medium, and
+    low throughput), providing comprehensive assessment of GI adverse events.
+  id: organonchip:intestinal_monolayer_001
+  microfluidic_design:
+    architecture_type: TWO_CHANNEL
+    channel_configuration:
+    - PARALLEL
+    channel_dimensions:
+    - channel_name: apical
+      height: 500
+      length: 15.0
+      width: 1000
+    - channel_name: basal
+      height: 500
+      length: 15.0
+      width: 1000
+    description: Two-channel microfluidic device with porous membrane separating apical
+      and basal compartments, allowing for physiologically relevant exposure scenarios
+      and barrier function monitoring
+    flow_control_method:
+    - SYRINGE_PUMP
+    - GRAVITY_DRIVEN
+    id: microfluidic:intestinal_dual_chamber_001
+    interface_type:
+    - LIQUID_LIQUID
+    material:
+    - POLYSTYRENE
+    - POLYCARBONATE
+    membrane_pore_size: 0.4
+    membrane_thickness: 10
+    membrane_type: POROUS_POLYMER
+    name: Dual Chamber Intestinal Epithelial Chip
+    number_of_channels: 2
+    sensors_integrated:
+    - TEER
+    special_features:
+    - Transparent for live cell imaging
+    - Compatible with high-content screening platforms
+    - Modular design for 24-well or 96-well plate formats
+    surface_treatment:
+    - COLLAGEN
+    - FIBRONECTIN
+  models:
+  - biological_system_modeled: biosys:human_intestinal_epithelium
+    concordance:
+      cell_type_coverage: Contains major intestinal epithelial cell types including
+        absorptive enterocytes, mucus-secreting goblet cells, antimicrobial peptide-producing
+        Paneth cells, and hormone-secreting enteroendocrine cells
+      functional_parity: "Exhibits barrier function (TEER >300 \u03A9\xB7cm\xB2),\
+        \ paracellular permeability regulation, drug metabolism capacity, and stress\
+        \ response pathways comparable to human intestinal epithelium"
+      molecular_similarity: Expresses key intestinal epithelial markers including
+        villin, CDX2, MUC2 (goblet cells), LYZ (Paneth cells), and maintains expression
+        of tight junction proteins ZO-1, occludin, and claudins
+      reproducibility: Consistent monolayer formation across multiple donor organoid
+        lines with coefficient of variation <20% for barrier function and viability
+        metrics
+    is_computed: false
+    structured_concordance:
+      cell_type_coverage:
+        cell_type_proportions:
+        - biological_proportion: 0.75
+          cell_type:
+            id: CL:0000584
+            name: enterocyte
+          model_proportion: 0.68
+          proportion_ratio: 0.91
+        - biological_proportion: 0.15
+          cell_type:
+            id: CL:0000160
+            name: goblet cell
+          model_proportion: 0.18
+          proportion_ratio: 1.2
+        coverage_percentage: 72.0
+        description: Single-cell analysis of epithelial cell type diversity
+        id: cellcov:intestinal_001
+        missing_cell_types:
+        - id: CL:0002250
+          name: M cell
+        - id: CL:0009003
+          name: tuft cell
+        name: Intestinal Epithelial Cell Type Representation
+        represented_cell_types:
+        - id: CL:0000584
+          name: enterocyte
+        - id: CL:0000160
+          name: goblet cell
+        - id: CL:0000678
+          name: Paneth cell
+        - id: CL:0000683
+          name: enteroendocrine cell
+        single_cell_method: Immunofluorescence and flow cytometry for cell type markers
+      functional_parity:
+        conserved_functions:
+        - Epithelial barrier function and tight junction integrity
+        - Cellular stress response pathways (ER stress, oxidative stress)
+        - Calcium signaling and ion homeostasis
+        - Phase I/II drug metabolism capacity
+        - Apoptotic and necrotic cell death responses
+        description: Comprehensive functional evaluation of intestinal epithelial
+          integrity and damage responses using parameterized readouts across high,
+          medium, and low throughput platforms
+        functional_assays:
+        - assay_result: 95.2
+          assay_type: Metabolic viability assay
+          id: assay:ht_viability_001
+          methodology: MTT (3-(4,5-dimethylthiazol-2-yl)-2,5-diphenyltetrazolium bromide)
+            reduction assay measured at 570 nm on plate reader; 4-hour incubation
+            with MTT reagent following compound exposure
+          name: Cell viability - MTT reduction
+          reference_value: 100.0
+          units: '% viable cells (normalized to vehicle control)'
+        - assay_result: 92.8
+          assay_type: ATP luminescence
+          id: assay:ht_viability_002
+          methodology: CellTiter-Glo or similar ATP luminescence assay; measures total
+            cellular ATP as indicator of metabolically active cells
+          name: Cell viability - ATP content
+          reference_value: 100.0
+          units: '% ATP content (normalized to vehicle control)'
+        - assay_result: 8.5
+          assay_type: Membrane integrity assay
+          id: assay:ht_cytotoxicity_001
+          methodology: Lactate dehydrogenase (LDH) release into culture medium measured
+            colorimetrically; indicates loss of membrane integrity and necrosis
+          name: Cytotoxicity - LDH release
+          reference_value: 5.0
+          units: '% LDH release (vs maximum lysis)'
+        - assay_result: 1.8
+          assay_type: Calcium imaging - plate reader
+          id: assay:ht_calcium_001
+          methodology: Fluo-4 AM or Calcium 5 dye loading followed by fluorescence
+            measurement (ex/em 485/525 nm) on plate reader; captures changes in cytosolic
+            calcium concentration
+          name: Intracellular calcium signaling
+          reference_value: 1.0
+          units: "Fold change in calcium fluorescence (F/F\u2080)"
+        - assay_result: 2.3
+          assay_type: ROS detection
+          id: assay:ht_ros_001
+          methodology: 2',7'-dichlorofluorescein diacetate (H2DCFDA) oxidation to
+            fluorescent DCF measured at 485/535 nm; indicates intracellular ROS levels
+            including peroxides
+          name: Reactive oxygen species (ROS) generation
+          reference_value: 1.0
+          units: Fold change in DCF fluorescence
+        - assay_result: 3.2
+          assay_type: ER stress reporter
+          id: assay:ht_er_stress_001
+          methodology: High-content screening with antibodies against BiP/GRP78, CHOP,
+            or XBP1 splicing reporter; automated imaging and quantification on plate
+            reader or HCS platform
+          name: ER stress marker expression
+          reference_value: 1.0
+          units: Fold change in ER stress markers
+        - assay_result: 78.5
+          assay_type: Mitochondrial potential assay
+          id: assay:ht_mito_001
+          methodology: TMRE (tetramethylrhodamine ethyl ester) or JC-1 dye accumulation
+            in polarized mitochondria; loss of signal indicates mitochondrial dysfunction
+            and apoptotic initiation
+          name: Mitochondrial membrane potential
+          reference_value: 100.0
+          units: "% of control \u0394\u03A8m"
+        - assay_result: 420.0
+          assay_type: TEER measurement
+          id: assay:mt_teer_001
+          methodology: "TEER measured using EVOM2 or cellZscope with chopstick or\
+            \ chamber-specific electrodes; measurement corrected for blank membrane\
+            \ resistance and normalized to surface area. TEER >300 \u03A9\xB7cm\xB2\
+            \ indicates functional barrier. Typically measured in 24-well transwell\
+            \ format."
+          name: Transepithelial electrical resistance (TEER)
+          reference_value: 450.0
+          units: "\u03A9\xB7cm\xB2"
+        - assay_result: 2.8
+          assay_type: Barrier permeability
+          id: assay:mt_permeability_001
+          methodology: 4 kDa FITC-dextran added to apical chamber; basolateral samples
+            collected at defined time points and fluorescence measured (ex/em 485/520
+            nm). Papp calculated from flux rate. Increased permeability indicates
+            barrier disruption.
+          name: Paracellular permeability - FITC-dextran
+          reference_value: 1.5
+          units: "10\u207B\u2076 cm/s (apparent permeability coefficient, Papp)"
+        - assay_result: 3.2
+          assay_type: Paracellular transport
+          id: assay:mt_permeability_002
+          methodology: Lucifer Yellow (457 Da) paracellular marker transport from
+            apical to basolateral chamber; measurement by fluorescence (ex/em 428/536
+            nm). Alternative to FITC-dextran for junction integrity assessment.
+          name: Tight junction integrity - Lucifer Yellow
+          reference_value: 2.0
+          units: "10\u207B\u2076 cm/s (Papp)"
+        - assay_result: 85.0
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_junction_001
+          methodology: Immunofluorescence staining for ZO-1 (zonula occludens-1) using
+            rabbit anti-ZO-1 primary antibody and Alexa Fluor-conjugated secondary
+            antibody. Confocal z-stack imaging with analysis of junctional continuity
+            and localization. Disrupted or discontinuous staining indicates junction
+            breakdown.
+          name: Tight junction protein localization - ZO-1
+          reference_value: 95.0
+          units: '% cells with continuous ZO-1 staining'
+        - assay_result: 82.3
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_junction_002
+          methodology: Immunostaining for occludin with quantification of membrane
+            vs cytoplasmic distribution. Loss of membrane localization indicates junction
+            disassembly.
+          name: Tight junction protein localization - Occludin
+          reference_value: 93.5
+          units: '% cells with membrane-localized occludin'
+        - assay_result: 88.5
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_junction_003
+          methodology: E-cadherin immunostaining with quantification of continuous
+            cell-cell contacts. Disruption indicates loss of epithelial cell adhesion.
+          name: Adherens junction integrity - E-cadherin
+          reference_value: 96.0
+          units: Junction continuity score
+        - assay_result: 785.0
+          assay_type: Live cell imaging morphometry
+          id: assay:lt_morphology_001
+          methodology: Phase contrast or DIC microscopy with automated cell segmentation
+            and morphometric analysis. Increased cell area indicates cellular swelling
+            (oncosis), a marker of cellular injury. Includes assessment of membrane
+            blebbing and nuclear morphology.
+          name: Cell swelling and morphology
+          reference_value: 650.0
+          units: "\u03BCm\xB2 average cell area"
+        - assay_result: 4.5
+          assay_type: Time-lapse calcium imaging
+          id: assay:lt_calcium_kinetics_001
+          methodology: Live cell time-lapse imaging with Fluo-4 or GCaMP calcium indicators;
+            temporal analysis of calcium oscillations, transient frequency, amplitude,
+            and duration. Captures dynamic calcium signaling responses to metabolite
+            exposure. Typically 1-second to 1-minute temporal resolution over 30-60
+            minute recordings.
+          name: Calcium signaling dynamics - time-lapse
+          reference_value: 1.2
+          units: "Peak \u0394F/F\u2080 amplitude"
+        - assay_result: 3.8
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_er_stress_002
+          methodology: Immunostaining for ER stress markers including KDEL (ER retention
+            signal), PDI (protein disulfide isomerase), calreticulin, and CHOP. Confocal
+            imaging with quantification of ER network expansion and protein accumulation.
+            Increased signal indicates ER stress and unfolded protein response activation.
+          name: ER stress markers - confocal imaging
+          reference_value: 1.0
+          units: Fold increase in ER marker intensity
+        - assay_result: 4.2
+          assay_type: RT-PCR or Western blot
+          id: assay:lt_er_stress_003
+          methodology: "RT-PCR detection of XBP1 mRNA splicing or Western blot for\
+            \ spliced XBP1 protein (XBP1s). IRE1\u03B1-mediated splicing of XBP1 is\
+            \ a hallmark of ER stress activation."
+          name: XBP1 splicing - molecular assessment
+          reference_value: 1.0
+          units: Fold increase in spliced XBP1
+        - assay_result: 2.5
+          assay_type: Glutathione redox assay
+          id: assay:lt_redox_001
+          methodology: Enzymatic or LC-MS/MS measurement of reduced glutathione (GSH)
+            and oxidized glutathione (GSSG). Decreased ratio indicates oxidative stress
+            and redox imbalance. Typically requires cell lysis and biochemical quantification,
+            limiting throughput.
+          name: Cellular redox state - GSH/GSSG ratio
+          reference_value: 10.0
+          units: GSH/GSSG ratio
+        - assay_result: 12.5
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_apoptosis_001
+          methodology: Immunostaining for cleaved caspase-3 (activated form) with
+            nuclear counterstaining (DAPI or Hoechst). Automated quantification of
+            caspase-3 positive cells and nuclear fragmentation (apoptotic bodies).
+          name: Apoptotic markers - caspase activation
+          reference_value: 2.0
+          units: '% cells with active caspase-3'
+        functional_similarity_score: 0.82
+        id: funcpar:intestinal_tox_001
+        impaired_functions:
+        - Advanced mucus layer production (2D limitation)
+        - Peristaltic motion and mechanical stimulation responses
+        - Microbiome interactions
+        name: Multi-Throughput Epithelial Damage Assessment
+      molecular_similarity:
+        conserved_genes:
+        - adjusted_p_value: 0.823
+          ensembl_id: ENSG00000104067
+          fold_change: 1.0
+          gene_symbol: TJP1
+          id: gene:tjp1
+          name: TJP1
+          p_value: 0.789
+        - adjusted_p_value: 0.567
+          ensembl_id: ENSG00000197822
+          fold_change: 0.9
+          gene_symbol: OCLN
+          id: gene:ocln
+          name: OCLN
+          p_value: 0.456
+        correlation_coefficient: 0.76
+        data_source: Comparison with primary human intestinal epithelial cells isolated
+          from biopsy samples; Human Protein Atlas intestinal tissue data
+        description: Transcriptomic and proteomic comparison with primary human intestinal
+          epithelium samples
+        differentially_expressed_genes:
+        - adjusted_p_value: 0.312
+          ensembl_id: ENSG00000105355
+          fold_change: 1.2
+          gene_symbol: VIL1
+          id: gene:vil1
+          name: VIL1
+          p_value: 0.234
+        - adjusted_p_value: 0.145
+          ensembl_id: ENSG00000165556
+          fold_change: 1.5
+          gene_symbol: CDX2
+          id: gene:cdx2
+          name: CDX2
+          p_value: 0.089
+        - adjusted_p_value: 0.189
+          ensembl_id: ENSG00000198788
+          fold_change: 0.7
+          gene_symbol: MUC2
+          id: gene:muc2
+          name: MUC2
+          p_value: 0.123
+        id: molsim:intestinal_001
+        methodology: Bulk RNA sequencing with intestinal epithelial marker panel analysis;
+          Western blot and immunofluorescence for tight junction proteins and cell
+          type-specific markers
+        name: Intestinal Epithelial Molecular Characterization
+        similarity_score: 0.79
+        statistical_significance:
+          adjusted_p_value: 0.008
+          confidence_interval_lower: 0.71
+          confidence_interval_upper: 0.84
+          p_value: 0.002
+          statistical_test: Pearson correlation with FDR correction
+      reproducibility:
+        batch_to_batch_variation: 0.18
+        coefficient_of_variation: 0.15
+        description: Assessment of experimental reproducibility, consistency across
+          organoid batches and donor lines, and quality control metrics
+        id: repro:intestinal_001
+        inter_laboratory_consistency: 0.78
+        name: Intestinal Monolayer Reproducibility and QC
+        quality_control_metrics:
+        - metric_name: Monolayer confluence at seeding
+          metric_value: 0.96
+          pass_fail_status: true
+          threshold: 0.9
+        - metric_name: Baseline TEER (pre-treatment)
+          metric_value: 455.0
+          pass_fail_status: true
+          threshold: 300.0
+        - metric_name: Cell viability (pre-treatment)
+          metric_value: 0.94
+          pass_fail_status: true
+          threshold: 0.85
+        replicate_count: 36
+        reproducibility_score: 0.85
+  name: Intestinal Organoid-Derived Epithelial Monolayer Chip
+  organ_modeled:
+    id: UBERON:0000160
+    name: intestine
+  references:
+  - authors:
+    - Smith A
+    - Johnson B
+    id: doi:10.1016/j.tiv.2023.105678
+    journal: Toxicology in Vitro
+    title: Development and validation of intestinal organoid-derived monolayers for
+      high-throughput drug toxicity screening
+    year: 2023
+  type: OrganOnChip
+studies:
+- biological_context: "Human gastrointestinal epithelium modeled using donor-derived\
+    \ intestinal organoids differentiated into polarized epithelial monolayers. Mixed\
+    \ epithelial population including enterocytes, goblet cells, Paneth cells, and\
+    \ enteroendocrine cells. Polarized epithelium with functional tight junctions\
+    \ and barrier function (TEER >300 \u03A9\xB7cm\xB2)."
+  context_of_use: Regulatory toxicology and post-market drug safety surveillance.
+    This study supports Phase IV post-market safety assessment, mechanistic understanding
+    of GI adverse events, and development of predictive in vitro assays for regulatory
+    submissions.
+  description: Systematic multi-throughput evaluation of Phase IV drug metabolites
+    for gastrointestinal epithelial toxicity using human organoid-derived intestinal
+    monolayers. This study aims to identify metabolites that cause adverse GI events
+    and elucidate mechanisms of epithelial damage through comprehensive cellular and
+    molecular readouts across high, medium, and low throughput platforms.
+  endpoints: 'Multi-throughput parameterized readouts of epithelial damage:
+
+    HIGH-THROUGHPUT (96/384-well): Viability (MTT, ATP, LDH), calcium signaling (Fluo-4),
+    ROS generation (DCF), ER stress (BiP, CHOP), mitochondrial function (TMRE).
+
+    MEDIUM-THROUGHPUT (24-well): TEER measurements, paracellular permeability (FITC-dextran,
+    Lucifer Yellow).
+
+    LOW-THROUGHPUT (microscopy): Junction integrity (ZO-1, occludin, E-cadherin),
+    cell morphology and swelling, calcium dynamics (time-lapse), ER stress markers
+    (confocal), redox state (GSH/GSSG), apoptosis markers (cleaved caspase-3).
+
+    Each readout parameterized by dose-response, time-course, and mechanistic correlations.'
+  id: study:phase4_gi_toxicity_001
+  name: Phase IV Drug Metabolite Toxicity Screening in Intestinal Epithelial Models
+  perturbations: "Phase IV drug metabolites tested at physiologically relevant concentrations\
+    \ (0.1-100 \u03BCM based on human Cmax and AUC data). Exposure design includes\
+    \ acute (4-24h) and chronic (48-72h) dosing with apical chamber application. Vehicle\
+    \ controls, positive controls (indomethacin, acetaminophen metabolites), and negative\
+    \ controls included."
+  plan_comparators: Validation against known GI toxicants (NSAIDs, chemotherapeutics),
+    non-toxic controls, traditional Caco-2 cell line, and correlation with FDA FAERS
+    clinical adverse event data. Target >80% sensitivity and specificity for regulatory
+    acceptance.
+  type: Study
+
+```
 ## Organoid-example-003
 ### Input
 ```yaml
