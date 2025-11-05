@@ -230,7 +230,7 @@ model_systems:
                 assay_type: "Calcium imaging - plate reader"
                 assay_result: 1.8
                 reference_value: 1.0
-                units: "Fold change in calcium fluorescence (F/F₀)"
+                units: "Fold change in calcium fluorescence (F/F0)"
                 methodology: >-
                   Fluo-4 AM or Calcium 5 dye loading followed by fluorescence
                   measurement (ex/em 485/525 nm) on plate reader; captures changes
