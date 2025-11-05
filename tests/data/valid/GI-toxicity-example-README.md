@@ -154,4 +154,4 @@ uv run python -m pytest tests/test_data.py -v
 For more information about NAMO schema design:
 - Schema documentation: https://monarch-initiative.github.io/namo/
 - Curation guides: Check `docs/how-to/` directory
-- CLAUDE.md: Project-specific guidance at `/Users/cjm/repos/namo/CLAUDE.md`
+- CLAUDE.md: Project-specific guidance at `../CLAUDE.md`
