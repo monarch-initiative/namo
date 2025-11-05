@@ -364,7 +364,7 @@ model_systems:
                 assay_type: "Time-lapse calcium imaging"
                 assay_result: 4.5
                 reference_value: 1.2
-                units: "Peak ΔF/F₀ amplitude"
+                units: "Peak ΔF/F0 amplitude"
                 methodology: >-
                   Live cell time-lapse imaging with Fluo-4 or GCaMP calcium indicators;
                   temporal analysis of calcium oscillations, transient frequency,
