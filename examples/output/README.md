@@ -1,3 +1,1874 @@
+## Dataset-GI-toxicity-example
+### Input
+```yaml
+model_systems:
+- cell_source: Human donor-derived intestinal organoids generated from tissue biopsy.
+    Organoids contain mixed epithelial cell types and are expanded through multiple
+    passages, then dissociated and seeded as polarized epithelial monolayers on porous
+    membranes with accessible apical and basal compartments.
+  cell_types:
+  - id: CL:0000066
+    name: epithelial cell
+  - id: CL:0000584
+    name: enterocyte
+  - id: CL:0000160
+    name: goblet cell
+  - id: CL:0000678
+    name: Paneth cell
+  - id: CL:0000683
+    name: enteroendocrine cell
+  description: Human intestinal organoid-derived epithelial monolayers cultured in
+    a dual-chamber system with accessible apical and basal compartments. Organoids
+    are seeded from donor tissue, differentiated to contain mixed epithelial cell
+    types, and then dissociated and seeded as polarized monolayers. This model system
+    quantifies cellular and molecular readouts of epithelial damage resulting from
+    Phase IV drug metabolites across multiple throughput scales (high, medium, and
+    low throughput), providing comprehensive assessment of GI adverse events.
+  id: organonchip:intestinal_monolayer_001
+  microfluidic_design:
+    architecture_type: TWO_CHANNEL
+    channel_configuration:
+    - PARALLEL
+    channel_dimensions:
+    - channel_name: apical
+      height: 500
+      length: 15.0
+      width: 1000
+    - channel_name: basal
+      height: 500
+      length: 15.0
+      width: 1000
+    description: Two-channel microfluidic device with porous membrane separating apical
+      and basal compartments, allowing for physiologically relevant exposure scenarios
+      and barrier function monitoring
+    flow_control_method:
+    - SYRINGE_PUMP
+    - GRAVITY_DRIVEN
+    id: microfluidic:intestinal_dual_chamber_001
+    interface_type:
+    - LIQUID_LIQUID
+    material:
+    - POLYSTYRENE
+    - POLYCARBONATE
+    membrane_pore_size: 0.4
+    membrane_thickness: 10
+    membrane_type: POROUS_POLYMER
+    name: Dual Chamber Intestinal Epithelial Chip
+    number_of_channels: 2
+    sensors_integrated:
+    - TEER
+    special_features:
+    - Transparent for live cell imaging
+    - Compatible with high-content screening platforms
+    - Modular design for 24-well or 96-well plate formats
+    surface_treatment:
+    - COLLAGEN
+    - FIBRONECTIN
+  models:
+  - biological_system_modeled: biosys:human_intestinal_epithelium
+    concordance:
+      cell_type_coverage: Contains major intestinal epithelial cell types including
+        absorptive enterocytes, mucus-secreting goblet cells, antimicrobial peptide-producing
+        Paneth cells, and hormone-secreting enteroendocrine cells
+      functional_parity: "Exhibits barrier function (TEER >300 \u03A9\xB7cm\xB2),\
+        \ paracellular permeability regulation, drug metabolism capacity, and stress\
+        \ response pathways comparable to human intestinal epithelium"
+      molecular_similarity: Expresses key intestinal epithelial markers including
+        villin, CDX2, MUC2 (goblet cells), LYZ (Paneth cells), and maintains expression
+        of tight junction proteins ZO-1, occludin, and claudins
+      reproducibility: Consistent monolayer formation across multiple donor organoid
+        lines with coefficient of variation <20% for barrier function and viability
+        metrics
+    is_computed: false
+    structured_concordance:
+      cell_type_coverage:
+        cell_type_proportions:
+        - biological_proportion: 0.75
+          cell_type:
+            id: CL:0000584
+            name: enterocyte
+          model_proportion: 0.68
+          proportion_ratio: 0.91
+        - biological_proportion: 0.15
+          cell_type:
+            id: CL:0000160
+            name: goblet cell
+          model_proportion: 0.18
+          proportion_ratio: 1.2
+        coverage_percentage: 72.0
+        description: Single-cell analysis of epithelial cell type diversity
+        id: cellcov:intestinal_001
+        missing_cell_types:
+        - id: CL:0002250
+          name: M cell
+        - id: CL:0009003
+          name: tuft cell
+        name: Intestinal Epithelial Cell Type Representation
+        represented_cell_types:
+        - id: CL:0000584
+          name: enterocyte
+        - id: CL:0000160
+          name: goblet cell
+        - id: CL:0000678
+          name: Paneth cell
+        - id: CL:0000683
+          name: enteroendocrine cell
+        single_cell_method: Immunofluorescence and flow cytometry for cell type markers
+      functional_parity:
+        conserved_functions:
+        - Epithelial barrier function and tight junction integrity
+        - Cellular stress response pathways (ER stress, oxidative stress)
+        - Calcium signaling and ion homeostasis
+        - Phase I/II drug metabolism capacity
+        - Apoptotic and necrotic cell death responses
+        description: Comprehensive functional evaluation of intestinal epithelial
+          integrity and damage responses using parameterized readouts across high,
+          medium, and low throughput platforms
+        functional_assays:
+        - assay_result: 95.2
+          assay_type: Metabolic viability assay
+          id: assay:ht_viability_001
+          methodology: MTT (3-(4,5-dimethylthiazol-2-yl)-2,5-diphenyltetrazolium bromide)
+            reduction assay measured at 570 nm on plate reader; 4-hour incubation
+            with MTT reagent following compound exposure
+          name: Cell viability - MTT reduction
+          reference_value: 100.0
+          units: '% viable cells (normalized to vehicle control)'
+        - assay_result: 92.8
+          assay_type: ATP luminescence
+          id: assay:ht_viability_002
+          methodology: CellTiter-Glo or similar ATP luminescence assay; measures total
+            cellular ATP as indicator of metabolically active cells
+          name: Cell viability - ATP content
+          reference_value: 100.0
+          units: '% ATP content (normalized to vehicle control)'
+        - assay_result: 8.5
+          assay_type: Membrane integrity assay
+          id: assay:ht_cytotoxicity_001
+          methodology: Lactate dehydrogenase (LDH) release into culture medium measured
+            colorimetrically; indicates loss of membrane integrity and necrosis
+          name: Cytotoxicity - LDH release
+          reference_value: 5.0
+          units: '% LDH release (vs maximum lysis)'
+        - assay_result: 1.8
+          assay_type: Calcium imaging - plate reader
+          id: assay:ht_calcium_001
+          methodology: Fluo-4 AM or Calcium 5 dye loading followed by fluorescence
+            measurement (ex/em 485/525 nm) on plate reader; captures changes in cytosolic
+            calcium concentration
+          name: Intracellular calcium signaling
+          reference_value: 1.0
+          units: "Fold change in calcium fluorescence (F/F\u2080)"
+        - assay_result: 2.3
+          assay_type: ROS detection
+          id: assay:ht_ros_001
+          methodology: 2',7'-dichlorofluorescein diacetate (H2DCFDA) oxidation to
+            fluorescent DCF measured at 485/535 nm; indicates intracellular ROS levels
+            including peroxides
+          name: Reactive oxygen species (ROS) generation
+          reference_value: 1.0
+          units: Fold change in DCF fluorescence
+        - assay_result: 3.2
+          assay_type: ER stress reporter
+          id: assay:ht_er_stress_001
+          methodology: High-content screening with antibodies against BiP/GRP78, CHOP,
+            or XBP1 splicing reporter; automated imaging and quantification on plate
+            reader or HCS platform
+          name: ER stress marker expression
+          reference_value: 1.0
+          units: Fold change in ER stress markers
+        - assay_result: 78.5
+          assay_type: Mitochondrial potential assay
+          id: assay:ht_mito_001
+          methodology: TMRE (tetramethylrhodamine ethyl ester) or JC-1 dye accumulation
+            in polarized mitochondria; loss of signal indicates mitochondrial dysfunction
+            and apoptotic initiation
+          name: Mitochondrial membrane potential
+          reference_value: 100.0
+          units: "% of control \u0394\u03A8m"
+        - assay_result: 420.0
+          assay_type: TEER measurement
+          id: assay:mt_teer_001
+          methodology: "TEER measured using EVOM2 or cellZscope with chopstick or\
+            \ chamber-specific electrodes; measurement corrected for blank membrane\
+            \ resistance and normalized to surface area. TEER >300 \u03A9\xB7cm\xB2\
+            \ indicates functional barrier. Typically measured in 24-well transwell\
+            \ format."
+          name: Transepithelial electrical resistance (TEER)
+          reference_value: 450.0
+          units: "\u03A9\xB7cm\xB2"
+        - assay_result: 2.8
+          assay_type: Barrier permeability
+          id: assay:mt_permeability_001
+          methodology: 4 kDa FITC-dextran added to apical chamber; basolateral samples
+            collected at defined time points and fluorescence measured (ex/em 485/520
+            nm). Papp calculated from flux rate. Increased permeability indicates
+            barrier disruption.
+          name: Paracellular permeability - FITC-dextran
+          reference_value: 1.5
+          units: "10\u207B\u2076 cm/s (apparent permeability coefficient, Papp)"
+        - assay_result: 3.2
+          assay_type: Paracellular transport
+          id: assay:mt_permeability_002
+          methodology: Lucifer Yellow (457 Da) paracellular marker transport from
+            apical to basolateral chamber; measurement by fluorescence (ex/em 428/536
+            nm). Alternative to FITC-dextran for junction integrity assessment.
+          name: Tight junction integrity - Lucifer Yellow
+          reference_value: 2.0
+          units: "10\u207B\u2076 cm/s (Papp)"
+        - assay_result: 85.0
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_junction_001
+          methodology: Immunofluorescence staining for ZO-1 (zonula occludens-1) using
+            rabbit anti-ZO-1 primary antibody and Alexa Fluor-conjugated secondary
+            antibody. Confocal z-stack imaging with analysis of junctional continuity
+            and localization. Disrupted or discontinuous staining indicates junction
+            breakdown.
+          name: Tight junction protein localization - ZO-1
+          reference_value: 95.0
+          units: '% cells with continuous ZO-1 staining'
+        - assay_result: 82.3
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_junction_002
+          methodology: Immunostaining for occludin with quantification of membrane
+            vs cytoplasmic distribution. Loss of membrane localization indicates junction
+            disassembly.
+          name: Tight junction protein localization - Occludin
+          reference_value: 93.5
+          units: '% cells with membrane-localized occludin'
+        - assay_result: 88.5
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_junction_003
+          methodology: E-cadherin immunostaining with quantification of continuous
+            cell-cell contacts. Disruption indicates loss of epithelial cell adhesion.
+          name: Adherens junction integrity - E-cadherin
+          reference_value: 96.0
+          units: Junction continuity score
+        - assay_result: 785.0
+          assay_type: Live cell imaging morphometry
+          id: assay:lt_morphology_001
+          methodology: Phase contrast or DIC microscopy with automated cell segmentation
+            and morphometric analysis. Increased cell area indicates cellular swelling
+            (oncosis), a marker of cellular injury. Includes assessment of membrane
+            blebbing and nuclear morphology.
+          name: Cell swelling and morphology
+          reference_value: 650.0
+          units: "\u03BCm\xB2 average cell area"
+        - assay_result: 4.5
+          assay_type: Time-lapse calcium imaging
+          id: assay:lt_calcium_kinetics_001
+          methodology: Live cell time-lapse imaging with Fluo-4 or GCaMP calcium indicators;
+            temporal analysis of calcium oscillations, transient frequency, amplitude,
+            and duration. Captures dynamic calcium signaling responses to metabolite
+            exposure. Typically 1-second to 1-minute temporal resolution over 30-60
+            minute recordings.
+          name: Calcium signaling dynamics - time-lapse
+          reference_value: 1.2
+          units: "Peak \u0394F/F\u2080 amplitude"
+        - assay_result: 3.8
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_er_stress_002
+          methodology: Immunostaining for ER stress markers including KDEL (ER retention
+            signal), PDI (protein disulfide isomerase), calreticulin, and CHOP. Confocal
+            imaging with quantification of ER network expansion and protein accumulation.
+            Increased signal indicates ER stress and unfolded protein response activation.
+          name: ER stress markers - confocal imaging
+          reference_value: 1.0
+          units: Fold increase in ER marker intensity
+        - assay_result: 4.2
+          assay_type: RT-PCR or Western blot
+          id: assay:lt_er_stress_003
+          methodology: "RT-PCR detection of XBP1 mRNA splicing or Western blot for\
+            \ spliced XBP1 protein (XBP1s). IRE1\u03B1-mediated splicing of XBP1 is\
+            \ a hallmark of ER stress activation."
+          name: XBP1 splicing - molecular assessment
+          reference_value: 1.0
+          units: Fold increase in spliced XBP1
+        - assay_result: 2.5
+          assay_type: Glutathione redox assay
+          id: assay:lt_redox_001
+          methodology: Enzymatic or LC-MS/MS measurement of reduced glutathione (GSH)
+            and oxidized glutathione (GSSG). Decreased ratio indicates oxidative stress
+            and redox imbalance. Typically requires cell lysis and biochemical quantification,
+            limiting throughput.
+          name: Cellular redox state - GSH/GSSG ratio
+          reference_value: 10.0
+          units: GSH/GSSG ratio
+        - assay_result: 12.5
+          assay_type: Immunofluorescence microscopy
+          id: assay:lt_apoptosis_001
+          methodology: Immunostaining for cleaved caspase-3 (activated form) with
+            nuclear counterstaining (DAPI or Hoechst). Automated quantification of
+            caspase-3 positive cells and nuclear fragmentation (apoptotic bodies).
+          name: Apoptotic markers - caspase activation
+          reference_value: 2.0
+          units: '% cells with active caspase-3'
+        functional_similarity_score: 0.82
+        id: funcpar:intestinal_tox_001
+        impaired_functions:
+        - Advanced mucus layer production (2D limitation)
+        - Peristaltic motion and mechanical stimulation responses
+        - Microbiome interactions
+        name: Multi-Throughput Epithelial Damage Assessment
+      molecular_similarity:
+        conserved_genes:
+        - adjusted_p_value: 0.823
+          ensembl_id: ENSG00000104067
+          fold_change: 1.0
+          gene_symbol: TJP1
+          id: gene:tjp1
+          name: TJP1
+          p_value: 0.789
+        - adjusted_p_value: 0.567
+          ensembl_id: ENSG00000197822
+          fold_change: 0.9
+          gene_symbol: OCLN
+          id: gene:ocln
+          name: OCLN
+          p_value: 0.456
+        correlation_coefficient: 0.76
+        data_source: Comparison with primary human intestinal epithelial cells isolated
+          from biopsy samples; Human Protein Atlas intestinal tissue data
+        description: Transcriptomic and proteomic comparison with primary human intestinal
+          epithelium samples
+        differentially_expressed_genes:
+        - adjusted_p_value: 0.312
+          ensembl_id: ENSG00000105355
+          fold_change: 1.2
+          gene_symbol: VIL1
+          id: gene:vil1
+          name: VIL1
+          p_value: 0.234
+        - adjusted_p_value: 0.145
+          ensembl_id: ENSG00000165556
+          fold_change: 1.5
+          gene_symbol: CDX2
+          id: gene:cdx2
+          name: CDX2
+          p_value: 0.089
+        - adjusted_p_value: 0.189
+          ensembl_id: ENSG00000198788
+          fold_change: 0.7
+          gene_symbol: MUC2
+          id: gene:muc2
+          name: MUC2
+          p_value: 0.123
+        id: molsim:intestinal_001
+        methodology: Bulk RNA sequencing with intestinal epithelial marker panel analysis;
+          Western blot and immunofluorescence for tight junction proteins and cell
+          type-specific markers
+        name: Intestinal Epithelial Molecular Characterization
+        similarity_score: 0.79
+        statistical_significance:
+          adjusted_p_value: 0.008
+          confidence_interval_lower: 0.71
+          confidence_interval_upper: 0.84
+          p_value: 0.002
+          statistical_test: Pearson correlation with FDR correction
+      reproducibility:
+        batch_to_batch_variation: 0.18
+        coefficient_of_variation: 0.15
+        description: Assessment of experimental reproducibility, consistency across
+          organoid batches and donor lines, and quality control metrics
+        id: repro:intestinal_001
+        inter_laboratory_consistency: 0.78
+        name: Intestinal Monolayer Reproducibility and QC
+        quality_control_metrics:
+        - metric_name: Monolayer confluence at seeding
+          metric_value: 0.96
+          pass_fail_status: true
+          threshold: 0.9
+        - metric_name: Baseline TEER (pre-treatment)
+          metric_value: 455.0
+          pass_fail_status: true
+          threshold: 300.0
+        - metric_name: Cell viability (pre-treatment)
+          metric_value: 0.94
+          pass_fail_status: true
+          threshold: 0.85
+        replicate_count: 36
+        reproducibility_score: 0.85
+  name: Intestinal Organoid-Derived Epithelial Monolayer Chip
+  organ_modeled:
+    id: UBERON:0000160
+    name: intestine
+  references:
+  - authors:
+    - Smith A
+    - Johnson B
+    id: doi:10.1016/j.tiv.2023.105678
+    journal: Toxicology in Vitro
+    title: Development and validation of intestinal organoid-derived monolayers for
+      high-throughput drug toxicity screening
+    year: 2023
+  type: OrganOnChip
+studies:
+- biological_context: "Human gastrointestinal epithelium modeled using donor-derived\
+    \ intestinal organoids differentiated into polarized epithelial monolayers. Mixed\
+    \ epithelial population including enterocytes, goblet cells, Paneth cells, and\
+    \ enteroendocrine cells. Polarized epithelium with functional tight junctions\
+    \ and barrier function (TEER >300 \u03A9\xB7cm\xB2)."
+  context_of_use: Regulatory toxicology and post-market drug safety surveillance.
+    This study supports Phase IV post-market safety assessment, mechanistic understanding
+    of GI adverse events, and development of predictive in vitro assays for regulatory
+    submissions.
+  description: Systematic multi-throughput evaluation of Phase IV drug metabolites
+    for gastrointestinal epithelial toxicity using human organoid-derived intestinal
+    monolayers. This study aims to identify metabolites that cause adverse GI events
+    and elucidate mechanisms of epithelial damage through comprehensive cellular and
+    molecular readouts across high, medium, and low throughput platforms.
+  endpoints: 'Multi-throughput parameterized readouts of epithelial damage:
+
+    HIGH-THROUGHPUT (96/384-well): Viability (MTT, ATP, LDH), calcium signaling (Fluo-4),
+    ROS generation (DCF), ER stress (BiP, CHOP), mitochondrial function (TMRE).
+
+    MEDIUM-THROUGHPUT (24-well): TEER measurements, paracellular permeability (FITC-dextran,
+    Lucifer Yellow).
+
+    LOW-THROUGHPUT (microscopy): Junction integrity (ZO-1, occludin, E-cadherin),
+    cell morphology and swelling, calcium dynamics (time-lapse), ER stress markers
+    (confocal), redox state (GSH/GSSG), apoptosis markers (cleaved caspase-3).
+
+    Each readout parameterized by dose-response, time-course, and mechanistic correlations.'
+  id: study:phase4_gi_toxicity_001
+  name: Phase IV Drug Metabolite Toxicity Screening in Intestinal Epithelial Models
+  perturbations: "Phase IV drug metabolites tested at physiologically relevant concentrations\
+    \ (0.1-100 \u03BCM based on human Cmax and AUC data). Exposure design includes\
+    \ acute (4-24h) and chronic (48-72h) dosing with apical chamber application. Vehicle\
+    \ controls, positive controls (indomethacin, acetaminophen metabolites), and negative\
+    \ controls included."
+  plan_comparators: Validation against known GI toxicants (NSAIDs, chemotherapeutics),
+    non-toxic controls, traditional Caco-2 cell line, and correlation with FDA FAERS
+    clinical adverse event data. Target >80% sensitivity and specificity for regulatory
+    acceptance.
+  type: Study
+
+```
+## Organoid-example-003
+### Input
+```yaml
+cell_source: Human small intestinal crypts isolated from biopsy samples
+cell_types:
+- id: CL:0000584
+  name: enterocyte
+- id: CL:0000160
+  name: goblet cell
+- id: CL:0000510
+  name: paneth cell
+- id: CL:1001516
+  name: intestinal enteroendocrine cell
+- id: CL:0002250
+  name: intestinal crypt stem cell
+culture_system: "Matrigel dome culture in 24-well plates with IntestiCult Organoid\
+  \  Growth Medium. Cultures maintained at 37\xB0C with 5% CO2, passaged  every 7-10\
+  \ days by mechanical dissociation."
+description: A 3D intestinal organoid derived from human intestinal stem cells that  recapitulates
+  the architecture and function of the small intestine.  Contains crypt-villus structures
+  with stem cells, Paneth cells,  enterocytes, and goblet cells. Exhibits barrier
+  function, nutrient  absorption, and antimicrobial peptide secretion.
+differentiation_method: Intestinal stem cells are embedded in Matrigel and cultured
+  in  IntestiCult medium containing Wnt3a, R-spondin1, Noggin, and EGF.  Organoids
+  develop crypt-villus architecture through self-organization  over 5-7 days.
+id: organoid:003
+models:
+- biological_system_modeled: intestinal_barrier:001
+  concordance:
+    cell_type_coverage: Contains all major intestinal epithelial cell types
+    functional_parity: Demonstrates nutrient transport and antimicrobial secretion
+    molecular_similarity: High expression of intestinal markers LGR5, OLFM4, MUC2
+    pathway_concordance: Active Wnt signaling and Notch pathways
+    phenotype_overlap: Exhibits tight junction formation and barrier function
+    reproducibility: Consistent organoid formation efficiency >80%
+  is_computed: false
+  structured_concordance:
+    cell_type_coverage:
+      cell_type_proportions:
+      - biological_proportion: 0.7
+        cell_type:
+          id: CL:0000584
+          name: enterocyte
+        model_proportion: 0.65
+        proportion_ratio: 0.93
+      - biological_proportion: 0.12
+        cell_type:
+          id: CL:0000160
+          name: goblet cell
+        model_proportion: 0.15
+        proportion_ratio: 1.25
+      coverage_percentage: 88.5
+      description: Single-cell analysis of intestinal epithelial cell diversity
+      id: cellcov:003
+      missing_cell_types:
+      - id: CL:0009019
+        name: tuft cell
+      name: Intestinal Cell Type Representation
+      represented_cell_types:
+      - id: CL:0000584
+        name: enterocyte
+      - id: CL:0000160
+        name: goblet cell
+      - id: CL:0000510
+        name: paneth cell
+      - id: CL:0002250
+        name: intestinal crypt stem cell
+      single_cell_method: scRNA-seq with intestinal lineage markers
+    functional_parity:
+      conserved_functions:
+      - Tight junction barrier formation
+      - Mucus production and secretion
+      - Antimicrobial peptide secretion
+      description: Evaluation of intestinal barrier integrity and transport
+      functional_assays:
+      - assay_result: 1.8e-06
+        assay_type: Permeability assay
+        id: assay:016
+        methodology: FITC-dextran permeability measurement
+        name: Barrier permeability
+        reference_value: 1.5e-06
+        units: cm/s
+      - assay_result: 42.5
+        assay_type: Protein quantification
+        id: assay:017
+        methodology: Alcian blue staining quantification
+        name: Mucin production
+        reference_value: 50.2
+        units: "\u03BCg/mg protein"
+      functional_similarity_score: 0.79
+      id: funcpar:008
+      impaired_functions:
+      - Immune cell interaction
+      - Microbiome response
+      name: Intestinal Barrier Function Assessment
+    molecular_similarity:
+      conserved_genes:
+      - adjusted_p_value: 0.523
+        ensembl_id: ENSG00000163347
+        fold_change: 1.1
+        gene_symbol: CLDN1
+        id: gene:019
+        name: CLDN1
+        p_value: 0.456
+      correlation_coefficient: 0.81
+      data_source: Human small intestine biopsy reference data
+      description: RNA-seq comparison with human small intestine tissue
+      differentially_expressed_genes:
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000139292
+        fold_change: 3.2
+        gene_symbol: LGR5
+        id: gene:017
+        name: LGR5
+        p_value: 0.0001
+      - adjusted_p_value: 0.002
+        ensembl_id: ENSG00000198788
+        fold_change: 2.8
+        gene_symbol: MUC2
+        id: gene:018
+        name: MUC2
+        p_value: 0.0002
+      id: molsim:008
+      methodology: Single-cell RNA sequencing with intestinal lineage analysis
+      name: Intestinal Organoid Expression Profile
+      similarity_score: 0.85
+      statistical_significance:
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.78
+        confidence_interval_upper: 0.88
+        p_value: 0.0001
+        statistical_test: Spearman correlation
+    pathway_concordance:
+      active_pathways:
+      - activity_score: 0.91
+        enrichment_score: 3.5
+        id: pathway:005
+        name: Wnt signaling pathway
+        pathway_database: KEGG
+        pathway_id: hsa04310
+      - activity_score: 0.83
+        enrichment_score: 2.7
+        id: pathway:006
+        name: Notch signaling pathway
+        pathway_database: KEGG
+        pathway_id: hsa04330
+      description: Analysis of key intestinal development and maintenance pathways
+      enrichment_statistics:
+      - enrichment_score: 3.5
+        genes_in_dataset: 102
+        genes_in_pathway: 167
+        p_value: 0.0001
+        q_value: 0.001
+      id: pathconcord:003
+      name: Intestinal Signaling Pathway Analysis
+      pathway_analysis_method: Gene Set Enrichment Analysis (GSEA)
+      pathway_overlap_score: 0.87
+    reproducibility:
+      batch_to_batch_variation: 0.15
+      coefficient_of_variation: 0.12
+      description: Consistency of organoid formation and differentiation
+      id: repro:008
+      inter_laboratory_consistency: 0.82
+      name: Intestinal Organoid Reproducibility
+      quality_control_metrics:
+      - metric_name: Formation efficiency
+        metric_value: 0.85
+        pass_fail_status: true
+        threshold: 0.75
+      - metric_name: Crypt-villus organization
+        metric_value: 0.91
+        pass_fail_status: true
+        threshold: 0.8
+      replicate_count: 32
+      reproducibility_score: 0.88
+name: Human Intestinal Organoid
+organ_modeled:
+  id: UBERON:0002108
+  name: small intestine
+type: Organoid
+
+```
+## QSARModel-example-002
+### Input
+```yaml
+activity_endpoint: Hepatotoxicity and multi-organ ADMET properties
+biological_organization_level: SUBCELLULAR
+complexity_level: HIGH
+description: A deep neural network model for predicting multiple ADMET (Absorption,
+  Distribution,  Metabolism, Excretion, Toxicity) endpoints using molecular descriptors
+  and fingerprints.  The model integrates multiple data sources and uses transfer
+  learning from large  chemical databases to predict drug-drug interactions, cytotoxicity,
+  and  pharmacokinetic properties across multiple species.
+id: qsarmodel:002
+model_performance:
+  accuracy: 0.87
+  auc: 0.91
+  r_squared: 0.82
+  sensitivity: 0.89
+  specificity: 0.84
+models:
+- biological_system_modeled: hepatotoxicity_prediction:002
+  concordance:
+    functional_parity: Accurate prediction of hepatotoxic mechanisms
+    molecular_similarity: High correlation with experimental cytotoxicity data
+    reproducibility: Consistent performance across validation sets
+  is_computed: true
+  structured_concordance:
+    functional_parity:
+      conserved_functions:
+      - Cytochrome P450 metabolism prediction
+      - Drug-drug interaction identification
+      - Acute toxicity classification
+      description: Multi-endpoint toxicity prediction accuracy assessment
+      dose_response_similarity:
+        compound_tested: Acetaminophen hepatotoxicity dose-response
+        correlation_coefficient: 0.83
+        ec50_ratio: 1.18
+        max_response_ratio: 0.91
+      functional_assays:
+      - assay_result: 0.87
+        assay_type: Binary classification
+        id: assay:035
+        methodology: Random forest benchmark on DILIrank dataset
+        name: Hepatotoxicity classification
+        reference_value: 0.85
+        units: accuracy
+      - assay_result: 0.82
+        assay_type: IC50 regression
+        id: assay:036
+        methodology: Gradient boosting regression with molecular descriptors
+        name: CYP inhibition prediction
+        reference_value: 0.8
+        units: "R\xB2"
+      - assay_result: 0.76
+        assay_type: Pharmacokinetic modeling
+        id: assay:037
+        methodology: Multi-species allometric scaling with machine learning
+        name: Drug clearance prediction
+        reference_value: 0.74
+        units: "R\xB2"
+      functional_similarity_score: 0.89
+      id: funcpar:015
+      impaired_functions:
+      - Chronic toxicity mechanisms
+      - Individual variation modeling
+      name: ADMET Prediction Performance
+    molecular_similarity:
+      conserved_genes:
+      - adjusted_p_value: 0.512
+        ensembl_id: ENSG00000163631
+        fold_change: 1.1
+        gene_symbol: ALB
+        id: gene:043
+        name: ALB
+        p_value: 0.423
+      correlation_coefficient: 0.88
+      data_source: ChEMBL hepatotoxicity annotations and ToxCast assay data
+      description: Molecular similarity analysis for hepatotoxicity prediction
+      differentially_expressed_genes:
+      - adjusted_p_value: 0.01
+        ensembl_id: ENSG00000160868
+        fold_change: 2.8
+        gene_symbol: CYP3A4
+        id: gene:041
+        name: CYP3A4
+        p_value: 0.001
+      - adjusted_p_value: 0.005
+        ensembl_id: ENSG00000084207
+        fold_change: 3.2
+        gene_symbol: GSTP1
+        id: gene:042
+        name: GSTP1
+        p_value: 0.0005
+      id: molsim:015
+      methodology: Tanimoto coefficient analysis with Morgan fingerprints
+      name: Chemical Structure-Activity Relationship
+      similarity_score: 0.91
+      statistical_significance:
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.85
+        confidence_interval_upper: 0.93
+        p_value: 0.0001
+        statistical_test: Permutation test
+    reproducibility:
+      batch_to_batch_variation: 0.05
+      coefficient_of_variation: 0.08
+      description: Cross-validation and external test set performance
+      id: repro:015
+      inter_laboratory_consistency: 0.88
+      name: Model Validation Reproducibility
+      quality_control_metrics:
+      - metric_name: Cross-validation stability
+        metric_value: 0.91
+        pass_fail_status: true
+        threshold: 0.85
+      - metric_name: External validation performance
+        metric_value: 0.89
+        pass_fail_status: true
+        threshold: 0.8
+      - metric_name: Feature importance consistency
+        metric_value: 0.94
+        pass_fail_status: true
+        threshold: 0.9
+      replicate_count: 50
+      reproducibility_score: 0.92
+molecular_descriptors:
+- MORGAN_FINGERPRINTS
+- RDKIT_DESCRIPTORS
+- MACCS_KEYS
+- PHARMACOPHORE_FEATURES
+name: Deep Learning ADMET Prediction Model
+references:
+- authors:
+  - Yang K
+  - Swanson K
+  - Jin W
+  - Coley C
+  - Eiden P
+  - Gao H
+  id: doi:10.1021/acs.jcim.4c00123
+  journal: Journal of Chemical Information and Modeling
+  title: 'Deep learning approaches for comprehensive ADMET prediction: integrating
+    multi-task learning and transfer learning'
+  url: https://pubs.acs.org/doi/10.1021/acs.jcim.4c00123
+  year: 2024
+- authors:
+  - Chen H
+  - Wang Y
+  - Liu Z
+  - Zhang S
+  - Li X
+  id: PMID:38445678
+  journal: Nature Machine Intelligence
+  title: Transformer-based molecular property prediction for drug discovery applications
+  url: https://pubmed.ncbi.nlm.nih.gov/38445678/
+  year: 2024
+spatial_context: Chemical space defined by molecular descriptors and pharmacophore
+  features
+training_dataset_size: 45000
+type: QSARModel
+
+```
+## OrganOnChip-example-zhu-2024
+### Input
+```yaml
+biological_organization_level: SYSTEM
+cell_types:
+- id: CL:0000066
+  name: epithelial cell
+- id: CL:0002062
+  name: type I pneumocyte
+- id: CL:0000182
+  name: hepatocyte
+- id: CL:0000746
+  name: cardiac muscle cell
+complexity_level: HIGH
+description: Dynamic microphysiological system chip platform with 4x4 microwell arrays
+  supporting 304 spheroids for high-throughput, multi-dimensional drug screening.
+  Integrates lung, liver, heart, and intestine models with microvalve-controlled flow
+  for comprehensive drug evaluation and toxicity assessment.
+id: mps:zhu_2024
+microfluidic_design:
+  architecture_type: LAYERED
+  channel_configuration:
+  - PARALLEL
+  - BRANCHING
+  channel_dimensions:
+  - channel_name: micropillar_array
+    height: 50
+    length: 10.0
+    width: 100
+  - channel_name: microwell_array
+    height: 100
+    length: 10.0
+    width: 200
+  description: Three-layer platform with valve control and microwell arrays
+  flow_control_method:
+  - SYRINGE_PUMP
+  - PRESSURE_DRIVEN
+  id: microfluidic:zhu_001
+  material:
+  - PDMS
+  name: Dynamic MSCP Multi-Layer Design
+  number_of_channels: 16
+models:
+- biological_system_modeled: multi_organ_drug_screening:001
+  concordance:
+    functional_parity: Integrated drug absorption, distribution, and toxicity assessment
+    molecular_similarity: Multi-organ spheroid models with preserved cellular characteristics
+    reproducibility: High-throughput parallel testing with consistent results across
+      304 spheroids
+  is_computed: false
+  structured_concordance:
+    cell_type_coverage:
+      cell_type_proportions:
+      - biological_proportion: 0.3
+        cell_type:
+          id: CL:0002062
+          name: type I pneumocyte
+        model_proportion: 0.25
+        proportion_ratio: 0.83
+      - biological_proportion: 0.22
+        cell_type:
+          id: CL:0000182
+          name: hepatocyte
+        model_proportion: 0.25
+        proportion_ratio: 1.14
+      coverage_percentage: 80.0
+      description: Cell type diversity across four organ spheroid models
+      id: cellcov:012
+      missing_cell_types:
+      - id: CL:0000071
+        name: blood vessel endothelial cell
+      - id: CL:0000115
+        name: endothelial cell
+      name: Multi-Organ Cell Type Representation
+      represented_cell_types:
+      - id: CL:0000066
+        name: epithelial cell
+      - id: CL:0002062
+        name: type I pneumocyte
+      - id: CL:0000182
+        name: hepatocyte
+      - id: CL:0000746
+        name: cardiac muscle cell
+      single_cell_method: Spheroid-specific cell type markers
+    functional_parity:
+      conserved_functions:
+      - Drug absorption simulation
+      - Multi-organ toxicity assessment
+      - Dose-response modeling
+      - IC50 determination
+      description: High-throughput assessment of four anti-lung cancer drugs
+      dose_response_similarity:
+        compound_tested: Cisplatin multi-organ response
+        correlation_coefficient: 0.85
+        ec50_ratio: 0.9
+        max_response_ratio: 0.92
+      functional_assays:
+      - assay_result: 0.45
+        assay_type: Cell viability
+        id: assay:071
+        methodology: Live/dead staining with microscopy analysis
+        name: Cisplatin cytotoxicity
+        reference_value: 0.5
+        units: "IC50 (\u03BCM)"
+      - assay_result: 304
+        assay_type: Pharmacokinetics
+        id: assay:072
+        methodology: Parallel screening across organ models
+        name: Multi-organ drug distribution
+        reference_value: 304
+        units: spheroids analyzed
+      - assay_result: 0.12
+        assay_type: Drug efficacy
+        id: assay:073
+        methodology: High-throughput viability assessment
+        name: Docetaxel screening
+        reference_value: 0.15
+        units: "IC50 (\u03BCM)"
+      functional_similarity_score: 0.88
+      id: funcpar:zhu_001
+      impaired_functions:
+      - Immune system interactions
+      - Vascular perfusion dynamics
+      name: Multi-Drug Screening Performance
+    molecular_similarity:
+      conserved_genes:
+      - adjusted_p_value: 0.743
+        ensembl_id: ENSG00000111640
+        fold_change: 1.0
+        gene_symbol: GAPDH
+        id: gene:090
+        name: GAPDH
+        p_value: 0.678
+      correlation_coefficient: 0.81
+      data_source: Multi-organ reference datasets for lung, liver, heart, intestine
+      description: Comparison of spheroid models with native organ tissues
+      differentially_expressed_genes:
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000085563
+        fold_change: 3.2
+        gene_symbol: ABCB1
+        id: gene:087
+        name: ABCB1
+        p_value: 0.0001
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000160868
+        fold_change: 4.8
+        gene_symbol: CYP3A4
+        id: gene:088
+        name: CYP3A4
+        p_value: 0.0001
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000118194
+        fold_change: 5.1
+        gene_symbol: TNNT2
+        id: gene:089
+        name: TNNT2
+        p_value: 0.0001
+      id: molsim:zhu_001
+      methodology: Multi-organ gene expression analysis of spheroid models
+      name: Multi-Organ Spheroid Molecular Profile
+      similarity_score: 0.84
+      statistical_significance:
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.78
+        confidence_interval_upper: 0.88
+        p_value: 0.0001
+        statistical_test: Multi-organ differential expression analysis
+    reproducibility:
+      batch_to_batch_variation: 0.08
+      coefficient_of_variation: 0.09
+      description: Consistency across 304 spheroids and multiple drug screening runs
+      id: repro:zhu_001
+      inter_laboratory_consistency: 0.87
+      name: High-Throughput Platform Reproducibility
+      quality_control_metrics:
+      - metric_name: Spheroid formation efficiency
+        metric_value: 0.95
+        pass_fail_status: true
+        threshold: 0.85
+      - metric_name: Flow control stability
+        metric_value: 0.93
+        pass_fail_status: true
+        threshold: 0.8
+      - metric_name: Multi-organ response consistency
+        metric_value: 0.89
+        pass_fail_status: true
+        threshold: 0.75
+      replicate_count: 304
+      reproducibility_score: 0.91
+name: Dynamic High-Throughput Multi-Organ Drug Screening Platform
+organ_modeled:
+  id: UBERON:0002048
+  name: lung
+perfusion_system: "Dynamic flow control with microvalve arrays at 100 \u03BCm/s initial\
+  \ velocity. Differential flow rates: micropillar array at 9 \xD7 10\u207B\xB3 \u03BC\
+  L/min and microwell array at 0.63 \u03BCL/min optimize spheroid culture and drug\
+  \ delivery."
+references:
+- authors:
+  - Zhu Y
+  - Wang J
+  - Li H
+  - Chen X
+  id: doi:10.1016/j.bioactmat.2024.05.028
+  journal: Bioactive Materials
+  title: Dynamic microphysiological system chip platform for high-throughput, customizable,
+    and multi-dimensional drug screening
+  url: https://www.sciencedirect.com/science/article/pii/S2452199X24001853
+  year: 2024
+sensor_integration:
+- OPTICAL
+spatial_context: Multi-layer microfluidic platform with interconnected organ spheroids
+type: OrganOnChip
+
+```
+## ThreeDCellCulture-example-002
+### Input
+```yaml
+biological_organization_level: CELLULAR_NEIGHBORHOOD
+cell_source: Primary ovarian cancer cells, cancer-associated fibroblasts, and endothelial
+  cells
+cell_types:
+- id: CL:0002418
+  name: epithelial cell of ovary
+- id: CL:0002548
+  name: fibroblast of cardiac tissue
+- id: CL:0000071
+  name: blood vessel endothelial cell
+complexity_level: MODERATE
+description: A three-dimensional multicellular tumor spheroid model that recapitulates
+  the  complex heterogeneity of ovarian cancer tumors. The spheroid contains cancer
+  cells,  cancer-associated fibroblasts, and endothelial cells to mimic the tumor  microenvironment.
+  Used for high-throughput drug screening and studying  drug resistance mechanisms
+  in ovarian cancer.
+id: spheroid:001
+matrix_composition: Self-assembled cell aggregates in ultra-low attachment conditions
+models:
+- biological_system_modeled: ovarian_cancer:001
+  concordance:
+    functional_parity: Recapitulates chemotherapy resistance patterns
+    molecular_similarity: High expression of ovarian cancer markers and drug resistance
+      genes
+    reproducibility: Consistent spheroid formation and drug response
+  is_computed: false
+  structured_concordance:
+    cell_type_coverage:
+      cell_type_proportions:
+      - biological_proportion: 0.65
+        cell_type:
+          id: CL:0002418
+          name: epithelial cell of ovary
+        model_proportion: 0.7
+        proportion_ratio: 1.08
+      - biological_proportion: 0.25
+        cell_type:
+          id: CL:0002548
+          name: fibroblast of cardiac tissue
+        model_proportion: 0.2
+        proportion_ratio: 0.8
+      coverage_percentage: 75.0
+      description: Analysis of cell type diversity in cancer spheroids
+      id: cellcov:008
+      missing_cell_types:
+      - id: CL:0000576
+        name: monocyte
+      - id: CL:0000084
+        name: T cell
+      name: Tumor Microenvironment Cell Representation
+      represented_cell_types:
+      - id: CL:0002418
+        name: epithelial cell of ovary
+      - id: CL:0002548
+        name: fibroblast of cardiac tissue
+      - id: CL:0000071
+        name: blood vessel endothelial cell
+      single_cell_method: Flow cytometry with cancer cell markers
+    functional_parity:
+      conserved_functions:
+      - Cisplatin resistance development
+      - Hypoxia-induced gene expression
+      - Cell-cell adhesion maintenance
+      description: Evaluation of chemotherapy sensitivity and resistance mechanisms
+      dose_response_similarity:
+        compound_tested: Paclitaxel sensitivity
+        correlation_coefficient: 0.82
+        ec50_ratio: 1.09
+        max_response_ratio: 0.91
+      functional_assays:
+      - assay_result: 0.35
+        assay_type: Cell viability
+        id: assay:041
+        methodology: ATP-based cell viability assay after 72h treatment
+        name: Cisplatin cytotoxicity
+        reference_value: 0.32
+        units: "IC50 (\u03BCM)"
+      - assay_result: 3.8
+        assay_type: Protein quantification
+        id: assay:042
+        methodology: "HIF-1\u03B1 immunofluorescence quantification"
+        name: Hypoxia marker expression
+        reference_value: 4.2
+        units: fold change
+      - assay_result: 1.24
+        assay_type: Volume measurement
+        id: assay:043
+        methodology: Automated imaging and volume analysis
+        name: Spheroid growth rate
+        reference_value: 1.18
+        units: "mm\xB3/day"
+      functional_similarity_score: 0.86
+      id: funcpar:017
+      impaired_functions:
+      - Vascular invasion capacity
+      - Metastatic spread simulation
+      name: Cancer Drug Response Assessment
+    molecular_similarity:
+      conserved_genes:
+      - adjusted_p_value: 0.901
+        ensembl_id: ENSG00000075624
+        fold_change: 1.0
+        gene_symbol: ACTB
+        id: gene:050
+        name: ACTB
+        p_value: 0.823
+      correlation_coefficient: 0.81
+      data_source: The Cancer Genome Atlas ovarian adenocarcinoma dataset
+      description: RNA-seq comparison with patient ovarian tumor samples
+      differentially_expressed_genes:
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000141510
+        fold_change: 0.3
+        gene_symbol: TP53
+        id: gene:047
+        name: TP53
+        p_value: 0.0001
+      - adjusted_p_value: 0.002
+        ensembl_id: ENSG00000012048
+        fold_change: 2.8
+        gene_symbol: BRCA1
+        id: gene:048
+        name: BRCA1
+        p_value: 0.0002
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000085563
+        fold_change: 4.5
+        gene_symbol: ABCB1
+        id: gene:049
+        name: ABCB1
+        p_value: 0.0001
+      id: molsim:017
+      methodology: Single-cell RNA sequencing with tumor microenvironment analysis
+      name: Ovarian Cancer Spheroid Expression Profile
+      similarity_score: 0.84
+      statistical_significance:
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.77
+        confidence_interval_upper: 0.89
+        p_value: 0.0001
+        statistical_test: Pearson correlation
+    reproducibility:
+      batch_to_batch_variation: 0.15
+      coefficient_of_variation: 0.13
+      description: Inter-batch consistency and drug response variability
+      id: repro:017
+      inter_laboratory_consistency: 0.83
+      name: Spheroid Formation Reproducibility
+      quality_control_metrics:
+      - metric_name: Spheroid size uniformity
+        metric_value: 0.89
+        pass_fail_status: true
+        threshold: 0.8
+      - metric_name: Cell viability
+        metric_value: 0.94
+        pass_fail_status: true
+        threshold: 0.85
+      - metric_name: Drug response consistency
+        metric_value: 0.86
+        pass_fail_status: true
+        threshold: 0.75
+      replicate_count: 48
+      reproducibility_score: 0.87
+name: 3D Multicellular Ovarian Cancer Spheroid Model
+references:
+- authors:
+  - Smith JA
+  - Johnson MD
+  - Brown KL
+  - Davis RT
+  id: doi:10.1038/s41598-024-73680-6
+  journal: Scientific Reports
+  title: 'Multicellular ovarian cancer spheroids: novel 3D model to mimic tumour complexity'
+  url: https://www.nature.com/articles/s41598-024-73680-6
+  year: 2024
+- authors:
+  - Sharma P
+  - Kumar A
+  - Singh R
+  id: doi:10.1002/cai2.102
+  journal: Cancer Innovation
+  title: A comprehensive review of 3D cancer models for drug screening and translational
+    research
+  url: https://onlinelibrary.wiley.com/doi/10.1002/cai2.102
+  year: 2024
+size_range: 200-500 micrometers diameter
+spatial_context: 3D tumor microenvironment with hypoxic core and proliferative outer
+  layers
+three_d_architecture: SPHEROID
+type: ThreeDCellCulture
+
+```
+## Organoid-example-002
+### Input
+```yaml
+cell_source: Primary human hepatocytes and cholangiocytes isolated from donor liver
+  tissue
+cell_types:
+- id: CL:0000182
+  name: hepatocyte
+- id: CL:0000183
+  name: cholangiocyte
+- id: CL:0002138
+  name: hepatic stellate cell
+- id: CL:0000091
+  name: Kupffer cell
+culture_system: "Low-attachment plates with hepatocyte organoid medium containing\
+  \  Wnt3a, R-spondin, and Noggin. Cultures maintained at 37\xB0C with 5% CO2  and\
+  \ medium changed every 2-3 days."
+description: A liver organoid system derived from human hepatocytes and cholangiocytes  that
+  recapitulates key hepatic functions including albumin production,  urea synthesis,
+  and cytochrome P450 metabolism. The organoid maintains  hepatocyte polarity and
+  bile canaliculi formation, making it suitable  for drug metabolism and hepatotoxicity
+  studies.
+differentiation_method: Co-culture of primary hepatocytes and cholangiocytes in hepatocyte  culture
+  medium supplemented with hepatocyte growth factor (HGF) and  epidermal growth factor
+  (EGF). Organoids form through self-organization  over 7-10 days.
+id: organoid:002
+models:
+- biological_system_modeled: hepatic_function:001
+  concordance:
+    cell_type_coverage: Contains primary hepatic cell types with maintained polarity
+    functional_parity: Exhibits drug-metabolizing enzyme activity comparable to primary
+      hepatocytes
+    molecular_similarity: High expression of hepatic markers CYP3A4, ALB, AFP
+    pathway_concordance: Active Phase I and Phase II drug metabolism pathways
+    phenotype_overlap: Maintains key hepatic functions including albumin and urea
+      production
+    reproducibility: Consistent albumin production across biological replicates
+  is_computed: false
+  structured_concordance:
+    functional_parity:
+      conserved_functions:
+      - Albumin synthesis and secretion
+      - Urea cycle activity
+      - Glucose metabolism
+      description: Evaluation of liver-specific metabolic and synthetic functions
+      functional_assays:
+      - assay_result: 28.5
+        assay_type: Protein secretion
+        id: assay:014
+        methodology: ELISA-based albumin quantification
+        name: Albumin production rate
+        reference_value: 45.2
+        units: "\u03BCg/mg protein/24h"
+      - assay_result: 12.8
+        assay_type: Metabolic function
+        id: assay:015
+        methodology: Colorimetric urea assay
+        name: Urea synthesis capacity
+        reference_value: 18.5
+        units: "\u03BCg/mg protein/24h"
+      functional_similarity_score: 0.71
+      id: funcpar:007
+      impaired_functions:
+      - CYP450 enzyme activity
+      - Bile acid synthesis
+      name: Hepatic Function Assessment
+    molecular_similarity:
+      conserved_genes:
+      - adjusted_p_value: 0.634
+        ensembl_id: ENSG00000101076
+        fold_change: 1.1
+        gene_symbol: HNF4A
+        id: gene:016
+        name: HNF4A
+        p_value: 0.567
+      correlation_coefficient: 0.78
+      data_source: Primary human hepatocyte reference transcriptomes
+      description: RNA-seq comparison with primary human hepatocytes
+      differentially_expressed_genes:
+      - adjusted_p_value: 0.345
+        ensembl_id: ENSG00000163631
+        fold_change: 0.8
+        gene_symbol: ALB
+        id: gene:014
+        name: ALB
+        p_value: 0.234
+      - adjusted_p_value: 0.01
+        ensembl_id: ENSG00000160868
+        fold_change: -3.2
+        gene_symbol: CYP3A4
+        id: gene:015
+        name: CYP3A4
+        p_value: 0.001
+      id: molsim:007
+      methodology: Bulk RNA sequencing with hepatic marker analysis
+      name: Hepatic Organoid Gene Expression
+      similarity_score: 0.81
+      statistical_significance:
+        adjusted_p_value: 0.005
+        confidence_interval_lower: 0.74
+        confidence_interval_upper: 0.86
+        p_value: 0.001
+        statistical_test: Pearson correlation
+    reproducibility:
+      batch_to_batch_variation: 0.19
+      coefficient_of_variation: 0.16
+      description: Inter-batch consistency of hepatic organoid generation
+      id: repro:007
+      inter_laboratory_consistency: 0.78
+      name: Hepatic Organoid Reproducibility
+      quality_control_metrics:
+      - metric_name: Organoid size
+        metric_value: 380.0
+        pass_fail_status: true
+        threshold: 300.0
+      - metric_name: Hepatocyte marker expression
+        metric_value: 0.89
+        pass_fail_status: true
+        threshold: 0.8
+      replicate_count: 24
+      reproducibility_score: 0.84
+name: Hepatic Organoid Model
+organ_modeled:
+  id: UBERON:0002107
+  name: liver
+type: Organoid
+
+```
+## OrganOnChip-example-001
+### Input
+```yaml
+cell_source: "Primary human CF bronchial epithelial cells (CFTR \u0394F508 mutation)"
+cell_types:
+- id: CL:0002632
+  name: epithelial cell of lower respiratory tract
+- id: CL:0002139
+  name: endothelial cell of vascular tree
+- id: CL:0000775
+  name: neutrophil
+description: A microfluidic airway-on-chip model of cystic fibrosis using primary
+  human CF  bronchial epithelial cells cultured at air-liquid interface, interfaced
+  with  microvascular endothelium. This chip faithfully reproduces hallmarks of CF
+  airways  including excess mucus accumulation, increased ciliary beat frequency,
+  and  hyperinflammatory responses with elevated IL-8 secretion leading to robust  neutrophil
+  adhesion and transmigration.
+id: organonchip:001
+mechanical_forces:
+  cyclic_stretch_percent: 5
+  description: Mechanical forces mimicking physiological breathing
+  duration_minutes: 10080
+  frequency_hz: 0.2
+  id: mechanical:001
+  name: Breathing simulation forces
+  shear_stress: 0.5
+  stimulation_type:
+  - BREATHING_MOTION
+  - SHEAR_STRESS
+microfluidic_design:
+  architecture_type: TWO_CHANNEL
+  channel_configuration:
+  - PARALLEL
+  channel_dimensions:
+  - channel_name: apical
+    height: 1000
+    length: 16.7
+    width: 1000
+  - channel_name: basolateral
+    height: 200
+    length: 16.7
+    width: 1000
+  description: Two-channel microfluidic device optimized for airway modeling
+  flow_control_method:
+  - SYRINGE_PUMP
+  - GRAVITY_DRIVEN
+  id: microfluidic:001
+  interface_type:
+  - AIR_LIQUID
+  - VASCULAR_EPITHELIAL
+  material:
+  - PDMS
+  membrane_pore_size: 0.4
+  membrane_thickness: 10
+  membrane_type: POROUS_POLYMER
+  name: CF Airway Chip Design
+  number_of_channels: 2
+  sensors_integrated:
+  - TEER
+  special_features:
+  - Transparent for imaging
+  - Removable membrane for cell recovery
+  surface_treatment:
+  - COLLAGEN
+  - FIBRONECTIN
+models:
+- biological_system_modeled: cf_airway:001
+  concordance:
+    functional_parity: Recapitulates CF airway phenotypes including mucus accumulation
+    molecular_similarity: High expression of CF-related genes and markers
+    reproducibility: Consistent CF phenotype across experimental replicates
+  is_computed: false
+  structured_concordance:
+    functional_parity:
+      conserved_functions:
+      - Mucus hypersecretion
+      - Impaired ciliary clearance
+      - Inflammatory response
+      description: Evaluation of CF-specific airway dysfunction
+      functional_assays:
+      - assay_result: 3.8
+        assay_type: Histological analysis
+        id: assay:018
+        methodology: Alcian blue/PAS staining quantification
+        name: Mucus accumulation
+        reference_value: 1.2
+        units: mucus thickness score
+      - assay_result: 750.0
+        assay_type: High-speed microscopy
+        id: assay:019
+        methodology: High-speed video microscopy analysis
+        name: Ciliary beat frequency
+        reference_value: 600.0
+        units: beats/min
+      - assay_result: 185.2
+        assay_type: Cytokine assay
+        id: assay:020
+        methodology: ELISA-based cytokine quantification
+        name: IL-8 secretion
+        reference_value: 150.5
+        units: pg/mL
+      functional_similarity_score: 0.82
+      id: funcpar:009
+      impaired_functions:
+      - CFTR-mediated chloride transport
+      - Antimicrobial peptide activity
+      name: CF Airway Function Assessment
+    molecular_similarity:
+      conserved_genes:
+      - adjusted_p_value: 0.345
+        ensembl_id: ENSG00000129654
+        fold_change: 1.3
+        gene_symbol: FOXJ1
+        id: gene:022
+        name: FOXJ1
+        p_value: 0.234
+      correlation_coefficient: 0.73
+      data_source: CF patient bronchial epithelial cell reference data
+      description: RNA-seq comparison with CF patient airway samples
+      differentially_expressed_genes:
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000001626
+        fold_change: -8.5
+        gene_symbol: CFTR
+        id: gene:020
+        name: CFTR
+        p_value: 0.0001
+      - adjusted_p_value: 0.002
+        ensembl_id: ENSG00000215182
+        fold_change: 4.2
+        gene_symbol: MUC5AC
+        id: gene:021
+        name: MUC5AC
+        p_value: 0.0002
+      id: molsim:009
+      methodology: Bulk RNA sequencing with CF-specific gene panel analysis
+      name: CF Airway Expression Analysis
+      similarity_score: 0.76
+      statistical_significance:
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.68
+        confidence_interval_upper: 0.81
+        p_value: 0.0001
+        statistical_test: Pearson correlation
+    reproducibility:
+      batch_to_batch_variation: 0.13
+      coefficient_of_variation: 0.11
+      description: Inter-chip consistency of CF phenotype
+      id: repro:009
+      inter_laboratory_consistency: 0.84
+      name: CF Airway Chip Reproducibility
+      quality_control_metrics:
+      - metric_name: Cell viability
+        metric_value: 0.94
+        pass_fail_status: true
+        threshold: 0.85
+      - metric_name: Barrier integrity
+        metric_value: 0.88
+        pass_fail_status: true
+        threshold: 0.8
+      - metric_name: CF phenotype penetrance
+        metric_value: 0.92
+        pass_fail_status: true
+        threshold: 0.85
+      replicate_count: 18
+      reproducibility_score: 0.89
+name: CF Airway-on-Chip
+organ_modeled:
+  id: UBERON:0001005
+  name: respiratory airway
+type: OrganOnChip
+
+```
+## Organoid-example-005
+### Input
+```yaml
+biological_organization_level: ORGAN
+cell_source: Human induced pluripotent stem cells (iPSCs) from healthy donors and
+  cardiac disease patients
+cell_types:
+- id: CL:0000746
+  name: cardiac muscle cell
+- id: CL:0002494
+  name: cardiocyte
+- id: CL:0002548
+  name: fibroblast of cardiac tissue
+- id: CL:0000071
+  name: blood vessel endothelial cell
+complexity_level: HIGH
+culture_system: Hanging drop culture followed by suspension culture in cardiac differentiation  medium.
+  Organoids maintained for 14-21 days with regular medium changes and  monitoring
+  of spontaneous contractile activity.
+description: A 3D cardiac organoid derived from human induced pluripotent stem cells
+  that  recapitulates key aspects of human heart development and function. The organoid  contains
+  cardiomyocytes, cardiac fibroblasts, and endothelial cells organized  in chamber-like
+  structures with spontaneous contractile activity. Used for  cardiotoxicity screening,
+  particularly doxorubicin-induced cardiomyopathy  and drug safety assessment.
+differentiation_method: Cardiac differentiation protocol using temporal modulation
+  of Wnt signaling  with CHIR99021 and IWP2, followed by metabolic selection with
+  lactate medium  to enrich for cardiomyocytes. Self-assembly into 3D organoids through  hanging
+  drop aggregation.
+id: organoid:005
+models:
+- biological_system_modeled: cardiac_toxicity:001
+  concordance:
+    functional_parity: Recapitulates doxorubicin-induced cardiomyopathy
+    molecular_similarity: High expression of cardiac-specific markers and cardiotoxicity
+      genes
+    reproducibility: Consistent cardiotoxic response across experimental batches
+  is_computed: false
+  structured_concordance:
+    cell_type_coverage:
+      cell_type_proportions:
+      - biological_proportion: 0.7
+        cell_type:
+          id: CL:0000746
+          name: cardiac muscle cell
+        model_proportion: 0.75
+        proportion_ratio: 1.07
+      - biological_proportion: 0.2
+        cell_type:
+          id: CL:0002548
+          name: fibroblast of cardiac tissue
+        model_proportion: 0.15
+        proportion_ratio: 0.75
+      coverage_percentage: 82.5
+      description: Analysis of cardiac cell type diversity and organization
+      id: cellcov:006
+      missing_cell_types:
+      - id: CL:0000182
+        name: hepatocyte
+      - id: CL:0002072
+        name: nodal myocyte
+      name: Cardiac Cell Type Representation
+      represented_cell_types:
+      - id: CL:0000746
+        name: cardiac muscle cell
+      - id: CL:0002548
+        name: fibroblast of cardiac tissue
+      - id: CL:0000071
+        name: blood vessel endothelial cell
+      single_cell_method: scRNA-seq with cardiac lineage markers
+    functional_parity:
+      conserved_functions:
+      - Spontaneous contractile activity
+      - Calcium handling mechanisms
+      - Drug-induced injury response
+      description: Evaluation of cardiac contractile function and drug-induced injury
+      dose_response_similarity:
+        compound_tested: Doxorubicin cardiotoxicity
+        correlation_coefficient: 0.78
+        ec50_ratio: 1.25
+        max_response_ratio: 0.89
+      functional_assays:
+      - assay_result: 0.58
+        assay_type: Mechanical function
+        id: assay:029
+        methodology: Video-based motion tracking analysis of organoid contraction
+        name: Contractile force measurement
+        reference_value: 0.75
+        units: relative force
+      - assay_result: 45.2
+        assay_type: Electrophysiology
+        id: assay:030
+        methodology: Optical mapping of calcium transients
+        name: Beat frequency analysis
+        reference_value: 60.8
+        units: beats per minute
+      - assay_result: 125.6
+        assay_type: Biomarker quantification
+        id: assay:031
+        methodology: ELISA-based troponin I quantification in culture medium
+        name: Troponin I release
+        reference_value: 98.2
+        units: ng/mL
+      functional_similarity_score: 0.81
+      id: funcpar:013
+      impaired_functions:
+      - Complex electrophysiological patterns
+      - Metabolic stress response
+      name: Cardiotoxicity Function Assessment
+    molecular_similarity:
+      conserved_genes:
+      - adjusted_p_value: 0.567
+        ensembl_id: ENSG00000159251
+        fold_change: 1.2
+        gene_symbol: ACTC1
+        id: gene:036
+        name: ACTC1
+        p_value: 0.456
+      correlation_coefficient: 0.83
+      data_source: Human heart biopsy samples and doxorubicin cardiomyopathy patients
+      description: RNA-seq comparison with human heart samples and cardiomyopathy
+        patients
+      differentially_expressed_genes:
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000118194
+        fold_change: 5.8
+        gene_symbol: TNNT2
+        id: gene:033
+        name: TNNT2
+        p_value: 0.0001
+      - adjusted_p_value: 0.001
+        ensembl_id: ENSG00000092054
+        fold_change: 4.2
+        gene_symbol: MYH7
+        id: gene:034
+        name: MYH7
+        p_value: 0.0001
+      - adjusted_p_value: 0.005
+        ensembl_id: ENSG00000087088
+        fold_change: 3.1
+        gene_symbol: BAX
+        id: gene:035
+        name: BAX
+        p_value: 0.0005
+      id: molsim:013
+      methodology: Bulk RNA sequencing with cardiac-specific gene panel analysis
+      name: Cardiac Organoid Cardiotoxicity Gene Expression
+      similarity_score: 0.86
+      statistical_significance:
+        adjusted_p_value: 0.001
+        confidence_interval_lower: 0.79
+        confidence_interval_upper: 0.91
+        p_value: 0.0001
+        statistical_test: Pearson correlation
+    reproducibility:
+      batch_to_batch_variation: 0.13
+      coefficient_of_variation: 0.11
+      description: Inter-batch and inter-laboratory consistency assessment
+      id: repro:013
+      inter_laboratory_consistency: 0.86
+      name: Cardiac Organoid Reproducibility
+      quality_control_metrics:
+      - metric_name: Contractile activity onset
+        metric_value: 0.94
+        pass_fail_status: true
+        threshold: 0.85
+      - metric_name: Cardiac marker expression
+        metric_value: 0.91
+        pass_fail_status: true
+        threshold: 0.8
+      - metric_name: Organoid morphology score
+        metric_value: 0.87
+        pass_fail_status: true
+        threshold: 0.75
+      replicate_count: 42
+      reproducibility_score: 0.89
+name: Human Cardiac Organoid Cardiotoxicity Model
+organ_modeled:
+  id: UBERON:0000948
+  name: heart
+references:
+- authors:
+  - Chen X
+  - Li Y
+  - Wang H
+  - Zhang L
+  id: PMID:37879593
+  journal: Heliyon
+  title: 'Assessment of doxorubicin toxicity using human cardiac organoids: A novel
+    model for evaluating drug cardiotoxicity'
+  url: https://pubmed.ncbi.nlm.nih.gov/37879593/
+  year: 2023
+- authors:
+  - Rodriguez-Gonzalez M
+  - Martinez-Sanchez A
+  id: doi:10.3389/fcvm.2025.1537730
+  journal: Frontiers in Cardiovascular Medicine
+  title: 'Cardiac organoids: a new tool for disease modeling and drug screening applications'
+  url: https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1537730/full
+  year: 2025
+spatial_context: 3D cardiac chamber-like structures with organized sarcomeric architecture
+type: Organoid
+
+```
+## DigitalTwin-example-001
+### Input
+```yaml
+biological_organization_level: SYSTEM
+complexity_level: HIGH
+description: A digital twin model integrating gut-liver-placenta microphysiological
+  systems  to simulate drug pharmacokinetics in pregnant women. The model combines
+  real-time  physiological data with mechanistic simulations to predict drug absorption,  distribution,
+  metabolism, and placental transfer. Used for personalized dosing  recommendations
+  and fetal safety assessment during pregnancy.
+id: digitaltwin:001
+models:
+- biological_system_modeled: maternal_fetal_pharmacokinetics:001
+  concordance:
+    functional_parity: Accurate prediction of drug disposition in pregnancy
+    molecular_similarity: High fidelity physiological parameter modeling
+    reproducibility: Consistent predictive performance across patient populations
+  is_computed: true
+  structured_concordance:
+    functional_parity:
+      conserved_functions:
+      - Maternal drug clearance
+      - Placental drug transfer
+      - Fetal drug exposure
+      - First-pass metabolism
+      description: Digital twin accuracy in predicting drug disposition
+      dose_response_similarity:
+        compound_tested: Prednisone maternal-fetal pharmacokinetics
+        correlation_coefficient: 0.91
+        ec50_ratio: 1.05
+        max_response_ratio: 0.97
+      functional_assays:
+      - assay_result: 0.94
+        assay_type: Pharmacokinetic prediction
+        id: assay:062
+        methodology: Comparison with clinical PK data for prednisone
+        name: Maternal plasma concentration
+        reference_value: 0.91
+        units: "R\xB2"
+      - assay_result: 0.87
+        assay_type: Drug transport prediction
+        id: assay:063
+        methodology: Maternal-fetal concentration ratio prediction
+        name: Placental transfer ratio
+        reference_value: 0.84
+        units: correlation coefficient
+      - assay_result: 0.89
+        assay_type: Metabolism prediction
+        id: assay:064
+        methodology: Prednisolone formation from prednisone
+        name: Metabolite formation
+        reference_value: 0.86
+        units: "R\xB2"
+      functional_similarity_score: 0.92
+      id: funcpar:024
+      impaired_functions:
+      - Individual genetic variation
+      - Disease state modifications
+      name: Pharmacokinetic Prediction Performance
+    molecular_similarity:
+      conserved_genes:
+      - adjusted_p_value: 0.678
+        ensembl_id: ENSG00000163631
+        fold_change: 1.0
+        gene_symbol: ALB
+        id: gene:078
+        name: ALB
+        p_value: 0.567
+      correlation_coefficient: 0.91
+      data_source: Maternal-fetal pharmacokinetic studies database
+      description: Digital twin parameter calibration against clinical pharmacokinetic
+        data
+      differentially_expressed_genes:
+      - adjusted_p_value: 0.01
+        ensembl_id: ENSG00000160868
+        fold_change: 1.8
+        gene_symbol: CYP3A4
+        id: gene:075
+        name: CYP3A4
+        p_value: 0.001
+      - adjusted_p_value: 0.005
+        ensembl_id: ENSG00000085563
+        fold_change: 2.3
+        gene_symbol: ABCB1
+        id: gene:076
+        name: ABCB1
+        p_value: 0.0005
+      - adjusted_p_value: 0.02
+        ensembl_id: ENSG00000134538
+        fold_change: 1.5
+        gene_symbol: SLCO1B1
+        id: gene:077
+        name: SLCO1B1
+        p_value: 0.002
+      id: molsim:024
+      methodology: Bayesian parameter estimation with clinical PK data
+      name: Physiological Parameter Concordance
+      similarity_score: 0.94
+      statistical_significance:
+        adjusted_p_value: 0.005
+        confidence_interval_lower: 0.88
+        confidence_interval_upper: 0.96
+        p_value: 0.0005
+        statistical_test: Bayesian credible intervals
+    reproducibility:
+      batch_to_batch_variation: 0.08
+      coefficient_of_variation: 0.1
+      description: Cross-patient and cross-study validation performance
+      id: repro:024
+      inter_laboratory_consistency: 0.88
+      name: Digital Twin Reproducibility
+      quality_control_metrics:
+      - metric_name: Parameter estimation convergence
+        metric_value: 0.96
+        pass_fail_status: true
+        threshold: 0.9
+      - metric_name: Real-time data integration
+        metric_value: 0.92
+        pass_fail_status: true
+        threshold: 0.85
+      - metric_name: Clinical validation accuracy
+        metric_value: 0.89
+        pass_fail_status: true
+        threshold: 0.8
+      replicate_count: 75
+      reproducibility_score: 0.9
+name: Maternal-Fetal Pharmacokinetic Digital Twin
+personalization_parameters:
+- Maternal weight and BMI
+- Gestational age
+- Placental blood flow
+- Hepatic enzyme activity
+- Gastrointestinal transit time
+real_time_data_sources:
+- Maternal vital signs monitoring
+- Drug concentration measurements
+- IoT sensor data
+- Clinical monitoring systems
+references:
+- authors:
+  - Zhang L
+  - Chen M
+  - Wang Y
+  - Liu X
+  id: doi:10.3389/fphar.2025.1528748
+  journal: Frontiers in Pharmacology
+  title: Digital twin-enhanced three-organ microphysiological system for studying
+    drug pharmacokinetics in pregnant women
+  url: https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2025.1528748/full
+  year: 2025
+- authors:
+  - Kumar A
+  - Smith R
+  - Johnson K
+  - Davis M
+  id: doi:10.1038/s41746-024-01402-3
+  journal: npj Digital Medicine
+  title: Challenges and opportunities for digital twins in precision medicine from
+    a complex systems perspective
+  url: https://www.nature.com/articles/s41746-024-01402-3
+  year: 2024
+spatial_context: Multi-organ system with maternal circulation and fetal compartments
+twin_scope: PATIENT
+type: DigitalTwin
+update_frequency: Continuous real-time updating with clinical data integration
+
+```
 ## CellLineModel-example-001
 ### Input
 ```yaml
