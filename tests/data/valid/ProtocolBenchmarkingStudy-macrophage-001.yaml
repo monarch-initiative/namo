@@ -94,12 +94,6 @@ protocols_compared:
       equipment_sensitivity: "LOW"
       cost_assessment: "MODERATE"
       time_investment: "MODERATE"
-    original_publication:
-      id: "PMID:12345678"
-      title: "Standardized protocols for M-CSF macrophage differentiation"
-      authors: ["Murray PJ", "Allen JE", "Biswas SK"]
-      journal: "Immunity"
-      year: 2014
 
   - id: "protocol:gmcsf-001"
     name: "GM-CSF Alternative Activation Protocol"

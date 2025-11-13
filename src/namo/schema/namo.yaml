@@ -178,6 +178,7 @@ imports:
 classes:
 
   Dataset:
+    is_a: NamedThing
     attributes:
       model_systems:
         range: ModelSystem
@@ -722,6 +723,7 @@ classes:
           Known variants or modifications of this protocol
 
   ProtocolStep:
+    is_a: NamedThing
     description: >-
       An individual step within a derivation protocol with specific conditions and timing.
     attributes:
@@ -753,6 +755,7 @@ classes:
           Critical parameters that must be controlled in this step
 
   ProtocolReagent:
+    is_a: NamedThing
     description: >-
       A reagent used in a protocol step with specific concentration and role.
     attributes:
@@ -772,6 +775,7 @@ classes:
           Commercial supplier and catalog number if applicable
 
   ProtocolReproducibility:
+    is_a: NamedThing
     description: >-
       Assessment of protocol reproducibility and robustness across different conditions.
     attributes:
@@ -886,6 +890,7 @@ classes:
           Quality assessment metrics for the database
 
   ComparisonMethodology:
+    is_a: NamedThing
     description: >-
       Methodology used for comparing multiple derivation protocols in a benchmarking study.
     attributes:
@@ -911,6 +916,7 @@ classes:
           Clustering or dimensionality reduction methods used
 
   BenchmarkingMetric:
+    is_a: NamedThing
     description: >-
       Specific metric used to assess the performance of derivation protocols.
     attributes:
@@ -941,12 +947,12 @@ classes:
           What this metric is being compared against
 
   ProtocolRanking:
+    is_a: NamedThing
     description: >-
       Ranking of a protocol based on benchmarking results.
     attributes:
       protocol:
         range: DerivationProtocol
-        inlined: true
         required: true
         description: >-
           The protocol being ranked
@@ -1000,6 +1006,7 @@ classes:
           Weight of this category in overall scoring
 
   DataQualityMetric:
+    is_a: NamedThing
     description: >-
       Quality assessment metric for external databases used in benchmarking.
     attributes:
