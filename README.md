@@ -8,6 +8,12 @@ New Approach Methodology Ontology and Schema
 
 [https://monarch-initiative.github.io/namo](https://monarch-initiative.github.io/namo)
 
+## Ontology
+
+NAMO is a semantic data model with ontology-like elements. We export it as an ontology to facilitate browsing and ontology API calls:
+
+- [https://bioportal.bioontology.org/ontologies/NAMO](https://bioportal.bioontology.org/ontologies/NAMO)
+
 ## Repository Structure
 
 * [docs/](docs/) - mkdocs-managed documentation
