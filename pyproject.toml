@@ -7,16 +7,13 @@ name = "namo"
 description = "New Approach Methodology Ontology and Schema"
 authors = [
   {name = "Chris Mungall", email = "cjmungall@lbl.gov"},
+  {name = "Daniel Korn", email="dkorn@cs.unc.edu"},
 ]
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.10,<4.0"
 dynamic = ["version"]
-
-dependencies = [
-  "linkml-runtime>=1.11.1",
-]
 
 [dependency-groups]
 dev = [
