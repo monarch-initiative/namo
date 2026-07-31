@@ -5,7 +5,7 @@
 - Tracking issue: [#19 — All instances of "Term" should be removed from schema.yaml and replaced with the appropriate Biolink class](https://github.com/monarch-initiative/namo/issues/19)
 - Biolink Model version targeted: **4.4.3**
 - Companion document: [`ontology_mapping_plan.md`](ontology_mapping_plan.md) (enum → ontology strategy)
-- Status: **Stages 1–2 applied; Stages 3–6 pending.** All seven design decisions (D1–D7) are resolved and folded into the stages below. The schema generates again as of Stage 2. The test suite is expected to be red until Stage 5 migrates the instance data.
+- Status: **Stages 1–3 applied; Stages 4–6 pending.** All seven design decisions (D1–D7) are resolved and folded into the stages below. The schema generates cleanly. The test suite is red — 27/27 — entirely on instance data that Stage 5 migrates; see Stage 3's closing note for the breakdown.
 
 ---
 
@@ -211,9 +211,23 @@ Stage 2c is wider than Issue 19, but it is not optional — it is the price of t
 
 ---
 
-## Stage 3 — Repoint the 17 `Term` ranges at Biolink classes
+## Stage 3 — Repoint the 17 `Term` ranges at Biolink classes ✅ DONE
 
-Biolink class names are lowercase-with-spaces in LinkML source. `inlined` / `inlined_as_list` / `multivalued` / `required` flags all stay as they are. Two slots change beyond their range: `age` is split (3a) and `tissue_modeled` is renamed (3b).
+Applied and verified. All 17 `range: Term` sites are gone, the `Term` class is deleted, and `gen-python` exits 0. Every one of the 18 resulting slots resolves to a real Biolink class — confirmed via `SchemaView.induced_slot`, and confirmed in the generated Python as genuine Biolink URIs:
+
+```
+Cell                     https://w3id.org/biolink/vocab/Cell
+GrossAnatomicalStructure https://w3id.org/biolink/vocab/GrossAnatomicalStructure
+OrganismTaxon            https://w3id.org/biolink/vocab/OrganismTaxon
+LifeStage                https://w3id.org/biolink/vocab/LifeStage
+PhenotypicFeature        https://w3id.org/biolink/vocab/PhenotypicFeature
+EnvironmentalExposure    https://w3id.org/biolink/vocab/EnvironmentalExposure
+QuantityValue            https://w3id.org/biolink/vocab/QuantityValue
+```
+
+Biolink class names are lowercase-with-spaces in LinkML source. `inlined` / `inlined_as_list` / `multivalued` / `required` flags all stayed as they were. Two slots changed beyond their range: `age` was split (3a) and `tissue_modeled` renamed (3b).
+
+**Two forward references are live but unresolved until Stage 4.** `life_stage` binds `LifeStageEnum` (4c) and `anatomical_structure_modeled` binds `AnatomicalStructureEnum` (4b); neither enum exists yet. This does not break generation — the schema already shipped a dangling binding to the never-defined `OrganismAgeEnum`, which is the same tolerated condition — but it is a real loose end that 4b/4c close.
 
 | Line | Owner | Attribute | `range: Term` → | Rationale |
 |---|---|---|---|---|
@@ -311,6 +325,18 @@ The issue asks for `cell_types` → `biolink:anatomical_entity`. Biolink's own `
 > This is a grouping class with three concrete subclasses that should be preferred when applicable: `biolink:Cell` for whole cells, `biolink:CellularComponent` for subcellular and intracellular structures, and `biolink:GrossAnatomcialStructure` for multicellular parts.
 
 `CellTypeEnum` is already rooted at `CL:0000000`, so **`cell` is correct and more specific.** Worth a note on the issue before closing it.
+
+### Stage 3 exit state — 27/27 tests failing, all Stage 5 data work
+
+Regenerating the datamodel and running `pytest` gives a clean, fully-categorised failure set. Every failure is instance data, none is a schema defect:
+
+| Count | Error | Fixed by |
+|---|---|---|
+| 19 | `ValueError: category must be supplied` | Stage 5 items 1–2 |
+| 5 | `TypeError: GeneExpressionResult.__init__() got an unexpected keyword argument 'gene_symbol'` | Stage 5 item 4 |
+| 3 | `TypeError: TissueOnChip.__init__() got an unexpected keyword argument 'tissue_modeled'` | Stage 5 item 3 |
+
+> **Careful with a bare `pytest` here.** Run on its own it reported **27 passed**, because it imports the committed `src/namo/datamodel/namo.py`, which was still the pre-Stage-1 model. The green was an artifact of a stale datamodel. Regenerate first (`just gen-python`, or the 1e-corrected invocation) before trusting any result — `just test` does this via `_test-python`, a plain `pytest` does not.
 
 ---
 
@@ -454,14 +480,38 @@ Unlike the rejected local-class approach, importing Biolink **does** require tou
 
 3. **Rename `tissue_modeled:` → `anatomical_structure_modeled:`** in the three `TissueOnChip-example-*.yaml` files, and update the `TissueOnChip` row of `docs/how-to/curate.md` (line 88). Full inventory in 3b.
 
-4. **Propagate the Stage 2c class renames.** These are schema-only so far and have no instance-data footprint (no `Dataset-*`, `Study-*`, `Gene-*` or `Pathway-*` example files exist), but the prose and docs do reference them:
+4. **Propagate the Stage 2c class renames — larger than first estimated.** An earlier draft of this plan said the renames had "no instance-data footprint" because no `Dataset-*`/`Study-*`/`Gene-*`/`Pathway-*` example *files* exist. That was wrong: `Gene` and `Pathway` objects appear **nested** inside `MolecularSimilarity` and `PathwayConcordance` blocks, and **26 of the 27 files** in `tests/data/valid/` use the removed attributes. This is the single largest item in Stage 5.
+
+   Each nested gene object must fold its identity fields into a Biolink `gene`:
+
+   ```yaml
+   # before
+   - id: "gene:075"
+     name: "CYP3A4"
+     gene_symbol: "CYP3A4"
+     ensembl_id: "ENSG00000160868"
+     fold_change: 1.8
+     p_value: 0.001
+   # after
+   - id: "gene:075"
+     category: "namo:GeneExpressionResult"
+     gene:
+       id: "ENSEMBL:ENSG00000160868"     # was ensembl_id
+       name: "CYP3A4"                    # was gene_symbol
+       category: "biolink:Gene"
+     fold_change: 1.8
+     p_value: 0.001
+   ```
+
+   Note the identifier change: `id: "gene:075"` was a local surrogate key. The real gene identity now lives on the nested object as a resolvable CURIE, which is the point of the split — but it means the migration is a genuine recuration, not a mechanical rename. `pathway_database` + `pathway_id` collapse the same way into a nested `pathway:` CURIE.
+
+   Prose and docs also reference the renamed classes:
    - `namo.yaml`'s own `description:` block — `[Dataset](Dataset.md)` and `[Studies](Study.md)` links, and the surrounding text.
    - `docs/how-to/curate.md` — model-class table.
-   - Anything referencing the removed `Gene.gene_symbol` / `ensembl_id` / `entrez_id` and `Pathway.pathway_database` / `pathway_id` attributes, which are now expressed as Biolink CURIEs on the nested `gene:` / `pathway:` objects.
 
 5. **No anatomy recuration needed.** The closure checks confirm all 11 `organ_modeled` values pass `UBERON:0000062` and all 3 `anatomical_structure_modeled` values pass `UBERON:0010000`.
 
-`name:` is preserved throughout, so the CLAUDE.md convention of including both `id` and `name` for clarity survives. Items 1–3 are mechanical and should be a one-off migration script rather than 27 hand edits; `examples/output/` is regenerated by `_ensure_examples_output` anyway.
+`name:` is preserved throughout, so the CLAUDE.md convention of including both `id` and `name` for clarity survives. Items 1–3 are mechanical and should be a one-off migration script rather than 27 hand edits; `examples/output/` is regenerated by `_ensure_examples_output` anyway. **Item 4 is not mechanical** — mapping `gene_symbol`/`ensembl_id` onto a single resolvable CURIE is a curation judgement per gene, and should be reviewed rather than scripted blindly.
 
 Note that `tests/test_data.py` derives the target class from the filename (`Path(filepath).stem.split("-")[0]`), so any future example file must be named after a class that still exists — `NAMStudy-example-001.yaml`, not `Study-example-001.yaml`.
 

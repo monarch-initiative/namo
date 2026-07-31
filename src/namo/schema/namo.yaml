@@ -255,7 +255,7 @@ classes:
       - ARRIVE:animal_model
     attributes:
       species:
-        range: Term
+        range: organism taxon
         required: true
         description: >-
           The species of the animal used in the model system.
@@ -264,23 +264,34 @@ classes:
             range: SpeciesEnum
             obligation_level: REQUIRED
       strain:
-        range: Term
+        range: organism taxon
         description: >-
           The specific strain of the animal used in the model system.
         bindings:
           - binds_value_of: id
             range: StrainEnum
             obligation_level: REQUIRED
-      age:
-        range: Term
+      # Was a single `age: {range: Term}`, which conflated developmental stage
+      # with chronological age. Its binding pointed at OrganismAgeEnum, an enum
+      # that was never defined anywhere in the schema.
+      life_stage:
+        range: life stage
+        inlined: true
         description: >-
-          The age of the animal used in the model system.
+          The developmental or life-cycle stage of the animal used in the model
+          system (e.g. HsapDv, MmusDv, or UBERON life cycle stage terms).
         bindings:
           - binds_value_of: id
-            range: OrganismAgeEnum
+            range: LifeStageEnum
             obligation_level: REQUIRED
+      age_value:
+        range: quantity value
+        inlined: true
+        description: >-
+          Chronological age of the animal at the time of study, as a numeric
+          value with a unit (e.g. has_numeric_value 8, has_unit UO:0000034).
       environment:
-        range: Term
+        range: environmental exposure
         description: >-
           The environmental conditions under which the animal model is maintained.
   NAMModel:
@@ -330,7 +341,7 @@ classes:
       - MIACA:cellular_assay
     attributes:
       cell_types:
-        range: Term
+        range: cell
         multivalued: true
         inlined_as_list: true
         description: >-
@@ -414,7 +425,7 @@ classes:
       - MISpheroID:spheroid
     attributes:
       organ_modeled:
-        range: Term
+        range: gross anatomical structure
         inlined: true
         description: >-
           The organ or tissue being modeled
@@ -490,7 +501,7 @@ classes:
       - ISO10991:organ_on_chip
     attributes:
       organ_modeled:
-        range: Term
+        range: gross anatomical structure
         inlined: true
         description: >-
           The organ or anatomical structure being modeled (e.g., lung, airway, alveolus)
@@ -499,7 +510,7 @@ classes:
             range: OrganEnum
             obligation_level: REQUIRED
       cell_types:
-        range: Term
+        range: cell
         multivalued: true
         inlined_as_list: true
         description: >-
@@ -522,11 +533,20 @@ classes:
     exact_mappings:
       - ISO10991:tissue_on_chip
     attributes:
-      tissue_modeled:
-        range: Term
+      # Renamed from `tissue_modeled`: the curated values are an organ
+      # (skin of body), a barrier (blood-brain barrier) and a tract (digestive
+      # tract), none of which sit under UBERON:0000479 "tissue". The new name
+      # matches both the data and the Biolink class it ranges over.
+      anatomical_structure_modeled:
+        range: gross anatomical structure
         inlined: true
         description: >-
-          The specific tissue being modeled
+          The anatomical structure being modeled — a tissue, organ, or other
+          multicellular structure.
+        bindings:
+          - binds_value_of: id
+            range: AnatomicalStructureEnum
+            obligation_level: REQUIRED
       tissue_architecture:
         description: >-
           Description of tissue-level architecture and organization
@@ -596,7 +616,7 @@ classes:
         description: >-
           Physiological compartments included in the model
       species_modeled:
-        range: Term
+        range: organism taxon
         inlined: true
         description: >-
           Species for which the model is designed
@@ -677,7 +697,7 @@ classes:
       Ratio specification for different cell types in co-culture systems.
     attributes:
       cell_type:
-        range: Term
+        range: cell
         inlined: true
         description: >-
           The cell type for which the ratio is specified
@@ -1063,19 +1083,19 @@ classes:
         description: >-
           Quantitative score (0.0-1.0) representing phenotypic similarity.
       shared_phenotypes:
-        range: Term
+        range: phenotypic feature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present in both model and biological system.
       model_specific_phenotypes:
-        range: Term
+        range: phenotypic feature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present only in the model system.
       biological_specific_phenotypes:
-        range: Term
+        range: phenotypic feature
         multivalued: true
         inlined_as_list: true
         description: >-
@@ -1094,13 +1114,13 @@ classes:
         description: >-
           Percentage of target cell types represented in the model system.
       represented_cell_types:
-        range: Term
+        range: cell
         multivalued: true
         inlined_as_list: true
         description: >-
           List of cell types present in both model and biological system.
       missing_cell_types:
-        range: Term
+        range: cell
         multivalued: true
         inlined_as_list: true
         description: >-
@@ -1281,7 +1301,7 @@ classes:
       Quantitative comparison of cell type proportions between systems.
     attributes:
       cell_type:
-        range: Term
+        range: cell
         inlined: true
         description: >-
           The cell type being compared.
@@ -1390,12 +1410,6 @@ classes:
         range: uri
         description: >-
           URL to access the publication
-
-  Term:
-    is_a: named thing
-    description: >-
-      A term is a concept or entity that can be defined and used in a specific
-      context, often within a controlled vocabulary or ontology.
 
 
 # NAMO defines no slots of its own.
