@@ -56,12 +56,22 @@ skip = [
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
-ignore-words-list = "linke"
+# Domain terms both spell-checkers misread, and which `typos` rewrites in place:
+#   nam/nams - New Approach Methodolog(y|ies); also the NAMModel class name.
+#              Left unlisted, NAMModel silently becomes NAMEModel.
+#   giv      - GIVReST, the official in vitro reporting standard
+#              (doi:10.14573/altex.2501011). Becomes GIVEReST if unlisted.
+ignore-words-list = "linke,nam,nams,giv"
 quiet-level = 3
 
 # Ref.: https://github.com/crate-ci/typos (spell checker)
 [tool.typos.default.extend-words]
 linke = "linke"
+# See the codespell note above: `typos` auto-fixes in place, so an unlisted
+# domain term here is silently rewritten in the schema, not just reported.
+NAM = "NAM"
+NAMs = "NAMs"
+GIV = "GIV"
 [tool.typos.files]
 extend-exclude = [
   "LICENSE",

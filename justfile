@@ -88,9 +88,12 @@ deploy: site
 test: _test-schema _test-python _test-examples
 
 # Run linting
+# Targets the schema file, not the directory: the directory also holds the
+# vendored Biolink Model (biolink-model.yaml, attributes.yaml), whose lint
+# findings are upstream's and not actionable here.
 [group('model development')]
 lint:
-  uv run linkml-lint {{source_schema_dir}}
+  uv run linkml-lint {{source_schema_path}}
 
 # Generate md documentation for the schema
 [group('model development')]

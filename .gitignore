@@ -138,3 +138,4 @@ dmypy.json
 .idea
 # Local vscode editor config
 .vscode
+src/namo/schema/biolink-model.yaml

@@ -1,5 +1,12 @@
 ---
 # https://pre-commit.com/
+
+# Vendored Biolink Model v4.4.3 (see imports in src/namo/schema/namo.yaml).
+# Excluded from every hook so the files stay byte-identical to upstream:
+# trailing-whitespace and end-of-file-fixer would otherwise rewrite them, and
+# yamllint/codespell/typos flag upstream content we do not own.
+exclude: ^src/namo/schema/(biolink-model|attributes)\.yaml$
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0

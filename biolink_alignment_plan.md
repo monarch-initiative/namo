@@ -5,7 +5,7 @@
 - Tracking issue: [#19 — All instances of "Term" should be removed from schema.yaml and replaced with the appropriate Biolink class](https://github.com/monarch-initiative/namo/issues/19)
 - Biolink Model version targeted: **4.4.3**
 - Companion document: [`ontology_mapping_plan.md`](ontology_mapping_plan.md) (enum → ontology strategy)
-- Status: **approved, ready to execute.** All seven design decisions (D1–D7) are resolved and folded into the stages below. No schema changes have been made yet.
+- Status: **Stage 1 applied; Stages 2–6 pending.** All seven design decisions (D1–D7) are resolved and folded into the stages below. The schema currently does **not** generate — that is expected and resolves in Stage 2.
 
 ---
 
@@ -26,7 +26,8 @@ Everything in this plan was probed end-to-end against the project toolchain befo
 | Check | Result |
 |---|---|
 | `imports: - https://w3id.org/biolink/biolink-model` | **Works.** `gen-python` exit 0 |
-| Local `../biolink-model.yaml` as the import target | **Fails.** It declares `imports: [linkml:types, attributes]` and `attributes.yaml` is not present next to it (`FileNotFoundError: .../attributes.yaml`). The local copy is unusable as an import; it is fine as a reading reference |
+| Bare URL import under `SchemaView` | **Fails.** `ValueError: Unknown CURIE prefix: https` — import strings are CURIE-expanded, so only `prefix:name` works. `gen-python` (SchemaLoader) accepts URLs; most other generators do not. Drove the 1b revision |
+| Nested relative import (`biolink-model` → `attributes`) | **Resolves against the root schema's directory**, not the importing file's. Any non-co-located biolink-model looks for `attributes.yaml` beside `namo.yaml` and fails. Forced vendoring — see 1b |
 | Do ranges actually resolve to Biolink? | **Yes.** `range: cell` → `class_class_uri = https://w3id.org/biolink/vocab/Cell`; `range: gross anatomical structure` → `.../GrossAnatomicalStructure`. Genuine link-out |
 | Generation weight | Python model goes to **645 classes / 19,151 lines** (from 49 NAMO classes) |
 | NAMO redefining `id` while importing biolink | **Hard failure:** `ValueError: Conflicting URIs (https://w3id.org/biolink/vocab/, …) for item: id` |
@@ -40,7 +41,9 @@ Everything in this plan was probed end-to-end against the project toolchain befo
 
 ---
 
-## Stage 1 — Wire up the import
+## Stage 1 — Wire up the import ✅ DONE
+
+Applied and verified. `SchemaView` loads `namo.yaml` with an import closure of `['linkml:types', 'attributes', 'biolink-model', 'namo']` and 383 visible classes; all seven Biolink classes needed as Stage 3 ranges resolve. `gen-python` now fails **only** with the expected Stage 2a collision — `ValueError: Conflicting URIs (https://w3id.org/biolink/vocab/, https://w3id.org/monarch-initiative/namo) for item: id` — which is the documented intermediate state until Stage 2 lands. 1b was revised during execution; see below.
 
 ### 1a. Fix the `biolink` prefix
 
@@ -52,17 +55,31 @@ Everything in this plan was probed end-to-end against the project toolchain befo
 
 Biolink's own declaration is `https://w3id.org/biolink/vocab/`. Left as-is, every emitted Biolink URI is wrong.
 
-### 1b. Add the import, pinned
+### 1b. Add the import — vendored, pinned to v4.4.3
 
-Tracking `main` would let an upstream Biolink release break NAMO silently. Pin to the version this plan targets:
+**Revised during execution.** This step originally specified a pinned remote URL. That does not work: two LinkML import-resolution behaviours, both verified, rule it out.
+
+1. **`SchemaView` cannot resolve bare URL imports.** It runs every import string through CURIE expansion, so `https://…` fails with `ValueError: Unknown CURIE prefix: https`. Only `prefix:name` form is accepted. (`gen-python` uses the older `SchemaLoader` and *does* accept URLs — which is why the first probe looked fine. Most of the toolchain, including `gen-doc`, `gen-pydantic` and `gen-json-schema`, is SchemaView-based.)
+2. **Nested relative imports resolve against the root schema's directory, not the importing file's.** `biolink-model.yaml` declares `imports: [linkml:types, attributes]`. However biolink-model is reached, LinkML then looks for `attributes.yaml` next to `namo.yaml` and fails. Introducing a `biolink_source:` prefix fixes (1) but not (2).
+
+So both files are vendored into `src/namo/schema/`, beside `namo.yaml`:
 
 ```yaml
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/biolink/biolink-model/v4.4.3/biolink-model.yaml
+  - biolink-model          # no .yaml - LinkML appends it
 ```
 
-`https://w3id.org/biolink/biolink-model` also resolves and is what was tested; it is unpinned. Use it only to float with upstream.
+| Vendored file | Size | Source |
+|---|---|---|
+| `src/namo/schema/biolink-model.yaml` | 518 KB | `raw.githubusercontent.com/biolink/biolink-model/v4.4.3/biolink-model.yaml` |
+| `src/namo/schema/attributes.yaml` | 15 KB | `raw.githubusercontent.com/biolink/biolink-model/v4.4.3/attributes.yaml` |
+
+Both are byte-identical to upstream v4.4.3 and must stay that way — the repo hygiene changes in 1d exist to guarantee it. They must also stay in this directory; moving them to a subdirectory reintroduces problem (2).
+
+Upside beyond making it work: the pin is now structural rather than a URL that could be edited or rot, and `just test` no longer needs network access.
+
+> **MAINTENANCE — bumping the Biolink version.** Re-download *both* files at the same tag, confirm `version:` in `biolink-model.yaml` matches, and re-run the 4a/4b closure checks (UBERON roots may shift between releases). Update the version references in this document, in the `imports:` comment in `namo.yaml`, and in the two `pyproject.toml` exclude comments.
 
 ### 1c. Add `default_curi_maps`
 
@@ -75,6 +92,24 @@ default_curi_maps:
   - monarch_context
   - semweb_context
 ```
+
+Verified after the change: `NCBITaxon`, `CL`, `BFO`, `rdfs`, `HP`, `MP`, `UBERON`, `UO`, `HsapDv`, `MmusDv`, `ECTO` and `ENVO` all resolve through `SchemaView.namespaces()`.
+
+### 1d. Repo hygiene forced by vendoring
+
+Dropping two upstream files into a directory the tooling treats as "ours" has four consequences. All four are addressed; none is optional.
+
+| Change | Why |
+|---|---|
+| `justfile`: `lint` now targets `{{source_schema_path}}`, not `{{source_schema_dir}}` | `linkml-lint` on a directory recursively lints *every* YAML in it, so it would have linted the vendored Biolink schema as two additional schemas |
+| `.pre-commit-config.yaml`: top-level `exclude` for both vendored files | `trailing-whitespace` and `end-of-file-fixer` would **rewrite** them, destroying byte-fidelity with upstream; `yamllint` reports 1,538 problems in them; `codespell`/`typos` flag upstream prose |
+| `pyproject.toml`: both files added to `[tool.codespell] skip` and `[tool.typos.files] extend-exclude` | Same reason, for direct (non-pre-commit) invocations |
+| `pyproject.toml`: `nam`/`nams` added to codespell `ignore-words-list`; `NAM`/`NAMs` to `[tool.typos.default.extend-words]` | **Pre-existing latent bug, not caused by vendoring.** Both spell-checkers treat "NAM" as a misspelling of "NAME" and `typos` auto-fixes in place. Running the hooks over `namo.yaml` rewrote the `NAMModel` class to `NAMEModel`, its `is_a:` references, and the `NAMModel.md` doc link. Caught and reverted; the allowlist prevents recurrence |
+
+Known remaining noise, neither a regression nor in scope for Stage 1:
+
+- **`just lint` still exits 1** — but it did before Stage 1 too. All findings are warnings, zero errors (201 → 1,024). The increase is because `linkml-lint` walks the import closure and reports on Biolink's own elements (`association` ×119, `gene` ×59, …) even when pointed at a single file. There is no flag to exclude imported elements; `--ignore-warnings` or `--max-warnings` would be a lint-policy decision to take separately.
+- **`yamllint` on `namo.yaml` still exits 1** — also pre-existing, and now *better*: 29 errors → 2 (the project's own whitespace hooks cleaned up the rest). The remaining two are indentation findings in untouched content.
 
 ---
 
