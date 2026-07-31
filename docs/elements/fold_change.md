@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: fold_change 
 
@@ -7,11 +10,11 @@ _Fold change in expression compared to control or reference._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:fold_change](https://w3id.org/monarch-initiative/namo/fold_change)
-Alias: fold_change
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: fold_change
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Gene](Gene.md) | A gene entity with identifiers and expression information |  no  |
+| [GeneExpressionResult](GeneExpressionResult.md) | A differential-expression measurement for a single gene in a model system |  no  |
 
 
 
@@ -31,13 +34,35 @@ Alias: fold_change
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [GeneExpressionResult](GeneExpressionResult.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [GeneExpressionResult](GeneExpressionResult.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: fold_change
 description: Fold change in expression compared to control or reference.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: fold_change
-owner: Gene
+owner: GeneExpressionResult
 domain_of:
-- Gene
+- GeneExpressionResult
 range: float
 
 ```
-</details>
+</details></div>

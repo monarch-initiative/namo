@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: CellTypeProportion 
 
@@ -6,6 +9,8 @@
 _Quantitative comparison of cell type proportions between systems._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -27,8 +32,8 @@ URI: [namo:CellTypeProportion](https://w3id.org/monarch-initiative/namo/CellType
     
         
         
-        CellTypeProportion --> "0..1" Term : cell_type
-        click Term href "../Term/"
+        CellTypeProportion --> "0..1" Cell : cell_type
+        click Cell href "../Cell/"
     
 
         
@@ -44,12 +49,11 @@ URI: [namo:CellTypeProportion](https://w3id.org/monarch-initiative/namo/CellType
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [cell_type](cell_type.md) | 0..1 <br/> [Term](Term.md) | The cell type being compared | direct |
+| [cell_type](cell_type.md) | 0..1 <br/> [Cell](Cell.md) | The cell type being compared | direct |
 | [model_proportion](model_proportion.md) | 0..1 <br/> [Float](Float.md) | Proportion of this cell type in the model system | direct |
 | [biological_proportion](biological_proportion.md) | 0..1 <br/> [Float](Float.md) | Proportion of this cell type in the biological system | direct |
 | [proportion_ratio](proportion_ratio.md) | 0..1 <br/> [Float](Float.md) | Ratio of model to biological proportions | direct |
@@ -70,8 +74,12 @@ URI: [namo:CellTypeProportion](https://w3id.org/monarch-initiative/namo/CellType
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -116,7 +124,11 @@ attributes:
     domain_of:
     - CellRatio
     - CellTypeProportion
-    range: Term
+    range: cell
+    bindings:
+    - range: CellTypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     inlined: true
   model_proportion:
     name: model_proportion
@@ -158,19 +170,21 @@ attributes:
     name: cell_type
     description: The cell type being compared.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: cell_type
     owner: CellTypeProportion
     domain_of:
     - CellRatio
     - CellTypeProportion
-    range: Term
+    range: cell
+    bindings:
+    - range: CellTypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     inlined: true
   model_proportion:
     name: model_proportion
     description: Proportion of this cell type in the model system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: model_proportion
     owner: CellTypeProportion
     domain_of:
     - CellTypeProportion
@@ -180,7 +194,6 @@ attributes:
     description: Proportion of this cell type in the biological system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_proportion
     owner: CellTypeProportion
     domain_of:
     - CellTypeProportion
@@ -190,11 +203,10 @@ attributes:
     description: Ratio of model to biological proportions.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: proportion_ratio
     owner: CellTypeProportion
     domain_of:
     - CellTypeProportion
     range: float
 
 ```
-</details>
+</details></div>

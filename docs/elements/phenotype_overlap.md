@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: phenotype_overlap 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:phenotype_overlap](https://w3id.org/monarch-initiative/namo/phenotype_overlap)
-Alias: phenotype_overlap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,8 +20,8 @@ Alias: phenotype_overlap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
 | [ConcordanceResult](ConcordanceResult.md) |  |  no  |
+| [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
 
 
 
@@ -27,13 +30,28 @@ Alias: phenotype_overlap
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [ConcordanceResult](ConcordanceResult.md), [StructuredConcordanceResult](StructuredConcordanceResult.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -55,11 +73,10 @@ Alias: phenotype_overlap
 <details>
 ```yaml
 name: phenotype_overlap
-alias: phenotype_overlap
 domain_of:
 - ConcordanceResult
 - StructuredConcordanceResult
 range: string
 
 ```
-</details>
+</details></div>

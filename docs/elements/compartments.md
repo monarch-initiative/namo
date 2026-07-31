@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: compartments 
 
@@ -7,11 +10,11 @@ _Physiological compartments included in the model_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:compartments](https://w3id.org/monarch-initiative/namo/compartments)
-Alias: compartments
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: compartments
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PBPKModel](PBPKModel.md) | Physiologically Based Pharmacokinetic models that simulate drug  absorption, ... |  no  |
+| [PBPKModel](PBPKModel.md) | Physiologically Based Pharmacokinetic models that simulate drug absorption, d... |  no  |
 
 
 
@@ -31,15 +34,36 @@ Alias: compartments
 
 ## Properties
 
-* Range: [PBPKCompartment](PBPKCompartment.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [PBPKCompartment](PBPKCompartment.md) |
+| Domain Of | [PBPKModel](PBPKModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PBPKModel](PBPKModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: compartments
 description: Physiological compartments included in the model
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: compartments
 owner: PBPKModel
 domain_of:
 - PBPKModel
@@ -81,4 +104,4 @@ inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

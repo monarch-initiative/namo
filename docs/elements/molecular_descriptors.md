@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: molecular_descriptors 
 
@@ -7,11 +10,11 @@ _Types of molecular descriptors used (topological, electronic, etc.)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:molecular_descriptors](https://w3id.org/monarch-initiative/namo/molecular_descriptors)
-Alias: molecular_descriptors
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: molecular_descriptors
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [QSARModel](QSARModel.md) | Quantitative Structure-Activity Relationship models that predict  chemical/bi... |  no  |
+| [QSARModel](QSARModel.md) | Quantitative Structure-Activity Relationship models that predict chemical/bio... |  no  |
 
 
 
@@ -31,15 +34,36 @@ Alias: molecular_descriptors
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [QSARModel](QSARModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [QSARModel](QSARModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: molecular_descriptors
 description: Types of molecular descriptors used (topological, electronic, etc.)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: molecular_descriptors
 owner: QSARModel
 domain_of:
 - QSARModel
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

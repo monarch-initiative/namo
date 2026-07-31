@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cell_type_coverage 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:cell_type_coverage](https://w3id.org/monarch-initiative/namo/cell_type_coverage)
-Alias: cell_type_coverage
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,8 +20,8 @@ Alias: cell_type_coverage
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
 | [ConcordanceResult](ConcordanceResult.md) |  |  no  |
+| [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
 
 
 
@@ -27,13 +30,28 @@ Alias: cell_type_coverage
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [ConcordanceResult](ConcordanceResult.md), [StructuredConcordanceResult](StructuredConcordanceResult.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -55,11 +73,10 @@ Alias: cell_type_coverage
 <details>
 ```yaml
 name: cell_type_coverage
-alias: cell_type_coverage
 domain_of:
 - ConcordanceResult
 - StructuredConcordanceResult
 range: string
 
 ```
-</details>
+</details></div>

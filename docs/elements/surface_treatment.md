@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: surface_treatment 
 
@@ -7,11 +10,11 @@ _Surface treatments or coatings applied to the device_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:surface_treatment](https://w3id.org/monarch-initiative/namo/surface_treatment)
-Alias: surface_treatment
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: surface_treatment
 
 ## Properties
 
-* Range: [SurfaceCoatingEnum](SurfaceCoatingEnum.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [SurfaceCoatingEnum](SurfaceCoatingEnum.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: surface_treatment
 description: Surface treatments or coatings applied to the device
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: surface_treatment
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
@@ -79,4 +102,4 @@ range: SurfaceCoatingEnum
 multivalued: true
 
 ```
-</details>
+</details></div>

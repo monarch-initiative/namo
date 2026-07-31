@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: partition_coefficient 
 
@@ -7,11 +10,11 @@ _Tissue-to-plasma partition coefficient_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:partition_coefficient](https://w3id.org/monarch-initiative/namo/partition_coefficient)
-Alias: partition_coefficient
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: partition_coefficient
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [PBPKCompartment](PBPKCompartment.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PBPKCompartment](PBPKCompartment.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: partition_coefficient
 description: Tissue-to-plasma partition coefficient
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: partition_coefficient
 owner: PBPKCompartment
 domain_of:
 - PBPKCompartment
 range: float
 
 ```
-</details>
+</details></div>

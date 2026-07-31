@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: InterpretabilityLevelEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:InterpretabilityLevelEnum](https://w3id.org/monarch-initiative/namo/InterpretabilityLevelEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | BLACK_BOX | None | No interpretability - predictions only |
@@ -26,8 +33,12 @@ URI: [namo:InterpretabilityLevelEnum](https://w3id.org/monarch-initiative/namo/I
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -66,3 +77,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

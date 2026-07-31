@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: coculture_configuration 
 
@@ -7,11 +10,11 @@ _Configuration of co-culture (direct contact, transwell, conditioned media)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:coculture_configuration](https://w3id.org/monarch-initiative/namo/coculture_configuration)
-Alias: coculture_configuration
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: coculture_configuration
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic  microenvironments ... |  no  |
+| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic microenvironments a... |  no  |
 
 
 
@@ -31,13 +34,35 @@ Alias: coculture_configuration
 
 ## Properties
 
-* Range: [CocultureConfigurationEnum](CocultureConfigurationEnum.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [CocultureConfigurationEnum](CocultureConfigurationEnum.md) |
+| Domain Of | [CoCulture](CoCulture.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CoCulture](CoCulture.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: coculture_configuration
 description: Configuration of co-culture (direct contact, transwell, conditioned media)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: coculture_configuration
 owner: CoCulture
 domain_of:
 - CoCulture
 range: CocultureConfigurationEnum
 
 ```
-</details>
+</details></div>

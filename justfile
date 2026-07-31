@@ -26,6 +26,14 @@ config_yaml := if env_var_or_default("LINKML_GENERATORS_CONFIG_YAML", "") != "" 
 } else {
   ""
 }
+# Absolute-path variant, for the gen-project recipes that must `cd` into the
+# schema directory (see the note on gen-python). The relative form above
+# resolves against the repo root and breaks once the cwd changes.
+config_yaml_abs := if env_var_or_default("LINKML_GENERATORS_CONFIG_YAML", "") != "" {
+  "--config-file " + justfile_directory() / env_var_or_default("LINKML_GENERATORS_CONFIG_YAML", "")
+} else {
+  ""
+}
 gen_doc_args := env_var_or_default("LINKML_GENERATORS_DOC_ARGS", "")
 gen_java_args := env_var_or_default("LINKML_GENERATORS_JAVA_ARGS", "")
 gen_owl_args := env_var_or_default("LINKML_GENERATORS_OWL_ARGS", "")
@@ -106,14 +114,23 @@ gen-doc: _gen-yaml
 testdoc server_config="": gen-doc (_serve server_config)
 
 # Generate the Python data models (dataclasses & pydantic)
+#
+# NOTE: `gen-project` is run from the schema directory. The vendored Biolink
+# schema imports `attributes`, and gen-project resolves that nested relative
+# import against the *invocation cwd* rather than the schema's own directory -
+# from the repo root it looks for ./attributes.yaml and fails. Output paths are
+# therefore absolute. gen-project is the ONLY generator with this behaviour;
+# gen-pydantic/doc/owl/java/typescript all resolve it correctly from the root,
+# so they are deliberately left alone (a needless `cd` would break their
+# relative output paths).
 gen-python:
-  uv run gen-project -d  {{pymodel}} -I python {{source_schema_path}}
+  cd {{source_schema_dir}} && uv run gen-project -d {{justfile_directory()}}/{{pymodel}} -I python {{schema_name}}.yaml
   uv run gen-pydantic {{gen_pydantic_args}} {{source_schema_path}} > {{pymodel}}/{{schema_name}}_pydantic.py
 
 # Generate project files including Python data model
 [group('model development')]
 gen-project:
-  uv run gen-project {{config_yaml}} -d {{dest}} {{source_schema_path}}
+  cd {{source_schema_dir}} && uv run gen-project {{config_yaml_abs}} -d {{justfile_directory()}}/{{dest}} {{schema_name}}.yaml
   mv {{dest}}/*.py {{pymodel}}
   uv run gen-pydantic {{gen_pydantic_args}} {{source_schema_path}} > {{pymodel}}/{{schema_name}}_pydantic.py
   uv run gen-java {{gen_java_args}} --output-directory {{dest}}/java/ {{source_schema_path}}
@@ -182,8 +199,9 @@ _update-linkml:
   uv add linkml --upgrade-package linkml
 
 # Test schema generation
+# Run from the schema directory - see the note on the gen-python recipe.
 _test-schema:
-  uv run gen-project {{config_yaml}} -d tmp {{source_schema_path}}
+  cd {{source_schema_dir}} && uv run gen-project {{config_yaml_abs}} -d {{justfile_directory()}}/tmp {{schema_name}}.yaml
 
 # Run Python unit tests with pytest
 _test-python: gen-python
@@ -202,9 +220,17 @@ _test-examples: _ensure_examples_output
     --schema {{source_schema_path}} > examples/output/README.md
 
 # Generate merged model
+#
+# Uses gen-linkml, not gen-yaml. gen-yaml cannot serialise the `annotations:`
+# that the imported Biolink Model puts on its slots, and dies with
+# "RepresenterError: cannot represent an object ... Annotation(...)". gen-linkml
+# handles them and produces the same NAMO-scoped resolved schema.
+#   -f yaml           gen-linkml defaults to JSON.
+#   --no-mergeimports keeps Biolink referenced rather than inlined; merging it
+#                     in yields a ~270k-line file.
 _gen-yaml:
   -mkdir -p docs/schema
-  uv run gen-yaml {{source_schema_path}} > {{merged_schema_path}}
+  uv run gen-linkml -f yaml --no-mergeimports {{source_schema_path}} > {{merged_schema_path}}
 
 # Run documentation server with optional port/address configuration
 _serve server_config="":

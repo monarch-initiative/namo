@@ -5,7 +5,7 @@
 - Tracking issue: [#19 — All instances of "Term" should be removed from schema.yaml and replaced with the appropriate Biolink class](https://github.com/monarch-initiative/namo/issues/19)
 - Biolink Model version targeted: **4.4.3**
 - Companion document: [`ontology_mapping_plan.md`](ontology_mapping_plan.md) (enum → ontology strategy)
-- Status: **Stages 1–3 applied; Stages 4–6 pending.** All seven design decisions (D1–D7) are resolved and folded into the stages below. The schema generates cleanly. The test suite is red — 27/27 — entirely on instance data that Stage 5 migrates; see Stage 3's closing note for the breakdown.
+- Status: **Stages 1–4 applied; Stage 5 is the remaining work.** All seven design decisions (D1–D7) are resolved and folded into the stages below. The schema generates cleanly and every enum reference resolves. The test suite is red — 27/27 — entirely on instance data that Stage 5 migrates; see Stage 3's closing note for the breakdown.
 
 ---
 
@@ -114,9 +114,9 @@ Known remaining noise, neither a regression nor in scope for Stage 1:
 - **`just lint` still exits 1** — but it did before Stage 1 too. All findings are warnings, zero errors (201 → 1,024). The increase is because `linkml-lint` walks the import closure and reports on Biolink's own elements (`association` ×119, `gene` ×59, …) even when pointed at a single file. There is no flag to exclude imported elements; `--ignore-warnings` or `--max-warnings` would be a lint-policy decision to take separately.
 - **`yamllint` on `namo.yaml` still exits 1** — also pre-existing, and now *better*: 29 errors → 2 (the project's own whitespace hooks cleaned up the rest). The remaining two are indentation findings in untouched content.
 
-### 1e. Generators must run from the schema directory — ⚠️ OPEN
+### 1e. `gen-project` must run from the schema directory — ✅ DONE
 
-Not yet applied. Surfaced while verifying Stage 2.
+Applied. `just _test-schema` and `just gen-python` both exit 0.
 
 `gen-project` resolves Biolink's nested `attributes` import against the **invocation cwd**, so from the repo root it looks for `<repo>/attributes.yaml` and dies with `FileNotFoundError`. This is a third resolution behaviour, distinct from `gen-python` (schema dir) and `SchemaView` (root-schema dir), and there is no `--importmap` option on `gen-project` to override it.
 
@@ -134,15 +134,73 @@ gen-project:
     -d {{justfile_directory()}}/{{dest}} {{schema_name}}.yaml
 ```
 
-**Before applying, check each generator individually** — they do not agree. `gen-python` works from the repo root today; `gen-project` does not. The recipes to audit are `gen-project`, `gen-python`, `gen-doc`, `gen-pydantic`, `gen-java`, `gen-owl`, `gen-typescript`, `_gen-yaml` and `_test-schema`. Only change the ones that actually fail; a needless `cd` makes every relative output path in that recipe wrong.
+**Audit result — `gen-project` is the only affected generator.** Every generator the justfile invokes was run against the real schema from the repo root:
 
-Non-fatal noise seen during a successful run, all from Biolink's own definitions and safe to ignore: `ERROR:linkml.generators.sqltablegen:Unknown range base: None for broad_synonym = label type` (and the other synonym slots), plus an openpyxl warning about sheet-name length.
+| Generator | From repo root | Action |
+|---|---|---|
+| `gen-project` | **rc=1**, `FileNotFoundError: <repo>/attributes.yaml` | **`cd` applied** (3 sites) |
+| `gen-doc` | rc=0 | left alone |
+| `gen-pydantic` | rc=0 | left alone |
+| `gen-owl` | rc=0 | left alone |
+| `gen-typescript` | rc=0 | left alone |
+| `gen-java` | rc=0 | left alone |
+| `linkml-lint` | rc=1 — pre-existing warnings only, not an import failure | left alone |
+| `gen-yaml` | rc=1 — **separate regression**, see 1g | left alone |
 
-### 1f. `attributes.yaml` must be committed — ⚠️ HAZARD
+The three `gen-project` sites now `cd` into the schema directory: the `gen-python`, `gen-project` and `_test-schema` recipes. Each is a single `cd … && …` line, which is self-contained because `just` runs every recipe line in its own shell.
+
+Two knock-on changes this forced:
+
+1. **Output paths made absolute** via `justfile_directory()`, since they were repo-root-relative.
+2. **A new `config_yaml_abs` variable.** `{{config_yaml}}` expands to `--config-file config.yaml`, a repo-root-relative path that fails the moment the cwd changes (`Error: Invalid value for '--config-file': 'config.yaml': No such file or directory`). The absolute variant is used only in the `cd`-ing recipes; the original is untouched for everything else.
+
+Non-fatal noise during a successful run, all from Biolink's own definitions: `ERROR:linkml.generators.sqltablegen:Unknown range base: None for broad_synonym = label type` (and the other synonym slots), plus an openpyxl sheet-name-length warning.
+
+### 1f. `attributes.yaml` must be committed — ✅ DONE
 
 Commit `fd4b00a` ("Stage 1 changes done") committed `biolink-model.yaml` but **not** `src/namo/schema/attributes.yaml`, and the working-tree copy was removed. Since `biolink-model.yaml` imports it, the schema became unloadable for anyone at that commit — `FileNotFoundError: .../src/namo/schema/attributes.yaml`.
 
-Restored from the pinned v4.4.3 tag; `biolink-model.yaml` re-verified byte-identical to upstream. **`attributes.yaml` is currently untracked and must go into the next commit.** It is easy to miss precisely because its name gives no hint that it belongs to Biolink — the `imports:` comment in `namo.yaml` names both files for this reason.
+Restored from the pinned v4.4.3 tag, `git add`-ed, and now present in `HEAD`. `biolink-model.yaml` was re-verified byte-identical to upstream at the same time. The file is easy to miss precisely because its name gives no hint that it belongs to Biolink — the `imports:` comment in `namo.yaml` names both files for this reason, and the `pyproject.toml` / pre-commit excludes list both explicitly.
+
+### 1g. `gen-yaml` is broken by the Biolink import — ✅ DONE (switched to `gen-linkml`)
+
+Found during the 1e audit; **not** a cwd problem.
+
+```
+yaml.representer.RepresenterError: ('cannot represent an object',
+  JsonObj(canonical_predicate=Annotation({'tag': 'canonical_predicate', 'value': True}),
+          opposite_of=Annotation({'tag': 'opposite_of', 'value': 'has output'})))
+```
+
+`gen-yaml` cannot serialise the `annotations:` that Biolink puts on its slots. Confirmed a genuine regression: the same command on the pre-Biolink schema (`10de27f`) exits 0.
+
+This breaks the `_gen-yaml` recipe, which produces `docs/schema/namo.yaml` — and since `gen-doc: _gen-yaml`, it breaks **`just gen-doc`, `just site` and `just deploy`**. Note `gen-doc` *itself* is fine (rc=0); only its dependency fails.
+
+**Fix applied:** `_gen-yaml` now calls `gen-linkml` instead, which handles annotations:
+
+```make
+uv run gen-linkml -f yaml --no-mergeimports {{source_schema_path}} > {{merged_schema_path}}
+```
+
+`-f yaml` is required (`gen-linkml` defaults to JSON). `--no-mergeimports` keeps Biolink referenced rather than inlined — merging it produces a ~270,000-line file.
+
+Verified: `just _gen-yaml` and `just gen-doc` both exit 0. The output parses as YAML and is correctly scoped — **47 classes, 33 enums, zero Biolink classes inlined**, Biolink ranges preserved as references, `Term` absent, all four renamed classes present.
+
+Rejected alternatives, for the record: `gen-yaml --no-mergeimports` (not an option; silently ignored, still fails), `gen-yaml --no-metadata` (still fails), `gen-yaml --raw` (exits 0 but emits an *unresolved* 2,241-line schema, not a substitute for the resolved one).
+
+**Still worth reporting upstream.** `gen-yaml` fails on any annotation-bearing schema, and Biolink is the most widely-imported LinkML schema there is. A fix would allow reverting to the simpler command.
+
+**Cost: the merged schema grew 5,238 → 17,905 lines.** Most of that is not `gen-linkml` verbosity — it is the Biolink alignment itself. Every NAMO class now inherits Biolink's slot set (`id`, `iri`, `category`, `type`, `name`, `description`, `has_attribute`, `deprecated`, `provided_by`, `xref`, `synonym`, …), and a resolved schema materialises all of them per class. Any working merged schema would now be roughly this size. Review that diff once properly rather than skimming it.
+
+### 1h. Documentation output — ⚠️ NEEDS A DECISION
+
+Two consequences of the import surfaced once `gen-doc` could run again.
+
+**`docs/elements/` went from 289 to 1,216 pages.** Biolink's classes and slots each get their own page. `--no-render-imports` does **not** help — it yields 1,216 vs 1,226, so the pages are produced regardless of that flag. There is no generator option that scopes the docs to NAMO-defined elements; doing so would need a custom template directory or a post-generation filter. Left as-is for now: the published site is currently ~80% Biolink reference material.
+
+**Stale pages are not cleaned automatically.** `gen-doc` writes but never deletes, so pages for removed elements persist. After Stages 2–3, `Term.md`, `tissue_modeled.md`, `age.md`, `gene_symbol.md`, `ensembl_id.md`, `entrez_id.md` and `pathway_database.md` were all orphaned. Cleared by `rm -f docs/elements/*.md` before regenerating — worth folding into the recipe, since `just clean` already does this but `just gen-doc` alone does not.
+
+**A subtler hazard — `Study.md` and `Dataset.md` still exist, but now describe Biolink's classes**, not NAMO's; NAMO's live at `NAMStudy.md` and `NAMDataset.md`. Same for `Gene.md` / `Pathway.md`. This upgrades a Stage 5 item from "update the links" to something sharper: the `[Dataset](Dataset.md)` and `[Studies](Study.md)` links in `namo.yaml`'s own `description:` block still **resolve**, they just now point at the wrong class. A silently-wrong link is worse than a broken one, so this should be fixed with the rest of Stage 5's prose propagation.
 
 ---
 
@@ -340,9 +398,25 @@ Regenerating the datamodel and running `pytest` gives a clean, fully-categorised
 
 ---
 
-## Stage 4 — Enum and binding alignment
+## Stage 4 — Enum and binding alignment ✅ DONE
 
-**`oaklib` (0.6.23) is now a dev dependency**, so closure checks can be computed — 4a and 4b below report real results against Ubergraph rather than expectations.
+Applied and verified. `gen-python` exits 0, **63 enums defined, zero dangling enum references** — which closes the two forward references Stage 3 left open (`LifeStageEnum`, `AnatomicalStructureEnum`) *and* the pre-existing dangling `OrganismAgeEnum`, a bug that predated this work. `StrainEnum` and `AgeEnum` are deleted. The test failure profile is byte-for-byte unchanged from Stage 3 (19 / 5 / 3), so nothing here regressed anything.
+
+Closure checks re-run against Ubergraph with the enums as actually written:
+
+| Enum | Root | Closure | Curated values | Failures |
+|---|---|---|---|---|
+| `OrganEnum` | `UBERON:0000062` + `part_of` | 19,578 | 10 `organ_modeled` | none |
+| `AnatomicalStructureEnum` | `UBERON:0010000` + `part_of` | 56,644 | 3 `anatomical_structure_modeled` | none |
+| `CellTypeEnum` | `CL:0000000` | 31,921 | **53** distinct CL CURIEs | none |
+| `LifeStageEnum` | `UBERON:0000105` | 54 | none yet | n/a |
+| `PhenotypeEnum` | `HP:0000118` + `MP:0000001` | — | none yet | n/a |
+
+The `CellTypeEnum` row is the one that carried real risk: 4e binds four slots that were **never constrained before**, so those values had never been checked against CL. All 53 validate.
+
+Two enums have no data to validate against — `LifeStageEnum` (nothing populates `life_stage`) and `PhenotypeEnum` (no example file populates the three `PhenotypeOverlap` phenotype slots). Their roots are sound but unexercised; the first curated value through either path is where they actually get tested.
+
+**`oaklib` (0.6.23) is now a dev dependency**, so closure checks can be computed — the table at the top of this stage reports real results against Ubergraph rather than expectations.
 
 **But nothing in `just test` yet enforces these enums.** `_test-python` uses `yaml_loader` + dataclasses and `_test-examples` uses `linkml-run-examples`; neither expands a `reachable_from` enum or checks a `bindings` block. NAMO's enum constraints are therefore declared but **unenforced at test time**, and will stay that way until a validation step is wired into the suite. So the tightening in 4a carries no immediate CI risk — and equally, 4a–4f should not be considered done until that step exists. Adding it is tracked in Stage 6.
 
@@ -438,7 +512,7 @@ Biolink `phenotypic feature` spans HP/MP/UPHENO, so compose:
           relationship_types: [rdfs:subClassOf]
 ```
 
-This makes `PhenotypeOverlap.phenotype_ontology` (free text documenting "HPO, MP") redundant — flag for deprecation.
+This makes `PhenotypeOverlap.phenotype_ontology` (free text documenting "HPO, MP") redundant: the source ontology is now carried by each term's own CURIE prefix. It has been given a `deprecated:` annotation rather than deleted, so existing data keeps loading; remove it in a later cleanup.
 
 ### 4e. Bind the four unbound cell-type slots
 
@@ -525,7 +599,7 @@ Note that `tests/test_data.py` derives the target class from the filename (`Path
 - **Generated artifacts balloon:** 49 → 645 Python classes, ~19k lines. Expect `just gen-project` and `just gen-doc` to slow substantially, and `docs/elements/` to gain hundreds of pages unless `gen-doc` is constrained. Worth deciding whether the docs build should be filtered to NAMO-defined classes only.
 - **Run order:** `just lint` → `just gen-project` → `just test`, then grep the OWL output for `https://w3id.org/biolink/vocab/Cell` to confirm Stage 1a landed.
 - **Stage order:** 1 → 2 (designator check first) → 3 (Term deletion last) → 4 → 5. Stage 2 before 3 is mandatory. **Stages 1–2 are now applied, and the suite is red until Stage 5 lands** — every example file still carries `type:` instead of `category:` and lacks `category` on its ontology references. That was always going to be true between 2b/2c and 5; it just means the branch is not in a committable-green state until Stage 5 completes.
-- **Carry into Stage 3:** `1e` (generators must run from the schema directory) and `1f` (`attributes.yaml` untracked) are open and unrelated to Stage 3's content. `1f` in particular should be cleared at the next commit.
+- **Stage 1 leftovers:** `1e` (gen-project cwd), `1f` (`attributes.yaml`) and `1g` (`gen-yaml` → `gen-linkml`) are all closed — the whole `just` pipeline runs again. `1h` (docs output: 1,216 pages, stale-page cleanup, and `Study.md`/`Dataset.md` now describing Biolink's classes) is open and needs a decision.
 
 ---
 

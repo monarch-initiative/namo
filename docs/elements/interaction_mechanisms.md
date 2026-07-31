@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: interaction_mechanisms 
 
@@ -7,11 +10,11 @@ _Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:interaction_mechanisms](https://w3id.org/monarch-initiative/namo/interaction_mechanisms)
-Alias: interaction_mechanisms
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: interaction_mechanisms
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic  microenvironments ... |  no  |
+| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic microenvironments a... |  no  |
 
 
 
@@ -31,15 +34,36 @@ Alias: interaction_mechanisms
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [CoCulture](CoCulture.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CoCulture](CoCulture.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: interaction_mechanisms
 description: Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: interaction_mechanisms
 owner: CoCulture
 domain_of:
 - CoCulture
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

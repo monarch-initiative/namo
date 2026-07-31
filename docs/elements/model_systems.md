@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: model_systems 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:model_systems](https://w3id.org/monarch-initiative/namo/model_systems)
-Alias: model_systems
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,7 +20,7 @@ Alias: model_systems
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dataset](Dataset.md) |  |  no  |
+| [NAMDataset](NAMDataset.md) |  |  no  |
 
 
 
@@ -26,15 +29,36 @@ Alias: model_systems
 
 ## Properties
 
-* Range: [ModelSystem](ModelSystem.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [ModelSystem](ModelSystem.md) |
+| Domain Of | [NAMDataset](NAMDataset.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [NAMDataset](NAMDataset.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -65,14 +89,13 @@ Alias: model_systems
 name: model_systems
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: model_systems
-owner: Dataset
+owner: NAMDataset
 domain_of:
-- Dataset
+- NAMDataset
 range: ModelSystem
 multivalued: true
 inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

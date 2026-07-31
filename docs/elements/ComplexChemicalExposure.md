@@ -1,0 +1,769 @@
+---
+search:
+  boost: 10.0
+---
+
+# Class: ComplexChemicalExposure 
+
+
+_A complex chemical exposure is an intake of a chemical mixture, other than a drug._
+
+
+
+<div data-search-exclude markdown="1">
+
+
+
+URI: [namo:ComplexChemicalExposure](https://w3id.org/monarch-initiative/namo/ComplexChemicalExposure)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class ComplexChemicalExposure
+    click ComplexChemicalExposure href "../ComplexChemicalExposure/"
+      ExposureEvent <|-- ComplexChemicalExposure
+        click ExposureEvent href "../ExposureEvent/"
+      
+      ComplexChemicalExposure : broad_synonym
+        
+      ComplexChemicalExposure : category
+        
+      ComplexChemicalExposure : deprecated
+        
+      ComplexChemicalExposure : description
+        
+      ComplexChemicalExposure : equivalent_identifiers
+        
+      ComplexChemicalExposure : exact_synonym
+        
+      ComplexChemicalExposure : exposure_additional_condition
+        
+      ComplexChemicalExposure : exposure_duration
+        
+      ComplexChemicalExposure : exposure_end_age
+        
+      ComplexChemicalExposure : exposure_magnitude
+        
+      ComplexChemicalExposure : exposure_route
+        
+      ComplexChemicalExposure : exposure_start_age
+        
+      ComplexChemicalExposure : exposure_type
+        
+      ComplexChemicalExposure : exposure_vehicle
+        
+      ComplexChemicalExposure : full_name
+        
+      ComplexChemicalExposure : has_attribute
+        
+          
+    
+        
+        
+        ComplexChemicalExposure --> "*" Attribute : has_attribute
+        click Attribute href "../Attribute/"
+    
+
+        
+      ComplexChemicalExposure : id
+        
+      ComplexChemicalExposure : information_content
+        
+      ComplexChemicalExposure : iri
+        
+      ComplexChemicalExposure : name
+        
+      ComplexChemicalExposure : narrow_synonym
+        
+      ComplexChemicalExposure : provided_by
+        
+      ComplexChemicalExposure : related_synonym
+        
+      ComplexChemicalExposure : subsets
+        
+      ComplexChemicalExposure : synonym
+        
+      ComplexChemicalExposure : taxon
+        
+      ComplexChemicalExposure : timepoint
+        
+      ComplexChemicalExposure : type
+        
+      ComplexChemicalExposure : xref
+        
+      
+```
+
+
+
+
+
+## Inheritance
+* [Entity](Entity.md)
+    * [NamedThing](NamedThing.md)
+        * [ExposureEvent](ExposureEvent.md) [ [OntologyClass](OntologyClass.md)]
+            * **ComplexChemicalExposure**
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [timepoint](timepoint.md) | 0..1 <br/> [TimeType](TimeType.md) | a point in time | [ExposureEvent](ExposureEvent.md) |
+| [exposure_type](exposure_type.md) | 0..1 <br/> [String](String.md) | Type of exposure | [ExposureEvent](ExposureEvent.md) |
+| [exposure_vehicle](exposure_vehicle.md) | 0..1 <br/> [String](String.md) | Type of an exposure event | [ExposureEvent](ExposureEvent.md) |
+| [exposure_route](exposure_route.md) | 0..1 <br/> [String](String.md) | Route of exposure | [ExposureEvent](ExposureEvent.md) |
+| [exposure_start_age](exposure_start_age.md) | 0..1 <br/> [Integer](Integer.md) | Starting age of an exposure event | [ExposureEvent](ExposureEvent.md) |
+| [exposure_end_age](exposure_end_age.md) | 0..1 <br/> [Integer](Integer.md) | Ending stage of an exposure event | [ExposureEvent](ExposureEvent.md) |
+| [exposure_duration](exposure_duration.md) | 0..1 <br/> [Time](Time.md) | Duration of an exposure event | [ExposureEvent](ExposureEvent.md) |
+| [exposure_magnitude](exposure_magnitude.md) | 0..1 <br/> [String](String.md) | Magnitude of an exposure event, e | [ExposureEvent](ExposureEvent.md) |
+| [exposure_additional_condition](exposure_additional_condition.md) | 0..1 <br/> [String](String.md) | Additional conditions impacting an exposure event | [ExposureEvent](ExposureEvent.md) |
+| [id](id.md) | 1 <br/> [String](String.md) | Could generally be a CURIE from a suitable exposure ontology like ECTO | [Entity](Entity.md), [OntologyClass](OntologyClass.md) |
+| [subsets](subsets.md) | * <br/> [String](String.md) | The set of ontology subsets a term belongs to (e | [OntologyClass](OntologyClass.md) |
+| [provided_by](provided_by.md) | * <br/> [String](String.md) | The value in this node property represents the knowledge provider that create... | [NamedThing](NamedThing.md) |
+| [xref](xref.md) | * <br/> [Uriorcurie](Uriorcurie.md) | A database cross reference or alternative identifier for a NamedThing or edge... | [NamedThing](NamedThing.md) |
+| [full_name](full_name.md) | 0..1 <br/> [LabelType](LabelType.md) | a long-form human readable name for a thing | [NamedThing](NamedThing.md) |
+| [synonym](synonym.md) | * <br/> [LabelType](LabelType.md) | Alternate human-readable names for a thing | [NamedThing](NamedThing.md) |
+| [exact_synonym](exact_synonym.md) | * <br/> [LabelType](LabelType.md) | An alternate label for an entity that denotes exactly the same meaning as the... | [NamedThing](NamedThing.md) |
+| [broad_synonym](broad_synonym.md) | * <br/> [LabelType](LabelType.md) | An alternate label for an entity whose meaning is broader (more general) than... | [NamedThing](NamedThing.md) |
+| [narrow_synonym](narrow_synonym.md) | * <br/> [LabelType](LabelType.md) | An alternate label for an entity whose meaning is narrower (more specific) th... | [NamedThing](NamedThing.md) |
+| [related_synonym](related_synonym.md) | * <br/> [LabelType](LabelType.md) | An alternate label that is related to the primary label but is neither exactl... | [NamedThing](NamedThing.md) |
+| [equivalent_identifiers](equivalent_identifiers.md) | * <br/> [Uriorcurie](Uriorcurie.md) | A set of identifiers that are considered equivalent to the primary identifier... | [NamedThing](NamedThing.md) |
+| [information_content](information_content.md) | 0..1 <br/> [Float](Float.md) | Information content (IC) value for a term, primarily from Automats | [NamedThing](NamedThing.md) |
+| [taxon](taxon.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | A property that indicates the taxonomic classification of an entity | [NamedThing](NamedThing.md) |
+| [iri](iri.md) | 0..1 <br/> [IriType](IriType.md) | An IRI for an entity | [Entity](Entity.md) |
+| [category](category.md) | 1..* <br/> [Uriorcurie](Uriorcurie.md) | Name of the high level ontology class in which this entity is categorized | [Entity](Entity.md) |
+| [type](type.md) | * <br/> [String](String.md) | An rdf:type property asserting that an entity is an instance of a particular ... | [Entity](Entity.md) |
+| [name](name.md) | 0..1 <br/> [LabelType](LabelType.md) | A human-readable name for an attribute or entity | [Entity](Entity.md) |
+| [description](description.md) | 0..1 <br/> [NarrativeText](NarrativeText.md) | a human-readable description of an entity | [Entity](Entity.md) |
+| [has_attribute](has_attribute.md) | * <br/> [Attribute](Attribute.md) | connects any entity to an attribute | [Entity](Entity.md) |
+| [deprecated](deprecated.md) | 0..1 <br/> [Boolean](Boolean.md) | A boolean flag indicating that an entity is no longer considered current or v... | [Entity](Entity.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://w3id.org/monarch-initiative/namo
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | namo:ComplexChemicalExposure |
+| native | namo:ComplexChemicalExposure |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: complex chemical exposure
+description: A complex chemical exposure is an intake of a chemical mixture, other
+  than a drug.
+from_schema: https://w3id.org/monarch-initiative/namo
+is_a: exposure event
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: complex chemical exposure
+description: A complex chemical exposure is an intake of a chemical mixture, other
+  than a drug.
+from_schema: https://w3id.org/monarch-initiative/namo
+is_a: exposure event
+attributes:
+  timepoint:
+    name: timepoint
+    description: a point in time
+    from_schema: https://w3id.org/monarch-initiative/namo
+    aliases:
+    - duration
+    rank: 1000
+    owner: complex chemical exposure
+    domain_of:
+    - geographic location at time
+    - exposure event
+    - association
+    range: time type
+  exposure type:
+    name: exposure type
+    description: Type of exposure
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: exposure event
+    alias: exposure_type
+    owner: complex chemical exposure
+    domain_of:
+    - exposure event
+    range: string
+  exposure vehicle:
+    name: exposure vehicle
+    description: Type of an exposure event.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: exposure event
+    alias: exposure_vehicle
+    owner: complex chemical exposure
+    domain_of:
+    - exposure event
+    range: string
+  exposure route:
+    name: exposure route
+    description: Route of exposure.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: exposure event
+    alias: exposure_route
+    owner: complex chemical exposure
+    domain_of:
+    - exposure event
+    range: string
+  exposure start age:
+    name: exposure start age
+    description: Starting age of an exposure event.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: exposure event
+    alias: exposure_start_age
+    owner: complex chemical exposure
+    domain_of:
+    - exposure event
+    range: integer
+  exposure end age:
+    name: exposure end age
+    description: Ending stage of an exposure event.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: exposure event
+    alias: exposure_end_age
+    owner: complex chemical exposure
+    domain_of:
+    - exposure event
+    range: integer
+  exposure duration:
+    name: exposure duration
+    description: Duration of an exposure event.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: exposure event
+    alias: exposure_duration
+    owner: complex chemical exposure
+    domain_of:
+    - exposure event
+    range: time
+  exposure magnitude:
+    name: exposure magnitude
+    description: Magnitude of an exposure event, e.g, parts per million of a toxic
+      chemical.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: exposure event
+    alias: exposure_magnitude
+    owner: complex chemical exposure
+    domain_of:
+    - exposure event
+    range: string
+  exposure additional condition:
+    name: exposure additional condition
+    description: Additional conditions impacting an exposure event.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: exposure event
+    alias: exposure_additional_condition
+    owner: complex chemical exposure
+    domain_of:
+    - exposure event
+    range: string
+  id:
+    name: id
+    description: Could generally be a CURIE from a suitable exposure ontology like
+      ECTO.
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - AGRKB:primaryId
+    - gff3:ID
+    - gpi:DB_Object_ID
+    rank: 1000
+    domain: entity
+    identifier: true
+    owner: complex chemical exposure
+    domain_of:
+    - Reference
+    - ontology class
+    - entity
+    range: string
+    required: true
+  subsets:
+    name: subsets
+    description: The set of ontology subsets a term belongs to (e.g. GO slim subsets,
+      MONDO rare disease subset). Carries the values of `oboInOwl:inSubset` annotations
+      from source ontologies through to downstream knowledge graphs.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - oboInOwl:inSubset
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    owner: complex chemical exposure
+    domain_of:
+    - ontology class
+    range: string
+    multivalued: true
+  provided by:
+    name: provided by
+    description: The value in this node property represents the knowledge provider
+      that created or assembled the node and all of its attributes.  Used internally
+      to represent how a particular node made its way into a knowledge provider or
+      graph.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    alias: provided_by
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: string
+    multivalued: true
+  xref:
+    name: xref
+    description: A database cross reference or alternative identifier for a NamedThing
+      or edge between two NamedThings.  This property should point to a database record
+      or webpage that supports the existence of the edge, or gives more detail about
+      the edge. This property can be used on a node or edge to provide multiple URIs
+      or CURIE cross references.
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/monarch-initiative/namo
+    aliases:
+    - dbxref
+    - Dbxref
+    - DbXref
+    - record_url
+    - source_record_urls
+    narrow_mappings:
+    - gff3:Dbxref
+    - gpi:DB_Xrefs
+    rank: 1000
+    domain: named thing
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    - publication
+    - retrieval source
+    - gene
+    - gene product mixin
+    range: uriorcurie
+    multivalued: true
+  full name:
+    name: full name
+    description: a long-form human readable name for a thing
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    alias: full_name
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: label type
+  synonym:
+    name: synonym
+    description: Alternate human-readable names for a thing
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/monarch-initiative/namo
+    aliases:
+    - alias
+    narrow_mappings:
+    - skos:altLabel
+    - gff3:Alias
+    - AGRKB:synonyms
+    - gpi:DB_Object_Synonyms
+    - HANCESTRO:0330
+    - IAO:0000136
+    - RXNORM:has_tradename
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    - gene product mixin
+    range: label type
+    multivalued: true
+  exact synonym:
+    name: exact synonym
+    description: An alternate label for an entity that denotes exactly the same meaning
+      as the primary label and is interchangeable with it in all contexts.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - oboInOwl:hasExactSynonym
+    rank: 1000
+    is_a: synonym
+    domain: named thing
+    alias: exact_synonym
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: label type
+    multivalued: true
+  broad synonym:
+    name: broad synonym
+    description: An alternate label for an entity whose meaning is broader (more general)
+      than the primary label but is still useful as a lexical alternative.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - oboInOwl:hasBroadSynonym
+    rank: 1000
+    is_a: synonym
+    domain: named thing
+    alias: broad_synonym
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: label type
+    multivalued: true
+  narrow synonym:
+    name: narrow synonym
+    description: An alternate label for an entity whose meaning is narrower (more
+      specific) than the primary label, for example naming a particular sub-type.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - oboInOwl:hasNarrowSynonym
+    rank: 1000
+    is_a: synonym
+    domain: named thing
+    alias: narrow_synonym
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: label type
+    multivalued: true
+  related synonym:
+    name: related synonym
+    description: An alternate label that is related to the primary label but is neither
+      exactly synonymous nor cleanly broader or narrower; useful as a lexical pointer
+      but not for strict equivalence. Corresponds to oboInOwl:hasRelatedSynonym.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - oboInOwl:hasRelatedSynonym
+    rank: 1000
+    is_a: synonym
+    domain: named thing
+    alias: related_synonym
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: label type
+    multivalued: true
+  equivalent identifiers:
+    name: equivalent identifiers
+    description: A set of identifiers that are considered equivalent to the primary
+      identifier of the entity. This attribute is used to represent a collection of
+      identifiers that are considered equivalent to the primary identifier of an entity.
+      These equivalent identifiers may come from different databases, ontologies,
+      or naming conventions, but they all refer to the same underlying concept or
+      entity. This attribute is particularly useful in data integration and interoperability
+      scenarios, where it is important to recognize and link different representations
+      of the same entity across various sources.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    see_also:
+    - biolink:xref
+    - biolink:synonyms
+    rank: 1000
+    alias: equivalent_identifiers
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: uriorcurie
+    multivalued: true
+  information content:
+    name: information content
+    description: Information content (IC) value for a term, primarily from Automats.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    alias: information_content
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: float
+  taxon:
+    name: taxon
+    description: A property that indicates the taxonomic classification of an entity.
+      Values for this slot should be from the NCBITaxon ontology.
+    comments:
+    - Note there is also a predicate 'in taxon' that can be used to instantiate an
+      edge between a taxon entity and a thing with taxon entity.  This is an acceptable
+      practice for KG construction, but for many applications it is more convenient
+      to use this property slot to directly annotate the taxon on the entity itself.
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    owner: complex chemical exposure
+    domain_of:
+    - named thing
+    range: uriorcurie
+  iri:
+    name: iri
+    description: An IRI for an entity. This is determined by the id using expansion
+      rules.
+    in_subset:
+    - translator_minimal
+    - samples
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - WIKIDATA_PROPERTY:P854
+    rank: 1000
+    owner: complex chemical exposure
+    domain_of:
+    - attribute
+    - entity
+    range: iri type
+  category:
+    name: category
+    description: Name of the high level ontology class in which this entity is categorized.
+      Corresponds to the label for the biolink entity type class. In a neo4j database
+      this MAY correspond to the neo4j label tag. In an RDF database it should be
+      a biolink model class URI. This field is multi-valued. It should include values
+      for ancestors of the biolink class; for example, a protein such as Shh would
+      have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`.
+      In an RDF database, nodes will typically have an rdf:type triples. This can
+      be to the most specific biolink class, or potentially to a class more specific
+      than something in biolink. For example, a sequence feature `f` may have a rdf:type
+      assertion to a SO class such as TF_binding_site, which is more specific than
+      anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity,
+      biolink:NamedThing}
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    is_a: type
+    domain: entity
+    designates_type: true
+    owner: complex chemical exposure
+    domain_of:
+    - entity
+    is_class_field: true
+    range: uriorcurie
+    required: true
+    multivalued: true
+  type:
+    name: type
+    description: An rdf:type property asserting that an entity is an instance of a
+      particular class. In Biolink the value is typically used to indicate the most
+      specific category of which the entity is an instance.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - gff3:type
+    - gpi:DB_Object_Type
+    rank: 1000
+    domain: entity
+    slot_uri: rdf:type
+    owner: complex chemical exposure
+    domain_of:
+    - entity
+    range: string
+    multivalued: true
+  name:
+    name: name
+    description: A human-readable name for an attribute or entity.
+    in_subset:
+    - translator_minimal
+    - samples
+    from_schema: https://w3id.org/monarch-initiative/namo
+    aliases:
+    - label
+    - display name
+    - title
+    exact_mappings:
+    - gff3:Name
+    - gpi:DB_Object_Name
+    narrow_mappings:
+    - dct:title
+    - WIKIDATA_PROPERTY:P1476
+    rank: 1000
+    domain: entity
+    slot_uri: rdfs:label
+    owner: complex chemical exposure
+    domain_of:
+    - attribute
+    - entity
+    - macromolecular machine mixin
+    range: label type
+  description:
+    name: description
+    description: a human-readable description of an entity
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/monarch-initiative/namo
+    aliases:
+    - definition
+    exact_mappings:
+    - IAO:0000115
+    - skos:definitions
+    narrow_mappings:
+    - gff3:Description
+    rank: 1000
+    slot_uri: dct:description
+    owner: complex chemical exposure
+    domain_of:
+    - entity
+    range: narrative text
+  has attribute:
+    name: has attribute
+    description: connects any entity to an attribute
+    in_subset:
+    - samples
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - SIO:000008
+    close_mappings:
+    - OBI:0001927
+    narrow_mappings:
+    - OBAN:association_has_subject_property
+    - OBAN:association_has_object_property
+    - CPT:has_possibly_included_panel_element
+    - DRUGBANK:category
+    - EFO:is_executed_in
+    - HANCESTRO:0301
+    - LOINC:has_action_guidance
+    - LOINC:has_adjustment
+    - LOINC:has_aggregation_view
+    - LOINC:has_approach_guidance
+    - LOINC:has_divisor
+    - LOINC:has_exam
+    - LOINC:has_method
+    - LOINC:has_modality_subtype
+    - LOINC:has_object_guidance
+    - LOINC:has_scale
+    - LOINC:has_suffix
+    - LOINC:has_time_aspect
+    - LOINC:has_time_modifier
+    - LOINC:has_timing_of
+    - NCIT:R88
+    - NCIT:eo_disease_has_property_or_attribute
+    - NCIT:has_data_element
+    - NCIT:has_pharmaceutical_administration_method
+    - NCIT:has_pharmaceutical_basic_dose_form
+    - NCIT:has_pharmaceutical_intended_site
+    - NCIT:has_pharmaceutical_release_characteristics
+    - NCIT:has_pharmaceutical_state_of_matter
+    - NCIT:has_pharmaceutical_transformation
+    - NCIT:is_qualified_by
+    - NCIT:qualifier_applies_to
+    - NCIT:role_has_domain
+    - NCIT:role_has_range
+    - INO:0000154
+    - HANCESTRO:0308
+    - orphanet:C016
+    - orphanet:C017
+    - RO:0000053
+    - RO:0000086
+    - RO:0000087
+    - SNOMED:has_access
+    - SNOMED:has_clinical_course
+    - SNOMED:has_count_of_base_of_active_ingredient
+    - SNOMED:has_dose_form_administration_method
+    - SNOMED:has_dose_form_release_characteristic
+    - SNOMED:has_dose_form_transformation
+    - SNOMED:has_finding_context
+    - SNOMED:has_finding_informer
+    - SNOMED:has_inherent_attribute
+    - SNOMED:has_intent
+    - SNOMED:has_interpretation
+    - SNOMED:has_laterality
+    - SNOMED:has_measurement_method
+    - SNOMED:has_method
+    - SNOMED:has_priority
+    - SNOMED:has_procedure_context
+    - SNOMED:has_process_duration
+    - SNOMED:has_property
+    - SNOMED:has_revision_status
+    - SNOMED:has_scale_type
+    - SNOMED:has_severity
+    - SNOMED:has_specimen
+    - SNOMED:has_state_of_matter
+    - SNOMED:has_subject_relationship_context
+    - SNOMED:has_surgical_approach
+    - SNOMED:has_technique
+    - SNOMED:has_temporal_context
+    - SNOMED:has_time_aspect
+    - SNOMED:has_units
+    - UMLS:has_structural_class
+    - UMLS:has_supported_concept_property
+    - UMLS:has_supported_concept_relationship
+    - UMLS:may_be_qualified_by
+    rank: 1000
+    domain: entity
+    alias: has_attribute
+    owner: complex chemical exposure
+    domain_of:
+    - entity
+    range: attribute
+    multivalued: true
+  deprecated:
+    name: deprecated
+    description: A boolean flag indicating that an entity is no longer considered
+      current or valid.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    exact_mappings:
+    - oboInOwl:ObsoleteClass
+    rank: 1000
+    owner: complex chemical exposure
+    domain_of:
+    - entity
+    range: boolean
+
+```
+</details></div>

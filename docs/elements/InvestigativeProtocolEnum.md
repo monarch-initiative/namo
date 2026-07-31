@@ -1,8 +1,22 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: InvestigativeProtocolEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:InvestigativeProtocolEnum](https://w3id.org/monarch-initiative/namo/InvestigativeProtocolEnum)
+## Enumeration Source
+**Reachable From:**
+- **Nodes:** OBI:0000272
+- **Via:** rdfs:subClassOf
+
+
 
 
 _This is a dynamic enum_
@@ -13,8 +27,12 @@ _This is a dynamic enum_
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -46,3 +64,5 @@ reachable_from:
 
 ```
 </details>
+
+</div>

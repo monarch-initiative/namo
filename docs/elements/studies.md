@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: studies 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:studies](https://w3id.org/monarch-initiative/namo/studies)
-Alias: studies
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,7 +20,7 @@ Alias: studies
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dataset](Dataset.md) |  |  no  |
+| [NAMDataset](NAMDataset.md) |  |  no  |
 
 
 
@@ -26,15 +29,36 @@ Alias: studies
 
 ## Properties
 
-* Range: [Study](Study.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [NAMStudy](NAMStudy.md) |
+| Domain Of | [NAMDataset](NAMDataset.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [NAMDataset](NAMDataset.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -65,14 +89,13 @@ Alias: studies
 name: studies
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: studies
-owner: Dataset
+owner: NAMDataset
 domain_of:
-- Dataset
-range: Study
+- NAMDataset
+range: NAMStudy
 multivalued: true
 inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

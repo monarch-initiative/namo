@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: DrugProperties 
 
@@ -6,6 +9,8 @@
 _Physicochemical and pharmacological properties of a drug in PBPK models._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -37,7 +42,6 @@ URI: [namo:DrugProperties](https://w3id.org/monarch-initiative/namo/DrugProperti
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -64,8 +68,12 @@ URI: [namo:DrugProperties](https://w3id.org/monarch-initiative/namo/DrugProperti
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -160,7 +168,6 @@ attributes:
     description: Molecular weight (g/mol)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: molecular_weight
     owner: DrugProperties
     domain_of:
     - DrugProperties
@@ -170,7 +177,6 @@ attributes:
     description: Lipophilicity (log P)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: logp
     owner: DrugProperties
     domain_of:
     - DrugProperties
@@ -180,7 +186,6 @@ attributes:
     description: Acid dissociation constant
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: pka
     owner: DrugProperties
     domain_of:
     - DrugProperties
@@ -190,7 +195,6 @@ attributes:
     description: Fraction bound to plasma proteins (0.0-1.0)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: protein_binding
     owner: DrugProperties
     domain_of:
     - DrugProperties
@@ -200,11 +204,10 @@ attributes:
     description: Total body clearance (L/h)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: clearance
     owner: DrugProperties
     domain_of:
     - DrugProperties
     range: float
 
 ```
-</details>
+</details></div>

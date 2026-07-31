@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: culture_system 
 
@@ -7,11 +10,11 @@ _Culture system used (e.g., Matrigel dome, suspension culture, air-liquid interf
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:culture_system](https://w3id.org/monarch-initiative/namo/culture_system)
-Alias: culture_system
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: culture_system
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Organoid](Organoid.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Organoid](Organoid.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -70,11 +95,10 @@ description: Culture system used (e.g., Matrigel dome, suspension culture, air-l
   interface)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: culture_system
 owner: Organoid
 domain_of:
 - Organoid
 range: string
 
 ```
-</details>
+</details></div>

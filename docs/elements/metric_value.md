@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: metric_value 
 
@@ -7,11 +10,11 @@ _Value of the quality control metric._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:metric_value](https://w3id.org/monarch-initiative/namo/metric_value)
-Alias: metric_value
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: metric_value
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [QualityControlMetric](QualityControlMetric.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [QualityControlMetric](QualityControlMetric.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: metric_value
 description: Value of the quality control metric.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: metric_value
 owner: QualityControlMetric
 domain_of:
 - QualityControlMetric
 range: float
 
 ```
-</details>
+</details></div>

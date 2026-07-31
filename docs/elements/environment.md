@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: environment 
 
@@ -7,11 +10,11 @@ _The environmental conditions under which the animal model is maintained._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:environment](https://w3id.org/monarch-initiative/namo/environment)
-Alias: environment
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: environment
 
 ## Properties
 
-* Range: [Term](Term.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [EnvironmentalExposure](EnvironmentalExposure.md) |
+| Domain Of | [AnimalModel](AnimalModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AnimalModel](AnimalModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: environment
 description: The environmental conditions under which the animal model is maintained.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: environment
 owner: AnimalModel
 domain_of:
 - AnimalModel
-range: Term
+range: environmental exposure
 
 ```
-</details>
+</details></div>

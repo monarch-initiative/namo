@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: DoseResponseSimilarity 
 
@@ -6,6 +9,8 @@
 _Comparison of dose-response relationships between model and biological systems._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -35,7 +40,6 @@ URI: [namo:DoseResponseSimilarity](https://w3id.org/monarch-initiative/namo/Dose
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -61,8 +65,12 @@ URI: [namo:DoseResponseSimilarity](https://w3id.org/monarch-initiative/namo/Dose
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -149,7 +157,6 @@ attributes:
     name: correlation_coefficient
     description: Correlation coefficient between dose-response curves.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: correlation_coefficient
     owner: DoseResponseSimilarity
     domain_of:
     - MolecularSimilarity
@@ -160,7 +167,6 @@ attributes:
     description: Ratio of EC50 values between model and biological system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: ec50_ratio
     owner: DoseResponseSimilarity
     domain_of:
     - DoseResponseSimilarity
@@ -170,7 +176,6 @@ attributes:
     description: Ratio of maximum responses between systems.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: max_response_ratio
     owner: DoseResponseSimilarity
     domain_of:
     - DoseResponseSimilarity
@@ -180,11 +185,10 @@ attributes:
     description: Name of compound used in dose-response testing.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: compound_tested
     owner: DoseResponseSimilarity
     domain_of:
     - DoseResponseSimilarity
     range: string
 
 ```
-</details>
+</details></div>

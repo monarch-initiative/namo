@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: barrier_functions 
 
@@ -7,11 +10,11 @@ _Tissue barrier functions modeled (epithelial, endothelial, etc.)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:barrier_functions](https://w3id.org/monarch-initiative/namo/barrier_functions)
-Alias: barrier_functions
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: barrier_functions
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [TissueOnChip](TissueOnChip.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [TissueOnChip](TissueOnChip.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: barrier_functions
 description: Tissue barrier functions modeled (epithelial, endothelial, etc.)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: barrier_functions
 owner: TissueOnChip
 domain_of:
 - TissueOnChip
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

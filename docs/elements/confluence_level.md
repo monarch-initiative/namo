@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: confluence_level 
 
@@ -7,11 +10,11 @@ _Typical confluence level maintained (0.0-1.0)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:confluence_level](https://w3id.org/monarch-initiative/namo/confluence_level)
-Alias: confluence_level
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +25,8 @@ Alias: confluence_level
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
 | [TwoDCellCulture](TwoDCellCulture.md) | Conventional monolayer cell cultures grown on flat surfaces |  no  |
+| [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
 
 
 
@@ -32,13 +35,35 @@ Alias: confluence_level
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [TwoDCellCulture](TwoDCellCulture.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [TwoDCellCulture](TwoDCellCulture.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -70,11 +95,10 @@ name: confluence_level
 description: Typical confluence level maintained (0.0-1.0)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: confluence_level
 owner: TwoDCellCulture
 domain_of:
 - TwoDCellCulture
 range: float
 
 ```
-</details>
+</details></div>

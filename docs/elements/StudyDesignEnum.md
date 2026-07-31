@@ -1,8 +1,22 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: StudyDesignEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:StudyDesignEnum](https://w3id.org/monarch-initiative/namo/StudyDesignEnum)
+## Enumeration Source
+**Reachable From:**
+- **Nodes:** OBI:0500000
+- **Via:** rdfs:subClassOf
+
+
 
 
 _This is a dynamic enum_
@@ -13,8 +27,12 @@ _This is a dynamic enum_
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -46,3 +64,5 @@ reachable_from:
 
 ```
 </details>
+
+</div>

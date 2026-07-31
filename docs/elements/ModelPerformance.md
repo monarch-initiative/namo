@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: ModelPerformance 
 
@@ -6,6 +9,8 @@
 _Statistical performance metrics for computational models._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -39,7 +44,6 @@ URI: [namo:ModelPerformance](https://w3id.org/monarch-initiative/namo/ModelPerfo
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -67,8 +71,12 @@ URI: [namo:ModelPerformance](https://w3id.org/monarch-initiative/namo/ModelPerfo
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -171,7 +179,6 @@ attributes:
     description: Overall accuracy of the model (0.0-1.0)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: accuracy
     owner: ModelPerformance
     domain_of:
     - ModelPerformance
@@ -181,7 +188,6 @@ attributes:
     description: Sensitivity/recall of the model (0.0-1.0)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: sensitivity
     owner: ModelPerformance
     domain_of:
     - ModelPerformance
@@ -191,7 +197,6 @@ attributes:
     description: Specificity of the model (0.0-1.0)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: specificity
     owner: ModelPerformance
     domain_of:
     - ModelPerformance
@@ -201,7 +206,6 @@ attributes:
     description: R-squared value for regression models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: r_squared
     owner: ModelPerformance
     domain_of:
     - ModelPerformance
@@ -211,7 +215,6 @@ attributes:
     description: Root mean square error
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: rmse
     owner: ModelPerformance
     domain_of:
     - ModelPerformance
@@ -221,11 +224,10 @@ attributes:
     description: Area under the ROC curve
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: auc
     owner: ModelPerformance
     domain_of:
     - ModelPerformance
     range: float
 
 ```
-</details>
+</details></div>

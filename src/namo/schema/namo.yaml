@@ -263,14 +263,13 @@ classes:
           - binds_value_of: id
             range: SpeciesEnum
             obligation_level: REQUIRED
+      # Deliberately unbound (D5): no enum can express "strain-rank taxon", so
+      # the only constraint is `organism taxon`'s own id_prefixes.
       strain:
         range: organism taxon
         description: >-
-          The specific strain of the animal used in the model system.
-        bindings:
-          - binds_value_of: id
-            range: StrainEnum
-            obligation_level: REQUIRED
+          The specific strain of the animal used in the model system, as a
+          strain-rank NCBITaxon term or an equivalent strain-registry CURIE.
       # Was a single `age: {range: Term}`, which conflated developmental stage
       # with chronological age. Its binding pointed at OrganismAgeEnum, an enum
       # that was never defined anywhere in the schema.
@@ -701,6 +700,10 @@ classes:
         inlined: true
         description: >-
           The cell type for which the ratio is specified
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       ratio:
         range: float
         description: >-
@@ -1088,19 +1091,37 @@ classes:
         inlined_as_list: true
         description: >-
           List of phenotypes present in both model and biological system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       model_specific_phenotypes:
         range: phenotypic feature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present only in the model system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       biological_specific_phenotypes:
         range: phenotypic feature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present only in the biological system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       phenotype_ontology:
+        deprecated: >-
+          Redundant since the three phenotype slots above became
+          `phenotypic feature` bound to PhenotypeEnum: the source ontology is
+          now carried by each term's own CURIE prefix (HP:, MP:, ...) rather
+          than declared once as free text. Retained for one release so existing
+          data keeps loading; remove in a later cleanup.
         description: >-
           Ontology used for phenotype classification (e.g., HPO, MP).
 
@@ -1119,12 +1140,20 @@ classes:
         inlined_as_list: true
         description: >-
           List of cell types present in both model and biological system.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       missing_cell_types:
         range: cell
         multivalued: true
         inlined_as_list: true
         description: >-
           List of cell types present in biological system but missing in model.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       cell_type_proportions:
         range: CellTypeProportion
         multivalued: true
@@ -1305,6 +1334,10 @@ classes:
         inlined: true
         description: >-
           The cell type being compared.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       model_proportion:
         range: float
         description: >-
@@ -1433,10 +1466,31 @@ enums:
       relationship_types:
           - rdfs:subClassOf
 
+  # Root narrowed from UBERON:0001062 ("anatomical entity", the root of the
+  # whole hierarchy, which admits cells and subcellular parts) to UBERON:0000062
+  # ("organ"). Verified with oaklib against Ubergraph: the organ closure is
+  # 19,578 terms and contains all 11 distinct organ_modeled values in
+  # tests/data/valid/, so no recuration is needed. BFO:0000050 (part_of) is
+  # what carries `bronchiole` and `alveolus of lung`; dropping it breaks both.
   OrganEnum:
     reachable_from:
       source_nodes:
-        - UBERON:0001062
+        - UBERON:0000062
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+        - BFO:0000050
+
+  # Binds TissueOnChip.anatomical_structure_modeled. Rooted at UBERON:0010000
+  # rather than UBERON:0000479 ("tissue") because the curated values are not all
+  # tissues: of the three in tests/data/valid/, only `blood-brain barrier` is
+  # under the tissue closure - `skin of body` is an organ and `digestive tract`
+  # is under neither. UBERON:0010000 covers all three, and is also what Biolink
+  # maps `gross anatomical structure` to, so the slot and its enum agree.
+  AnatomicalStructureEnum:
+    reachable_from:
+      source_nodes:
+        - UBERON:0010000
       is_direct: false
       relationship_types:
         - rdfs:subClassOf
@@ -1450,9 +1504,40 @@ enums:
       relationship_types:
         - rdfs:subClassOf
 
-  StrainEnum:
+  # Binds AnimalModel.life_stage. Replaces the never-defined OrganismAgeEnum
+  # that the former `age` slot pointed at, and the empty AgeEnum beside it.
+  LifeStageEnum:
+    reachable_from:
+      source_nodes:
+        - UBERON:0000105
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
 
-  AgeEnum:
+  # Binds the three PhenotypeOverlap slots. Composed because Biolink's
+  # `phenotypic feature` spans several phenotype ontologies and no single root
+  # covers HPO and MP.
+  PhenotypeEnum:
+    include:
+      - reachable_from:
+          source_nodes:
+            - HP:0000118
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
+      - reachable_from:
+          source_nodes:
+            - MP:0000001
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
+
+  # StrainEnum and AgeEnum deleted here (both were empty).
+  # StrainEnum: per D5, AnimalModel.strain carries no binding at all - LinkML
+  #   dynamic enums cannot filter by taxonomic rank, so an NCBITaxon:1-rooted
+  #   StrainEnum would have been identical to SpeciesEnum and enforced nothing.
+  #   `organism taxon`'s own id_prefixes are the only constraint.
+  # AgeEnum: superseded by LifeStageEnum above.
 
   RelativeTimeEnum:
     permissible_values:

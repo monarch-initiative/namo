@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: ChannelDimensions 
 
@@ -6,6 +9,8 @@
 _Dimensions of a microfluidic channel according to ISO 10991:2023 definitions for microchannel geometry and dimensions_
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -35,7 +40,6 @@ URI: [namo:ChannelDimensions](https://w3id.org/monarch-initiative/namo/ChannelDi
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -61,12 +65,16 @@ URI: [namo:ChannelDimensions](https://w3id.org/monarch-initiative/namo/ChannelDi
 
 
 
+
+
+
 ## See Also
 
 * [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -163,7 +171,6 @@ attributes:
     description: Name or identifier of the channel (e.g., apical, basolateral, vascular)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: channel_name
     owner: ChannelDimensions
     domain_of:
     - ChannelDimensions
@@ -173,7 +180,6 @@ attributes:
     description: Width of the channel in micrometers
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: width
     owner: ChannelDimensions
     domain_of:
     - ChannelDimensions
@@ -183,7 +189,6 @@ attributes:
     description: Height of the channel in micrometers
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: height
     owner: ChannelDimensions
     domain_of:
     - ChannelDimensions
@@ -193,11 +198,10 @@ attributes:
     description: Length of the channel in millimeters
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: length
     owner: ChannelDimensions
     domain_of:
     - ChannelDimensions
     range: float
 
 ```
-</details>
+</details></div>

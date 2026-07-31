@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: phenotype_similarity_score 
 
@@ -7,11 +10,11 @@ _Quantitative score (0.0-1.0) representing phenotypic similarity._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:phenotype_similarity_score](https://w3id.org/monarch-initiative/namo/phenotype_similarity_score)
-Alias: phenotype_similarity_score
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: phenotype_similarity_score
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [PhenotypeOverlap](PhenotypeOverlap.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PhenotypeOverlap](PhenotypeOverlap.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: phenotype_similarity_score
 description: Quantitative score (0.0-1.0) representing phenotypic similarity.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: phenotype_similarity_score
 owner: PhenotypeOverlap
 domain_of:
 - PhenotypeOverlap
 range: float
 
 ```
-</details>
+</details></div>

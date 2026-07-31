@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: enrichment_score 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:enrichment_score](https://w3id.org/monarch-initiative/namo/enrichment_score)
-Alias: enrichment_score
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,8 +20,8 @@ Alias: enrichment_score
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [PathwayActivityResult](PathwayActivityResult.md) | An activity and enrichment measurement for a single biological pathway |  no  |
 | [EnrichmentStatistics](EnrichmentStatistics.md) | Statistical measures for pathway enrichment analysis |  no  |
-| [Pathway](Pathway.md) | A biological pathway with activity and enrichment information |  no  |
 
 
 
@@ -27,13 +30,28 @@ Alias: enrichment_score
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [PathwayActivityResult](PathwayActivityResult.md), [EnrichmentStatistics](EnrichmentStatistics.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -55,11 +73,10 @@ Alias: enrichment_score
 <details>
 ```yaml
 name: enrichment_score
-alias: enrichment_score
 domain_of:
-- Pathway
+- PathwayActivityResult
 - EnrichmentStatistics
 range: string
 
 ```
-</details>
+</details></div>

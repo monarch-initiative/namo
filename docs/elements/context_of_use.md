@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: context_of_use 
 
@@ -7,11 +10,11 @@ _What decision will this inform? Care? Policy? Drug approval?_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:context_of_use](https://w3id.org/monarch-initiative/namo/context_of_use)
-Alias: context_of_use
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: context_of_use
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Study](Study.md) | A study is a structured investigation or analysis, often involving the collec... |  no  |
+| [NAMStudy](NAMStudy.md) | A study is a structured investigation or analysis, often involving the collec... |  no  |
 
 
 
@@ -31,13 +34,35 @@ Alias: context_of_use
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [NAMStudy](NAMStudy.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [NAMStudy](NAMStudy.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: context_of_use
 description: What decision will this inform? Care? Policy? Drug approval?
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: context_of_use
-owner: Study
+owner: NAMStudy
 domain_of:
-- Study
+- NAMStudy
 range: string
 
 ```
-</details>
+</details></div>

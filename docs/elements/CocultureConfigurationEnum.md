@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: CocultureConfigurationEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:CocultureConfigurationEnum](https://w3id.org/monarch-initiative/namo/CocultureConfigurationEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | DIRECT_CONTACT | None | Cells in direct physical contact |
@@ -27,8 +34,12 @@ URI: [namo:CocultureConfigurationEnum](https://w3id.org/monarch-initiative/namo/
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -70,3 +81,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

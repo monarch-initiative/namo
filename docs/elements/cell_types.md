@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cell_types 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:cell_types](https://w3id.org/monarch-initiative/namo/cell_types)
-Alias: cell_types
-
 <!-- no inheritance hierarchy -->
 
 
@@ -19,11 +22,11 @@ Alias: cell_types
 | --- | --- | --- |
 | [CellularSystem](CellularSystem.md) | Cell-based model systems that use living cells to model biological processes |  no  |
 | [TwoDCellCulture](TwoDCellCulture.md) | Conventional monolayer cell cultures grown on flat surfaces |  no  |
-| [OrganOnChip](OrganOnChip.md) | A model system that simulates the physiological functions of an organ using a... |  no  |
-| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic  microenvironments ... |  no  |
-| [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
-| [Organoid](Organoid.md) | A 3D cell culture system that self-organizes to recapitulate key structural a... |  no  |
 | [ThreeDCellCulture](ThreeDCellCulture.md) | Three-dimensional cell culture systems including spheroids and organoids |  no  |
+| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic microenvironments a... |  no  |
+| [Organoid](Organoid.md) | A 3D cell culture system that self-organizes to recapitulate key structural a... |  no  |
+| [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
+| [OrganOnChip](OrganOnChip.md) | A model system that simulates the physiological functions of an organ using a... |  no  |
 
 
 
@@ -32,13 +35,28 @@ Alias: cell_types
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [CellularSystem](CellularSystem.md), [OrganOnChip](OrganOnChip.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -60,11 +78,10 @@ Alias: cell_types
 <details>
 ```yaml
 name: cell_types
-alias: cell_types
 domain_of:
 - CellularSystem
 - OrganOnChip
 range: string
 
 ```
-</details>
+</details></div>

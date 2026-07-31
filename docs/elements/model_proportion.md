@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: model_proportion 
 
@@ -7,11 +10,11 @@ _Proportion of this cell type in the model system._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:model_proportion](https://w3id.org/monarch-initiative/namo/model_proportion)
-Alias: model_proportion
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: model_proportion
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [CellTypeProportion](CellTypeProportion.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellTypeProportion](CellTypeProportion.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: model_proportion
 description: Proportion of this cell type in the model system.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: model_proportion
 owner: CellTypeProportion
 domain_of:
 - CellTypeProportion
 range: float
 
 ```
-</details>
+</details></div>

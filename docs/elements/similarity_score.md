@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: similarity_score 
 
@@ -7,11 +10,11 @@ _Quantitative similarity score (0.0-1.0) based on molecular profiles._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:similarity_score](https://w3id.org/monarch-initiative/namo/similarity_score)
-Alias: similarity_score
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: similarity_score
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [MolecularSimilarity](MolecularSimilarity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MolecularSimilarity](MolecularSimilarity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: similarity_score
 description: Quantitative similarity score (0.0-1.0) based on molecular profiles.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: similarity_score
 owner: MolecularSimilarity
 domain_of:
 - MolecularSimilarity
 range: float
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: threshold 
 
@@ -7,11 +10,11 @@ _Acceptable threshold for this metric._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:threshold](https://w3id.org/monarch-initiative/namo/threshold)
-Alias: threshold
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: threshold
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [QualityControlMetric](QualityControlMetric.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [QualityControlMetric](QualityControlMetric.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: threshold
 description: Acceptable threshold for this metric.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: threshold
 owner: QualityControlMetric
 domain_of:
 - QualityControlMetric
 range: float
 
 ```
-</details>
+</details></div>

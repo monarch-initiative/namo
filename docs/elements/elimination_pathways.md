@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: elimination_pathways 
 
@@ -7,11 +10,11 @@ _Drug elimination and metabolism pathways included_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:elimination_pathways](https://w3id.org/monarch-initiative/namo/elimination_pathways)
-Alias: elimination_pathways
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: elimination_pathways
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PBPKModel](PBPKModel.md) | Physiologically Based Pharmacokinetic models that simulate drug  absorption, ... |  no  |
+| [PBPKModel](PBPKModel.md) | Physiologically Based Pharmacokinetic models that simulate drug absorption, d... |  no  |
 
 
 
@@ -31,15 +34,36 @@ Alias: elimination_pathways
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [PBPKModel](PBPKModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PBPKModel](PBPKModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: elimination_pathways
 description: Drug elimination and metabolism pathways included
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: elimination_pathways
 owner: PBPKModel
 domain_of:
 - PBPKModel
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

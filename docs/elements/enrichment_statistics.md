@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: enrichment_statistics 
 
@@ -7,11 +10,11 @@ _Statistical measures of pathway enrichment._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:enrichment_statistics](https://w3id.org/monarch-initiative/namo/enrichment_statistics)
-Alias: enrichment_statistics
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: enrichment_statistics
 
 ## Properties
 
-* Range: [EnrichmentStatistics](EnrichmentStatistics.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [EnrichmentStatistics](EnrichmentStatistics.md) |
+| Domain Of | [PathwayConcordance](PathwayConcordance.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PathwayConcordance](PathwayConcordance.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: enrichment_statistics
 description: Statistical measures of pathway enrichment.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: enrichment_statistics
 owner: PathwayConcordance
 domain_of:
 - PathwayConcordance
@@ -81,4 +104,4 @@ inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

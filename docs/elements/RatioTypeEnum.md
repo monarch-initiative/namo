@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: RatioTypeEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:RatioTypeEnum](https://w3id.org/monarch-initiative/namo/RatioTypeEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | PERCENTAGE | None | Percentage of total cells |
@@ -25,8 +32,12 @@ URI: [namo:RatioTypeEnum](https://w3id.org/monarch-initiative/namo/RatioTypeEnum
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -62,3 +73,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

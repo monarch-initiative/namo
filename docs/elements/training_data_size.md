@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: training_data_size 
 
@@ -7,11 +10,11 @@ _Size of training dataset_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:training_data_size](https://w3id.org/monarch-initiative/namo/training_data_size)
-Alias: training_data_size
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: training_data_size
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Integer](Integer.md) |
+| Domain Of | [MLModel](MLModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MLModel](MLModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: training_data_size
 description: Size of training dataset
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: training_data_size
 owner: MLModel
 domain_of:
 - MLModel
 range: integer
 
 ```
-</details>
+</details></div>

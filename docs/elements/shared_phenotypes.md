@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: shared_phenotypes 
 
@@ -7,11 +10,11 @@ _List of phenotypes present in both model and biological system._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:shared_phenotypes](https://w3id.org/monarch-initiative/namo/shared_phenotypes)
-Alias: shared_phenotypes
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,47 @@ Alias: shared_phenotypes
 
 ## Properties
 
-* Range: [Term](Term.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [PhenotypicFeature](PhenotypicFeature.md) |
+| Domain Of | [PhenotypeOverlap](PhenotypeOverlap.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PhenotypeOverlap](PhenotypeOverlap.md) |
+
+
+<details>
+<summary>Advanced Properties</summary>
+**Term Bindings:**
+- EnumBinding({
+  'range': 'PhenotypeEnum',
+  'obligation_level': ObligationLevelEnum(text='REQUIRED', description='The metadata element is required to be present in the model'),
+  'binds_value_of': 'id'
+})
+
+</details>
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,14 +106,17 @@ name: shared_phenotypes
 description: List of phenotypes present in both model and biological system.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: shared_phenotypes
 owner: PhenotypeOverlap
 domain_of:
 - PhenotypeOverlap
-range: Term
+range: phenotypic feature
+bindings:
+- range: PhenotypeEnum
+  obligation_level: REQUIRED
+  binds_value_of: id
 multivalued: true
 inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

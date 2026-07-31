@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: batch_to_batch_variation 
 
@@ -7,11 +10,11 @@ _Measure of variation between different experimental batches._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:batch_to_batch_variation](https://w3id.org/monarch-initiative/namo/batch_to_batch_variation)
-Alias: batch_to_batch_variation
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: batch_to_batch_variation
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [Reproducibility](Reproducibility.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reproducibility](Reproducibility.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: batch_to_batch_variation
 description: Measure of variation between different experimental batches.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: batch_to_batch_variation
 owner: Reproducibility
 domain_of:
 - Reproducibility
 range: float
 
 ```
-</details>
+</details></div>

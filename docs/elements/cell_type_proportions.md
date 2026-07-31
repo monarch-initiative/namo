@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cell_type_proportions 
 
@@ -7,11 +10,11 @@ _Quantitative comparison of cell type proportions._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:cell_type_proportions](https://w3id.org/monarch-initiative/namo/cell_type_proportions)
-Alias: cell_type_proportions
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: cell_type_proportions
 
 ## Properties
 
-* Range: [CellTypeProportion](CellTypeProportion.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [CellTypeProportion](CellTypeProportion.md) |
+| Domain Of | [CellTypeCoverage](CellTypeCoverage.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellTypeCoverage](CellTypeCoverage.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: cell_type_proportions
 description: Quantitative comparison of cell type proportions.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: cell_type_proportions
 owner: CellTypeCoverage
 domain_of:
 - CellTypeCoverage
@@ -81,4 +104,4 @@ inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

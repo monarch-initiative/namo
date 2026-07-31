@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: EnrichmentStatistics 
 
@@ -6,6 +9,8 @@
 _Statistical measures for pathway enrichment analysis._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -37,7 +42,6 @@ URI: [namo:EnrichmentStatistics](https://w3id.org/monarch-initiative/namo/Enrich
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -64,8 +68,12 @@ URI: [namo:EnrichmentStatistics](https://w3id.org/monarch-initiative/namo/Enrich
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -108,7 +116,7 @@ attributes:
     description: Quantitative enrichment score.
     from_schema: https://w3id.org/monarch-initiative/namo
     domain_of:
-    - Pathway
+    - PathwayActivityResult
     - EnrichmentStatistics
     range: float
   p_value:
@@ -116,7 +124,7 @@ attributes:
     description: Statistical p-value for enrichment.
     from_schema: https://w3id.org/monarch-initiative/namo
     domain_of:
-    - Gene
+    - GeneExpressionResult
     - StatisticalSignificance
     - EnrichmentStatistics
     range: float
@@ -160,20 +168,18 @@ attributes:
     name: enrichment_score
     description: Quantitative enrichment score.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: enrichment_score
     owner: EnrichmentStatistics
     domain_of:
-    - Pathway
+    - PathwayActivityResult
     - EnrichmentStatistics
     range: float
   p_value:
     name: p_value
     description: Statistical p-value for enrichment.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: p_value
     owner: EnrichmentStatistics
     domain_of:
-    - Gene
+    - GeneExpressionResult
     - StatisticalSignificance
     - EnrichmentStatistics
     range: float
@@ -182,7 +188,6 @@ attributes:
     description: False discovery rate corrected p-value.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: q_value
     owner: EnrichmentStatistics
     domain_of:
     - EnrichmentStatistics
@@ -192,7 +197,6 @@ attributes:
     description: Number of genes in the pathway.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: genes_in_pathway
     owner: EnrichmentStatistics
     domain_of:
     - EnrichmentStatistics
@@ -202,11 +206,10 @@ attributes:
     description: Number of genes from dataset found in pathway.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: genes_in_dataset
     owner: EnrichmentStatistics
     domain_of:
     - EnrichmentStatistics
     range: integer
 
 ```
-</details>
+</details></div>

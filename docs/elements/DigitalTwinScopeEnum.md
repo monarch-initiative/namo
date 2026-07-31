@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: DigitalTwinScopeEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:DigitalTwinScopeEnum](https://w3id.org/monarch-initiative/namo/DigitalTwinScopeEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | ORGAN | None | Digital twin of a specific organ |
@@ -27,8 +34,12 @@ URI: [namo:DigitalTwinScopeEnum](https://w3id.org/monarch-initiative/namo/Digita
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -71,3 +82,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

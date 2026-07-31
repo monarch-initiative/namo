@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: is_computed 
 
@@ -7,11 +10,11 @@ _Indicates whether the model is computed or derived from experimental data._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:is_computed](https://w3id.org/monarch-initiative/namo/is_computed)
-Alias: is_computed
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: is_computed
 
 ## Properties
 
-* Range: [Boolean](Boolean.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Boolean](Boolean.md) |
+| Domain Of | [ModelsRelationship](ModelsRelationship.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ModelsRelationship](ModelsRelationship.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -70,11 +95,10 @@ description: Indicates whether the model is computed or derived from experimenta
   data.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: is_computed
 owner: ModelsRelationship
 domain_of:
 - ModelsRelationship
 range: boolean
 
 ```
-</details>
+</details></div>

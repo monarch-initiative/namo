@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: membrane_pore_size 
 
@@ -7,11 +10,11 @@ _Pore size of the membrane in micrometers_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:membrane_pore_size](https://w3id.org/monarch-initiative/namo/membrane_pore_size)
-Alias: membrane_pore_size
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: membrane_pore_size
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: membrane_pore_size
 description: Pore size of the membrane in micrometers
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: membrane_pore_size
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
 range: float
 
 ```
-</details>
+</details></div>

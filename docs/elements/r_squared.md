@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: r_squared 
 
@@ -7,11 +10,11 @@ _R-squared value for regression models_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:r_squared](https://w3id.org/monarch-initiative/namo/r_squared)
-Alias: r_squared
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: r_squared
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [ModelPerformance](ModelPerformance.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ModelPerformance](ModelPerformance.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: r_squared
 description: R-squared value for regression models
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: r_squared
 owner: ModelPerformance
 domain_of:
 - ModelPerformance
 range: float
 
 ```
-</details>
+</details></div>

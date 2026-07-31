@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: architecture_type 
 
@@ -7,11 +10,11 @@ _The overall architecture type of the microfluidic device_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:architecture_type](https://w3id.org/monarch-initiative/namo/architecture_type)
-Alias: architecture_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: architecture_type
 
 ## Properties
 
-* Range: [MicrofluidicArchitectureEnum](MicrofluidicArchitectureEnum.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [MicrofluidicArchitectureEnum](MicrofluidicArchitectureEnum.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: architecture_type
 description: The overall architecture type of the microfluidic device
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: architecture_type
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
 range: MicrofluidicArchitectureEnum
 
 ```
-</details>
+</details></div>

@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-31T18:09:58
+# Generation date: 2026-07-31T18:49:20
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -17677,22 +17677,28 @@ class OrganEnum(EnumDefinitionImpl):
         name="OrganEnum",
     )
 
+class AnatomicalStructureEnum(EnumDefinitionImpl):
+
+    _defn = EnumDefinition(
+        name="AnatomicalStructureEnum",
+    )
+
 class CellTypeEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="CellTypeEnum",
     )
 
-class StrainEnum(EnumDefinitionImpl):
+class LifeStageEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
-        name="StrainEnum",
+        name="LifeStageEnum",
     )
 
-class AgeEnum(EnumDefinitionImpl):
+class PhenotypeEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
-        name="AgeEnum",
+        name="PhenotypeEnum",
     )
 
 class RelativeTimeEnum(EnumDefinitionImpl):

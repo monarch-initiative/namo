@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: perturbations 
 
@@ -7,11 +10,11 @@ _exposure/dose/time; diet/drugs/toxicants_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:perturbations](https://w3id.org/monarch-initiative/namo/perturbations)
-Alias: perturbations
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: perturbations
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Study](Study.md) | A study is a structured investigation or analysis, often involving the collec... |  no  |
+| [NAMStudy](NAMStudy.md) | A study is a structured investigation or analysis, often involving the collec... |  no  |
 
 
 
@@ -31,13 +34,35 @@ Alias: perturbations
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [NAMStudy](NAMStudy.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [NAMStudy](NAMStudy.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: perturbations
 description: exposure/dose/time; diet/drugs/toxicants
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: perturbations
-owner: Study
+owner: NAMStudy
 domain_of:
-- Study
+- NAMStudy
 range: string
 
 ```
-</details>
+</details></div>

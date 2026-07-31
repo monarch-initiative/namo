@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: compartment_type 
 
@@ -7,11 +10,11 @@ _Type of physiological compartment_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:compartment_type](https://w3id.org/monarch-initiative/namo/compartment_type)
-Alias: compartment_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: compartment_type
 
 ## Properties
 
-* Range: [PBPKCompartmentEnum](PBPKCompartmentEnum.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [PBPKCompartmentEnum](PBPKCompartmentEnum.md) |
+| Domain Of | [PBPKCompartment](PBPKCompartment.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PBPKCompartment](PBPKCompartment.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: compartment_type
 description: Type of physiological compartment
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: compartment_type
 owner: PBPKCompartment
 domain_of:
 - PBPKCompartment
 range: PBPKCompartmentEnum
 
 ```
-</details>
+</details></div>

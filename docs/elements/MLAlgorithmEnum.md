@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: MLAlgorithmEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:MLAlgorithmEnum](https://w3id.org/monarch-initiative/namo/MLAlgorithmEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | RANDOM_FOREST | None | Random Forest algorithm |
@@ -32,8 +39,12 @@ URI: [namo:MLAlgorithmEnum](https://w3id.org/monarch-initiative/namo/MLAlgorithm
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -95,3 +106,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

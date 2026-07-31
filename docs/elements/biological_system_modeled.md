@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: biological_system_modeled 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:biological_system_modeled](https://w3id.org/monarch-initiative/namo/biological_system_modeled)
-Alias: biological_system_modeled
-
 <!-- no inheritance hierarchy -->
 
 
@@ -26,13 +29,35 @@ Alias: biological_system_modeled
 
 ## Properties
 
-* Range: [BiologicalSystem](BiologicalSystem.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [BiologicalSystem](BiologicalSystem.md) |
+| Domain Of | [ModelsRelationship](ModelsRelationship.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ModelsRelationship](ModelsRelationship.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -63,11 +88,10 @@ Alias: biological_system_modeled
 name: biological_system_modeled
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: biological_system_modeled
 owner: ModelsRelationship
 domain_of:
 - ModelsRelationship
 range: BiologicalSystem
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: ratio 
 
@@ -7,11 +10,11 @@ _Proportion or ratio of this cell type (0.0-1.0 or absolute numbers)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:ratio](https://w3id.org/monarch-initiative/namo/ratio)
-Alias: ratio
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: ratio
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [CellRatio](CellRatio.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellRatio](CellRatio.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: ratio
 description: Proportion or ratio of this cell type (0.0-1.0 or absolute numbers)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: ratio
 owner: CellRatio
 domain_of:
 - CellRatio
 range: float
 
 ```
-</details>
+</details></div>

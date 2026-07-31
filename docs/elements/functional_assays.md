@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: functional_assays 
 
@@ -7,11 +10,11 @@ _List of functional assays used to assess parity._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:functional_assays](https://w3id.org/monarch-initiative/namo/functional_assays)
-Alias: functional_assays
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: functional_assays
 
 ## Properties
 
-* Range: [FunctionalAssay](FunctionalAssay.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [FunctionalAssay](FunctionalAssay.md) |
+| Domain Of | [FunctionalParity](FunctionalParity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [FunctionalParity](FunctionalParity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: functional_assays
 description: List of functional assays used to assess parity.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: functional_assays
 owner: FunctionalParity
 domain_of:
 - FunctionalParity
@@ -81,4 +104,4 @@ inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

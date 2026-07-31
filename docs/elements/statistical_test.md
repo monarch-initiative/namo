@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: statistical_test 
 
@@ -7,11 +10,11 @@ _Name of statistical test used._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:statistical_test](https://w3id.org/monarch-initiative/namo/statistical_test)
-Alias: statistical_test
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: statistical_test
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [StatisticalSignificance](StatisticalSignificance.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [StatisticalSignificance](StatisticalSignificance.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: statistical_test
 description: Name of statistical test used.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: statistical_test
 owner: StatisticalSignificance
 domain_of:
 - StatisticalSignificance
 range: string
 
 ```
-</details>
+</details></div>

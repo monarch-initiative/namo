@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: stimulation_type 
 
@@ -7,11 +10,11 @@ _Type of mechanical stimulation applied_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:stimulation_type](https://w3id.org/monarch-initiative/namo/stimulation_type)
-Alias: stimulation_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: stimulation_type
 
 ## Properties
 
-* Range: [MechanicalStimulationTypeEnum](MechanicalStimulationTypeEnum.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [MechanicalStimulationTypeEnum](MechanicalStimulationTypeEnum.md) |
+| Domain Of | [MechanicalStimulation](MechanicalStimulation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MechanicalStimulation](MechanicalStimulation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: stimulation_type
 description: Type of mechanical stimulation applied
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: stimulation_type
 owner: MechanicalStimulation
 domain_of:
 - MechanicalStimulation
@@ -79,4 +102,4 @@ range: MechanicalStimulationTypeEnum
 multivalued: true
 
 ```
-</details>
+</details></div>

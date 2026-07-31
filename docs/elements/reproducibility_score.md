@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: reproducibility_score 
 
@@ -7,11 +10,11 @@ _Quantitative score (0.0-1.0) representing reproducibility._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:reproducibility_score](https://w3id.org/monarch-initiative/namo/reproducibility_score)
-Alias: reproducibility_score
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: reproducibility_score
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [Reproducibility](Reproducibility.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reproducibility](Reproducibility.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: reproducibility_score
 description: Quantitative score (0.0-1.0) representing reproducibility.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: reproducibility_score
 owner: Reproducibility
 domain_of:
 - Reproducibility
 range: float
 
 ```
-</details>
+</details></div>

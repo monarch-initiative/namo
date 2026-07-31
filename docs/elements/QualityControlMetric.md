@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: QualityControlMetric 
 
@@ -6,6 +9,8 @@
 _A quality control measure and its associated value._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -35,7 +40,6 @@ URI: [namo:QualityControlMetric](https://w3id.org/monarch-initiative/namo/Qualit
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -61,8 +65,12 @@ URI: [namo:QualityControlMetric](https://w3id.org/monarch-initiative/namo/Qualit
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -148,7 +156,6 @@ attributes:
     description: Name of the quality control metric.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: metric_name
     owner: QualityControlMetric
     domain_of:
     - QualityControlMetric
@@ -158,7 +165,6 @@ attributes:
     description: Value of the quality control metric.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: metric_value
     owner: QualityControlMetric
     domain_of:
     - QualityControlMetric
@@ -168,7 +174,6 @@ attributes:
     description: Acceptable threshold for this metric.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: threshold
     owner: QualityControlMetric
     domain_of:
     - QualityControlMetric
@@ -178,11 +183,10 @@ attributes:
     description: Whether this metric passes quality control criteria.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: pass_fail_status
     owner: QualityControlMetric
     domain_of:
     - QualityControlMetric
     range: boolean
 
 ```
-</details>
+</details></div>

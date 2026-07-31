@@ -1,8 +1,8 @@
 # namo 
 
-NAMO (New Approach Methodology Ontology) is a comprehensive schema for representing diverse 
-in vitro and in silico model systems used as alternatives to traditional animal testing. 
-It supports organoids, organ-on-chip systems, 3D cell cultures, computational models, and 
+NAMO (New Approach Methodology Ontology) is a comprehensive schema for representing diverse
+in vitro and in silico model systems used as alternatives to traditional animal testing.
+It supports organoids, organ-on-chip systems, 3D cell cultures, computational models, and
 other New Approach Methodologies (NAMs) used in toxicology, drug discovery, and biomedical research.
 
 ## Schema Organization
@@ -10,7 +10,7 @@ other New Approach Methodologies (NAMs) used in toxicology, drug discovery, and 
 The schema follows a hierarchical structure that mirrors how NAM research is organized and conducted:
 
 The top-level entity is a [Dataset](Dataset.md), which serves as a container for related research
-activities. A dataset might represent all NAM models from a specific laboratory, regulatory study, 
+activities. A dataset might represent all NAM models from a specific laboratory, regulatory study,
 or collaborative research program.
 
 Each dataset contains one or more [Studies](Study.md), which are focused investigations using
@@ -22,18 +22,18 @@ Within each study, you'll find:
 ### Model Systems
 The core of NAMO is the representation of different [NAM model types](NAMModel.md):
 
-- **[Organoids](Organoid.md)**: Self-organizing 3D tissue models derived from stem cells that 
-  recapitulate organ-specific architecture and function. Examples include brain organoids for 
-  neurotoxicity testing, intestinal organoids for drug absorption studies, and liver organoids 
+- **[Organoids](Organoid.md)**: Self-organizing 3D tissue models derived from stem cells that
+  recapitulate organ-specific architecture and function. Examples include brain organoids for
+  neurotoxicity testing, intestinal organoids for drug absorption studies, and liver organoids
   for metabolism research.
 
-- **[Organ-on-Chip Systems](OrganOnChip.md)**: Microfluidic devices that simulate organ-level 
-  physiology with precise control over cellular microenvironment. These include lung-on-chip 
-  for inhalation toxicology, heart-on-chip for cardiotoxicity assessment, and multi-organ 
+- **[Organ-on-Chip Systems](OrganOnChip.md)**: Microfluidic devices that simulate organ-level
+  physiology with precise control over cellular microenvironment. These include lung-on-chip
+  for inhalation toxicology, heart-on-chip for cardiotoxicity assessment, and multi-organ
   chips for systemic drug effects.
 
 - **[Tissue-on-Chip Systems](TissueOnChip.md)**: Microfluidic models focused on specific tissue
-  functions such as blood-brain barrier chips, skin models for dermatological testing, and 
+  functions such as blood-brain barrier chips, skin models for dermatological testing, and
   kidney proximal tubule chips for nephrotoxicity screening.
 
 - **[3D Cell Cultures](ThreeDCellCulture.md)**: Three-dimensional cell culture systems including
@@ -50,7 +50,7 @@ The core of NAMO is the representation of different [NAM model types](NAMModel.m
 NAMO supports various in silico approaches:
 
 - **[Machine Learning Models](MLModel.md)**: AI/ML systems for toxicity prediction, including
-  deep learning models for chemical structure-activity relationships, neural networks for 
+  deep learning models for chemical structure-activity relationships, neural networks for
   dose-response modeling, and ensemble methods for multi-endpoint prediction.
 
 - **[QSAR Models](QSARModel.md)**: Quantitative Structure-Activity Relationship models that
@@ -62,7 +62,7 @@ NAMO supports various in silico approaches:
   of biological processes.
 
 - **[Digital Twins](DigitalTwin.md)**: Integrated computational models that combine multiple
-  data sources and modeling approaches to create personalized, real-time simulations of 
+  data sources and modeling approaches to create personalized, real-time simulations of
   biological systems.
 
 - **[Metabolic Models](MetabolicModel.md)**: Systems biology models of cellular metabolism,
@@ -72,7 +72,7 @@ NAMO supports various in silico approaches:
 ### Technical Specifications
 
 #### Microfluidic Design
-For chip-based systems, detailed [microfluidic design](MicrofluidicDesign.md) specifications 
+For chip-based systems, detailed [microfluidic design](MicrofluidicDesign.md) specifications
 capture device architecture, including channel configurations, flow control methods, sensor
 integration, and material properties essential for reproducibility and standardization.
 
@@ -83,7 +83,7 @@ NAMO emphasizes validation through [structured concordance analysis](StructuredC
   and metabolomic signatures compared to reference biological systems
 - **[Functional Parity](FunctionalParity.md)**: Physiological responses, barrier functions,
   and cellular behaviors that match in vivo counterparts
-- **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch 
+- **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch
   variation, and quality control metrics
 
 #### Performance Metrics
@@ -100,7 +100,7 @@ NAMO supports diverse applications across multiple domains:
   NAM approaches, supporting regulatory submissions to EPA, FDA, and ECHA
 - **Cosmetics Testing**: Non-animal approaches for skin sensitization, eye irritation, and
   systemic toxicity assessment as required by regulations worldwide
-- **Pesticide Evaluation**: Environmental and human health risk assessment using NAMs for 
+- **Pesticide Evaluation**: Environmental and human health risk assessment using NAMs for
   neurotoxicity, endocrine disruption, and developmental toxicity endpoints
 
 ### Pharmaceutical Development
@@ -114,9 +114,9 @@ NAMO supports diverse applications across multiple domains:
 ### Academic Research
 - **Disease Modeling**: Patient-specific organoids for studying rare diseases, cancer biology,
   and genetic disorders in controlled laboratory environments
-- **Mechanistic Studies**: Investigation of toxicity pathways, cellular responses, and 
+- **Mechanistic Studies**: Investigation of toxicity pathways, cellular responses, and
   molecular mechanisms using well-characterized NAM systems
-- **Method Development**: Innovation in NAM technologies, validation approaches, and 
+- **Method Development**: Innovation in NAM technologies, validation approaches, and
   standardization protocols
 
 ## Key Features
@@ -136,9 +136,9 @@ For detailed curation guidelines, see:
 
 ## Community and Standards
 
-NAMO is developed in collaboration with the NAM research community, regulatory agencies, and 
-standards organizations including OECD, ICCVAM, and ESTIV. It supports the 3Rs principles 
-(Replacement, Reduction, Refinement) and contributes to the transition toward animal-free 
+NAMO is developed in collaboration with the NAM research community, regulatory agencies, and
+standards organizations including OECD, ICCVAM, and ESTIV. It supports the 3Rs principles
+(Replacement, Reduction, Refinement) and contributes to the transition toward animal-free
 testing methodologies in safety assessment and biomedical research.
 
 

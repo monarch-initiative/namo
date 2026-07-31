@@ -1,6 +1,11 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: ModelsRelationship 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -57,7 +62,6 @@ URI: [namo:ModelsRelationship](https://w3id.org/monarch-initiative/namo/ModelsRe
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -100,8 +104,12 @@ URI: [namo:ModelsRelationship](https://w3id.org/monarch-initiative/namo/ModelsRe
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -188,7 +196,6 @@ attributes:
     name: biological_system_modeled
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_system_modeled
     owner: ModelsRelationship
     domain_of:
     - ModelsRelationship
@@ -199,7 +206,6 @@ attributes:
       data.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: is_computed
     owner: ModelsRelationship
     domain_of:
     - ModelsRelationship
@@ -210,7 +216,6 @@ attributes:
       the biological system, such as sensitivity, specificity, and accuracy.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: concordance
     owner: ModelsRelationship
     domain_of:
     - ModelsRelationship
@@ -221,7 +226,6 @@ attributes:
       and the biological system, with rich metadata and supporting evidence.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: structured_concordance
     owner: ModelsRelationship
     domain_of:
     - ModelsRelationship
@@ -229,4 +233,4 @@ attributes:
     inlined: true
 
 ```
-</details>
+</details></div>

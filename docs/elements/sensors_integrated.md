@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: sensors_integrated 
 
@@ -7,11 +10,11 @@ _Sensors integrated into the device for monitoring_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:sensors_integrated](https://w3id.org/monarch-initiative/namo/sensors_integrated)
-Alias: sensors_integrated
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: sensors_integrated
 
 ## Properties
 
-* Range: [IntegratedSensorEnum](IntegratedSensorEnum.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [IntegratedSensorEnum](IntegratedSensorEnum.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: sensors_integrated
 description: Sensors integrated into the device for monitoring
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: sensors_integrated
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
@@ -79,4 +102,4 @@ range: IntegratedSensorEnum
 multivalued: true
 
 ```
-</details>
+</details></div>

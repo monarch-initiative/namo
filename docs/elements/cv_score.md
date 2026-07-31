@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cv_score 
 
@@ -7,11 +10,11 @@ _Average cross-validation score_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:cv_score](https://w3id.org/monarch-initiative/namo/cv_score)
-Alias: cv_score
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: cv_score
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [CrossValidation](CrossValidation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CrossValidation](CrossValidation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: cv_score
 description: Average cross-validation score
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: cv_score
 owner: CrossValidation
 domain_of:
 - CrossValidation
 range: float
 
 ```
-</details>
+</details></div>

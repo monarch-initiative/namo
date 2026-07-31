@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: coefficient_of_variation 
 
@@ -7,11 +10,11 @@ _Coefficient of variation across experimental replicates._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:coefficient_of_variation](https://w3id.org/monarch-initiative/namo/coefficient_of_variation)
-Alias: coefficient_of_variation
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: coefficient_of_variation
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [Reproducibility](Reproducibility.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reproducibility](Reproducibility.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: coefficient_of_variation
 description: Coefficient of variation across experimental replicates.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: coefficient_of_variation
 owner: Reproducibility
 domain_of:
 - Reproducibility
 range: float
 
 ```
-</details>
+</details></div>

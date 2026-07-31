@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: clearance 
 
@@ -7,11 +10,11 @@ _Total body clearance (L/h)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:clearance](https://w3id.org/monarch-initiative/namo/clearance)
-Alias: clearance
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: clearance
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [DrugProperties](DrugProperties.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DrugProperties](DrugProperties.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: clearance
 description: Total body clearance (L/h)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: clearance
 owner: DrugProperties
 domain_of:
 - DrugProperties
 range: float
 
 ```
-</details>
+</details></div>

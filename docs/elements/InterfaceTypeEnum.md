@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: InterfaceTypeEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:InterfaceTypeEnum](https://w3id.org/monarch-initiative/namo/InterfaceTypeEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | AIR_LIQUID | None | Air-liquid interface |
@@ -27,8 +34,12 @@ URI: [namo:InterfaceTypeEnum](https://w3id.org/monarch-initiative/namo/Interface
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -70,3 +81,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

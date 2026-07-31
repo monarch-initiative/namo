@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cell_ratios 
 
@@ -7,11 +10,11 @@ _Ratios of different cell types in the co-culture_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:cell_ratios](https://w3id.org/monarch-initiative/namo/cell_ratios)
-Alias: cell_ratios
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,7 +25,7 @@ Alias: cell_ratios
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic  microenvironments ... |  no  |
+| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic microenvironments a... |  no  |
 
 
 
@@ -31,15 +34,36 @@ Alias: cell_ratios
 
 ## Properties
 
-* Range: [CellRatio](CellRatio.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [CellRatio](CellRatio.md) |
+| Domain Of | [CoCulture](CoCulture.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CoCulture](CoCulture.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: cell_ratios
 description: Ratios of different cell types in the co-culture
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: cell_ratios
 owner: CoCulture
 domain_of:
 - CoCulture
@@ -81,4 +104,4 @@ inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

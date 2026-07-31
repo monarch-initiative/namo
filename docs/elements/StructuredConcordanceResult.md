@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: StructuredConcordanceResult 
 
@@ -6,6 +9,8 @@
 _Detailed structured assessment of concordance between model and biological systems with rich metadata, evidence, and quantitative measures._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -93,7 +98,6 @@ URI: [namo:StructuredConcordanceResult](https://w3id.org/monarch-initiative/namo
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -121,8 +125,12 @@ URI: [namo:StructuredConcordanceResult](https://w3id.org/monarch-initiative/namo
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -235,7 +243,6 @@ attributes:
     description: Detailed assessment of molecular-level similarity including gene
       expression, protein levels, and metabolic profiles.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: molecular_similarity
     owner: StructuredConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -246,7 +253,6 @@ attributes:
     name: pathway_concordance
     description: Assessment of biological pathway conservation and activity levels.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: pathway_concordance
     owner: StructuredConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -258,7 +264,6 @@ attributes:
     description: Comparison of phenotypic manifestations between model and biological
       system.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: phenotype_overlap
     owner: StructuredConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -269,7 +274,6 @@ attributes:
     name: cell_type_coverage
     description: Assessment of cell type representation and cellular diversity.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: cell_type_coverage
     owner: StructuredConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -280,7 +284,6 @@ attributes:
     name: functional_parity
     description: Evaluation of functional capabilities and physiological responses.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: functional_parity
     owner: StructuredConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -291,7 +294,6 @@ attributes:
     name: reproducibility
     description: Assessment of experimental reproducibility and consistency.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: reproducibility
     owner: StructuredConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -300,4 +302,4 @@ attributes:
     inlined: true
 
 ```
-</details>
+</details></div>

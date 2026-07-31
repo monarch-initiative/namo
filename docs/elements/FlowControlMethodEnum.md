@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: FlowControlMethodEnum 
 
 
@@ -7,10 +13,11 @@ _Flow control methods for microfluidic devices as defined in ISO 10991:2023_
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:FlowControlMethodEnum](https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | SYRINGE_PUMP | None | Syringe pump-driven flow |
@@ -35,12 +42,16 @@ URI: [namo:FlowControlMethodEnum](https://w3id.org/monarch-initiative/namo/FlowC
 
 
 
+
+
+
 ## See Also
 
 * [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -110,3 +121,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>
