@@ -149,7 +149,7 @@ see_also:
 prefixes:
   namo: https://w3id.org/monarch-initiative/namo/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/vocab/
+  biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   example: https://example.org/
