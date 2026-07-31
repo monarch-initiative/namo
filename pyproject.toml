@@ -7,20 +7,18 @@ name = "namo"
 description = "New Approach Methodology Ontology and Schema"
 authors = [
   {name = "Chris Mungall", email = "cjmungall@lbl.gov"},
+  {name = "Daniel Korn", email="dkorn@cs.unc.edu"},
 ]
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
 readme = "README.md"
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.10,<3.14"
 dynamic = ["version"]
-
-dependencies = [
-  "linkml-runtime >=1.9.4",
-]
 
 [dependency-groups]
 dev = [
-    "linkml>=1.9.3",
+    "linkml>=1.11.1",
+    "pydantic>2.11.7", #Need for some LinkML dependancy weirdness.
     "mkdocs-material>=8.2.8",
     "mkdocs-mermaid2-plugin>=1.1.1",
     "jupyter>=1.0.0",
