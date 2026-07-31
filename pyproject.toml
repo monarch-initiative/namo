@@ -17,6 +17,7 @@ dynamic = ["version"]
 
 [dependency-groups]
 dev = [
+    "oaklib",
     "linkml>=1.11.1",
     "pydantic>2.11.7", #Need for some LinkML dependancy weirdness.
     "mkdocs-material>=8.2.8",
