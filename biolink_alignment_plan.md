@@ -5,7 +5,7 @@
 - Tracking issue: [#19 — All instances of "Term" should be removed from schema.yaml and replaced with the appropriate Biolink class](https://github.com/monarch-initiative/namo/issues/19)
 - Biolink Model version targeted: **4.4.3**
 - Companion document: [`ontology_mapping_plan.md`](ontology_mapping_plan.md) (enum → ontology strategy)
-- Status: **Stage 1 applied; Stages 2–6 pending.** All seven design decisions (D1–D7) are resolved and folded into the stages below. The schema currently does **not** generate — that is expected and resolves in Stage 2.
+- Status: **Stages 1–2 applied; Stages 3–6 pending.** All seven design decisions (D1–D7) are resolved and folded into the stages below. The schema generates again as of Stage 2. The test suite is expected to be red until Stage 5 migrates the instance data.
 
 ---
 
@@ -38,6 +38,9 @@ Everything in this plan was probed end-to-end against the project toolchain befo
 | `category` written as a scalar | **Passes.** `yaml_loader.load(...)` returns a real `GrossAnatomicalStructure` |
 | `linkml-validate` / JSON Schema path | **Broken for these classes** — `gen-json-schema` emits `{"type": "array", "enum": ["biolink:Cell"]}`, which no value can satisfy. Survivable because `just test` does not use it (see Stage 6) |
 | `oaklib` installed? | **Yes** — 0.6.23, declared in `[dependency-groups] dev`, resolved in `uv.lock`. Used to compute the closure checks in 4a / 4b against Ubergraph |
+| `is_a: <biolink class>` to resolve a same-name collision | **Does not work, and is worse than shadowing.** A NAMO class named `Dataset` deriving from Biolink's `dataset` fails with `ValueError: Cyclic wrapper inheritance at DatasetId`. The collision is on the *name*, independent of parentage — so renaming is forced. Corrected step 2c |
+| Two type designators on one class (`namo_type` + inherited `category`) | **Generates, but both stay live and must agree per instance.** `namo_type: OrganOnChip` + `category: ...ModelSystem` dispatched on `namo_type`, then failed the `category` check. Resolved by deleting `type` outright — see 2b |
+| `gen-project` from the repo root | **Fails.** Resolves Biolink's nested `attributes` import against the *invocation cwd* (`<repo>/attributes.yaml`), unlike `gen-python` (schema dir) and `SchemaView` (root-schema dir). Three different behaviours in one toolchain. Fix verified: run from the schema directory — see 1e |
 
 ---
 
@@ -104,44 +107,107 @@ Dropping two upstream files into a directory the tooling treats as "ours" has fo
 | `justfile`: `lint` now targets `{{source_schema_path}}`, not `{{source_schema_dir}}` | `linkml-lint` on a directory recursively lints *every* YAML in it, so it would have linted the vendored Biolink schema as two additional schemas |
 | `.pre-commit-config.yaml`: top-level `exclude` for both vendored files | `trailing-whitespace` and `end-of-file-fixer` would **rewrite** them, destroying byte-fidelity with upstream; `yamllint` reports 1,538 problems in them; `codespell`/`typos` flag upstream prose |
 | `pyproject.toml`: both files added to `[tool.codespell] skip` and `[tool.typos.files] extend-exclude` | Same reason, for direct (non-pre-commit) invocations |
-| `pyproject.toml`: `nam`/`nams` added to codespell `ignore-words-list`; `NAM`/`NAMs` to `[tool.typos.default.extend-words]` | **Pre-existing latent bug, not caused by vendoring.** Both spell-checkers treat "NAM" as a misspelling of "NAME" and `typos` auto-fixes in place. Running the hooks over `namo.yaml` rewrote the `NAMModel` class to `NAMEModel`, its `is_a:` references, and the `NAMModel.md` doc link. Caught and reverted; the allowlist prevents recurrence |
+| `pyproject.toml`: `nam`/`nams`/`giv` added to codespell `ignore-words-list`; `NAM`/`NAMs`/`GIV` to `[tool.typos.default.extend-words]` | **Pre-existing latent bug, not caused by vendoring.** Both spell-checkers treat "NAM" as a misspelling of "NAME" and "GIV" as one of "GIVE", and `typos` auto-fixes in place. Running the hooks over `namo.yaml` rewrote the `NAMModel` class to `NAMEModel` (plus its `is_a:` references and the `NAMModel.md` doc link) and the `GIVReST` prefix — an official standard, doi:10.14573/altex.2501011 — to `GIVEReST` in both the prefix declaration and `NAMModel.exact_mappings`. Both caught and reverted; the allowlist prevents recurrence, and also protects the five `docs/` files that reference GIVReST |
 
 Known remaining noise, neither a regression nor in scope for Stage 1:
 
 - **`just lint` still exits 1** — but it did before Stage 1 too. All findings are warnings, zero errors (201 → 1,024). The increase is because `linkml-lint` walks the import closure and reports on Biolink's own elements (`association` ×119, `gene` ×59, …) even when pointed at a single file. There is no flag to exclude imported elements; `--ignore-warnings` or `--max-warnings` would be a lint-policy decision to take separately.
 - **`yamllint` on `namo.yaml` still exits 1** — also pre-existing, and now *better*: 29 errors → 2 (the project's own whitespace hooks cleaned up the rest). The remaining two are indentation findings in untouched content.
 
+### 1e. Generators must run from the schema directory — ⚠️ OPEN
+
+Not yet applied. Surfaced while verifying Stage 2.
+
+`gen-project` resolves Biolink's nested `attributes` import against the **invocation cwd**, so from the repo root it looks for `<repo>/attributes.yaml` and dies with `FileNotFoundError`. This is a third resolution behaviour, distinct from `gen-python` (schema dir) and `SchemaView` (root-schema dir), and there is no `--importmap` option on `gen-project` to override it.
+
+Verified fix — run the generator from the schema directory, with the output path made absolute:
+
+```
+cd src/namo/schema && uv run gen-project -d /abs/path/to/project namo.yaml   # exit 0, all artifacts produced
+```
+
+In `justfile` terms that means, for each affected recipe:
+
+```make
+gen-project:
+  cd {{source_schema_dir}} && uv run gen-project {{config_yaml}} \
+    -d {{justfile_directory()}}/{{dest}} {{schema_name}}.yaml
+```
+
+**Before applying, check each generator individually** — they do not agree. `gen-python` works from the repo root today; `gen-project` does not. The recipes to audit are `gen-project`, `gen-python`, `gen-doc`, `gen-pydantic`, `gen-java`, `gen-owl`, `gen-typescript`, `_gen-yaml` and `_test-schema`. Only change the ones that actually fail; a needless `cd` makes every relative output path in that recipe wrong.
+
+Non-fatal noise seen during a successful run, all from Biolink's own definitions and safe to ignore: `ERROR:linkml.generators.sqltablegen:Unknown range base: None for broad_synonym = label type` (and the other synonym slots), plus an openpyxl warning about sheet-name length.
+
+### 1f. `attributes.yaml` must be committed — ⚠️ HAZARD
+
+Commit `fd4b00a` ("Stage 1 changes done") committed `biolink-model.yaml` but **not** `src/namo/schema/attributes.yaml`, and the working-tree copy was removed. Since `biolink-model.yaml` imports it, the schema became unloadable for anyone at that commit — `FileNotFoundError: .../src/namo/schema/attributes.yaml`.
+
+Restored from the pinned v4.4.3 tag; `biolink-model.yaml` re-verified byte-identical to upstream. **`attributes.yaml` is currently untracked and must go into the next commit.** It is easy to miss precisely because its name gives no hint that it belongs to Biolink — the `imports:` comment in `namo.yaml` names both files for this reason.
+
 ---
 
-## Stage 2 — Clear the collisions (blocking; do before Stage 3)
+## Stage 2 — Clear the collisions ✅ DONE
 
-Importing Biolink means NAMO may not define any slot or class name Biolink already defines. There are nine.
+Applied and verified. `gen-python` exits 0 — the `Conflicting URIs … for item: id` blocker from Stage 1 is cleared — and the generated model has no duplicate NAMO/Biolink classes. Hierarchy comes out as intended:
+
+```
+NAMDataset  -> Dataset(InformationContentEntity) -> NamedThing   # biolink
+NAMStudy    -> Study(Activity)                   -> NamedThing   # biolink
+GeneExpressionResult, PathwayActivityResult      -> NamedThing   # biolink
+```
+
+Biolink's own `NamedThing`, `Dataset`, `Study`, `Gene` and `Pathway` remain present and distinct. The single duplicate class in the output, `KnowledgeGraph`, is **pre-existing in a pure-Biolink generation** (it appears twice there too) and is not caused by NAMO.
+
+Step 2c below was materially wrong as planned and has been corrected in place; 2b took its fallback branch.
+
+The underlying rule: importing Biolink means NAMO may not define any slot or class name Biolink already defines. There were nine — four slots (2a, 2b) and five classes (2c).
 
 ### 2a. Delete NAMO's local `id`, `name`, `description` slot definitions
 
-Lines 1388–1398. Biolink's `id` is already `identifier: true, required: true` — functionally identical to NAMO's. Keeping NAMO's kills `gen-python` outright.
+Biolink's `id` is already `identifier: true, required: true` — functionally identical to NAMO's. Keeping NAMO's kills `gen-python` outright with `Conflicting URIs … for item: id`. All three are now inherited from Biolink's `named thing`.
 
-### 2b. Rename NAMO's type designator
+### 2b. Delete NAMO's type designator; `category` becomes the sole one
 
-NAMO's `type: designates_type: true` collides with Biolink's `type` (which is `slot_uri: rdf:type`, multivalued, *not* a designator). Rename to `namo_type` — verified working.
+**The two-designator check ran first, as planned, and came back against `namo_type`.** The fallback branch was taken: `type` is deleted outright rather than renamed.
 
-**This is a data migration:** every example file's `type: "OrganOnChip"` becomes `namo_type: "OrganOnChip"`.
+What the check showed. Declaring `namo_type: {designates_type: true}` on a class that also inherits Biolink's `category` **does generate** (exit 0) — but both designators stay live and must agree on every instance. An instance carrying `namo_type: "OrganOnChip"` together with `category: "…:ModelSystem"` first dispatched on `namo_type` to `OrganOnChip`, then failed the inherited `category` check:
 
-**Interaction with D1 — verify early.** Because NAMO classes now inherit from Biolink `named thing` (2c), they inherit Biolink's `category`, which is *also* `designates_type: true`. That leaves two type designators on the same class: inherited `category` and declared `namo_type`. Confirm LinkML tolerates this as the first action in Stage 2. If it does not, drop `namo_type` entirely and use `category: "namo:OrganOnChip"` as the sole designator — which is arguably the better end state anyway, and removes migration item 2 from Stage 5.
+```
+ValueError: Wrong type designator value: class OrganOnChip has no subclass with
+  ['class_class_curie', 'class_class_uri', 'class_model_uri']='desig:ModelSystem'
+```
+
+Two designators means every instance must carry two consistent fields forever. `category` is required by Biolink's `named thing` and cannot be dropped, so `namo_type` is the one that goes.
+
+**Consequence for Stage 5:** migration items 2 and 3 collapse into one. `type: "OrganOnChip"` becomes `category: "namo:OrganOnChip"` — verified, `OrganOnChip.class_class_curie == "namo:OrganOnChip"`.
+
+The `slots:` block is now empty and has been replaced by a comment recording why NAMO defines no slots of its own.
 
 ### 2c. Resolve five class-name collisions
 
 This is the dangerous one — generation succeeds and the wrong classes silently win, which would make `tests/test_data.py`'s `getattr(namo.datamodel.namo, target_class_name)` return Biolink's class instead of NAMO's.
 
-| NAMO class | Line | Resolution |
+**Correction to this step as originally planned.** It said to resolve four of the five collisions with `is_a` while keeping the NAMO names. That does not work. The collision is on the *name*: once Biolink is imported, `dataset`/`study`/`gene`/`pathway` exist in the namespace no matter what NAMO's classes derive from, and both camel-case to the same Python identifier. For `Dataset` it is worse than shadowing — a NAMO class named `Dataset` deriving from Biolink's `dataset` fails generation outright:
+
+```
+ValueError: Cyclic wrapper inheritance at DatasetId
+```
+
+**Renaming is therefore forced**, and it is a public API change. Names below were chosen by the maintainer: the `NAM` prefix matches the existing `NAMModel` class, keeping the codebase internally consistent.
+
+| Was | Now | Resolution |
 |---|---|---|
-| `NamedThing` | 191 | **Delete it; adopt Biolink's `named thing`** (per D1). Every NAMO class currently declaring `is_a: NamedThing` becomes `is_a: named thing`. NAMO's version (`class_uri: schema:Thing`, slots id/name/description/type) was itself a re-creation of Biolink's — exactly what this plan sets out to stop |
-| `Study` | 201 | `is_a: study` (Biolink's, `is_a: activity`), keeping NAMO's four attributes (`context_of_use`, `biological_context`, `perturbations`, `endpoints`) as additions. Extending ≠ recreating |
-| `Dataset` | 180 | `is_a: dataset` (Biolink's, `is_a: information content entity`), keeping `model_systems` / `studies` |
-| `Gene` | 1168 | NAMO's `Gene` conflates the entity with differential-expression results (`fold_change`, `p_value`, `adjusted_p_value`). Split: use Biolink `gene` for identity, move the statistics to a NAMO-specific result class holding `gene: {range: gene}` |
-| `Pathway` | 1196 | Same shape (`activity_score`, `enrichment_score` on the entity). Use Biolink `pathway`; move statistics to a NAMO result class |
+| `NamedThing` | *(deleted)* | Adopt Biolink's `named thing` (per D1). All 15 remaining `is_a: NamedThing` became `is_a: named thing`. NAMO's version (`class_uri: schema:Thing`, slots id/name/description/type) was itself a re-creation of Biolink's — exactly what this plan sets out to stop. No rename needed: deleting it removes the collision |
+| `Dataset` | `NAMDataset` | `is_a: dataset` (Biolink's, `is_a: information content entity`), keeping `model_systems` / `studies`. Its `studies` range updated to `NAMStudy` |
+| `Study` | `NAMStudy` | `is_a: study` (Biolink's, `is_a: activity`), keeping NAMO's four attributes (`context_of_use`, `biological_context`, `perturbations`, `endpoints`) |
+| `Gene` | `GeneExpressionResult` | Split per D-choice: identity comes from Biolink `gene` via a `gene: {range: gene}` attribute; `fold_change` / `p_value` / `adjusted_p_value` stay here. The old `gene_symbol` / `ensembl_id` / `entrez_id` attributes are dropped — Biolink's `gene` id_prefixes (HGNC, NCBIGene, ENSEMBL, …) replace them |
+| `Pathway` | `PathwayActivityResult` | Same split: `pathway: {range: pathway}` for identity, `activity_score` / `enrichment_score` here. Old `pathway_database` / `pathway_id` dropped in favour of Biolink `pathway` id_prefixes (REACT, KEGG, GO, …) |
+
+Four range references were updated alongside: `MolecularSimilarity.differentially_expressed_genes` and `.conserved_genes` → `GeneExpressionResult`; `PathwayConcordance.active_pathways` and `.divergent_pathways` → `PathwayActivityResult`.
 
 Stage 2c is wider than Issue 19, but it is not optional — it is the price of the import, and skipping it produces a schema that generates cleanly and is quietly wrong.
+
+**Not yet propagated (Stage 5 work):** the renames are schema-only so far. `docs/how-to/curate.md`, the `Dataset`/`Study` references in `namo.yaml`'s own `description:` prose and its `NAMModel.md`-style doc links, and any example data still use the old names.
 
 ---
 
@@ -375,15 +441,29 @@ Unlike the rejected local-class approach, importing Biolink **does** require tou
        category: "biolink:Cell"
    ```
 
-2. **`type:` → `namo_type:`** on every top-level object (from 2b) — *unless* the 2b designator check sends us to `category` instead, in which case this becomes `type: "OrganOnChip"` → `category: "namo:OrganOnChip"` and item 3 is subsumed.
+2. **`type:` → `category:`** on every top-level object, with the value becoming a CURIE. The 2b check resolved this: `namo_type` was dropped, so the former items 2 and 3 are now a single edit rather than two.
 
-3. **Add `category` to every NAMO entity too.** Unconditional, per D1: NAMO classes now descend from Biolink `named thing`, which requires `category`. E.g. a top-level `OrganOnChip` gains `category: "namo:OrganOnChip"`.
+   ```yaml
+   # before
+   type: "OrganOnChip"
+   # after
+   category: "namo:OrganOnChip"      # == OrganOnChip.class_class_curie
+   ```
 
-4. **Rename `tissue_modeled:` → `anatomical_structure_modeled:`** in the three `TissueOnChip-example-*.yaml` files, and update the `TissueOnChip` row of `docs/how-to/curate.md` (line 88). Full inventory in 3b.
+   This simultaneously satisfies D1's requirement that every NAMO entity carry a `category` (inherited from Biolink `named thing`, where it is required) and supplies the sole type designator.
+
+3. **Rename `tissue_modeled:` → `anatomical_structure_modeled:`** in the three `TissueOnChip-example-*.yaml` files, and update the `TissueOnChip` row of `docs/how-to/curate.md` (line 88). Full inventory in 3b.
+
+4. **Propagate the Stage 2c class renames.** These are schema-only so far and have no instance-data footprint (no `Dataset-*`, `Study-*`, `Gene-*` or `Pathway-*` example files exist), but the prose and docs do reference them:
+   - `namo.yaml`'s own `description:` block — `[Dataset](Dataset.md)` and `[Studies](Study.md)` links, and the surrounding text.
+   - `docs/how-to/curate.md` — model-class table.
+   - Anything referencing the removed `Gene.gene_symbol` / `ensembl_id` / `entrez_id` and `Pathway.pathway_database` / `pathway_id` attributes, which are now expressed as Biolink CURIEs on the nested `gene:` / `pathway:` objects.
 
 5. **No anatomy recuration needed.** The closure checks confirm all 11 `organ_modeled` values pass `UBERON:0000062` and all 3 `anatomical_structure_modeled` values pass `UBERON:0010000`.
 
-`name:` is preserved throughout, so the CLAUDE.md convention of including both `id` and `name` for clarity survives. Items 1–4 are mechanical and should be a one-off migration script rather than 27 hand edits; `examples/output/` is regenerated by `_ensure_examples_output` anyway.
+`name:` is preserved throughout, so the CLAUDE.md convention of including both `id` and `name` for clarity survives. Items 1–3 are mechanical and should be a one-off migration script rather than 27 hand edits; `examples/output/` is regenerated by `_ensure_examples_output` anyway.
+
+Note that `tests/test_data.py` derives the target class from the filename (`Path(filepath).stem.split("-")[0]`), so any future example file must be named after a class that still exists — `NAMStudy-example-001.yaml`, not `Study-example-001.yaml`.
 
 ---
 
@@ -394,7 +474,8 @@ Unlike the rejected local-class approach, importing Biolink **does** require tou
 - **Wire enum validation into the test suite.** `oaklib` 0.6.23 is now a dev dependency, so closure checks are runnable ad hoc (4a, 4b) — but no `just test` step expands dynamic enums or enforces `bindings`, so Stage 4's constraints remain unenforced in CI. Add a step that validates the `reachable_from` enums and `bindings` against the example data, otherwise these enums are documentation rather than validation. Minor: `oaklib` is the only unpinned entry in the `dev` group; pin it for reproducibility like its neighbours.
 - **Generated artifacts balloon:** 49 → 645 Python classes, ~19k lines. Expect `just gen-project` and `just gen-doc` to slow substantially, and `docs/elements/` to gain hundreds of pages unless `gen-doc` is constrained. Worth deciding whether the docs build should be filtered to NAMO-defined classes only.
 - **Run order:** `just lint` → `just gen-project` → `just test`, then grep the OWL output for `https://w3id.org/biolink/vocab/Cell` to confirm Stage 1a landed.
-- **Stage order:** 1 → 2 (designator check first) → 3 (Term deletion last) → 4 → 5. Stage 2 before 3 is mandatory; Stage 5 must land in the same commit as 2b/2c/3 or the suite goes red.
+- **Stage order:** 1 → 2 (designator check first) → 3 (Term deletion last) → 4 → 5. Stage 2 before 3 is mandatory. **Stages 1–2 are now applied, and the suite is red until Stage 5 lands** — every example file still carries `type:` instead of `category:` and lacks `category` on its ontology references. That was always going to be true between 2b/2c and 5; it just means the branch is not in a committable-green state until Stage 5 completes.
+- **Carry into Stage 3:** `1e` (generators must run from the schema directory) and `1f` (`attributes.yaml` untracked) are open and unrelated to Stage 3's content. `1f` in particular should be cleared at the next commit.
 
 ---
 

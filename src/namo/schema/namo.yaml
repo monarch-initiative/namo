@@ -192,29 +192,25 @@ imports:
 
 classes:
 
-  Dataset:
+  # Renamed from `Dataset`: Biolink defines `dataset`, and once that schema is
+  # imported the two collide in every generated artifact. `is_a` does not fix
+  # it - a class named Dataset deriving from Biolink's Dataset makes pythongen
+  # fail with "Cyclic wrapper inheritance at DatasetId".
+  NAMDataset:
+    is_a: dataset
     attributes:
       model_systems:
         range: ModelSystem
         inlined_as_list: true
         multivalued: true
       studies:
-        range: Study
+        range: NAMStudy
         inlined_as_list: true
         multivalued: true
 
-  NamedThing:
-    description: >-
-      A generic grouping for any identifiable entity
-    slots:
-      - id
-      - name
-      - description
-      - type
-    class_uri: schema:Thing
-
-  Study:
-    is_a: NamedThing
+  # Renamed from `Study`, for the same collision reason as NAMDataset above.
+  NAMStudy:
+    is_a: study
     description: >-
       A study is a structured investigation or analysis, often involving the
       collection and interpretation of data, to answer specific research
@@ -245,7 +241,7 @@ classes:
 
   ModelSystem:
     abstract: true
-    is_a: NamedThing
+    is_a: named thing
     attributes:
       models:
         range: ModelsRelationship
@@ -724,7 +720,7 @@ classes:
           Area under the ROC curve
 
   PBPKCompartment:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       A physiological compartment in a PBPK model.
     attributes:
@@ -793,7 +789,7 @@ classes:
 
 
   MicrofluidicDesign:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       Detailed specification of a microfluidic device design including its architecture,
       materials, dimensions, and functional features. Terms aligned with ISO 10991:2023
@@ -889,7 +885,7 @@ classes:
           Length of the channel in millimeters
 
   MechanicalStimulation:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       Specification of mechanical forces applied to the model system
     attributes:
@@ -920,7 +916,7 @@ classes:
           Duration of mechanical stimulation in minutes
 
   BiologicalSystem:
-    is_a: NamedThing
+    is_a: named thing
 
   ModelsRelationship:
     attributes:
@@ -990,7 +986,7 @@ classes:
           Assessment of experimental reproducibility and consistency.
 
   MolecularSimilarity:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       Detailed assessment of molecular-level concordance between model and biological systems.
     attributes:
@@ -1003,13 +999,13 @@ classes:
         description: >-
           Pearson correlation coefficient for expression profiles.
       differentially_expressed_genes:
-        range: Gene
+        range: GeneExpressionResult
         multivalued: true
         inlined_as_list: true
         description: >-
           List of genes that are differentially expressed in the model system.
       conserved_genes:
-        range: Gene
+        range: GeneExpressionResult
         multivalued: true
         inlined_as_list: true
         description: >-
@@ -1027,7 +1023,7 @@ classes:
           Statistical measures of significance for the molecular similarity.
 
   PathwayConcordance:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       Assessment of biological pathway conservation and activity between model and biological systems.
     attributes:
@@ -1036,13 +1032,13 @@ classes:
         description: >-
           Quantitative score (0.0-1.0) representing pathway overlap.
       active_pathways:
-        range: Pathway
+        range: PathwayActivityResult
         multivalued: true
         inlined_as_list: true
         description: >-
           List of biological pathways that are active in both systems.
       divergent_pathways:
-        range: Pathway
+        range: PathwayActivityResult
         multivalued: true
         inlined_as_list: true
         description: >-
@@ -1058,7 +1054,7 @@ classes:
           Statistical measures of pathway enrichment.
 
   PhenotypeOverlap:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       Comparison of phenotypic manifestations between model and biological systems.
     attributes:
@@ -1089,7 +1085,7 @@ classes:
           Ontology used for phenotype classification (e.g., HPO, MP).
 
   CellTypeCoverage:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       Assessment of cell type representation and cellular diversity between systems.
     attributes:
@@ -1120,7 +1116,7 @@ classes:
           Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry).
 
   FunctionalParity:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       Evaluation of functional capabilities and physiological responses between systems.
     attributes:
@@ -1149,7 +1145,7 @@ classes:
           Comparison of dose-response relationships for therapeutic compounds.
 
   Reproducibility:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       Assessment of experimental reproducibility and consistency of the model system.
     attributes:
@@ -1180,21 +1176,21 @@ classes:
         description: >-
           List of quality control measures and their values.
 
-  Gene:
-    is_a: NamedThing
+  # Was `Gene`, which both collided with Biolink's `gene` and conflated the
+  # gene entity with a measurement about it. Identity now comes from Biolink's
+  # `gene`; the differential-expression statistics live here.
+  GeneExpressionResult:
+    is_a: named thing
     description: >-
-      A gene entity with identifiers and expression information.
+      A differential-expression measurement for a single gene in a model system.
     attributes:
-      gene_symbol:
+      gene:
+        range: gene
+        inlined: true
         description: >-
-          Standard gene symbol (e.g., HGNC symbol for human genes).
-      ensembl_id:
-        description: >-
-          Ensembl gene identifier.
-      entrez_id:
-        range: integer
-        description: >-
-          NCBI Entrez gene identifier.
+          The gene this measurement is about. Identifier prefixes follow
+          Biolink's `gene` (HGNC, NCBIGene, ENSEMBL, ...), which replaces the
+          former gene_symbol / ensembl_id / entrez_id attributes.
       fold_change:
         range: float
         description: >-
@@ -1208,17 +1204,20 @@ classes:
         description: >-
           Multiple testing corrected p-value.
 
-  Pathway:
-    is_a: NamedThing
+  # Was `Pathway` - same collision and same entity/measurement conflation as
+  # GeneExpressionResult above.
+  PathwayActivityResult:
+    is_a: named thing
     description: >-
-      A biological pathway with activity and enrichment information.
+      An activity and enrichment measurement for a single biological pathway.
     attributes:
-      pathway_database:
+      pathway:
+        range: pathway
+        inlined: true
         description: >-
-          Source database (e.g., KEGG, Reactome, GO).
-      pathway_id:
-        description: >-
-          Database-specific pathway identifier.
+          The pathway this measurement is about. Identifier prefixes follow
+          Biolink's `pathway` (REACT, KEGG, GO, ...), which replaces the former
+          pathway_database / pathway_id attributes.
       activity_score:
         range: float
         description: >-
@@ -1300,7 +1299,7 @@ classes:
           Ratio of model to biological proportions.
 
   FunctionalAssay:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       A functional assay used to assess biological capabilities.
     attributes:
@@ -1393,26 +1392,22 @@ classes:
           URL to access the publication
 
   Term:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       A term is a concept or entity that can be defined and used in a specific
       context, often within a controlled vocabulary or ontology.
 
 
-slots:
-  id:
-    identifier: true
-    slot_uri: schema:identifier
-    range: uriorcurie
-    description: A unique identifier for a thing
-  name:
-    slot_uri: schema:name
-    description: A human-readable name for a thing
-  description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
-  type:
-    designates_type: true
+# NAMO defines no slots of its own.
+#
+# `id`, `name` and `description` come from Biolink's `named thing`; redefining
+# them here fails generation with "Conflicting URIs ... for item: id".
+#
+# The former `type: {designates_type: true}` slot is gone. Biolink's `category`
+# is already a type designator and is required on every `named thing`, so it is
+# now the sole designator: instance data carries `category: "namo:OrganOnChip"`
+# where it previously carried `type: "OrganOnChip"`. Declaring a second
+# designator alongside it generates, but both must then agree on every instance.
 
 enums:
 
