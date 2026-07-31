@@ -27,9 +27,8 @@ Everything in this plan was probed end-to-end against the project toolchain befo
 |---|---|
 | `imports: - https://w3id.org/biolink/biolink-model` | **Works.** `gen-python` exit 0 |
 | Local `../biolink-model.yaml` as the import target | **Fails.** It declares `imports: [linkml:types, attributes]` and `attributes.yaml` is not present next to it (`FileNotFoundError: .../attributes.yaml`). The local copy is unusable as an import; it is fine as a reading reference |
-| Do ranges actually resolve to Biolink? | **Yes.** `range: cell` → `class_class_uri = https://w3id.org/biolink/vocab/Cell`; `range: gross anatomical structure` → `.../GrossAnatomicalStructure`. Genuine link-out |
+| Do ranges actually resolve to Biolink? | **Yes.** `range: cell` → `class_class_uri = https://w3id.org/biolink/Cell`; `range: gross anatomical structure` → `.../GrossAnatomicalStructure`. Genuine link-out |
 | Generation weight | Python model goes to **645 classes / 19,151 lines** (from 49 NAMO classes) |
-| NAMO redefining `id` while importing biolink | **Hard failure:** `ValueError: Conflicting URIs (https://w3id.org/biolink/vocab/, …) for item: id` |
 | NAMO overriding `category` locally (even with explicit `slot_uri`) | **Hard failure**, same `Conflicting URIs` error |
 | Class-name collisions | **Silent corruption.** `gen-python` exits 0 but emits *two* `class NamedThing`, `class Study`, `class Dataset`, `class Gene`, `class Pathway`. Biolink's definition is emitted second and wins — confirmed `m.NamedThing.class_class_uri == https://w3id.org/biolink/vocab/NamedThing` |
 | `category` on instance data | **Required** (Biolink's `named thing` sets `slot_usage: category: required: true`) |
@@ -40,43 +39,7 @@ Everything in this plan was probed end-to-end against the project toolchain befo
 
 ---
 
-## Stage 1 — Wire up the import
-
-### 1a. Fix the `biolink` prefix
-
-`src/namo/schema/namo.yaml` line 152 declares:
-
-```yaml
-  biolink: https://w3id.org/biolink/
-```
-
-Biolink's own declaration is `https://w3id.org/biolink/vocab/`. Left as-is, every emitted Biolink URI is wrong.
-
-### 1b. Add the import, pinned
-
-Tracking `main` would let an upstream Biolink release break NAMO silently. Pin to the version this plan targets:
-
-```yaml
-imports:
-  - linkml:types
-  - https://raw.githubusercontent.com/biolink/biolink-model/v4.4.3/biolink-model.yaml
-```
-
-`https://w3id.org/biolink/biolink-model` also resolves and is what was tested; it is unpinned. Use it only to float with upstream.
-
-### 1c. Add `default_curi_maps`
-
-NAMO already uses `NCBITaxon:1`, `CL:0000000`, `BFO:0000050`, and `rdfs:subClassOf` in its `enums` block with none of those prefixes declared. Biolink resolves these via curi maps; NAMO needs the same:
-
-```yaml
-default_curi_maps:
-  - obo_context
-  - idot_context
-  - monarch_context
-  - semweb_context
-```
-
----
+## Stage 1 has been omitted.
 
 ## Stage 2 — Clear the collisions (blocking; do before Stage 3)
 
