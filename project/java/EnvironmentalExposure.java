@@ -9,18 +9,12 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A literature reference with identifier and title for citing published work.
+  A discrete event type where an organism is exposed to an environmental condition.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Reference  {
+public class EnvironmentalExposure extends BiolinkEntity {
 
-  private URI id;
-  private String title;
-  private List<String> authors;
-  private String journal;
-  private Integer year;
-  private URI url;
 
 
 }

@@ -169,15 +169,11 @@ mechanical_forces:
 organ_modeled:
   id: UBERON:0001005
   name: respiratory airway
-  type: Term
 cell_types:
 - id: CL:0002632
   name: epithelial cell of lower respiratory tract
-  type: Term
 - id: CL:0002139
   name: endothelial cell of vascular tree
-  type: Term
 - id: CL:0000775
   name: neutrophil
-  type: Term
 cell_source: Primary human CF bronchial epithelial cells (CFTR ΔF508 mutation)

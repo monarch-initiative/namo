@@ -83,38 +83,32 @@
           "represented_cell_types": [
             {
               "id": "CL:0002418",
-              "name": "epithelial cell of ovary",
-              "type": "Term"
+              "name": "epithelial cell of ovary"
             },
             {
               "id": "CL:0002548",
-              "name": "fibroblast of cardiac tissue",
-              "type": "Term"
+              "name": "fibroblast of cardiac tissue"
             },
             {
               "id": "CL:0000071",
-              "name": "blood vessel endothelial cell",
-              "type": "Term"
+              "name": "blood vessel endothelial cell"
             }
           ],
           "missing_cell_types": [
             {
               "id": "CL:0000576",
-              "name": "monocyte",
-              "type": "Term"
+              "name": "monocyte"
             },
             {
               "id": "CL:0000084",
-              "name": "T cell",
-              "type": "Term"
+              "name": "T cell"
             }
           ],
           "cell_type_proportions": [
             {
               "cell_type": {
                 "id": "CL:0002418",
-                "name": "epithelial cell of ovary",
-                "type": "Term"
+                "name": "epithelial cell of ovary"
               },
               "model_proportion": 0.7,
               "biological_proportion": 0.65,
@@ -123,8 +117,7 @@
             {
               "cell_type": {
                 "id": "CL:0002548",
-                "name": "fibroblast of cardiac tissue",
-                "type": "Term"
+                "name": "fibroblast of cardiac tissue"
               },
               "model_proportion": 0.2,
               "biological_proportion": 0.25,
@@ -254,18 +247,15 @@
   "cell_types": [
     {
       "id": "CL:0002418",
-      "name": "epithelial cell of ovary",
-      "type": "Term"
+      "name": "epithelial cell of ovary"
     },
     {
       "id": "CL:0002548",
-      "name": "fibroblast of cardiac tissue",
-      "type": "Term"
+      "name": "fibroblast of cardiac tissue"
     },
     {
       "id": "CL:0000071",
-      "name": "blood vessel endothelial cell",
-      "type": "Term"
+      "name": "blood vessel endothelial cell"
     }
   ],
   "cell_source": "Primary ovarian cancer cells, cancer-associated fibroblasts, and endothelial cells",

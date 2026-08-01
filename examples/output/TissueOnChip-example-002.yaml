@@ -72,32 +72,25 @@ models:
       represented_cell_types:
       - id: CL:0000584
         name: enterocyte
-        type: Term
       - id: CL:0000160
         name: goblet cell
-        type: Term
       - id: CL:1001516
         name: intestinal enteroendocrine cell
-        type: Term
       missing_cell_types:
       - id: CL:0000510
         name: paneth cell
-        type: Term
       - id: CL:0009019
         name: tuft cell
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000584
           name: enterocyte
-          type: Term
         model_proportion: 0.8
         biological_proportion: 0.85
         proportion_ratio: 0.94
       - cell_type:
           id: CL:0000160
           name: goblet cell
-          type: Term
         model_proportion: 0.2
         biological_proportion: 0.15
         proportion_ratio: 1.33
@@ -245,10 +238,9 @@ sensor_integration:
 - TEER
 - OXYGEN
 - PH
-tissue_modeled:
+anatomical_structure_modeled:
   id: UBERON:0001555
   name: digestive tract
-  type: Term
 tissue_architecture: Villus-like epithelial layer with crypt-like invaginations and
   basal immune compartment
 barrier_functions:

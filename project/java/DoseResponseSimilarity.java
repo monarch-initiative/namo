@@ -1,12 +1,12 @@
 package None;
 
+/* metamodel_version: 1.11.0 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
-
-
-
-
-
 
 /**
   Comparison of dose-response relationships between model and biological systems.
@@ -19,5 +19,6 @@ public class DoseResponseSimilarity  {
   private Float ec50Ratio;
   private Float maxResponseRatio;
   private String compoundTested;
+
 
 }

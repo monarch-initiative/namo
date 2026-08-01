@@ -72,32 +72,25 @@ models:
       represented_cell_types:
       - id: CL:0000182
         name: hepatocyte
-        type: Term
       - id: CL:0000091
         name: Kupffer cell
-        type: Term
       - id: CL:0002293
         name: epithelial cell of thymus
-        type: Term
       missing_cell_types:
       - id: CL:0000071
         name: blood vessel endothelial cell
-        type: Term
       - id: CL:0000738
         name: leukocyte
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000182
           name: hepatocyte
-          type: Term
         model_proportion: 0.8
         biological_proportion: 0.75
         proportion_ratio: 1.07
       - cell_type:
           id: CL:0000091
           name: Kupffer cell
-          type: Term
         model_proportion: 0.15
         biological_proportion: 0.2
         proportion_ratio: 0.75
@@ -199,13 +192,10 @@ references:
 cell_types:
 - id: CL:0000182
   name: hepatocyte
-  type: Term
 - id: CL:0000091
   name: Kupffer cell
-  type: Term
 - id: CL:0002293
   name: epithelial cell of thymus
-  type: Term
 cell_source: Primary human hepatocytes, hepatic stellate cells, and Kupffer cells
   from healthy donors
 three_d_architecture: SCAFFOLD_BASED

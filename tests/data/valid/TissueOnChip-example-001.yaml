@@ -9,7 +9,7 @@ type: "TissueOnChip"
 biological_organization_level: "TISSUE"
 spatial_context: "3D tissue architecture with vascular and neural compartments separated by BBB"
 complexity_level: "HIGH"
-tissue_modeled:
+anatomical_structure_modeled:
   id: "UBERON:0000120"
   name: "blood-brain barrier"
 tissue_architecture: "Trilayer structure with endothelial cells, pericytes, and astrocytes in spatial arrangement"

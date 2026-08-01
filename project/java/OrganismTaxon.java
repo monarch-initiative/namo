@@ -9,18 +9,12 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A literature reference with identifier and title for citing published work.
+  A classification of a set of organisms. Can also be used to represent strains or subspecies.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Reference  {
+public class OrganismTaxon extends BiolinkEntity {
 
-  private URI id;
-  private String title;
-  private List<String> authors;
-  private String journal;
-  private Integer year;
-  private URI url;
 
 
 }

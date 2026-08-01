@@ -72,35 +72,27 @@ models:
       represented_cell_types:
       - id: CL:0000066
         name: epithelial cell
-        type: Term
       - id: CL:0002062
         name: type I pneumocyte
-        type: Term
       - id: CL:0000182
         name: hepatocyte
-        type: Term
       - id: CL:0000746
         name: cardiac muscle cell
-        type: Term
       missing_cell_types:
       - id: CL:0000071
         name: blood vessel endothelial cell
-        type: Term
       - id: CL:0000115
         name: endothelial cell
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0002062
           name: type I pneumocyte
-          type: Term
         model_proportion: 0.25
         biological_proportion: 0.3
         proportion_ratio: 0.83
       - cell_type:
           id: CL:0000182
           name: hepatocyte
-          type: Term
         model_proportion: 0.25
         biological_proportion: 0.22
         proportion_ratio: 1.14
@@ -219,17 +211,12 @@ sensor_integration:
 organ_modeled:
   id: UBERON:0002048
   name: lung
-  type: Term
 cell_types:
 - id: CL:0000066
   name: epithelial cell
-  type: Term
 - id: CL:0002062
   name: type I pneumocyte
-  type: Term
 - id: CL:0000182
   name: hepatocyte
-  type: Term
 - id: CL:0000746
   name: cardiac muscle cell
-  type: Term

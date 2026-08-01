@@ -83,43 +83,36 @@
           "represented_cell_types": [
             {
               "id": "CL:0000653",
-              "name": "podocyte",
-              "type": "Term"
+              "name": "podocyte"
             },
             {
               "id": "CL:1000849",
-              "name": "kidney proximal tubule epithelial cell",
-              "type": "Term"
+              "name": "kidney proximal tubule epithelial cell"
             },
             {
               "id": "CL:1001431",
-              "name": "kidney distal tubule epithelial cell",
-              "type": "Term"
+              "name": "kidney distal tubule epithelial cell"
             },
             {
               "id": "CL:0000071",
-              "name": "blood vessel endothelial cell",
-              "type": "Term"
+              "name": "blood vessel endothelial cell"
             }
           ],
           "missing_cell_types": [
             {
               "id": "CL:1000452",
-              "name": "kidney collecting duct principal cell",
-              "type": "Term"
+              "name": "kidney collecting duct principal cell"
             },
             {
               "id": "CL:1000453",
-              "name": "kidney collecting duct intercalated cell",
-              "type": "Term"
+              "name": "kidney collecting duct intercalated cell"
             }
           ],
           "cell_type_proportions": [
             {
               "cell_type": {
                 "id": "CL:0000653",
-                "name": "podocyte",
-                "type": "Term"
+                "name": "podocyte"
               },
               "model_proportion": 0.15,
               "biological_proportion": 0.12,
@@ -128,8 +121,7 @@
             {
               "cell_type": {
                 "id": "CL:1000849",
-                "name": "kidney proximal tubule epithelial cell",
-                "type": "Term"
+                "name": "kidney proximal tubule epithelial cell"
               },
               "model_proportion": 0.55,
               "biological_proportion": 0.62,
@@ -254,35 +246,29 @@
   "cell_types": [
     {
       "id": "CL:0000653",
-      "name": "podocyte",
-      "type": "Term"
+      "name": "podocyte"
     },
     {
       "id": "CL:1000849",
-      "name": "kidney proximal tubule epithelial cell",
-      "type": "Term"
+      "name": "kidney proximal tubule epithelial cell"
     },
     {
       "id": "CL:1001431",
-      "name": "kidney distal tubule epithelial cell",
-      "type": "Term"
+      "name": "kidney distal tubule epithelial cell"
     },
     {
       "id": "CL:0000071",
-      "name": "blood vessel endothelial cell",
-      "type": "Term"
+      "name": "blood vessel endothelial cell"
     },
     {
       "id": "CL:1000507",
-      "name": "kidney interstitial fibroblast",
-      "type": "Term"
+      "name": "kidney interstitial fibroblast"
     }
   ],
   "cell_source": "Human induced pluripotent stem cells (iPSCs) from healthy donors",
   "organ_modeled": {
     "id": "UBERON:0002113",
-    "name": "kidney",
-    "type": "Term"
+    "name": "kidney"
   },
   "differentiation_method": "Protocol based on developmental kidney organogenesis using sequential growth  factor treatment including activating canonical Wnt signaling, followed by  FGF9 and BMP signaling to induce metanephric mesenchyme and nephron progenitors.",
   "culture_system": "Suspension culture in ultra-low attachment plates with nephron differentiation  medium. Organoids maintained for 18-25 days with medium changes every 2-3 days  to allow full nephron maturation.",

@@ -136,30 +136,25 @@
   "cell_types": [
     {
       "id": "CL:0000182",
-      "name": "hepatocyte",
-      "type": "Term"
+      "name": "hepatocyte"
     },
     {
       "id": "CL:0000183",
-      "name": "cholangiocyte",
-      "type": "Term"
+      "name": "cholangiocyte"
     },
     {
       "id": "CL:0002138",
-      "name": "hepatic stellate cell",
-      "type": "Term"
+      "name": "hepatic stellate cell"
     },
     {
       "id": "CL:0000091",
-      "name": "Kupffer cell",
-      "type": "Term"
+      "name": "Kupffer cell"
     }
   ],
   "cell_source": "Primary human hepatocytes and cholangiocytes isolated from donor liver tissue",
   "organ_modeled": {
     "id": "UBERON:0002107",
-    "name": "liver",
-    "type": "Term"
+    "name": "liver"
   },
   "differentiation_method": "Co-culture of primary hepatocytes and cholangiocytes in hepatocyte  culture medium supplemented with hepatocyte growth factor (HGF) and  epidermal growth factor (EGF). Organoids form through self-organization  over 7-10 days.",
   "culture_system": "Low-attachment plates with hepatocyte organoid medium containing  Wnt3a, R-spondin, and Noggin. Cultures maintained at 37°C with 5% CO2  and medium changed every 2-3 days.",

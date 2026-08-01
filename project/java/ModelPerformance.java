@@ -1,12 +1,12 @@
 package None;
 
+/* metamodel_version: 1.11.0 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
-
-
-
-
-
 
 /**
   Statistical performance metrics for computational models.
@@ -21,5 +21,6 @@ public class ModelPerformance  {
   private Float rSquared;
   private Float rmse;
   private Float auc;
+
 
 }

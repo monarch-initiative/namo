@@ -9,18 +9,12 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A literature reference with identifier and title for citing published work.
+  The basic structural and functional unit of all organisms. Includes the plasma membrane and any external encapsulating structures such as the cell wall and cell envelope.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Reference  {
+public class Cell extends BiolinkEntity {
 
-  private URI id;
-  private String title;
-  private List<String> authors;
-  private String journal;
-  private Integer year;
-  private URI url;
 
 
 }

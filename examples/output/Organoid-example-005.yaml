@@ -74,32 +74,25 @@ models:
       represented_cell_types:
       - id: CL:0000746
         name: cardiac muscle cell
-        type: Term
       - id: CL:0002548
         name: fibroblast of cardiac tissue
-        type: Term
       - id: CL:0000071
         name: blood vessel endothelial cell
-        type: Term
       missing_cell_types:
       - id: CL:0000182
         name: hepatocyte
-        type: Term
       - id: CL:0002072
         name: nodal myocyte
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000746
           name: cardiac muscle cell
-          type: Term
         model_proportion: 0.75
         biological_proportion: 0.7
         proportion_ratio: 1.07
       - cell_type:
           id: CL:0002548
           name: fibroblast of cardiac tissue
-          type: Term
         model_proportion: 0.15
         biological_proportion: 0.2
         proportion_ratio: 0.75
@@ -196,22 +189,17 @@ references:
 cell_types:
 - id: CL:0000746
   name: cardiac muscle cell
-  type: Term
 - id: CL:0002494
   name: cardiocyte
-  type: Term
 - id: CL:0002548
   name: fibroblast of cardiac tissue
-  type: Term
 - id: CL:0000071
   name: blood vessel endothelial cell
-  type: Term
 cell_source: Human induced pluripotent stem cells (iPSCs) from healthy donors and
   cardiac disease patients
 organ_modeled:
   id: UBERON:0000948
   name: heart
-  type: Term
 differentiation_method: Cardiac differentiation protocol using temporal modulation
   of Wnt signaling  with CHIR99021 and IWP2, followed by metabolic selection with
   lactate medium  to enrich for cardiomyocytes. Self-assembly into 3D organoids through  hanging

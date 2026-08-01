@@ -138,10 +138,8 @@ complexity_level: MODERATE
 cell_types:
 - id: CL:0000182
   name: hepatocyte
-  type: Term
 - id: CL:0002138
   name: hepatic stellate cell
-  type: Term
 cell_source: Primary human hepatocytes and hepatic stellate cells from liver donors
 culture_conditions: Williams E medium + hepatocyte supplements, 37°C, 5% CO2
 coculture_configuration: TRANSWELL
@@ -149,13 +147,11 @@ cell_ratios:
 - cell_type:
     id: CL:0000182
     name: hepatocyte
-    type: Term
   ratio: 0.8
   ratio_type: PERCENTAGE
 - cell_type:
     id: CL:0002138
     name: hepatic stellate cell
-    type: Term
   ratio: 0.2
   ratio_type: PERCENTAGE
 interaction_mechanisms:

@@ -73,32 +73,25 @@ models:
       represented_cell_types:
       - id: CL:0000312
         name: keratinocyte
-        type: Term
       - id: CL:0000057
         name: fibroblast
-        type: Term
       - id: CL:0000148
         name: melanocyte
-        type: Term
       missing_cell_types:
       - id: CL:0000451
         name: dendritic cell
-        type: Term
       - id: CL:0000771
         name: eosinophil
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000312
           name: keratinocyte
-          type: Term
         model_proportion: 0.8
         biological_proportion: 0.85
         proportion_ratio: 0.94
       - cell_type:
           id: CL:0000057
           name: fibroblast
-          type: Term
         model_proportion: 0.15
         biological_proportion: 0.12
         proportion_ratio: 1.25
@@ -248,10 +241,9 @@ sensor_integration:
 - TEER
 - OPTICAL
 - IMPEDANCE
-tissue_modeled:
+anatomical_structure_modeled:
   id: UBERON:0002097
   name: skin of body
-  type: Term
 tissue_architecture: Multilayer structure with stratified epidermis and dermal fibroblast
   layer
 barrier_functions:

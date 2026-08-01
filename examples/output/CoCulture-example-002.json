@@ -83,33 +83,28 @@
           "represented_cell_types": [
             {
               "id": "CL:0000540",
-              "name": "neuron",
-              "type": "Term"
+              "name": "neuron"
             },
             {
               "id": "CL:0000127",
-              "name": "astrocyte",
-              "type": "Term"
+              "name": "astrocyte"
             }
           ],
           "missing_cell_types": [
             {
               "id": "CL:0000128",
-              "name": "oligodendrocyte",
-              "type": "Term"
+              "name": "oligodendrocyte"
             },
             {
               "id": "CL:0000129",
-              "name": "microglial cell",
-              "type": "Term"
+              "name": "microglial cell"
             }
           ],
           "cell_type_proportions": [
             {
               "cell_type": {
                 "id": "CL:0000540",
-                "name": "neuron",
-                "type": "Term"
+                "name": "neuron"
               },
               "model_proportion": 0.4,
               "biological_proportion": 0.45,
@@ -118,8 +113,7 @@
             {
               "cell_type": {
                 "id": "CL:0000127",
-                "name": "astrocyte",
-                "type": "Term"
+                "name": "astrocyte"
               },
               "model_proportion": 0.6,
               "biological_proportion": 0.55,
@@ -250,13 +244,11 @@
   "cell_types": [
     {
       "id": "CL:0000540",
-      "name": "neuron",
-      "type": "Term"
+      "name": "neuron"
     },
     {
       "id": "CL:0000127",
-      "name": "astrocyte",
-      "type": "Term"
+      "name": "astrocyte"
     }
   ],
   "cell_source": "Primary human neurons and astrocytes derived from fetal brain tissue",
@@ -265,8 +257,7 @@
     {
       "cell_type": {
         "id": "CL:0000540",
-        "name": "neuron",
-        "type": "Term"
+        "name": "neuron"
       },
       "ratio": 0.4,
       "ratio_type": "PERCENTAGE"
@@ -274,8 +265,7 @@
     {
       "cell_type": {
         "id": "CL:0000127",
-        "name": "astrocyte",
-        "type": "Term"
+        "name": "astrocyte"
       },
       "ratio": 0.6,
       "ratio_type": "PERCENTAGE"

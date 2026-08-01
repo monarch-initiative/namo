@@ -9,18 +9,12 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A literature reference with identifier and title for citing published work.
+  A stage of development or growth of an organism, including post-natal adult stages.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Reference  {
+public class LifeStage extends BiolinkEntity {
 
-  private URI id;
-  private String title;
-  private List<String> authors;
-  private String journal;
-  private Integer year;
-  private URI url;
 
 
 }

@@ -169,8 +169,7 @@
   ],
   "species_modeled": {
     "id": "NCBITaxon:9606",
-    "name": "Homo sapiens",
-    "type": "Term"
+    "name": "Homo sapiens"
   },
   "drug_properties": {
     "molecular_weight": 151.16,

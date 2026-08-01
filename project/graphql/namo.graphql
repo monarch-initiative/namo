@@ -1,4 +1,4 @@
-# metamodel_version: 1.7.0
+# metamodel_version: 1.11.0
 enum BiologicalOrganizationLevelEnum
   {
     SUBCELLULAR
@@ -246,28 +246,43 @@ enum ThreeDArchitectureEnum
 
 type AnimalModel
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
     models: [ModelsRelationship]
-    species: Term!
-    strain: Term
-    age: Term
-    environment: Term
+    species: OrganismTaxon!
+    strain: OrganismTaxon
+    lifeStage: LifeStage
+    ageValue: QuantityValue
+    environment: EnvironmentalExposure
+  }
+
+interface BiolinkEntity
+  {
+    id: String!
+    name: String
+    description: String
   }
 
 type BiologicalSystem
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
   }
 
+type Cell
+  {
+    id: String!
+    name: String
+    description: String
+  }
+
 type CellLineModel
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -276,7 +291,7 @@ type CellLineModel
     spatialContext: String
     complexityLevel: ComplexityLevelEnum
     references: [Reference]
-    cellTypes: [Term]
+    cellTypes: [Cell]
     cellSource: String
     cultureConditions: String
     substrateType: String
@@ -288,27 +303,27 @@ type CellLineModel
 
 type CellRatio
   {
-    cellType: Term
+    cellType: Cell
     ratio: Float
     ratioType: RatioTypeEnum
   }
 
 type CellTypeCoverage
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
     coveragePercentage: Float
-    representedCellTypes: [Term]
-    missingCellTypes: [Term]
+    representedCellTypes: [Cell]
+    missingCellTypes: [Cell]
     cellTypeProportions: [CellTypeProportion]
     singleCellMethod: String
   }
 
 type CellTypeProportion
   {
-    cellType: Term
+    cellType: Cell
     modelProportion: Float
     biologicalProportion: Float
     proportionRatio: Float
@@ -316,7 +331,7 @@ type CellTypeProportion
 
 interface CellularSystem
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -325,7 +340,7 @@ interface CellularSystem
     spatialContext: String
     complexityLevel: ComplexityLevelEnum
     references: [Reference]
-    cellTypes: [Term]
+    cellTypes: [Cell]
     cellSource: String
     cultureConditions: String
   }
@@ -340,7 +355,7 @@ type ChannelDimensions
 
 type CoCulture
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -349,7 +364,7 @@ type CoCulture
     spatialContext: String
     complexityLevel: ComplexityLevelEnum
     references: [Reference]
-    cellTypes: [Term]
+    cellTypes: [Cell]
     cellSource: String
     cultureConditions: String
     cocultureConfiguration: CocultureConfigurationEnum
@@ -370,7 +385,7 @@ type ConcordanceResult
 type CrossValidation
   {
     cvMethod: CrossValidationMethodEnum
-    nFolds: Integer
+    nFolds: Int
     cvScore: Float
     cvStd: Float
   }
@@ -383,7 +398,7 @@ type Dataset
 
 type DigitalTwin
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -424,13 +439,20 @@ type EnrichmentStatistics
     enrichmentScore: Float
     pValue: Float
     qValue: Float
-    genesInPathway: Integer
-    genesInDataset: Integer
+    genesInPathway: Int
+    genesInDataset: Int
+  }
+
+type EnvironmentalExposure
+  {
+    id: String!
+    name: String
+    description: String
   }
 
 type FunctionalAssay
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -443,7 +465,7 @@ type FunctionalAssay
 
 type FunctionalParity
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -456,21 +478,28 @@ type FunctionalParity
 
 type Gene
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
     geneSymbol: String
     ensemblId: String
-    entrezId: Integer
+    entrezId: Int
     foldChange: Float
     pValue: Float
     adjustedPValue: Float
   }
 
+type GrossAnatomicalStructure
+  {
+    id: String!
+    name: String
+    description: String
+  }
+
 interface InSilicoModel
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -485,9 +514,16 @@ interface InSilicoModel
     predictionScope: String
   }
 
+type LifeStage
+  {
+    id: String!
+    name: String
+    description: String
+  }
+
 type MechanicalStimulation
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -501,7 +537,7 @@ type MechanicalStimulation
 
 type MetabolicModel
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -518,12 +554,12 @@ type MetabolicModel
 
 type MicrofluidicDesign
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
     architectureType: MicrofluidicArchitectureEnum
-    numberOfChannels: Integer
+    numberOfChannels: Int
     channelConfiguration: [ChannelConfigurationEnum]
     membraneType: MembraneTypeEnum
     membranePoreSize: Float
@@ -539,7 +575,7 @@ type MicrofluidicDesign
 
 interface MicrophysiologicalSystem
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -556,7 +592,7 @@ interface MicrophysiologicalSystem
 
 type MLModel
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -571,7 +607,7 @@ type MLModel
     predictionScope: String
     mlAlgorithm: MLAlgorithmEnum
     featureTypes: [FeatureTypeEnum]
-    trainingDataSize: Integer
+    trainingDataSize: Int
     modelInterpretability: InterpretabilityLevelEnum
     crossValidation: CrossValidation
   }
@@ -596,7 +632,7 @@ type ModelsRelationship
 
 interface ModelSystem
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -605,7 +641,7 @@ interface ModelSystem
 
 type MolecularSimilarity
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -620,7 +656,7 @@ type MolecularSimilarity
 
 type NamedThing
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -628,7 +664,7 @@ type NamedThing
 
 interface NAMModel
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -639,9 +675,16 @@ interface NAMModel
     references: [Reference]
   }
 
+type OrganismTaxon
+  {
+    id: String!
+    name: String
+    description: String
+  }
+
 type Organoid
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -650,20 +693,20 @@ type Organoid
     spatialContext: String
     complexityLevel: ComplexityLevelEnum
     references: [Reference]
-    cellTypes: [Term]
+    cellTypes: [Cell]
     cellSource: String
     cultureConditions: String
     threeDArchitecture: ThreeDArchitectureEnum
     matrixComposition: String
     sizeRange: String
-    organModeled: Term
+    organModeled: GrossAnatomicalStructure
     differentiationMethod: String
     cultureSystem: String
   }
 
 type OrganOnChip
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -676,14 +719,14 @@ type OrganOnChip
     mechanicalForces: MechanicalStimulation
     perfusionSystem: String
     sensorIntegration: [IntegratedSensorEnum]
-    organModeled: Term
-    cellTypes: [Term]
+    organModeled: GrossAnatomicalStructure
+    cellTypes: [Cell]
     cellSource: String
   }
 
 type Pathway
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -695,7 +738,7 @@ type Pathway
 
 type PathwayConcordance
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -708,7 +751,7 @@ type PathwayConcordance
 
 type PBPKCompartment
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -720,7 +763,7 @@ type PBPKCompartment
 
 type PBPKModel
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -734,27 +777,34 @@ type PBPKModel
     validationDatasets: [String]
     predictionScope: String
     compartments: [PBPKCompartment]
-    speciesModeled: Term
+    speciesModeled: OrganismTaxon
     drugProperties: DrugProperties
     eliminationPathways: [String]
   }
 
 type PhenotypeOverlap
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
     phenotypeSimilarityScore: Float
-    sharedPhenotypes: [Term]
-    modelSpecificPhenotypes: [Term]
-    biologicalSpecificPhenotypes: [Term]
+    sharedPhenotypes: [PhenotypicFeature]
+    modelSpecificPhenotypes: [PhenotypicFeature]
+    biologicalSpecificPhenotypes: [PhenotypicFeature]
     phenotypeOntology: String
+  }
+
+type PhenotypicFeature
+  {
+    id: String!
+    name: String
+    description: String
   }
 
 type QSARModel
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -769,7 +819,7 @@ type QSARModel
     predictionScope: String
     molecularDescriptors: [String]
     activityEndpoint: String
-    trainingDatasetSize: Integer
+    trainingDatasetSize: Int
     modelPerformance: ModelPerformance
   }
 
@@ -781,19 +831,25 @@ type QualityControlMetric
     passFailStatus: Boolean
   }
 
+type QuantityValue
+  {
+    hasNumericValue: Float
+    hasUnit: String
+  }
+
 type Reference
   {
-    id: Uriorcurie!
+    id: String!
     title: String!
     authors: [String]
     journal: String
-    year: Integer
-    url: Uri
+    year: Int
+    url: String
   }
 
 type Reproducibility
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -801,7 +857,7 @@ type Reproducibility
     coefficientOfVariation: Float
     batchToBatchVariation: Float
     interLaboratoryConsistency: Float
-    replicateCount: Integer
+    replicateCount: Int
     qualityControlMetrics: [QualityControlMetric]
   }
 
@@ -826,7 +882,7 @@ type StructuredConcordanceResult
 
 type Study
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -837,17 +893,9 @@ type Study
     planComparators: String
   }
 
-type Term
-  {
-    id: Uriorcurie!
-    name: String
-    description: String
-    type: String
-  }
-
 type ThreeDCellCulture
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -856,7 +904,7 @@ type ThreeDCellCulture
     spatialContext: String
     complexityLevel: ComplexityLevelEnum
     references: [Reference]
-    cellTypes: [Term]
+    cellTypes: [Cell]
     cellSource: String
     cultureConditions: String
     threeDArchitecture: ThreeDArchitectureEnum
@@ -866,7 +914,7 @@ type ThreeDCellCulture
 
 type TissueOnChip
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -879,14 +927,14 @@ type TissueOnChip
     mechanicalForces: MechanicalStimulation
     perfusionSystem: String
     sensorIntegration: [IntegratedSensorEnum]
-    tissueModeled: Term
+    anatomicalStructureModeled: GrossAnatomicalStructure
     tissueArchitecture: String
     barrierFunctions: [String]
   }
 
 type TwoDCellCulture
   {
-    id: Uriorcurie!
+    id: String!
     name: String
     description: String
     type: String
@@ -895,7 +943,7 @@ type TwoDCellCulture
     spatialContext: String
     complexityLevel: ComplexityLevelEnum
     references: [Reference]
-    cellTypes: [Term]
+    cellTypes: [Cell]
     cellSource: String
     cultureConditions: String
     substrateType: String

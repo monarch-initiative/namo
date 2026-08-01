@@ -9,18 +9,15 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A literature reference with identifier and title for citing published work.
+  Abstract parent for NAMO classes that stand in for a class in the Biolink Model.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Reference  {
+public abstract class BiolinkEntity  {
 
   private URI id;
-  private String title;
-  private List<String> authors;
-  private String journal;
-  private Integer year;
-  private URI url;
+  private String name;
+  private String description;
 
 
 }

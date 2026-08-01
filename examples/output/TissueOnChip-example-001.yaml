@@ -63,26 +63,21 @@ models:
       represented_cell_types:
       - id: CL:0000071
         name: blood vessel endothelial cell
-        type: Term
       - id: CL:0000669
         name: pericyte
-        type: Term
       missing_cell_types:
       - id: CL:0000129
         name: microglial cell
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000071
           name: blood vessel endothelial cell
-          type: Term
         model_proportion: 0.65
         biological_proportion: 0.7
         proportion_ratio: 0.93
       - cell_type:
           id: CL:0000669
           name: pericyte
-          type: Term
         model_proportion: 0.35
         biological_proportion: 0.3
         proportion_ratio: 1.17
@@ -209,10 +204,9 @@ perfusion_system: Continuous perfusion with physiological flow rates (2 μL/min)
 sensor_integration:
 - TEER
 - IMPEDANCE
-tissue_modeled:
+anatomical_structure_modeled:
   id: UBERON:0000120
   name: blood-brain barrier
-  type: Term
 tissue_architecture: Trilayer structure with endothelial cells, pericytes, and astrocytes
   in spatial arrangement
 barrier_functions:

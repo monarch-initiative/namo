@@ -83,38 +83,32 @@
           "represented_cell_types": [
             {
               "id": "CL:0000182",
-              "name": "hepatocyte",
-              "type": "Term"
+              "name": "hepatocyte"
             },
             {
               "id": "CL:0000091",
-              "name": "Kupffer cell",
-              "type": "Term"
+              "name": "Kupffer cell"
             },
             {
               "id": "CL:0002293",
-              "name": "epithelial cell of thymus",
-              "type": "Term"
+              "name": "epithelial cell of thymus"
             }
           ],
           "missing_cell_types": [
             {
               "id": "CL:0000071",
-              "name": "blood vessel endothelial cell",
-              "type": "Term"
+              "name": "blood vessel endothelial cell"
             },
             {
               "id": "CL:0000738",
-              "name": "leukocyte",
-              "type": "Term"
+              "name": "leukocyte"
             }
           ],
           "cell_type_proportions": [
             {
               "cell_type": {
                 "id": "CL:0000182",
-                "name": "hepatocyte",
-                "type": "Term"
+                "name": "hepatocyte"
               },
               "model_proportion": 0.8,
               "biological_proportion": 0.75,
@@ -123,8 +117,7 @@
             {
               "cell_type": {
                 "id": "CL:0000091",
-                "name": "Kupffer cell",
-                "type": "Term"
+                "name": "Kupffer cell"
               },
               "model_proportion": 0.15,
               "biological_proportion": 0.2,
@@ -256,18 +249,15 @@
   "cell_types": [
     {
       "id": "CL:0000182",
-      "name": "hepatocyte",
-      "type": "Term"
+      "name": "hepatocyte"
     },
     {
       "id": "CL:0000091",
-      "name": "Kupffer cell",
-      "type": "Term"
+      "name": "Kupffer cell"
     },
     {
       "id": "CL:0002293",
-      "name": "epithelial cell of thymus",
-      "type": "Term"
+      "name": "epithelial cell of thymus"
     }
   ],
   "cell_source": "Primary human hepatocytes, hepatic stellate cells, and Kupffer cells from healthy donors",

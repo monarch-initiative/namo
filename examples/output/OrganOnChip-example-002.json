@@ -226,24 +226,20 @@
   },
   "organ_modeled": {
     "id": "UBERON:0002299",
-    "name": "alveolus of lung",
-    "type": "Term"
+    "name": "alveolus of lung"
   },
   "cell_types": [
     {
       "id": "CL:0002063",
-      "name": "type II pneumocyte",
-      "type": "Term"
+      "name": "type II pneumocyte"
     },
     {
       "id": "CL:0002062",
-      "name": "type I pneumocyte",
-      "type": "Term"
+      "name": "type I pneumocyte"
     },
     {
       "id": "CL:0002543",
-      "name": "vein endothelial cell",
-      "type": "Term"
+      "name": "vein endothelial cell"
     }
   ],
   "cell_source": "Primary human alveolar epithelial cells and lung microvascular endothelial cells",

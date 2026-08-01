@@ -9,18 +9,12 @@ import java.util.List;
 import lombok.*;
 
 /**
-  A literature reference with identifier and title for citing published work.
+  An anatomical structure that has more than one cell as a part.
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Reference  {
+public class GrossAnatomicalStructure extends BiolinkEntity {
 
-  private URI id;
-  private String title;
-  private List<String> authors;
-  private String journal;
-  private Integer year;
-  private URI url;
 
 
 }

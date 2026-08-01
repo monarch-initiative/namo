@@ -74,32 +74,25 @@ models:
       represented_cell_types:
       - id: CL:0002563
         name: intestinal epithelial cell
-        type: Term
       - id: CL:0000584
         name: enterocyte
-        type: Term
       - id: CL:0000160
         name: goblet cell
-        type: Term
       missing_cell_types:
       - id: CL:0000451
         name: dendritic cell
-        type: Term
       - id: CL:0000235
         name: macrophage
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000584
           name: enterocyte
-          type: Term
         model_proportion: 0.7
         biological_proportion: 0.75
         proportion_ratio: 0.93
       - cell_type:
           id: CL:0000160
           name: goblet cell
-          type: Term
         model_proportion: 0.15
         biological_proportion: 0.12
         proportion_ratio: 1.25
@@ -189,19 +182,15 @@ references:
 cell_types:
 - id: CL:0002563
   name: intestinal epithelial cell
-  type: Term
 - id: CL:0000036
   name: epithelial cell
-  type: Term
 - id: CL:0000584
   name: enterocyte
-  type: Term
 cell_source: Human induced pluripotent stem cells differentiated using established
   protocol
 organ_modeled:
   id: UBERON:0000160
   name: intestine
-  type: Term
 differentiation_method: Multi-step endoderm and intestinal lineage induction from
   human iPS cells. Initial endoderm differentiation followed by intestinal specification
   using growth factors in defined medium conditions. Cost-reduced protocol utilizing

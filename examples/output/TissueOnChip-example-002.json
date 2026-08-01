@@ -83,38 +83,32 @@
           "represented_cell_types": [
             {
               "id": "CL:0000584",
-              "name": "enterocyte",
-              "type": "Term"
+              "name": "enterocyte"
             },
             {
               "id": "CL:0000160",
-              "name": "goblet cell",
-              "type": "Term"
+              "name": "goblet cell"
             },
             {
               "id": "CL:1001516",
-              "name": "intestinal enteroendocrine cell",
-              "type": "Term"
+              "name": "intestinal enteroendocrine cell"
             }
           ],
           "missing_cell_types": [
             {
               "id": "CL:0000510",
-              "name": "paneth cell",
-              "type": "Term"
+              "name": "paneth cell"
             },
             {
               "id": "CL:0009019",
-              "name": "tuft cell",
-              "type": "Term"
+              "name": "tuft cell"
             }
           ],
           "cell_type_proportions": [
             {
               "cell_type": {
                 "id": "CL:0000584",
-                "name": "enterocyte",
-                "type": "Term"
+                "name": "enterocyte"
               },
               "model_proportion": 0.8,
               "biological_proportion": 0.85,
@@ -123,8 +117,7 @@
             {
               "cell_type": {
                 "id": "CL:0000160",
-                "name": "goblet cell",
-                "type": "Term"
+                "name": "goblet cell"
               },
               "model_proportion": 0.2,
               "biological_proportion": 0.15,
@@ -318,10 +311,9 @@
     "OXYGEN",
     "PH"
   ],
-  "tissue_modeled": {
+  "anatomical_structure_modeled": {
     "id": "UBERON:0001555",
-    "name": "digestive tract",
-    "type": "Term"
+    "name": "digestive tract"
   },
   "tissue_architecture": "Villus-like epithelial layer with crypt-like invaginations and basal immune compartment",
   "barrier_functions": [

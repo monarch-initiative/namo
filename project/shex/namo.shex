@@ -1,8 +1,9 @@
-# metamodel_version: 1.7.0
+# metamodel_version: 1.11.0
 BASE <https://w3id.org/monarch-initiative/namo/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX biolink: <https://w3id.org/biolink/>
 PREFIX schema1: <http://schema.org/>
 PREFIX EDAM: <http://edamontology.org/>
 PREFIX MESH: <http://id.nlm.nih.gov/mesh/>
@@ -49,12 +50,25 @@ linkml:Sparqlpath xsd:string
 <AnimalModel> CLOSED {
     (  $<AnimalModel_tes> (  &<ModelSystem_tes> ;
           rdf:type [ <ModelSystem> ] ? ;
-          <species> @<Term> ;
-          <strain> @<Term> ? ;
-          <age> @<Term> ? ;
-          <environment> @<Term> ?
+          <species> @<OrganismTaxon> ;
+          <strain> @<OrganismTaxon> ? ;
+          <life_stage> @<LifeStage> ? ;
+          <age_value> @<QuantityValue> ? ;
+          <environment> @<EnvironmentalExposure> ?
        ) ;
        rdf:type [ <AnimalModel> ]
+    )
+}
+
+<BiolinkEntity>  (
+    @<Cell> OR @<EnvironmentalExposure> OR @<GrossAnatomicalStructure> OR @<LifeStage> OR @<OrganismTaxon> OR @<PhenotypicFeature>
+)
+
+<BiolinkEntity_struct> {
+    (  $<BiolinkEntity_tes> (  schema1:name @linkml:String ? ;
+          schema1:description @linkml:String ?
+       ) ;
+       rdf:type [ <BiolinkEntity> ]
     )
 }
 
@@ -63,6 +77,14 @@ linkml:Sparqlpath xsd:string
           rdf:type [ schema1:Thing ] ?
        ) ;
        rdf:type [ <BiologicalSystem> ]
+    )
+}
+
+<Cell> CLOSED {
+    (  $<Cell_tes> (  &<BiolinkEntity_tes> ;
+          rdf:type [ <BiolinkEntity> ] ?
+       ) ;
+       rdf:type [ biolink:Cell ]
     )
 }
 
@@ -77,7 +99,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <CellRatio> CLOSED {
-    (  $<CellRatio_tes> (  <cell_type> @<Term> ? ;
+    (  $<CellRatio_tes> (  <cell_type> @<Cell> ? ;
           <ratio> @linkml:Float ? ;
           <ratio_type> [ <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#PERCENTAGE>
              <https://w3id.org/monarch-initiative/namo/RatioTypeEnum#ABSOLUTE>
@@ -91,8 +113,8 @@ linkml:Sparqlpath xsd:string
     (  $<CellTypeCoverage_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
           <coverage_percentage> @linkml:Float ? ;
-          <represented_cell_types> @<Term> * ;
-          <missing_cell_types> @<Term> * ;
+          <represented_cell_types> @<Cell> * ;
+          <missing_cell_types> @<Cell> * ;
           <cell_type_proportions> @<CellTypeProportion> * ;
           <single_cell_method> @linkml:String ?
        ) ;
@@ -101,7 +123,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <CellTypeProportion> CLOSED {
-    (  $<CellTypeProportion_tes> (  <cell_type> @<Term> ? ;
+    (  $<CellTypeProportion_tes> (  <cell_type> @<Cell> ? ;
           <model_proportion> @linkml:Float ? ;
           <biological_proportion> @linkml:Float ? ;
           <proportion_ratio> @linkml:Float ?
@@ -117,7 +139,7 @@ linkml:Sparqlpath xsd:string
 <CellularSystem_struct> {
     (  $<CellularSystem_tes> (  &<NAMModel_tes> ;
           rdf:type [ <NAMModel> ] ? ;
-          <cell_types> @<Term> * ;
+          <cell_types> @<Cell> * ;
           <cell_source> @linkml:String ? ;
           <culture_conditions> @linkml:String ?
        ) ;
@@ -231,6 +253,14 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<EnvironmentalExposure> CLOSED {
+    (  $<EnvironmentalExposure_tes> (  &<BiolinkEntity_tes> ;
+          rdf:type [ <BiolinkEntity> ] ?
+       ) ;
+       rdf:type [ biolink:EnvironmentalExposure ]
+    )
+}
+
 <FunctionalAssay> CLOSED {
     (  $<FunctionalAssay_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
@@ -271,6 +301,14 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<GrossAnatomicalStructure> CLOSED {
+    (  $<GrossAnatomicalStructure_tes> (  &<BiolinkEntity_tes> ;
+          rdf:type [ <BiolinkEntity> ] ?
+       ) ;
+       rdf:type [ biolink:GrossAnatomicalStructure ]
+    )
+}
+
 <InSilicoModel>  (
     @<DigitalTwin> OR @<MLModel> OR @<MetabolicModel> OR @<PBPKModel> OR @<QSARModel>
 )
@@ -284,6 +322,14 @@ linkml:Sparqlpath xsd:string
           <prediction_scope> @linkml:String ?
        ) ;
        rdf:type [ <InSilicoModel> ]
+    )
+}
+
+<LifeStage> CLOSED {
+    (  $<LifeStage_tes> (  &<BiolinkEntity_tes> ;
+          rdf:type [ <BiolinkEntity> ] ?
+       ) ;
+       rdf:type [ biolink:LifeStage ]
     )
 }
 
@@ -357,13 +403,10 @@ linkml:Sparqlpath xsd:string
              <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#COC>
              <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#SILICON>
              <https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum#HYDROGEL> ] * ;
-          <surface_treatment> [ <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#FIBRONECTIN>
-             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#COLLAGEN>
-             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#LAMININ>
-             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#MATRIGEL>
-             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#POLY_L_LYSINE>
-             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#GELATIN>
-             <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#RGD_PEPTIDE>
+          <surface_treatment> [ <http://purl.obolibrary.org/obo/CHEBI_5058> <http://purl.obolibrary.org/obo/CHEBI_3815>
+             MESH:D007797 <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#MATRIGEL>
+             <http://purl.obolibrary.org/obo/CHEBI_53412> <http://purl.obolibrary.org/obo/CHEBI_5291>
+             <http://purl.obolibrary.org/obo/NCIT_C13288>
              <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#ANTI_FOULING>
              <https://w3id.org/monarch-initiative/namo/SurfaceCoatingEnum#OXYGEN_PLASMA> ] * ;
           <flow_control_method> [ <https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum#SYRINGE_PUMP>
@@ -498,7 +541,7 @@ linkml:Sparqlpath xsd:string
        )
     } OR @<BiologicalSystem> OR @<CellTypeCoverage> OR @<FunctionalAssay> OR @<FunctionalParity> OR @<Gene> OR
     @<MechanicalStimulation> OR @<MicrofluidicDesign> OR @<ModelSystem> OR @<MolecularSimilarity> OR @<PBPKCompartment> OR
-    @<Pathway> OR @<PathwayConcordance> OR @<PhenotypeOverlap> OR @<Reproducibility> OR @<Study> OR @<Term>
+    @<Pathway> OR @<PathwayConcordance> OR @<PhenotypeOverlap> OR @<Reproducibility> OR @<Study>
 )
 
 <NAMModel>  (
@@ -524,10 +567,18 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<OrganismTaxon> CLOSED {
+    (  $<OrganismTaxon_tes> (  &<BiolinkEntity_tes> ;
+          rdf:type [ <BiolinkEntity> ] ?
+       ) ;
+       rdf:type [ biolink:OrganismTaxon ]
+    )
+}
+
 <Organoid> CLOSED {
     (  $<Organoid_tes> (  &<ThreeDCellCulture_tes> ;
           rdf:type [ <ThreeDCellCulture> ] ? ;
-          <organ_modeled> @<Term> ? ;
+          <organ_modeled> @<GrossAnatomicalStructure> ? ;
           <differentiation_method> @linkml:String ? ;
           <culture_system> @linkml:String ?
        ) ;
@@ -538,8 +589,8 @@ linkml:Sparqlpath xsd:string
 <OrganOnChip> CLOSED {
     (  $<OrganOnChip_tes> (  &<MicrophysiologicalSystem_tes> ;
           rdf:type [ <MicrophysiologicalSystem> ] ? ;
-          <organ_modeled> @<Term> ? ;
-          <cell_types> @<Term> * ;
+          <organ_modeled> @<GrossAnatomicalStructure> ? ;
+          <cell_types> @<Cell> * ;
           <cell_source> @linkml:String ?
        ) ;
        rdf:type [ <OrganOnChip> ]
@@ -595,7 +646,7 @@ linkml:Sparqlpath xsd:string
     (  $<PBPKModel_tes> (  &<InSilicoModel_tes> ;
           rdf:type [ <InSilicoModel> ] ? ;
           <compartments> @<PBPKCompartment> * ;
-          <species_modeled> @<Term> ? ;
+          <species_modeled> @<OrganismTaxon> ? ;
           <drug_properties> @<DrugProperties> ? ;
           <elimination_pathways> @linkml:String *
        ) ;
@@ -607,12 +658,20 @@ linkml:Sparqlpath xsd:string
     (  $<PhenotypeOverlap_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
           <phenotype_similarity_score> @linkml:Float ? ;
-          <shared_phenotypes> @<Term> * ;
-          <model_specific_phenotypes> @<Term> * ;
-          <biological_specific_phenotypes> @<Term> * ;
+          <shared_phenotypes> @<PhenotypicFeature> * ;
+          <model_specific_phenotypes> @<PhenotypicFeature> * ;
+          <biological_specific_phenotypes> @<PhenotypicFeature> * ;
           <phenotype_ontology> @linkml:String ?
        ) ;
        rdf:type [ <PhenotypeOverlap> ]
+    )
+}
+
+<PhenotypicFeature> CLOSED {
+    (  $<PhenotypicFeature_tes> (  &<BiolinkEntity_tes> ;
+          rdf:type [ <BiolinkEntity> ] ?
+       ) ;
+       rdf:type [ biolink:PhenotypicFeature ]
     )
 }
 
@@ -635,6 +694,14 @@ linkml:Sparqlpath xsd:string
           <pass_fail_status> @linkml:Boolean ?
        ) ;
        rdf:type [ <QualityControlMetric> ] ?
+    )
+}
+
+<QuantityValue> CLOSED {
+    (  $<QuantityValue_tes> (  biolink:has_numeric_value @linkml:Double ? ;
+          biolink:has_unit @linkml:Uriorcurie ?
+       ) ;
+       rdf:type [ biolink:QuantityValue ] ?
     )
 }
 
@@ -699,14 +766,6 @@ linkml:Sparqlpath xsd:string
     )
 }
 
-<Term> CLOSED {
-    (  $<Term_tes> (  &<NamedThing_tes> ;
-          rdf:type [ schema1:Thing ] ?
-       ) ;
-       rdf:type [ <Term> ]
-    )
-}
-
 <ThreeDCellCulture>  (
     CLOSED {
        (  $<ThreeDCellCulture_tes> (  &<CellularSystem_tes> ;
@@ -728,7 +787,7 @@ linkml:Sparqlpath xsd:string
 <TissueOnChip> CLOSED {
     (  $<TissueOnChip_tes> (  &<MicrophysiologicalSystem_tes> ;
           rdf:type [ <MicrophysiologicalSystem> ] ? ;
-          <tissue_modeled> @<Term> ? ;
+          <anatomical_structure_modeled> @<GrossAnatomicalStructure> ? ;
           <tissue_architecture> @linkml:String ? ;
           <barrier_functions> @linkml:String *
        ) ;

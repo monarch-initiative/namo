@@ -95,29 +95,23 @@ models:
       represented_cell_types:
       - id: CL:0000540
         name: neuron
-        type: Term
       - id: CL:0000127
         name: astrocyte
-        type: Term
       - id: CL:0011020
         name: neural progenitor cell
-        type: Term
       missing_cell_types:
       - id: CL:0000129
         name: microglial cell
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000540
           name: neuron
-          type: Term
         model_proportion: 0.45
         biological_proportion: 0.52
         proportion_ratio: 0.87
       - cell_type:
           id: CL:0011020
           name: neural progenitor cell
-          type: Term
         model_proportion: 0.32
         biological_proportion: 0.28
         proportion_ratio: 1.14
@@ -166,24 +160,18 @@ models:
 cell_types:
 - id: CL:0000540
   name: neuron
-  type: Term
 - id: CL:0000127
   name: astrocyte
-  type: Term
 - id: CL:0000128
   name: oligodendrocyte
-  type: Term
 - id: CL:0011020
   name: neural progenitor cell
-  type: Term
 - id: CL:0000125
   name: glial cell
-  type: Term
 cell_source: Human induced pluripotent stem cells (iPSCs) from healthy donors
 organ_modeled:
   id: UBERON:0000955
   name: brain
-  type: Term
 differentiation_method: Dual SMAD inhibition protocol with LDN193189 and SB431542
   followed by  neural induction using N2B27 medium. Organoids are generated using  hanging
   drop method followed by embedding in Matrigel droplets.

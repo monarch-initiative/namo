@@ -176,4 +176,3 @@ compartments:
 species_modeled:
   id: NCBITaxon:9606
   name: Homo sapiens
-  type: Term

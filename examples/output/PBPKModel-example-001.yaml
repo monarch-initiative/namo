@@ -136,7 +136,6 @@ compartments:
 species_modeled:
   id: NCBITaxon:9606
   name: Homo sapiens
-  type: Term
 drug_properties:
   molecular_weight: 151.16
   logp: 0.46
