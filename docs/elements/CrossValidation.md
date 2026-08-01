@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: CrossValidation 
 
@@ -6,6 +9,8 @@
 _Cross-validation strategy and results for ML models._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -44,7 +49,6 @@ URI: [namo:CrossValidation](https://w3id.org/monarch-initiative/namo/CrossValida
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -70,8 +74,12 @@ URI: [namo:CrossValidation](https://w3id.org/monarch-initiative/namo/CrossValida
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -158,7 +166,6 @@ attributes:
     description: Type of cross-validation used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cv_method
     owner: CrossValidation
     domain_of:
     - CrossValidation
@@ -168,7 +175,6 @@ attributes:
     description: Number of folds in cross-validation
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: n_folds
     owner: CrossValidation
     domain_of:
     - CrossValidation
@@ -178,7 +184,6 @@ attributes:
     description: Average cross-validation score
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cv_score
     owner: CrossValidation
     domain_of:
     - CrossValidation
@@ -188,11 +193,10 @@ attributes:
     description: Standard deviation of cross-validation scores
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cv_std
     owner: CrossValidation
     domain_of:
     - CrossValidation
     range: float
 
 ```
-</details>
+</details></div>

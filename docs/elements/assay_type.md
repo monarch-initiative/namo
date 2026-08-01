@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: assay_type 
 
@@ -7,11 +10,11 @@ _Type of functional assay (e.g., TEER, permeability, metabolic activity)._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:assay_type](https://w3id.org/monarch-initiative/namo/assay_type)
-Alias: assay_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: assay_type
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [FunctionalAssay](FunctionalAssay.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [FunctionalAssay](FunctionalAssay.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: assay_type
 description: Type of functional assay (e.g., TEER, permeability, metabolic activity).
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: assay_type
 owner: FunctionalAssay
 domain_of:
 - FunctionalAssay
 range: string
 
 ```
-</details>
+</details></div>

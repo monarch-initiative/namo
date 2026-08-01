@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: substrate_type 
 
@@ -7,11 +10,11 @@ _Type of culture substrate (e.g., plastic, glass, coated surfaces)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:substrate_type](https://w3id.org/monarch-initiative/namo/substrate_type)
-Alias: substrate_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +25,8 @@ Alias: substrate_type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
 | [TwoDCellCulture](TwoDCellCulture.md) | Conventional monolayer cell cultures grown on flat surfaces |  no  |
+| [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
 
 
 
@@ -32,13 +35,35 @@ Alias: substrate_type
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [TwoDCellCulture](TwoDCellCulture.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [TwoDCellCulture](TwoDCellCulture.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -70,11 +95,10 @@ name: substrate_type
 description: Type of culture substrate (e.g., plastic, glass, coated surfaces)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: substrate_type
 owner: TwoDCellCulture
 domain_of:
 - TwoDCellCulture
 range: string
 
 ```
-</details>
+</details></div>

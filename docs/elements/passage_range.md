@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: passage_range 
 
@@ -7,11 +10,11 @@ _Recommended passage number range for experimental use_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:passage_range](https://w3id.org/monarch-initiative/namo/passage_range)
-Alias: passage_range
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: passage_range
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [CellLineModel](CellLineModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellLineModel](CellLineModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: passage_range
 description: Recommended passage number range for experimental use
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: passage_range
 owner: CellLineModel
 domain_of:
 - CellLineModel
 range: string
 
 ```
-</details>
+</details></div>

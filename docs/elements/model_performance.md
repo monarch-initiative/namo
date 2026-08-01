@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: model_performance 
 
@@ -7,11 +10,11 @@ _Statistical performance metrics of the model_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:model_performance](https://w3id.org/monarch-initiative/namo/model_performance)
-Alias: model_performance
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: model_performance
 
 ## Properties
 
-* Range: [ModelPerformance](ModelPerformance.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [ModelPerformance](ModelPerformance.md) |
+| Domain Of | [QSARModel](QSARModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [QSARModel](QSARModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,7 +94,6 @@ name: model_performance
 description: Statistical performance metrics of the model
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: model_performance
 owner: QSARModel
 domain_of:
 - QSARModel
@@ -77,4 +101,4 @@ range: ModelPerformance
 inlined: true
 
 ```
-</details>
+</details></div>

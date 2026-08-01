@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: QSARModel 
 
@@ -6,6 +9,8 @@
 _Quantitative Structure-Activity Relationship models that predict  chemical/biological activity from molecular structure._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -116,7 +121,6 @@ URI: [namo:QSARModel](https://w3id.org/monarch-initiative/namo/QSARModel)
                 * **QSARModel**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -148,8 +152,12 @@ URI: [namo:QSARModel](https://w3id.org/monarch-initiative/namo/QSARModel)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -240,7 +248,6 @@ attributes:
     description: Types of molecular descriptors used (topological, electronic, etc.)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: molecular_descriptors
     owner: QSARModel
     domain_of:
     - QSARModel
@@ -251,7 +258,6 @@ attributes:
     description: Biological activity or property being predicted
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: activity_endpoint
     owner: QSARModel
     domain_of:
     - QSARModel
@@ -261,7 +267,6 @@ attributes:
     description: Number of compounds in training dataset
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: training_dataset_size
     owner: QSARModel
     domain_of:
     - QSARModel
@@ -271,7 +276,6 @@ attributes:
     description: Statistical performance metrics of the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: model_performance
     owner: QSARModel
     domain_of:
     - QSARModel
@@ -282,7 +286,6 @@ attributes:
     description: Primary computational method or algorithm used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: computational_method
     owner: QSARModel
     domain_of:
     - InSilicoModel
@@ -292,7 +295,6 @@ attributes:
     description: Software platform or programming language used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: software_platform
     owner: QSARModel
     domain_of:
     - InSilicoModel
@@ -302,7 +304,6 @@ attributes:
     description: Datasets used for model training and validation
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: validation_datasets
     owner: QSARModel
     domain_of:
     - InSilicoModel
@@ -313,7 +314,6 @@ attributes:
     description: Scope and limitations of model predictions
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: prediction_scope
     owner: QSARModel
     domain_of:
     - InSilicoModel
@@ -323,7 +323,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: QSARModel
     domain_of:
     - NAMModel
@@ -333,7 +332,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: QSARModel
     domain_of:
     - NAMModel
@@ -344,7 +342,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: QSARModel
     domain_of:
     - NAMModel
@@ -354,7 +351,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: QSARModel
     domain_of:
     - NAMModel
@@ -366,7 +362,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: QSARModel
     domain_of:
     - ModelSystem
@@ -379,11 +374,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: QSARModel
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -392,10 +387,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: QSARModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -403,21 +398,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: QSARModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: QSARModel
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

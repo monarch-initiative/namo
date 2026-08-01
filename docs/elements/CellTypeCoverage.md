@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: CellTypeCoverage 
 
@@ -6,6 +9,8 @@
 _Assessment of cell type representation and cellular diversity between systems._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -45,8 +50,8 @@ URI: [namo:CellTypeCoverage](https://w3id.org/monarch-initiative/namo/CellTypeCo
     
         
         
-        CellTypeCoverage --> "*" Term : missing_cell_types
-        click Term href "../Term/"
+        CellTypeCoverage --> "*" Cell : missing_cell_types
+        click Cell href "../Cell/"
     
 
         
@@ -58,8 +63,8 @@ URI: [namo:CellTypeCoverage](https://w3id.org/monarch-initiative/namo/CellTypeCo
     
         
         
-        CellTypeCoverage --> "*" Term : represented_cell_types
-        click Term href "../Term/"
+        CellTypeCoverage --> "*" Cell : represented_cell_types
+        click Cell href "../Cell/"
     
 
         
@@ -79,14 +84,13 @@ URI: [namo:CellTypeCoverage](https://w3id.org/monarch-initiative/namo/CellTypeCo
     * **CellTypeCoverage**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [coverage_percentage](coverage_percentage.md) | 0..1 <br/> [Float](Float.md) | Percentage of target cell types represented in the model system | direct |
-| [represented_cell_types](represented_cell_types.md) | * <br/> [Term](Term.md) | List of cell types present in both model and biological system | direct |
-| [missing_cell_types](missing_cell_types.md) | * <br/> [Term](Term.md) | List of cell types present in biological system but missing in model | direct |
+| [represented_cell_types](represented_cell_types.md) | * <br/> [Cell](Cell.md) | List of cell types present in both model and biological system | direct |
+| [missing_cell_types](missing_cell_types.md) | * <br/> [Cell](Cell.md) | List of cell types present in biological system but missing in model | direct |
 | [cell_type_proportions](cell_type_proportions.md) | * <br/> [CellTypeProportion](CellTypeProportion.md) | Quantitative comparison of cell type proportions | direct |
 | [single_cell_method](single_cell_method.md) | 0..1 <br/> [String](String.md) | Method used for single-cell analysis (e | direct |
 | [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
@@ -110,8 +114,12 @@ URI: [namo:CellTypeCoverage](https://w3id.org/monarch-initiative/namo/CellTypeCo
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -166,9 +174,12 @@ attributes:
     rank: 1000
     domain_of:
     - CellTypeCoverage
-    range: Term
+    range: Cell
+    bindings:
+    - range: CellTypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
-    inlined: true
     inlined_as_list: true
   missing_cell_types:
     name: missing_cell_types
@@ -177,9 +188,12 @@ attributes:
     rank: 1000
     domain_of:
     - CellTypeCoverage
-    range: Term
+    range: Cell
+    bindings:
+    - range: CellTypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
-    inlined: true
     inlined_as_list: true
   cell_type_proportions:
     name: cell_type_proportions
@@ -190,7 +204,6 @@ attributes:
     - CellTypeCoverage
     range: CellTypeProportion
     multivalued: true
-    inlined: true
     inlined_as_list: true
   single_cell_method:
     name: single_cell_method
@@ -218,7 +231,6 @@ attributes:
     description: Percentage of target cell types represented in the model system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: coverage_percentage
     owner: CellTypeCoverage
     domain_of:
     - CellTypeCoverage
@@ -228,11 +240,14 @@ attributes:
     description: List of cell types present in both model and biological system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: represented_cell_types
     owner: CellTypeCoverage
     domain_of:
     - CellTypeCoverage
-    range: Term
+    range: Cell
+    bindings:
+    - range: CellTypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -241,11 +256,14 @@ attributes:
     description: List of cell types present in biological system but missing in model.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: missing_cell_types
     owner: CellTypeCoverage
     domain_of:
     - CellTypeCoverage
-    range: Term
+    range: Cell
+    bindings:
+    - range: CellTypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -254,7 +272,6 @@ attributes:
     description: Quantitative comparison of cell type proportions.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_type_proportions
     owner: CellTypeCoverage
     domain_of:
     - CellTypeCoverage
@@ -267,7 +284,6 @@ attributes:
     description: Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry).
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: single_cell_method
     owner: CellTypeCoverage
     domain_of:
     - CellTypeCoverage
@@ -279,11 +295,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: CellTypeCoverage
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -292,10 +308,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: CellTypeCoverage
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -303,21 +319,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: CellTypeCoverage
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: CellTypeCoverage
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

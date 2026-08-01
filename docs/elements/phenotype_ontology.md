@@ -1,17 +1,20 @@
+---
+search:
+  boost: 0.5
+---
 
-
-# Slot: phenotype_ontology 
+# Slot: phenotype_ontology  <span style="color: red;"><strong> (DEPRECATED) </strong></span> 
 
 
 _Ontology used for phenotype classification (e.g., HPO, MP)._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:phenotype_ontology](https://w3id.org/monarch-initiative/namo/phenotype_ontology)
-Alias: phenotype_ontology
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: phenotype_ontology
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [PhenotypeOverlap](PhenotypeOverlap.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PhenotypeOverlap](PhenotypeOverlap.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -67,13 +92,15 @@ Alias: phenotype_ontology
 ```yaml
 name: phenotype_ontology
 description: Ontology used for phenotype classification (e.g., HPO, MP).
+deprecated: Redundant now that the phenotype slots are bound to PhenotypeEnum and
+  ranged over PhenotypicFeature; the source ontology is carried by the CURIE prefix
+  of each phenotype id.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: phenotype_ontology
 owner: PhenotypeOverlap
 domain_of:
 - PhenotypeOverlap
 range: string
 
 ```
-</details>
+</details></div>

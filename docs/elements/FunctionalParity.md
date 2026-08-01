@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: FunctionalParity 
 
@@ -6,6 +9,8 @@
 _Evaluation of functional capabilities and physiological responses between systems._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -70,7 +75,6 @@ URI: [namo:FunctionalParity](https://w3id.org/monarch-initiative/namo/Functional
     * **FunctionalParity**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -101,8 +105,12 @@ URI: [namo:FunctionalParity](https://w3id.org/monarch-initiative/namo/Functional
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -176,7 +184,6 @@ attributes:
     - FunctionalParity
     range: FunctionalAssay
     multivalued: true
-    inlined: true
     inlined_as_list: true
   dose_response_similarity:
     name: dose_response_similarity
@@ -206,7 +213,6 @@ attributes:
     description: Quantitative score (0.0-1.0) representing functional similarity.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: functional_similarity_score
     owner: FunctionalParity
     domain_of:
     - FunctionalParity
@@ -217,7 +223,6 @@ attributes:
       system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: conserved_functions
     owner: FunctionalParity
     domain_of:
     - FunctionalParity
@@ -228,7 +233,6 @@ attributes:
     description: List of functions that are impaired or absent in the model system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: impaired_functions
     owner: FunctionalParity
     domain_of:
     - FunctionalParity
@@ -239,7 +243,6 @@ attributes:
     description: List of functional assays used to assess parity.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: functional_assays
     owner: FunctionalParity
     domain_of:
     - FunctionalParity
@@ -252,7 +255,6 @@ attributes:
     description: Comparison of dose-response relationships for therapeutic compounds.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: dose_response_similarity
     owner: FunctionalParity
     domain_of:
     - FunctionalParity
@@ -265,11 +267,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: FunctionalParity
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -278,10 +280,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: FunctionalParity
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -289,21 +291,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: FunctionalParity
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: FunctionalParity
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

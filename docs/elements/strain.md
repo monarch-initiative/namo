@@ -1,17 +1,20 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: strain 
 
 
-_The specific strain of the animal used in the model system._
+_The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:strain](https://w3id.org/monarch-initiative/namo/strain)
-Alias: strain
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: strain
 
 ## Properties
 
-* Range: [Term](Term.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [OrganismTaxon](OrganismTaxon.md) |
+| Domain Of | [AnimalModel](AnimalModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AnimalModel](AnimalModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -66,18 +91,16 @@ Alias: strain
 <details>
 ```yaml
 name: strain
-description: The specific strain of the animal used in the model system.
+description: 'The specific strain of the animal used in the model system. Deliberately
+  unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic
+  rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.'
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: strain
 owner: AnimalModel
 domain_of:
 - AnimalModel
-range: Term
-bindings:
-- range: StrainEnum
-  obligation_level: REQUIRED
-  binds_value_of: id
+range: OrganismTaxon
+inlined: true
 
 ```
-</details>
+</details></div>

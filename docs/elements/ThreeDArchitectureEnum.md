@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: ThreeDArchitectureEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:ThreeDArchitectureEnum](https://w3id.org/monarch-initiative/namo/ThreeDArchitectureEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | SPHEROID | None | Spherical 3D cell aggregates |
@@ -28,8 +35,12 @@ URI: [namo:ThreeDArchitectureEnum](https://w3id.org/monarch-initiative/namo/Thre
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -74,3 +85,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-31T21:08:50
+# Generation date: 2026-07-31T21:14:58
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo

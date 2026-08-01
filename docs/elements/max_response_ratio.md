@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: max_response_ratio 
 
@@ -7,11 +10,11 @@ _Ratio of maximum responses between systems._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:max_response_ratio](https://w3id.org/monarch-initiative/namo/max_response_ratio)
-Alias: max_response_ratio
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: max_response_ratio
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [DoseResponseSimilarity](DoseResponseSimilarity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DoseResponseSimilarity](DoseResponseSimilarity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: max_response_ratio
 description: Ratio of maximum responses between systems.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: max_response_ratio
 owner: DoseResponseSimilarity
 domain_of:
 - DoseResponseSimilarity
 range: float
 
 ```
-</details>
+</details></div>

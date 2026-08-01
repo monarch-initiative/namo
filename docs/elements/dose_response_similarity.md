@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: dose_response_similarity 
 
@@ -7,11 +10,11 @@ _Comparison of dose-response relationships for therapeutic compounds._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:dose_response_similarity](https://w3id.org/monarch-initiative/namo/dose_response_similarity)
-Alias: dose_response_similarity
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: dose_response_similarity
 
 ## Properties
 
-* Range: [DoseResponseSimilarity](DoseResponseSimilarity.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [DoseResponseSimilarity](DoseResponseSimilarity.md) |
+| Domain Of | [FunctionalParity](FunctionalParity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [FunctionalParity](FunctionalParity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,7 +94,6 @@ name: dose_response_similarity
 description: Comparison of dose-response relationships for therapeutic compounds.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: dose_response_similarity
 owner: FunctionalParity
 domain_of:
 - FunctionalParity
@@ -77,4 +101,4 @@ range: DoseResponseSimilarity
 inlined: true
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: model_interpretability 
 
@@ -7,11 +10,11 @@ _Level of model interpretability (black box, interpretable, explainable)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:model_interpretability](https://w3id.org/monarch-initiative/namo/model_interpretability)
-Alias: model_interpretability
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: model_interpretability
 
 ## Properties
 
-* Range: [InterpretabilityLevelEnum](InterpretabilityLevelEnum.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [InterpretabilityLevelEnum](InterpretabilityLevelEnum.md) |
+| Domain Of | [MLModel](MLModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MLModel](MLModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: model_interpretability
 description: Level of model interpretability (black box, interpretable, explainable)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: model_interpretability
 owner: MLModel
 domain_of:
 - MLModel
 range: InterpretabilityLevelEnum
 
 ```
-</details>
+</details></div>

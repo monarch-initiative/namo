@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: inter_laboratory_consistency 
 
@@ -7,11 +10,11 @@ _Measure of consistency across different laboratories._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:inter_laboratory_consistency](https://w3id.org/monarch-initiative/namo/inter_laboratory_consistency)
-Alias: inter_laboratory_consistency
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: inter_laboratory_consistency
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [Reproducibility](Reproducibility.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reproducibility](Reproducibility.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: inter_laboratory_consistency
 description: Measure of consistency across different laboratories.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: inter_laboratory_consistency
 owner: Reproducibility
 domain_of:
 - Reproducibility
 range: float
 
 ```
-</details>
+</details></div>

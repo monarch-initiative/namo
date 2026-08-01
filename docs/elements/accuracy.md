@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: accuracy 
 
@@ -7,11 +10,11 @@ _Overall accuracy of the model (0.0-1.0)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:accuracy](https://w3id.org/monarch-initiative/namo/accuracy)
-Alias: accuracy
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: accuracy
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [ModelPerformance](ModelPerformance.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ModelPerformance](ModelPerformance.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: accuracy
 description: Overall accuracy of the model (0.0-1.0)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: accuracy
 owner: ModelPerformance
 domain_of:
 - ModelPerformance
 range: float
 
 ```
-</details>
+</details></div>

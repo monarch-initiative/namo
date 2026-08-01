@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: CellularSystem 
 
@@ -6,6 +9,8 @@
 _Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA (Minimal Information About a Cellular Assay) standards._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 * __NOTE__: this is an abstract class and should not be instantiated directly
@@ -52,8 +57,8 @@ URI: [namo:CellularSystem](https://w3id.org/monarch-initiative/namo/CellularSyst
     
         
         
-        CellularSystem --> "*" Term : cell_types
-        click Term href "../Term/"
+        CellularSystem --> "*" Cell : cell_types
+        click Cell href "../Cell/"
     
 
         
@@ -119,12 +124,11 @@ URI: [namo:CellularSystem](https://w3id.org/monarch-initiative/namo/CellularSyst
                 * [CoCulture](CoCulture.md)
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [cell_types](cell_types.md) | * <br/> [Term](Term.md) | Cell types present in the cellular system | direct |
+| [cell_types](cell_types.md) | * <br/> [Cell](Cell.md) | Cell types present in the cellular system | direct |
 | [cell_source](cell_source.md) | 0..1 <br/> [String](String.md) | Source of cells (e | direct |
 | [culture_conditions](culture_conditions.md) | 0..1 <br/> [String](String.md) | Standard culture conditions and media used | direct |
 | [biological_organization_level](biological_organization_level.md) | 0..1 <br/> [BiologicalOrganizationLevelEnum](BiologicalOrganizationLevelEnum.md) | The level of biological organization represented by the model | [NAMModel](NAMModel.md) |
@@ -146,12 +150,16 @@ URI: [namo:CellularSystem](https://w3id.org/monarch-initiative/namo/CellularSyst
 
 
 
+
+
+
 ## See Also
 
 * [https://doi.org/10.5966/sctm.2015-0393](https://doi.org/10.5966/sctm.2015-0393)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -206,13 +214,12 @@ attributes:
     domain_of:
     - CellularSystem
     - OrganOnChip
-    range: Term
+    range: Cell
     bindings:
     - range: CellTypeEnum
       obligation_level: REQUIRED
       binds_value_of: id
     multivalued: true
-    inlined: true
     inlined_as_list: true
   cell_source:
     name: cell_source
@@ -254,12 +261,11 @@ attributes:
     description: Cell types present in the cellular system
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_types
     owner: CellularSystem
     domain_of:
     - CellularSystem
     - OrganOnChip
-    range: Term
+    range: Cell
     bindings:
     - range: CellTypeEnum
       obligation_level: REQUIRED
@@ -272,7 +278,6 @@ attributes:
     description: Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_source
     owner: CellularSystem
     domain_of:
     - CellularSystem
@@ -283,7 +288,6 @@ attributes:
     description: Standard culture conditions and media used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: culture_conditions
     owner: CellularSystem
     domain_of:
     - CellularSystem
@@ -293,7 +297,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: CellularSystem
     domain_of:
     - NAMModel
@@ -303,7 +306,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: CellularSystem
     domain_of:
     - NAMModel
@@ -314,7 +316,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: CellularSystem
     domain_of:
     - NAMModel
@@ -324,7 +325,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: CellularSystem
     domain_of:
     - NAMModel
@@ -336,7 +336,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: CellularSystem
     domain_of:
     - ModelSystem
@@ -349,11 +348,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: CellularSystem
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -362,10 +361,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: CellularSystem
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -373,21 +372,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: CellularSystem
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: CellularSystem
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

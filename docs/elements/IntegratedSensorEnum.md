@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: IntegratedSensorEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:IntegratedSensorEnum](https://w3id.org/monarch-initiative/namo/IntegratedSensorEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | TEER | None | Trans-epithelial electrical resistance sensor |
@@ -32,8 +39,12 @@ URI: [namo:IntegratedSensorEnum](https://w3id.org/monarch-initiative/namo/Integr
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -87,3 +98,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

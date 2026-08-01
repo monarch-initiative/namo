@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: p_value 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:p_value](https://w3id.org/monarch-initiative/namo/p_value)
-Alias: p_value
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,8 +20,8 @@ Alias: p_value
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [StatisticalSignificance](StatisticalSignificance.md) | Statistical measures of significance for molecular comparisons |  no  |
 | [Gene](Gene.md) | A gene entity with identifiers and expression information |  no  |
+| [StatisticalSignificance](StatisticalSignificance.md) | Statistical measures of significance for molecular comparisons |  no  |
 | [EnrichmentStatistics](EnrichmentStatistics.md) | Statistical measures for pathway enrichment analysis |  no  |
 
 
@@ -28,13 +31,28 @@ Alias: p_value
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Gene](Gene.md), [StatisticalSignificance](StatisticalSignificance.md), [EnrichmentStatistics](EnrichmentStatistics.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -56,7 +74,6 @@ Alias: p_value
 <details>
 ```yaml
 name: p_value
-alias: p_value
 domain_of:
 - Gene
 - StatisticalSignificance
@@ -64,4 +81,4 @@ domain_of:
 range: string
 
 ```
-</details>
+</details></div>

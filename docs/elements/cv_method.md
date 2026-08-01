@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cv_method 
 
@@ -7,11 +10,11 @@ _Type of cross-validation used_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:cv_method](https://w3id.org/monarch-initiative/namo/cv_method)
-Alias: cv_method
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: cv_method
 
 ## Properties
 
-* Range: [CrossValidationMethodEnum](CrossValidationMethodEnum.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [CrossValidationMethodEnum](CrossValidationMethodEnum.md) |
+| Domain Of | [CrossValidation](CrossValidation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CrossValidation](CrossValidation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: cv_method
 description: Type of cross-validation used
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: cv_method
 owner: CrossValidation
 domain_of:
 - CrossValidation
 range: CrossValidationMethodEnum
 
 ```
-</details>
+</details></div>

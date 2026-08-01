@@ -1,6 +1,11 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: ConcordanceResult 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -34,7 +39,6 @@ URI: [namo:ConcordanceResult](https://w3id.org/monarch-initiative/namo/Concordan
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -62,8 +66,12 @@ URI: [namo:ConcordanceResult](https://w3id.org/monarch-initiative/namo/Concordan
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -157,7 +165,6 @@ attributes:
     name: phenotype_overlap
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: phenotype_overlap
     owner: ConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -167,7 +174,6 @@ attributes:
     name: molecular_similarity
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: molecular_similarity
     owner: ConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -177,7 +183,6 @@ attributes:
     name: pathway_concordance
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: pathway_concordance
     owner: ConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -187,7 +192,6 @@ attributes:
     name: cell_type_coverage
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_type_coverage
     owner: ConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -197,7 +201,6 @@ attributes:
     name: functional_parity
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: functional_parity
     owner: ConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -207,7 +210,6 @@ attributes:
     name: reproducibility
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: reproducibility
     owner: ConcordanceResult
     domain_of:
     - ConcordanceResult
@@ -215,4 +217,4 @@ attributes:
     range: string
 
 ```
-</details>
+</details></div>

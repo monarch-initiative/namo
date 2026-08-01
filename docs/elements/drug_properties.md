@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: drug_properties 
 
@@ -7,11 +10,11 @@ _Physicochemical and pharmacological properties modeled_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:drug_properties](https://w3id.org/monarch-initiative/namo/drug_properties)
-Alias: drug_properties
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: drug_properties
 
 ## Properties
 
-* Range: [DrugProperties](DrugProperties.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [DrugProperties](DrugProperties.md) |
+| Domain Of | [PBPKModel](PBPKModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PBPKModel](PBPKModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,7 +94,6 @@ name: drug_properties
 description: Physicochemical and pharmacological properties modeled
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: drug_properties
 owner: PBPKModel
 domain_of:
 - PBPKModel
@@ -77,4 +101,4 @@ range: DrugProperties
 inlined: true
 
 ```
-</details>
+</details></div>

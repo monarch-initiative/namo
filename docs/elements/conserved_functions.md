@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: conserved_functions 
 
@@ -7,11 +10,11 @@ _List of biological functions conserved between model and biological system._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:conserved_functions](https://w3id.org/monarch-initiative/namo/conserved_functions)
-Alias: conserved_functions
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: conserved_functions
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [FunctionalParity](FunctionalParity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [FunctionalParity](FunctionalParity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: conserved_functions
 description: List of biological functions conserved between model and biological system.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: conserved_functions
 owner: FunctionalParity
 domain_of:
 - FunctionalParity
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

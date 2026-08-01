@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: pathway_database 
 
@@ -7,11 +10,11 @@ _Source database (e.g., KEGG, Reactome, GO)._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:pathway_database](https://w3id.org/monarch-initiative/namo/pathway_database)
-Alias: pathway_database
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: pathway_database
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Pathway](Pathway.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Pathway](Pathway.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: pathway_database
 description: Source database (e.g., KEGG, Reactome, GO).
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: pathway_database
 owner: Pathway
 domain_of:
 - Pathway
 range: string
 
 ```
-</details>
+</details></div>

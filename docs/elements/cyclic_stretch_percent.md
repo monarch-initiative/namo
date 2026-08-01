@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cyclic_stretch_percent 
 
@@ -7,11 +10,11 @@ _Percentage of cyclic stretch applied (if applicable)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:cyclic_stretch_percent](https://w3id.org/monarch-initiative/namo/cyclic_stretch_percent)
-Alias: cyclic_stretch_percent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: cyclic_stretch_percent
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [MechanicalStimulation](MechanicalStimulation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MechanicalStimulation](MechanicalStimulation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: cyclic_stretch_percent
 description: Percentage of cyclic stretch applied (if applicable)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: cyclic_stretch_percent
 owner: MechanicalStimulation
 domain_of:
 - MechanicalStimulation
 range: float
 
 ```
-</details>
+</details></div>

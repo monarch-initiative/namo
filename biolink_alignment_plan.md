@@ -292,7 +292,7 @@ The Biolink mapping *is* the range: `GrossAnatomicalStructure` carries `class_ur
 | `docs/how-to/curate.md` | hand-edit — the `TissueOnChip` row of the model-class table, line 88, lists `tissue_modeled` as a required field |
 | `docs/elements/*`, `docs/schema/namo.yaml`, `examples/output/*`, `project/*`, `src/namo/datamodel/*` | **generated** — `just gen-project` / `gen-doc` / `_ensure_examples_output` rewrite these; do not hand-edit |
 
-Note `docs/elements/tissue_modeled.md` and `docs/elements/Term.md` are generated pages that will disappear on the next `just gen-doc`; if `docs/` is version-controlled, expect deletions in the diff. New pages appear for `BiolinkEntity`, `Cell`, `GrossAnatomicalStructure`, `OrganismTaxon`, `PhenotypicFeature`, `LifeStage`, `EnvironmentalExposure`, and `QuantityValue`.
+Note `docs/elements/` is version-controlled and **`gen-doc` writes but never prunes** — pages for deleted elements survive as orphans and must be removed by hand. After Stages 1–4 that is five pages: `Term.md`, `tissue_modeled.md`, `age.md`, `StrainEnum.md`, `AgeEnum.md`. Identify them by comparing `docs/elements/*.md` against the element names in a `SchemaView` of the current schema (case-insensitively — the `linkml:types` pages are title-cased on disk but lowercase in the schema). New pages appear for `BiolinkEntity`, `Cell`, `GrossAnatomicalStructure`, `OrganismTaxon`, `PhenotypicFeature`, `LifeStage`, `EnvironmentalExposure`, and `QuantityValue`.
 
 ### 3c. Deviation from Issue 19 on `cell_types`
 

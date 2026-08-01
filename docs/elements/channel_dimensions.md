@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: channel_dimensions 
 
@@ -7,11 +10,11 @@ _Dimensions of the channels in the device_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:channel_dimensions](https://w3id.org/monarch-initiative/namo/channel_dimensions)
-Alias: channel_dimensions
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: channel_dimensions
 
 ## Properties
 
-* Range: [ChannelDimensions](ChannelDimensions.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [ChannelDimensions](ChannelDimensions.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: channel_dimensions
 description: Dimensions of the channels in the device
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: channel_dimensions
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
@@ -79,4 +102,4 @@ range: ChannelDimensions
 multivalued: true
 
 ```
-</details>
+</details></div>

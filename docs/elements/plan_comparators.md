@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: plan_comparators 
 
@@ -7,11 +10,11 @@ _human data, gold-standard assays, or high-quality animal references_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:plan_comparators](https://w3id.org/monarch-initiative/namo/plan_comparators)
-Alias: plan_comparators
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: plan_comparators
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Study](Study.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Study](Study.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: plan_comparators
 description: human data, gold-standard assays, or high-quality animal references
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: plan_comparators
 owner: Study
 domain_of:
 - Study
 range: string
 
 ```
-</details>
+</details></div>

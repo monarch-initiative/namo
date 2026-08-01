@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: MechanicalStimulationTypeEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:MechanicalStimulationTypeEnum](https://w3id.org/monarch-initiative/namo/MechanicalStimulationTypeEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | CYCLIC_STRETCH | None | Cyclic stretching |
@@ -30,8 +37,12 @@ URI: [namo:MechanicalStimulationTypeEnum](https://w3id.org/monarch-initiative/na
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -84,3 +95,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

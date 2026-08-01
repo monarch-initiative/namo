@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: MicrophysiologicalSystem 
 
@@ -6,6 +9,8 @@
 _Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, and living cells to replicate tissue-level physiology and dynamics. Conforms to ISO 22916:2022 interoperability requirements for dimensions, connections, and device classification._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 * __NOTE__: this is an abstract class and should not be instantiated directly
@@ -136,7 +141,6 @@ URI: [namo:MicrophysiologicalSystem](https://w3id.org/monarch-initiative/namo/Mi
                 * [TissueOnChip](TissueOnChip.md)
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -164,12 +168,16 @@ URI: [namo:MicrophysiologicalSystem](https://w3id.org/monarch-initiative/namo/Mi
 
 
 
+
+
+
 ## See Also
 
 * [https://www.iso.org/standard/74157.html](https://www.iso.org/standard/74157.html)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -277,7 +285,6 @@ attributes:
     description: Detailed design specifications of the microfluidic device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: microfluidic_design
     owner: MicrophysiologicalSystem
     domain_of:
     - MicrophysiologicalSystem
@@ -288,7 +295,6 @@ attributes:
     description: Mechanical forces applied to the model system
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: mechanical_forces
     owner: MicrophysiologicalSystem
     domain_of:
     - MicrophysiologicalSystem
@@ -299,7 +305,6 @@ attributes:
     description: Description of perfusion and flow systems
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: perfusion_system
     owner: MicrophysiologicalSystem
     domain_of:
     - MicrophysiologicalSystem
@@ -309,7 +314,6 @@ attributes:
     description: Sensors integrated for real-time monitoring
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: sensor_integration
     owner: MicrophysiologicalSystem
     domain_of:
     - MicrophysiologicalSystem
@@ -320,7 +324,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: MicrophysiologicalSystem
     domain_of:
     - NAMModel
@@ -330,7 +333,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: MicrophysiologicalSystem
     domain_of:
     - NAMModel
@@ -341,7 +343,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: MicrophysiologicalSystem
     domain_of:
     - NAMModel
@@ -351,7 +352,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: MicrophysiologicalSystem
     domain_of:
     - NAMModel
@@ -363,7 +363,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: MicrophysiologicalSystem
     domain_of:
     - ModelSystem
@@ -376,11 +375,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: MicrophysiologicalSystem
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -389,10 +388,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: MicrophysiologicalSystem
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -400,21 +399,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: MicrophysiologicalSystem
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: MicrophysiologicalSystem
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: CoCulture 
 
@@ -6,6 +9,8 @@
 _Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -52,8 +57,8 @@ URI: [namo:CoCulture](https://w3id.org/monarch-initiative/namo/CoCulture)
     
         
         
-        CoCulture --> "*" Term : cell_types
-        click Term href "../Term/"
+        CoCulture --> "*" Cell : cell_types
+        click Cell href "../Cell/"
     
 
         
@@ -130,7 +135,6 @@ URI: [namo:CoCulture](https://w3id.org/monarch-initiative/namo/CoCulture)
                 * **CoCulture**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -138,7 +142,7 @@ URI: [namo:CoCulture](https://w3id.org/monarch-initiative/namo/CoCulture)
 | [coculture_configuration](coculture_configuration.md) | 0..1 <br/> [CocultureConfigurationEnum](CocultureConfigurationEnum.md) | Configuration of co-culture (direct contact, transwell, conditioned media) | direct |
 | [cell_ratios](cell_ratios.md) | * <br/> [CellRatio](CellRatio.md) | Ratios of different cell types in the co-culture | direct |
 | [interaction_mechanisms](interaction_mechanisms.md) | * <br/> [String](String.md) | Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical) | direct |
-| [cell_types](cell_types.md) | * <br/> [Term](Term.md) | Cell types present in the cellular system | [CellularSystem](CellularSystem.md) |
+| [cell_types](cell_types.md) | * <br/> [Cell](Cell.md) | Cell types present in the cellular system | [CellularSystem](CellularSystem.md) |
 | [cell_source](cell_source.md) | 0..1 <br/> [String](String.md) | Source of cells (e | [CellularSystem](CellularSystem.md) |
 | [culture_conditions](culture_conditions.md) | 0..1 <br/> [String](String.md) | Standard culture conditions and media used | [CellularSystem](CellularSystem.md) |
 | [biological_organization_level](biological_organization_level.md) | 0..1 <br/> [BiologicalOrganizationLevelEnum](BiologicalOrganizationLevelEnum.md) | The level of biological organization represented by the model | [NAMModel](NAMModel.md) |
@@ -160,8 +164,12 @@ URI: [namo:CoCulture](https://w3id.org/monarch-initiative/namo/CoCulture)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -219,7 +227,6 @@ attributes:
     - CoCulture
     range: CellRatio
     multivalued: true
-    inlined: true
     inlined_as_list: true
   interaction_mechanisms:
     name: interaction_mechanisms
@@ -249,7 +256,6 @@ attributes:
       media)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: coculture_configuration
     owner: CoCulture
     domain_of:
     - CoCulture
@@ -259,7 +265,6 @@ attributes:
     description: Ratios of different cell types in the co-culture
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_ratios
     owner: CoCulture
     domain_of:
     - CoCulture
@@ -272,7 +277,6 @@ attributes:
     description: Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: interaction_mechanisms
     owner: CoCulture
     domain_of:
     - CoCulture
@@ -283,12 +287,11 @@ attributes:
     description: Cell types present in the cellular system
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_types
     owner: CoCulture
     domain_of:
     - CellularSystem
     - OrganOnChip
-    range: Term
+    range: Cell
     bindings:
     - range: CellTypeEnum
       obligation_level: REQUIRED
@@ -301,7 +304,6 @@ attributes:
     description: Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_source
     owner: CoCulture
     domain_of:
     - CellularSystem
@@ -312,7 +314,6 @@ attributes:
     description: Standard culture conditions and media used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: culture_conditions
     owner: CoCulture
     domain_of:
     - CellularSystem
@@ -322,7 +323,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: CoCulture
     domain_of:
     - NAMModel
@@ -332,7 +332,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: CoCulture
     domain_of:
     - NAMModel
@@ -343,7 +342,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: CoCulture
     domain_of:
     - NAMModel
@@ -353,7 +351,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: CoCulture
     domain_of:
     - NAMModel
@@ -365,7 +362,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: CoCulture
     domain_of:
     - ModelSystem
@@ -378,11 +374,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: CoCulture
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -391,10 +387,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: CoCulture
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -402,21 +398,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: CoCulture
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: CoCulture
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

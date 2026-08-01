@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: data_source 
 
@@ -7,11 +10,11 @@ _Source of molecular data (e.g., RNA-seq, proteomics, metabolomics)._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:data_source](https://w3id.org/monarch-initiative/namo/data_source)
-Alias: data_source
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: data_source
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [MolecularSimilarity](MolecularSimilarity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MolecularSimilarity](MolecularSimilarity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: data_source
 description: Source of molecular data (e.g., RNA-seq, proteomics, metabolomics).
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: data_source
 owner: MolecularSimilarity
 domain_of:
 - MolecularSimilarity
 range: string
 
 ```
-</details>
+</details></div>

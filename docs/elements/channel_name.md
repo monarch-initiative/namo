@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: channel_name 
 
@@ -7,11 +10,11 @@ _Name or identifier of the channel (e.g., apical, basolateral, vascular)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:channel_name](https://w3id.org/monarch-initiative/namo/channel_name)
-Alias: channel_name
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: channel_name
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [ChannelDimensions](ChannelDimensions.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ChannelDimensions](ChannelDimensions.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: channel_name
 description: Name or identifier of the channel (e.g., apical, basolateral, vascular)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: channel_name
 owner: ChannelDimensions
 domain_of:
 - ChannelDimensions
 range: string
 
 ```
-</details>
+</details></div>

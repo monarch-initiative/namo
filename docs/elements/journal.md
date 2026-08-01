@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: journal 
 
@@ -7,11 +10,11 @@ _Journal or publication venue_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:journal](https://w3id.org/monarch-initiative/namo/journal)
-Alias: journal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: journal
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Reference](Reference.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reference](Reference.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: journal
 description: Journal or publication venue
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: journal
 owner: Reference
 domain_of:
 - Reference
 range: string
 
 ```
-</details>
+</details></div>

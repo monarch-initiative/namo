@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: url 
 
@@ -7,11 +10,11 @@ _URL to access the publication_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:url](https://w3id.org/monarch-initiative/namo/url)
-Alias: url
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: url
 
 ## Properties
 
-* Range: [Uri](Uri.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Uri](Uri.md) |
+| Domain Of | [Reference](Reference.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reference](Reference.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: url
 description: URL to access the publication
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: url
 owner: Reference
 domain_of:
 - Reference
 range: uri
 
 ```
-</details>
+</details></div>

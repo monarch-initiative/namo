@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: volume 
 
@@ -7,11 +10,11 @@ _Volume of the compartment (L)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:volume](https://w3id.org/monarch-initiative/namo/volume)
-Alias: volume
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: volume
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [PBPKCompartment](PBPKCompartment.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PBPKCompartment](PBPKCompartment.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: volume
 description: Volume of the compartment (L)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: volume
 owner: PBPKCompartment
 domain_of:
 - PBPKCompartment
 range: float
 
 ```
-</details>
+</details></div>

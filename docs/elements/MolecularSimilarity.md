@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: MolecularSimilarity 
 
@@ -6,6 +9,8 @@
 _Detailed assessment of molecular-level concordance between model and biological systems._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -83,7 +88,6 @@ URI: [namo:MolecularSimilarity](https://w3id.org/monarch-initiative/namo/Molecul
     * **MolecularSimilarity**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -116,8 +120,12 @@ URI: [namo:MolecularSimilarity](https://w3id.org/monarch-initiative/namo/Molecul
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -183,7 +191,6 @@ attributes:
     - MolecularSimilarity
     range: Gene
     multivalued: true
-    inlined: true
     inlined_as_list: true
   conserved_genes:
     name: conserved_genes
@@ -195,7 +202,6 @@ attributes:
     - MolecularSimilarity
     range: Gene
     multivalued: true
-    inlined: true
     inlined_as_list: true
   methodology:
     name: methodology
@@ -240,7 +246,6 @@ attributes:
     description: Quantitative similarity score (0.0-1.0) based on molecular profiles.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: similarity_score
     owner: MolecularSimilarity
     domain_of:
     - MolecularSimilarity
@@ -250,7 +255,6 @@ attributes:
     description: Pearson correlation coefficient for expression profiles.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: correlation_coefficient
     owner: MolecularSimilarity
     domain_of:
     - MolecularSimilarity
@@ -261,7 +265,6 @@ attributes:
     description: List of genes that are differentially expressed in the model system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: differentially_expressed_genes
     owner: MolecularSimilarity
     domain_of:
     - MolecularSimilarity
@@ -275,7 +278,6 @@ attributes:
       target.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: conserved_genes
     owner: MolecularSimilarity
     domain_of:
     - MolecularSimilarity
@@ -288,7 +290,6 @@ attributes:
     description: Description of experimental methods used for molecular comparison.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: methodology
     owner: MolecularSimilarity
     domain_of:
     - MolecularSimilarity
@@ -299,7 +300,6 @@ attributes:
     description: Source of molecular data (e.g., RNA-seq, proteomics, metabolomics).
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: data_source
     owner: MolecularSimilarity
     domain_of:
     - MolecularSimilarity
@@ -309,7 +309,6 @@ attributes:
     description: Statistical measures of significance for the molecular similarity.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: statistical_significance
     owner: MolecularSimilarity
     domain_of:
     - MolecularSimilarity
@@ -322,11 +321,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: MolecularSimilarity
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -335,10 +334,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: MolecularSimilarity
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -346,21 +345,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: MolecularSimilarity
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: MolecularSimilarity
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

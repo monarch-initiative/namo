@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: FeatureTypeEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:FeatureTypeEnum](https://w3id.org/monarch-initiative/namo/FeatureTypeEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | MOLECULAR | None | Molecular descriptors and chemical features |
@@ -31,8 +38,12 @@ URI: [namo:FeatureTypeEnum](https://w3id.org/monarch-initiative/namo/FeatureType
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -90,3 +101,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

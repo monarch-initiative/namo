@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Pathway 
 
@@ -6,6 +9,8 @@
 _A biological pathway with activity and enrichment information._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -50,7 +55,6 @@ URI: [namo:Pathway](https://w3id.org/monarch-initiative/namo/Pathway)
     * **Pathway**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -81,8 +85,12 @@ URI: [namo:Pathway](https://w3id.org/monarch-initiative/namo/Pathway)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -170,7 +178,6 @@ attributes:
     description: Source database (e.g., KEGG, Reactome, GO).
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: pathway_database
     owner: Pathway
     domain_of:
     - Pathway
@@ -180,7 +187,6 @@ attributes:
     description: Database-specific pathway identifier.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: pathway_id
     owner: Pathway
     domain_of:
     - Pathway
@@ -190,7 +196,6 @@ attributes:
     description: Quantitative measure of pathway activity.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: activity_score
     owner: Pathway
     domain_of:
     - Pathway
@@ -200,7 +205,6 @@ attributes:
     description: Statistical enrichment score for the pathway.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: enrichment_score
     owner: Pathway
     domain_of:
     - Pathway
@@ -213,11 +217,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: Pathway
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -226,10 +230,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: Pathway
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -237,21 +241,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: Pathway
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: Pathway
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

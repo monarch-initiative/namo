@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: MechanicalStimulation 
 
@@ -6,6 +9,8 @@
 _Specification of mechanical forces applied to the model system_
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -63,7 +68,6 @@ URI: [namo:MechanicalStimulation](https://w3id.org/monarch-initiative/namo/Mecha
     * **MechanicalStimulation**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -97,8 +101,12 @@ URI: [namo:MechanicalStimulation](https://w3id.org/monarch-initiative/namo/Mecha
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -204,7 +212,6 @@ attributes:
     description: Type of mechanical stimulation applied
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: stimulation_type
     owner: MechanicalStimulation
     domain_of:
     - MechanicalStimulation
@@ -215,7 +222,6 @@ attributes:
     description: Percentage of cyclic stretch applied (if applicable)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cyclic_stretch_percent
     owner: MechanicalStimulation
     domain_of:
     - MechanicalStimulation
@@ -225,7 +231,6 @@ attributes:
     description: Frequency of mechanical stimulation in Hertz
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: frequency_hz
     owner: MechanicalStimulation
     domain_of:
     - MechanicalStimulation
@@ -235,7 +240,6 @@ attributes:
     description: Shear stress applied in dyn/cm²
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: shear_stress
     owner: MechanicalStimulation
     domain_of:
     - MechanicalStimulation
@@ -245,7 +249,6 @@ attributes:
     description: Pressure applied in Pascals
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: pressure_pascal
     owner: MechanicalStimulation
     domain_of:
     - MechanicalStimulation
@@ -255,7 +258,6 @@ attributes:
     description: Duration of mechanical stimulation in minutes
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: duration_minutes
     owner: MechanicalStimulation
     domain_of:
     - MechanicalStimulation
@@ -267,11 +269,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: MechanicalStimulation
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -280,10 +282,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: MechanicalStimulation
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -291,21 +293,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: MechanicalStimulation
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: MechanicalStimulation
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

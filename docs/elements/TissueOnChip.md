@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: TissueOnChip 
 
@@ -6,6 +9,8 @@
 _Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -22,6 +27,17 @@ URI: [namo:TissueOnChip](https://w3id.org/monarch-initiative/namo/TissueOnChip)
       MicrophysiologicalSystem <|-- TissueOnChip
         click MicrophysiologicalSystem href "../MicrophysiologicalSystem/"
       
+      TissueOnChip : anatomical_structure_modeled
+        
+          
+    
+        
+        
+        TissueOnChip --> "0..1" GrossAnatomicalStructure : anatomical_structure_modeled
+        click GrossAnatomicalStructure href "../GrossAnatomicalStructure/"
+    
+
+        
       TissueOnChip : barrier_functions
         
       TissueOnChip : biological_organization_level
@@ -113,17 +129,6 @@ URI: [namo:TissueOnChip](https://w3id.org/monarch-initiative/namo/TissueOnChip)
         
       TissueOnChip : tissue_architecture
         
-      TissueOnChip : tissue_modeled
-        
-          
-    
-        
-        
-        TissueOnChip --> "0..1" Term : tissue_modeled
-        click Term href "../Term/"
-    
-
-        
       TissueOnChip : type
         
       
@@ -141,12 +146,11 @@ URI: [namo:TissueOnChip](https://w3id.org/monarch-initiative/namo/TissueOnChip)
                 * **TissueOnChip**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [tissue_modeled](tissue_modeled.md) | 0..1 <br/> [Term](Term.md) | The specific tissue being modeled | direct |
+| [anatomical_structure_modeled](anatomical_structure_modeled.md) | 0..1 <br/> [GrossAnatomicalStructure](GrossAnatomicalStructure.md) | The anatomical structure being modeled — a tissue, organ, or other multicellu... | direct |
 | [tissue_architecture](tissue_architecture.md) | 0..1 <br/> [String](String.md) | Description of tissue-level architecture and organization | direct |
 | [barrier_functions](barrier_functions.md) | * <br/> [String](String.md) | Tissue barrier functions modeled (epithelial, endothelial, etc | direct |
 | [microfluidic_design](microfluidic_design.md) | 0..1 <br/> [MicrofluidicDesign](MicrofluidicDesign.md) | Detailed design specifications of the microfluidic device | [MicrophysiologicalSystem](MicrophysiologicalSystem.md) |
@@ -172,12 +176,16 @@ URI: [namo:TissueOnChip](https://w3id.org/monarch-initiative/namo/TissueOnChip)
 
 
 
+
+
+
 ## See Also
 
 * [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -222,14 +230,19 @@ exact_mappings:
 - ISO10991:tissue_on_chip
 is_a: MicrophysiologicalSystem
 attributes:
-  tissue_modeled:
-    name: tissue_modeled
-    description: The specific tissue being modeled
+  anatomical_structure_modeled:
+    name: anatomical_structure_modeled
+    description: The anatomical structure being modeled — a tissue, organ, or other
+      multicellular structure.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
     - TissueOnChip
-    range: Term
+    range: GrossAnatomicalStructure
+    bindings:
+    - range: AnatomicalStructureEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     inlined: true
   tissue_architecture:
     name: tissue_architecture
@@ -264,23 +277,26 @@ exact_mappings:
 - ISO10991:tissue_on_chip
 is_a: MicrophysiologicalSystem
 attributes:
-  tissue_modeled:
-    name: tissue_modeled
-    description: The specific tissue being modeled
+  anatomical_structure_modeled:
+    name: anatomical_structure_modeled
+    description: The anatomical structure being modeled — a tissue, organ, or other
+      multicellular structure.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: tissue_modeled
     owner: TissueOnChip
     domain_of:
     - TissueOnChip
-    range: Term
+    range: GrossAnatomicalStructure
+    bindings:
+    - range: AnatomicalStructureEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     inlined: true
   tissue_architecture:
     name: tissue_architecture
     description: Description of tissue-level architecture and organization
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: tissue_architecture
     owner: TissueOnChip
     domain_of:
     - TissueOnChip
@@ -290,7 +306,6 @@ attributes:
     description: Tissue barrier functions modeled (epithelial, endothelial, etc.)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: barrier_functions
     owner: TissueOnChip
     domain_of:
     - TissueOnChip
@@ -301,7 +316,6 @@ attributes:
     description: Detailed design specifications of the microfluidic device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: microfluidic_design
     owner: TissueOnChip
     domain_of:
     - MicrophysiologicalSystem
@@ -312,7 +326,6 @@ attributes:
     description: Mechanical forces applied to the model system
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: mechanical_forces
     owner: TissueOnChip
     domain_of:
     - MicrophysiologicalSystem
@@ -323,7 +336,6 @@ attributes:
     description: Description of perfusion and flow systems
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: perfusion_system
     owner: TissueOnChip
     domain_of:
     - MicrophysiologicalSystem
@@ -333,7 +345,6 @@ attributes:
     description: Sensors integrated for real-time monitoring
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: sensor_integration
     owner: TissueOnChip
     domain_of:
     - MicrophysiologicalSystem
@@ -344,7 +355,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: TissueOnChip
     domain_of:
     - NAMModel
@@ -354,7 +364,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: TissueOnChip
     domain_of:
     - NAMModel
@@ -365,7 +374,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: TissueOnChip
     domain_of:
     - NAMModel
@@ -375,7 +383,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: TissueOnChip
     domain_of:
     - NAMModel
@@ -387,7 +394,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: TissueOnChip
     domain_of:
     - ModelSystem
@@ -400,11 +406,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: TissueOnChip
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -413,10 +419,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: TissueOnChip
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -424,21 +430,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: TissueOnChip
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: TissueOnChip
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

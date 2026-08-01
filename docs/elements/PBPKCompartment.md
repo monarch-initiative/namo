@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: PBPKCompartment 
 
@@ -6,6 +9,8 @@
 _A physiological compartment in a PBPK model._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -59,7 +64,6 @@ URI: [namo:PBPKCompartment](https://w3id.org/monarch-initiative/namo/PBPKCompart
     * **PBPKCompartment**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -89,8 +93,12 @@ URI: [namo:PBPKCompartment](https://w3id.org/monarch-initiative/namo/PBPKCompart
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -179,7 +187,6 @@ attributes:
     description: Type of physiological compartment
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: compartment_type
     owner: PBPKCompartment
     domain_of:
     - PBPKCompartment
@@ -189,7 +196,6 @@ attributes:
     description: Volume of the compartment (L)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: volume
     owner: PBPKCompartment
     domain_of:
     - PBPKCompartment
@@ -199,7 +205,6 @@ attributes:
     description: Blood flow to the compartment (L/h)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: blood_flow
     owner: PBPKCompartment
     domain_of:
     - PBPKCompartment
@@ -209,7 +214,6 @@ attributes:
     description: Tissue-to-plasma partition coefficient
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: partition_coefficient
     owner: PBPKCompartment
     domain_of:
     - PBPKCompartment
@@ -221,11 +225,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: PBPKCompartment
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -234,10 +238,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: PBPKCompartment
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -245,21 +249,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: PBPKCompartment
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: PBPKCompartment
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

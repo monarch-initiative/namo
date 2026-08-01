@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: species_modeled 
 
@@ -7,11 +10,11 @@ _Species for which the model is designed_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:species_modeled](https://w3id.org/monarch-initiative/namo/species_modeled)
-Alias: species_modeled
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: species_modeled
 
 ## Properties
 
-* Range: [Term](Term.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [OrganismTaxon](OrganismTaxon.md) |
+| Domain Of | [PBPKModel](PBPKModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PBPKModel](PBPKModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,12 +94,11 @@ name: species_modeled
 description: Species for which the model is designed
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: species_modeled
 owner: PBPKModel
 domain_of:
 - PBPKModel
-range: Term
+range: OrganismTaxon
 inlined: true
 
 ```
-</details>
+</details></div>

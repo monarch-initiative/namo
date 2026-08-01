@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: PBPKModel 
 
@@ -6,6 +9,8 @@
 _Physiologically Based Pharmacokinetic models that simulate drug  absorption, distribution, metabolism, and excretion._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -110,8 +115,8 @@ URI: [namo:PBPKModel](https://w3id.org/monarch-initiative/namo/PBPKModel)
     
         
         
-        PBPKModel --> "0..1" Term : species_modeled
-        click Term href "../Term/"
+        PBPKModel --> "0..1" OrganismTaxon : species_modeled
+        click OrganismTaxon href "../OrganismTaxon/"
     
 
         
@@ -134,13 +139,12 @@ URI: [namo:PBPKModel](https://w3id.org/monarch-initiative/namo/PBPKModel)
                 * **PBPKModel**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [compartments](compartments.md) | * <br/> [PBPKCompartment](PBPKCompartment.md) | Physiological compartments included in the model | direct |
-| [species_modeled](species_modeled.md) | 0..1 <br/> [Term](Term.md) | Species for which the model is designed | direct |
+| [species_modeled](species_modeled.md) | 0..1 <br/> [OrganismTaxon](OrganismTaxon.md) | Species for which the model is designed | direct |
 | [drug_properties](drug_properties.md) | 0..1 <br/> [DrugProperties](DrugProperties.md) | Physicochemical and pharmacological properties modeled | direct |
 | [elimination_pathways](elimination_pathways.md) | * <br/> [String](String.md) | Drug elimination and metabolism pathways included | direct |
 | [computational_method](computational_method.md) | 0..1 <br/> [String](String.md) | Primary computational method or algorithm used | [InSilicoModel](InSilicoModel.md) |
@@ -166,8 +170,12 @@ URI: [namo:PBPKModel](https://w3id.org/monarch-initiative/namo/PBPKModel)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -216,7 +224,6 @@ attributes:
     - PBPKModel
     range: PBPKCompartment
     multivalued: true
-    inlined: true
     inlined_as_list: true
   species_modeled:
     name: species_modeled
@@ -225,7 +232,7 @@ attributes:
     rank: 1000
     domain_of:
     - PBPKModel
-    range: Term
+    range: OrganismTaxon
     inlined: true
   drug_properties:
     name: drug_properties
@@ -263,7 +270,6 @@ attributes:
     description: Physiological compartments included in the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: compartments
     owner: PBPKModel
     domain_of:
     - PBPKModel
@@ -276,18 +282,16 @@ attributes:
     description: Species for which the model is designed
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: species_modeled
     owner: PBPKModel
     domain_of:
     - PBPKModel
-    range: Term
+    range: OrganismTaxon
     inlined: true
   drug_properties:
     name: drug_properties
     description: Physicochemical and pharmacological properties modeled
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: drug_properties
     owner: PBPKModel
     domain_of:
     - PBPKModel
@@ -298,7 +302,6 @@ attributes:
     description: Drug elimination and metabolism pathways included
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: elimination_pathways
     owner: PBPKModel
     domain_of:
     - PBPKModel
@@ -309,7 +312,6 @@ attributes:
     description: Primary computational method or algorithm used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: computational_method
     owner: PBPKModel
     domain_of:
     - InSilicoModel
@@ -319,7 +321,6 @@ attributes:
     description: Software platform or programming language used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: software_platform
     owner: PBPKModel
     domain_of:
     - InSilicoModel
@@ -329,7 +330,6 @@ attributes:
     description: Datasets used for model training and validation
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: validation_datasets
     owner: PBPKModel
     domain_of:
     - InSilicoModel
@@ -340,7 +340,6 @@ attributes:
     description: Scope and limitations of model predictions
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: prediction_scope
     owner: PBPKModel
     domain_of:
     - InSilicoModel
@@ -350,7 +349,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: PBPKModel
     domain_of:
     - NAMModel
@@ -360,7 +358,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: PBPKModel
     domain_of:
     - NAMModel
@@ -371,7 +368,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: PBPKModel
     domain_of:
     - NAMModel
@@ -381,7 +377,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: PBPKModel
     domain_of:
     - NAMModel
@@ -393,7 +388,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: PBPKModel
     domain_of:
     - ModelSystem
@@ -406,11 +400,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: PBPKModel
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -419,10 +413,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: PBPKModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -430,21 +424,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: PBPKModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: PBPKModel
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

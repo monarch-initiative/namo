@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: ensembl_id 
 
@@ -7,11 +10,11 @@ _Ensembl gene identifier._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:ensembl_id](https://w3id.org/monarch-initiative/namo/ensembl_id)
-Alias: ensembl_id
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: ensembl_id
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Gene](Gene.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Gene](Gene.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: ensembl_id
 description: Ensembl gene identifier.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: ensembl_id
 owner: Gene
 domain_of:
 - Gene
 range: string
 
 ```
-</details>
+</details></div>

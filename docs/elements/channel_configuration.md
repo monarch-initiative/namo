@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: channel_configuration 
 
@@ -7,11 +10,11 @@ _Configuration of channels (e.g., parallel, serial, branching)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:channel_configuration](https://w3id.org/monarch-initiative/namo/channel_configuration)
-Alias: channel_configuration
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: channel_configuration
 
 ## Properties
 
-* Range: [ChannelConfigurationEnum](ChannelConfigurationEnum.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [ChannelConfigurationEnum](ChannelConfigurationEnum.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: channel_configuration
 description: Configuration of channels (e.g., parallel, serial, branching)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: channel_configuration
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
@@ -79,4 +102,4 @@ range: ChannelConfigurationEnum
 multivalued: true
 
 ```
-</details>
+</details></div>

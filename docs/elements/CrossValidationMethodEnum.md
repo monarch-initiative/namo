@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: CrossValidationMethodEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:CrossValidationMethodEnum](https://w3id.org/monarch-initiative/namo/CrossValidationMethodEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | K_FOLD | OBI:0200032 | K-fold cross-validation |
@@ -27,8 +34,12 @@ URI: [namo:CrossValidationMethodEnum](https://w3id.org/monarch-initiative/namo/C
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -72,3 +83,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

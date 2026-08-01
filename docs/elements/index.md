@@ -152,6 +152,13 @@ Name: namo
 
 | Class | Description |
 | --- | --- |
+| [BiolinkEntity](BiolinkEntity.md) | Abstract parent for NAMO classes that stand in for a class in the Biolink Mod... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cell](Cell.md) | The basic structural and functional unit of all organisms |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[EnvironmentalExposure](EnvironmentalExposure.md) | A discrete event type where an organism is exposed to an environmental condit... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GrossAnatomicalStructure](GrossAnatomicalStructure.md) | An anatomical structure that has more than one cell as a part |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[LifeStage](LifeStage.md) | A stage of development or growth of an organism, including post-natal adult s... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OrganismTaxon](OrganismTaxon.md) | A classification of a set of organisms |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PhenotypicFeature](PhenotypicFeature.md) | A combination of entity and quality that makes up a phenotyping statement |
 | [CellRatio](CellRatio.md) | Ratio specification for different cell types in co-culture systems |
 | [CellTypeProportion](CellTypeProportion.md) | Quantitative comparison of cell type proportions between systems |
 | [ChannelDimensions](ChannelDimensions.md) | Dimensions of a microfluidic channel according to ISO 10991:2023 definitions ... |
@@ -196,8 +203,8 @@ Name: namo
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PhenotypeOverlap](PhenotypeOverlap.md) | Comparison of phenotypic manifestations between model and biological systems |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Reproducibility](Reproducibility.md) | Assessment of experimental reproducibility and consistency of the model syste... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Study](Study.md) | A study is a structured investigation or analysis, often involving the collec... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Term](Term.md) | A term is a concept or entity that can be defined and used in a specific cont... |
 | [QualityControlMetric](QualityControlMetric.md) | A quality control measure and its associated value |
+| [QuantityValue](QuantityValue.md) | A value of an attribute that is quantitative and measurable, expressed as a c... |
 | [Reference](Reference.md) | A literature reference with identifier and title for citing published work |
 | [StatisticalSignificance](StatisticalSignificance.md) | Statistical measures of significance for molecular comparisons |
 | [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |
@@ -213,7 +220,8 @@ Name: namo
 | [activity_endpoint](activity_endpoint.md) | Biological activity or property being predicted |
 | [activity_score](activity_score.md) | Quantitative measure of pathway activity |
 | [adjusted_p_value](adjusted_p_value.md) | Multiple testing corrected p-value |
-| [age](age.md) | The age of the animal used in the model system |
+| [age_value](age_value.md) | Chronological age of the animal at the time of study, as a numeric value with... |
+| [anatomical_structure_modeled](anatomical_structure_modeled.md) | The anatomical structure being modeled — a tissue, organ, or other multicellu... |
 | [architecture_type](architecture_type.md) | The overall architecture type of the microfluidic device |
 | [assay_result](assay_result.md) | Quantitative result of the assay |
 | [assay_type](assay_type.md) | Type of functional assay (e |
@@ -287,6 +295,8 @@ Name: namo
 | [gene_symbol](gene_symbol.md) | Standard gene symbol (e |
 | [genes_in_dataset](genes_in_dataset.md) | Number of genes from dataset found in pathway |
 | [genes_in_pathway](genes_in_pathway.md) | Number of genes in the pathway |
+| [has_numeric_value](has_numeric_value.md) | The numeric portion of the quantity |
+| [has_unit](has_unit.md) | The unit of measurement, as a UO CURIE |
 | [height](height.md) | Height of the channel in micrometers |
 | [id](id.md) | A unique identifier for a thing |
 | [impaired_functions](impaired_functions.md) | List of functions that are impaired or absent in the model system |
@@ -296,6 +306,7 @@ Name: namo
 | [is_computed](is_computed.md) | Indicates whether the model is computed or derived from experimental data |
 | [journal](journal.md) | Journal or publication venue |
 | [length](length.md) | Length of the channel in millimeters |
+| [life_stage](life_stage.md) | The developmental or life-cycle stage of the animal used in the model system |
 | [logp](logp.md) | Lipophilicity (log P) |
 | [material](material.md) | Materials used to construct the device |
 | [matrix_composition](matrix_composition.md) | Composition of extracellular matrix or scaffold material |
@@ -383,7 +394,6 @@ Name: namo
 | [three_d_architecture](three_d_architecture.md) | Type of 3D architecture (spheroid, organoid, scaffold-based, etc |
 | [threshold](threshold.md) | Acceptable threshold for this metric |
 | [tissue_architecture](tissue_architecture.md) | Description of tissue-level architecture and organization |
-| [tissue_modeled](tissue_modeled.md) | The specific tissue being modeled |
 | [title](title.md) | Title of the referenced publication or dataset |
 | [training_data_size](training_data_size.md) | Size of training dataset |
 | [training_dataset_size](training_dataset_size.md) | Number of compounds in training dataset |
@@ -402,7 +412,7 @@ Name: namo
 
 | Enumeration | Description |
 | --- | --- |
-| [AgeEnum](AgeEnum.md) |  |
+| [AnatomicalStructureEnum](AnatomicalStructureEnum.md) | Multicellular anatomical structures — organs, tissues, tracts and barriers al... |
 | [BiologicalOrganizationLevelEnum](BiologicalOrganizationLevelEnum.md) |  |
 | [CaseOrControlEnum](CaseOrControlEnum.md) |  |
 | [CellTypeEnum](CellTypeEnum.md) |  |
@@ -418,19 +428,20 @@ Name: namo
 | [InterfaceTypeEnum](InterfaceTypeEnum.md) |  |
 | [InterpretabilityLevelEnum](InterpretabilityLevelEnum.md) |  |
 | [InvestigativeProtocolEnum](InvestigativeProtocolEnum.md) |  |
+| [LifeStageEnum](LifeStageEnum.md) | Developmental and life-cycle stages |
 | [MechanicalStimulationTypeEnum](MechanicalStimulationTypeEnum.md) |  |
 | [MembraneTypeEnum](MembraneTypeEnum.md) |  |
 | [MicrofluidicArchitectureEnum](MicrofluidicArchitectureEnum.md) | Architecture types for microfluidic devices as defined in ISO 10991:2023 |
 | [MLAlgorithmEnum](MLAlgorithmEnum.md) |  |
 | [OrganEnum](OrganEnum.md) |  |
 | [PBPKCompartmentEnum](PBPKCompartmentEnum.md) |  |
+| [PhenotypeEnum](PhenotypeEnum.md) | Phenotypic abnormalities across the human and mammalian phenotype ontologies,... |
 | [PredictionOutcomeEnum](PredictionOutcomeEnum.md) |  |
 | [PresenceEnum](PresenceEnum.md) |  |
 | [RatioTypeEnum](RatioTypeEnum.md) |  |
 | [RelativeTimeEnum](RelativeTimeEnum.md) |  |
 | [SampleProcessingEnum](SampleProcessingEnum.md) |  |
 | [SpeciesEnum](SpeciesEnum.md) |  |
-| [StrainEnum](StrainEnum.md) |  |
 | [StudyDesignEnum](StudyDesignEnum.md) |  |
 | [SurfaceCoatingEnum](SurfaceCoatingEnum.md) |  |
 | [ThreeDArchitectureEnum](ThreeDArchitectureEnum.md) |  |

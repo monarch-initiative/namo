@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: ThreeDCellCulture 
 
@@ -6,6 +9,8 @@
 _Three-dimensional cell culture systems including spheroids and organoids. More physiologically relevant with 3D architecture._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -46,8 +51,8 @@ URI: [namo:ThreeDCellCulture](https://w3id.org/monarch-initiative/namo/ThreeDCel
     
         
         
-        ThreeDCellCulture --> "*" Term : cell_types
-        click Term href "../Term/"
+        ThreeDCellCulture --> "*" Cell : cell_types
+        click Cell href "../Cell/"
     
 
         
@@ -127,7 +132,6 @@ URI: [namo:ThreeDCellCulture](https://w3id.org/monarch-initiative/namo/ThreeDCel
                     * [Organoid](Organoid.md)
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -135,7 +139,7 @@ URI: [namo:ThreeDCellCulture](https://w3id.org/monarch-initiative/namo/ThreeDCel
 | [three_d_architecture](three_d_architecture.md) | 0..1 <br/> [ThreeDArchitectureEnum](ThreeDArchitectureEnum.md) | Type of 3D architecture (spheroid, organoid, scaffold-based, etc | direct |
 | [matrix_composition](matrix_composition.md) | 0..1 <br/> [String](String.md) | Composition of extracellular matrix or scaffold material | direct |
 | [size_range](size_range.md) | 0..1 <br/> [String](String.md) | Typical size range of 3D structures | direct |
-| [cell_types](cell_types.md) | * <br/> [Term](Term.md) | Cell types present in the cellular system | [CellularSystem](CellularSystem.md) |
+| [cell_types](cell_types.md) | * <br/> [Cell](Cell.md) | Cell types present in the cellular system | [CellularSystem](CellularSystem.md) |
 | [cell_source](cell_source.md) | 0..1 <br/> [String](String.md) | Source of cells (e | [CellularSystem](CellularSystem.md) |
 | [culture_conditions](culture_conditions.md) | 0..1 <br/> [String](String.md) | Standard culture conditions and media used | [CellularSystem](CellularSystem.md) |
 | [biological_organization_level](biological_organization_level.md) | 0..1 <br/> [BiologicalOrganizationLevelEnum](BiologicalOrganizationLevelEnum.md) | The level of biological organization represented by the model | [NAMModel](NAMModel.md) |
@@ -157,8 +161,12 @@ URI: [namo:ThreeDCellCulture](https://w3id.org/monarch-initiative/namo/ThreeDCel
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -239,7 +247,6 @@ attributes:
     description: Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: three_d_architecture
     owner: ThreeDCellCulture
     domain_of:
     - ThreeDCellCulture
@@ -249,7 +256,6 @@ attributes:
     description: Composition of extracellular matrix or scaffold material
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: matrix_composition
     owner: ThreeDCellCulture
     domain_of:
     - ThreeDCellCulture
@@ -259,7 +265,6 @@ attributes:
     description: Typical size range of 3D structures
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: size_range
     owner: ThreeDCellCulture
     domain_of:
     - ThreeDCellCulture
@@ -269,12 +274,11 @@ attributes:
     description: Cell types present in the cellular system
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_types
     owner: ThreeDCellCulture
     domain_of:
     - CellularSystem
     - OrganOnChip
-    range: Term
+    range: Cell
     bindings:
     - range: CellTypeEnum
       obligation_level: REQUIRED
@@ -287,7 +291,6 @@ attributes:
     description: Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_source
     owner: ThreeDCellCulture
     domain_of:
     - CellularSystem
@@ -298,7 +301,6 @@ attributes:
     description: Standard culture conditions and media used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: culture_conditions
     owner: ThreeDCellCulture
     domain_of:
     - CellularSystem
@@ -308,7 +310,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: ThreeDCellCulture
     domain_of:
     - NAMModel
@@ -318,7 +319,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: ThreeDCellCulture
     domain_of:
     - NAMModel
@@ -329,7 +329,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: ThreeDCellCulture
     domain_of:
     - NAMModel
@@ -339,7 +338,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: ThreeDCellCulture
     domain_of:
     - NAMModel
@@ -351,7 +349,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: ThreeDCellCulture
     domain_of:
     - ModelSystem
@@ -364,11 +361,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: ThreeDCellCulture
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -377,10 +374,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: ThreeDCellCulture
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -388,21 +385,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: ThreeDCellCulture
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: ThreeDCellCulture
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

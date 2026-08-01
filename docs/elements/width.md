@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: width 
 
@@ -7,11 +10,11 @@ _Width of the channel in micrometers_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:width](https://w3id.org/monarch-initiative/namo/width)
-Alias: width
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: width
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [ChannelDimensions](ChannelDimensions.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ChannelDimensions](ChannelDimensions.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: width
 description: Width of the channel in micrometers
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: width
 owner: ChannelDimensions
 domain_of:
 - ChannelDimensions
 range: float
 
 ```
-</details>
+</details></div>

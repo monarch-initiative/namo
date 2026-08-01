@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cell_type 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:cell_type](https://w3id.org/monarch-initiative/namo/cell_type)
-Alias: cell_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -27,13 +30,28 @@ Alias: cell_type
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [CellRatio](CellRatio.md), [CellTypeProportion](CellTypeProportion.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -55,11 +73,10 @@ Alias: cell_type
 <details>
 ```yaml
 name: cell_type
-alias: cell_type
 domain_of:
 - CellRatio
 - CellTypeProportion
 range: string
 
 ```
-</details>
+</details></div>

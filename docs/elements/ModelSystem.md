@@ -1,6 +1,11 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: ModelSystem 
+
+<div data-search-exclude markdown="1">
 
 
 * __NOTE__: this is an abstract class and should not be instantiated directly
@@ -59,7 +64,6 @@ URI: [namo:ModelSystem](https://w3id.org/monarch-initiative/namo/ModelSystem)
         * [NAMModel](NAMModel.md)
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -86,8 +90,12 @@ URI: [namo:ModelSystem](https://w3id.org/monarch-initiative/namo/ModelSystem)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -151,7 +159,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: ModelSystem
     domain_of:
     - ModelSystem
@@ -164,11 +171,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: ModelSystem
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -177,10 +184,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: ModelSystem
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -188,21 +195,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: ModelSystem
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: ModelSystem
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

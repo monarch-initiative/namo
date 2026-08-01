@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: coverage_percentage 
 
@@ -7,11 +10,11 @@ _Percentage of target cell types represented in the model system._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:coverage_percentage](https://w3id.org/monarch-initiative/namo/coverage_percentage)
-Alias: coverage_percentage
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: coverage_percentage
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [CellTypeCoverage](CellTypeCoverage.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellTypeCoverage](CellTypeCoverage.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: coverage_percentage
 description: Percentage of target cell types represented in the model system.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: coverage_percentage
 owner: CellTypeCoverage
 domain_of:
 - CellTypeCoverage
 range: float
 
 ```
-</details>
+</details></div>

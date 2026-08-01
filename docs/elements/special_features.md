@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: special_features 
 
@@ -7,11 +10,11 @@ _Additional special features of the device (e.g., valves, mixers, gradient gener
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:special_features](https://w3id.org/monarch-initiative/namo/special_features)
-Alias: special_features
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: special_features
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -72,7 +96,6 @@ description: Additional special features of the device (e.g., valves, mixers, gr
   generators)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: special_features
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
@@ -80,4 +103,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

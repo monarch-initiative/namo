@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Study 
 
@@ -6,6 +9,8 @@
 _A study is a structured investigation or analysis, often involving the collection and interpretation of data, to answer specific research questions or test hypotheses._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -52,7 +57,6 @@ URI: [namo:Study](https://w3id.org/monarch-initiative/namo/Study)
     * **Study**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -83,13 +87,17 @@ URI: [namo:Study](https://w3id.org/monarch-initiative/namo/Study)
 
 
 
+
+
+
 ## See Also
 
 * [https://www.oecd.org/chemicalsafety/testing/](https://www.oecd.org/chemicalsafety/testing/)
 * [https://doi.org/10.1371/journal.pbio.3000410](https://doi.org/10.1371/journal.pbio.3000410)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -199,7 +207,6 @@ attributes:
     description: What decision will this inform? Care? Policy? Drug approval?
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: context_of_use
     owner: Study
     domain_of:
     - Study
@@ -210,7 +217,6 @@ attributes:
       (e.g., cyclic stretch), microenvironment
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_context
     owner: Study
     domain_of:
     - Study
@@ -220,7 +226,6 @@ attributes:
     description: exposure/dose/time; diet/drugs/toxicants
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: perturbations
     owner: Study
     domain_of:
     - Study
@@ -230,7 +235,6 @@ attributes:
     description: phenotypes, function (TEER/leak, beating rate), and multi-omics
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: endpoints
     owner: Study
     domain_of:
     - Study
@@ -240,7 +244,6 @@ attributes:
     description: human data, gold-standard assays, or high-quality animal references
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: plan_comparators
     owner: Study
     domain_of:
     - Study
@@ -252,11 +255,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: Study
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -265,10 +268,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: Study
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -276,21 +279,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: Study
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: Study
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

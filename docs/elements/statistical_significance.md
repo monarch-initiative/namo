@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: statistical_significance 
 
@@ -7,11 +10,11 @@ _Statistical measures of significance for the molecular similarity._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:statistical_significance](https://w3id.org/monarch-initiative/namo/statistical_significance)
-Alias: statistical_significance
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: statistical_significance
 
 ## Properties
 
-* Range: [StatisticalSignificance](StatisticalSignificance.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [StatisticalSignificance](StatisticalSignificance.md) |
+| Domain Of | [MolecularSimilarity](MolecularSimilarity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MolecularSimilarity](MolecularSimilarity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,7 +94,6 @@ name: statistical_significance
 description: Statistical measures of significance for the molecular similarity.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: statistical_significance
 owner: MolecularSimilarity
 domain_of:
 - MolecularSimilarity
@@ -77,4 +101,4 @@ range: StatisticalSignificance
 inlined: true
 
 ```
-</details>
+</details></div>

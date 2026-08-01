@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: real_time_data_sources 
 
@@ -7,11 +10,11 @@ _Sources of real-time data for model updating_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:real_time_data_sources](https://w3id.org/monarch-initiative/namo/real_time_data_sources)
-Alias: real_time_data_sources
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: real_time_data_sources
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [DigitalTwin](DigitalTwin.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DigitalTwin](DigitalTwin.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: real_time_data_sources
 description: Sources of real-time data for model updating
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: real_time_data_sources
 owner: DigitalTwin
 domain_of:
 - DigitalTwin
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

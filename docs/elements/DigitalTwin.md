@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: DigitalTwin 
 
@@ -6,6 +9,8 @@
 _Computational replicas of biological systems for real-time prediction and personalized modeling._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -116,7 +121,6 @@ URI: [namo:DigitalTwin](https://w3id.org/monarch-initiative/namo/DigitalTwin)
                 * **DigitalTwin**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -148,8 +152,12 @@ URI: [namo:DigitalTwin](https://w3id.org/monarch-initiative/namo/DigitalTwin)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -239,7 +247,6 @@ attributes:
     description: Scope of digital twin (organ, patient, population)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: twin_scope
     owner: DigitalTwin
     domain_of:
     - DigitalTwin
@@ -249,7 +256,6 @@ attributes:
     description: Sources of real-time data for model updating
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: real_time_data_sources
     owner: DigitalTwin
     domain_of:
     - DigitalTwin
@@ -260,7 +266,6 @@ attributes:
     description: Parameters used for personalization (genetic, phenotypic, etc.)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: personalization_parameters
     owner: DigitalTwin
     domain_of:
     - DigitalTwin
@@ -271,7 +276,6 @@ attributes:
     description: Frequency of model updates based on new data
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: update_frequency
     owner: DigitalTwin
     domain_of:
     - DigitalTwin
@@ -281,7 +285,6 @@ attributes:
     description: Primary computational method or algorithm used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: computational_method
     owner: DigitalTwin
     domain_of:
     - InSilicoModel
@@ -291,7 +294,6 @@ attributes:
     description: Software platform or programming language used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: software_platform
     owner: DigitalTwin
     domain_of:
     - InSilicoModel
@@ -301,7 +303,6 @@ attributes:
     description: Datasets used for model training and validation
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: validation_datasets
     owner: DigitalTwin
     domain_of:
     - InSilicoModel
@@ -312,7 +313,6 @@ attributes:
     description: Scope and limitations of model predictions
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: prediction_scope
     owner: DigitalTwin
     domain_of:
     - InSilicoModel
@@ -322,7 +322,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: DigitalTwin
     domain_of:
     - NAMModel
@@ -332,7 +331,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: DigitalTwin
     domain_of:
     - NAMModel
@@ -343,7 +341,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: DigitalTwin
     domain_of:
     - NAMModel
@@ -353,7 +350,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: DigitalTwin
     domain_of:
     - NAMModel
@@ -365,7 +361,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: DigitalTwin
     domain_of:
     - ModelSystem
@@ -378,11 +373,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: DigitalTwin
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -391,10 +386,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: DigitalTwin
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -402,21 +397,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: DigitalTwin
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: DigitalTwin
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

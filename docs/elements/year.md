@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: year 
 
@@ -7,11 +10,11 @@ _Publication year_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:year](https://w3id.org/monarch-initiative/namo/year)
-Alias: year
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: year
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Integer](Integer.md) |
+| Domain Of | [Reference](Reference.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reference](Reference.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: year
 description: Publication year
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: year
 owner: Reference
 domain_of:
 - Reference
 range: integer
 
 ```
-</details>
+</details></div>

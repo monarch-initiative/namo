@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: organ_modeled 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:organ_modeled](https://w3id.org/monarch-initiative/namo/organ_modeled)
-Alias: organ_modeled
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,8 +20,8 @@ Alias: organ_modeled
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OrganOnChip](OrganOnChip.md) | A model system that simulates the physiological functions of an organ using a... |  no  |
 | [Organoid](Organoid.md) | A 3D cell culture system that self-organizes to recapitulate key structural a... |  no  |
+| [OrganOnChip](OrganOnChip.md) | A model system that simulates the physiological functions of an organ using a... |  no  |
 
 
 
@@ -27,13 +30,28 @@ Alias: organ_modeled
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Organoid](Organoid.md), [OrganOnChip](OrganOnChip.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -55,11 +73,10 @@ Alias: organ_modeled
 <details>
 ```yaml
 name: organ_modeled
-alias: organ_modeled
 domain_of:
 - Organoid
 - OrganOnChip
 range: string
 
 ```
-</details>
+</details></div>

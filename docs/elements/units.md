@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: units 
 
@@ -7,11 +10,11 @@ _Units of measurement for the assay result._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:units](https://w3id.org/monarch-initiative/namo/units)
-Alias: units
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: units
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [FunctionalAssay](FunctionalAssay.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [FunctionalAssay](FunctionalAssay.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: units
 description: Units of measurement for the assay result.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: units
 owner: FunctionalAssay
 domain_of:
 - FunctionalAssay
 range: string
 
 ```
-</details>
+</details></div>

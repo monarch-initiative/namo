@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: culture_conditions 
 
@@ -7,11 +10,11 @@ _Standard culture conditions and media used_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:culture_conditions](https://w3id.org/monarch-initiative/namo/culture_conditions)
-Alias: culture_conditions
-
 <!-- no inheritance hierarchy -->
 
 
@@ -24,10 +27,10 @@ Alias: culture_conditions
 | --- | --- | --- |
 | [CellularSystem](CellularSystem.md) | Cell-based model systems that use living cells to model biological processes |  no  |
 | [TwoDCellCulture](TwoDCellCulture.md) | Conventional monolayer cell cultures grown on flat surfaces |  no  |
-| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic  microenvironments ... |  no  |
-| [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
-| [Organoid](Organoid.md) | A 3D cell culture system that self-organizes to recapitulate key structural a... |  no  |
 | [ThreeDCellCulture](ThreeDCellCulture.md) | Three-dimensional cell culture systems including spheroids and organoids |  no  |
+| [CoCulture](CoCulture.md) | Co-culture systems combining multiple cell types to mimic  microenvironments ... |  no  |
+| [Organoid](Organoid.md) | A 3D cell culture system that self-organizes to recapitulate key structural a... |  no  |
+| [CellLineModel](CellLineModel.md) | A model system based on immortalized cell lines that can be maintained in cul... |  no  |
 
 
 
@@ -36,13 +39,35 @@ Alias: culture_conditions
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [CellularSystem](CellularSystem.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellularSystem](CellularSystem.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -74,11 +99,10 @@ name: culture_conditions
 description: Standard culture conditions and media used
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: culture_conditions
 owner: CellularSystem
 domain_of:
 - CellularSystem
 range: string
 
 ```
-</details>
+</details></div>

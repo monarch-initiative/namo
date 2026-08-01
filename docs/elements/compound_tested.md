@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: compound_tested 
 
@@ -7,11 +10,11 @@ _Name of compound used in dose-response testing._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:compound_tested](https://w3id.org/monarch-initiative/namo/compound_tested)
-Alias: compound_tested
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: compound_tested
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [DoseResponseSimilarity](DoseResponseSimilarity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DoseResponseSimilarity](DoseResponseSimilarity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: compound_tested
 description: Name of compound used in dose-response testing.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: compound_tested
 owner: DoseResponseSimilarity
 domain_of:
 - DoseResponseSimilarity
 range: string
 
 ```
-</details>
+</details></div>

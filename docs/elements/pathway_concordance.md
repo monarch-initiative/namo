@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: pathway_concordance 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:pathway_concordance](https://w3id.org/monarch-initiative/namo/pathway_concordance)
-Alias: pathway_concordance
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,8 +20,8 @@ Alias: pathway_concordance
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
 | [ConcordanceResult](ConcordanceResult.md) |  |  no  |
+| [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
 
 
 
@@ -27,13 +30,28 @@ Alias: pathway_concordance
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [ConcordanceResult](ConcordanceResult.md), [StructuredConcordanceResult](StructuredConcordanceResult.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -55,11 +73,10 @@ Alias: pathway_concordance
 <details>
 ```yaml
 name: pathway_concordance
-alias: pathway_concordance
 domain_of:
 - ConcordanceResult
 - StructuredConcordanceResult
 range: string
 
 ```
-</details>
+</details></div>

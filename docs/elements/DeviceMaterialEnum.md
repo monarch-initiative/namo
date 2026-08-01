@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: DeviceMaterialEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:DeviceMaterialEnum](https://w3id.org/monarch-initiative/namo/DeviceMaterialEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | PDMS | None | Polydimethylsiloxane |
@@ -31,8 +38,12 @@ URI: [namo:DeviceMaterialEnum](https://w3id.org/monarch-initiative/namo/DeviceMa
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -86,3 +97,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

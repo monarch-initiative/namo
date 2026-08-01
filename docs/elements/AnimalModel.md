@@ -1,6 +1,11 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: AnimalModel 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -17,14 +22,14 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
       ModelSystem <|-- AnimalModel
         click ModelSystem href "../ModelSystem/"
       
-      AnimalModel : age
+      AnimalModel : age_value
         
           
     
         
         
-        AnimalModel --> "0..1" Term : age
-        click Term href "../Term/"
+        AnimalModel --> "0..1" QuantityValue : age_value
+        click QuantityValue href "../QuantityValue/"
     
 
         
@@ -36,12 +41,23 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
     
         
         
-        AnimalModel --> "0..1" Term : environment
-        click Term href "../Term/"
+        AnimalModel --> "0..1" EnvironmentalExposure : environment
+        click EnvironmentalExposure href "../EnvironmentalExposure/"
     
 
         
       AnimalModel : id
+        
+      AnimalModel : life_stage
+        
+          
+    
+        
+        
+        AnimalModel --> "0..1" LifeStage : life_stage
+        click LifeStage href "../LifeStage/"
+    
+
         
       AnimalModel : models
         
@@ -62,8 +78,8 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
     
         
         
-        AnimalModel --> "1" Term : species
-        click Term href "../Term/"
+        AnimalModel --> "1" OrganismTaxon : species
+        click OrganismTaxon href "../OrganismTaxon/"
     
 
         
@@ -73,8 +89,8 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
     
         
         
-        AnimalModel --> "0..1" Term : strain
-        click Term href "../Term/"
+        AnimalModel --> "0..1" OrganismTaxon : strain
+        click OrganismTaxon href "../OrganismTaxon/"
     
 
         
@@ -93,15 +109,15 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
         * **AnimalModel**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [species](species.md) | 1 <br/> [Term](Term.md) | The species of the animal used in the model system | direct |
-| [strain](strain.md) | 0..1 <br/> [Term](Term.md) | The specific strain of the animal used in the model system | direct |
-| [age](age.md) | 0..1 <br/> [Term](Term.md) | The age of the animal used in the model system | direct |
-| [environment](environment.md) | 0..1 <br/> [Term](Term.md) | The environmental conditions under which the animal model is maintained | direct |
+| [species](species.md) | 1 <br/> [OrganismTaxon](OrganismTaxon.md) | The species of the animal used in the model system | direct |
+| [strain](strain.md) | 0..1 <br/> [OrganismTaxon](OrganismTaxon.md) | The specific strain of the animal used in the model system | direct |
+| [life_stage](life_stage.md) | 0..1 <br/> [LifeStage](LifeStage.md) | The developmental or life-cycle stage of the animal used in the model system | direct |
+| [age_value](age_value.md) | 0..1 <br/> [QuantityValue](QuantityValue.md) | Chronological age of the animal at the time of study, as a numeric value with... | direct |
+| [environment](environment.md) | 0..1 <br/> [EnvironmentalExposure](EnvironmentalExposure.md) | The environmental conditions under which the animal model is maintained | direct |
 | [models](models.md) | * <br/> [ModelsRelationship](ModelsRelationship.md) |  | [ModelSystem](ModelSystem.md) |
 | [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
@@ -117,12 +133,16 @@ URI: [namo:AnimalModel](https://w3id.org/monarch-initiative/namo/AnimalModel)
 
 
 
+
+
+
 ## See Also
 
 * [https://doi.org/10.1371/journal.pbio.3000410](https://doi.org/10.1371/journal.pbio.3000410)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -172,36 +192,48 @@ attributes:
     rank: 1000
     domain_of:
     - AnimalModel
-    range: Term
+    range: OrganismTaxon
     bindings:
     - range: SpeciesEnum
       obligation_level: REQUIRED
       binds_value_of: id
     required: true
+    inlined: true
   strain:
     name: strain
-    description: The specific strain of the animal used in the model system.
+    description: 'The specific strain of the animal used in the model system. Deliberately
+      unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic
+      rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.'
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
     - AnimalModel
-    range: Term
-    bindings:
-    - range: StrainEnum
-      obligation_level: REQUIRED
-      binds_value_of: id
-  age:
-    name: age
-    description: The age of the animal used in the model system.
+    range: OrganismTaxon
+    inlined: true
+  life_stage:
+    name: life_stage
+    description: The developmental or life-cycle stage of the animal used in the model
+      system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
     - AnimalModel
-    range: Term
+    range: LifeStage
     bindings:
-    - range: OrganismAgeEnum
+    - range: LifeStageEnum
       obligation_level: REQUIRED
       binds_value_of: id
+    inlined: true
+  age_value:
+    name: age_value
+    description: Chronological age of the animal at the time of study, as a numeric
+      value with a unit.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    domain_of:
+    - AnimalModel
+    range: QuantityValue
+    inlined: true
   environment:
     name: environment
     description: The environmental conditions under which the animal model is maintained.
@@ -209,7 +241,8 @@ attributes:
     rank: 1000
     domain_of:
     - AnimalModel
-    range: Term
+    range: EnvironmentalExposure
+    inlined: true
 
 ```
 </details>
@@ -231,59 +264,68 @@ attributes:
     description: The species of the animal used in the model system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: species
     owner: AnimalModel
     domain_of:
     - AnimalModel
-    range: Term
+    range: OrganismTaxon
     bindings:
     - range: SpeciesEnum
       obligation_level: REQUIRED
       binds_value_of: id
     required: true
+    inlined: true
   strain:
     name: strain
-    description: The specific strain of the animal used in the model system.
+    description: 'The specific strain of the animal used in the model system. Deliberately
+      unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic
+      rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.'
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: strain
     owner: AnimalModel
     domain_of:
     - AnimalModel
-    range: Term
-    bindings:
-    - range: StrainEnum
-      obligation_level: REQUIRED
-      binds_value_of: id
-  age:
-    name: age
-    description: The age of the animal used in the model system.
+    range: OrganismTaxon
+    inlined: true
+  life_stage:
+    name: life_stage
+    description: The developmental or life-cycle stage of the animal used in the model
+      system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: age
     owner: AnimalModel
     domain_of:
     - AnimalModel
-    range: Term
+    range: LifeStage
     bindings:
-    - range: OrganismAgeEnum
+    - range: LifeStageEnum
       obligation_level: REQUIRED
       binds_value_of: id
+    inlined: true
+  age_value:
+    name: age_value
+    description: Chronological age of the animal at the time of study, as a numeric
+      value with a unit.
+    from_schema: https://w3id.org/monarch-initiative/namo
+    rank: 1000
+    owner: AnimalModel
+    domain_of:
+    - AnimalModel
+    range: QuantityValue
+    inlined: true
   environment:
     name: environment
     description: The environmental conditions under which the animal model is maintained.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: environment
     owner: AnimalModel
     domain_of:
     - AnimalModel
-    range: Term
+    range: EnvironmentalExposure
+    inlined: true
   models:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: AnimalModel
     domain_of:
     - ModelSystem
@@ -296,11 +338,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: AnimalModel
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -309,10 +351,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: AnimalModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -320,21 +362,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: AnimalModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: AnimalModel
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

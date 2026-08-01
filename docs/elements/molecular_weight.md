@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: molecular_weight 
 
@@ -7,11 +10,11 @@ _Molecular weight (g/mol)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:molecular_weight](https://w3id.org/monarch-initiative/namo/molecular_weight)
-Alias: molecular_weight
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: molecular_weight
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [DrugProperties](DrugProperties.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DrugProperties](DrugProperties.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: molecular_weight
 description: Molecular weight (g/mol)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: molecular_weight
 owner: DrugProperties
 domain_of:
 - DrugProperties
 range: float
 
 ```
-</details>
+</details></div>
