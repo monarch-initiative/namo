@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: pressure_pascal 
 
@@ -7,11 +10,11 @@ _Pressure applied in Pascals_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:pressure_pascal](https://w3id.org/monarch-initiative/namo/pressure_pascal)
-Alias: pressure_pascal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: pressure_pascal
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [MechanicalStimulation](MechanicalStimulation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MechanicalStimulation](MechanicalStimulation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: pressure_pascal
 description: Pressure applied in Pascals
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: pressure_pascal
 owner: MechanicalStimulation
 domain_of:
 - MechanicalStimulation
 range: float
 
 ```
-</details>
+</details></div>

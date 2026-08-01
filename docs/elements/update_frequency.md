@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: update_frequency 
 
@@ -7,11 +10,11 @@ _Frequency of model updates based on new data_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:update_frequency](https://w3id.org/monarch-initiative/namo/update_frequency)
-Alias: update_frequency
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: update_frequency
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [DigitalTwin](DigitalTwin.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DigitalTwin](DigitalTwin.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: update_frequency
 description: Frequency of model updates based on new data
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: update_frequency
 owner: DigitalTwin
 domain_of:
 - DigitalTwin
 range: string
 
 ```
-</details>
+</details></div>

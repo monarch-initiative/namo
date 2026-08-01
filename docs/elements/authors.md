@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: authors 
 
@@ -7,11 +10,11 @@ _Authors of the publication_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:authors](https://w3id.org/monarch-initiative/namo/authors)
-Alias: authors
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: authors
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Reference](Reference.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reference](Reference.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: authors
 description: Authors of the publication
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: authors
 owner: Reference
 domain_of:
 - Reference
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

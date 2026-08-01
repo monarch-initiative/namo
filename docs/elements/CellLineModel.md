@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: CellLineModel 
 
@@ -6,6 +9,8 @@
 _A model system based on immortalized cell lines that can be maintained in culture indefinitely. Examples: HepG2, A549, Caco-2, etc._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -43,8 +48,8 @@ URI: [namo:CellLineModel](https://w3id.org/monarch-initiative/namo/CellLineModel
     
         
         
-        CellLineModel --> "*" Term : cell_types
-        click Term href "../Term/"
+        CellLineModel --> "*" Cell : cell_types
+        click Cell href "../Cell/"
     
 
         
@@ -117,7 +122,6 @@ URI: [namo:CellLineModel](https://w3id.org/monarch-initiative/namo/CellLineModel
                     * **CellLineModel**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -127,7 +131,7 @@ URI: [namo:CellLineModel](https://w3id.org/monarch-initiative/namo/CellLineModel
 | [substrate_type](substrate_type.md) | 0..1 <br/> [String](String.md) | Type of culture substrate (e | [TwoDCellCulture](TwoDCellCulture.md) |
 | [confluence_level](confluence_level.md) | 0..1 <br/> [Float](Float.md) | Typical confluence level maintained (0 | [TwoDCellCulture](TwoDCellCulture.md) |
 | [passage_protocol](passage_protocol.md) | 0..1 <br/> [String](String.md) | Standard passaging protocol and frequency | [TwoDCellCulture](TwoDCellCulture.md) |
-| [cell_types](cell_types.md) | * <br/> [Term](Term.md) | Cell types present in the cellular system | [CellularSystem](CellularSystem.md) |
+| [cell_types](cell_types.md) | * <br/> [Cell](Cell.md) | Cell types present in the cellular system | [CellularSystem](CellularSystem.md) |
 | [cell_source](cell_source.md) | 0..1 <br/> [String](String.md) | Source of cells (e | [CellularSystem](CellularSystem.md) |
 | [culture_conditions](culture_conditions.md) | 0..1 <br/> [String](String.md) | Standard culture conditions and media used | [CellularSystem](CellularSystem.md) |
 | [biological_organization_level](biological_organization_level.md) | 0..1 <br/> [BiologicalOrganizationLevelEnum](BiologicalOrganizationLevelEnum.md) | The level of biological organization represented by the model | [NAMModel](NAMModel.md) |
@@ -149,8 +153,12 @@ URI: [namo:CellLineModel](https://w3id.org/monarch-initiative/namo/CellLineModel
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -224,7 +232,6 @@ attributes:
     description: Recommended passage number range for experimental use
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: passage_range
     owner: CellLineModel
     domain_of:
     - CellLineModel
@@ -235,7 +242,6 @@ attributes:
       testing)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: authentication_method
     owner: CellLineModel
     domain_of:
     - CellLineModel
@@ -245,7 +251,6 @@ attributes:
     description: Type of culture substrate (e.g., plastic, glass, coated surfaces)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: substrate_type
     owner: CellLineModel
     domain_of:
     - TwoDCellCulture
@@ -255,7 +260,6 @@ attributes:
     description: Typical confluence level maintained (0.0-1.0)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: confluence_level
     owner: CellLineModel
     domain_of:
     - TwoDCellCulture
@@ -265,7 +269,6 @@ attributes:
     description: Standard passaging protocol and frequency
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: passage_protocol
     owner: CellLineModel
     domain_of:
     - TwoDCellCulture
@@ -275,12 +278,11 @@ attributes:
     description: Cell types present in the cellular system
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_types
     owner: CellLineModel
     domain_of:
     - CellularSystem
     - OrganOnChip
-    range: Term
+    range: Cell
     bindings:
     - range: CellTypeEnum
       obligation_level: REQUIRED
@@ -293,7 +295,6 @@ attributes:
     description: Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: cell_source
     owner: CellLineModel
     domain_of:
     - CellularSystem
@@ -304,7 +305,6 @@ attributes:
     description: Standard culture conditions and media used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: culture_conditions
     owner: CellLineModel
     domain_of:
     - CellularSystem
@@ -314,7 +314,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: CellLineModel
     domain_of:
     - NAMModel
@@ -324,7 +323,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: CellLineModel
     domain_of:
     - NAMModel
@@ -335,7 +333,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: CellLineModel
     domain_of:
     - NAMModel
@@ -345,7 +342,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: CellLineModel
     domain_of:
     - NAMModel
@@ -357,7 +353,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: CellLineModel
     domain_of:
     - ModelSystem
@@ -370,11 +365,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: CellLineModel
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -383,10 +378,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: CellLineModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -394,21 +389,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: CellLineModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: CellLineModel
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

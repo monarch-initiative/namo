@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: MembraneTypeEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:MembraneTypeEnum](https://w3id.org/monarch-initiative/namo/MembraneTypeEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | POROUS_POLYMER | None | Porous polymer membrane (e |
@@ -29,8 +36,12 @@ URI: [namo:MembraneTypeEnum](https://w3id.org/monarch-initiative/namo/MembraneTy
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -78,3 +89,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

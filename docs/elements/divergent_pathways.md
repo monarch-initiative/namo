@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: divergent_pathways 
 
@@ -7,11 +10,11 @@ _List of pathways that show different activity patterns._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:divergent_pathways](https://w3id.org/monarch-initiative/namo/divergent_pathways)
-Alias: divergent_pathways
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: divergent_pathways
 
 ## Properties
 
-* Range: [Pathway](Pathway.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [Pathway](Pathway.md) |
+| Domain Of | [PathwayConcordance](PathwayConcordance.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PathwayConcordance](PathwayConcordance.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: divergent_pathways
 description: List of pathways that show different activity patterns.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: divergent_pathways
 owner: PathwayConcordance
 domain_of:
 - PathwayConcordance
@@ -81,4 +104,4 @@ inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

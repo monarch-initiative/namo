@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: OrganOnChip 
 
@@ -6,6 +9,8 @@
 _A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ... Aligned with ISO 10991:2023 microfluidics terminology._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -41,8 +46,8 @@ URI: [namo:OrganOnChip](https://w3id.org/monarch-initiative/namo/OrganOnChip)
     
         
         
-        OrganOnChip --> "*" Term : cell_types
-        click Term href "../Term/"
+        OrganOnChip --> "*" Cell : cell_types
+        click Cell href "../Cell/"
     
 
         
@@ -102,8 +107,8 @@ URI: [namo:OrganOnChip](https://w3id.org/monarch-initiative/namo/OrganOnChip)
     
         
         
-        OrganOnChip --> "0..1" Term : organ_modeled
-        click Term href "../Term/"
+        OrganOnChip --> "0..1" GrossAnatomicalStructure : organ_modeled
+        click GrossAnatomicalStructure href "../GrossAnatomicalStructure/"
     
 
         
@@ -150,13 +155,12 @@ URI: [namo:OrganOnChip](https://w3id.org/monarch-initiative/namo/OrganOnChip)
                 * **OrganOnChip**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [organ_modeled](organ_modeled.md) | 0..1 <br/> [Term](Term.md) | The organ or anatomical structure being modeled (e | direct |
-| [cell_types](cell_types.md) | * <br/> [Term](Term.md) | Cell types present in the organ-on-chip model | direct |
+| [organ_modeled](organ_modeled.md) | 0..1 <br/> [GrossAnatomicalStructure](GrossAnatomicalStructure.md) | The organ or anatomical structure being modeled (e | direct |
+| [cell_types](cell_types.md) | * <br/> [Cell](Cell.md) | Cell types present in the organ-on-chip model | direct |
 | [cell_source](cell_source.md) | 0..1 <br/> [String](String.md) | Source of cells (e | direct |
 | [microfluidic_design](microfluidic_design.md) | 0..1 <br/> [MicrofluidicDesign](MicrofluidicDesign.md) | Detailed design specifications of the microfluidic device | [MicrophysiologicalSystem](MicrophysiologicalSystem.md) |
 | [mechanical_forces](mechanical_forces.md) | 0..1 <br/> [MechanicalStimulation](MechanicalStimulation.md) | Mechanical forces applied to the model system | [MicrophysiologicalSystem](MicrophysiologicalSystem.md) |
@@ -181,12 +185,16 @@ URI: [namo:OrganOnChip](https://w3id.org/monarch-initiative/namo/OrganOnChip)
 
 
 
+
+
+
 ## See Also
 
 * [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -240,7 +248,7 @@ attributes:
     domain_of:
     - Organoid
     - OrganOnChip
-    range: Term
+    range: GrossAnatomicalStructure
     bindings:
     - range: OrganEnum
       obligation_level: REQUIRED
@@ -253,13 +261,12 @@ attributes:
     domain_of:
     - CellularSystem
     - OrganOnChip
-    range: Term
+    range: Cell
     bindings:
     - range: CellTypeEnum
       obligation_level: REQUIRED
       binds_value_of: id
     multivalued: true
-    inlined: true
     inlined_as_list: true
   cell_source:
     name: cell_source
@@ -293,12 +300,11 @@ attributes:
     description: The organ or anatomical structure being modeled (e.g., lung, airway,
       alveolus)
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: organ_modeled
     owner: OrganOnChip
     domain_of:
     - Organoid
     - OrganOnChip
-    range: Term
+    range: GrossAnatomicalStructure
     bindings:
     - range: OrganEnum
       obligation_level: REQUIRED
@@ -308,12 +314,11 @@ attributes:
     name: cell_types
     description: Cell types present in the organ-on-chip model
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: cell_types
     owner: OrganOnChip
     domain_of:
     - CellularSystem
     - OrganOnChip
-    range: Term
+    range: Cell
     bindings:
     - range: CellTypeEnum
       obligation_level: REQUIRED
@@ -326,7 +331,6 @@ attributes:
     description: Source of cells (e.g., primary human cells, iPSC-derived, cell line,
       patient-derived)
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: cell_source
     owner: OrganOnChip
     domain_of:
     - CellularSystem
@@ -337,7 +341,6 @@ attributes:
     description: Detailed design specifications of the microfluidic device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: microfluidic_design
     owner: OrganOnChip
     domain_of:
     - MicrophysiologicalSystem
@@ -348,7 +351,6 @@ attributes:
     description: Mechanical forces applied to the model system
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: mechanical_forces
     owner: OrganOnChip
     domain_of:
     - MicrophysiologicalSystem
@@ -359,7 +361,6 @@ attributes:
     description: Description of perfusion and flow systems
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: perfusion_system
     owner: OrganOnChip
     domain_of:
     - MicrophysiologicalSystem
@@ -369,7 +370,6 @@ attributes:
     description: Sensors integrated for real-time monitoring
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: sensor_integration
     owner: OrganOnChip
     domain_of:
     - MicrophysiologicalSystem
@@ -380,7 +380,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: OrganOnChip
     domain_of:
     - NAMModel
@@ -390,7 +389,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: OrganOnChip
     domain_of:
     - NAMModel
@@ -401,7 +399,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: OrganOnChip
     domain_of:
     - NAMModel
@@ -411,7 +408,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: OrganOnChip
     domain_of:
     - NAMModel
@@ -423,7 +419,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: OrganOnChip
     domain_of:
     - ModelSystem
@@ -436,11 +431,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: OrganOnChip
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -449,10 +444,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: OrganOnChip
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -460,21 +455,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: OrganOnChip
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: OrganOnChip
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

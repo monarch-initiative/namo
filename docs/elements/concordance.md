@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: concordance 
 
@@ -7,11 +10,11 @@ _Metrics used to assess the concordance between the model system and the biologi
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:concordance](https://w3id.org/monarch-initiative/namo/concordance)
-Alias: concordance
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: concordance
 
 ## Properties
 
-* Range: [ConcordanceResult](ConcordanceResult.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [ConcordanceResult](ConcordanceResult.md) |
+| Domain Of | [ModelsRelationship](ModelsRelationship.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ModelsRelationship](ModelsRelationship.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -70,11 +95,10 @@ description: Metrics used to assess the concordance between the model system and
   biological system, such as sensitivity, specificity, and accuracy.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: concordance
 owner: ModelsRelationship
 domain_of:
 - ModelsRelationship
 range: ConcordanceResult
 
 ```
-</details>
+</details></div>

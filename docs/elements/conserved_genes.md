@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: conserved_genes 
 
@@ -7,11 +10,11 @@ _List of genes with conserved expression patterns between model and target._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:conserved_genes](https://w3id.org/monarch-initiative/namo/conserved_genes)
-Alias: conserved_genes
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: conserved_genes
 
 ## Properties
 
-* Range: [Gene](Gene.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [Gene](Gene.md) |
+| Domain Of | [MolecularSimilarity](MolecularSimilarity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MolecularSimilarity](MolecularSimilarity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: conserved_genes
 description: List of genes with conserved expression patterns between model and target.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: conserved_genes
 owner: MolecularSimilarity
 domain_of:
 - MolecularSimilarity
@@ -81,4 +104,4 @@ inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

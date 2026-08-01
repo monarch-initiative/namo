@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: pka 
 
@@ -7,11 +10,11 @@ _Acid dissociation constant_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:pka](https://w3id.org/monarch-initiative/namo/pka)
-Alias: pka
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: pka
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [DrugProperties](DrugProperties.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DrugProperties](DrugProperties.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: pka
 description: Acid dissociation constant
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: pka
 owner: DrugProperties
 domain_of:
 - DrugProperties
 range: float
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: entrez_id 
 
@@ -7,11 +10,11 @@ _NCBI Entrez gene identifier._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:entrez_id](https://w3id.org/monarch-initiative/namo/entrez_id)
-Alias: entrez_id
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: entrez_id
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Integer](Integer.md) |
+| Domain Of | [Gene](Gene.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Gene](Gene.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: entrez_id
 description: NCBI Entrez gene identifier.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: entrez_id
 owner: Gene
 domain_of:
 - Gene
 range: integer
 
 ```
-</details>
+</details></div>

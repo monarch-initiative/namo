@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: represented_cell_types 
 
@@ -7,11 +10,11 @@ _List of cell types present in both model and biological system._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:represented_cell_types](https://w3id.org/monarch-initiative/namo/represented_cell_types)
-Alias: represented_cell_types
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,47 @@ Alias: represented_cell_types
 
 ## Properties
 
-* Range: [Term](Term.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [Cell](Cell.md) |
+| Domain Of | [CellTypeCoverage](CellTypeCoverage.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellTypeCoverage](CellTypeCoverage.md) |
+
+
+<details>
+<summary>Advanced Properties</summary>
+**Term Bindings:**
+- EnumBinding({
+  'range': 'CellTypeEnum',
+  'obligation_level': ObligationLevelEnum(text='REQUIRED', description='The metadata element is required to be present in the model'),
+  'binds_value_of': 'id'
+})
+
+</details>
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,14 +106,17 @@ name: represented_cell_types
 description: List of cell types present in both model and biological system.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: represented_cell_types
 owner: CellTypeCoverage
 domain_of:
 - CellTypeCoverage
-range: Term
+range: Cell
+bindings:
+- range: CellTypeEnum
+  obligation_level: REQUIRED
+  binds_value_of: id
 multivalued: true
 inlined: true
 inlined_as_list: true
 
 ```
-</details>
+</details></div>

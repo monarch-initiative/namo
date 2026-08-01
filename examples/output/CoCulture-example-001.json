@@ -173,13 +173,11 @@
   "cell_types": [
     {
       "id": "CL:0000182",
-      "name": "hepatocyte",
-      "type": "Term"
+      "name": "hepatocyte"
     },
     {
       "id": "CL:0002138",
-      "name": "hepatic stellate cell",
-      "type": "Term"
+      "name": "hepatic stellate cell"
     }
   ],
   "cell_source": "Primary human hepatocytes and hepatic stellate cells from liver donors",
@@ -189,8 +187,7 @@
     {
       "cell_type": {
         "id": "CL:0000182",
-        "name": "hepatocyte",
-        "type": "Term"
+        "name": "hepatocyte"
       },
       "ratio": 0.8,
       "ratio_type": "PERCENTAGE"
@@ -198,8 +195,7 @@
     {
       "cell_type": {
         "id": "CL:0002138",
-        "name": "hepatic stellate cell",
-        "type": "Term"
+        "name": "hepatic stellate cell"
       },
       "ratio": 0.2,
       "ratio_type": "PERCENTAGE"

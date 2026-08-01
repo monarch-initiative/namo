@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: rmse 
 
@@ -7,11 +10,11 @@ _Root mean square error_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:rmse](https://w3id.org/monarch-initiative/namo/rmse)
-Alias: rmse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: rmse
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [ModelPerformance](ModelPerformance.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ModelPerformance](ModelPerformance.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: rmse
 description: Root mean square error
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: rmse
 owner: ModelPerformance
 domain_of:
 - ModelPerformance
 range: float
 
 ```
-</details>
+</details></div>

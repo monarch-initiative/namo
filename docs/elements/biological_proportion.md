@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: biological_proportion 
 
@@ -7,11 +10,11 @@ _Proportion of this cell type in the biological system._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:biological_proportion](https://w3id.org/monarch-initiative/namo/biological_proportion)
-Alias: biological_proportion
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: biological_proportion
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [CellTypeProportion](CellTypeProportion.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellTypeProportion](CellTypeProportion.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: biological_proportion
 description: Proportion of this cell type in the biological system.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: biological_proportion
 owner: CellTypeProportion
 domain_of:
 - CellTypeProportion
 range: float
 
 ```
-</details>
+</details></div>

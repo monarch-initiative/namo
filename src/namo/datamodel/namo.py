@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-27T14:31:05
+# Generation date: 2026-07-31T22:51:20
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -196,30 +196,41 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Boolean, Float, Integer, String, Uri, Uriorcurie
+from linkml_runtime.linkml_model.types import Boolean, Double, Float, Integer, String, Uri, Uriorcurie
 from linkml_runtime.utils.metamodelcore import Bool, URI, URIorCURIE
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.11.0"
 version = None
 
 # Namespaces
 ARRIVE = CurieNamespace('ARRIVE', 'https://doi.org/10.1371/journal.pbio.3000410#')
 ASTM = CurieNamespace('ASTM', 'https://www.astm.org/standards/')
+BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
 CHEBI = CurieNamespace('CHEBI', 'http://purl.obolibrary.org/obo/CHEBI_')
+CL = CurieNamespace('CL', 'http://purl.obolibrary.org/obo/CL_')
+ECTO = CurieNamespace('ECTO', 'http://purl.obolibrary.org/obo/ECTO_')
 EDAM = CurieNamespace('EDAM', 'http://edamontology.org/')
 EFO = CurieNamespace('EFO', 'http://www.ebi.ac.uk/efo/EFO_')
+ENVO = CurieNamespace('ENVO', 'http://purl.obolibrary.org/obo/ENVO_')
 GIVREST = CurieNamespace('GIVReST', 'https://doi.org/10.14573/altex.2501011#')
+HP = CurieNamespace('HP', 'http://purl.obolibrary.org/obo/HP_')
+HSAPDV = CurieNamespace('HsapDv', 'http://purl.obolibrary.org/obo/HsapDv_')
 ISO10991 = CurieNamespace('ISO10991', 'https://www.iso.org/standard/82146.html#')
 ISO22916 = CurieNamespace('ISO22916', 'https://www.iso.org/standard/74157.html#')
 MAMO = CurieNamespace('MAMO', 'http://identifiers.org/mamo/MAMO_')
 MESH = CurieNamespace('MESH', 'http://id.nlm.nih.gov/mesh/')
 MIACA = CurieNamespace('MIACA', 'https://doi.org/10.5966/sctm.2015-0393#')
 MISPHEROID = CurieNamespace('MISpheroID', 'https://doi.org/10.3390/jdb10010007#')
+MP = CurieNamespace('MP', 'http://purl.obolibrary.org/obo/MP_')
+MMUSDV = CurieNamespace('MmusDv', 'http://purl.obolibrary.org/obo/MmusDv_')
+NCBITAXON = CurieNamespace('NCBITaxon', 'http://purl.obolibrary.org/obo/NCBITaxon_')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 OBI = CurieNamespace('OBI', 'http://purl.obolibrary.org/obo/OBI_')
 OECD = CurieNamespace('OECD', 'https://www.oecd.org/chemicalsafety/testing/')
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
 UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
+UO = CurieNamespace('UO', 'http://purl.obolibrary.org/obo/UO_')
+UPHENO = CurieNamespace('UPHENO', 'http://purl.obolibrary.org/obo/UPHENO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
@@ -367,7 +378,31 @@ class ReferenceId(URIorCURIE):
     pass
 
 
-class TermId(NamedThingId):
+class BiolinkEntityId(URIorCURIE):
+    pass
+
+
+class OrganismTaxonId(BiolinkEntityId):
+    pass
+
+
+class CellId(BiolinkEntityId):
+    pass
+
+
+class GrossAnatomicalStructureId(BiolinkEntityId):
+    pass
+
+
+class PhenotypicFeatureId(BiolinkEntityId):
+    pass
+
+
+class LifeStageId(BiolinkEntityId):
+    pass
+
+
+class EnvironmentalExposureId(BiolinkEntityId):
     pass
 
 
@@ -518,10 +553,11 @@ class AnimalModel(ModelSystem):
     class_model_uri: ClassVar[URIRef] = NAMO.AnimalModel
 
     id: Union[str, AnimalModelId] = None
-    species: Union[str, TermId] = None
-    strain: Optional[Union[str, TermId]] = None
-    age: Optional[Union[str, TermId]] = None
-    environment: Optional[Union[str, TermId]] = None
+    species: Union[dict, "OrganismTaxon"] = None
+    strain: Optional[Union[dict, "OrganismTaxon"]] = None
+    life_stage: Optional[Union[dict, "LifeStage"]] = None
+    age_value: Optional[Union[dict, "QuantityValue"]] = None
+    environment: Optional[Union[dict, "EnvironmentalExposure"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -531,17 +567,20 @@ class AnimalModel(ModelSystem):
 
         if self._is_empty(self.species):
             self.MissingRequiredField("species")
-        if not isinstance(self.species, TermId):
-            self.species = TermId(self.species)
+        if not isinstance(self.species, OrganismTaxon):
+            self.species = OrganismTaxon(**as_dict(self.species))
 
-        if self.strain is not None and not isinstance(self.strain, TermId):
-            self.strain = TermId(self.strain)
+        if self.strain is not None and not isinstance(self.strain, OrganismTaxon):
+            self.strain = OrganismTaxon(**as_dict(self.strain))
 
-        if self.age is not None and not isinstance(self.age, TermId):
-            self.age = TermId(self.age)
+        if self.life_stage is not None and not isinstance(self.life_stage, LifeStage):
+            self.life_stage = LifeStage(**as_dict(self.life_stage))
 
-        if self.environment is not None and not isinstance(self.environment, TermId):
-            self.environment = TermId(self.environment)
+        if self.age_value is not None and not isinstance(self.age_value, QuantityValue):
+            self.age_value = QuantityValue(**as_dict(self.age_value))
+
+        if self.environment is not None and not isinstance(self.environment, EnvironmentalExposure):
+            self.environment = EnvironmentalExposure(**as_dict(self.environment))
 
         super().__post_init__(**kwargs)
         self.type = str(self.class_name)
@@ -595,12 +634,12 @@ class CellularSystem(NAMModel):
     class_model_uri: ClassVar[URIRef] = NAMO.CellularSystem
 
     id: Union[str, CellularSystemId] = None
-    cell_types: Optional[Union[dict[Union[str, TermId], Union[dict, "Term"]], list[Union[dict, "Term"]]]] = empty_dict()
+    cell_types: Optional[Union[dict[Union[str, CellId], Union[dict, "Cell"]], list[Union[dict, "Cell"]]]] = empty_dict()
     cell_source: Optional[str] = None
     culture_conditions: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="cell_types", slot_type=Term, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="cell_types", slot_type=Cell, key_name="id", keyed=True)
 
         if self.cell_source is not None and not isinstance(self.cell_source, str):
             self.cell_source = str(self.cell_source)
@@ -737,7 +776,7 @@ class Organoid(ThreeDCellCulture):
     class_model_uri: ClassVar[URIRef] = NAMO.Organoid
 
     id: Union[str, OrganoidId] = None
-    organ_modeled: Optional[Union[dict, "Term"]] = None
+    organ_modeled: Optional[Union[dict, "GrossAnatomicalStructure"]] = None
     differentiation_method: Optional[str] = None
     culture_system: Optional[str] = None
 
@@ -747,8 +786,8 @@ class Organoid(ThreeDCellCulture):
         if not isinstance(self.id, OrganoidId):
             self.id = OrganoidId(self.id)
 
-        if self.organ_modeled is not None and not isinstance(self.organ_modeled, Term):
-            self.organ_modeled = Term(**as_dict(self.organ_modeled))
+        if self.organ_modeled is not None and not isinstance(self.organ_modeled, GrossAnatomicalStructure):
+            self.organ_modeled = GrossAnatomicalStructure(**as_dict(self.organ_modeled))
 
         if self.differentiation_method is not None and not isinstance(self.differentiation_method, str):
             self.differentiation_method = str(self.differentiation_method)
@@ -845,8 +884,8 @@ class OrganOnChip(MicrophysiologicalSystem):
     class_model_uri: ClassVar[URIRef] = NAMO.OrganOnChip
 
     id: Union[str, OrganOnChipId] = None
-    organ_modeled: Optional[Union[dict, "Term"]] = None
-    cell_types: Optional[Union[dict[Union[str, TermId], Union[dict, "Term"]], list[Union[dict, "Term"]]]] = empty_dict()
+    organ_modeled: Optional[Union[dict, "GrossAnatomicalStructure"]] = None
+    cell_types: Optional[Union[dict[Union[str, CellId], Union[dict, "Cell"]], list[Union[dict, "Cell"]]]] = empty_dict()
     cell_source: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -855,10 +894,10 @@ class OrganOnChip(MicrophysiologicalSystem):
         if not isinstance(self.id, OrganOnChipId):
             self.id = OrganOnChipId(self.id)
 
-        if self.organ_modeled is not None and not isinstance(self.organ_modeled, Term):
-            self.organ_modeled = Term(**as_dict(self.organ_modeled))
+        if self.organ_modeled is not None and not isinstance(self.organ_modeled, GrossAnatomicalStructure):
+            self.organ_modeled = GrossAnatomicalStructure(**as_dict(self.organ_modeled))
 
-        self._normalize_inlined_as_list(slot_name="cell_types", slot_type=Term, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="cell_types", slot_type=Cell, key_name="id", keyed=True)
 
         if self.cell_source is not None and not isinstance(self.cell_source, str):
             self.cell_source = str(self.cell_source)
@@ -881,7 +920,7 @@ class TissueOnChip(MicrophysiologicalSystem):
     class_model_uri: ClassVar[URIRef] = NAMO.TissueOnChip
 
     id: Union[str, TissueOnChipId] = None
-    tissue_modeled: Optional[Union[dict, "Term"]] = None
+    anatomical_structure_modeled: Optional[Union[dict, "GrossAnatomicalStructure"]] = None
     tissue_architecture: Optional[str] = None
     barrier_functions: Optional[Union[str, list[str]]] = empty_list()
 
@@ -891,8 +930,8 @@ class TissueOnChip(MicrophysiologicalSystem):
         if not isinstance(self.id, TissueOnChipId):
             self.id = TissueOnChipId(self.id)
 
-        if self.tissue_modeled is not None and not isinstance(self.tissue_modeled, Term):
-            self.tissue_modeled = Term(**as_dict(self.tissue_modeled))
+        if self.anatomical_structure_modeled is not None and not isinstance(self.anatomical_structure_modeled, GrossAnatomicalStructure):
+            self.anatomical_structure_modeled = GrossAnatomicalStructure(**as_dict(self.anatomical_structure_modeled))
 
         if self.tissue_architecture is not None and not isinstance(self.tissue_architecture, str):
             self.tissue_architecture = str(self.tissue_architecture)
@@ -998,7 +1037,7 @@ class PBPKModel(InSilicoModel):
 
     id: Union[str, PBPKModelId] = None
     compartments: Optional[Union[dict[Union[str, PBPKCompartmentId], Union[dict, "PBPKCompartment"]], list[Union[dict, "PBPKCompartment"]]]] = empty_dict()
-    species_modeled: Optional[Union[dict, "Term"]] = None
+    species_modeled: Optional[Union[dict, "OrganismTaxon"]] = None
     drug_properties: Optional[Union[dict, "DrugProperties"]] = None
     elimination_pathways: Optional[Union[str, list[str]]] = empty_list()
 
@@ -1010,8 +1049,8 @@ class PBPKModel(InSilicoModel):
 
         self._normalize_inlined_as_list(slot_name="compartments", slot_type=PBPKCompartment, key_name="id", keyed=True)
 
-        if self.species_modeled is not None and not isinstance(self.species_modeled, Term):
-            self.species_modeled = Term(**as_dict(self.species_modeled))
+        if self.species_modeled is not None and not isinstance(self.species_modeled, OrganismTaxon):
+            self.species_modeled = OrganismTaxon(**as_dict(self.species_modeled))
 
         if self.drug_properties is not None and not isinstance(self.drug_properties, DrugProperties):
             self.drug_properties = DrugProperties(**as_dict(self.drug_properties))
@@ -1147,13 +1186,13 @@ class CellRatio(YAMLRoot):
     class_name: ClassVar[str] = "CellRatio"
     class_model_uri: ClassVar[URIRef] = NAMO.CellRatio
 
-    cell_type: Optional[Union[dict, "Term"]] = None
+    cell_type: Optional[Union[dict, "Cell"]] = None
     ratio: Optional[float] = None
     ratio_type: Optional[Union[str, "RatioTypeEnum"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.cell_type is not None and not isinstance(self.cell_type, Term):
-            self.cell_type = Term(**as_dict(self.cell_type))
+        if self.cell_type is not None and not isinstance(self.cell_type, Cell):
+            self.cell_type = Cell(**as_dict(self.cell_type))
 
         if self.ratio is not None and not isinstance(self.ratio, float):
             self.ratio = float(self.ratio)
@@ -1721,9 +1760,9 @@ class PhenotypeOverlap(NamedThing):
 
     id: Union[str, PhenotypeOverlapId] = None
     phenotype_similarity_score: Optional[float] = None
-    shared_phenotypes: Optional[Union[dict[Union[str, TermId], Union[dict, "Term"]], list[Union[dict, "Term"]]]] = empty_dict()
-    model_specific_phenotypes: Optional[Union[dict[Union[str, TermId], Union[dict, "Term"]], list[Union[dict, "Term"]]]] = empty_dict()
-    biological_specific_phenotypes: Optional[Union[dict[Union[str, TermId], Union[dict, "Term"]], list[Union[dict, "Term"]]]] = empty_dict()
+    shared_phenotypes: Optional[Union[dict[Union[str, PhenotypicFeatureId], Union[dict, "PhenotypicFeature"]], list[Union[dict, "PhenotypicFeature"]]]] = empty_dict()
+    model_specific_phenotypes: Optional[Union[dict[Union[str, PhenotypicFeatureId], Union[dict, "PhenotypicFeature"]], list[Union[dict, "PhenotypicFeature"]]]] = empty_dict()
+    biological_specific_phenotypes: Optional[Union[dict[Union[str, PhenotypicFeatureId], Union[dict, "PhenotypicFeature"]], list[Union[dict, "PhenotypicFeature"]]]] = empty_dict()
     phenotype_ontology: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -1735,11 +1774,11 @@ class PhenotypeOverlap(NamedThing):
         if self.phenotype_similarity_score is not None and not isinstance(self.phenotype_similarity_score, float):
             self.phenotype_similarity_score = float(self.phenotype_similarity_score)
 
-        self._normalize_inlined_as_list(slot_name="shared_phenotypes", slot_type=Term, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="shared_phenotypes", slot_type=PhenotypicFeature, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="model_specific_phenotypes", slot_type=Term, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="model_specific_phenotypes", slot_type=PhenotypicFeature, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="biological_specific_phenotypes", slot_type=Term, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="biological_specific_phenotypes", slot_type=PhenotypicFeature, key_name="id", keyed=True)
 
         if self.phenotype_ontology is not None and not isinstance(self.phenotype_ontology, str):
             self.phenotype_ontology = str(self.phenotype_ontology)
@@ -1762,8 +1801,8 @@ class CellTypeCoverage(NamedThing):
 
     id: Union[str, CellTypeCoverageId] = None
     coverage_percentage: Optional[float] = None
-    represented_cell_types: Optional[Union[dict[Union[str, TermId], Union[dict, "Term"]], list[Union[dict, "Term"]]]] = empty_dict()
-    missing_cell_types: Optional[Union[dict[Union[str, TermId], Union[dict, "Term"]], list[Union[dict, "Term"]]]] = empty_dict()
+    represented_cell_types: Optional[Union[dict[Union[str, CellId], Union[dict, "Cell"]], list[Union[dict, "Cell"]]]] = empty_dict()
+    missing_cell_types: Optional[Union[dict[Union[str, CellId], Union[dict, "Cell"]], list[Union[dict, "Cell"]]]] = empty_dict()
     cell_type_proportions: Optional[Union[Union[dict, "CellTypeProportion"], list[Union[dict, "CellTypeProportion"]]]] = empty_list()
     single_cell_method: Optional[str] = None
 
@@ -1776,9 +1815,9 @@ class CellTypeCoverage(NamedThing):
         if self.coverage_percentage is not None and not isinstance(self.coverage_percentage, float):
             self.coverage_percentage = float(self.coverage_percentage)
 
-        self._normalize_inlined_as_list(slot_name="represented_cell_types", slot_type=Term, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="represented_cell_types", slot_type=Cell, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="missing_cell_types", slot_type=Term, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="missing_cell_types", slot_type=Cell, key_name="id", keyed=True)
 
         if not isinstance(self.cell_type_proportions, list):
             self.cell_type_proportions = [self.cell_type_proportions] if self.cell_type_proportions is not None else []
@@ -2059,14 +2098,14 @@ class CellTypeProportion(YAMLRoot):
     class_name: ClassVar[str] = "CellTypeProportion"
     class_model_uri: ClassVar[URIRef] = NAMO.CellTypeProportion
 
-    cell_type: Optional[Union[dict, "Term"]] = None
+    cell_type: Optional[Union[dict, "Cell"]] = None
     model_proportion: Optional[float] = None
     biological_proportion: Optional[float] = None
     proportion_ratio: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.cell_type is not None and not isinstance(self.cell_type, Term):
-            self.cell_type = Term(**as_dict(self.cell_type))
+        if self.cell_type is not None and not isinstance(self.cell_type, Cell):
+            self.cell_type = Cell(**as_dict(self.cell_type))
 
         if self.model_proportion is not None and not isinstance(self.model_proportion, float):
             self.model_proportion = float(self.model_proportion)
@@ -2237,32 +2276,214 @@ class Reference(YAMLRoot):
 
 
 @dataclass(repr=False)
-class Term(NamedThing):
+class BiolinkEntity(YAMLRoot):
     """
-    A term is a concept or entity that can be defined and used in a specific context, often within a controlled
-    vocabulary or ontology.
+    Abstract parent for NAMO classes that stand in for a class in the Biolink Model.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NAMO["Term"]
-    class_class_curie: ClassVar[str] = "namo:Term"
-    class_name: ClassVar[str] = "Term"
-    class_model_uri: ClassVar[URIRef] = NAMO.Term
+    class_class_uri: ClassVar[URIRef] = NAMO["BiolinkEntity"]
+    class_class_curie: ClassVar[str] = "namo:BiolinkEntity"
+    class_name: ClassVar[str] = "BiolinkEntity"
+    class_model_uri: ClassVar[URIRef] = NAMO.BiolinkEntity
 
-    id: Union[str, TermId] = None
+    id: Union[str, BiolinkEntityId] = None
+    name: Optional[str] = None
+    description: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, TermId):
-            self.id = TermId(self.id)
+        if not isinstance(self.id, BiolinkEntityId):
+            self.id = BiolinkEntityId(self.id)
+
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
 
         super().__post_init__(**kwargs)
-        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class OrganismTaxon(BiolinkEntity):
+    """
+    A classification of a set of organisms. Can also be used to represent strains or subspecies.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK["OrganismTaxon"]
+    class_class_curie: ClassVar[str] = "biolink:OrganismTaxon"
+    class_name: ClassVar[str] = "OrganismTaxon"
+    class_model_uri: ClassVar[URIRef] = NAMO.OrganismTaxon
+
+    id: Union[str, OrganismTaxonId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, OrganismTaxonId):
+            self.id = OrganismTaxonId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Cell(BiolinkEntity):
+    """
+    The basic structural and functional unit of all organisms. Includes the plasma membrane and any external
+    encapsulating structures such as the cell wall and cell envelope.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK["Cell"]
+    class_class_curie: ClassVar[str] = "biolink:Cell"
+    class_name: ClassVar[str] = "Cell"
+    class_model_uri: ClassVar[URIRef] = NAMO.Cell
+
+    id: Union[str, CellId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, CellId):
+            self.id = CellId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class GrossAnatomicalStructure(BiolinkEntity):
+    """
+    An anatomical structure that has more than one cell as a part.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK["GrossAnatomicalStructure"]
+    class_class_curie: ClassVar[str] = "biolink:GrossAnatomicalStructure"
+    class_name: ClassVar[str] = "GrossAnatomicalStructure"
+    class_model_uri: ClassVar[URIRef] = NAMO.GrossAnatomicalStructure
+
+    id: Union[str, GrossAnatomicalStructureId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, GrossAnatomicalStructureId):
+            self.id = GrossAnatomicalStructureId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class PhenotypicFeature(BiolinkEntity):
+    """
+    A combination of entity and quality that makes up a phenotyping statement.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK["PhenotypicFeature"]
+    class_class_curie: ClassVar[str] = "biolink:PhenotypicFeature"
+    class_name: ClassVar[str] = "PhenotypicFeature"
+    class_model_uri: ClassVar[URIRef] = NAMO.PhenotypicFeature
+
+    id: Union[str, PhenotypicFeatureId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, PhenotypicFeatureId):
+            self.id = PhenotypicFeatureId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class LifeStage(BiolinkEntity):
+    """
+    A stage of development or growth of an organism, including post-natal adult stages.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK["LifeStage"]
+    class_class_curie: ClassVar[str] = "biolink:LifeStage"
+    class_name: ClassVar[str] = "LifeStage"
+    class_model_uri: ClassVar[URIRef] = NAMO.LifeStage
+
+    id: Union[str, LifeStageId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, LifeStageId):
+            self.id = LifeStageId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class EnvironmentalExposure(BiolinkEntity):
+    """
+    A discrete event type where an organism is exposed to an environmental condition.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK["EnvironmentalExposure"]
+    class_class_curie: ClassVar[str] = "biolink:EnvironmentalExposure"
+    class_name: ClassVar[str] = "EnvironmentalExposure"
+    class_model_uri: ClassVar[URIRef] = NAMO.EnvironmentalExposure
+
+    id: Union[str, EnvironmentalExposureId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, EnvironmentalExposureId):
+            self.id = EnvironmentalExposureId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class QuantityValue(YAMLRoot):
+    """
+    A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric
+    value. Biolink models this as an annotation rather than a named thing, so it has no identifier and is inlined by
+    value.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK["QuantityValue"]
+    class_class_curie: ClassVar[str] = "biolink:QuantityValue"
+    class_name: ClassVar[str] = "QuantityValue"
+    class_model_uri: ClassVar[URIRef] = NAMO.QuantityValue
+
+    has_numeric_value: Optional[float] = None
+    has_unit: Optional[Union[str, URIorCURIE]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.has_numeric_value is not None and not isinstance(self.has_numeric_value, float):
+            self.has_numeric_value = float(self.has_numeric_value)
+
+        if self.has_unit is not None and not isinstance(self.has_unit, URIorCURIE):
+            self.has_unit = URIorCURIE(self.has_unit)
+
+        super().__post_init__(**kwargs)
 
 
 # Enumerations
 class SpeciesEnum(EnumDefinitionImpl):
+
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['NCBITaxon:1']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
 
     _defn = EnumDefinition(
         name="SpeciesEnum",
@@ -2270,26 +2491,76 @@ class SpeciesEnum(EnumDefinitionImpl):
 
 class OrganEnum(EnumDefinitionImpl):
 
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['UBERON:0000062']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf', 'BFO:0000050']")
+
     _defn = EnumDefinition(
         name="OrganEnum",
     )
 
+class AnatomicalStructureEnum(EnumDefinitionImpl):
+    """
+    Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's
+    `gross anatomical structure` maps to.
+    """
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['UBERON:0010000']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf', 'BFO:0000050']")
+
+    _defn = EnumDefinition(
+        name="AnatomicalStructureEnum",
+        description="""Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.""",
+    )
+
 class CellTypeEnum(EnumDefinitionImpl):
+
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['CL:0000000']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
 
     _defn = EnumDefinition(
         name="CellTypeEnum",
     )
 
-class StrainEnum(EnumDefinitionImpl):
-
+class LifeStageEnum(EnumDefinitionImpl):
+    """
+    Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific
+    developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only
+    ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in
+    its id_prefixes.
+    """
     _defn = EnumDefinition(
-        name="StrainEnum",
+        name="LifeStageEnum",
+        description="""Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in its id_prefixes.""",
     )
 
-class AgeEnum(EnumDefinitionImpl):
-
+class PhenotypeEnum(EnumDefinitionImpl):
+    """
+    Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's
+    `phenotypic feature`.
+    """
     _defn = EnumDefinition(
-        name="AgeEnum",
+        name="PhenotypeEnum",
+        description="""Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's `phenotypic feature`.""",
     )
 
 class RelativeTimeEnum(EnumDefinitionImpl):
@@ -2319,17 +2590,47 @@ class CaseOrControlEnum(EnumDefinitionImpl):
 
 class StudyDesignEnum(EnumDefinitionImpl):
 
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['OBI:0500000']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
+
     _defn = EnumDefinition(
         name="StudyDesignEnum",
     )
 
 class InvestigativeProtocolEnum(EnumDefinitionImpl):
 
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['OBI:0000272']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
+
     _defn = EnumDefinition(
         name="InvestigativeProtocolEnum",
     )
 
 class SampleProcessingEnum(EnumDefinitionImpl):
+
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['OBI:0000094']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
 
     _defn = EnumDefinition(
         name="SampleProcessingEnum",
@@ -2999,16 +3300,19 @@ slots.modelSystem__models = Slot(uri=NAMO.models, name="modelSystem__models", cu
                    model_uri=NAMO.modelSystem__models, domain=None, range=Optional[Union[Union[dict, ModelsRelationship], list[Union[dict, ModelsRelationship]]]])
 
 slots.animalModel__species = Slot(uri=NAMO.species, name="animalModel__species", curie=NAMO.curie('species'),
-                   model_uri=NAMO.animalModel__species, domain=None, range=Union[str, TermId])
+                   model_uri=NAMO.animalModel__species, domain=None, range=Union[dict, OrganismTaxon])
 
 slots.animalModel__strain = Slot(uri=NAMO.strain, name="animalModel__strain", curie=NAMO.curie('strain'),
-                   model_uri=NAMO.animalModel__strain, domain=None, range=Optional[Union[str, TermId]])
+                   model_uri=NAMO.animalModel__strain, domain=None, range=Optional[Union[dict, OrganismTaxon]])
 
-slots.animalModel__age = Slot(uri=NAMO.age, name="animalModel__age", curie=NAMO.curie('age'),
-                   model_uri=NAMO.animalModel__age, domain=None, range=Optional[Union[str, TermId]])
+slots.animalModel__life_stage = Slot(uri=NAMO.life_stage, name="animalModel__life_stage", curie=NAMO.curie('life_stage'),
+                   model_uri=NAMO.animalModel__life_stage, domain=None, range=Optional[Union[dict, LifeStage]])
+
+slots.animalModel__age_value = Slot(uri=NAMO.age_value, name="animalModel__age_value", curie=NAMO.curie('age_value'),
+                   model_uri=NAMO.animalModel__age_value, domain=None, range=Optional[Union[dict, QuantityValue]])
 
 slots.animalModel__environment = Slot(uri=NAMO.environment, name="animalModel__environment", curie=NAMO.curie('environment'),
-                   model_uri=NAMO.animalModel__environment, domain=None, range=Optional[Union[str, TermId]])
+                   model_uri=NAMO.animalModel__environment, domain=None, range=Optional[Union[dict, EnvironmentalExposure]])
 
 slots.nAMModel__biological_organization_level = Slot(uri=NAMO.biological_organization_level, name="nAMModel__biological_organization_level", curie=NAMO.curie('biological_organization_level'),
                    model_uri=NAMO.nAMModel__biological_organization_level, domain=None, range=Optional[Union[str, "BiologicalOrganizationLevelEnum"]])
@@ -3023,7 +3327,7 @@ slots.nAMModel__references = Slot(uri=NAMO.references, name="nAMModel__reference
                    model_uri=NAMO.nAMModel__references, domain=None, range=Optional[Union[dict[Union[str, ReferenceId], Union[dict, Reference]], list[Union[dict, Reference]]]])
 
 slots.cellularSystem__cell_types = Slot(uri=NAMO.cell_types, name="cellularSystem__cell_types", curie=NAMO.curie('cell_types'),
-                   model_uri=NAMO.cellularSystem__cell_types, domain=None, range=Optional[Union[dict[Union[str, TermId], Union[dict, Term]], list[Union[dict, Term]]]])
+                   model_uri=NAMO.cellularSystem__cell_types, domain=None, range=Optional[Union[dict[Union[str, CellId], Union[dict, Cell]], list[Union[dict, Cell]]]])
 
 slots.cellularSystem__cell_source = Slot(uri=NAMO.cell_source, name="cellularSystem__cell_source", curie=NAMO.curie('cell_source'),
                    model_uri=NAMO.cellularSystem__cell_source, domain=None, range=Optional[str])
@@ -3059,7 +3363,7 @@ slots.coCulture__interaction_mechanisms = Slot(uri=NAMO.interaction_mechanisms, 
                    model_uri=NAMO.coCulture__interaction_mechanisms, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.organoid__organ_modeled = Slot(uri=NAMO.organ_modeled, name="organoid__organ_modeled", curie=NAMO.curie('organ_modeled'),
-                   model_uri=NAMO.organoid__organ_modeled, domain=None, range=Optional[Union[dict, Term]])
+                   model_uri=NAMO.organoid__organ_modeled, domain=None, range=Optional[Union[dict, GrossAnatomicalStructure]])
 
 slots.organoid__differentiation_method = Slot(uri=NAMO.differentiation_method, name="organoid__differentiation_method", curie=NAMO.curie('differentiation_method'),
                    model_uri=NAMO.organoid__differentiation_method, domain=None, range=Optional[str])
@@ -3086,16 +3390,16 @@ slots.microphysiologicalSystem__sensor_integration = Slot(uri=NAMO.sensor_integr
                    model_uri=NAMO.microphysiologicalSystem__sensor_integration, domain=None, range=Optional[Union[Union[str, "IntegratedSensorEnum"], list[Union[str, "IntegratedSensorEnum"]]]])
 
 slots.organOnChip__organ_modeled = Slot(uri=NAMO.organ_modeled, name="organOnChip__organ_modeled", curie=NAMO.curie('organ_modeled'),
-                   model_uri=NAMO.organOnChip__organ_modeled, domain=None, range=Optional[Union[dict, Term]])
+                   model_uri=NAMO.organOnChip__organ_modeled, domain=None, range=Optional[Union[dict, GrossAnatomicalStructure]])
 
 slots.organOnChip__cell_types = Slot(uri=NAMO.cell_types, name="organOnChip__cell_types", curie=NAMO.curie('cell_types'),
-                   model_uri=NAMO.organOnChip__cell_types, domain=None, range=Optional[Union[dict[Union[str, TermId], Union[dict, Term]], list[Union[dict, Term]]]])
+                   model_uri=NAMO.organOnChip__cell_types, domain=None, range=Optional[Union[dict[Union[str, CellId], Union[dict, Cell]], list[Union[dict, Cell]]]])
 
 slots.organOnChip__cell_source = Slot(uri=NAMO.cell_source, name="organOnChip__cell_source", curie=NAMO.curie('cell_source'),
                    model_uri=NAMO.organOnChip__cell_source, domain=None, range=Optional[str])
 
-slots.tissueOnChip__tissue_modeled = Slot(uri=NAMO.tissue_modeled, name="tissueOnChip__tissue_modeled", curie=NAMO.curie('tissue_modeled'),
-                   model_uri=NAMO.tissueOnChip__tissue_modeled, domain=None, range=Optional[Union[dict, Term]])
+slots.tissueOnChip__anatomical_structure_modeled = Slot(uri=NAMO.anatomical_structure_modeled, name="tissueOnChip__anatomical_structure_modeled", curie=NAMO.curie('anatomical_structure_modeled'),
+                   model_uri=NAMO.tissueOnChip__anatomical_structure_modeled, domain=None, range=Optional[Union[dict, GrossAnatomicalStructure]])
 
 slots.tissueOnChip__tissue_architecture = Slot(uri=NAMO.tissue_architecture, name="tissueOnChip__tissue_architecture", curie=NAMO.curie('tissue_architecture'),
                    model_uri=NAMO.tissueOnChip__tissue_architecture, domain=None, range=Optional[str])
@@ -3131,7 +3435,7 @@ slots.pBPKModel__compartments = Slot(uri=NAMO.compartments, name="pBPKModel__com
                    model_uri=NAMO.pBPKModel__compartments, domain=None, range=Optional[Union[dict[Union[str, PBPKCompartmentId], Union[dict, PBPKCompartment]], list[Union[dict, PBPKCompartment]]]])
 
 slots.pBPKModel__species_modeled = Slot(uri=NAMO.species_modeled, name="pBPKModel__species_modeled", curie=NAMO.curie('species_modeled'),
-                   model_uri=NAMO.pBPKModel__species_modeled, domain=None, range=Optional[Union[dict, Term]])
+                   model_uri=NAMO.pBPKModel__species_modeled, domain=None, range=Optional[Union[dict, OrganismTaxon]])
 
 slots.pBPKModel__drug_properties = Slot(uri=NAMO.drug_properties, name="pBPKModel__drug_properties", curie=NAMO.curie('drug_properties'),
                    model_uri=NAMO.pBPKModel__drug_properties, domain=None, range=Optional[Union[dict, DrugProperties]])
@@ -3167,7 +3471,7 @@ slots.mLModel__cross_validation = Slot(uri=NAMO.cross_validation, name="mLModel_
                    model_uri=NAMO.mLModel__cross_validation, domain=None, range=Optional[Union[dict, CrossValidation]])
 
 slots.cellRatio__cell_type = Slot(uri=NAMO.cell_type, name="cellRatio__cell_type", curie=NAMO.curie('cell_type'),
-                   model_uri=NAMO.cellRatio__cell_type, domain=None, range=Optional[Union[dict, Term]])
+                   model_uri=NAMO.cellRatio__cell_type, domain=None, range=Optional[Union[dict, Cell]])
 
 slots.cellRatio__ratio = Slot(uri=NAMO.ratio, name="cellRatio__ratio", curie=NAMO.curie('ratio'),
                    model_uri=NAMO.cellRatio__ratio, domain=None, range=Optional[float])
@@ -3389,13 +3693,13 @@ slots.phenotypeOverlap__phenotype_similarity_score = Slot(uri=NAMO.phenotype_sim
                    model_uri=NAMO.phenotypeOverlap__phenotype_similarity_score, domain=None, range=Optional[float])
 
 slots.phenotypeOverlap__shared_phenotypes = Slot(uri=NAMO.shared_phenotypes, name="phenotypeOverlap__shared_phenotypes", curie=NAMO.curie('shared_phenotypes'),
-                   model_uri=NAMO.phenotypeOverlap__shared_phenotypes, domain=None, range=Optional[Union[dict[Union[str, TermId], Union[dict, Term]], list[Union[dict, Term]]]])
+                   model_uri=NAMO.phenotypeOverlap__shared_phenotypes, domain=None, range=Optional[Union[dict[Union[str, PhenotypicFeatureId], Union[dict, PhenotypicFeature]], list[Union[dict, PhenotypicFeature]]]])
 
 slots.phenotypeOverlap__model_specific_phenotypes = Slot(uri=NAMO.model_specific_phenotypes, name="phenotypeOverlap__model_specific_phenotypes", curie=NAMO.curie('model_specific_phenotypes'),
-                   model_uri=NAMO.phenotypeOverlap__model_specific_phenotypes, domain=None, range=Optional[Union[dict[Union[str, TermId], Union[dict, Term]], list[Union[dict, Term]]]])
+                   model_uri=NAMO.phenotypeOverlap__model_specific_phenotypes, domain=None, range=Optional[Union[dict[Union[str, PhenotypicFeatureId], Union[dict, PhenotypicFeature]], list[Union[dict, PhenotypicFeature]]]])
 
 slots.phenotypeOverlap__biological_specific_phenotypes = Slot(uri=NAMO.biological_specific_phenotypes, name="phenotypeOverlap__biological_specific_phenotypes", curie=NAMO.curie('biological_specific_phenotypes'),
-                   model_uri=NAMO.phenotypeOverlap__biological_specific_phenotypes, domain=None, range=Optional[Union[dict[Union[str, TermId], Union[dict, Term]], list[Union[dict, Term]]]])
+                   model_uri=NAMO.phenotypeOverlap__biological_specific_phenotypes, domain=None, range=Optional[Union[dict[Union[str, PhenotypicFeatureId], Union[dict, PhenotypicFeature]], list[Union[dict, PhenotypicFeature]]]])
 
 slots.phenotypeOverlap__phenotype_ontology = Slot(uri=NAMO.phenotype_ontology, name="phenotypeOverlap__phenotype_ontology", curie=NAMO.curie('phenotype_ontology'),
                    model_uri=NAMO.phenotypeOverlap__phenotype_ontology, domain=None, range=Optional[str])
@@ -3404,10 +3708,10 @@ slots.cellTypeCoverage__coverage_percentage = Slot(uri=NAMO.coverage_percentage,
                    model_uri=NAMO.cellTypeCoverage__coverage_percentage, domain=None, range=Optional[float])
 
 slots.cellTypeCoverage__represented_cell_types = Slot(uri=NAMO.represented_cell_types, name="cellTypeCoverage__represented_cell_types", curie=NAMO.curie('represented_cell_types'),
-                   model_uri=NAMO.cellTypeCoverage__represented_cell_types, domain=None, range=Optional[Union[dict[Union[str, TermId], Union[dict, Term]], list[Union[dict, Term]]]])
+                   model_uri=NAMO.cellTypeCoverage__represented_cell_types, domain=None, range=Optional[Union[dict[Union[str, CellId], Union[dict, Cell]], list[Union[dict, Cell]]]])
 
 slots.cellTypeCoverage__missing_cell_types = Slot(uri=NAMO.missing_cell_types, name="cellTypeCoverage__missing_cell_types", curie=NAMO.curie('missing_cell_types'),
-                   model_uri=NAMO.cellTypeCoverage__missing_cell_types, domain=None, range=Optional[Union[dict[Union[str, TermId], Union[dict, Term]], list[Union[dict, Term]]]])
+                   model_uri=NAMO.cellTypeCoverage__missing_cell_types, domain=None, range=Optional[Union[dict[Union[str, CellId], Union[dict, Cell]], list[Union[dict, Cell]]]])
 
 slots.cellTypeCoverage__cell_type_proportions = Slot(uri=NAMO.cell_type_proportions, name="cellTypeCoverage__cell_type_proportions", curie=NAMO.curie('cell_type_proportions'),
                    model_uri=NAMO.cellTypeCoverage__cell_type_proportions, domain=None, range=Optional[Union[Union[dict, CellTypeProportion], list[Union[dict, CellTypeProportion]]]])
@@ -3509,7 +3813,7 @@ slots.enrichmentStatistics__genes_in_dataset = Slot(uri=NAMO.genes_in_dataset, n
                    model_uri=NAMO.enrichmentStatistics__genes_in_dataset, domain=None, range=Optional[int])
 
 slots.cellTypeProportion__cell_type = Slot(uri=NAMO.cell_type, name="cellTypeProportion__cell_type", curie=NAMO.curie('cell_type'),
-                   model_uri=NAMO.cellTypeProportion__cell_type, domain=None, range=Optional[Union[dict, Term]])
+                   model_uri=NAMO.cellTypeProportion__cell_type, domain=None, range=Optional[Union[dict, Cell]])
 
 slots.cellTypeProportion__model_proportion = Slot(uri=NAMO.model_proportion, name="cellTypeProportion__model_proportion", curie=NAMO.curie('model_proportion'),
                    model_uri=NAMO.cellTypeProportion__model_proportion, domain=None, range=Optional[float])
@@ -3576,3 +3880,9 @@ slots.reference__year = Slot(uri=NAMO.year, name="reference__year", curie=NAMO.c
 
 slots.reference__url = Slot(uri=NAMO.url, name="reference__url", curie=NAMO.curie('url'),
                    model_uri=NAMO.reference__url, domain=None, range=Optional[Union[str, URI]])
+
+slots.quantityValue__has_numeric_value = Slot(uri=BIOLINK.has_numeric_value, name="quantityValue__has_numeric_value", curie=BIOLINK.curie('has_numeric_value'),
+                   model_uri=NAMO.quantityValue__has_numeric_value, domain=None, range=Optional[float])
+
+slots.quantityValue__has_unit = Slot(uri=BIOLINK.has_unit, name="quantityValue__has_unit", curie=BIOLINK.curie('has_unit'),
+                   model_uri=NAMO.quantityValue__has_unit, domain=None, range=Optional[Union[str, URIorCURIE]])

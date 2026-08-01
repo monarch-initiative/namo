@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: twin_scope 
 
@@ -7,11 +10,11 @@ _Scope of digital twin (organ, patient, population)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:twin_scope](https://w3id.org/monarch-initiative/namo/twin_scope)
-Alias: twin_scope
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: twin_scope
 
 ## Properties
 
-* Range: [DigitalTwinScopeEnum](DigitalTwinScopeEnum.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [DigitalTwinScopeEnum](DigitalTwinScopeEnum.md) |
+| Domain Of | [DigitalTwin](DigitalTwin.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DigitalTwin](DigitalTwin.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: twin_scope
 description: Scope of digital twin (organ, patient, population)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: twin_scope
 owner: DigitalTwin
 domain_of:
 - DigitalTwin
 range: DigitalTwinScopeEnum
 
 ```
-</details>
+</details></div>

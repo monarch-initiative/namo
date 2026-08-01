@@ -1,8 +1,22 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: CellTypeEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:CellTypeEnum](https://w3id.org/monarch-initiative/namo/CellTypeEnum)
+## Enumeration Source
+**Reachable From:**
+- **Nodes:** CL:0000000
+- **Via:** rdfs:subClassOf
+
+
 
 
 _This is a dynamic enum_
@@ -13,8 +27,12 @@ _This is a dynamic enum_
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -46,3 +64,5 @@ reachable_from:
 
 ```
 </details>
+
+</div>

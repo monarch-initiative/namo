@@ -149,6 +149,8 @@ see_also:
 prefixes:
   namo: https://w3id.org/monarch-initiative/namo/
   linkml: https://w3id.org/linkml/
+  # NOTE: this is the namespace that dereferences. Biolink's own YAML declares
+  # https://w3id.org/biolink/vocab/, but that form 404s; do not "correct" this.
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
@@ -156,6 +158,17 @@ prefixes:
   OBI: http://purl.obolibrary.org/obo/OBI_
   EDAM: http://edamontology.org/
   UBERON: http://purl.obolibrary.org/obo/UBERON_
+  CL: http://purl.obolibrary.org/obo/CL_
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+  HP: http://purl.obolibrary.org/obo/HP_
+  MP: http://purl.obolibrary.org/obo/MP_
+  UPHENO: http://purl.obolibrary.org/obo/UPHENO_
+  HsapDv: http://purl.obolibrary.org/obo/HsapDv_
+  MmusDv: http://purl.obolibrary.org/obo/MmusDv_
+  ECTO: http://purl.obolibrary.org/obo/ECTO_
+  ENVO: http://purl.obolibrary.org/obo/ENVO_
+  BFO: http://purl.obolibrary.org/obo/BFO_
+  UO: http://purl.obolibrary.org/obo/UO_
   EFO: http://www.ebi.ac.uk/efo/EFO_
   MAMO: http://identifiers.org/mamo/MAMO_
   MESH: http://id.nlm.nih.gov/mesh/
@@ -197,6 +210,7 @@ classes:
       - description
       - type
     class_uri: schema:Thing
+    exact_mappings: biolink:NamedThing
 
   Study:
     is_a: NamedThing
@@ -244,7 +258,8 @@ classes:
       - ARRIVE:animal_model
     attributes:
       species:
-        range: Term
+        range: OrganismTaxon
+        inlined: true
         required: true
         description: >-
           The species of the animal used in the model system.
@@ -253,23 +268,32 @@ classes:
             range: SpeciesEnum
             obligation_level: REQUIRED
       strain:
-        range: Term
+        range: OrganismTaxon
+        inlined: true
         description: >-
           The specific strain of the animal used in the model system.
-        bindings:
-          - binds_value_of: id
-            range: StrainEnum
-            obligation_level: REQUIRED
-      age:
-        range: Term
+          Deliberately unconstrained beyond the class: LinkML dynamic enums
+          cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would
+          be indistinguishable from SpeciesEnum.
+      life_stage:
+        range: LifeStage
+        inlined: true
         description: >-
-          The age of the animal used in the model system.
+          The developmental or life-cycle stage of the animal used in the model
+          system.
         bindings:
           - binds_value_of: id
-            range: OrganismAgeEnum
+            range: LifeStageEnum
             obligation_level: REQUIRED
+      age_value:
+        range: QuantityValue
+        inlined: true
+        description: >-
+          Chronological age of the animal at the time of study, as a numeric
+          value with a unit.
       environment:
-        range: Term
+        range: EnvironmentalExposure
+        inlined: true
         description: >-
           The environmental conditions under which the animal model is maintained.
   NAMModel:
@@ -319,7 +343,7 @@ classes:
       - MIACA:cellular_assay
     attributes:
       cell_types:
-        range: Term
+        range: Cell
         multivalued: true
         inlined_as_list: true
         description: >-
@@ -403,7 +427,7 @@ classes:
       - MISpheroID:spheroid
     attributes:
       organ_modeled:
-        range: Term
+        range: GrossAnatomicalStructure
         inlined: true
         description: >-
           The organ or tissue being modeled
@@ -479,7 +503,7 @@ classes:
       - ISO10991:organ_on_chip
     attributes:
       organ_modeled:
-        range: Term
+        range: GrossAnatomicalStructure
         inlined: true
         description: >-
           The organ or anatomical structure being modeled (e.g., lung, airway, alveolus)
@@ -488,7 +512,7 @@ classes:
             range: OrganEnum
             obligation_level: REQUIRED
       cell_types:
-        range: Term
+        range: Cell
         multivalued: true
         inlined_as_list: true
         description: >-
@@ -511,11 +535,16 @@ classes:
     exact_mappings:
       - ISO10991:tissue_on_chip
     attributes:
-      tissue_modeled:
-        range: Term
+      anatomical_structure_modeled:
+        range: GrossAnatomicalStructure
         inlined: true
         description: >-
-          The specific tissue being modeled
+          The anatomical structure being modeled — a tissue, organ, or other
+          multicellular structure.
+        bindings:
+          - binds_value_of: id
+            range: AnatomicalStructureEnum
+            obligation_level: REQUIRED
       tissue_architecture:
         description: >-
           Description of tissue-level architecture and organization
@@ -585,7 +614,7 @@ classes:
         description: >-
           Physiological compartments included in the model
       species_modeled:
-        range: Term
+        range: OrganismTaxon
         inlined: true
         description: >-
           Species for which the model is designed
@@ -666,10 +695,14 @@ classes:
       Ratio specification for different cell types in co-culture systems.
     attributes:
       cell_type:
-        range: Term
+        range: Cell
         inlined: true
         description: >-
           The cell type for which the ratio is specified
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       ratio:
         range: float
         description: >-
@@ -1052,24 +1085,40 @@ classes:
         description: >-
           Quantitative score (0.0-1.0) representing phenotypic similarity.
       shared_phenotypes:
-        range: Term
+        range: PhenotypicFeature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present in both model and biological system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       model_specific_phenotypes:
-        range: Term
+        range: PhenotypicFeature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present only in the model system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       biological_specific_phenotypes:
-        range: Term
+        range: PhenotypicFeature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present only in the biological system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       phenotype_ontology:
+        deprecated: >-
+          Redundant now that the phenotype slots are bound to PhenotypeEnum and
+          ranged over PhenotypicFeature; the source ontology is carried by the
+          CURIE prefix of each phenotype id.
         description: >-
           Ontology used for phenotype classification (e.g., HPO, MP).
 
@@ -1083,17 +1132,25 @@ classes:
         description: >-
           Percentage of target cell types represented in the model system.
       represented_cell_types:
-        range: Term
+        range: Cell
         multivalued: true
         inlined_as_list: true
         description: >-
           List of cell types present in both model and biological system.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       missing_cell_types:
-        range: Term
+        range: Cell
         multivalued: true
         inlined_as_list: true
         description: >-
           List of cell types present in biological system but missing in model.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       cell_type_proportions:
         range: CellTypeProportion
         multivalued: true
@@ -1267,10 +1324,14 @@ classes:
       Quantitative comparison of cell type proportions between systems.
     attributes:
       cell_type:
-        range: Term
+        range: Cell
         inlined: true
         description: >-
           The cell type being compared.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       model_proportion:
         range: float
         description: >-
@@ -1377,11 +1438,113 @@ classes:
         description: >-
           URL to access the publication
 
-  Term:
-    is_a: NamedThing
+  # ==========================================
+  # BIOLINK-MAPPED CLASSES
+  #
+  # Each class below stands in for a class in the Biolink Model and carries the
+  # Biolink class URI as its `class_uri`, so instances are typed with the
+  # Biolink class in RDF, SHACL and JSON-LD output. Mappings target Biolink
+  # Model 4.4.3 and are asserted by NAMO; re-check them on every Biolink
+  # upgrade. See biolink_alignment_plan.md.
+  #
+  # These deliberately do NOT descend from NamedThing: its `type` type-designator
+  # slot suppresses the rdf:type triple in linkml-runtime's RDF dumper, which
+  # would defeat the mapping.
+  # ==========================================
+
+  BiolinkEntity:
+    abstract: true
     description: >-
-      A term is a concept or entity that can be defined and used in a specific
-      context, often within a controlled vocabulary or ontology.
+      Abstract parent for NAMO classes that stand in for a class in the Biolink
+      Model.
+    slots:
+      - id
+      - name
+      - description
+
+  OrganismTaxon:
+    is_a: BiolinkEntity
+    class_uri: biolink:OrganismTaxon
+    description: >-
+      A classification of a set of organisms. Can also be used to represent
+      strains or subspecies.
+    id_prefixes:
+      - NCBITaxon
+      - MESH
+
+  Cell:
+    is_a: BiolinkEntity
+    class_uri: biolink:Cell
+    description: >-
+      The basic structural and functional unit of all organisms. Includes the
+      plasma membrane and any external encapsulating structures such as the
+      cell wall and cell envelope.
+    id_prefixes:
+      - CL
+      - UBERON
+      - NCIT
+      - MESH
+
+  GrossAnatomicalStructure:
+    is_a: BiolinkEntity
+    class_uri: biolink:GrossAnatomicalStructure
+    description: >-
+      An anatomical structure that has more than one cell as a part.
+    id_prefixes:
+      - UBERON
+      - NCIT
+      - MESH
+
+  PhenotypicFeature:
+    is_a: BiolinkEntity
+    class_uri: biolink:PhenotypicFeature
+    description: >-
+      A combination of entity and quality that makes up a phenotyping
+      statement.
+    id_prefixes:
+      - HP
+      - MP
+      - UPHENO
+
+  LifeStage:
+    is_a: BiolinkEntity
+    class_uri: biolink:LifeStage
+    description: >-
+      A stage of development or growth of an organism, including post-natal
+      adult stages.
+    id_prefixes:
+      - HsapDv
+      - MmusDv
+      - UBERON
+
+  EnvironmentalExposure:
+    is_a: BiolinkEntity
+    class_uri: biolink:EnvironmentalExposure
+    description: >-
+      A discrete event type where an organism is exposed to an environmental
+      condition.
+    id_prefixes:
+      - ECTO
+      - ENVO
+
+  QuantityValue:
+    class_uri: biolink:QuantityValue
+    description: >-
+      A value of an attribute that is quantitative and measurable, expressed as
+      a combination of a unit and a numeric value. Biolink models this as an
+      annotation rather than a named thing, so it has no identifier and is
+      inlined by value.
+    attributes:
+      has_numeric_value:
+        slot_uri: biolink:has_numeric_value
+        range: double
+        description: >-
+          The numeric portion of the quantity.
+      has_unit:
+        slot_uri: biolink:has_unit
+        range: uriorcurie
+        description: >-
+          The unit of measurement, as a UO CURIE.
 
 
 slots:
@@ -1402,7 +1565,7 @@ slots:
 enums:
 
   SpeciesEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
           - NCBITaxon:1
       is_direct: false
@@ -1410,25 +1573,79 @@ enums:
           - rdfs:subClassOf
 
   OrganEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
-        - UBERON:0001062
+        - UBERON:0000062      # organ
       is_direct: false
       relationship_types:
         - rdfs:subClassOf
-        - BFO:0000050
+        - BFO:0000050         # part_of
+
+  AnatomicalStructureEnum:
+    description: >-
+      Multicellular anatomical structures — organs, tissues, tracts and
+      barriers alike. Rooted at the term Biolink's `gross anatomical structure`
+      maps to.
+    permissible_values:
+      source_nodes:
+        - UBERON:0010000      # multicellular anatomical structure
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+        - BFO:0000050         # part_of
 
   CellTypeEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - CL:0000000
       is_direct: false
       relationship_types:
         - rdfs:subClassOf
 
-  StrainEnum:
+  LifeStageEnum:
+    description: >-
+      Developmental and life-cycle stages. Composed rather than rooted at
+      UBERON:0000105 alone: the species-specific developmental ontologies are
+      not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as
+      its only ontology ancestor), so a UBERON-only root would reject the
+      species-specific terms Biolink's `life stage` lists in its id_prefixes.
+    include:
+      - permissible_values:
+          source_nodes:
+            - UBERON:0000105      # life cycle stage
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
+      - permissible_values:
+          source_nodes:
+            - HsapDv:0000000      # human life cycle stage
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
+      - permissible_values:
+          source_nodes:
+            - MmusDv:0000000      # mouse life cycle stage
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
 
-  AgeEnum:
+  PhenotypeEnum:
+    description: >-
+      Phenotypic abnormalities across the human and mammalian phenotype
+      ontologies, matching the span of Biolink's `phenotypic feature`.
+    include:
+      - permissible_values:
+          source_nodes:
+            - HP:0000118          # phenotypic abnormality
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
+      - permissible_values:
+          source_nodes:
+            - MP:0000001          # mammalian phenotype
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
 
   RelativeTimeEnum:
     permissible_values:
@@ -1446,7 +1663,7 @@ enums:
         meaning: OBI:0002493
 
   StudyDesignEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - OBI:0500000
       is_direct: false
@@ -1454,7 +1671,7 @@ enums:
         - rdfs:subClassOf
 
   InvestigativeProtocolEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - OBI:0000272
       is_direct: false
@@ -1462,7 +1679,7 @@ enums:
         - rdfs:subClassOf
 
   SampleProcessingEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - OBI:0000094
       is_direct: false

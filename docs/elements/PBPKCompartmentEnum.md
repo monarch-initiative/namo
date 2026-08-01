@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: PBPKCompartmentEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:PBPKCompartmentEnum](https://w3id.org/monarch-initiative/namo/PBPKCompartmentEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | LIVER | UBERON:0002107 | Hepatic compartment |
@@ -34,8 +41,12 @@ URI: [namo:PBPKCompartmentEnum](https://w3id.org/monarch-initiative/namo/PBPKCom
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -105,3 +116,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

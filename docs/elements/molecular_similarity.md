@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: molecular_similarity 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:molecular_similarity](https://w3id.org/monarch-initiative/namo/molecular_similarity)
-Alias: molecular_similarity
-
 <!-- no inheritance hierarchy -->
 
 
@@ -17,8 +20,8 @@ Alias: molecular_similarity
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
 | [ConcordanceResult](ConcordanceResult.md) |  |  no  |
+| [StructuredConcordanceResult](StructuredConcordanceResult.md) | Detailed structured assessment of concordance between model and biological sy... |  no  |
 
 
 
@@ -27,13 +30,28 @@ Alias: molecular_similarity
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [ConcordanceResult](ConcordanceResult.md), [StructuredConcordanceResult](StructuredConcordanceResult.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -55,11 +73,10 @@ Alias: molecular_similarity
 <details>
 ```yaml
 name: molecular_similarity
-alias: molecular_similarity
 domain_of:
 - ConcordanceResult
 - StructuredConcordanceResult
 range: string
 
 ```
-</details>
+</details></div>

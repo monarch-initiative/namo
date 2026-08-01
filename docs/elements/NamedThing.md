@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: NamedThing 
 
@@ -6,6 +9,8 @@
 _A generic grouping for any identifiable entity_
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -49,8 +54,6 @@ URI: [schema:Thing](http://schema.org/Thing)
         click Pathway href "../Pathway/"
       NamedThing <|-- FunctionalAssay
         click FunctionalAssay href "../FunctionalAssay/"
-      NamedThing <|-- Term
-        click Term href "../Term/"
       
       NamedThing : description
         
@@ -84,8 +87,13 @@ URI: [schema:Thing](http://schema.org/Thing)
     * [Gene](Gene.md)
     * [Pathway](Pathway.md)
     * [FunctionalAssay](FunctionalAssay.md)
-    * [Term](Term.md)
 
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [schema:Thing](http://schema.org/Thing) |
 
 
 ## Slots
@@ -106,8 +114,12 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -127,6 +139,7 @@ URI: [schema:Thing](http://schema.org/Thing)
 | ---  | ---  |
 | self | schema:Thing |
 | native | namo:NamedThing |
+| exact | biolink:NamedThing |
 
 
 
@@ -144,6 +157,8 @@ URI: [schema:Thing](http://schema.org/Thing)
 name: NamedThing
 description: A generic grouping for any identifiable entity
 from_schema: https://w3id.org/monarch-initiative/namo
+exact_mappings:
+- biolink:NamedThing
 slots:
 - id
 - name
@@ -161,6 +176,8 @@ class_uri: schema:Thing
 name: NamedThing
 description: A generic grouping for any identifiable entity
 from_schema: https://w3id.org/monarch-initiative/namo
+exact_mappings:
+- biolink:NamedThing
 attributes:
   id:
     name: id
@@ -169,11 +186,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: NamedThing
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -182,10 +199,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: NamedThing
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -193,17 +210,16 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: NamedThing
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: NamedThing
     domain_of:
     - NamedThing
@@ -211,4 +227,4 @@ attributes:
 class_uri: schema:Thing
 
 ```
-</details>
+</details></div>

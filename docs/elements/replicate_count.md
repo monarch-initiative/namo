@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: replicate_count 
 
@@ -7,11 +10,11 @@ _Number of experimental replicates used in assessment._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:replicate_count](https://w3id.org/monarch-initiative/namo/replicate_count)
-Alias: replicate_count
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: replicate_count
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Integer](Integer.md) |
+| Domain Of | [Reproducibility](Reproducibility.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Reproducibility](Reproducibility.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: replicate_count
 description: Number of experimental replicates used in assessment.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: replicate_count
 owner: Reproducibility
 domain_of:
 - Reproducibility
 range: integer
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: InSilicoModel 
 
@@ -6,6 +9,8 @@
 _Computational models that simulate biological processes without physical biological components._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 * __NOTE__: this is an abstract class and should not be instantiated directly
@@ -118,7 +123,6 @@ URI: [namo:InSilicoModel](https://w3id.org/monarch-initiative/namo/InSilicoModel
                 * [MetabolicModel](MetabolicModel.md)
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -146,8 +150,12 @@ URI: [namo:InSilicoModel](https://w3id.org/monarch-initiative/namo/InSilicoModel
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -237,7 +245,6 @@ attributes:
     description: Primary computational method or algorithm used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: computational_method
     owner: InSilicoModel
     domain_of:
     - InSilicoModel
@@ -247,7 +254,6 @@ attributes:
     description: Software platform or programming language used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: software_platform
     owner: InSilicoModel
     domain_of:
     - InSilicoModel
@@ -257,7 +263,6 @@ attributes:
     description: Datasets used for model training and validation
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: validation_datasets
     owner: InSilicoModel
     domain_of:
     - InSilicoModel
@@ -268,7 +273,6 @@ attributes:
     description: Scope and limitations of model predictions
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: prediction_scope
     owner: InSilicoModel
     domain_of:
     - InSilicoModel
@@ -278,7 +282,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: InSilicoModel
     domain_of:
     - NAMModel
@@ -288,7 +291,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: InSilicoModel
     domain_of:
     - NAMModel
@@ -299,7 +301,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: InSilicoModel
     domain_of:
     - NAMModel
@@ -309,7 +310,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: InSilicoModel
     domain_of:
     - NAMModel
@@ -321,7 +321,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: InSilicoModel
     domain_of:
     - ModelSystem
@@ -334,11 +333,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: InSilicoModel
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -347,10 +346,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: InSilicoModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -358,21 +357,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: InSilicoModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: InSilicoModel
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

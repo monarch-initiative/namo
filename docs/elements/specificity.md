@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: specificity 
 
@@ -7,11 +10,11 @@ _Specificity of the model (0.0-1.0)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:specificity](https://w3id.org/monarch-initiative/namo/specificity)
-Alias: specificity
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: specificity
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [ModelPerformance](ModelPerformance.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [ModelPerformance](ModelPerformance.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: specificity
 description: Specificity of the model (0.0-1.0)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: specificity
 owner: ModelPerformance
 domain_of:
 - ModelPerformance
 range: float
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: n_folds 
 
@@ -7,11 +10,11 @@ _Number of folds in cross-validation_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:n_folds](https://w3id.org/monarch-initiative/namo/n_folds)
-Alias: n_folds
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: n_folds
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Integer](Integer.md) |
+| Domain Of | [CrossValidation](CrossValidation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CrossValidation](CrossValidation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: n_folds
 description: Number of folds in cross-validation
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: n_folds
 owner: CrossValidation
 domain_of:
 - CrossValidation
 range: integer
 
 ```
-</details>
+</details></div>

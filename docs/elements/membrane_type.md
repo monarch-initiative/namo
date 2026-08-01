@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: membrane_type 
 
@@ -7,11 +10,11 @@ _Type of membrane used in the device if applicable_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:membrane_type](https://w3id.org/monarch-initiative/namo/membrane_type)
-Alias: membrane_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: membrane_type
 
 ## Properties
 
-* Range: [MembraneTypeEnum](MembraneTypeEnum.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [MembraneTypeEnum](MembraneTypeEnum.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: membrane_type
 description: Type of membrane used in the device if applicable
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: membrane_type
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
 range: MembraneTypeEnum
 
 ```
-</details>
+</details></div>

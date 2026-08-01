@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: PathwayConcordance 
 
@@ -6,6 +9,8 @@
 _Assessment of biological pathway conservation and activity between model and biological systems._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -79,7 +84,6 @@ URI: [namo:PathwayConcordance](https://w3id.org/monarch-initiative/namo/PathwayC
     * **PathwayConcordance**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -110,8 +114,12 @@ URI: [namo:PathwayConcordance](https://w3id.org/monarch-initiative/namo/PathwayC
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -168,7 +176,6 @@ attributes:
     - PathwayConcordance
     range: Pathway
     multivalued: true
-    inlined: true
     inlined_as_list: true
   divergent_pathways:
     name: divergent_pathways
@@ -179,7 +186,6 @@ attributes:
     - PathwayConcordance
     range: Pathway
     multivalued: true
-    inlined: true
     inlined_as_list: true
   pathway_analysis_method:
     name: pathway_analysis_method
@@ -198,7 +204,6 @@ attributes:
     - PathwayConcordance
     range: EnrichmentStatistics
     multivalued: true
-    inlined: true
     inlined_as_list: true
 
 ```
@@ -219,7 +224,6 @@ attributes:
     description: Quantitative score (0.0-1.0) representing pathway overlap.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: pathway_overlap_score
     owner: PathwayConcordance
     domain_of:
     - PathwayConcordance
@@ -229,7 +233,6 @@ attributes:
     description: List of biological pathways that are active in both systems.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: active_pathways
     owner: PathwayConcordance
     domain_of:
     - PathwayConcordance
@@ -242,7 +245,6 @@ attributes:
     description: List of pathways that show different activity patterns.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: divergent_pathways
     owner: PathwayConcordance
     domain_of:
     - PathwayConcordance
@@ -256,7 +258,6 @@ attributes:
       analysis).
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: pathway_analysis_method
     owner: PathwayConcordance
     domain_of:
     - PathwayConcordance
@@ -266,7 +267,6 @@ attributes:
     description: Statistical measures of pathway enrichment.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: enrichment_statistics
     owner: PathwayConcordance
     domain_of:
     - PathwayConcordance
@@ -281,11 +281,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: PathwayConcordance
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -294,10 +294,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: PathwayConcordance
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -305,21 +305,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: PathwayConcordance
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: PathwayConcordance
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

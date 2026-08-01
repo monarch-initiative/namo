@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: PhenotypeOverlap 
 
@@ -6,6 +9,8 @@
 _Comparison of phenotypic manifestations between model and biological systems._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -28,8 +33,8 @@ URI: [namo:PhenotypeOverlap](https://w3id.org/monarch-initiative/namo/PhenotypeO
     
         
         
-        PhenotypeOverlap --> "*" Term : biological_specific_phenotypes
-        click Term href "../Term/"
+        PhenotypeOverlap --> "*" PhenotypicFeature : biological_specific_phenotypes
+        click PhenotypicFeature href "../PhenotypicFeature/"
     
 
         
@@ -43,8 +48,8 @@ URI: [namo:PhenotypeOverlap](https://w3id.org/monarch-initiative/namo/PhenotypeO
     
         
         
-        PhenotypeOverlap --> "*" Term : model_specific_phenotypes
-        click Term href "../Term/"
+        PhenotypeOverlap --> "*" PhenotypicFeature : model_specific_phenotypes
+        click PhenotypicFeature href "../PhenotypicFeature/"
     
 
         
@@ -60,8 +65,8 @@ URI: [namo:PhenotypeOverlap](https://w3id.org/monarch-initiative/namo/PhenotypeO
     
         
         
-        PhenotypeOverlap --> "*" Term : shared_phenotypes
-        click Term href "../Term/"
+        PhenotypeOverlap --> "*" PhenotypicFeature : shared_phenotypes
+        click PhenotypicFeature href "../PhenotypicFeature/"
     
 
         
@@ -79,15 +84,14 @@ URI: [namo:PhenotypeOverlap](https://w3id.org/monarch-initiative/namo/PhenotypeO
     * **PhenotypeOverlap**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [phenotype_similarity_score](phenotype_similarity_score.md) | 0..1 <br/> [Float](Float.md) | Quantitative score (0 | direct |
-| [shared_phenotypes](shared_phenotypes.md) | * <br/> [Term](Term.md) | List of phenotypes present in both model and biological system | direct |
-| [model_specific_phenotypes](model_specific_phenotypes.md) | * <br/> [Term](Term.md) | List of phenotypes present only in the model system | direct |
-| [biological_specific_phenotypes](biological_specific_phenotypes.md) | * <br/> [Term](Term.md) | List of phenotypes present only in the biological system | direct |
+| [shared_phenotypes](shared_phenotypes.md) | * <br/> [PhenotypicFeature](PhenotypicFeature.md) | List of phenotypes present in both model and biological system | direct |
+| [model_specific_phenotypes](model_specific_phenotypes.md) | * <br/> [PhenotypicFeature](PhenotypicFeature.md) | List of phenotypes present only in the model system | direct |
+| [biological_specific_phenotypes](biological_specific_phenotypes.md) | * <br/> [PhenotypicFeature](PhenotypicFeature.md) | List of phenotypes present only in the biological system | direct |
 | [phenotype_ontology](phenotype_ontology.md) | 0..1 <br/> [String](String.md) | Ontology used for phenotype classification (e | direct |
 | [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
@@ -110,8 +114,12 @@ URI: [namo:PhenotypeOverlap](https://w3id.org/monarch-initiative/namo/PhenotypeO
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -166,9 +174,12 @@ attributes:
     rank: 1000
     domain_of:
     - PhenotypeOverlap
-    range: Term
+    range: PhenotypicFeature
+    bindings:
+    - range: PhenotypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
-    inlined: true
     inlined_as_list: true
   model_specific_phenotypes:
     name: model_specific_phenotypes
@@ -177,9 +188,12 @@ attributes:
     rank: 1000
     domain_of:
     - PhenotypeOverlap
-    range: Term
+    range: PhenotypicFeature
+    bindings:
+    - range: PhenotypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
-    inlined: true
     inlined_as_list: true
   biological_specific_phenotypes:
     name: biological_specific_phenotypes
@@ -188,13 +202,19 @@ attributes:
     rank: 1000
     domain_of:
     - PhenotypeOverlap
-    range: Term
+    range: PhenotypicFeature
+    bindings:
+    - range: PhenotypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
-    inlined: true
     inlined_as_list: true
   phenotype_ontology:
     name: phenotype_ontology
     description: Ontology used for phenotype classification (e.g., HPO, MP).
+    deprecated: Redundant now that the phenotype slots are bound to PhenotypeEnum
+      and ranged over PhenotypicFeature; the source ontology is carried by the CURIE
+      prefix of each phenotype id.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
@@ -218,7 +238,6 @@ attributes:
     description: Quantitative score (0.0-1.0) representing phenotypic similarity.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: phenotype_similarity_score
     owner: PhenotypeOverlap
     domain_of:
     - PhenotypeOverlap
@@ -228,11 +247,14 @@ attributes:
     description: List of phenotypes present in both model and biological system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: shared_phenotypes
     owner: PhenotypeOverlap
     domain_of:
     - PhenotypeOverlap
-    range: Term
+    range: PhenotypicFeature
+    bindings:
+    - range: PhenotypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -241,11 +263,14 @@ attributes:
     description: List of phenotypes present only in the model system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: model_specific_phenotypes
     owner: PhenotypeOverlap
     domain_of:
     - PhenotypeOverlap
-    range: Term
+    range: PhenotypicFeature
+    bindings:
+    - range: PhenotypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -254,20 +279,25 @@ attributes:
     description: List of phenotypes present only in the biological system.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_specific_phenotypes
     owner: PhenotypeOverlap
     domain_of:
     - PhenotypeOverlap
-    range: Term
+    range: PhenotypicFeature
+    bindings:
+    - range: PhenotypeEnum
+      obligation_level: REQUIRED
+      binds_value_of: id
     multivalued: true
     inlined: true
     inlined_as_list: true
   phenotype_ontology:
     name: phenotype_ontology
     description: Ontology used for phenotype classification (e.g., HPO, MP).
+    deprecated: Redundant now that the phenotype slots are bound to PhenotypeEnum
+      and ranged over PhenotypicFeature; the source ontology is carried by the CURIE
+      prefix of each phenotype id.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: phenotype_ontology
     owner: PhenotypeOverlap
     domain_of:
     - PhenotypeOverlap
@@ -279,11 +309,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: PhenotypeOverlap
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -292,10 +322,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: PhenotypeOverlap
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -303,21 +333,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: PhenotypeOverlap
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: PhenotypeOverlap
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

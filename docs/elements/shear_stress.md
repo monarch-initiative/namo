@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: shear_stress 
 
@@ -7,11 +10,11 @@ _Shear stress applied in dyn/cm²_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:shear_stress](https://w3id.org/monarch-initiative/namo/shear_stress)
-Alias: shear_stress
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: shear_stress
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [MechanicalStimulation](MechanicalStimulation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MechanicalStimulation](MechanicalStimulation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: shear_stress
 description: Shear stress applied in dyn/cm²
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: shear_stress
 owner: MechanicalStimulation
 domain_of:
 - MechanicalStimulation
 range: float
 
 ```
-</details>
+</details></div>

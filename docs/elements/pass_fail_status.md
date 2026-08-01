@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: pass_fail_status 
 
@@ -7,11 +10,11 @@ _Whether this metric passes quality control criteria._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:pass_fail_status](https://w3id.org/monarch-initiative/namo/pass_fail_status)
-Alias: pass_fail_status
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: pass_fail_status
 
 ## Properties
 
-* Range: [Boolean](Boolean.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Boolean](Boolean.md) |
+| Domain Of | [QualityControlMetric](QualityControlMetric.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [QualityControlMetric](QualityControlMetric.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: pass_fail_status
 description: Whether this metric passes quality control criteria.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: pass_fail_status
 owner: QualityControlMetric
 domain_of:
 - QualityControlMetric
 range: boolean
 
 ```
-</details>
+</details></div>

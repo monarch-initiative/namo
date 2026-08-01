@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: gene_symbol 
 
@@ -7,11 +10,11 @@ _Standard gene symbol (e.g., HGNC symbol for human genes)._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:gene_symbol](https://w3id.org/monarch-initiative/namo/gene_symbol)
-Alias: gene_symbol
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: gene_symbol
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Gene](Gene.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Gene](Gene.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: gene_symbol
 description: Standard gene symbol (e.g., HGNC symbol for human genes).
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: gene_symbol
 owner: Gene
 domain_of:
 - Gene
 range: string
 
 ```
-</details>
+</details></div>

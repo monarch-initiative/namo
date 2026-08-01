@@ -63,19 +63,15 @@ models:
       represented_cell_types:
       - id: CL:0000182
         name: hepatocyte
-        type: Term
       missing_cell_types:
       - id: CL:0000091
         name: Kupffer cell
-        type: Term
       - id: CL:0002138
         name: hepatic stellate cell
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000182
           name: hepatocyte
-          type: Term
         model_proportion: 1.0
         biological_proportion: 0.78
         proportion_ratio: 1.28
@@ -142,7 +138,6 @@ models:
 cell_types:
 - id: CL:0000182
   name: hepatocyte
-  type: Term
 cell_source: Immortalized human hepatocellular carcinoma cell line (ATCC HB-8065)
 culture_conditions: DMEM + 10% FBS, 37°C, 5% CO2, sub-confluent passage every 2-3
   days

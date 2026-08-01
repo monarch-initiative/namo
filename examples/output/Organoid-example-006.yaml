@@ -73,35 +73,27 @@ models:
       represented_cell_types:
       - id: CL:0000540
         name: neuron
-        type: Term
       - id: CL:0000127
         name: astrocyte
-        type: Term
       - id: CL:0000128
         name: oligodendrocyte
-        type: Term
       - id: CL:0011020
         name: neural progenitor cell
-        type: Term
       missing_cell_types:
       - id: CL:0000129
         name: microglial cell
-        type: Term
       - id: CL:0000071
         name: blood vessel endothelial cell
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000540
           name: neuron
-          type: Term
         model_proportion: 0.6
         biological_proportion: 0.65
         proportion_ratio: 0.92
       - cell_type:
           id: CL:0000127
           name: astrocyte
-          type: Term
         model_proportion: 0.25
         biological_proportion: 0.2
         proportion_ratio: 1.25
@@ -201,25 +193,19 @@ references:
 cell_types:
 - id: CL:0000540
   name: neuron
-  type: Term
 - id: CL:0000127
   name: astrocyte
-  type: Term
 - id: CL:0000128
   name: oligodendrocyte
-  type: Term
 - id: CL:0000129
   name: microglial cell
-  type: Term
 - id: CL:0011020
   name: neural progenitor cell
-  type: Term
 cell_source: Human induced pluripotent stem cells from healthy donors and neurodevelopmental
   disorder patients
 organ_modeled:
   id: UBERON:0000955
   name: brain
-  type: Term
 differentiation_method: Dual SMAD inhibition protocol using Dorsomorphin and SB431542
   to promote neural  induction, followed by 3D aggregation and long-term culture with
   growth factors  to promote regional specification and maturation. Organoids cultured

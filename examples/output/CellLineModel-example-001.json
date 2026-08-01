@@ -73,28 +73,24 @@
           "represented_cell_types": [
             {
               "id": "CL:0000182",
-              "name": "hepatocyte",
-              "type": "Term"
+              "name": "hepatocyte"
             }
           ],
           "missing_cell_types": [
             {
               "id": "CL:0000091",
-              "name": "Kupffer cell",
-              "type": "Term"
+              "name": "Kupffer cell"
             },
             {
               "id": "CL:0002138",
-              "name": "hepatic stellate cell",
-              "type": "Term"
+              "name": "hepatic stellate cell"
             }
           ],
           "cell_type_proportions": [
             {
               "cell_type": {
                 "id": "CL:0000182",
-                "name": "hepatocyte",
-                "type": "Term"
+                "name": "hepatocyte"
               },
               "model_proportion": 1.0,
               "biological_proportion": 0.78,
@@ -185,8 +181,7 @@
   "cell_types": [
     {
       "id": "CL:0000182",
-      "name": "hepatocyte",
-      "type": "Term"
+      "name": "hepatocyte"
     }
   ],
   "cell_source": "Immortalized human hepatocellular carcinoma cell line (ATCC HB-8065)",

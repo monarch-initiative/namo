@@ -1,6 +1,6 @@
 {
   "name": "namo",
-  "description": "New Approach Methodology Ontology and Schema",
+  "description": "NAMO (New Approach Methodology Ontology) is a comprehensive schema for representing diverse \nin vitro and in silico model systems used as alternatives to traditional animal testing. \nIt supports organoids, organ-on-chip systems, 3D cell cultures, computational models, and \nother New Approach Methodologies (NAMs) used in toxicology, drug discovery, and biomedical research.\n\n## Schema Organization\n\nThe schema follows a hierarchical structure that mirrors how NAM research is organized and conducted:\n\nThe top-level entity is a [Dataset](Dataset.md), which serves as a container for related research\nactivities. A dataset might represent all NAM models from a specific laboratory, regulatory study, \nor collaborative research program.\n\nEach dataset contains one or more [Studies](Study.md), which are focused investigations using\nspecific NAM approaches. For example, a study might investigate \"Hepatotoxicity screening using\nliver organoids\" or \"Multi-organ drug ADMET assessment using microphysiological systems.\"\n\nWithin each study, you'll find:\n\n### Model Systems\nThe core of NAMO is the representation of different [NAM model types](NAMModel.md):\n\n- **[Organoids](Organoid.md)**: Self-organizing 3D tissue models derived from stem cells that \n  recapitulate organ-specific architecture and function. Examples include brain organoids for \n  neurotoxicity testing, intestinal organoids for drug absorption studies, and liver organoids \n  for metabolism research.\n\n- **[Organ-on-Chip Systems](OrganOnChip.md)**: Microfluidic devices that simulate organ-level \n  physiology with precise control over cellular microenvironment. These include lung-on-chip \n  for inhalation toxicology, heart-on-chip for cardiotoxicity assessment, and multi-organ \n  chips for systemic drug effects.\n\n- **[Tissue-on-Chip Systems](TissueOnChip.md)**: Microfluidic models focused on specific tissue\n  functions such as blood-brain barrier chips, skin models for dermatological testing, and \n  kidney proximal tubule chips for nephrotoxicity screening.\n\n- **[3D Cell Cultures](ThreeDCellCulture.md)**: Three-dimensional cell culture systems including\n  spheroids, scaffold-based cultures, and bioengineered tissues that provide more physiologically\n  relevant environments than traditional 2D cultures.\n\n- **[2D Cell Cultures](TwoDCellCulture.md)**: Monolayer cell culture systems with specialized\n  configurations, substrates, and culture conditions optimized for specific applications.\n\n- **[Co-Culture Systems](CoCulture.md)**: Multi-cell-type culture systems that model cellular\n  interactions, tissue interfaces, and organ-level communication pathways.\n\n### Computational Models\nNAMO supports various in silico approaches:\n\n- **[Machine Learning Models](MLModel.md)**: AI/ML systems for toxicity prediction, including\n  deep learning models for chemical structure-activity relationships, neural networks for \n  dose-response modeling, and ensemble methods for multi-endpoint prediction.\n\n- **[QSAR Models](QSARModel.md)**: Quantitative Structure-Activity Relationship models that\n  predict biological activity from molecular structure, including traditional statistical\n  approaches and modern machine learning implementations.\n\n- **[PBPK Models](PBPKModel.md)**: Physiologically-based pharmacokinetic models that simulate\n  drug absorption, distribution, metabolism, and excretion using mathematical representations\n  of biological processes.\n\n- **[Digital Twins](DigitalTwin.md)**: Integrated computational models that combine multiple\n  data sources and modeling approaches to create personalized, real-time simulations of \n  biological systems.\n\n- **[Metabolic Models](MetabolicModel.md)**: Systems biology models of cellular metabolism,\n  including flux balance analysis, kinetic modeling, and constraint-based approaches for\n  understanding metabolic perturbations.\n\n### Technical Specifications\n\n#### Microfluidic Design\nFor chip-based systems, detailed [microfluidic design](MicrofluidicDesign.md) specifications \ncapture device architecture, including channel configurations, flow control methods, sensor\nintegration, and material properties essential for reproducibility and standardization.\n\n#### Validation and Concordance\nNAMO emphasizes validation through [structured concordance analysis](StructuredConcordanceResult.md):\n\n- **[Molecular Similarity](MolecularSimilarity.md)**: Gene expression profiles, protein markers,\n  and metabolomic signatures compared to reference biological systems\n- **[Functional Parity](FunctionalParity.md)**: Physiological responses, barrier functions,\n  and cellular behaviors that match in vivo counterparts\n- **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch \n  variation, and quality control metrics\n\n#### Performance Metrics\nQuantitative assessment through standardized [functional assays](FunctionalAssay.md) that\nmeasure model performance, sensitivity, specificity, and predictive accuracy against known\noutcomes and regulatory endpoints.\n\n## Use Cases\n\nNAMO supports diverse applications across multiple domains:\n\n### Regulatory Toxicology\n- **Chemical Safety Assessment**: Systematic evaluation of chemical toxicity using integrated\n  NAM approaches, supporting regulatory submissions to EPA, FDA, and ECHA\n- **Cosmetics Testing**: Non-animal approaches for skin sensitization, eye irritation, and\n  systemic toxicity assessment as required by regulations worldwide\n- **Pesticide Evaluation**: Environmental and human health risk assessment using NAMs for \n  neurotoxicity, endocrine disruption, and developmental toxicity endpoints\n\n### Pharmaceutical Development\n- **Drug Discovery**: Early-stage compound screening using organ-specific models to identify\n  promising candidates and eliminate toxic compounds\n- **ADMET Profiling**: Absorption, Distribution, Metabolism, Excretion, and Toxicity assessment\n  using integrated organ-on-chip platforms and computational models\n- **Precision Medicine**: Patient-derived organoids and digital twins for personalized drug\n  selection and dosing strategies\n\n### Academic Research\n- **Disease Modeling**: Patient-specific organoids for studying rare diseases, cancer biology,\n  and genetic disorders in controlled laboratory environments\n- **Mechanistic Studies**: Investigation of toxicity pathways, cellular responses, and \n  molecular mechanisms using well-characterized NAM systems\n- **Method Development**: Innovation in NAM technologies, validation approaches, and \n  standardization protocols\n\n## Key Features\n\n- **Multi-Modal Integration**: Support for combining multiple NAM approaches in integrated\n  testing strategies (ITS) and adverse outcome pathways (AOPs)\n- **Standardization Focus**: Emphasis on reproducibility, quality control, and inter-laboratory\n  harmonization essential for regulatory acceptance\n- **Literature Integration**: Comprehensive [reference](Reference.md) system linking models\n  to peer-reviewed publications, regulatory guidance, and validation studies\n- **Ontology Alignment**: Integration with established ontologies including UBERON (anatomy),\n  CL (cell types), CHEBI (chemicals), and OBI (biomedical investigations)\n\nFor detailed curation guidelines, see:\n- [How to Curate Organoid Papers](https://monarch-initiative.github.io/namo/how-to/curate-organoid-paper/)\n- [How to Curate Organ-on-Chip Papers](https://monarch-initiative.github.io/namo/how-to/curate-organ-on-chip-paper/)\n\n## Community and Standards\n\nNAMO is developed in collaboration with the NAM research community, regulatory agencies, and \nstandards organizations including OECD, ICCVAM, and ESTIV. It supports the 3Rs principles \n(Replacement, Reduction, Refinement) and contributes to the transition toward animal-free \ntesting methodologies in safety assessment and biomedical research.\n",
   "title": "namo",
   "see_also": [
     "https://monarch-initiative.github.io/namo"
@@ -48,6 +48,50 @@
       "prefix_reference": "http://purl.obolibrary.org/obo/UBERON_"
     },
     {
+      "prefix_prefix": "CL",
+      "prefix_reference": "http://purl.obolibrary.org/obo/CL_"
+    },
+    {
+      "prefix_prefix": "NCBITaxon",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NCBITaxon_"
+    },
+    {
+      "prefix_prefix": "HP",
+      "prefix_reference": "http://purl.obolibrary.org/obo/HP_"
+    },
+    {
+      "prefix_prefix": "MP",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MP_"
+    },
+    {
+      "prefix_prefix": "UPHENO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/UPHENO_"
+    },
+    {
+      "prefix_prefix": "HsapDv",
+      "prefix_reference": "http://purl.obolibrary.org/obo/HsapDv_"
+    },
+    {
+      "prefix_prefix": "MmusDv",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MmusDv_"
+    },
+    {
+      "prefix_prefix": "ECTO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/ECTO_"
+    },
+    {
+      "prefix_prefix": "ENVO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/ENVO_"
+    },
+    {
+      "prefix_prefix": "BFO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/BFO_"
+    },
+    {
+      "prefix_prefix": "UO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/UO_"
+    },
+    {
       "prefix_prefix": "EFO",
       "prefix_reference": "http://www.ebi.ac.uk/efo/EFO_"
     },
@@ -58,6 +102,46 @@
     {
       "prefix_prefix": "MESH",
       "prefix_reference": "http://id.nlm.nih.gov/mesh/"
+    },
+    {
+      "prefix_prefix": "CHEBI",
+      "prefix_reference": "http://purl.obolibrary.org/obo/CHEBI_"
+    },
+    {
+      "prefix_prefix": "NCIT",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NCIT_"
+    },
+    {
+      "prefix_prefix": "ISO10991",
+      "prefix_reference": "https://www.iso.org/standard/82146.html#"
+    },
+    {
+      "prefix_prefix": "ISO22916",
+      "prefix_reference": "https://www.iso.org/standard/74157.html#"
+    },
+    {
+      "prefix_prefix": "ASTM",
+      "prefix_reference": "https://www.astm.org/standards/"
+    },
+    {
+      "prefix_prefix": "OECD",
+      "prefix_reference": "https://www.oecd.org/chemicalsafety/testing/"
+    },
+    {
+      "prefix_prefix": "MIACA",
+      "prefix_reference": "https://doi.org/10.5966/sctm.2015-0393#"
+    },
+    {
+      "prefix_prefix": "MISpheroID",
+      "prefix_reference": "https://doi.org/10.3390/jdb10010007#"
+    },
+    {
+      "prefix_prefix": "GIVReST",
+      "prefix_reference": "https://doi.org/10.14573/altex.2501011#"
+    },
+    {
+      "prefix_prefix": "ARRIVE",
+      "prefix_reference": "https://doi.org/10.1371/journal.pbio.3000410#"
     }
   ],
   "default_prefix": "namo",
@@ -68,7 +152,7 @@
       "definition_uri": "https://w3id.org/linkml/String",
       "description": "A character string",
       "notes": [
-        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
       ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
@@ -377,51 +461,174 @@
       "name": "SpeciesEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/SpeciesEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "NCBITaxon:1"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['NCBITaxon:1']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "OrganEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/OrganEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "UBERON:0001062"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf",
-          "BFO:0000050"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['UBERON:0000062']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf', 'BFO:0000050']"
+        }
+      ]
+    },
+    {
+      "name": "AnatomicalStructureEnum",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/AnatomicalStructureEnum",
+      "description": "Multicellular anatomical structures \u2014 organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['UBERON:0010000']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf', 'BFO:0000050']"
+        }
+      ]
     },
     {
       "name": "CellTypeEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/CellTypeEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "CL:0000000"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['CL:0000000']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
-      "name": "StrainEnum",
-      "definition_uri": "https://w3id.org/monarch-initiative/namo/StrainEnum",
-      "from_schema": "https://w3id.org/monarch-initiative/namo"
+      "name": "LifeStageEnum",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/LifeStageEnum",
+      "description": "Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in its id_prefixes.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "include": [
+        {
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['UBERON:0000105']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
+        },
+        {
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['HsapDv:0000000']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
+        },
+        {
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['MmusDv:0000000']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
+        }
+      ]
     },
     {
-      "name": "AgeEnum",
-      "definition_uri": "https://w3id.org/monarch-initiative/namo/AgeEnum",
-      "from_schema": "https://w3id.org/monarch-initiative/namo"
+      "name": "PhenotypeEnum",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/PhenotypeEnum",
+      "description": "Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's `phenotypic feature`.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "include": [
+        {
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['HP:0000118']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
+        },
+        {
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['MP:0000001']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "RelativeTimeEnum",
@@ -460,40 +667,58 @@
       "name": "StudyDesignEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/StudyDesignEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "OBI:0500000"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['OBI:0500000']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "InvestigativeProtocolEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/InvestigativeProtocolEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "OBI:0000272"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['OBI:0000272']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "SampleProcessingEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/SampleProcessingEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "OBI:0000094"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['OBI:0000094']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "PresenceEnum",
@@ -544,66 +769,113 @@
     {
       "name": "MicrofluidicArchitectureEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/MicrofluidicArchitectureEnum",
+      "description": "Architecture types for microfluidic devices as defined in ISO 10991:2023",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.iso.org/standard/82146.html"
+      ],
       "permissible_values": [
         {
           "text": "SINGLE_CHANNEL",
-          "description": "Single channel design"
+          "description": "Single channel design",
+          "exact_mappings": [
+            "ISO10991:single_channel_device"
+          ]
         },
         {
           "text": "TWO_CHANNEL",
-          "description": "Two-channel design with separated compartments"
+          "description": "Two-channel design with separated compartments",
+          "exact_mappings": [
+            "ISO10991:dual_channel_device"
+          ]
         },
         {
           "text": "MULTI_CHANNEL",
-          "description": "Multiple channels (>2) design"
+          "description": "Multiple channels (>2) design",
+          "exact_mappings": [
+            "ISO10991:multichannel_device"
+          ]
         },
         {
           "text": "LAYERED",
-          "description": "Layered/stacked channel architecture"
+          "description": "Layered/stacked channel architecture",
+          "exact_mappings": [
+            "ISO10991:multilayer_device"
+          ]
         },
         {
           "text": "RADIAL",
-          "description": "Radial channel architecture"
+          "description": "Radial channel architecture",
+          "exact_mappings": [
+            "ISO10991:radial_flow_device"
+          ]
         },
         {
           "text": "NETWORK",
-          "description": "Network of interconnected channels"
+          "description": "Network of interconnected channels",
+          "exact_mappings": [
+            "ISO10991:microfluidic_network"
+          ]
         }
       ]
     },
     {
       "name": "ChannelConfigurationEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum",
+      "description": "Channel configurations for microfluidic devices aligned with ISO 22916:2022 interoperability requirements for dimensions and connections",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.iso.org/standard/74157.html"
+      ],
       "permissible_values": [
         {
           "text": "PARALLEL",
-          "description": "Parallel channel configuration"
+          "description": "Parallel channel configuration",
+          "exact_mappings": [
+            "ISO22916:parallel_configuration"
+          ]
         },
         {
           "text": "SERIAL",
-          "description": "Serial/sequential channel configuration"
+          "description": "Serial/sequential channel configuration",
+          "exact_mappings": [
+            "ISO22916:serial_configuration"
+          ]
         },
         {
           "text": "BRANCHING",
-          "description": "Branching channel configuration"
+          "description": "Branching channel configuration",
+          "exact_mappings": [
+            "ISO22916:branching_configuration"
+          ]
         },
         {
           "text": "CIRCULAR",
-          "description": "Circular/loop channel configuration"
+          "description": "Circular/loop channel configuration",
+          "exact_mappings": [
+            "ISO22916:circular_configuration"
+          ]
         },
         {
           "text": "SERPENTINE",
-          "description": "Serpentine channel pattern"
+          "description": "Serpentine channel pattern",
+          "exact_mappings": [
+            "ISO22916:serpentine_configuration"
+          ]
         },
         {
           "text": "Y_SHAPED",
-          "description": "Y-shaped channel junction"
+          "description": "Y-shaped channel junction",
+          "exact_mappings": [
+            "ISO22916:y_junction"
+          ]
         },
         {
           "text": "T_SHAPED",
-          "description": "T-shaped channel junction"
+          "description": "T-shaped channel junction",
+          "exact_mappings": [
+            "ISO22916:t_junction"
+          ]
         }
       ]
     },
@@ -719,15 +991,18 @@
       "permissible_values": [
         {
           "text": "FIBRONECTIN",
-          "description": "Fibronectin coating"
+          "description": "Fibronectin coating",
+          "meaning": "CHEBI:5058"
         },
         {
           "text": "COLLAGEN",
-          "description": "Collagen coating"
+          "description": "Collagen coating",
+          "meaning": "CHEBI:3815"
         },
         {
           "text": "LAMININ",
-          "description": "Laminin coating"
+          "description": "Laminin coating",
+          "meaning": "MESH:D007797"
         },
         {
           "text": "MATRIGEL",
@@ -735,15 +1010,18 @@
         },
         {
           "text": "POLY_L_LYSINE",
-          "description": "Poly-L-lysine coating"
+          "description": "Poly-L-lysine coating",
+          "meaning": "CHEBI:53412"
         },
         {
           "text": "GELATIN",
-          "description": "Gelatin coating"
+          "description": "Gelatin coating",
+          "meaning": "CHEBI:5291"
         },
         {
           "text": "RGD_PEPTIDE",
-          "description": "RGD peptide coating"
+          "description": "RGD peptide coating",
+          "meaning": "NCIT:C13288"
         },
         {
           "text": "ANTI_FOULING",
@@ -758,39 +1036,67 @@
     {
       "name": "FlowControlMethodEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/FlowControlMethodEnum",
+      "description": "Flow control methods for microfluidic devices as defined in ISO 10991:2023",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.iso.org/standard/82146.html"
+      ],
       "permissible_values": [
         {
           "text": "SYRINGE_PUMP",
-          "description": "Syringe pump-driven flow"
+          "description": "Syringe pump-driven flow",
+          "exact_mappings": [
+            "ISO10991:syringe_pump"
+          ]
         },
         {
           "text": "PERISTALTIC_PUMP",
-          "description": "Peristaltic pump-driven flow"
+          "description": "Peristaltic pump-driven flow",
+          "exact_mappings": [
+            "ISO10991:peristaltic_pump"
+          ]
         },
         {
           "text": "GRAVITY_DRIVEN",
-          "description": "Gravity-driven flow"
+          "description": "Gravity-driven flow",
+          "exact_mappings": [
+            "ISO10991:gravity_flow"
+          ]
         },
         {
           "text": "PRESSURE_DRIVEN",
-          "description": "Pressure-driven flow"
+          "description": "Pressure-driven flow",
+          "exact_mappings": [
+            "ISO10991:pressure_driven_flow"
+          ]
         },
         {
           "text": "ELECTROOSMOTIC",
-          "description": "Electroosmotic flow"
+          "description": "Electroosmotic flow",
+          "exact_mappings": [
+            "ISO10991:electroosmotic_flow"
+          ]
         },
         {
           "text": "CAPILLARY_ACTION",
-          "description": "Capillary action-driven flow"
+          "description": "Capillary action-driven flow",
+          "exact_mappings": [
+            "ISO10991:capillary_flow"
+          ]
         },
         {
           "text": "PNEUMATIC_VALVES",
-          "description": "Pneumatic valve control"
+          "description": "Pneumatic valve control",
+          "exact_mappings": [
+            "ISO10991:pneumatic_valve"
+          ]
         },
         {
           "text": "MICROVALVES",
-          "description": "Integrated microvalves"
+          "description": "Integrated microvalves",
+          "exact_mappings": [
+            "ISO10991:microvalve"
+          ]
         }
       ]
     },
@@ -1258,9 +1564,10 @@
       ],
       "slot_uri": "http://schema.org/identifier",
       "identifier": true,
-      "owner": "NamedThing",
+      "owner": "BiolinkEntity",
       "domain_of": [
-        "NamedThing"
+        "NamedThing",
+        "BiolinkEntity"
       ],
       "range": "uriorcurie",
       "required": true,
@@ -1275,9 +1582,10 @@
         "http://schema.org/name"
       ],
       "slot_uri": "http://schema.org/name",
-      "owner": "NamedThing",
+      "owner": "BiolinkEntity",
       "domain_of": [
-        "NamedThing"
+        "NamedThing",
+        "BiolinkEntity"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1291,9 +1599,10 @@
         "http://schema.org/description"
       ],
       "slot_uri": "http://schema.org/description",
-      "owner": "NamedThing",
+      "owner": "BiolinkEntity",
       "domain_of": [
-        "NamedThing"
+        "NamedThing",
+        "BiolinkEntity"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1418,6 +1727,7 @@
       "range": "ModelsRelationship",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1430,25 +1740,22 @@
       "domain_of": [
         "AnimalModel"
       ],
-      "range": "Term",
+      "range": "OrganismTaxon",
       "bindings": [
         {
           "range": "SpeciesEnum",
-          "obligation_level": {
-            "text": "REQUIRED",
-            "description": "The metadata element is required to be present in the model",
-            "@type": "PermissibleValue"
-          },
+          "obligation_level": "REQUIRED",
           "binds_value_of": "id",
           "@type": "EnumBinding"
         }
       ],
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "animalModel__strain",
-      "description": "The specific strain of the animal used in the model system.",
+      "description": "The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/strain",
       "alias": "strain",
@@ -1456,44 +1763,45 @@
       "domain_of": [
         "AnimalModel"
       ],
-      "range": "Term",
-      "bindings": [
-        {
-          "range": "StrainEnum",
-          "obligation_level": {
-            "text": "REQUIRED",
-            "description": "The metadata element is required to be present in the model",
-            "@type": "PermissibleValue"
-          },
-          "binds_value_of": "id",
-          "@type": "EnumBinding"
-        }
-      ],
+      "range": "OrganismTaxon",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "animalModel__age",
-      "description": "The age of the animal used in the model system.",
+      "name": "animalModel__life_stage",
+      "description": "The developmental or life-cycle stage of the animal used in the model system.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "slot_uri": "https://w3id.org/monarch-initiative/namo/age",
-      "alias": "age",
+      "slot_uri": "https://w3id.org/monarch-initiative/namo/life_stage",
+      "alias": "life_stage",
       "owner": "AnimalModel",
       "domain_of": [
         "AnimalModel"
       ],
-      "range": "Term",
+      "range": "LifeStage",
       "bindings": [
         {
-          "range": "OrganismAgeEnum",
-          "obligation_level": {
-            "text": "REQUIRED",
-            "description": "The metadata element is required to be present in the model",
-            "@type": "PermissibleValue"
-          },
+          "range": "LifeStageEnum",
+          "obligation_level": "REQUIRED",
           "binds_value_of": "id",
           "@type": "EnumBinding"
         }
       ],
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "animalModel__age_value",
+      "description": "Chronological age of the animal at the time of study, as a numeric value with a unit.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "slot_uri": "https://w3id.org/monarch-initiative/namo/age_value",
+      "alias": "age_value",
+      "owner": "AnimalModel",
+      "domain_of": [
+        "AnimalModel"
+      ],
+      "range": "QuantityValue",
+      "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1506,7 +1814,8 @@
       "domain_of": [
         "AnimalModel"
       ],
-      "range": "Term",
+      "range": "EnvironmentalExposure",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1574,15 +1883,11 @@
       "domain_of": [
         "CellularSystem"
       ],
-      "range": "Term",
+      "range": "Cell",
       "bindings": [
         {
           "range": "CellTypeEnum",
-          "obligation_level": {
-            "text": "REQUIRED",
-            "description": "The metadata element is required to be present in the model",
-            "@type": "PermissibleValue"
-          },
+          "obligation_level": "REQUIRED",
           "binds_value_of": "id",
           "@type": "EnumBinding"
         }
@@ -1749,15 +2054,11 @@
       "domain_of": [
         "Organoid"
       ],
-      "range": "Term",
+      "range": "GrossAnatomicalStructure",
       "bindings": [
         {
           "range": "OrganEnum",
-          "obligation_level": {
-            "text": "REQUIRED",
-            "description": "The metadata element is required to be present in the model",
-            "@type": "PermissibleValue"
-          },
+          "obligation_level": "REQUIRED",
           "binds_value_of": "id",
           "@type": "EnumBinding"
         }
@@ -1882,15 +2183,11 @@
       "domain_of": [
         "OrganOnChip"
       ],
-      "range": "Term",
+      "range": "GrossAnatomicalStructure",
       "bindings": [
         {
           "range": "OrganEnum",
-          "obligation_level": {
-            "text": "REQUIRED",
-            "description": "The metadata element is required to be present in the model",
-            "@type": "PermissibleValue"
-          },
+          "obligation_level": "REQUIRED",
           "binds_value_of": "id",
           "@type": "EnumBinding"
         }
@@ -1908,15 +2205,11 @@
       "domain_of": [
         "OrganOnChip"
       ],
-      "range": "Term",
+      "range": "Cell",
       "bindings": [
         {
           "range": "CellTypeEnum",
-          "obligation_level": {
-            "text": "REQUIRED",
-            "description": "The metadata element is required to be present in the model",
-            "@type": "PermissibleValue"
-          },
+          "obligation_level": "REQUIRED",
           "binds_value_of": "id",
           "@type": "EnumBinding"
         }
@@ -1940,16 +2233,24 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "tissueOnChip__tissue_modeled",
-      "description": "The specific tissue being modeled",
+      "name": "tissueOnChip__anatomical_structure_modeled",
+      "description": "The anatomical structure being modeled \u2014 a tissue, organ, or other multicellular structure.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "slot_uri": "https://w3id.org/monarch-initiative/namo/tissue_modeled",
-      "alias": "tissue_modeled",
+      "slot_uri": "https://w3id.org/monarch-initiative/namo/anatomical_structure_modeled",
+      "alias": "anatomical_structure_modeled",
       "owner": "TissueOnChip",
       "domain_of": [
         "TissueOnChip"
       ],
-      "range": "Term",
+      "range": "GrossAnatomicalStructure",
+      "bindings": [
+        {
+          "range": "AnatomicalStructureEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -2085,6 +2386,7 @@
       ],
       "range": "ModelPerformance",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2113,7 +2415,7 @@
       "domain_of": [
         "PBPKModel"
       ],
-      "range": "Term",
+      "range": "OrganismTaxon",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -2129,6 +2431,7 @@
       ],
       "range": "DrugProperties",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2264,6 +2567,7 @@
       ],
       "range": "CrossValidation",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2276,7 +2580,15 @@
       "domain_of": [
         "CellRatio"
       ],
-      "range": "Term",
+      "range": "Cell",
+      "bindings": [
+        {
+          "range": "CellTypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -2659,6 +2971,7 @@
       "range": "ChannelDimensions",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2899,6 +3212,7 @@
       ],
       "range": "ConcordanceResult",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2913,6 +3227,7 @@
       ],
       "range": "StructuredConcordanceResult",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3167,6 +3482,7 @@
       ],
       "range": "StatisticalSignificance",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3266,7 +3582,15 @@
       "domain_of": [
         "PhenotypeOverlap"
       ],
-      "range": "Term",
+      "range": "PhenotypicFeature",
+      "bindings": [
+        {
+          "range": "PhenotypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3282,7 +3606,15 @@
       "domain_of": [
         "PhenotypeOverlap"
       ],
-      "range": "Term",
+      "range": "PhenotypicFeature",
+      "bindings": [
+        {
+          "range": "PhenotypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3298,7 +3630,15 @@
       "domain_of": [
         "PhenotypeOverlap"
       ],
-      "range": "Term",
+      "range": "PhenotypicFeature",
+      "bindings": [
+        {
+          "range": "PhenotypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3307,6 +3647,7 @@
     {
       "name": "phenotypeOverlap__phenotype_ontology",
       "description": "Ontology used for phenotype classification (e.g., HPO, MP).",
+      "deprecated": "Redundant now that the phenotype slots are bound to PhenotypeEnum and ranged over PhenotypicFeature; the source ontology is carried by the CURIE prefix of each phenotype id.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/phenotype_ontology",
       "alias": "phenotype_ontology",
@@ -3340,7 +3681,15 @@
       "domain_of": [
         "CellTypeCoverage"
       ],
-      "range": "Term",
+      "range": "Cell",
+      "bindings": [
+        {
+          "range": "CellTypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3356,7 +3705,15 @@
       "domain_of": [
         "CellTypeCoverage"
       ],
-      "range": "Term",
+      "range": "Cell",
+      "bindings": [
+        {
+          "range": "CellTypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3460,6 +3817,7 @@
       ],
       "range": "DoseResponseSimilarity",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3813,7 +4171,15 @@
       "domain_of": [
         "CellTypeProportion"
       ],
-      "range": "Term",
+      "range": "Cell",
+      "bindings": [
+        {
+          "range": "CellTypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4106,6 +4472,38 @@
       ],
       "range": "uri",
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "quantityValue__has_numeric_value",
+      "description": "The numeric portion of the quantity.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "https://w3id.org/biolink/has_numeric_value"
+      ],
+      "slot_uri": "https://w3id.org/biolink/has_numeric_value",
+      "alias": "has_numeric_value",
+      "owner": "QuantityValue",
+      "domain_of": [
+        "QuantityValue"
+      ],
+      "range": "double",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "quantityValue__has_unit",
+      "description": "The unit of measurement, as a UO CURIE.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "https://w3id.org/biolink/has_unit"
+      ],
+      "slot_uri": "https://w3id.org/biolink/has_unit",
+      "alias": "has_unit",
+      "owner": "QuantityValue",
+      "domain_of": [
+        "QuantityValue"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -4145,6 +4543,9 @@
       "mappings": [
         "schema:Thing"
       ],
+      "exact_mappings": [
+        "biolink:NamedThing"
+      ],
       "slots": [
         "id",
         "name",
@@ -4160,6 +4561,14 @@
       "definition_uri": "https://w3id.org/monarch-initiative/namo/Study",
       "description": "A study is a structured investigation or analysis, often involving the collection and interpretation of data, to answer specific research questions or test hypotheses.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.oecd.org/chemicalsafety/testing/",
+        "https://doi.org/10.1371/journal.pbio.3000410"
+      ],
+      "exact_mappings": [
+        "OECD:OHT210_study",
+        "ARRIVE:in_vivo_experiment"
+      ],
       "is_a": "NamedThing",
       "slots": [
         "id",
@@ -4232,6 +4641,12 @@
       "name": "AnimalModel",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/AnimalModel",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://doi.org/10.1371/journal.pbio.3000410"
+      ],
+      "exact_mappings": [
+        "ARRIVE:animal_model"
+      ],
       "is_a": "ModelSystem",
       "slots": [
         "id",
@@ -4241,7 +4656,8 @@
         "modelSystem__models",
         "animalModel__species",
         "animalModel__strain",
-        "animalModel__age",
+        "animalModel__life_stage",
+        "animalModel__age_value",
         "animalModel__environment"
       ],
       "slot_usage": {},
@@ -4249,62 +4665,53 @@
         {
           "name": "species",
           "description": "The species of the animal used in the model system.",
-          "range": "Term",
+          "range": "OrganismTaxon",
           "bindings": [
             {
               "range": "SpeciesEnum",
-              "obligation_level": {
-                "text": "REQUIRED",
-                "description": "The metadata element is required to be present in the model",
-                "@type": "PermissibleValue"
-              },
+              "obligation_level": "REQUIRED",
               "binds_value_of": "id",
               "@type": "EnumBinding"
             }
           ],
           "required": true,
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "strain",
-          "description": "The specific strain of the animal used in the model system.",
-          "range": "Term",
-          "bindings": [
-            {
-              "range": "StrainEnum",
-              "obligation_level": {
-                "text": "REQUIRED",
-                "description": "The metadata element is required to be present in the model",
-                "@type": "PermissibleValue"
-              },
-              "binds_value_of": "id",
-              "@type": "EnumBinding"
-            }
-          ],
+          "description": "The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.",
+          "range": "OrganismTaxon",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
-          "name": "age",
-          "description": "The age of the animal used in the model system.",
-          "range": "Term",
+          "name": "life_stage",
+          "description": "The developmental or life-cycle stage of the animal used in the model system.",
+          "range": "LifeStage",
           "bindings": [
             {
-              "range": "OrganismAgeEnum",
-              "obligation_level": {
-                "text": "REQUIRED",
-                "description": "The metadata element is required to be present in the model",
-                "@type": "PermissibleValue"
-              },
+              "range": "LifeStageEnum",
+              "obligation_level": "REQUIRED",
               "binds_value_of": "id",
               "@type": "EnumBinding"
             }
           ],
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "age_value",
+          "description": "Chronological age of the animal at the time of study, as a numeric value with a unit.",
+          "range": "QuantityValue",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "environment",
           "description": "The environmental conditions under which the animal model is maintained.",
-          "range": "Term",
+          "range": "EnvironmentalExposure",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -4316,6 +4723,13 @@
       "definition_uri": "https://w3id.org/monarch-initiative/namo/NAMModel",
       "description": "A New Approach Methodology (NAM) model, which is a type of model system that does not involve the use of animals.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://doi.org/10.14573/altex.2501011"
+      ],
+      "exact_mappings": [
+        "GIVReST:in_vitro_model",
+        "OECD:new_approach_methodology"
+      ],
       "is_a": "ModelSystem",
       "abstract": true,
       "slots": [
@@ -4363,8 +4777,14 @@
     {
       "name": "CellularSystem",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/CellularSystem",
-      "description": "Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures.",
+      "description": "Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA (Minimal Information About a Cellular Assay) standards.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://doi.org/10.5966/sctm.2015-0393"
+      ],
+      "exact_mappings": [
+        "MIACA:cellular_assay"
+      ],
       "is_a": "NAMModel",
       "abstract": true,
       "slots": [
@@ -4386,15 +4806,11 @@
         {
           "name": "cell_types",
           "description": "Cell types present in the cellular system",
-          "range": "Term",
+          "range": "Cell",
           "bindings": [
             {
               "range": "CellTypeEnum",
-              "obligation_level": {
-                "text": "REQUIRED",
-                "description": "The metadata element is required to be present in the model",
-                "@type": "PermissibleValue"
-              },
+              "obligation_level": "REQUIRED",
               "binds_value_of": "id",
               "@type": "EnumBinding"
             }
@@ -4561,6 +4977,13 @@
       "definition_uri": "https://w3id.org/monarch-initiative/namo/Organoid",
       "description": "A 3D cell culture system that self-organizes to recapitulate key structural and functional aspects of an organ or tissue",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://doi.org/10.3390/jdb10010007"
+      ],
+      "exact_mappings": [
+        "MISpheroID:organoid",
+        "MISpheroID:spheroid"
+      ],
       "is_a": "ThreeDCellCulture",
       "slots": [
         "id",
@@ -4587,15 +5010,11 @@
         {
           "name": "organ_modeled",
           "description": "The organ or tissue being modeled",
-          "range": "Term",
+          "range": "GrossAnatomicalStructure",
           "bindings": [
             {
               "range": "OrganEnum",
-              "obligation_level": {
-                "text": "REQUIRED",
-                "description": "The metadata element is required to be present in the model",
-                "@type": "PermissibleValue"
-              },
+              "obligation_level": "REQUIRED",
               "binds_value_of": "id",
               "@type": "EnumBinding"
             }
@@ -4661,8 +5080,14 @@
     {
       "name": "MicrophysiologicalSystem",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/MicrophysiologicalSystem",
-      "description": "Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials,  and living cells to replicate tissue-level physiology and dynamics.",
+      "description": "Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, and living cells to replicate tissue-level physiology and dynamics. Conforms to ISO 22916:2022 interoperability requirements for dimensions, connections, and device classification.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.iso.org/standard/74157.html"
+      ],
+      "exact_mappings": [
+        "ISO22916:microfluidic_device"
+      ],
       "is_a": "NAMModel",
       "abstract": true,
       "slots": [
@@ -4715,8 +5140,14 @@
     {
       "name": "OrganOnChip",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/OrganOnChip",
-      "description": "A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ...",
+      "description": "A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ... Aligned with ISO 10991:2023 microfluidics terminology.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.iso.org/standard/82146.html"
+      ],
+      "exact_mappings": [
+        "ISO10991:organ_on_chip"
+      ],
       "is_a": "MicrophysiologicalSystem",
       "slots": [
         "id",
@@ -4741,15 +5172,11 @@
         {
           "name": "organ_modeled",
           "description": "The organ or anatomical structure being modeled (e.g., lung, airway, alveolus)",
-          "range": "Term",
+          "range": "GrossAnatomicalStructure",
           "bindings": [
             {
               "range": "OrganEnum",
-              "obligation_level": {
-                "text": "REQUIRED",
-                "description": "The metadata element is required to be present in the model",
-                "@type": "PermissibleValue"
-              },
+              "obligation_level": "REQUIRED",
               "binds_value_of": "id",
               "@type": "EnumBinding"
             }
@@ -4760,15 +5187,11 @@
         {
           "name": "cell_types",
           "description": "Cell types present in the organ-on-chip model",
-          "range": "Term",
+          "range": "Cell",
           "bindings": [
             {
               "range": "CellTypeEnum",
-              "obligation_level": {
-                "text": "REQUIRED",
-                "description": "The metadata element is required to be present in the model",
-                "@type": "PermissibleValue"
-              },
+              "obligation_level": "REQUIRED",
               "binds_value_of": "id",
               "@type": "EnumBinding"
             }
@@ -4789,8 +5212,14 @@
     {
       "name": "TissueOnChip",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/TissueOnChip",
-      "description": "Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions.",
+      "description": "Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.iso.org/standard/82146.html"
+      ],
+      "exact_mappings": [
+        "ISO10991:tissue_on_chip"
+      ],
       "is_a": "MicrophysiologicalSystem",
       "slots": [
         "id",
@@ -4806,16 +5235,24 @@
         "microphysiologicalSystem__mechanical_forces",
         "microphysiologicalSystem__perfusion_system",
         "microphysiologicalSystem__sensor_integration",
-        "tissueOnChip__tissue_modeled",
+        "tissueOnChip__anatomical_structure_modeled",
         "tissueOnChip__tissue_architecture",
         "tissueOnChip__barrier_functions"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "tissue_modeled",
-          "description": "The specific tissue being modeled",
-          "range": "Term",
+          "name": "anatomical_structure_modeled",
+          "description": "The anatomical structure being modeled \u2014 a tissue, organ, or other multicellular structure.",
+          "range": "GrossAnatomicalStructure",
+          "bindings": [
+            {
+              "range": "AnatomicalStructureEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -4976,7 +5413,7 @@
         {
           "name": "species_modeled",
           "description": "Species for which the model is designed",
-          "range": "Term",
+          "range": "OrganismTaxon",
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -5155,7 +5592,15 @@
         {
           "name": "cell_type",
           "description": "The cell type for which the ratio is specified",
-          "range": "Term",
+          "range": "Cell",
+          "bindings": [
+            {
+              "range": "CellTypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -5368,8 +5813,14 @@
     {
       "name": "MicrofluidicDesign",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/MicrofluidicDesign",
-      "description": "Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features.",
+      "description": "Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features. Terms aligned with ISO 10991:2023 Microfluidics Vocabulary standard.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.iso.org/standard/82146.html"
+      ],
+      "exact_mappings": [
+        "ISO10991:microfluidic_device"
+      ],
       "is_a": "NamedThing",
       "slots": [
         "id",
@@ -5484,8 +5935,14 @@
     {
       "name": "ChannelDimensions",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/ChannelDimensions",
-      "description": "Dimensions of a microfluidic channel",
+      "description": "Dimensions of a microfluidic channel according to ISO 10991:2023 definitions for microchannel geometry and dimensions",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "see_also": [
+        "https://www.iso.org/standard/82146.html"
+      ],
+      "exact_mappings": [
+        "ISO10991:microchannel"
+      ],
       "slots": [
         "channelDimensions__channel_name",
         "channelDimensions__width",
@@ -5896,7 +6353,15 @@
         {
           "name": "shared_phenotypes",
           "description": "List of phenotypes present in both model and biological system.",
-          "range": "Term",
+          "range": "PhenotypicFeature",
+          "bindings": [
+            {
+              "range": "PhenotypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -5904,7 +6369,15 @@
         {
           "name": "model_specific_phenotypes",
           "description": "List of phenotypes present only in the model system.",
-          "range": "Term",
+          "range": "PhenotypicFeature",
+          "bindings": [
+            {
+              "range": "PhenotypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -5912,7 +6385,15 @@
         {
           "name": "biological_specific_phenotypes",
           "description": "List of phenotypes present only in the biological system.",
-          "range": "Term",
+          "range": "PhenotypicFeature",
+          "bindings": [
+            {
+              "range": "PhenotypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -5920,6 +6401,7 @@
         {
           "name": "phenotype_ontology",
           "description": "Ontology used for phenotype classification (e.g., HPO, MP).",
+          "deprecated": "Redundant now that the phenotype slots are bound to PhenotypeEnum and ranged over PhenotypicFeature; the source ontology is carried by the CURIE prefix of each phenotype id.",
           "@type": "SlotDefinition"
         }
       ],
@@ -5954,7 +6436,15 @@
         {
           "name": "represented_cell_types",
           "description": "List of cell types present in both model and biological system.",
-          "range": "Term",
+          "range": "Cell",
+          "bindings": [
+            {
+              "range": "CellTypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -5962,7 +6452,15 @@
         {
           "name": "missing_cell_types",
           "description": "List of cell types present in biological system but missing in model.",
-          "range": "Term",
+          "range": "Cell",
+          "bindings": [
+            {
+              "range": "CellTypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6315,7 +6813,15 @@
         {
           "name": "cell_type",
           "description": "The cell type being compared.",
-          "range": "Term",
+          "range": "Cell",
+          "bindings": [
+            {
+              "range": "CellTypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -6528,27 +7034,195 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "Term",
-      "definition_uri": "https://w3id.org/monarch-initiative/namo/Term",
-      "description": "A term is a concept or entity that can be defined and used in a specific context, often within a controlled vocabulary or ontology.",
+      "name": "BiolinkEntity",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/BiolinkEntity",
+      "description": "Abstract parent for NAMO classes that stand in for a class in the Biolink Model.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "is_a": "NamedThing",
+      "abstract": true,
       "slots": [
         "id",
         "name",
-        "description",
-        "type"
+        "description"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/monarch-initiative/namo/Term",
+      "class_uri": "https://w3id.org/monarch-initiative/namo/BiolinkEntity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "OrganismTaxon",
+      "id_prefixes": [
+        "NCBITaxon",
+        "MESH"
+      ],
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/OrganismTaxon",
+      "description": "A classification of a set of organisms. Can also be used to represent strains or subspecies.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "biolink:OrganismTaxon"
+      ],
+      "is_a": "BiolinkEntity",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/biolink/OrganismTaxon",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Cell",
+      "id_prefixes": [
+        "CL",
+        "UBERON",
+        "NCIT",
+        "MESH"
+      ],
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/Cell",
+      "description": "The basic structural and functional unit of all organisms. Includes the plasma membrane and any external encapsulating structures such as the cell wall and cell envelope.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "biolink:Cell"
+      ],
+      "is_a": "BiolinkEntity",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/biolink/Cell",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GrossAnatomicalStructure",
+      "id_prefixes": [
+        "UBERON",
+        "NCIT",
+        "MESH"
+      ],
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/GrossAnatomicalStructure",
+      "description": "An anatomical structure that has more than one cell as a part.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "biolink:GrossAnatomicalStructure"
+      ],
+      "is_a": "BiolinkEntity",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/biolink/GrossAnatomicalStructure",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PhenotypicFeature",
+      "id_prefixes": [
+        "HP",
+        "MP",
+        "UPHENO"
+      ],
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/PhenotypicFeature",
+      "description": "A combination of entity and quality that makes up a phenotyping statement.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "biolink:PhenotypicFeature"
+      ],
+      "is_a": "BiolinkEntity",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/biolink/PhenotypicFeature",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LifeStage",
+      "id_prefixes": [
+        "HsapDv",
+        "MmusDv",
+        "UBERON"
+      ],
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/LifeStage",
+      "description": "A stage of development or growth of an organism, including post-natal adult stages.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "biolink:LifeStage"
+      ],
+      "is_a": "BiolinkEntity",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/biolink/LifeStage",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "EnvironmentalExposure",
+      "id_prefixes": [
+        "ECTO",
+        "ENVO"
+      ],
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/EnvironmentalExposure",
+      "description": "A discrete event type where an organism is exposed to an environmental condition.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "biolink:EnvironmentalExposure"
+      ],
+      "is_a": "BiolinkEntity",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/biolink/EnvironmentalExposure",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "QuantityValue",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/QuantityValue",
+      "description": "A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value. Biolink models this as an annotation rather than a named thing, so it has no identifier and is inlined by value.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "mappings": [
+        "biolink:QuantityValue"
+      ],
+      "slots": [
+        "quantityValue__has_numeric_value",
+        "quantityValue__has_unit"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "has_numeric_value",
+          "description": "The numeric portion of the quantity.",
+          "slot_uri": "biolink:has_numeric_value",
+          "range": "double",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "has_unit",
+          "description": "The unit of measurement, as a UO CURIE.",
+          "slot_uri": "biolink:has_unit",
+          "range": "uriorcurie",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/biolink/QuantityValue",
       "@type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.7.0",
+  "metamodel_version": "1.11.0",
   "source_file": "namo.yaml",
-  "source_file_date": "2025-08-19T23:53:38",
-  "source_file_size": 50341,
-  "generation_date": "2025-08-20T11:16:55",
+  "source_file_date": "2026-07-31T22:51:10",
+  "source_file_size": 70192,
+  "generation_date": "2026-07-31T22:51:16",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/namo.context.jsonld",

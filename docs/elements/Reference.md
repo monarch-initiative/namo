@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Reference 
 
@@ -6,6 +9,8 @@
 _A literature reference with identifier and title for citing published work._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -38,7 +43,6 @@ URI: [namo:Reference](https://w3id.org/monarch-initiative/namo/Reference)
 
 
 <!-- no inheritance hierarchy -->
-
 
 ## Slots
 
@@ -82,8 +86,12 @@ URI: [namo:Reference](https://w3id.org/monarch-initiative/namo/Reference)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -130,6 +138,7 @@ attributes:
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   title:
@@ -189,11 +198,11 @@ attributes:
     description: Persistent identifier for the reference (DOI, PMID, PMCID, etc.)
     from_schema: https://w3id.org/monarch-initiative/namo
     identifier: true
-    alias: id
     owner: Reference
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   title:
@@ -201,7 +210,6 @@ attributes:
     description: Title of the referenced publication or dataset
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: title
     owner: Reference
     domain_of:
     - Reference
@@ -212,7 +220,6 @@ attributes:
     description: Authors of the publication
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: authors
     owner: Reference
     domain_of:
     - Reference
@@ -223,7 +230,6 @@ attributes:
     description: Journal or publication venue
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: journal
     owner: Reference
     domain_of:
     - Reference
@@ -233,7 +239,6 @@ attributes:
     description: Publication year
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: year
     owner: Reference
     domain_of:
     - Reference
@@ -243,11 +248,10 @@ attributes:
     description: URL to access the publication
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: url
     owner: Reference
     domain_of:
     - Reference
     range: uri
 
 ```
-</details>
+</details></div>

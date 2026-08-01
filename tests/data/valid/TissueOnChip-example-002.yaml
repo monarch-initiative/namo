@@ -9,7 +9,7 @@ type: "TissueOnChip"
 biological_organization_level: "TISSUE"
 spatial_context: "3D intestinal villus-like architecture with apical-basal polarity and tight junctions"
 complexity_level: "HIGH"
-tissue_modeled:
+anatomical_structure_modeled:
   id: "UBERON:0001555"
   name: "digestive tract"
 tissue_architecture: "Villus-like epithelial layer with crypt-like invaginations and basal immune compartment"

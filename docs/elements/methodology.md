@@ -1,12 +1,15 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: methodology 
+
+<div data-search-exclude markdown="1">
 
 
 
 URI: [namo:methodology](https://w3id.org/monarch-initiative/namo/methodology)
-Alias: methodology
-
 <!-- no inheritance hierarchy -->
 
 
@@ -27,13 +30,28 @@ Alias: methodology
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [MolecularSimilarity](MolecularSimilarity.md), [FunctionalAssay](FunctionalAssay.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -55,11 +73,10 @@ Alias: methodology
 <details>
 ```yaml
 name: methodology
-alias: methodology
 domain_of:
 - MolecularSimilarity
 - FunctionalAssay
 range: string
 
 ```
-</details>
+</details></div>

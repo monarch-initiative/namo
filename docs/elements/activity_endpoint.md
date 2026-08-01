@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: activity_endpoint 
 
@@ -7,11 +10,11 @@ _Biological activity or property being predicted_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:activity_endpoint](https://w3id.org/monarch-initiative/namo/activity_endpoint)
-Alias: activity_endpoint
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: activity_endpoint
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [QSARModel](QSARModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [QSARModel](QSARModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: activity_endpoint
 description: Biological activity or property being predicted
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: activity_endpoint
 owner: QSARModel
 domain_of:
 - QSARModel
 range: string
 
 ```
-</details>
+</details></div>

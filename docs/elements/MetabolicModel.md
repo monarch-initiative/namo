@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: MetabolicModel 
 
@@ -6,6 +9,8 @@
 _A model that simulates the metabolic processes of an organism or system. Examples: Virtual Physiological Human, ..._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -99,7 +104,6 @@ URI: [namo:MetabolicModel](https://w3id.org/monarch-initiative/namo/MetabolicMod
                 * **MetabolicModel**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -127,8 +131,12 @@ URI: [namo:MetabolicModel](https://w3id.org/monarch-initiative/namo/MetabolicMod
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -186,7 +194,6 @@ attributes:
     description: Primary computational method or algorithm used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: computational_method
     owner: MetabolicModel
     domain_of:
     - InSilicoModel
@@ -196,7 +203,6 @@ attributes:
     description: Software platform or programming language used
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: software_platform
     owner: MetabolicModel
     domain_of:
     - InSilicoModel
@@ -206,7 +212,6 @@ attributes:
     description: Datasets used for model training and validation
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: validation_datasets
     owner: MetabolicModel
     domain_of:
     - InSilicoModel
@@ -217,7 +222,6 @@ attributes:
     description: Scope and limitations of model predictions
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: prediction_scope
     owner: MetabolicModel
     domain_of:
     - InSilicoModel
@@ -227,7 +231,6 @@ attributes:
     description: The level of biological organization represented by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: biological_organization_level
     owner: MetabolicModel
     domain_of:
     - NAMModel
@@ -237,7 +240,6 @@ attributes:
     description: Description of spatial organization and context captured by the model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: spatial_context
     owner: MetabolicModel
     domain_of:
     - NAMModel
@@ -248,7 +250,6 @@ attributes:
       tissue, organ, system)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: complexity_level
     owner: MetabolicModel
     domain_of:
     - NAMModel
@@ -258,7 +259,6 @@ attributes:
     description: Literature references that describe, validate, or support this model
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: references
     owner: MetabolicModel
     domain_of:
     - NAMModel
@@ -270,7 +270,6 @@ attributes:
     name: models
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: models
     owner: MetabolicModel
     domain_of:
     - ModelSystem
@@ -283,11 +282,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: MetabolicModel
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -296,10 +295,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: MetabolicModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -307,21 +306,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: MetabolicModel
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: MetabolicModel
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

@@ -72,19 +72,15 @@ models:
       represented_cell_types:
       - id: CL:0000182
         name: hepatocyte
-        type: Term
       missing_cell_types:
       - id: CL:0000091
         name: Kupffer cell
-        type: Term
       - id: CL:0002293
         name: epithelial cell of thymus
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000182
           name: hepatocyte
-          type: Term
         model_proportion: 0.95
         biological_proportion: 0.75
         proportion_ratio: 1.27
@@ -186,7 +182,6 @@ references:
 cell_types:
 - id: CL:0000182
   name: hepatocyte
-  type: Term
 cell_source: Primary human hepatocytes isolated from healthy donor liver tissue
 substrate_type: Collagen-coated tissue culture plates with hepatocyte attachment factor
 confluence_level: 0.85

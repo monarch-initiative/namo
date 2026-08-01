@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: personalization_parameters 
 
@@ -7,11 +10,11 @@ _Parameters used for personalization (genetic, phenotypic, etc.)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:personalization_parameters](https://w3id.org/monarch-initiative/namo/personalization_parameters)
-Alias: personalization_parameters
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: personalization_parameters
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [DigitalTwin](DigitalTwin.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [DigitalTwin](DigitalTwin.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: personalization_parameters
 description: Parameters used for personalization (genetic, phenotypic, etc.)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: personalization_parameters
 owner: DigitalTwin
 domain_of:
 - DigitalTwin
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

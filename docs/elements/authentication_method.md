@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: authentication_method 
 
@@ -7,11 +10,11 @@ _Method used for cell line authentication (e.g., STR profiling, mycoplasma testi
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:authentication_method](https://w3id.org/monarch-initiative/namo/authentication_method)
-Alias: authentication_method
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: authentication_method
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [CellLineModel](CellLineModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CellLineModel](CellLineModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -70,11 +95,10 @@ description: Method used for cell line authentication (e.g., STR profiling, myco
   testing)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: authentication_method
 owner: CellLineModel
 domain_of:
 - CellLineModel
 range: string
 
 ```
-</details>
+</details></div>

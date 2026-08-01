@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: ml_algorithm 
 
@@ -7,11 +10,11 @@ _Type of machine learning algorithm used_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:ml_algorithm](https://w3id.org/monarch-initiative/namo/ml_algorithm)
-Alias: ml_algorithm
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: ml_algorithm
 
 ## Properties
 
-* Range: [MLAlgorithmEnum](MLAlgorithmEnum.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [MLAlgorithmEnum](MLAlgorithmEnum.md) |
+| Domain Of | [MLModel](MLModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MLModel](MLModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: ml_algorithm
 description: Type of machine learning algorithm used
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: ml_algorithm
 owner: MLModel
 domain_of:
 - MLModel
 range: MLAlgorithmEnum
 
 ```
-</details>
+</details></div>

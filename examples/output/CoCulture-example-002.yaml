@@ -71,29 +71,23 @@ models:
       represented_cell_types:
       - id: CL:0000540
         name: neuron
-        type: Term
       - id: CL:0000127
         name: astrocyte
-        type: Term
       missing_cell_types:
       - id: CL:0000128
         name: oligodendrocyte
-        type: Term
       - id: CL:0000129
         name: microglial cell
-        type: Term
       cell_type_proportions:
       - cell_type:
           id: CL:0000540
           name: neuron
-          type: Term
         model_proportion: 0.4
         biological_proportion: 0.45
         proportion_ratio: 0.89
       - cell_type:
           id: CL:0000127
           name: astrocyte
-          type: Term
         model_proportion: 0.6
         biological_proportion: 0.55
         proportion_ratio: 1.09
@@ -191,23 +185,19 @@ references:
 cell_types:
 - id: CL:0000540
   name: neuron
-  type: Term
 - id: CL:0000127
   name: astrocyte
-  type: Term
 cell_source: Primary human neurons and astrocytes derived from fetal brain tissue
 coculture_configuration: DIRECT_CONTACT
 cell_ratios:
 - cell_type:
     id: CL:0000540
     name: neuron
-    type: Term
   ratio: 0.4
   ratio_type: PERCENTAGE
 - cell_type:
     id: CL:0000127
     name: astrocyte
-    type: Term
   ratio: 0.6
   ratio_type: PERCENTAGE
 interaction_mechanisms:

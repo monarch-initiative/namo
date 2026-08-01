@@ -10,7 +10,7 @@ type: "TissueOnChip"
 biological_organization_level: "TISSUE"
 spatial_context: "3D skin architecture with epidermis, dermis, and air-liquid interface"
 complexity_level: "HIGH"
-tissue_modeled:
+anatomical_structure_modeled:
   id: "UBERON:0002097"
   name: "skin of body"
 tissue_architecture: "Multilayer structure with stratified epidermis and dermal fibroblast layer"

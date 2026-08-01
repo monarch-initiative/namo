@@ -1,17 +1,59 @@
 {
+   "ARRIVE": "https://doi.org/10.1371/journal.pbio.3000410#",
+   "ASTM": "https://www.astm.org/standards/",
+   "BFO": "http://purl.obolibrary.org/obo/BFO_",
+   "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
+   "CL": "http://purl.obolibrary.org/obo/CL_",
+   "ECTO": "http://purl.obolibrary.org/obo/ECTO_",
    "EDAM": "http://edamontology.org/",
    "EFO": "http://www.ebi.ac.uk/efo/EFO_",
+   "ENVO": "http://purl.obolibrary.org/obo/ENVO_",
+   "GIVReST": "https://doi.org/10.14573/altex.2501011#",
+   "HP": "http://purl.obolibrary.org/obo/HP_",
+   "HsapDv": "http://purl.obolibrary.org/obo/HsapDv_",
+   "ISO10991": "https://www.iso.org/standard/82146.html#",
+   "ISO22916": "https://www.iso.org/standard/74157.html#",
    "MAMO": "http://identifiers.org/mamo/MAMO_",
    "MESH": "http://id.nlm.nih.gov/mesh/",
+   "MIACA": "https://doi.org/10.5966/sctm.2015-0393#",
+   "MISpheroID": "https://doi.org/10.3390/jdb10010007#",
+   "MP": "http://purl.obolibrary.org/obo/MP_",
+   "MmusDv": "http://purl.obolibrary.org/obo/MmusDv_",
+   "NCBITaxon": "http://purl.obolibrary.org/obo/NCBITaxon_",
+   "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
    "OBI": "http://purl.obolibrary.org/obo/OBI_",
+   "OECD": "https://www.oecd.org/chemicalsafety/testing/",
    "PATO": "http://purl.obolibrary.org/obo/PATO_",
    "UBERON": "http://purl.obolibrary.org/obo/UBERON_",
+   "UO": "http://purl.obolibrary.org/obo/UO_",
+   "UPHENO": "http://purl.obolibrary.org/obo/UPHENO_",
    "biolink": "https://w3id.org/biolink/",
    "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",
    "namo": "https://w3id.org/monarch-initiative/namo/",
    "schema": "http://schema.org/",
+   "Cell": {
+      "@id": "biolink:Cell"
+   },
+   "EnvironmentalExposure": {
+      "@id": "biolink:EnvironmentalExposure"
+   },
+   "GrossAnatomicalStructure": {
+      "@id": "biolink:GrossAnatomicalStructure"
+   },
+   "LifeStage": {
+      "@id": "biolink:LifeStage"
+   },
    "NamedThing": {
       "@id": "schema:Thing"
+   },
+   "OrganismTaxon": {
+      "@id": "biolink:OrganismTaxon"
+   },
+   "PhenotypicFeature": {
+      "@id": "biolink:PhenotypicFeature"
+   },
+   "QuantityValue": {
+      "@id": "biolink:QuantityValue"
    }
 }

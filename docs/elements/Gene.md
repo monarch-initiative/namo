@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Gene 
 
@@ -6,6 +9,8 @@
 _A gene entity with identifiers and expression information._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -54,7 +59,6 @@ URI: [namo:Gene](https://w3id.org/monarch-initiative/namo/Gene)
     * **Gene**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -87,8 +91,12 @@ URI: [namo:Gene](https://w3id.org/monarch-initiative/namo/Gene)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -194,7 +202,6 @@ attributes:
     description: Standard gene symbol (e.g., HGNC symbol for human genes).
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: gene_symbol
     owner: Gene
     domain_of:
     - Gene
@@ -204,7 +211,6 @@ attributes:
     description: Ensembl gene identifier.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: ensembl_id
     owner: Gene
     domain_of:
     - Gene
@@ -214,7 +220,6 @@ attributes:
     description: NCBI Entrez gene identifier.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: entrez_id
     owner: Gene
     domain_of:
     - Gene
@@ -224,7 +229,6 @@ attributes:
     description: Fold change in expression compared to control or reference.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: fold_change
     owner: Gene
     domain_of:
     - Gene
@@ -234,7 +238,6 @@ attributes:
     description: Statistical p-value for differential expression.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: p_value
     owner: Gene
     domain_of:
     - Gene
@@ -246,7 +249,6 @@ attributes:
     description: Multiple testing corrected p-value.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: adjusted_p_value
     owner: Gene
     domain_of:
     - Gene
@@ -259,11 +261,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: Gene
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -272,10 +274,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: Gene
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -283,21 +285,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: Gene
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: Gene
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

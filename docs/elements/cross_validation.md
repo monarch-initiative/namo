@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cross_validation 
 
@@ -7,11 +10,11 @@ _Cross-validation strategy and results_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:cross_validation](https://w3id.org/monarch-initiative/namo/cross_validation)
-Alias: cross_validation
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: cross_validation
 
 ## Properties
 
-* Range: [CrossValidation](CrossValidation.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [CrossValidation](CrossValidation.md) |
+| Domain Of | [MLModel](MLModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MLModel](MLModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,7 +94,6 @@ name: cross_validation
 description: Cross-validation strategy and results
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: cross_validation
 owner: MLModel
 domain_of:
 - MLModel
@@ -77,4 +101,4 @@ range: CrossValidation
 inlined: true
 
 ```
-</details>
+</details></div>

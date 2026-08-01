@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: material 
 
@@ -7,11 +10,11 @@ _Materials used to construct the device_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:material](https://w3id.org/monarch-initiative/namo/material)
-Alias: material
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: material
 
 ## Properties
 
-* Range: [DeviceMaterialEnum](DeviceMaterialEnum.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [DeviceMaterialEnum](DeviceMaterialEnum.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: material
 description: Materials used to construct the device
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: material
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
@@ -79,4 +102,4 @@ range: DeviceMaterialEnum
 multivalued: true
 
 ```
-</details>
+</details></div>

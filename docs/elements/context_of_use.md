@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: context_of_use 
 
@@ -7,11 +10,11 @@ _What decision will this inform? Care? Policy? Drug approval?_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:context_of_use](https://w3id.org/monarch-initiative/namo/context_of_use)
-Alias: context_of_use
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: context_of_use
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Study](Study.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Study](Study.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: context_of_use
 description: What decision will this inform? Care? Policy? Drug approval?
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: context_of_use
 owner: Study
 domain_of:
 - Study
 range: string
 
 ```
-</details>
+</details></div>

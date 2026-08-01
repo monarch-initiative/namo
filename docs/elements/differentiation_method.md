@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: differentiation_method 
 
@@ -7,11 +10,11 @@ _Method used to differentiate cells into organoid (e.g., directed differentiatio
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:differentiation_method](https://w3id.org/monarch-initiative/namo/differentiation_method)
-Alias: differentiation_method
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: differentiation_method
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Organoid](Organoid.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Organoid](Organoid.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -70,11 +95,10 @@ description: Method used to differentiate cells into organoid (e.g., directed di
   protocol)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: differentiation_method
 owner: Organoid
 domain_of:
 - Organoid
 range: string
 
 ```
-</details>
+</details></div>

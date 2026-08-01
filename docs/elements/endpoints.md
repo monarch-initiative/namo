@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: endpoints 
 
@@ -7,11 +10,11 @@ _phenotypes, function (TEER/leak, beating rate), and multi-omics_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:endpoints](https://w3id.org/monarch-initiative/namo/endpoints)
-Alias: endpoints
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: endpoints
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Study](Study.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Study](Study.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: endpoints
 description: phenotypes, function (TEER/leak, beating rate), and multi-omics
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: endpoints
 owner: Study
 domain_of:
 - Study
 range: string
 
 ```
-</details>
+</details></div>

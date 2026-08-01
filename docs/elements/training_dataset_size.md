@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: training_dataset_size 
 
@@ -7,11 +10,11 @@ _Number of compounds in training dataset_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:training_dataset_size](https://w3id.org/monarch-initiative/namo/training_dataset_size)
-Alias: training_dataset_size
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: training_dataset_size
 
 ## Properties
 
-* Range: [Integer](Integer.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Integer](Integer.md) |
+| Domain Of | [QSARModel](QSARModel.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [QSARModel](QSARModel.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: training_dataset_size
 description: Number of compounds in training dataset
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: training_dataset_size
 owner: QSARModel
 domain_of:
 - QSARModel
 range: integer
 
 ```
-</details>
+</details></div>

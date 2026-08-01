@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cv_std 
 
@@ -7,11 +10,11 @@ _Standard deviation of cross-validation scores_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:cv_std](https://w3id.org/monarch-initiative/namo/cv_std)
-Alias: cv_std
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: cv_std
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [CrossValidation](CrossValidation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [CrossValidation](CrossValidation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: cv_std
 description: Standard deviation of cross-validation scores
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: cv_std
 owner: CrossValidation
 domain_of:
 - CrossValidation
 range: float
 
 ```
-</details>
+</details></div>

@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: PredictionOutcomeEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:PredictionOutcomeEnum](https://w3id.org/monarch-initiative/namo/PredictionOutcomeEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | TP | None | True Positive |
@@ -20,8 +27,12 @@ URI: [namo:PredictionOutcomeEnum](https://w3id.org/monarch-initiative/namo/Predi
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -60,3 +71,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

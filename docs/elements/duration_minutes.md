@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: duration_minutes 
 
@@ -7,11 +10,11 @@ _Duration of mechanical stimulation in minutes_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:duration_minutes](https://w3id.org/monarch-initiative/namo/duration_minutes)
-Alias: duration_minutes
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: duration_minutes
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [MechanicalStimulation](MechanicalStimulation.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MechanicalStimulation](MechanicalStimulation.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: duration_minutes
 description: Duration of mechanical stimulation in minutes
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: duration_minutes
 owner: MechanicalStimulation
 domain_of:
 - MechanicalStimulation
 range: float
 
 ```
-</details>
+</details></div>

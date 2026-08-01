@@ -247,29 +247,24 @@
   },
   "organ_modeled": {
     "id": "UBERON:0002186",
-    "name": "bronchiole",
-    "type": "Term"
+    "name": "bronchiole"
   },
   "cell_types": [
     {
       "id": "CL:0002633",
-      "name": "respiratory basal cell",
-      "type": "Term"
+      "name": "respiratory basal cell"
     },
     {
       "id": "CL:0002145",
-      "name": "ciliated epithelial cell",
-      "type": "Term"
+      "name": "ciliated epithelial cell"
     },
     {
       "id": "CL:0002370",
-      "name": "respiratory goblet cell",
-      "type": "Term"
+      "name": "respiratory goblet cell"
     },
     {
       "id": "CL:0019018",
-      "name": "blood vessel smooth muscle cell",
-      "type": "Term"
+      "name": "blood vessel smooth muscle cell"
     }
   ],
   "cell_source": "Primary human small airway epithelial cells from healthy or COPD donors",

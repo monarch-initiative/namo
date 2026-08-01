@@ -113,33 +113,28 @@
           "represented_cell_types": [
             {
               "id": "CL:0000540",
-              "name": "neuron",
-              "type": "Term"
+              "name": "neuron"
             },
             {
               "id": "CL:0000127",
-              "name": "astrocyte",
-              "type": "Term"
+              "name": "astrocyte"
             },
             {
               "id": "CL:0011020",
-              "name": "neural progenitor cell",
-              "type": "Term"
+              "name": "neural progenitor cell"
             }
           ],
           "missing_cell_types": [
             {
               "id": "CL:0000129",
-              "name": "microglial cell",
-              "type": "Term"
+              "name": "microglial cell"
             }
           ],
           "cell_type_proportions": [
             {
               "cell_type": {
                 "id": "CL:0000540",
-                "name": "neuron",
-                "type": "Term"
+                "name": "neuron"
               },
               "model_proportion": 0.45,
               "biological_proportion": 0.52,
@@ -148,8 +143,7 @@
             {
               "cell_type": {
                 "id": "CL:0011020",
-                "name": "neural progenitor cell",
-                "type": "Term"
+                "name": "neural progenitor cell"
               },
               "model_proportion": 0.32,
               "biological_proportion": 0.28,
@@ -217,35 +211,29 @@
   "cell_types": [
     {
       "id": "CL:0000540",
-      "name": "neuron",
-      "type": "Term"
+      "name": "neuron"
     },
     {
       "id": "CL:0000127",
-      "name": "astrocyte",
-      "type": "Term"
+      "name": "astrocyte"
     },
     {
       "id": "CL:0000128",
-      "name": "oligodendrocyte",
-      "type": "Term"
+      "name": "oligodendrocyte"
     },
     {
       "id": "CL:0011020",
-      "name": "neural progenitor cell",
-      "type": "Term"
+      "name": "neural progenitor cell"
     },
     {
       "id": "CL:0000125",
-      "name": "glial cell",
-      "type": "Term"
+      "name": "glial cell"
     }
   ],
   "cell_source": "Human induced pluripotent stem cells (iPSCs) from healthy donors",
   "organ_modeled": {
     "id": "UBERON:0000955",
-    "name": "brain",
-    "type": "Term"
+    "name": "brain"
   },
   "differentiation_method": "Dual SMAD inhibition protocol with LDN193189 and SB431542 followed by  neural induction using N2B27 medium. Organoids are generated using  hanging drop method followed by embedding in Matrigel droplets.",
   "culture_system": "Matrigel dome culture with orbital shaking at 80 rpm. Organoids are  maintained in neural differentiation medium with regular feeding every  3-4 days for up to 60 days.",

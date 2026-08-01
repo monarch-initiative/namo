@@ -83,43 +83,36 @@
           "represented_cell_types": [
             {
               "id": "CL:0000066",
-              "name": "epithelial cell",
-              "type": "Term"
+              "name": "epithelial cell"
             },
             {
               "id": "CL:0002062",
-              "name": "type I pneumocyte",
-              "type": "Term"
+              "name": "type I pneumocyte"
             },
             {
               "id": "CL:0000182",
-              "name": "hepatocyte",
-              "type": "Term"
+              "name": "hepatocyte"
             },
             {
               "id": "CL:0000746",
-              "name": "cardiac muscle cell",
-              "type": "Term"
+              "name": "cardiac muscle cell"
             }
           ],
           "missing_cell_types": [
             {
               "id": "CL:0000071",
-              "name": "blood vessel endothelial cell",
-              "type": "Term"
+              "name": "blood vessel endothelial cell"
             },
             {
               "id": "CL:0000115",
-              "name": "endothelial cell",
-              "type": "Term"
+              "name": "endothelial cell"
             }
           ],
           "cell_type_proportions": [
             {
               "cell_type": {
                 "id": "CL:0002062",
-                "name": "type I pneumocyte",
-                "type": "Term"
+                "name": "type I pneumocyte"
               },
               "model_proportion": 0.25,
               "biological_proportion": 0.3,
@@ -128,8 +121,7 @@
             {
               "cell_type": {
                 "id": "CL:0000182",
-                "name": "hepatocyte",
-                "type": "Term"
+                "name": "hepatocyte"
               },
               "model_proportion": 0.25,
               "biological_proportion": 0.22,
@@ -284,29 +276,24 @@
   ],
   "organ_modeled": {
     "id": "UBERON:0002048",
-    "name": "lung",
-    "type": "Term"
+    "name": "lung"
   },
   "cell_types": [
     {
       "id": "CL:0000066",
-      "name": "epithelial cell",
-      "type": "Term"
+      "name": "epithelial cell"
     },
     {
       "id": "CL:0002062",
-      "name": "type I pneumocyte",
-      "type": "Term"
+      "name": "type I pneumocyte"
     },
     {
       "id": "CL:0000182",
-      "name": "hepatocyte",
-      "type": "Term"
+      "name": "hepatocyte"
     },
     {
       "id": "CL:0000746",
-      "name": "cardiac muscle cell",
-      "type": "Term"
+      "name": "cardiac muscle cell"
     }
   ],
   "@type": "OrganOnChip"

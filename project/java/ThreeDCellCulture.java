@@ -1,12 +1,12 @@
 package None;
 
+/* metamodel_version: 1.11.0 */
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.*;
-
-
-
-
-
 
 /**
   Three-dimensional cell culture systems including spheroids and organoids. More physiologically relevant with 3D architecture.
@@ -18,5 +18,6 @@ public class ThreeDCellCulture extends CellularSystem {
   private String threeDArchitecture;
   private String matrixComposition;
   private String sizeRange;
+
 
 }

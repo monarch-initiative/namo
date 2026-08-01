@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: PresenceEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:PresenceEnum](https://w3id.org/monarch-initiative/namo/PresenceEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | PRESENT | None | The entity is present |
@@ -20,8 +27,12 @@ URI: [namo:PresenceEnum](https://w3id.org/monarch-initiative/namo/PresenceEnum)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -60,3 +71,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

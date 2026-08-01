@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: ComplexityLevelEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:ComplexityLevelEnum](https://w3id.org/monarch-initiative/namo/ComplexityLevelEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | LOW | None | Simple, well-defined system with limited variables |
@@ -25,8 +32,12 @@ URI: [namo:ComplexityLevelEnum](https://w3id.org/monarch-initiative/namo/Complex
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -62,3 +73,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

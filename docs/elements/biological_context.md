@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: biological_context 
 
@@ -7,11 +10,11 @@ _tissue/region (anatomy), cell types, sex/age equivalents, mechanics (e.g., cycl
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:biological_context](https://w3id.org/monarch-initiative/namo/biological_context)
-Alias: biological_context
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: biological_context
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Study](Study.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Study](Study.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -70,11 +95,10 @@ description: tissue/region (anatomy), cell types, sex/age equivalents, mechanics
   cyclic stretch), microenvironment
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: biological_context
 owner: Study
 domain_of:
 - Study
 range: string
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: MicrofluidicDesign 
 
@@ -6,6 +9,8 @@
 _Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features. Terms aligned with ISO 10991:2023 Microfluidics Vocabulary standard._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -149,7 +154,6 @@ URI: [namo:MicrofluidicDesign](https://w3id.org/monarch-initiative/namo/Microflu
     * **MicrofluidicDesign**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -190,12 +194,16 @@ URI: [namo:MicrofluidicDesign](https://w3id.org/monarch-initiative/namo/Microflu
 
 
 
+
+
+
 ## See Also
 
 * [https://www.iso.org/standard/82146.html](https://www.iso.org/standard/82146.html)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -377,7 +385,6 @@ attributes:
     description: The overall architecture type of the microfluidic device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: architecture_type
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -387,7 +394,6 @@ attributes:
     description: Total number of channels in the device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: number_of_channels
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -397,7 +403,6 @@ attributes:
     description: Configuration of channels (e.g., parallel, serial, branching)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: channel_configuration
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -408,7 +413,6 @@ attributes:
     description: Type of membrane used in the device if applicable
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: membrane_type
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -418,7 +422,6 @@ attributes:
     description: Pore size of the membrane in micrometers
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: membrane_pore_size
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -428,7 +431,6 @@ attributes:
     description: Thickness of the membrane in micrometers
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: membrane_thickness
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -438,7 +440,6 @@ attributes:
     description: Type of interface(s) present in the device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: interface_type
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -449,7 +450,6 @@ attributes:
     description: Dimensions of the channels in the device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: channel_dimensions
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -460,7 +460,6 @@ attributes:
     description: Materials used to construct the device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: material
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -471,7 +470,6 @@ attributes:
     description: Surface treatments or coatings applied to the device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: surface_treatment
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -482,7 +480,6 @@ attributes:
     description: Methods used to control fluid flow in the device
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: flow_control_method
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -493,7 +490,6 @@ attributes:
     description: Sensors integrated into the device for monitoring
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: sensors_integrated
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -505,7 +501,6 @@ attributes:
       gradient generators)
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: special_features
     owner: MicrofluidicDesign
     domain_of:
     - MicrofluidicDesign
@@ -518,11 +513,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: MicrofluidicDesign
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -531,10 +526,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: MicrofluidicDesign
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -542,21 +537,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: MicrofluidicDesign
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: MicrofluidicDesign
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

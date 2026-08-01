@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: StatisticalSignificance 
 
@@ -6,6 +9,8 @@
 _Statistical measures of significance for molecular comparisons._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -37,7 +42,6 @@ URI: [namo:StatisticalSignificance](https://w3id.org/monarch-initiative/namo/Sta
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -64,8 +68,12 @@ URI: [namo:StatisticalSignificance](https://w3id.org/monarch-initiative/namo/Sta
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -159,7 +167,6 @@ attributes:
     name: p_value
     description: Statistical p-value.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: p_value
     owner: StatisticalSignificance
     domain_of:
     - Gene
@@ -170,7 +177,6 @@ attributes:
     name: adjusted_p_value
     description: Multiple testing corrected p-value.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: adjusted_p_value
     owner: StatisticalSignificance
     domain_of:
     - Gene
@@ -181,7 +187,6 @@ attributes:
     description: Lower bound of confidence interval.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: confidence_interval_lower
     owner: StatisticalSignificance
     domain_of:
     - StatisticalSignificance
@@ -191,7 +196,6 @@ attributes:
     description: Upper bound of confidence interval.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: confidence_interval_upper
     owner: StatisticalSignificance
     domain_of:
     - StatisticalSignificance
@@ -201,11 +205,10 @@ attributes:
     description: Name of statistical test used.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: statistical_test
     owner: StatisticalSignificance
     domain_of:
     - StatisticalSignificance
     range: string
 
 ```
-</details>
+</details></div>

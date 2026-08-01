@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: impaired_functions 
 
@@ -7,11 +10,11 @@ _List of functions that are impaired or absent in the model system._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:impaired_functions](https://w3id.org/monarch-initiative/namo/impaired_functions)
-Alias: impaired_functions
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: impaired_functions
 
 ## Properties
 
-* Range: [String](String.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [FunctionalParity](FunctionalParity.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [FunctionalParity](FunctionalParity.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: impaired_functions
 description: List of functions that are impaired or absent in the model system.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: impaired_functions
 owner: FunctionalParity
 domain_of:
 - FunctionalParity
@@ -79,4 +102,4 @@ range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

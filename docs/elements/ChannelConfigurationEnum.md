@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: ChannelConfigurationEnum 
 
 
@@ -7,10 +13,11 @@ _Channel configurations for microfluidic devices aligned with ISO 22916:2022 int
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:ChannelConfigurationEnum](https://w3id.org/monarch-initiative/namo/ChannelConfigurationEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | PARALLEL | None | Parallel channel configuration |
@@ -34,12 +41,16 @@ URI: [namo:ChannelConfigurationEnum](https://w3id.org/monarch-initiative/namo/Ch
 
 
 
+
+
+
 ## See Also
 
 * [https://www.iso.org/standard/74157.html](https://www.iso.org/standard/74157.html)
 
-## Identifier and Mapping Information
 
+
+## Identifier and Mapping Information
 
 
 
@@ -105,3 +116,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

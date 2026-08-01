@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: FunctionalAssay 
 
@@ -6,6 +9,8 @@
 _A functional assay used to assess biological capabilities._
 
 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -52,7 +57,6 @@ URI: [namo:FunctionalAssay](https://w3id.org/monarch-initiative/namo/FunctionalA
     * **FunctionalAssay**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -83,8 +87,12 @@ URI: [namo:FunctionalAssay](https://w3id.org/monarch-initiative/namo/FunctionalA
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -178,7 +186,6 @@ attributes:
     description: Type of functional assay (e.g., TEER, permeability, metabolic activity).
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: assay_type
     owner: FunctionalAssay
     domain_of:
     - FunctionalAssay
@@ -188,7 +195,6 @@ attributes:
     description: Quantitative result of the assay.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: assay_result
     owner: FunctionalAssay
     domain_of:
     - FunctionalAssay
@@ -198,7 +204,6 @@ attributes:
     description: Reference or control value for comparison.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: reference_value
     owner: FunctionalAssay
     domain_of:
     - FunctionalAssay
@@ -208,7 +213,6 @@ attributes:
     description: Units of measurement for the assay result.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: units
     owner: FunctionalAssay
     domain_of:
     - FunctionalAssay
@@ -217,7 +221,6 @@ attributes:
     name: methodology
     description: Detailed methodology for the assay.
     from_schema: https://w3id.org/monarch-initiative/namo
-    alias: methodology
     owner: FunctionalAssay
     domain_of:
     - MolecularSimilarity
@@ -230,11 +233,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: FunctionalAssay
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -243,10 +246,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: FunctionalAssay
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -254,21 +257,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: FunctionalAssay
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: FunctionalAssay
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

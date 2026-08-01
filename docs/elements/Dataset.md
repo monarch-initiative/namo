@@ -1,6 +1,11 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Dataset 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -44,7 +49,6 @@ URI: [namo:Dataset](https://w3id.org/monarch-initiative/namo/Dataset)
 
 <!-- no inheritance hierarchy -->
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -61,8 +65,12 @@ URI: [namo:Dataset](https://w3id.org/monarch-initiative/namo/Dataset)
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -107,7 +115,6 @@ attributes:
     - Dataset
     range: ModelSystem
     multivalued: true
-    inlined: true
     inlined_as_list: true
   studies:
     name: studies
@@ -117,7 +124,6 @@ attributes:
     - Dataset
     range: Study
     multivalued: true
-    inlined: true
     inlined_as_list: true
 
 ```
@@ -134,24 +140,24 @@ attributes:
     name: model_systems
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: model_systems
     owner: Dataset
     domain_of:
     - Dataset
     range: ModelSystem
     multivalued: true
+    inlined: true
     inlined_as_list: true
   studies:
     name: studies
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    alias: studies
     owner: Dataset
     domain_of:
     - Dataset
     range: Study
     multivalued: true
+    inlined: true
     inlined_as_list: true
 
 ```
-</details>
+</details></div>

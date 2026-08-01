@@ -1,20 +1,29 @@
 {
     "$defs": {
-        "AgeEnum": {
-            "description": "",
-            "title": "AgeEnum",
+        "AnatomicalStructureEnum": {
+            "description": "Multicellular anatomical structures \u2014 organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
+            "title": "AnatomicalStructureEnum",
             "type": "string"
         },
         "AnimalModel": {
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "age": {
-                    "description": "The age of the animal used in the model system.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                "age_value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Chronological age of the animal at the time of study, as a numeric value with a unit."
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
@@ -24,15 +33,30 @@
                     ]
                 },
                 "environment": {
-                    "description": "The environmental conditions under which the animal model is maintained.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/EnvironmentalExposure"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The environmental conditions under which the animal model is maintained."
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
                     "type": "string"
+                },
+                "life_stage": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/LifeStage"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The developmental or life-cycle stage of the animal used in the model system."
                 },
                 "models": {
                     "items": {
@@ -51,15 +75,19 @@
                     ]
                 },
                 "species": {
-                    "description": "The species of the animal used in the model system.",
-                    "type": "string"
+                    "$ref": "#/$defs/OrganismTaxon",
+                    "description": "The species of the animal used in the model system."
                 },
                 "strain": {
-                    "description": "The specific strain of the animal used in the model system.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/OrganismTaxon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum."
                 },
                 "type": {
                     "enum": [
@@ -76,6 +104,35 @@
                 "id"
             ],
             "title": "AnimalModel",
+            "type": "object"
+        },
+        "BiolinkEntity": {
+            "additionalProperties": false,
+            "description": "Abstract parent for NAMO classes that stand in for a class in the Biolink Model.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "BiolinkEntity",
             "type": "object"
         },
         "BiologicalOrganizationLevelEnum": {
@@ -138,6 +195,35 @@
             "title": "CaseOrControlEnum",
             "type": "string"
         },
+        "Cell": {
+            "additionalProperties": false,
+            "description": "The basic structural and functional unit of all organisms. Includes the plasma membrane and any external encapsulating structures such as the cell wall and cell envelope.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Cell",
+            "type": "object"
+        },
         "CellLineModel": {
             "additionalProperties": false,
             "description": "A model system based on immortalized cell lines that can be maintained in culture indefinitely. Examples: HepG2, A549, Caco-2, etc.",
@@ -163,7 +249,7 @@
                 "cell_types": {
                     "description": "Cell types present in the cellular system",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/Cell"
                     },
                     "type": [
                         "array",
@@ -276,7 +362,7 @@
                 "cell_type": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/Term"
+                            "$ref": "#/$defs/Cell"
                         },
                         {
                             "type": "null"
@@ -334,7 +420,7 @@
                 "missing_cell_types": {
                     "description": "List of cell types present in biological system but missing in model.",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/Cell"
                     },
                     "type": [
                         "array",
@@ -351,7 +437,7 @@
                 "represented_cell_types": {
                     "description": "List of cell types present in both model and biological system.",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/Cell"
                     },
                     "type": [
                         "array",
@@ -383,6 +469,11 @@
         },
         "CellTypeEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "CellTypeEnum",
             "type": "string"
         },
@@ -400,7 +491,7 @@
                 "cell_type": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/Term"
+                            "$ref": "#/$defs/Cell"
                         },
                         {
                             "type": "null"
@@ -426,8 +517,104 @@
             "title": "CellTypeProportion",
             "type": "object"
         },
+        "CellularSystem": {
+            "additionalProperties": false,
+            "description": "Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA (Minimal Information About a Cellular Assay) standards.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "cell_source": {
+                    "description": "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cell_types": {
+                    "description": "Cell types present in the cellular system",
+                    "items": {
+                        "$ref": "#/$defs/Cell"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "culture_conditions": {
+                    "description": "Standard culture conditions and media used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "CellularSystem"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "CellularSystem",
+            "type": "object"
+        },
         "ChannelConfigurationEnum": {
-            "description": "",
+            "description": "Channel configurations for microfluidic devices aligned with ISO 22916:2022 interoperability requirements for dimensions and connections",
             "enum": [
                 "PARALLEL",
                 "SERIAL",
@@ -442,7 +629,7 @@
         },
         "ChannelDimensions": {
             "additionalProperties": false,
-            "description": "Dimensions of a microfluidic channel",
+            "description": "Dimensions of a microfluidic channel according to ISO 10991:2023 definitions for microchannel geometry and dimensions",
             "properties": {
                 "channel_name": {
                     "description": "Name or identifier of the channel (e.g., apical, basolateral, vascular)",
@@ -504,7 +691,7 @@
                 "cell_types": {
                     "description": "Cell types present in the cellular system",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/Cell"
                     },
                     "type": [
                         "array",
@@ -1057,6 +1244,35 @@
             "title": "EnrichmentStatistics",
             "type": "object"
         },
+        "EnvironmentalExposure": {
+            "additionalProperties": false,
+            "description": "A discrete event type where an organism is exposed to an environmental condition.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "EnvironmentalExposure",
+            "type": "object"
+        },
         "FeatureTypeEnum": {
             "description": "",
             "enum": [
@@ -1074,7 +1290,7 @@
             "type": "string"
         },
         "FlowControlMethodEnum": {
-            "description": "",
+            "description": "Flow control methods for microfluidic devices as defined in ISO 10991:2023",
             "enum": [
                 "SYRINGE_PUMP",
                 "PERISTALTIC_PUMP",
@@ -1327,6 +1543,138 @@
             "title": "Gene",
             "type": "object"
         },
+        "GrossAnatomicalStructure": {
+            "additionalProperties": false,
+            "description": "An anatomical structure that has more than one cell as a part.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GrossAnatomicalStructure",
+            "type": "object"
+        },
+        "InSilicoModel": {
+            "additionalProperties": false,
+            "description": "Computational models that simulate biological processes without physical biological components.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "computational_method": {
+                    "description": "Primary computational method or algorithm used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prediction_scope": {
+                    "description": "Scope and limitations of model predictions",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "software_platform": {
+                    "description": "Software platform or programming language used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "InSilicoModel"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "validation_datasets": {
+                    "description": "Datasets used for model training and validation",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "InSilicoModel",
+            "type": "object"
+        },
         "IntegratedSensorEnum": {
             "description": "",
             "enum": [
@@ -1368,7 +1716,46 @@
         },
         "InvestigativeProtocolEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "InvestigativeProtocolEnum",
+            "type": "string"
+        },
+        "LifeStage": {
+            "additionalProperties": false,
+            "description": "A stage of development or growth of an organism, including post-natal adult stages.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "LifeStage",
+            "type": "object"
+        },
+        "LifeStageEnum": {
+            "description": "Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in its id_prefixes.",
+            "title": "LifeStageEnum",
             "type": "string"
         },
         "MLAlgorithmEnum": {
@@ -1743,7 +2130,7 @@
             "type": "object"
         },
         "MicrofluidicArchitectureEnum": {
-            "description": "",
+            "description": "Architecture types for microfluidic devices as defined in ISO 10991:2023",
             "enum": [
                 "SINGLE_CHANNEL",
                 "TWO_CHANNEL",
@@ -1757,7 +2144,7 @@
         },
         "MicrofluidicDesign": {
             "additionalProperties": false,
-            "description": "Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features.",
+            "description": "Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features. Terms aligned with ISO 10991:2023 Microfluidics Vocabulary standard.",
             "properties": {
                 "architecture_type": {
                     "$ref": "#/$defs/MicrofluidicArchitectureEnum",
@@ -1902,6 +2289,117 @@
             "title": "MicrofluidicDesign",
             "type": "object"
         },
+        "MicrophysiologicalSystem": {
+            "additionalProperties": false,
+            "description": "Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, and living cells to replicate tissue-level physiology and dynamics. Conforms to ISO 22916:2022 interoperability requirements for dimensions, connections, and device classification.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "mechanical_forces": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MechanicalStimulation"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Mechanical forces applied to the model system"
+                },
+                "microfluidic_design": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrofluidicDesign"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Detailed design specifications of the microfluidic device"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "perfusion_system": {
+                    "description": "Description of perfusion and flow systems",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "sensor_integration": {
+                    "description": "Sensors integrated for real-time monitoring",
+                    "items": {
+                        "$ref": "#/$defs/IntegratedSensorEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "MicrophysiologicalSystem"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MicrophysiologicalSystem",
+            "type": "object"
+        },
         "ModelPerformance": {
             "additionalProperties": false,
             "description": "Statistical performance metrics for computational models.",
@@ -1950,6 +2448,53 @@
                 }
             },
             "title": "ModelPerformance",
+            "type": "object"
+        },
+        "ModelSystem": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "ModelSystem"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ModelSystem",
             "type": "object"
         },
         "ModelsRelationship": {
@@ -2092,6 +2637,78 @@
             "title": "MolecularSimilarity",
             "type": "object"
         },
+        "NAMModel": {
+            "additionalProperties": false,
+            "description": "A New Approach Methodology (NAM) model, which is a type of model system that does not involve the use of animals.",
+            "properties": {
+                "biological_organization_level": {
+                    "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
+                    "description": "The level of biological organization represented by the model"
+                },
+                "complexity_level": {
+                    "$ref": "#/$defs/ComplexityLevelEnum",
+                    "description": "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "models": {
+                    "items": {
+                        "$ref": "#/$defs/ModelsRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "references": {
+                    "description": "Literature references that describe, validate, or support this model",
+                    "items": {
+                        "$ref": "#/$defs/Reference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spatial_context": {
+                    "description": "Description of spatial organization and context captured by the model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "NAMModel"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "NAMModel",
+            "type": "object"
+        },
         "NamedThing": {
             "additionalProperties": false,
             "description": "A generic grouping for any identifiable entity",
@@ -2132,12 +2749,17 @@
         },
         "OrganEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "OrganEnum",
             "type": "string"
         },
         "OrganOnChip": {
             "additionalProperties": false,
-            "description": "A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ...",
+            "description": "A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ... Aligned with ISO 10991:2023 microfluidics terminology.",
             "properties": {
                 "biological_organization_level": {
                     "$ref": "#/$defs/BiologicalOrganizationLevelEnum",
@@ -2153,7 +2775,7 @@
                 "cell_types": {
                     "description": "Cell types present in the organ-on-chip model",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/Cell"
                     },
                     "type": [
                         "array",
@@ -2216,7 +2838,7 @@
                 "organ_modeled": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/Term"
+                            "$ref": "#/$defs/GrossAnatomicalStructure"
                         },
                         {
                             "type": "null"
@@ -2274,6 +2896,35 @@
             "title": "OrganOnChip",
             "type": "object"
         },
+        "OrganismTaxon": {
+            "additionalProperties": false,
+            "description": "A classification of a set of organisms. Can also be used to represent strains or subspecies.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "OrganismTaxon",
+            "type": "object"
+        },
         "Organoid": {
             "additionalProperties": false,
             "description": "A 3D cell culture system that self-organizes to recapitulate key structural and functional aspects of an organ or tissue",
@@ -2292,7 +2943,7 @@
                 "cell_types": {
                     "description": "Cell types present in the cellular system",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/Cell"
                     },
                     "type": [
                         "array",
@@ -2361,7 +3012,7 @@
                 "organ_modeled": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/Term"
+                            "$ref": "#/$defs/GrossAnatomicalStructure"
                         },
                         {
                             "type": "null"
@@ -2606,7 +3257,7 @@
                 "species_modeled": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/Term"
+                            "$ref": "#/$defs/OrganismTaxon"
                         },
                         {
                             "type": "null"
@@ -2788,6 +3439,11 @@
             "title": "PathwayConcordance",
             "type": "object"
         },
+        "PhenotypeEnum": {
+            "description": "Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's `phenotypic feature`.",
+            "title": "PhenotypeEnum",
+            "type": "string"
+        },
         "PhenotypeOverlap": {
             "additionalProperties": false,
             "description": "Comparison of phenotypic manifestations between model and biological systems.",
@@ -2795,7 +3451,7 @@
                 "biological_specific_phenotypes": {
                     "description": "List of phenotypes present only in the biological system.",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/PhenotypicFeature"
                     },
                     "type": [
                         "array",
@@ -2816,7 +3472,7 @@
                 "model_specific_phenotypes": {
                     "description": "List of phenotypes present only in the model system.",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/PhenotypicFeature"
                     },
                     "type": [
                         "array",
@@ -2847,7 +3503,7 @@
                 "shared_phenotypes": {
                     "description": "List of phenotypes present in both model and biological system.",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/PhenotypicFeature"
                     },
                     "type": [
                         "array",
@@ -2868,6 +3524,35 @@
                 "id"
             ],
             "title": "PhenotypeOverlap",
+            "type": "object"
+        },
+        "PhenotypicFeature": {
+            "additionalProperties": false,
+            "description": "A combination of entity and quality that makes up a phenotyping statement.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "PhenotypicFeature",
             "type": "object"
         },
         "PredictionOutcomeEnum": {
@@ -3066,6 +3751,28 @@
             "title": "QualityControlMetric",
             "type": "object"
         },
+        "QuantityValue": {
+            "additionalProperties": false,
+            "description": "A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value. Biolink models this as an annotation rather than a named thing, so it has no identifier and is inlined by value.",
+            "properties": {
+                "has_numeric_value": {
+                    "description": "The numeric portion of the quantity.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "has_unit": {
+                    "description": "The unit of measurement, as a UO CURIE.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "QuantityValue",
+            "type": "object"
+        },
         "RatioTypeEnum": {
             "description": "",
             "enum": [
@@ -3107,6 +3814,7 @@
                 },
                 "url": {
                     "description": "URL to access the publication",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -3222,11 +3930,21 @@
         },
         "SampleProcessingEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "SampleProcessingEnum",
             "type": "string"
         },
         "SpeciesEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "SpeciesEnum",
             "type": "string"
         },
@@ -3272,11 +3990,6 @@
             },
             "title": "StatisticalSignificance",
             "type": "object"
-        },
-        "StrainEnum": {
-            "description": "",
-            "title": "StrainEnum",
-            "type": "string"
         },
         "StructuredConcordanceResult": {
             "additionalProperties": false,
@@ -3427,6 +4140,11 @@
         },
         "StudyDesignEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "StudyDesignEnum",
             "type": "string"
         },
@@ -3445,44 +4163,6 @@
             ],
             "title": "SurfaceCoatingEnum",
             "type": "string"
-        },
-        "Term": {
-            "additionalProperties": false,
-            "description": "A term is a concept or entity that can be defined and used in a specific context, often within a controlled vocabulary or ontology.",
-            "properties": {
-                "description": {
-                    "description": "A human-readable description for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human-readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "type": {
-                    "enum": [
-                        "Term"
-                    ],
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "id"
-            ],
-            "title": "Term",
-            "type": "object"
         },
         "ThreeDArchitectureEnum": {
             "description": "",
@@ -3515,7 +4195,7 @@
                 "cell_types": {
                     "description": "Cell types present in the cellular system",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/Cell"
                     },
                     "type": [
                         "array",
@@ -3613,8 +4293,19 @@
         },
         "TissueOnChip": {
             "additionalProperties": false,
-            "description": "Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions.",
+            "description": "Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology.",
             "properties": {
+                "anatomical_structure_modeled": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/GrossAnatomicalStructure"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The anatomical structure being modeled \u2014 a tissue, organ, or other multicellular structure."
+                },
                 "barrier_functions": {
                     "description": "Tissue barrier functions modeled (epithelial, endothelial, etc.)",
                     "items": {
@@ -3723,17 +4414,6 @@
                         "null"
                     ]
                 },
-                "tissue_modeled": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Term"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The specific tissue being modeled"
-                },
                 "type": {
                     "enum": [
                         "TissueOnChip"
@@ -3768,7 +4448,7 @@
                 "cell_types": {
                     "description": "Cell types present in the cellular system",
                     "items": {
-                        "$ref": "#/$defs/Term"
+                        "$ref": "#/$defs/Cell"
                     },
                     "type": [
                         "array",
@@ -3871,7 +4551,7 @@
     "$id": "https://w3id.org/monarch-initiative/namo",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "title": "namo",
     "type": "object",
     "version": null

@@ -1,6 +1,11 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: BiologicalSystem 
+
+<div data-search-exclude markdown="1">
 
 
 
@@ -37,7 +42,6 @@ URI: [namo:BiologicalSystem](https://w3id.org/monarch-initiative/namo/Biological
     * **BiologicalSystem**
 
 
-
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
@@ -63,8 +67,12 @@ URI: [namo:BiologicalSystem](https://w3id.org/monarch-initiative/namo/Biological
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -120,11 +128,11 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    alias: id
     owner: BiologicalSystem
     domain_of:
     - NamedThing
     - Reference
+    - BiolinkEntity
     range: uriorcurie
     required: true
   name:
@@ -133,10 +141,10 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    alias: name
     owner: BiologicalSystem
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   description:
     name: description
@@ -144,21 +152,20 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    alias: description
     owner: BiologicalSystem
     domain_of:
     - NamedThing
+    - BiolinkEntity
     range: string
   type:
     name: type
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    alias: type
     owner: BiologicalSystem
     domain_of:
     - NamedThing
     range: string
 
 ```
-</details>
+</details></div>

@@ -85,7 +85,7 @@ Is it a microfluidic device?
 |-------------|-----------|--------------|----------------|
 | `Organoid` | No | Self-organizing, stem cell-derived | `organ_modeled`, `cell_source` |
 | `OrganOnChip` | No | Microfluidic, organ physiology | `organ_modeled`, `microfluidic_design` |
-| `TissueOnChip` | No | Microfluidic, tissue function | `tissue_modeled`, `microfluidic_design` |
+| `TissueOnChip` | No | Microfluidic, tissue function | `anatomical_structure_modeled`, `microfluidic_design` |
 | `MicrophysiologicalSystem` | **Yes** | Use concrete subclasses above | N/A |
 | `ThreeDCellCulture` | No | 3D without microfluidics | `three_d_architecture` |
 

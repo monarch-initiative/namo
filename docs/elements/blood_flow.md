@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: blood_flow 
 
@@ -7,11 +10,11 @@ _Blood flow to the compartment (L/h)_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:blood_flow](https://w3id.org/monarch-initiative/namo/blood_flow)
-Alias: blood_flow
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,13 +34,35 @@ Alias: blood_flow
 
 ## Properties
 
-* Range: [Float](Float.md)
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [PBPKCompartment](PBPKCompartment.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PBPKCompartment](PBPKCompartment.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -69,11 +94,10 @@ name: blood_flow
 description: Blood flow to the compartment (L/h)
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: blood_flow
 owner: PBPKCompartment
 domain_of:
 - PBPKCompartment
 range: float
 
 ```
-</details>
+</details></div>

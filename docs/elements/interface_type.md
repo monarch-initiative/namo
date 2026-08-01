@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: interface_type 
 
@@ -7,11 +10,11 @@ _Type of interface(s) present in the device_
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [namo:interface_type](https://w3id.org/monarch-initiative/namo/interface_type)
-Alias: interface_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -31,15 +34,36 @@ Alias: interface_type
 
 ## Properties
 
-* Range: [InterfaceTypeEnum](InterfaceTypeEnum.md)
+### Type and Range
 
-* Multivalued: True
+| Property | Value |
+| --- | --- |
+| Range | [InterfaceTypeEnum](InterfaceTypeEnum.md) |
+| Domain Of | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [MicrofluidicDesign](MicrofluidicDesign.md) |
+
+
+
+
+
+
+
+
 
 
 
 
 ## Identifier and Mapping Information
-
 
 
 
@@ -71,7 +95,6 @@ name: interface_type
 description: Type of interface(s) present in the device
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-alias: interface_type
 owner: MicrofluidicDesign
 domain_of:
 - MicrofluidicDesign
@@ -79,4 +102,4 @@ range: InterfaceTypeEnum
 multivalued: true
 
 ```
-</details>
+</details></div>

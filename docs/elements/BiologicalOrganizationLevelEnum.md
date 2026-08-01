@@ -1,11 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: BiologicalOrganizationLevelEnum 
 
 
 
+<div data-search-exclude markdown="1">
+
 URI: [namo:BiologicalOrganizationLevelEnum](https://w3id.org/monarch-initiative/namo/BiologicalOrganizationLevelEnum)
 
 ## Permissible Values
-
 | Value | Meaning | Description |
 | --- | --- | --- |
 | SUBCELLULAR | None | Within a cell - subcellular components and molecular interactions |
@@ -28,8 +35,12 @@ URI: [namo:BiologicalOrganizationLevelEnum](https://w3id.org/monarch-initiative/
 
 
 
-## Identifier and Mapping Information
 
+
+
+
+
+## Identifier and Mapping Information
 
 
 
@@ -74,3 +85,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>
