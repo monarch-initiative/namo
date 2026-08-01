@@ -1,6 +1,7 @@
 name: Claude Code Review
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [opened, synchronize]
     # Optional: Only run on specific file changes
@@ -33,7 +34,7 @@ jobs:
 
       - name: Run Claude Code Review
         id: claude-review
-        uses: anthropics/claude-code-action@beta
+        uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
@@ -41,7 +42,7 @@ jobs:
           # model: "claude-opus-4-1-20250805"
 
           # Direct prompt for automated review (no @claude mention needed)
-          direct_prompt: |
+          prompt: |
             Please review this pull request and provide feedback on:
             - Code quality and best practices
             - Potential bugs or issues
