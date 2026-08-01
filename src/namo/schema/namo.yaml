@@ -271,16 +271,19 @@ classes:
         inlined: true
         description: >-
           The specific strain of the animal used in the model system.
-        bindings:
-          - binds_value_of: id
-            range: StrainEnum
-            obligation_level: REQUIRED
+          Deliberately unconstrained beyond the class: LinkML dynamic enums
+          cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would
+          be indistinguishable from SpeciesEnum.
       life_stage:
         range: LifeStage
         inlined: true
         description: >-
           The developmental or life-cycle stage of the animal used in the model
           system.
+        bindings:
+          - binds_value_of: id
+            range: LifeStageEnum
+            obligation_level: REQUIRED
       age_value:
         range: QuantityValue
         inlined: true
@@ -537,6 +540,10 @@ classes:
         description: >-
           The anatomical structure being modeled — a tissue, organ, or other
           multicellular structure.
+        bindings:
+          - binds_value_of: id
+            range: AnatomicalStructureEnum
+            obligation_level: REQUIRED
       tissue_architecture:
         description: >-
           Description of tissue-level architecture and organization
@@ -691,6 +698,10 @@ classes:
         inlined: true
         description: >-
           The cell type for which the ratio is specified
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       ratio:
         range: float
         description: >-
@@ -1078,19 +1089,35 @@ classes:
         inlined_as_list: true
         description: >-
           List of phenotypes present in both model and biological system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       model_specific_phenotypes:
         range: PhenotypicFeature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present only in the model system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       biological_specific_phenotypes:
         range: PhenotypicFeature
         multivalued: true
         inlined_as_list: true
         description: >-
           List of phenotypes present only in the biological system.
+        bindings:
+          - binds_value_of: id
+            range: PhenotypeEnum
+            obligation_level: REQUIRED
       phenotype_ontology:
+        deprecated: >-
+          Redundant now that the phenotype slots are bound to PhenotypeEnum and
+          ranged over PhenotypicFeature; the source ontology is carried by the
+          CURIE prefix of each phenotype id.
         description: >-
           Ontology used for phenotype classification (e.g., HPO, MP).
 
@@ -1109,12 +1136,20 @@ classes:
         inlined_as_list: true
         description: >-
           List of cell types present in both model and biological system.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       missing_cell_types:
         range: Cell
         multivalued: true
         inlined_as_list: true
         description: >-
           List of cell types present in biological system but missing in model.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       cell_type_proportions:
         range: CellTypeProportion
         multivalued: true
@@ -1292,6 +1327,10 @@ classes:
         inlined: true
         description: >-
           The cell type being compared.
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
       model_proportion:
         range: float
         description: >-
@@ -1535,11 +1574,24 @@ enums:
   OrganEnum:
     reachable_from:
       source_nodes:
-        - UBERON:0001062
+        - UBERON:0000062      # organ
       is_direct: false
       relationship_types:
         - rdfs:subClassOf
-        - BFO:0000050
+        - BFO:0000050         # part_of
+
+  AnatomicalStructureEnum:
+    description: >-
+      Multicellular anatomical structures — organs, tissues, tracts and
+      barriers alike. Rooted at the term Biolink's `gross anatomical structure`
+      maps to.
+    reachable_from:
+      source_nodes:
+        - UBERON:0010000      # multicellular anatomical structure
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+        - BFO:0000050         # part_of
 
   CellTypeEnum:
     reachable_from:
@@ -1549,9 +1601,50 @@ enums:
       relationship_types:
         - rdfs:subClassOf
 
-  StrainEnum:
+  LifeStageEnum:
+    description: >-
+      Developmental and life-cycle stages. Composed rather than rooted at
+      UBERON:0000105 alone: the species-specific developmental ontologies are
+      not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as
+      its only ontology ancestor), so a UBERON-only root would reject the
+      species-specific terms Biolink's `life stage` lists in its id_prefixes.
+    include:
+      - reachable_from:
+          source_nodes:
+            - UBERON:0000105      # life cycle stage
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
+      - reachable_from:
+          source_nodes:
+            - HsapDv:0000000      # human life cycle stage
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
+      - reachable_from:
+          source_nodes:
+            - MmusDv:0000000      # mouse life cycle stage
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
 
-  AgeEnum:
+  PhenotypeEnum:
+    description: >-
+      Phenotypic abnormalities across the human and mammalian phenotype
+      ontologies, matching the span of Biolink's `phenotypic feature`.
+    include:
+      - reachable_from:
+          source_nodes:
+            - HP:0000118          # phenotypic abnormality
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
+      - reachable_from:
+          source_nodes:
+            - MP:0000001          # mammalian phenotype
+          is_direct: false
+          relationship_types:
+            - rdfs:subClassOf
 
   RelativeTimeEnum:
     permissible_values:

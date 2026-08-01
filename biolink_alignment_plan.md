@@ -255,7 +255,7 @@ In instance data:
 ```yaml
 life_stage:
   id: "MmusDv:0000110"
-  name: "adult stage"
+  name: "mature stage"       # Ubergraph's label for this term
 age_value:
   has_numeric_value: 8.0
   has_unit: "UO:0000034"      # week
@@ -379,17 +379,28 @@ Recuration is no longer the alternative it was under the old name: `anatomical_s
 
 ### 4c. Add `LifeStageEnum`, drop the dangling `OrganismAgeEnum`
 
-`AnimalModel.age` bound `OrganismAgeEnum`, which **is never defined anywhere in the schema** — only an empty `AgeEnum` exists. With `age` now split (3a), the binding moves to the new `life_stage` slot. Delete the unused `AgeEnum` and the dangling `OrganismAgeEnum` reference:
+`AnimalModel.age` bound `OrganismAgeEnum`, which **is never defined anywhere in the schema** — only an empty `AgeEnum` exists. With `age` now split (3a), the binding moves to the new `life_stage` slot. Delete the unused `AgeEnum` and the dangling `OrganismAgeEnum` reference.
+
+**A single `UBERON:0000105` root does not work** — an earlier draft of this section proposed one, and the closure check refutes it. The species-specific developmental ontologies are not asserted as subclasses of UBERON's life-cycle-stage term: in Ubergraph, `ancestors(MmusDv:0000110, [IS_A])` is `{MmusDv:0000000, BFO:0000003, BFO:0000001}` — no UBERON at all. `descendants(UBERON:0000105, [IS_A, PART_OF])` returns 55 terms and contains neither `MmusDv:0000110` nor any `HsapDv` term. A UBERON-only root would therefore reject exactly the CURIEs Biolink's `life stage` advertises in its `id_prefixes` (HsapDv, MmusDv, ZFS, FBdv, WBls, UBERON) — including the worked example in 3a. Compose instead, as 4d does for phenotypes:
 
 ```yaml
   LifeStageEnum:
-    reachable_from:
-      source_nodes:
-        - UBERON:0000105      # life cycle stage
-      is_direct: false
-      relationship_types:
-        - rdfs:subClassOf
+    include:
+      - reachable_from:
+          source_nodes: [UBERON:0000105]     # life cycle stage, 55 terms
+          is_direct: false
+          relationship_types: [rdfs:subClassOf]
+      - reachable_from:
+          source_nodes: [HsapDv:0000000]     # human life cycle stage, 239 terms
+          is_direct: false
+          relationship_types: [rdfs:subClassOf]
+      - reachable_from:
+          source_nodes: [MmusDv:0000000]     # mouse life cycle stage, 134 terms
+          is_direct: false
+          relationship_types: [rdfs:subClassOf]
 ```
+
+Add ZFS / FBdv / WBls roots the same way if NAMO ever curates those organisms.
 
 `age_value` takes no binding — it is a `QuantityValue`, not an ontology term.
 

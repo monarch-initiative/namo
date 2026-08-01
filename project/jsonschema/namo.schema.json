@@ -1,8 +1,8 @@
 {
     "$defs": {
-        "AgeEnum": {
-            "description": "",
-            "title": "AgeEnum",
+        "AnatomicalStructureEnum": {
+            "description": "Multicellular anatomical structures \u2014 organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.",
+            "title": "AnatomicalStructureEnum",
             "type": "string"
         },
         "AnimalModel": {
@@ -82,7 +82,7 @@
                             "type": "null"
                         }
                     ],
-                    "description": "The specific strain of the animal used in the model system."
+                    "description": "The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum."
                 },
                 "type": {
                     "enum": [
@@ -1737,6 +1737,11 @@
             ],
             "title": "LifeStage",
             "type": "object"
+        },
+        "LifeStageEnum": {
+            "description": "Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in its id_prefixes.",
+            "title": "LifeStageEnum",
+            "type": "string"
         },
         "MLAlgorithmEnum": {
             "description": "",
@@ -3414,6 +3419,11 @@
             "title": "PathwayConcordance",
             "type": "object"
         },
+        "PhenotypeEnum": {
+            "description": "Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's `phenotypic feature`.",
+            "title": "PhenotypeEnum",
+            "type": "string"
+        },
         "PhenotypeOverlap": {
             "additionalProperties": false,
             "description": "Comparison of phenotypic manifestations between model and biological systems.",
@@ -3950,11 +3960,6 @@
             },
             "title": "StatisticalSignificance",
             "type": "object"
-        },
-        "StrainEnum": {
-            "description": "",
-            "title": "StrainEnum",
-            "type": "string"
         },
         "StructuredConcordanceResult": {
             "additionalProperties": false,

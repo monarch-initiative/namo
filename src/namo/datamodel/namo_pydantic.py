@@ -363,15 +363,28 @@ class OrganEnum(str):
     pass
 
 
+class AnatomicalStructureEnum(str):
+    """
+    Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.
+    """
+    pass
+
+
 class CellTypeEnum(str):
     pass
 
 
-class StrainEnum(str):
+class LifeStageEnum(str):
+    """
+    Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in its id_prefixes.
+    """
     pass
 
 
-class AgeEnum(str):
+class PhenotypeEnum(str):
+    """
+    Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's `phenotypic feature`.
+    """
     pass
 
 
@@ -1112,11 +1125,11 @@ class AnimalModel(ModelSystem):
                        'obligation_level': 'REQUIRED',
                        'range': 'SpeciesEnum'}],
          'domain_of': ['AnimalModel']} })
-    strain: Optional[OrganismTaxon] = Field(default=None, description="""The specific strain of the animal used in the model system.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+    strain: Optional[OrganismTaxon] = Field(default=None, description="""The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AnimalModel']} })
+    life_stage: Optional[LifeStage] = Field(default=None, description="""The developmental or life-cycle stage of the animal used in the model system.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
                        'obligation_level': 'REQUIRED',
-                       'range': 'StrainEnum'}],
+                       'range': 'LifeStageEnum'}],
          'domain_of': ['AnimalModel']} })
-    life_stage: Optional[LifeStage] = Field(default=None, description="""The developmental or life-cycle stage of the animal used in the model system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AnimalModel']} })
     age_value: Optional[QuantityValue] = Field(default=None, description="""Chronological age of the animal at the time of study, as a numeric value with a unit.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AnimalModel']} })
     environment: Optional[EnvironmentalExposure] = Field(default=None, description="""The environmental conditions under which the animal model is maintained.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AnimalModel']} })
     models: Optional[list[ModelsRelationship]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
@@ -1386,7 +1399,10 @@ class TissueOnChip(MicrophysiologicalSystem):
          'from_schema': 'https://w3id.org/monarch-initiative/namo',
          'see_also': ['https://www.iso.org/standard/82146.html']})
 
-    anatomical_structure_modeled: Optional[GrossAnatomicalStructure] = Field(default=None, description="""The anatomical structure being modeled — a tissue, organ, or other multicellular structure.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TissueOnChip']} })
+    anatomical_structure_modeled: Optional[GrossAnatomicalStructure] = Field(default=None, description="""The anatomical structure being modeled — a tissue, organ, or other multicellular structure.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+                       'obligation_level': 'REQUIRED',
+                       'range': 'AnatomicalStructureEnum'}],
+         'domain_of': ['TissueOnChip']} })
     tissue_architecture: Optional[str] = Field(default=None, description="""Description of tissue-level architecture and organization""", json_schema_extra = { "linkml_meta": {'domain_of': ['TissueOnChip']} })
     barrier_functions: Optional[list[str]] = Field(default=None, description="""Tissue barrier functions modeled (epithelial, endothelial, etc.)""", json_schema_extra = { "linkml_meta": {'domain_of': ['TissueOnChip']} })
     microfluidic_design: Optional[MicrofluidicDesign] = Field(default=None, description="""Detailed design specifications of the microfluidic device""", json_schema_extra = { "linkml_meta": {'domain_of': ['MicrophysiologicalSystem']} })
@@ -1560,7 +1576,10 @@ class CellRatio(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
-    cell_type: Optional[Cell] = Field(default=None, description="""The cell type for which the ratio is specified""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellRatio', 'CellTypeProportion']} })
+    cell_type: Optional[Cell] = Field(default=None, description="""The cell type for which the ratio is specified""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+                       'obligation_level': 'REQUIRED',
+                       'range': 'CellTypeEnum'}],
+         'domain_of': ['CellRatio', 'CellTypeProportion']} })
     ratio: Optional[float] = Field(default=None, description="""Proportion or ratio of this cell type (0.0-1.0 or absolute numbers)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellRatio']} })
     ratio_type: Optional[RatioTypeEnum] = Field(default=None, description="""Type of ratio specification (percentage, absolute, fold)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellRatio']} })
 
@@ -1771,10 +1790,22 @@ class PhenotypeOverlap(NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
     phenotype_similarity_score: Optional[float] = Field(default=None, description="""Quantitative score (0.0-1.0) representing phenotypic similarity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhenotypeOverlap']} })
-    shared_phenotypes: Optional[list[PhenotypicFeature]] = Field(default=None, description="""List of phenotypes present in both model and biological system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhenotypeOverlap']} })
-    model_specific_phenotypes: Optional[list[PhenotypicFeature]] = Field(default=None, description="""List of phenotypes present only in the model system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhenotypeOverlap']} })
-    biological_specific_phenotypes: Optional[list[PhenotypicFeature]] = Field(default=None, description="""List of phenotypes present only in the biological system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhenotypeOverlap']} })
-    phenotype_ontology: Optional[str] = Field(default=None, description="""Ontology used for phenotype classification (e.g., HPO, MP).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhenotypeOverlap']} })
+    shared_phenotypes: Optional[list[PhenotypicFeature]] = Field(default=None, description="""List of phenotypes present in both model and biological system.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+                       'obligation_level': 'REQUIRED',
+                       'range': 'PhenotypeEnum'}],
+         'domain_of': ['PhenotypeOverlap']} })
+    model_specific_phenotypes: Optional[list[PhenotypicFeature]] = Field(default=None, description="""List of phenotypes present only in the model system.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+                       'obligation_level': 'REQUIRED',
+                       'range': 'PhenotypeEnum'}],
+         'domain_of': ['PhenotypeOverlap']} })
+    biological_specific_phenotypes: Optional[list[PhenotypicFeature]] = Field(default=None, description="""List of phenotypes present only in the biological system.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+                       'obligation_level': 'REQUIRED',
+                       'range': 'PhenotypeEnum'}],
+         'domain_of': ['PhenotypeOverlap']} })
+    phenotype_ontology: Optional[str] = Field(default=None, description="""Ontology used for phenotype classification (e.g., HPO, MP).""", json_schema_extra = { "linkml_meta": {'deprecated': 'Redundant now that the phenotype slots are bound to '
+                       'PhenotypeEnum and ranged over PhenotypicFeature; the source '
+                       'ontology is carried by the CURIE prefix of each phenotype id.',
+         'domain_of': ['PhenotypeOverlap']} })
     id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
          'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
@@ -1789,8 +1820,14 @@ class CellTypeCoverage(NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
     coverage_percentage: Optional[float] = Field(default=None, description="""Percentage of target cell types represented in the model system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeCoverage']} })
-    represented_cell_types: Optional[list[Cell]] = Field(default=None, description="""List of cell types present in both model and biological system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeCoverage']} })
-    missing_cell_types: Optional[list[Cell]] = Field(default=None, description="""List of cell types present in biological system but missing in model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeCoverage']} })
+    represented_cell_types: Optional[list[Cell]] = Field(default=None, description="""List of cell types present in both model and biological system.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+                       'obligation_level': 'REQUIRED',
+                       'range': 'CellTypeEnum'}],
+         'domain_of': ['CellTypeCoverage']} })
+    missing_cell_types: Optional[list[Cell]] = Field(default=None, description="""List of cell types present in biological system but missing in model.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+                       'obligation_level': 'REQUIRED',
+                       'range': 'CellTypeEnum'}],
+         'domain_of': ['CellTypeCoverage']} })
     cell_type_proportions: Optional[list[CellTypeProportion]] = Field(default=None, description="""Quantitative comparison of cell type proportions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeCoverage']} })
     single_cell_method: Optional[str] = Field(default=None, description="""Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeCoverage']} })
     id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
@@ -1905,7 +1942,10 @@ class CellTypeProportion(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
-    cell_type: Optional[Cell] = Field(default=None, description="""The cell type being compared.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellRatio', 'CellTypeProportion']} })
+    cell_type: Optional[Cell] = Field(default=None, description="""The cell type being compared.""", json_schema_extra = { "linkml_meta": {'bindings': [{'binds_value_of': 'id',
+                       'obligation_level': 'REQUIRED',
+                       'range': 'CellTypeEnum'}],
+         'domain_of': ['CellRatio', 'CellTypeProportion']} })
     model_proportion: Optional[float] = Field(default=None, description="""Proportion of this cell type in the model system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeProportion']} })
     biological_proportion: Optional[float] = Field(default=None, description="""Proportion of this cell type in the biological system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeProportion']} })
     proportion_ratio: Optional[float] = Field(default=None, description="""Ratio of model to biological proportions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeProportion']} })

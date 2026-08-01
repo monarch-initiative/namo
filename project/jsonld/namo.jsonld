@@ -476,7 +476,22 @@
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "reachable_from": {
         "source_nodes": [
-          "UBERON:0001062"
+          "UBERON:0000062"
+        ],
+        "relationship_types": [
+          "rdfs:subClassOf",
+          "BFO:0000050"
+        ]
+      }
+    },
+    {
+      "name": "AnatomicalStructureEnum",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/AnatomicalStructureEnum",
+      "description": "Multicellular anatomical structures \u2014 organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "reachable_from": {
+        "source_nodes": [
+          "UBERON:0010000"
         ],
         "relationship_types": [
           "rdfs:subClassOf",
@@ -498,14 +513,70 @@
       }
     },
     {
-      "name": "StrainEnum",
-      "definition_uri": "https://w3id.org/monarch-initiative/namo/StrainEnum",
-      "from_schema": "https://w3id.org/monarch-initiative/namo"
+      "name": "LifeStageEnum",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/LifeStageEnum",
+      "description": "Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in its id_prefixes.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "include": [
+        {
+          "reachable_from": {
+            "source_nodes": [
+              "UBERON:0000105"
+            ],
+            "relationship_types": [
+              "rdfs:subClassOf"
+            ]
+          }
+        },
+        {
+          "reachable_from": {
+            "source_nodes": [
+              "HsapDv:0000000"
+            ],
+            "relationship_types": [
+              "rdfs:subClassOf"
+            ]
+          }
+        },
+        {
+          "reachable_from": {
+            "source_nodes": [
+              "MmusDv:0000000"
+            ],
+            "relationship_types": [
+              "rdfs:subClassOf"
+            ]
+          }
+        }
+      ]
     },
     {
-      "name": "AgeEnum",
-      "definition_uri": "https://w3id.org/monarch-initiative/namo/AgeEnum",
-      "from_schema": "https://w3id.org/monarch-initiative/namo"
+      "name": "PhenotypeEnum",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/PhenotypeEnum",
+      "description": "Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's `phenotypic feature`.",
+      "from_schema": "https://w3id.org/monarch-initiative/namo",
+      "include": [
+        {
+          "reachable_from": {
+            "source_nodes": [
+              "HP:0000118"
+            ],
+            "relationship_types": [
+              "rdfs:subClassOf"
+            ]
+          }
+        },
+        {
+          "reachable_from": {
+            "source_nodes": [
+              "MP:0000001"
+            ],
+            "relationship_types": [
+              "rdfs:subClassOf"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "RelativeTimeEnum",
@@ -1614,7 +1685,7 @@
     },
     {
       "name": "animalModel__strain",
-      "description": "The specific strain of the animal used in the model system.",
+      "description": "The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/strain",
       "alias": "strain",
@@ -1623,14 +1694,6 @@
         "AnimalModel"
       ],
       "range": "OrganismTaxon",
-      "bindings": [
-        {
-          "range": "StrainEnum",
-          "obligation_level": "REQUIRED",
-          "binds_value_of": "id",
-          "@type": "EnumBinding"
-        }
-      ],
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1645,6 +1708,14 @@
         "AnimalModel"
       ],
       "range": "LifeStage",
+      "bindings": [
+        {
+          "range": "LifeStageEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -2102,6 +2173,14 @@
         "TissueOnChip"
       ],
       "range": "GrossAnatomicalStructure",
+      "bindings": [
+        {
+          "range": "AnatomicalStructureEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -2432,6 +2511,14 @@
         "CellRatio"
       ],
       "range": "Cell",
+      "bindings": [
+        {
+          "range": "CellTypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -3426,6 +3513,14 @@
         "PhenotypeOverlap"
       ],
       "range": "PhenotypicFeature",
+      "bindings": [
+        {
+          "range": "PhenotypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3442,6 +3537,14 @@
         "PhenotypeOverlap"
       ],
       "range": "PhenotypicFeature",
+      "bindings": [
+        {
+          "range": "PhenotypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3458,6 +3561,14 @@
         "PhenotypeOverlap"
       ],
       "range": "PhenotypicFeature",
+      "bindings": [
+        {
+          "range": "PhenotypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3466,6 +3577,7 @@
     {
       "name": "phenotypeOverlap__phenotype_ontology",
       "description": "Ontology used for phenotype classification (e.g., HPO, MP).",
+      "deprecated": "Redundant now that the phenotype slots are bound to PhenotypeEnum and ranged over PhenotypicFeature; the source ontology is carried by the CURIE prefix of each phenotype id.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/phenotype_ontology",
       "alias": "phenotype_ontology",
@@ -3500,6 +3612,14 @@
         "CellTypeCoverage"
       ],
       "range": "Cell",
+      "bindings": [
+        {
+          "range": "CellTypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3516,6 +3636,14 @@
         "CellTypeCoverage"
       ],
       "range": "Cell",
+      "bindings": [
+        {
+          "range": "CellTypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3974,6 +4102,14 @@
         "CellTypeProportion"
       ],
       "range": "Cell",
+      "bindings": [
+        {
+          "range": "CellTypeEnum",
+          "obligation_level": "REQUIRED",
+          "binds_value_of": "id",
+          "@type": "EnumBinding"
+        }
+      ],
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4471,16 +4607,8 @@
         },
         {
           "name": "strain",
-          "description": "The specific strain of the animal used in the model system.",
+          "description": "The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.",
           "range": "OrganismTaxon",
-          "bindings": [
-            {
-              "range": "StrainEnum",
-              "obligation_level": "REQUIRED",
-              "binds_value_of": "id",
-              "@type": "EnumBinding"
-            }
-          ],
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -4488,6 +4616,14 @@
           "name": "life_stage",
           "description": "The developmental or life-cycle stage of the animal used in the model system.",
           "range": "LifeStage",
+          "bindings": [
+            {
+              "range": "LifeStageEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -5036,6 +5172,14 @@
           "name": "anatomical_structure_modeled",
           "description": "The anatomical structure being modeled \u2014 a tissue, organ, or other multicellular structure.",
           "range": "GrossAnatomicalStructure",
+          "bindings": [
+            {
+              "range": "AnatomicalStructureEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -5376,6 +5520,14 @@
           "name": "cell_type",
           "description": "The cell type for which the ratio is specified",
           "range": "Cell",
+          "bindings": [
+            {
+              "range": "CellTypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -6129,6 +6281,14 @@
           "name": "shared_phenotypes",
           "description": "List of phenotypes present in both model and biological system.",
           "range": "PhenotypicFeature",
+          "bindings": [
+            {
+              "range": "PhenotypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6137,6 +6297,14 @@
           "name": "model_specific_phenotypes",
           "description": "List of phenotypes present only in the model system.",
           "range": "PhenotypicFeature",
+          "bindings": [
+            {
+              "range": "PhenotypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6145,6 +6313,14 @@
           "name": "biological_specific_phenotypes",
           "description": "List of phenotypes present only in the biological system.",
           "range": "PhenotypicFeature",
+          "bindings": [
+            {
+              "range": "PhenotypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6152,6 +6328,7 @@
         {
           "name": "phenotype_ontology",
           "description": "Ontology used for phenotype classification (e.g., HPO, MP).",
+          "deprecated": "Redundant now that the phenotype slots are bound to PhenotypeEnum and ranged over PhenotypicFeature; the source ontology is carried by the CURIE prefix of each phenotype id.",
           "@type": "SlotDefinition"
         }
       ],
@@ -6187,6 +6364,14 @@
           "name": "represented_cell_types",
           "description": "List of cell types present in both model and biological system.",
           "range": "Cell",
+          "bindings": [
+            {
+              "range": "CellTypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6195,6 +6380,14 @@
           "name": "missing_cell_types",
           "description": "List of cell types present in biological system but missing in model.",
           "range": "Cell",
+          "bindings": [
+            {
+              "range": "CellTypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "multivalued": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6548,6 +6741,14 @@
           "name": "cell_type",
           "description": "The cell type being compared.",
           "range": "Cell",
+          "bindings": [
+            {
+              "range": "CellTypeEnum",
+              "obligation_level": "REQUIRED",
+              "binds_value_of": "id",
+              "@type": "EnumBinding"
+            }
+          ],
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -6946,9 +7147,9 @@
   ],
   "metamodel_version": "1.11.0",
   "source_file": "namo.yaml",
-  "source_file_date": "2026-07-31T20:48:07",
-  "source_file_size": 66668,
-  "generation_date": "2026-07-31T20:49:21",
+  "source_file_date": "2026-07-31T21:01:30",
+  "source_file_size": 70105,
+  "generation_date": "2026-07-31T21:02:31",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/namo.context.jsonld",

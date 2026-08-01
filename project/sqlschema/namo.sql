@@ -28,7 +28,7 @@
 --     * Slot: description Description: A human-readable description for a thing
 --     * Slot: type
 --     * Slot: species_id Description: The species of the animal used in the model system.
---     * Slot: strain_id Description: The specific strain of the animal used in the model system.
+--     * Slot: strain_id Description: The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum.
 --     * Slot: life_stage_id Description: The developmental or life-cycle stage of the animal used in the model system.
 --     * Slot: age_value_id Description: Chronological age of the animal at the time of study, as a numeric value with a unit.
 --     * Slot: environment_id Description: The environmental conditions under which the animal model is maintained.
@@ -1269,8 +1269,8 @@ CREATE TABLE "CoCulture_interaction_mechanisms" (
 	PRIMARY KEY ("CoCulture_id", interaction_mechanisms),
 	FOREIGN KEY("CoCulture_id") REFERENCES "CoCulture" (id)
 );
-CREATE INDEX "ix_CoCulture_interaction_mechanisms_CoCulture_id" ON "CoCulture_interaction_mechanisms" ("CoCulture_id");
 CREATE INDEX "ix_CoCulture_interaction_mechanisms_interaction_mechanisms" ON "CoCulture_interaction_mechanisms" (interaction_mechanisms);
+CREATE INDEX "ix_CoCulture_interaction_mechanisms_CoCulture_id" ON "CoCulture_interaction_mechanisms" ("CoCulture_id");
 
 CREATE TABLE "InSilicoModel_validation_datasets" (
 	"InSilicoModel_id" TEXT,
@@ -1278,8 +1278,8 @@ CREATE TABLE "InSilicoModel_validation_datasets" (
 	PRIMARY KEY ("InSilicoModel_id", validation_datasets),
 	FOREIGN KEY("InSilicoModel_id") REFERENCES "InSilicoModel" (id)
 );
-CREATE INDEX "ix_InSilicoModel_validation_datasets_InSilicoModel_id" ON "InSilicoModel_validation_datasets" ("InSilicoModel_id");
 CREATE INDEX "ix_InSilicoModel_validation_datasets_validation_datasets" ON "InSilicoModel_validation_datasets" (validation_datasets);
+CREATE INDEX "ix_InSilicoModel_validation_datasets_InSilicoModel_id" ON "InSilicoModel_validation_datasets" ("InSilicoModel_id");
 
 CREATE TABLE "DigitalTwin_real_time_data_sources" (
 	"DigitalTwin_id" TEXT,
@@ -1287,8 +1287,8 @@ CREATE TABLE "DigitalTwin_real_time_data_sources" (
 	PRIMARY KEY ("DigitalTwin_id", real_time_data_sources),
 	FOREIGN KEY("DigitalTwin_id") REFERENCES "DigitalTwin" (id)
 );
-CREATE INDEX "ix_DigitalTwin_real_time_data_sources_DigitalTwin_id" ON "DigitalTwin_real_time_data_sources" ("DigitalTwin_id");
 CREATE INDEX "ix_DigitalTwin_real_time_data_sources_real_time_data_sources" ON "DigitalTwin_real_time_data_sources" (real_time_data_sources);
+CREATE INDEX "ix_DigitalTwin_real_time_data_sources_DigitalTwin_id" ON "DigitalTwin_real_time_data_sources" ("DigitalTwin_id");
 
 CREATE TABLE "DigitalTwin_personalization_parameters" (
 	"DigitalTwin_id" TEXT,
@@ -1305,8 +1305,8 @@ CREATE TABLE "DigitalTwin_validation_datasets" (
 	PRIMARY KEY ("DigitalTwin_id", validation_datasets),
 	FOREIGN KEY("DigitalTwin_id") REFERENCES "DigitalTwin" (id)
 );
-CREATE INDEX "ix_DigitalTwin_validation_datasets_validation_datasets" ON "DigitalTwin_validation_datasets" (validation_datasets);
 CREATE INDEX "ix_DigitalTwin_validation_datasets_DigitalTwin_id" ON "DigitalTwin_validation_datasets" ("DigitalTwin_id");
+CREATE INDEX "ix_DigitalTwin_validation_datasets_validation_datasets" ON "DigitalTwin_validation_datasets" (validation_datasets);
 
 CREATE TABLE "MetabolicModel_validation_datasets" (
 	"MetabolicModel_id" TEXT,
@@ -1314,8 +1314,8 @@ CREATE TABLE "MetabolicModel_validation_datasets" (
 	PRIMARY KEY ("MetabolicModel_id", validation_datasets),
 	FOREIGN KEY("MetabolicModel_id") REFERENCES "MetabolicModel" (id)
 );
-CREATE INDEX "ix_MetabolicModel_validation_datasets_MetabolicModel_id" ON "MetabolicModel_validation_datasets" ("MetabolicModel_id");
 CREATE INDEX "ix_MetabolicModel_validation_datasets_validation_datasets" ON "MetabolicModel_validation_datasets" (validation_datasets);
+CREATE INDEX "ix_MetabolicModel_validation_datasets_MetabolicModel_id" ON "MetabolicModel_validation_datasets" ("MetabolicModel_id");
 
 CREATE TABLE "MicrofluidicDesign_channel_configuration" (
 	"MicrofluidicDesign_id" TEXT,
@@ -1351,8 +1351,8 @@ CREATE TABLE "MicrofluidicDesign_material" (
 	PRIMARY KEY ("MicrofluidicDesign_id", material),
 	FOREIGN KEY("MicrofluidicDesign_id") REFERENCES "MicrofluidicDesign" (id)
 );
-CREATE INDEX "ix_MicrofluidicDesign_material_MicrofluidicDesign_id" ON "MicrofluidicDesign_material" ("MicrofluidicDesign_id");
 CREATE INDEX "ix_MicrofluidicDesign_material_material" ON "MicrofluidicDesign_material" (material);
+CREATE INDEX "ix_MicrofluidicDesign_material_MicrofluidicDesign_id" ON "MicrofluidicDesign_material" ("MicrofluidicDesign_id");
 
 CREATE TABLE "MicrofluidicDesign_surface_treatment" (
 	"MicrofluidicDesign_id" TEXT,
@@ -1360,8 +1360,8 @@ CREATE TABLE "MicrofluidicDesign_surface_treatment" (
 	PRIMARY KEY ("MicrofluidicDesign_id", surface_treatment),
 	FOREIGN KEY("MicrofluidicDesign_id") REFERENCES "MicrofluidicDesign" (id)
 );
-CREATE INDEX "ix_MicrofluidicDesign_surface_treatment_MicrofluidicDesign_id" ON "MicrofluidicDesign_surface_treatment" ("MicrofluidicDesign_id");
 CREATE INDEX "ix_MicrofluidicDesign_surface_treatment_surface_treatment" ON "MicrofluidicDesign_surface_treatment" (surface_treatment);
+CREATE INDEX "ix_MicrofluidicDesign_surface_treatment_MicrofluidicDesign_id" ON "MicrofluidicDesign_surface_treatment" ("MicrofluidicDesign_id");
 
 CREATE TABLE "MicrofluidicDesign_flow_control_method" (
 	"MicrofluidicDesign_id" TEXT,
@@ -1369,8 +1369,8 @@ CREATE TABLE "MicrofluidicDesign_flow_control_method" (
 	PRIMARY KEY ("MicrofluidicDesign_id", flow_control_method),
 	FOREIGN KEY("MicrofluidicDesign_id") REFERENCES "MicrofluidicDesign" (id)
 );
-CREATE INDEX "ix_MicrofluidicDesign_flow_control_method_MicrofluidicDesign_id" ON "MicrofluidicDesign_flow_control_method" ("MicrofluidicDesign_id");
 CREATE INDEX "ix_MicrofluidicDesign_flow_control_method_flow_control_method" ON "MicrofluidicDesign_flow_control_method" (flow_control_method);
+CREATE INDEX "ix_MicrofluidicDesign_flow_control_method_MicrofluidicDesign_id" ON "MicrofluidicDesign_flow_control_method" ("MicrofluidicDesign_id");
 
 CREATE TABLE "MicrofluidicDesign_sensors_integrated" (
 	"MicrofluidicDesign_id" TEXT,
@@ -1396,8 +1396,8 @@ CREATE TABLE "MechanicalStimulation_stimulation_type" (
 	PRIMARY KEY ("MechanicalStimulation_id", stimulation_type),
 	FOREIGN KEY("MechanicalStimulation_id") REFERENCES "MechanicalStimulation" (id)
 );
-CREATE INDEX "ix_MechanicalStimulation_stimulation_type_stimulation_type" ON "MechanicalStimulation_stimulation_type" (stimulation_type);
 CREATE INDEX "ix_MechanicalStimulation_stimulation_type_MechanicalStimulation_id" ON "MechanicalStimulation_stimulation_type" ("MechanicalStimulation_id");
+CREATE INDEX "ix_MechanicalStimulation_stimulation_type_stimulation_type" ON "MechanicalStimulation_stimulation_type" (stimulation_type);
 
 CREATE TABLE "PBPKCompartment" (
 	compartment_type VARCHAR(8),
@@ -1537,8 +1537,8 @@ CREATE TABLE "MicrophysiologicalSystem_sensor_integration" (
 	PRIMARY KEY ("MicrophysiologicalSystem_id", sensor_integration),
 	FOREIGN KEY("MicrophysiologicalSystem_id") REFERENCES "MicrophysiologicalSystem" (id)
 );
-CREATE INDEX "ix_MicrophysiologicalSystem_sensor_integration_MicrophysiologicalSystem_id" ON "MicrophysiologicalSystem_sensor_integration" ("MicrophysiologicalSystem_id");
 CREATE INDEX "ix_MicrophysiologicalSystem_sensor_integration_sensor_integration" ON "MicrophysiologicalSystem_sensor_integration" (sensor_integration);
+CREATE INDEX "ix_MicrophysiologicalSystem_sensor_integration_MicrophysiologicalSystem_id" ON "MicrophysiologicalSystem_sensor_integration" ("MicrophysiologicalSystem_id");
 
 CREATE TABLE "OrganOnChip_sensor_integration" (
 	"OrganOnChip_id" TEXT,
@@ -1546,8 +1546,8 @@ CREATE TABLE "OrganOnChip_sensor_integration" (
 	PRIMARY KEY ("OrganOnChip_id", sensor_integration),
 	FOREIGN KEY("OrganOnChip_id") REFERENCES "OrganOnChip" (id)
 );
-CREATE INDEX "ix_OrganOnChip_sensor_integration_OrganOnChip_id" ON "OrganOnChip_sensor_integration" ("OrganOnChip_id");
 CREATE INDEX "ix_OrganOnChip_sensor_integration_sensor_integration" ON "OrganOnChip_sensor_integration" (sensor_integration);
+CREATE INDEX "ix_OrganOnChip_sensor_integration_OrganOnChip_id" ON "OrganOnChip_sensor_integration" ("OrganOnChip_id");
 
 CREATE TABLE "TissueOnChip_barrier_functions" (
 	"TissueOnChip_id" TEXT,
@@ -1564,8 +1564,8 @@ CREATE TABLE "TissueOnChip_sensor_integration" (
 	PRIMARY KEY ("TissueOnChip_id", sensor_integration),
 	FOREIGN KEY("TissueOnChip_id") REFERENCES "TissueOnChip" (id)
 );
-CREATE INDEX "ix_TissueOnChip_sensor_integration_TissueOnChip_id" ON "TissueOnChip_sensor_integration" ("TissueOnChip_id");
 CREATE INDEX "ix_TissueOnChip_sensor_integration_sensor_integration" ON "TissueOnChip_sensor_integration" (sensor_integration);
+CREATE INDEX "ix_TissueOnChip_sensor_integration_TissueOnChip_id" ON "TissueOnChip_sensor_integration" ("TissueOnChip_id");
 
 CREATE TABLE "QSARModel_molecular_descriptors" (
 	"QSARModel_id" TEXT,
@@ -1582,8 +1582,8 @@ CREATE TABLE "QSARModel_validation_datasets" (
 	PRIMARY KEY ("QSARModel_id", validation_datasets),
 	FOREIGN KEY("QSARModel_id") REFERENCES "QSARModel" (id)
 );
-CREATE INDEX "ix_QSARModel_validation_datasets_validation_datasets" ON "QSARModel_validation_datasets" (validation_datasets);
 CREATE INDEX "ix_QSARModel_validation_datasets_QSARModel_id" ON "QSARModel_validation_datasets" ("QSARModel_id");
+CREATE INDEX "ix_QSARModel_validation_datasets_validation_datasets" ON "QSARModel_validation_datasets" (validation_datasets);
 
 CREATE TABLE "PBPKModel_elimination_pathways" (
 	"PBPKModel_id" TEXT,
@@ -1591,8 +1591,8 @@ CREATE TABLE "PBPKModel_elimination_pathways" (
 	PRIMARY KEY ("PBPKModel_id", elimination_pathways),
 	FOREIGN KEY("PBPKModel_id") REFERENCES "PBPKModel" (id)
 );
-CREATE INDEX "ix_PBPKModel_elimination_pathways_PBPKModel_id" ON "PBPKModel_elimination_pathways" ("PBPKModel_id");
 CREATE INDEX "ix_PBPKModel_elimination_pathways_elimination_pathways" ON "PBPKModel_elimination_pathways" (elimination_pathways);
+CREATE INDEX "ix_PBPKModel_elimination_pathways_PBPKModel_id" ON "PBPKModel_elimination_pathways" ("PBPKModel_id");
 
 CREATE TABLE "PBPKModel_validation_datasets" (
 	"PBPKModel_id" TEXT,
@@ -1627,8 +1627,8 @@ CREATE TABLE "FunctionalParity_conserved_functions" (
 	PRIMARY KEY ("FunctionalParity_id", conserved_functions),
 	FOREIGN KEY("FunctionalParity_id") REFERENCES "FunctionalParity" (id)
 );
-CREATE INDEX "ix_FunctionalParity_conserved_functions_FunctionalParity_id" ON "FunctionalParity_conserved_functions" ("FunctionalParity_id");
 CREATE INDEX "ix_FunctionalParity_conserved_functions_conserved_functions" ON "FunctionalParity_conserved_functions" (conserved_functions);
+CREATE INDEX "ix_FunctionalParity_conserved_functions_FunctionalParity_id" ON "FunctionalParity_conserved_functions" ("FunctionalParity_id");
 
 CREATE TABLE "FunctionalParity_impaired_functions" (
 	"FunctionalParity_id" TEXT,
@@ -1693,8 +1693,8 @@ CREATE TABLE "ModelSystem_models" (
 	FOREIGN KEY("ModelSystem_id") REFERENCES "ModelSystem" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_ModelSystem_models_ModelSystem_id" ON "ModelSystem_models" ("ModelSystem_id");
 CREATE INDEX "ix_ModelSystem_models_models_id" ON "ModelSystem_models" (models_id);
+CREATE INDEX "ix_ModelSystem_models_ModelSystem_id" ON "ModelSystem_models" ("ModelSystem_id");
 
 CREATE TABLE "AnimalModel_models" (
 	"AnimalModel_id" TEXT,
@@ -1703,8 +1703,8 @@ CREATE TABLE "AnimalModel_models" (
 	FOREIGN KEY("AnimalModel_id") REFERENCES "AnimalModel" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_AnimalModel_models_AnimalModel_id" ON "AnimalModel_models" ("AnimalModel_id");
 CREATE INDEX "ix_AnimalModel_models_models_id" ON "AnimalModel_models" (models_id);
+CREATE INDEX "ix_AnimalModel_models_AnimalModel_id" ON "AnimalModel_models" ("AnimalModel_id");
 
 CREATE TABLE "NAMModel_models" (
 	"NAMModel_id" TEXT,
@@ -1723,8 +1723,8 @@ CREATE TABLE "CellularSystem_models" (
 	FOREIGN KEY("CellularSystem_id") REFERENCES "CellularSystem" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_CellularSystem_models_CellularSystem_id" ON "CellularSystem_models" ("CellularSystem_id");
 CREATE INDEX "ix_CellularSystem_models_models_id" ON "CellularSystem_models" (models_id);
+CREATE INDEX "ix_CellularSystem_models_CellularSystem_id" ON "CellularSystem_models" ("CellularSystem_id");
 
 CREATE TABLE "TwoDCellCulture_models" (
 	"TwoDCellCulture_id" TEXT,
@@ -1743,8 +1743,8 @@ CREATE TABLE "ThreeDCellCulture_models" (
 	FOREIGN KEY("ThreeDCellCulture_id") REFERENCES "ThreeDCellCulture" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_ThreeDCellCulture_models_ThreeDCellCulture_id" ON "ThreeDCellCulture_models" ("ThreeDCellCulture_id");
 CREATE INDEX "ix_ThreeDCellCulture_models_models_id" ON "ThreeDCellCulture_models" (models_id);
+CREATE INDEX "ix_ThreeDCellCulture_models_ThreeDCellCulture_id" ON "ThreeDCellCulture_models" ("ThreeDCellCulture_id");
 
 CREATE TABLE "CoCulture_models" (
 	"CoCulture_id" TEXT,
@@ -1753,8 +1753,8 @@ CREATE TABLE "CoCulture_models" (
 	FOREIGN KEY("CoCulture_id") REFERENCES "CoCulture" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_CoCulture_models_models_id" ON "CoCulture_models" (models_id);
 CREATE INDEX "ix_CoCulture_models_CoCulture_id" ON "CoCulture_models" ("CoCulture_id");
+CREATE INDEX "ix_CoCulture_models_models_id" ON "CoCulture_models" (models_id);
 
 CREATE TABLE "Organoid_models" (
 	"Organoid_id" TEXT,
@@ -1783,8 +1783,8 @@ CREATE TABLE "MicrophysiologicalSystem_models" (
 	FOREIGN KEY("MicrophysiologicalSystem_id") REFERENCES "MicrophysiologicalSystem" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_MicrophysiologicalSystem_models_MicrophysiologicalSystem_id" ON "MicrophysiologicalSystem_models" ("MicrophysiologicalSystem_id");
 CREATE INDEX "ix_MicrophysiologicalSystem_models_models_id" ON "MicrophysiologicalSystem_models" (models_id);
+CREATE INDEX "ix_MicrophysiologicalSystem_models_MicrophysiologicalSystem_id" ON "MicrophysiologicalSystem_models" ("MicrophysiologicalSystem_id");
 
 CREATE TABLE "OrganOnChip_models" (
 	"OrganOnChip_id" TEXT,
@@ -1803,8 +1803,8 @@ CREATE TABLE "TissueOnChip_models" (
 	FOREIGN KEY("TissueOnChip_id") REFERENCES "TissueOnChip" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_TissueOnChip_models_TissueOnChip_id" ON "TissueOnChip_models" ("TissueOnChip_id");
 CREATE INDEX "ix_TissueOnChip_models_models_id" ON "TissueOnChip_models" (models_id);
+CREATE INDEX "ix_TissueOnChip_models_TissueOnChip_id" ON "TissueOnChip_models" ("TissueOnChip_id");
 
 CREATE TABLE "InSilicoModel_models" (
 	"InSilicoModel_id" TEXT,
@@ -1823,8 +1823,8 @@ CREATE TABLE "QSARModel_models" (
 	FOREIGN KEY("QSARModel_id") REFERENCES "QSARModel" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_QSARModel_models_QSARModel_id" ON "QSARModel_models" ("QSARModel_id");
 CREATE INDEX "ix_QSARModel_models_models_id" ON "QSARModel_models" (models_id);
+CREATE INDEX "ix_QSARModel_models_QSARModel_id" ON "QSARModel_models" ("QSARModel_id");
 
 CREATE TABLE "PBPKModel_models" (
 	"PBPKModel_id" TEXT,
@@ -1833,8 +1833,8 @@ CREATE TABLE "PBPKModel_models" (
 	FOREIGN KEY("PBPKModel_id") REFERENCES "PBPKModel" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_PBPKModel_models_PBPKModel_id" ON "PBPKModel_models" ("PBPKModel_id");
 CREATE INDEX "ix_PBPKModel_models_models_id" ON "PBPKModel_models" (models_id);
+CREATE INDEX "ix_PBPKModel_models_PBPKModel_id" ON "PBPKModel_models" ("PBPKModel_id");
 
 CREATE TABLE "DigitalTwin_models" (
 	"DigitalTwin_id" TEXT,
@@ -1853,8 +1853,8 @@ CREATE TABLE "MLModel_models" (
 	FOREIGN KEY("MLModel_id") REFERENCES "MLModel" (id),
 	FOREIGN KEY(models_id) REFERENCES "ModelsRelationship" (id)
 );
-CREATE INDEX "ix_MLModel_models_models_id" ON "MLModel_models" (models_id);
 CREATE INDEX "ix_MLModel_models_MLModel_id" ON "MLModel_models" ("MLModel_id");
+CREATE INDEX "ix_MLModel_models_models_id" ON "MLModel_models" (models_id);
 
 CREATE TABLE "MetabolicModel_models" (
 	"MetabolicModel_id" TEXT,

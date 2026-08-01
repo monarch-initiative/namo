@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-31T20:49:23
+# Generation date: 2026-07-31T21:08:50
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -2485,22 +2485,42 @@ class OrganEnum(EnumDefinitionImpl):
         name="OrganEnum",
     )
 
+class AnatomicalStructureEnum(EnumDefinitionImpl):
+    """
+    Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's
+    `gross anatomical structure` maps to.
+    """
+    _defn = EnumDefinition(
+        name="AnatomicalStructureEnum",
+        description="""Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.""",
+    )
+
 class CellTypeEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="CellTypeEnum",
     )
 
-class StrainEnum(EnumDefinitionImpl):
-
+class LifeStageEnum(EnumDefinitionImpl):
+    """
+    Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific
+    developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only
+    ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in
+    its id_prefixes.
+    """
     _defn = EnumDefinition(
-        name="StrainEnum",
+        name="LifeStageEnum",
+        description="""Developmental and life-cycle stages. Composed rather than rooted at UBERON:0000105 alone: the species-specific developmental ontologies are not asserted as subclasses of it (MmusDv:0000110 has MmusDv:0000000 as its only ontology ancestor), so a UBERON-only root would reject the species-specific terms Biolink's `life stage` lists in its id_prefixes.""",
     )
 
-class AgeEnum(EnumDefinitionImpl):
-
+class PhenotypeEnum(EnumDefinitionImpl):
+    """
+    Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's
+    `phenotypic feature`.
+    """
     _defn = EnumDefinition(
-        name="AgeEnum",
+        name="PhenotypeEnum",
+        description="""Phenotypic abnormalities across the human and mammalian phenotype ontologies, matching the span of Biolink's `phenotypic feature`.""",
     )
 
 class RelativeTimeEnum(EnumDefinitionImpl):
