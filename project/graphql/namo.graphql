@@ -1,4 +1,11 @@
 # metamodel_version: 1.11.0
+enum AnatomicalStructureEnum
+  {
+    source_nodes
+    is_direct
+    relationship_types
+  }
+
 enum BiologicalOrganizationLevelEnum
   {
     SUBCELLULAR
@@ -13,6 +20,13 @@ enum CaseOrControlEnum
   {
     CASE
     CONTROL
+  }
+
+enum CellTypeEnum
+  {
+    source_nodes
+    is_direct
+    relationship_types
   }
 
 enum ChannelConfigurationEnum
@@ -128,6 +142,13 @@ enum InterpretabilityLevelEnum
     CAUSAL
   }
 
+enum InvestigativeProtocolEnum
+  {
+    source_nodes
+    is_direct
+    relationship_types
+  }
+
 enum MechanicalStimulationTypeEnum
   {
     CYCLIC_STRETCH
@@ -175,6 +196,13 @@ enum MLAlgorithmEnum
     REINFORCEMENT_LEARNING
   }
 
+enum OrganEnum
+  {
+    source_nodes
+    is_direct
+    relationship_types
+  }
+
 enum PBPKCompartmentEnum
   {
     LIVER
@@ -219,6 +247,27 @@ enum RelativeTimeEnum
     BEFORE
     AFTER
     AT_SAME_TIME_AS
+  }
+
+enum SampleProcessingEnum
+  {
+    source_nodes
+    is_direct
+    relationship_types
+  }
+
+enum SpeciesEnum
+  {
+    source_nodes
+    is_direct
+    relationship_types
+  }
+
+enum StudyDesignEnum
+  {
+    source_nodes
+    is_direct
+    relationship_types
   }
 
 enum SurfaceCoatingEnum

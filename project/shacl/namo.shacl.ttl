@@ -17,39 +17,46 @@
 schema1:Thing a sh:NodeShape ;
     rdfs:comment "A generic grouping for any identifiable entity" ;
     sh:closed true ;
-    sh:ignoredProperties ( namo:conserved_functions namo:tissue_architecture namo:shear_stress namo:phenotype_similarity_score namo:quality_control_metrics namo:plan_comparators namo:perturbations namo:compartments namo:update_frequency namo:represented_cell_types namo:biological_organization_level namo:training_data_size namo:sensor_integration namo:compartment_type namo:volume namo:personalization_parameters namo:molecular_descriptors namo:life_stage namo:cyclic_stretch_percent namo:anatomical_structure_modeled namo:active_pathways namo:species_modeled namo:coverage_percentage namo:single_cell_method namo:dose_response_similarity namo:functional_similarity_score namo:fold_change namo:passage_range namo:ensembl_id namo:partition_coefficient namo:mechanical_forces namo:membrane_pore_size namo:environment namo:duration_minutes namo:architecture_type namo:coefficient_of_variation namo:channel_dimensions namo:membrane_thickness namo:inter_laboratory_consistency namo:spatial_context namo:phenotype_ontology namo:differentially_expressed_genes namo:reference_value namo:surface_treatment namo:culture_system namo:age_value namo:cell_type_proportions namo:methodology namo:data_source namo:p_value namo:pathway_id namo:enrichment_statistics namo:species namo:microfluidic_design namo:special_features namo:channel_configuration namo:three_d_architecture namo:computational_method namo:strain namo:adjusted_p_value namo:coculture_configuration namo:elimination_pathways namo:cell_source namo:stimulation_type namo:shared_phenotypes namo:real_time_data_sources namo:missing_cell_types namo:pathway_database rdf:type namo:endpoints namo:references namo:software_platform namo:confluence_level namo:interaction_mechanisms namo:complexity_level namo:assay_type namo:units namo:activity_score namo:models namo:divergent_pathways namo:gene_symbol namo:training_dataset_size namo:entrez_id namo:substrate_type namo:biological_context namo:culture_conditions namo:prediction_scope namo:organ_modeled namo:functional_assays namo:model_interpretability namo:size_range namo:matrix_composition namo:biological_specific_phenotypes namo:reproducibility_score namo:conserved_genes namo:flow_control_method namo:statistical_significance namo:impaired_functions namo:model_performance namo:authentication_method namo:membrane_type namo:batch_to_batch_variation namo:feature_types namo:pressure_pascal namo:pathway_analysis_method namo:sensors_integrated namo:drug_properties namo:barrier_functions namo:cell_ratios namo:pathway_overlap_score namo:perfusion_system namo:twin_scope namo:interface_type namo:differentiation_method namo:ml_algorithm namo:correlation_coefficient namo:number_of_channels namo:cell_types namo:material namo:activity_endpoint namo:model_specific_phenotypes namo:enrichment_score namo:context_of_use namo:passage_protocol namo:frequency_hz namo:replicate_count namo:cross_validation namo:assay_result namo:validation_datasets namo:blood_flow namo:similarity_score ) ;
+    sh:ignoredProperties ( namo:membrane_thickness namo:methodology namo:divergent_pathways namo:update_frequency namo:impaired_functions namo:sensor_integration namo:duration_minutes namo:interaction_mechanisms namo:compartments namo:drug_properties namo:pathway_analysis_method namo:p_value namo:similarity_score namo:training_dataset_size namo:dose_response_similarity namo:cell_source rdf:type namo:activity_endpoint namo:fold_change namo:batch_to_batch_variation namo:architecture_type namo:plan_comparators namo:tissue_architecture namo:age_value namo:complexity_level namo:real_time_data_sources namo:membrane_type namo:confluence_level namo:personalization_parameters namo:sensors_integrated namo:anatomical_structure_modeled namo:endpoints namo:pathway_overlap_score namo:conserved_functions namo:substrate_type namo:coculture_configuration namo:membrane_pore_size namo:spatial_context namo:channel_configuration namo:passage_range namo:shear_stress namo:species_modeled namo:cell_type_proportions namo:functional_assays namo:biological_organization_level namo:culture_conditions namo:flow_control_method namo:size_range namo:microfluidic_design namo:phenotype_ontology namo:frequency_hz namo:perfusion_system namo:compartment_type namo:model_specific_phenotypes namo:cross_validation namo:pressure_pascal namo:surface_treatment namo:correlation_coefficient namo:units namo:enrichment_score namo:culture_system namo:differentiation_method namo:model_interpretability namo:references namo:data_source namo:validation_datasets namo:life_stage namo:reference_value namo:entrez_id namo:cell_types namo:twin_scope namo:special_features namo:missing_cell_types namo:authentication_method namo:biological_specific_phenotypes namo:pathway_id namo:functional_similarity_score namo:material namo:volume namo:differentially_expressed_genes namo:assay_result namo:adjusted_p_value namo:barrier_functions namo:organ_modeled namo:replicate_count namo:pathway_database namo:channel_dimensions namo:perturbations namo:cell_ratios namo:species namo:passage_protocol namo:three_d_architecture namo:quality_control_metrics namo:statistical_significance namo:activity_score namo:strain namo:model_performance namo:context_of_use namo:single_cell_method namo:enrichment_statistics namo:molecular_descriptors namo:elimination_pathways namo:shared_phenotypes namo:interface_type namo:training_data_size namo:ensembl_id namo:prediction_scope namo:feature_types namo:mechanical_forces namo:stimulation_type namo:partition_coefficient namo:software_platform namo:matrix_composition namo:ml_algorithm namo:biological_context namo:active_pathways namo:represented_cell_types namo:reproducibility_score namo:environment namo:gene_symbol namo:blood_flow namo:coverage_percentage namo:inter_laboratory_consistency namo:models namo:cyclic_stretch_percent namo:phenotype_similarity_score namo:conserved_genes namo:assay_type namo:coefficient_of_variation namo:number_of_channels namo:computational_method ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path schema1:name ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path namo:type ] ;
+            sh:path namo:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path schema1:description ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path schema1:identifier ] ;
     sh:targetClass schema1:Thing .
 
 namo:AnimalModel a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class biolink:OrganismTaxon ;
+            sh:description "The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path namo:type ],
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path namo:strain ],
+        [ sh:class biolink:EnvironmentalExposure ;
+            sh:description "The environmental conditions under which the animal model is maintained." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path namo:environment ],
         [ sh:class biolink:OrganismTaxon ;
             sh:description "The species of the animal used in the model system." ;
             sh:maxCount 1 ;
@@ -62,11 +69,10 @@ namo:AnimalModel a sh:NodeShape ;
             sh:order 5 ;
             sh:path namo:models ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path schema1:description ],
+            sh:order 9 ;
+            sh:path namo:type ],
         [ sh:class biolink:LifeStage ;
             sh:description "The developmental or life-cycle stage of the animal used in the model system." ;
             sh:maxCount 1 ;
@@ -74,17 +80,11 @@ namo:AnimalModel a sh:NodeShape ;
             sh:order 2 ;
             sh:path namo:life_stage ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path schema1:name ],
-        [ sh:class biolink:EnvironmentalExposure ;
-            sh:description "The environmental conditions under which the animal model is maintained." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path namo:environment ],
+            sh:order 8 ;
+            sh:path schema1:description ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -96,19 +96,24 @@ namo:AnimalModel a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path namo:age_value ],
-        [ sh:class biolink:OrganismTaxon ;
-            sh:description "The specific strain of the animal used in the model system. Deliberately unconstrained beyond the class: LinkML dynamic enums cannot filter by taxonomic rank, so any NCBITaxon-rooted enum would be indistinguishable from SpeciesEnum." ;
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path namo:strain ] ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path schema1:name ] ;
     sh:targetClass namo:AnimalModel .
 
 namo:BiolinkEntity a sh:NodeShape ;
     rdfs:comment "Abstract parent for NAMO classes that stand in for a class in the Biolink Model." ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -119,65 +124,35 @@ namo:BiolinkEntity a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path schema1:identifier ] ;
+            sh:path schema1:description ] ;
     sh:targetClass namo:BiolinkEntity .
 
 namo:CellLineModel a sh:NodeShape ;
     rdfs:comment "A model system based on immortalized cell lines that can be maintained in culture indefinitely. Examples: HepG2, A549, Caco-2, etc." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class namo:ModelsRelationship ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Standard passaging protocol and frequency" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:passage_protocol ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path schema1:name ],
+        [ sh:class namo:ModelsRelationship ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 12 ;
             sh:path namo:models ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
-            sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path namo:biological_organization_level ],
-        [ sh:class biolink:Cell ;
-            sh:description "Cell types present in the cellular system" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path namo:cell_types ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path namo:references ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path namo:complexity_level ],
-        [ sh:datatype xsd:float ;
-            sh:description "Typical confluence level maintained (0.0-1.0)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:confluence_level ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 15 ;
             sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "Recommended passage number range for experimental use" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:passage_range ],
         [ sh:datatype xsd:string ;
             sh:description "Type of culture substrate (e.g., plastic, glass, coated surfaces)" ;
             sh:maxCount 1 ;
@@ -185,76 +160,82 @@ namo:CellLineModel a sh:NodeShape ;
             sh:order 2 ;
             sh:path namo:substrate_type ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "Recommended passage number range for experimental use" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path schema1:name ],
+            sh:order 0 ;
+            sh:path namo:passage_range ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path namo:references ],
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path namo:biological_organization_level ],
         [ sh:datatype xsd:string ;
             sh:description "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path namo:cell_source ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path namo:spatial_context ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 16 ;
             sh:path namo:type ],
         [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path namo:spatial_context ],
-        [ sh:datatype xsd:string ;
             sh:description "Method used for cell line authentication (e.g., STR profiling, mycoplasma testing)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path namo:authentication_method ],
-        [ sh:datatype xsd:string ;
-            sh:description "Standard passaging protocol and frequency" ;
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:passage_protocol ],
+            sh:order 10 ;
+            sh:path namo:complexity_level ],
+        [ sh:class biolink:Cell ;
+            sh:description "Cell types present in the cellular system" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path namo:cell_types ],
         [ sh:datatype xsd:string ;
             sh:description "Standard culture conditions and media used" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
-            sh:path namo:culture_conditions ] ;
+            sh:path namo:culture_conditions ],
+        [ sh:datatype xsd:float ;
+            sh:description "Typical confluence level maintained (0.0-1.0)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path namo:confluence_level ] ;
     sh:targetClass namo:CellLineModel .
 
 namo:CellularSystem a sh:NodeShape ;
     rdfs:comment "Cell-based model systems that use living cells to model biological processes. Includes 2D cultures, 3D systems, and co-cultures. Conforms to MIACA (Minimal Information About a Cellular Assay) standards." ;
     sh:closed false ;
-    sh:ignoredProperties ( namo:authentication_method namo:matrix_composition namo:passage_protocol namo:three_d_architecture namo:confluence_level namo:interaction_mechanisms namo:culture_system rdf:type namo:substrate_type namo:passage_range namo:coculture_configuration namo:size_range namo:organ_modeled namo:cell_ratios namo:differentiation_method ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:ignoredProperties ( namo:differentiation_method namo:substrate_type namo:three_d_architecture namo:coculture_configuration namo:size_range namo:interaction_mechanisms namo:passage_range rdf:type namo:cell_ratios namo:authentication_method namo:confluence_level namo:matrix_composition namo:culture_system namo:passage_protocol namo:organ_modeled ) ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path namo:type ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path namo:biological_organization_level ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path namo:models ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path namo:references ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path namo:complexity_level ],
+            sh:order 8 ;
+            sh:path schema1:identifier ],
         [ sh:class biolink:Cell ;
             sh:description "Cell types present in the cellular system" ;
             sh:nodeKind sh:IRI ;
@@ -266,17 +247,6 @@ namo:CellularSystem a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path namo:culture_conditions ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path schema1:name ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "Description of spatial organization and context captured by the model" ;
             sh:maxCount 1 ;
@@ -294,46 +264,105 @@ namo:CellularSystem a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path namo:cell_source ] ;
+            sh:path namo:cell_source ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path namo:complexity_level ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path namo:type ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path namo:references ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path namo:models ],
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path namo:biological_organization_level ] ;
     sh:targetClass namo:CellularSystem .
 
 namo:CoCulture a sh:NodeShape ;
     rdfs:comment "Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path schema1:name ],
-        [ sh:description "The level of biological organization represented by the model" ;
+    sh:property [ sh:description "The level of biological organization represented by the model" ;
             sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
             sh:maxCount 1 ;
             sh:order 6 ;
             sh:path namo:biological_organization_level ],
-        [ sh:class biolink:Cell ;
-            sh:description "Cell types present in the cellular system" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path namo:cell_types ],
         [ sh:datatype xsd:string ;
             sh:description "Description of spatial organization and context captured by the model" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
             sh:path namo:spatial_context ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path namo:models ],
+        [ sh:datatype xsd:string ;
+            sh:description "Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:interaction_mechanisms ],
+        [ sh:class namo:CellRatio ;
+            sh:description "Ratios of different cell types in the co-culture" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path namo:cell_ratios ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path namo:type ],
+        [ sh:description "Configuration of co-culture (direct contact, transwell, conditioned media)" ;
+            sh:in ( "DIRECT_CONTACT" "TRANSWELL" "CONDITIONED_MEDIA" "MICROPATTERN" "GRADIENT" ) ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path namo:coculture_configuration ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Standard culture conditions and media used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path namo:culture_conditions ],
+        [ sh:class biolink:Cell ;
+            sh:description "Cell types present in the cellular system" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path namo:cell_types ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path namo:references ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path namo:complexity_level ],
         [ sh:datatype xsd:string ;
             sh:description "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)" ;
             sh:maxCount 1 ;
@@ -341,45 +370,16 @@ namo:CoCulture a sh:NodeShape ;
             sh:order 4 ;
             sh:path namo:cell_source ],
         [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path namo:type ],
-        [ sh:datatype xsd:string ;
-            sh:description "Standard culture conditions and media used" ;
+            sh:order 12 ;
+            sh:path schema1:name ],
+        [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:culture_conditions ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path namo:complexity_level ],
-        [ sh:description "Configuration of co-culture (direct contact, transwell, conditioned media)" ;
-            sh:in ( "DIRECT_CONTACT" "TRANSWELL" "CONDITIONED_MEDIA" "MICROPATTERN" "GRADIENT" ) ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path namo:coculture_configuration ],
-        [ sh:class namo:CellRatio ;
-            sh:description "Ratios of different cell types in the co-culture" ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path namo:cell_ratios ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 10 ;
-            sh:path namo:models ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
             sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path namo:references ],
-        [ sh:datatype xsd:string ;
-            sh:description "Mechanisms of cell-cell interaction (paracrine, direct contact, mechanical)" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:interaction_mechanisms ] ;
+            sh:order 11 ;
+            sh:path schema1:identifier ] ;
     sh:targetClass namo:CoCulture .
 
 namo:Dataset a sh:NodeShape ;
@@ -399,11 +399,50 @@ namo:DigitalTwin a sh:NodeShape ;
     rdfs:comment "Computational replicas of biological systems for real-time prediction and personalized modeling." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Sources of real-time data for model updating" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:real_time_data_sources ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path namo:complexity_level ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path namo:type ],
+            sh:order 15 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path schema1:name ],
+        [ sh:description "Scope of digital twin (organ, patient, population)" ;
+            sh:in ( "ORGAN" "PATIENT" MAMO:0000028 "PATHWAY" "DISEASE" ) ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path namo:twin_scope ],
+        [ sh:datatype xsd:string ;
+            sh:description "Scope and limitations of model predictions" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path namo:prediction_scope ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path namo:spatial_context ],
         [ sh:datatype xsd:string ;
             sh:description "Frequency of model updates based on new data" ;
             sh:maxCount 1 ;
@@ -411,183 +450,155 @@ namo:DigitalTwin a sh:NodeShape ;
             sh:order 3 ;
             sh:path namo:update_frequency ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path schema1:description ],
-        [ sh:description "Scope of digital twin (organ, patient, population)" ;
-            sh:in ( "ORGAN" "PATIENT" MAMO:0000028 "PATHWAY" "DISEASE" ) ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path namo:twin_scope ],
-        [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path namo:spatial_context ],
-        [ sh:datatype xsd:string ;
             sh:description "Primary computational method or algorithm used" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path namo:computational_method ],
-        [ sh:datatype xsd:string ;
-            sh:description "Parameters used for personalization (genetic, phenotypic, etc.)" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:personalization_parameters ],
         [ sh:description "The level of biological organization represented by the model" ;
             sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
             sh:maxCount 1 ;
             sh:order 8 ;
             sh:path namo:biological_organization_level ],
         [ sh:datatype xsd:string ;
-            sh:description "Datasets used for model training and validation" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path namo:validation_datasets ],
-        [ sh:datatype xsd:string ;
-            sh:description "Scope and limitations of model predictions" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path namo:prediction_scope ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 12 ;
-            sh:path namo:models ],
-        [ sh:datatype xsd:string ;
-            sh:description "Sources of real-time data for model updating" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:real_time_data_sources ],
+            sh:order 16 ;
+            sh:path namo:type ],
         [ sh:datatype xsd:string ;
             sh:description "Software platform or programming language used" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path namo:software_platform ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 12 ;
+            sh:path namo:models ],
+        [ sh:datatype xsd:string ;
+            sh:description "Parameters used for personalization (genetic, phenotypic, etc.)" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:personalization_parameters ],
         [ sh:class namo:Reference ;
             sh:description "Literature references that describe, validate, or support this model" ;
             sh:nodeKind sh:IRI ;
             sh:order 11 ;
             sh:path namo:references ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
+            sh:description "Datasets used for model training and validation" ;
             sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path schema1:name ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path namo:complexity_level ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path schema1:identifier ] ;
+            sh:order 6 ;
+            sh:path namo:validation_datasets ] ;
     sh:targetClass namo:DigitalTwin .
 
 namo:InSilicoModel a sh:NodeShape ;
     rdfs:comment "Computational models that simulate biological processes without physical biological components." ;
     sh:closed false ;
-    sh:ignoredProperties ( namo:training_dataset_size namo:compartments namo:update_frequency namo:activity_endpoint namo:model_interpretability namo:feature_types namo:real_time_data_sources namo:cross_validation namo:species_modeled namo:training_data_size namo:personalization_parameters namo:twin_scope namo:drug_properties namo:molecular_descriptors namo:ml_algorithm namo:elimination_pathways namo:model_performance rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Scope and limitations of model predictions" ;
+    sh:ignoredProperties ( namo:real_time_data_sources namo:twin_scope namo:molecular_descriptors namo:model_interpretability namo:update_frequency namo:elimination_pathways rdf:type namo:compartments namo:species_modeled namo:feature_types namo:activity_endpoint namo:drug_properties namo:training_data_size namo:personalization_parameters namo:model_performance namo:ml_algorithm namo:cross_validation namo:training_dataset_size ) ;
+    sh:property [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:prediction_scope ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Software platform or programming language used" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:software_platform ],
+            sh:order 6 ;
+            sh:path namo:complexity_level ],
         [ sh:datatype xsd:string ;
             sh:description "Description of spatial organization and context captured by the model" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path namo:spatial_context ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path namo:references ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path namo:complexity_level ],
         [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path namo:type ],
-        [ sh:datatype xsd:string ;
-            sh:description "Primary computational method or algorithm used" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:computational_method ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path namo:biological_organization_level ],
+            sh:order 11 ;
+            sh:path schema1:description ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 8 ;
+            sh:path namo:models ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 10 ;
             sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path namo:type ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path namo:references ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
+            sh:description "Software platform or programming language used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:software_platform ],
+        [ sh:datatype xsd:string ;
+            sh:description "Scope and limitations of model predictions" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path namo:prediction_scope ],
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path namo:biological_organization_level ],
+        [ sh:datatype xsd:string ;
+            sh:description "Primary computational method or algorithm used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:computational_method ],
+        [ sh:datatype xsd:string ;
             sh:description "Datasets used for model training and validation" ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path namo:validation_datasets ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 8 ;
-            sh:path namo:models ] ;
+            sh:path namo:validation_datasets ] ;
     sh:targetClass namo:InSilicoModel .
 
 namo:MLModel a sh:NodeShape ;
     rdfs:comment "Machine Learning and AI-based models for prediction, mechanism inference, and hypothesis generation." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A unique identifier for a thing" ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path namo:type ],
+        [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 14 ;
             sh:path schema1:identifier ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+        [ sh:description "Level of model interpretability (black box, interpretable, explainable)" ;
+            sh:in ( "BLACK_BOX" "INTERPRETABLE" "EXPLAINABLE" "CAUSAL" ) ;
             sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path namo:biological_organization_level ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:order 3 ;
+            sh:path namo:model_interpretability ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Size of training dataset" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path schema1:name ],
+            sh:order 2 ;
+            sh:path namo:training_data_size ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path namo:spatial_context ],
         [ sh:datatype xsd:string ;
             sh:description "Datasets used for model training and validation" ;
             sh:nodeKind sh:Literal ;
@@ -599,63 +610,21 @@ namo:MLModel a sh:NodeShape ;
             sh:order 0 ;
             sh:path namo:ml_algorithm ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path schema1:description ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 11 ;
-            sh:path namo:complexity_level ],
-        [ sh:description "Level of model interpretability (black box, interpretable, explainable)" ;
-            sh:in ( "BLACK_BOX" "INTERPRETABLE" "EXPLAINABLE" "CAUSAL" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path namo:model_interpretability ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 17 ;
-            sh:path namo:type ],
-        [ sh:datatype xsd:string ;
-            sh:description "Software platform or programming language used" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path namo:software_platform ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path namo:references ],
-        [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path namo:spatial_context ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 13 ;
-            sh:path namo:models ],
-        [ sh:datatype xsd:string ;
             sh:description "Scope and limitations of model predictions" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path namo:prediction_scope ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path schema1:name ],
         [ sh:description "Types of features used (molecular, phenotypic, imaging, etc.)" ;
             sh:in ( "MOLECULAR" "PHENOTYPIC" "GENOMIC" EDAM:3308 EDAM:0121 EDAM:3172 EDAM:3382 "CLINICAL" "TEMPORAL" ) ;
             sh:order 1 ;
             sh:path namo:feature_types ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Size of training dataset" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:training_data_size ],
         [ sh:class namo:CrossValidation ;
             sh:description "Cross-validation strategy and results" ;
             sh:maxCount 1 ;
@@ -663,36 +632,68 @@ namo:MLModel a sh:NodeShape ;
             sh:order 4 ;
             sh:path namo:cross_validation ],
         [ sh:datatype xsd:string ;
+            sh:description "Software platform or programming language used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path namo:software_platform ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path namo:references ],
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path namo:biological_organization_level ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path namo:complexity_level ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
             sh:description "Primary computational method or algorithm used" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path namo:computational_method ] ;
+            sh:path namo:computational_method ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 13 ;
+            sh:path namo:models ] ;
     sh:targetClass namo:MLModel .
 
 namo:MetabolicModel a sh:NodeShape ;
     rdfs:comment "A model that simulates the metabolic processes of an organism or system. Examples: Virtual Physiological Human, ..." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class namo:ModelsRelationship ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path namo:spatial_context ],
+        [ sh:class namo:ModelsRelationship ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 8 ;
             sh:path namo:models ],
-        [ sh:datatype xsd:string ;
-            sh:description "Datasets used for model training and validation" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:validation_datasets ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path namo:complexity_level ],
         [ sh:description "The level of biological organization represented by the model" ;
             sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path namo:biological_organization_level ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path namo:complexity_level ],
         [ sh:datatype xsd:string ;
             sh:description "Software platform or programming language used" ;
             sh:maxCount 1 ;
@@ -700,61 +701,81 @@ namo:MetabolicModel a sh:NodeShape ;
             sh:order 1 ;
             sh:path namo:software_platform ],
         [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:spatial_context ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path schema1:identifier ],
+            sh:order 11 ;
+            sh:path schema1:description ],
         [ sh:datatype xsd:string ;
             sh:description "Scope and limitations of model predictions" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path namo:prediction_scope ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path schema1:name ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path namo:references ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 12 ;
             sh:path namo:type ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path schema1:description ],
         [ sh:datatype xsd:string ;
             sh:description "Primary computational method or algorithm used" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path namo:computational_method ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path namo:references ] ;
+            sh:order 9 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Datasets used for model training and validation" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:validation_datasets ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path schema1:name ] ;
     sh:targetClass namo:MetabolicModel .
 
 namo:MicrophysiologicalSystem a sh:NodeShape ;
     rdfs:comment "Organ-/tissue-on-chip systems that integrate microfluidics, biomaterials, and living cells to replicate tissue-level physiology and dynamics. Conforms to ISO 22916:2022 interoperability requirements for dimensions, connections, and device classification." ;
     sh:closed false ;
-    sh:ignoredProperties ( namo:cell_types namo:anatomical_structure_modeled namo:tissue_architecture namo:barrier_functions namo:organ_modeled namo:cell_source rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:ignoredProperties ( namo:cell_types namo:cell_source rdf:type namo:tissue_architecture namo:anatomical_structure_modeled namo:barrier_functions namo:organ_modeled ) ;
+    sh:property [ sh:class namo:MicrofluidicDesign ;
+            sh:description "Detailed design specifications of the microfluidic device" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path namo:microfluidic_design ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of perfusion and flow systems" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:perfusion_system ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path namo:complexity_level ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 12 ;
             sh:path namo:type ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 8 ;
+            sh:path namo:models ],
         [ sh:class namo:MechanicalStimulation ;
             sh:description "Mechanical forces applied to the model system" ;
             sh:maxCount 1 ;
@@ -762,54 +783,11 @@ namo:MicrophysiologicalSystem a sh:NodeShape ;
             sh:order 1 ;
             sh:path namo:mechanical_forces ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path schema1:name ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 8 ;
-            sh:path namo:models ],
-        [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:spatial_context ],
-        [ sh:datatype xsd:string ;
-            sh:description "Description of perfusion and flow systems" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:perfusion_system ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
             sh:path schema1:description ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path namo:complexity_level ],
-        [ sh:class namo:MicrofluidicDesign ;
-            sh:description "Detailed design specifications of the microfluidic device" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path namo:microfluidic_design ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path namo:references ],
         [ sh:description "The level of biological organization represented by the model" ;
             sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
             sh:maxCount 1 ;
@@ -818,43 +796,71 @@ namo:MicrophysiologicalSystem a sh:NodeShape ;
         [ sh:description "Sensors integrated for real-time monitoring" ;
             sh:in ( "TEER" "OXYGEN" "PH" "TEMPERATURE" "PRESSURE" "FLOW_RATE" "ELECTROCHEMICAL" "OPTICAL" "IMPEDANCE" ) ;
             sh:order 3 ;
-            sh:path namo:sensor_integration ] ;
+            sh:path namo:sensor_integration ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path namo:spatial_context ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path namo:references ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path schema1:name ] ;
     sh:targetClass namo:MicrophysiologicalSystem .
 
 namo:NAMModel a sh:NodeShape ;
     rdfs:comment "A New Approach Methodology (NAM) model, which is a type of model system that does not involve the use of animals." ;
     sh:closed false ;
-    sh:ignoredProperties ( namo:matrix_composition namo:software_platform namo:confluence_level namo:interaction_mechanisms namo:tissue_architecture namo:model_performance namo:authentication_method namo:compartments namo:update_frequency namo:feature_types namo:training_data_size namo:culture_system namo:drug_properties namo:barrier_functions namo:cell_ratios namo:sensor_integration namo:perfusion_system namo:training_dataset_size namo:microfluidic_design namo:three_d_architecture namo:computational_method namo:personalization_parameters namo:twin_scope rdf:type namo:substrate_type namo:coculture_configuration namo:molecular_descriptors namo:elimination_pathways namo:ml_algorithm namo:cell_source namo:cell_types namo:activity_endpoint namo:passage_protocol namo:anatomical_structure_modeled namo:real_time_data_sources namo:cross_validation namo:species_modeled namo:culture_conditions namo:prediction_scope namo:validation_datasets namo:passage_range namo:size_range namo:organ_modeled namo:mechanical_forces namo:model_interpretability namo:differentiation_method ) ;
-    sh:property [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+    sh:ignoredProperties ( namo:cell_types namo:substrate_type namo:coculture_configuration namo:twin_scope namo:molecular_descriptors namo:elimination_pathways namo:update_frequency namo:passage_range namo:species_modeled namo:sensor_integration namo:authentication_method namo:training_data_size namo:culture_conditions namo:prediction_scope namo:size_range namo:microfluidic_design namo:interaction_mechanisms namo:compartments namo:feature_types namo:mechanical_forces namo:drug_properties namo:perfusion_system namo:software_platform namo:matrix_composition namo:ml_algorithm namo:barrier_functions namo:cross_validation namo:organ_modeled namo:training_dataset_size namo:cell_source rdf:type namo:activity_endpoint namo:cell_ratios namo:culture_system namo:passage_protocol namo:tissue_architecture namo:differentiation_method namo:three_d_architecture namo:real_time_data_sources namo:model_interpretability namo:computational_method namo:confluence_level namo:validation_datasets namo:model_performance namo:anatomical_structure_modeled namo:personalization_parameters ) ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path namo:complexity_level ],
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path namo:type ],
-        [ sh:description "A unique identifier for a thing" ;
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path schema1:identifier ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path namo:models ],
+            sh:order 0 ;
+            sh:path namo:biological_organization_level ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path namo:complexity_level ],
         [ sh:datatype xsd:string ;
             sh:description "Description of spatial organization and context captured by the model" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path namo:spatial_context ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path namo:biological_organization_level ],
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:name ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path namo:models ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
@@ -865,128 +871,134 @@ namo:NAMModel a sh:NodeShape ;
             sh:description "Literature references that describe, validate, or support this model" ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path namo:references ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:name ] ;
+            sh:path namo:references ] ;
     sh:targetClass namo:NAMModel .
 
 namo:OrganOnChip a sh:NodeShape ;
     rdfs:comment "A model system that simulates the physiological functions of an organ using a microfluidic device. Examples: Airway-on-chip, ... Aligned with ISO 10991:2023 microfluidics terminology." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 11 ;
-            sh:path namo:models ],
-        [ sh:description "A unique identifier for a thing" ;
+    sh:property [ sh:class namo:MechanicalStimulation ;
+            sh:description "Mechanical forces applied to the model system" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path schema1:identifier ],
-        [ sh:class biolink:GrossAnatomicalStructure ;
-            sh:description "The organ or anatomical structure being modeled (e.g., lung, airway, alveolus)" ;
+            sh:order 4 ;
+            sh:path namo:mechanical_forces ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path namo:organ_modeled ],
+            sh:order 9 ;
+            sh:path namo:complexity_level ],
         [ sh:datatype xsd:string ;
             sh:description "Description of perfusion and flow systems" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path namo:perfusion_system ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path namo:references ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path namo:biological_organization_level ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "Source of cells (e.g., primary human cells, iPSC-derived, cell line, patient-derived)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:cell_source ],
-        [ sh:description "Sensors integrated for real-time monitoring" ;
-            sh:in ( "TEER" "OXYGEN" "PH" "TEMPERATURE" "PRESSURE" "FLOW_RATE" "ELECTROCHEMICAL" "OPTICAL" "IMPEDANCE" ) ;
-            sh:order 6 ;
-            sh:path namo:sensor_integration ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path namo:complexity_level ],
-        [ sh:class biolink:Cell ;
-            sh:description "Cell types present in the organ-on-chip model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path namo:cell_types ],
-        [ sh:class namo:MechanicalStimulation ;
-            sh:description "Mechanical forces applied to the model system" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path namo:mechanical_forces ],
-        [ sh:class namo:MicrofluidicDesign ;
-            sh:description "Detailed design specifications of the microfluidic device" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path namo:microfluidic_design ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 11 ;
+            sh:path namo:models ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 14 ;
             sh:path schema1:description ],
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path namo:biological_organization_level ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path namo:type ],
+        [ sh:description "Sensors integrated for real-time monitoring" ;
+            sh:in ( "TEER" "OXYGEN" "PH" "TEMPERATURE" "PRESSURE" "FLOW_RATE" "ELECTROCHEMICAL" "OPTICAL" "IMPEDANCE" ) ;
+            sh:order 6 ;
+            sh:path namo:sensor_integration ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path schema1:name ],
+        [ sh:class biolink:Cell ;
+            sh:description "Cell types present in the organ-on-chip model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path namo:cell_types ],
         [ sh:datatype xsd:string ;
             sh:description "Description of spatial organization and context captured by the model" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path namo:spatial_context ],
+        [ sh:class namo:MicrofluidicDesign ;
+            sh:description "Detailed design specifications of the microfluidic device" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path namo:microfluidic_design ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
+            sh:description "Source of cells (e.g., primary human cells, iPSC-derived, cell line, patient-derived)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path namo:type ] ;
+            sh:order 2 ;
+            sh:path namo:cell_source ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path namo:references ],
+        [ sh:class biolink:GrossAnatomicalStructure ;
+            sh:description "The organ or anatomical structure being modeled (e.g., lung, airway, alveolus)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path namo:organ_modeled ] ;
     sh:targetClass namo:OrganOnChip .
 
 namo:Organoid a sh:NodeShape ;
     rdfs:comment "A 3D cell culture system that self-organizes to recapitulate key structural and functional aspects of an organ or tissue" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class biolink:Cell ;
-            sh:description "Cell types present in the cellular system" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path namo:cell_types ],
-        [ sh:datatype xsd:string ;
-            sh:description "Typical size range of 3D structures" ;
+    sh:property [ sh:class biolink:GrossAnatomicalStructure ;
+            sh:description "The organ or tissue being modeled" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:size_range ],
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path namo:organ_modeled ],
         [ sh:datatype xsd:string ;
             sh:description "Method used to differentiate cells into organoid (e.g., directed differentiation protocol)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path namo:differentiation_method ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path namo:complexity_level ],
+        [ sh:datatype xsd:string ;
+            sh:description "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path namo:cell_source ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path schema1:description ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
@@ -998,22 +1010,42 @@ namo:Organoid a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 9 ;
             sh:path namo:biological_organization_level ],
-        [ sh:class biolink:GrossAnatomicalStructure ;
-            sh:description "The organ or tissue being modeled" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path namo:organ_modeled ],
         [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:description "Culture system used (e.g., Matrigel dome, suspension culture, air-liquid interface)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path namo:spatial_context ],
+            sh:order 2 ;
+            sh:path namo:culture_system ],
         [ sh:class namo:ModelsRelationship ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 13 ;
             sh:path namo:models ],
+        [ sh:datatype xsd:string ;
+            sh:description "Typical size range of 3D structures" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path namo:size_range ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path schema1:identifier ],
+        [ sh:description "Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)" ;
+            sh:in ( "SPHEROID" "ORGANOID" "SCAFFOLD_BASED" "HYDROGEL_EMBEDDED" "BIOPRINTED" "HANGING_DROP" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path namo:three_d_architecture ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path namo:references ],
+        [ sh:class biolink:Cell ;
+            sh:description "Cell types present in the cellular system" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path namo:cell_types ],
         [ sh:datatype xsd:string ;
             sh:description "Standard culture conditions and media used" ;
             sh:maxCount 1 ;
@@ -1021,66 +1053,43 @@ namo:Organoid a sh:NodeShape ;
             sh:order 8 ;
             sh:path namo:culture_conditions ],
         [ sh:datatype xsd:string ;
-            sh:description "Composition of extracellular matrix or scaffold material" ;
+            sh:description "Description of spatial organization and context captured by the model" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:matrix_composition ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path namo:cell_source ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path namo:references ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path schema1:identifier ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 11 ;
-            sh:path namo:complexity_level ],
-        [ sh:datatype xsd:string ;
-            sh:description "Culture system used (e.g., Matrigel dome, suspension culture, air-liquid interface)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:culture_system ],
-        [ sh:description "Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)" ;
-            sh:in ( "SPHEROID" "ORGANOID" "SCAFFOLD_BASED" "HYDROGEL_EMBEDDED" "BIOPRINTED" "HANGING_DROP" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path namo:three_d_architecture ],
+            sh:order 10 ;
+            sh:path namo:spatial_context ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 17 ;
-            sh:path namo:type ] ;
+            sh:path namo:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "Composition of extracellular matrix or scaffold material" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:matrix_composition ] ;
     sh:targetClass namo:Organoid .
 
 namo:PBPKModel a sh:NodeShape ;
     rdfs:comment "Physiologically Based Pharmacokinetic models that simulate drug  absorption, distribution, metabolism, and excretion." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class namo:DrugProperties ;
-            sh:description "Physicochemical and pharmacological properties modeled" ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Datasets used for model training and validation" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path namo:validation_datasets ],
+        [ sh:class namo:ModelsRelationship ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 2 ;
-            sh:path namo:drug_properties ],
+            sh:order 12 ;
+            sh:path namo:models ],
         [ sh:description "The level of biological organization represented by the model" ;
             sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
             sh:maxCount 1 ;
@@ -1091,22 +1100,29 @@ namo:PBPKModel a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 13 ;
             sh:path schema1:identifier ],
-        [ sh:class biolink:OrganismTaxon ;
-            sh:description "Species for which the model is designed" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path namo:species_modeled ],
         [ sh:datatype xsd:string ;
+            sh:description "Primary computational method or algorithm used" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path namo:type ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:order 4 ;
+            sh:path namo:computational_method ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path namo:complexity_level ],
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path schema1:description ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path namo:references ],
+        [ sh:datatype xsd:string ;
+            sh:description "Software platform or programming language used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path namo:software_platform ],
         [ sh:datatype xsd:string ;
             sh:description "Description of spatial organization and context captured by the model" ;
             sh:maxCount 1 ;
@@ -1119,54 +1135,38 @@ namo:PBPKModel a sh:NodeShape ;
             sh:order 0 ;
             sh:path namo:compartments ],
         [ sh:datatype xsd:string ;
-            sh:description "Scope and limitations of model predictions" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path namo:prediction_scope ],
-        [ sh:datatype xsd:string ;
-            sh:description "Datasets used for model training and validation" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path namo:validation_datasets ],
-        [ sh:datatype xsd:string ;
-            sh:description "Software platform or programming language used" ;
+            sh:order 16 ;
+            sh:path namo:type ],
+        [ sh:class biolink:OrganismTaxon ;
+            sh:description "Species for which the model is designed" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:software_platform ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Primary computational method or algorithm used" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:computational_method ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
             sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path namo:references ],
+            sh:order 1 ;
+            sh:path namo:species_modeled ],
+        [ sh:class namo:DrugProperties ;
+            sh:description "Physicochemical and pharmacological properties modeled" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path namo:drug_properties ],
         [ sh:datatype xsd:string ;
             sh:description "Drug elimination and metabolism pathways included" ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path namo:elimination_pathways ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path namo:complexity_level ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "Scope and limitations of model predictions" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path schema1:name ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 12 ;
-            sh:path namo:models ] ;
+            sh:order 7 ;
+            sh:path namo:prediction_scope ] ;
     sh:targetClass namo:PBPKModel .
 
 namo:QSARModel a sh:NodeShape ;
@@ -1174,29 +1174,11 @@ namo:QSARModel a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Scope and limitations of model predictions" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path namo:prediction_scope ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
             sh:description "Biological activity or property being predicted" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path namo:activity_endpoint ],
-        [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path namo:spatial_context ],
         [ sh:datatype xsd:string ;
             sh:description "Software platform or programming language used" ;
             sh:maxCount 1 ;
@@ -1204,63 +1186,81 @@ namo:QSARModel a sh:NodeShape ;
             sh:order 5 ;
             sh:path namo:software_platform ],
         [ sh:datatype xsd:string ;
-            sh:description "Primary computational method or algorithm used" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:computational_method ],
-        [ sh:class namo:ModelPerformance ;
-            sh:description "Statistical performance metrics of the model" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path namo:model_performance ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path schema1:identifier ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 12 ;
-            sh:path namo:models ],
-        [ sh:datatype xsd:string ;
             sh:description "Types of molecular descriptors used (topological, electronic, etc.)" ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path namo:molecular_descriptors ],
         [ sh:datatype xsd:string ;
+            sh:description "Scope and limitations of model predictions" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path namo:prediction_scope ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path schema1:identifier ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path namo:complexity_level ],
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path namo:biological_organization_level ],
+        [ sh:datatype xsd:string ;
+            sh:description "Primary computational method or algorithm used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:computational_method ],
+        [ sh:datatype xsd:string ;
             sh:description "Datasets used for model training and validation" ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path namo:validation_datasets ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of compounds in training dataset" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:training_dataset_size ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path namo:references ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 12 ;
+            sh:path namo:models ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 15 ;
             sh:path schema1:description ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path namo:references ],
+        [ sh:class namo:ModelPerformance ;
+            sh:description "Statistical performance metrics of the model" ;
             sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path namo:biological_organization_level ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path namo:model_performance ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of compounds in training dataset" ;
             sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path namo:complexity_level ],
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:training_dataset_size ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path namo:spatial_context ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path schema1:name ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -1271,18 +1271,49 @@ namo:QSARModel a sh:NodeShape ;
 namo:ThreeDCellCulture a sh:NodeShape ;
     rdfs:comment "Three-dimensional cell culture systems including spheroids and organoids. More physiologically relevant with 3D architecture." ;
     sh:closed true ;
-    sh:ignoredProperties ( namo:culture_system rdf:type namo:organ_modeled namo:differentiation_method ) ;
+    sh:ignoredProperties ( namo:differentiation_method namo:culture_system rdf:type namo:organ_modeled ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Composition of extracellular matrix or scaffold material" ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:matrix_composition ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:order 12 ;
+            sh:path schema1:name ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path namo:complexity_level ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path namo:type ],
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path namo:biological_organization_level ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path namo:references ],
+            sh:order 11 ;
+            sh:path schema1:identifier ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path namo:models ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path namo:spatial_context ],
+        [ sh:datatype xsd:string ;
+            sh:description "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:cell_source ],
         [ sh:datatype xsd:string ;
             sh:description "Typical size range of 3D structures" ;
             sh:maxCount 1 ;
@@ -1295,129 +1326,91 @@ namo:ThreeDCellCulture a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path namo:culture_conditions ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:cell_source ],
-        [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path namo:spatial_context ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path schema1:identifier ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path namo:biological_organization_level ],
         [ sh:description "Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)" ;
             sh:in ( "SPHEROID" "ORGANOID" "SCAFFOLD_BASED" "HYDROGEL_EMBEDDED" "BIOPRINTED" "HANGING_DROP" ) ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path namo:three_d_architecture ],
         [ sh:datatype xsd:string ;
+            sh:description "Composition of extracellular matrix or scaffold material" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path namo:type ],
+            sh:order 1 ;
+            sh:path namo:matrix_composition ],
         [ sh:class biolink:Cell ;
             sh:description "Cell types present in the cellular system" ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path namo:cell_types ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path namo:complexity_level ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 10 ;
-            sh:path namo:models ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path namo:references ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path schema1:name ] ;
+            sh:order 13 ;
+            sh:path schema1:description ] ;
     sh:targetClass namo:ThreeDCellCulture .
 
 namo:TissueOnChip a sh:NodeShape ;
     rdfs:comment "Tissue-level microphysiological systems that model specific tissue functions and multi-cellular interactions. Aligned with ISO 10991:2023 microfluidics terminology." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class namo:MechanicalStimulation ;
-            sh:description "Mechanical forces applied to the model system" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path namo:mechanical_forces ],
+    sh:property [ sh:description "Sensors integrated for real-time monitoring" ;
+            sh:in ( "TEER" "OXYGEN" "PH" "TEMPERATURE" "PRESSURE" "FLOW_RATE" "ELECTROCHEMICAL" "OPTICAL" "IMPEDANCE" ) ;
+            sh:order 6 ;
+            sh:path namo:sensor_integration ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 12 ;
             sh:path schema1:identifier ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path namo:references ],
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path namo:complexity_level ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 11 ;
+            sh:path namo:models ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tissue barrier functions modeled (epithelial, endothelial, etc.)" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:barrier_functions ],
         [ sh:datatype xsd:string ;
             sh:description "Description of spatial organization and context captured by the model" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path namo:spatial_context ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 11 ;
-            sh:path namo:models ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
+        [ sh:class namo:MechanicalStimulation ;
+            sh:description "Mechanical forces applied to the model system" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path schema1:description ],
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path namo:mechanical_forces ],
+        [ sh:description "The level of biological organization represented by the model" ;
+            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path namo:biological_organization_level ],
         [ sh:class biolink:GrossAnatomicalStructure ;
             sh:description "The anatomical structure being modeled — a tissue, organ, or other multicellular structure." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path namo:anatomical_structure_modeled ],
-        [ sh:class namo:MicrofluidicDesign ;
-            sh:description "Detailed design specifications of the microfluidic device" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path namo:microfluidic_design ],
-        [ sh:description "Sensors integrated for real-time monitoring" ;
-            sh:in ( "TEER" "OXYGEN" "PH" "TEMPERATURE" "PRESSURE" "FLOW_RATE" "ELECTROCHEMICAL" "OPTICAL" "IMPEDANCE" ) ;
-            sh:order 6 ;
-            sh:path namo:sensor_integration ],
-        [ sh:description "The level of biological organization represented by the model" ;
-            sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path namo:biological_organization_level ],
         [ sh:datatype xsd:string ;
-            sh:description "Description of tissue-level architecture and organization" ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:tissue_architecture ],
+            sh:order 13 ;
+            sh:path schema1:name ],
         [ sh:datatype xsd:string ;
             sh:description "Description of perfusion and flow systems" ;
             sh:maxCount 1 ;
@@ -1425,86 +1418,98 @@ namo:TissueOnChip a sh:NodeShape ;
             sh:order 5 ;
             sh:path namo:perfusion_system ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 15 ;
             sh:path namo:type ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tissue barrier functions modeled (epithelial, endothelial, etc.)" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:barrier_functions ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
+        [ sh:class namo:MicrofluidicDesign ;
+            sh:description "Detailed design specifications of the microfluidic device" ;
             sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path namo:complexity_level ] ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path namo:microfluidic_design ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path namo:references ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of tissue-level architecture and organization" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:tissue_architecture ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path schema1:description ] ;
     sh:targetClass namo:TissueOnChip .
 
 namo:TwoDCellCulture a sh:NodeShape ;
     rdfs:comment "Conventional monolayer cell cultures grown on flat surfaces. Simple but limited in physiological relevance." ;
     sh:closed true ;
-    sh:ignoredProperties ( namo:authentication_method namo:passage_range rdf:type ) ;
-    sh:property [ sh:description "The level of biological organization represented by the model" ;
+    sh:ignoredProperties ( rdf:type namo:passage_range namo:authentication_method ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path schema1:name ],
+        [ sh:description "The level of biological organization represented by the model" ;
             sh:in ( "SUBCELLULAR" "CELLULAR" "CELLULAR_NEIGHBORHOOD" "TISSUE" "ORGAN" "SYSTEM" ) ;
             sh:maxCount 1 ;
             sh:order 6 ;
             sh:path namo:biological_organization_level ],
-        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
-            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
-            sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path namo:complexity_level ],
-        [ sh:datatype xsd:string ;
-            sh:description "Description of spatial organization and context captured by the model" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path namo:spatial_context ],
         [ sh:class namo:ModelsRelationship ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 10 ;
             sh:path namo:models ],
-        [ sh:description "A unique identifier for a thing" ;
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path schema1:identifier ],
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path namo:type ],
         [ sh:datatype xsd:string ;
             sh:description "Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path namo:cell_source ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of spatial organization and context captured by the model" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path namo:spatial_context ],
+        [ sh:class namo:Reference ;
+            sh:description "Literature references that describe, validate, or support this model" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path namo:references ],
         [ sh:datatype xsd:float ;
             sh:description "Typical confluence level maintained (0.0-1.0)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path namo:confluence_level ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+        [ sh:description "Level of biological complexity represented (subcellular, cellular, tissue, organ, system)" ;
+            sh:in ( "LOW" "MODERATE" "HIGH" ) ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path schema1:name ],
+            sh:order 8 ;
+            sh:path namo:complexity_level ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 13 ;
             sh:path schema1:description ],
-        [ sh:class namo:Reference ;
-            sh:description "Literature references that describe, validate, or support this model" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path namo:references ],
         [ sh:datatype xsd:string ;
             sh:description "Standard culture conditions and media used" ;
             sh:maxCount 1 ;
@@ -1512,27 +1517,22 @@ namo:TwoDCellCulture a sh:NodeShape ;
             sh:order 5 ;
             sh:path namo:culture_conditions ],
         [ sh:datatype xsd:string ;
+            sh:description "Standard passaging protocol and frequency" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:passage_protocol ],
+        [ sh:datatype xsd:string ;
             sh:description "Type of culture substrate (e.g., plastic, glass, coated surfaces)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path namo:substrate_type ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path namo:type ],
         [ sh:class biolink:Cell ;
             sh:description "Cell types present in the cellular system" ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path namo:cell_types ],
-        [ sh:datatype xsd:string ;
-            sh:description "Standard passaging protocol and frequency" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:passage_protocol ] ;
+            sh:path namo:cell_types ] ;
     sh:targetClass namo:TwoDCellCulture .
 
 biolink:EnvironmentalExposure a sh:NodeShape ;
@@ -1540,6 +1540,12 @@ biolink:EnvironmentalExposure a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -1549,13 +1555,7 @@ biolink:EnvironmentalExposure a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:name ] ;
+            sh:path schema1:identifier ] ;
     sh:targetClass biolink:EnvironmentalExposure .
 
 biolink:LifeStage a sh:NodeShape ;
@@ -1568,17 +1568,17 @@ biolink:LifeStage a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path schema1:name ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path schema1:description ] ;
+            sh:path schema1:description ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path schema1:identifier ] ;
     sh:targetClass biolink:LifeStage .
 
 biolink:QuantityValue a sh:NodeShape ;
@@ -1602,34 +1602,40 @@ namo:BiologicalSystem a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:type ],
-        [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path schema1:description ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path schema1:description ] ;
+            sh:order 3 ;
+            sh:path namo:type ] ;
     sh:targetClass namo:BiologicalSystem .
 
 namo:CellRatio a sh:NodeShape ;
     rdfs:comment "Ratio specification for different cell types in co-culture systems." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Type of ratio specification (percentage, absolute, fold)" ;
+    sh:property [ sh:class biolink:Cell ;
+            sh:description "The cell type for which the ratio is specified" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path namo:cell_type ],
+        [ sh:description "Type of ratio specification (percentage, absolute, fold)" ;
             sh:in ( "PERCENTAGE" "ABSOLUTE" "FOLD" ) ;
             sh:maxCount 1 ;
             sh:order 2 ;
@@ -1639,37 +1645,23 @@ namo:CellRatio a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path namo:ratio ],
-        [ sh:class biolink:Cell ;
-            sh:description "The cell type for which the ratio is specified" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path namo:cell_type ] ;
+            sh:path namo:ratio ] ;
     sh:targetClass namo:CellRatio .
 
 namo:CellTypeCoverage a sh:NodeShape ;
     rdfs:comment "Assessment of cell type representation and cellular diversity between systems." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:name ],
+    sh:property [ sh:class namo:CellTypeProportion ;
+            sh:description "Quantitative comparison of cell type proportions." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path namo:cell_type_proportions ],
         [ sh:datatype xsd:string ;
-            sh:description "Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:single_cell_method ],
-        [ sh:datatype xsd:float ;
-            sh:description "Percentage of target cell types represented in the model system." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:coverage_percentage ],
+            sh:order 8 ;
+            sh:path namo:type ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
@@ -1677,48 +1669,56 @@ namo:CellTypeCoverage a sh:NodeShape ;
             sh:order 7 ;
             sh:path schema1:description ],
         [ sh:class biolink:Cell ;
-            sh:description "List of cell types present in both model and biological system." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path namo:represented_cell_types ],
-        [ sh:class biolink:Cell ;
             sh:description "List of cell types present in biological system but missing in model." ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path namo:missing_cell_types ],
+        [ sh:datatype xsd:float ;
+            sh:description "Percentage of target cell types represented in the model system." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:coverage_percentage ],
+        [ sh:datatype xsd:string ;
+            sh:description "Method used for single-cell analysis (e.g., scRNA-seq, flow cytometry)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:single_cell_method ],
+        [ sh:class biolink:Cell ;
+            sh:description "List of cell types present in both model and biological system." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path namo:represented_cell_types ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path namo:type ],
-        [ sh:class namo:CellTypeProportion ;
-            sh:description "Quantitative comparison of cell type proportions." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path namo:cell_type_proportions ] ;
+            sh:order 6 ;
+            sh:path schema1:name ] ;
     sh:targetClass namo:CellTypeCoverage .
 
 namo:CellTypeProportion a sh:NodeShape ;
     rdfs:comment "Quantitative comparison of cell type proportions between systems." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:float ;
-            sh:description "Proportion of this cell type in the model system." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:model_proportion ],
-        [ sh:class biolink:Cell ;
+    sh:property [ sh:class biolink:Cell ;
             sh:description "The cell type being compared." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path namo:cell_type ],
+        [ sh:datatype xsd:float ;
+            sh:description "Proportion of this cell type in the model system." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:model_proportion ],
         [ sh:datatype xsd:float ;
             sh:description "Ratio of model to biological proportions." ;
             sh:maxCount 1 ;
@@ -1738,12 +1738,6 @@ namo:ChannelDimensions a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:float ;
-            sh:description "Length of the channel in millimeters" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:length ],
-        [ sh:datatype xsd:float ;
             sh:description "Width of the channel in micrometers" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -1760,7 +1754,13 @@ namo:ChannelDimensions a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path namo:height ] ;
+            sh:path namo:height ],
+        [ sh:datatype xsd:float ;
+            sh:description "Length of the channel in millimeters" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path namo:length ] ;
     sh:targetClass namo:ChannelDimensions .
 
 namo:ConcordanceResult a sh:NodeShape ;
@@ -1769,13 +1769,8 @@ namo:ConcordanceResult a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:functional_parity ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:cell_type_coverage ],
+            sh:order 5 ;
+            sh:path namo:reproducibility ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -1784,8 +1779,13 @@ namo:ConcordanceResult a sh:NodeShape ;
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:reproducibility ],
+            sh:order 4 ;
+            sh:path namo:functional_parity ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:phenotype_overlap ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -1794,21 +1794,15 @@ namo:ConcordanceResult a sh:NodeShape ;
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:phenotype_overlap ] ;
+            sh:order 3 ;
+            sh:path namo:cell_type_coverage ] ;
     sh:targetClass namo:ConcordanceResult .
 
 namo:CrossValidation a sh:NodeShape ;
     rdfs:comment "Cross-validation strategy and results for ML models." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:integer ;
-            sh:description "Number of folds in cross-validation" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:n_folds ],
-        [ sh:description "Type of cross-validation used" ;
+    sh:property [ sh:description "Type of cross-validation used" ;
             sh:in ( OBI:0200032 "STRATIFIED_K_FOLD" OBI:0200033 "TIME_SERIES_SPLIT" "MONTE_CARLO" ) ;
             sh:maxCount 1 ;
             sh:order 0 ;
@@ -1819,6 +1813,12 @@ namo:CrossValidation a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path namo:cv_score ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of folds in cross-validation" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:n_folds ],
         [ sh:datatype xsd:float ;
             sh:description "Standard deviation of cross-validation scores" ;
             sh:maxCount 1 ;
@@ -1832,29 +1832,29 @@ namo:DoseResponseSimilarity a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:float ;
-            sh:description "Ratio of EC50 values between model and biological system." ;
+            sh:description "Ratio of maximum responses between systems." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:ec50_ratio ],
+            sh:order 2 ;
+            sh:path namo:max_response_ratio ],
         [ sh:datatype xsd:float ;
             sh:description "Correlation coefficient between dose-response curves." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path namo:correlation_coefficient ],
-        [ sh:datatype xsd:float ;
-            sh:description "Ratio of maximum responses between systems." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:max_response_ratio ],
         [ sh:datatype xsd:string ;
             sh:description "Name of compound used in dose-response testing." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path namo:compound_tested ] ;
+            sh:path namo:compound_tested ],
+        [ sh:datatype xsd:float ;
+            sh:description "Ratio of EC50 values between model and biological system." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:ec50_ratio ] ;
     sh:targetClass namo:DoseResponseSimilarity .
 
 namo:DrugProperties a sh:NodeShape ;
@@ -1868,6 +1868,18 @@ namo:DrugProperties a sh:NodeShape ;
             sh:order 4 ;
             sh:path namo:clearance ],
         [ sh:datatype xsd:float ;
+            sh:description "Lipophilicity (log P)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:logp ],
+        [ sh:datatype xsd:float ;
+            sh:description "Acid dissociation constant" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:pka ],
+        [ sh:datatype xsd:float ;
             sh:description "Fraction bound to plasma proteins (0.0-1.0)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -1878,19 +1890,7 @@ namo:DrugProperties a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path namo:molecular_weight ],
-        [ sh:datatype xsd:float ;
-            sh:description "Acid dissociation constant" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:pka ],
-        [ sh:datatype xsd:float ;
-            sh:description "Lipophilicity (log P)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:logp ] ;
+            sh:path namo:molecular_weight ] ;
     sh:targetClass namo:DrugProperties .
 
 namo:EnrichmentStatistics a sh:NodeShape ;
@@ -1909,53 +1909,41 @@ namo:EnrichmentStatistics a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path namo:q_value ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of genes from dataset found in pathway." ;
+        [ sh:datatype xsd:float ;
+            sh:description "Quantitative enrichment score." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:genes_in_dataset ],
+            sh:order 0 ;
+            sh:path namo:enrichment_score ],
         [ sh:datatype xsd:integer ;
             sh:description "Number of genes in the pathway." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path namo:genes_in_pathway ],
-        [ sh:datatype xsd:float ;
-            sh:description "Quantitative enrichment score." ;
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of genes from dataset found in pathway." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:enrichment_score ] ;
+            sh:order 4 ;
+            sh:path namo:genes_in_dataset ] ;
     sh:targetClass namo:EnrichmentStatistics .
 
 namo:FunctionalAssay a sh:NodeShape ;
     rdfs:comment "A functional assay used to assess biological capabilities." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Detailed methodology for the assay." ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:description "Reference or control value for comparison." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:methodology ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:name ],
+            sh:order 2 ;
+            sh:path namo:reference_value ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path namo:type ],
-        [ sh:datatype xsd:float ;
-            sh:description "Quantitative result of the assay." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:assay_result ],
         [ sh:datatype xsd:string ;
             sh:description "Units of measurement for the assay result." ;
             sh:maxCount 1 ;
@@ -1973,12 +1961,24 @@ namo:FunctionalAssay a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path schema1:identifier ],
-        [ sh:datatype xsd:float ;
-            sh:description "Reference or control value for comparison." ;
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:reference_value ],
+            sh:order 6 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Detailed methodology for the assay." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:methodology ],
+        [ sh:datatype xsd:float ;
+            sh:description "Quantitative result of the assay." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:assay_result ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
@@ -1991,23 +1991,17 @@ namo:FunctionalParity a sh:NodeShape ;
     rdfs:comment "Evaluation of functional capabilities and physiological responses between systems." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class namo:DoseResponseSimilarity ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path schema1:identifier ],
+        [ sh:class namo:DoseResponseSimilarity ;
             sh:description "Comparison of dose-response relationships for therapeutic compounds." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 4 ;
             sh:path namo:dose_response_similarity ],
-        [ sh:class namo:FunctionalAssay ;
-            sh:description "List of functional assays used to assess parity." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path namo:functional_assays ],
-        [ sh:datatype xsd:float ;
-            sh:description "Quantitative score (0.0-1.0) representing functional similarity." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:functional_similarity_score ],
         [ sh:datatype xsd:string ;
             sh:description "List of biological functions conserved between model and biological system." ;
             sh:nodeKind sh:Literal ;
@@ -2020,26 +2014,32 @@ namo:FunctionalParity a sh:NodeShape ;
             sh:order 7 ;
             sh:path schema1:description ],
         [ sh:datatype xsd:string ;
-            sh:description "List of functions that are impaired or absent in the model system." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:impaired_functions ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path namo:type ],
-        [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path schema1:name ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
+        [ sh:class namo:FunctionalAssay ;
+            sh:description "List of functional assays used to assess parity." ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path schema1:identifier ] ;
+            sh:order 3 ;
+            sh:path namo:functional_assays ],
+        [ sh:datatype xsd:string ;
+            sh:description "List of functions that are impaired or absent in the model system." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:impaired_functions ],
+        [ sh:datatype xsd:float ;
+            sh:description "Quantitative score (0.0-1.0) representing functional similarity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:functional_similarity_score ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path namo:type ] ;
     sh:targetClass namo:FunctionalParity .
 
 namo:ModelPerformance a sh:NodeShape ;
@@ -2047,29 +2047,11 @@ namo:ModelPerformance a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:float ;
-            sh:description "Overall accuracy of the model (0.0-1.0)" ;
+            sh:description "Specificity of the model (0.0-1.0)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:accuracy ],
-        [ sh:datatype xsd:float ;
-            sh:description "Area under the ROC curve" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:auc ],
-        [ sh:datatype xsd:float ;
-            sh:description "Sensitivity/recall of the model (0.0-1.0)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:sensitivity ],
-        [ sh:datatype xsd:float ;
-            sh:description "Root mean square error" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:rmse ],
+            sh:order 2 ;
+            sh:path namo:specificity ],
         [ sh:datatype xsd:float ;
             sh:description "R-squared value for regression models" ;
             sh:maxCount 1 ;
@@ -2077,49 +2059,102 @@ namo:ModelPerformance a sh:NodeShape ;
             sh:order 3 ;
             sh:path namo:r_squared ],
         [ sh:datatype xsd:float ;
-            sh:description "Specificity of the model (0.0-1.0)" ;
+            sh:description "Root mean square error" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:specificity ] ;
+            sh:order 4 ;
+            sh:path namo:rmse ],
+        [ sh:datatype xsd:float ;
+            sh:description "Sensitivity/recall of the model (0.0-1.0)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:sensitivity ],
+        [ sh:datatype xsd:float ;
+            sh:description "Area under the ROC curve" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path namo:auc ],
+        [ sh:datatype xsd:float ;
+            sh:description "Overall accuracy of the model (0.0-1.0)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:accuracy ] ;
     sh:targetClass namo:ModelPerformance .
 
 namo:ModelSystem a sh:NodeShape ;
     sh:closed false ;
-    sh:ignoredProperties ( namo:references namo:matrix_composition namo:software_platform namo:confluence_level namo:interaction_mechanisms namo:tissue_architecture namo:complexity_level namo:spatial_context namo:model_performance namo:authentication_method namo:compartments namo:update_frequency namo:biological_organization_level namo:feature_types namo:training_data_size namo:culture_system namo:age_value namo:drug_properties namo:barrier_functions namo:cell_ratios namo:sensor_integration namo:perfusion_system namo:training_dataset_size namo:species namo:microfluidic_design namo:three_d_architecture namo:computational_method namo:personalization_parameters namo:strain rdf:type namo:substrate_type namo:twin_scope namo:coculture_configuration namo:molecular_descriptors namo:differentiation_method namo:elimination_pathways namo:ml_algorithm namo:cell_source namo:cell_types namo:life_stage namo:activity_endpoint namo:passage_protocol namo:anatomical_structure_modeled namo:real_time_data_sources namo:cross_validation namo:species_modeled namo:culture_conditions namo:prediction_scope namo:validation_datasets namo:passage_range namo:size_range namo:organ_modeled namo:mechanical_forces namo:model_interpretability namo:environment ) ;
-    sh:property [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
+    sh:ignoredProperties ( namo:cell_types namo:substrate_type namo:coculture_configuration namo:twin_scope namo:spatial_context namo:molecular_descriptors namo:elimination_pathways namo:update_frequency namo:passage_range namo:species_modeled namo:sensor_integration namo:authentication_method namo:training_data_size namo:biological_organization_level namo:culture_conditions namo:prediction_scope namo:size_range namo:microfluidic_design namo:interaction_mechanisms namo:compartments namo:feature_types namo:mechanical_forces namo:drug_properties namo:perfusion_system namo:software_platform namo:matrix_composition namo:ml_algorithm namo:barrier_functions namo:environment namo:organ_modeled namo:training_dataset_size namo:cross_validation namo:cell_source rdf:type namo:activity_endpoint namo:cell_ratios namo:species namo:culture_system namo:passage_protocol namo:age_value namo:tissue_architecture namo:complexity_level namo:differentiation_method namo:three_d_architecture namo:real_time_data_sources namo:model_interpretability namo:references namo:strain namo:computational_method namo:confluence_level namo:life_stage namo:validation_datasets namo:anatomical_structure_modeled namo:model_performance namo:personalization_parameters ) ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path schema1:description ],
+            sh:order 4 ;
+            sh:path namo:type ],
+        [ sh:class namo:ModelsRelationship ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path namo:models ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path schema1:name ],
-        [ sh:class namo:ModelsRelationship ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 0 ;
-            sh:path namo:models ],
         [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:type ] ;
+            sh:order 3 ;
+            sh:path schema1:description ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path schema1:identifier ] ;
     sh:targetClass namo:ModelSystem .
 
 namo:MolecularSimilarity a sh:NodeShape ;
     rdfs:comment "Detailed assessment of molecular-level concordance between model and biological systems." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:description "Pearson correlation coefficient for expression profiles." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:correlation_coefficient ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Source of molecular data (e.g., RNA-seq, proteomics, metabolomics)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path namo:data_source ],
+        [ sh:class namo:Gene ;
+            sh:description "List of genes with conserved expression patterns between model and target." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path namo:conserved_genes ],
+        [ sh:datatype xsd:float ;
+            sh:description "Quantitative similarity score (0.0-1.0) based on molecular profiles." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:similarity_score ],
+        [ sh:datatype xsd:string ;
+            sh:description "Description of experimental methods used for molecular comparison." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:methodology ],
+        [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -2130,68 +2165,34 @@ namo:MolecularSimilarity a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 10 ;
             sh:path namo:type ],
-        [ sh:class namo:Gene ;
-            sh:description "List of genes that are differentially expressed in the model system." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path namo:differentially_expressed_genes ],
-        [ sh:datatype xsd:float ;
-            sh:description "Quantitative similarity score (0.0-1.0) based on molecular profiles." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:similarity_score ],
-        [ sh:datatype xsd:string ;
-            sh:description "Source of molecular data (e.g., RNA-seq, proteomics, metabolomics)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:data_source ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "Description of experimental methods used for molecular comparison." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:methodology ],
-        [ sh:datatype xsd:float ;
-            sh:description "Pearson correlation coefficient for expression profiles." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:correlation_coefficient ],
-        [ sh:class namo:Gene ;
-            sh:description "List of genes with conserved expression patterns between model and target." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path namo:conserved_genes ],
         [ sh:class namo:StatisticalSignificance ;
             sh:description "Statistical measures of significance for the molecular similarity." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 6 ;
-            sh:path namo:statistical_significance ] ;
+            sh:path namo:statistical_significance ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path schema1:identifier ],
+        [ sh:class namo:Gene ;
+            sh:description "List of genes that are differentially expressed in the model system." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path namo:differentially_expressed_genes ] ;
     sh:targetClass namo:MolecularSimilarity .
 
 namo:PBPKCompartment a sh:NodeShape ;
     rdfs:comment "A physiological compartment in a PBPK model." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Type of physiological compartment" ;
-            sh:in ( UBERON:0002107 UBERON:0002113 UBERON:0002048 UBERON:0000955 UBERON:0000948 UBERON:0001134 "FAT" "SKIN" "BONE" "GI_TRACT" UBERON:0001969 "BLOOD" ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path namo:compartment_type ],
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -2204,68 +2205,51 @@ namo:PBPKCompartment a sh:NodeShape ;
             sh:order 6 ;
             sh:path schema1:description ],
         [ sh:datatype xsd:float ;
-            sh:description "Blood flow to the compartment (L/h)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:blood_flow ],
-        [ sh:datatype xsd:float ;
             sh:description "Volume of the compartment (L)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path namo:volume ],
         [ sh:datatype xsd:float ;
+            sh:description "Blood flow to the compartment (L/h)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:blood_flow ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:float ;
             sh:description "Tissue-to-plasma partition coefficient" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path namo:partition_coefficient ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+        [ sh:description "Type of physiological compartment" ;
+            sh:in ( UBERON:0002107 UBERON:0002113 UBERON:0002048 UBERON:0000955 UBERON:0000948 UBERON:0001134 "FAT" "SKIN" "BONE" "GI_TRACT" UBERON:0001969 "BLOOD" ) ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path schema1:identifier ] ;
+            sh:order 0 ;
+            sh:path namo:compartment_type ] ;
     sh:targetClass namo:PBPKCompartment .
 
 namo:PathwayConcordance a sh:NodeShape ;
     rdfs:comment "Assessment of biological pathway conservation and activity between model and biological systems." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:float ;
-            sh:description "Quantitative score (0.0-1.0) representing pathway overlap." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:pathway_overlap_score ],
-        [ sh:class namo:Pathway ;
-            sh:description "List of pathways that show different activity patterns." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path namo:divergent_pathways ],
-        [ sh:class namo:Pathway ;
-            sh:description "List of biological pathways that are active in both systems." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path namo:active_pathways ],
-        [ sh:datatype xsd:string ;
-            sh:description "Method used for pathway analysis (e.g., GSEA, Over-representation analysis)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:pathway_analysis_method ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
             sh:path schema1:description ],
+        [ sh:datatype xsd:float ;
+            sh:description "Quantitative score (0.0-1.0) representing pathway overlap." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:pathway_overlap_score ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -2276,11 +2260,27 @@ namo:PathwayConcordance a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 4 ;
             sh:path namo:enrichment_statistics ],
+        [ sh:datatype xsd:string ;
+            sh:description "Method used for pathway analysis (e.g., GSEA, Over-representation analysis)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path namo:pathway_analysis_method ],
+        [ sh:class namo:Pathway ;
+            sh:description "List of biological pathways that are active in both systems." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path namo:active_pathways ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path schema1:identifier ],
+        [ sh:class namo:Pathway ;
+            sh:description "List of pathways that show different activity patterns." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path namo:divergent_pathways ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
@@ -2293,22 +2293,44 @@ namo:PhenotypeOverlap a sh:NodeShape ;
     rdfs:comment "Comparison of phenotypic manifestations between model and biological systems." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class biolink:PhenotypicFeature ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path schema1:description ],
+        [ sh:class biolink:PhenotypicFeature ;
             sh:description "List of phenotypes present only in the biological system." ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path namo:biological_specific_phenotypes ],
+        [ sh:class biolink:PhenotypicFeature ;
+            sh:description "List of phenotypes present in both model and biological system." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path namo:shared_phenotypes ],
+        [ sh:class biolink:PhenotypicFeature ;
+            sh:description "List of phenotypes present only in the model system." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path namo:model_specific_phenotypes ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:name ],
         [ sh:datatype xsd:string ;
             sh:description "Ontology used for phenotype classification (e.g., HPO, MP)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path namo:phenotype_ontology ],
-        [ sh:class biolink:PhenotypicFeature ;
-            sh:description "List of phenotypes present only in the model system." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path namo:model_specific_phenotypes ],
         [ sh:datatype xsd:float ;
             sh:description "Quantitative score (0.0-1.0) representing phenotypic similarity." ;
             sh:maxCount 1 ;
@@ -2319,29 +2341,7 @@ namo:PhenotypeOverlap a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
-            sh:path namo:type ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path schema1:identifier ],
-        [ sh:class biolink:PhenotypicFeature ;
-            sh:description "List of phenotypes present in both model and biological system." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path namo:shared_phenotypes ] ;
+            sh:path namo:type ] ;
     sh:targetClass namo:PhenotypeOverlap .
 
 namo:QualityControlMetric a sh:NodeShape ;
@@ -2354,12 +2354,6 @@ namo:QualityControlMetric a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path namo:pass_fail_status ],
-        [ sh:datatype xsd:float ;
-            sh:description "Acceptable threshold for this metric." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:threshold ],
         [ sh:datatype xsd:string ;
             sh:description "Name of the quality control metric." ;
             sh:maxCount 1 ;
@@ -2371,30 +2365,30 @@ namo:QualityControlMetric a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path namo:metric_value ] ;
+            sh:path namo:metric_value ],
+        [ sh:datatype xsd:float ;
+            sh:description "Acceptable threshold for this metric." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:threshold ] ;
     sh:targetClass namo:QualityControlMetric .
 
 namo:Reproducibility a sh:NodeShape ;
     rdfs:comment "Assessment of experimental reproducibility and consistency of the model system." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:float ;
-            sh:description "Quantitative score (0.0-1.0) representing reproducibility." ;
+    sh:property [ sh:class namo:QualityControlMetric ;
+            sh:description "List of quality control measures and their values." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path namo:quality_control_metrics ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:reproducibility_score ],
-        [ sh:datatype xsd:float ;
-            sh:description "Measure of consistency across different laboratories." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:inter_laboratory_consistency ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path schema1:identifier ],
+            sh:order 8 ;
+            sh:path schema1:description ],
         [ sh:datatype xsd:float ;
             sh:description "Coefficient of variation across experimental replicates." ;
             sh:maxCount 1 ;
@@ -2402,51 +2396,69 @@ namo:Reproducibility a sh:NodeShape ;
             sh:order 1 ;
             sh:path namo:coefficient_of_variation ],
         [ sh:datatype xsd:float ;
-            sh:description "Measure of variation between different experimental batches." ;
+            sh:description "Quantitative score (0.0-1.0) representing reproducibility." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:batch_to_batch_variation ],
+            sh:order 0 ;
+            sh:path namo:reproducibility_score ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:float ;
+            sh:description "Measure of consistency across different laboratories." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path namo:inter_laboratory_consistency ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
             sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
+        [ sh:datatype xsd:float ;
+            sh:description "Measure of variation between different experimental batches." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path namo:type ],
-        [ sh:class namo:QualityControlMetric ;
-            sh:description "List of quality control measures and their values." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path namo:quality_control_metrics ],
+            sh:order 2 ;
+            sh:path namo:batch_to_batch_variation ],
         [ sh:datatype xsd:integer ;
             sh:description "Number of experimental replicates used in assessment." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path namo:replicate_count ] ;
+            sh:path namo:replicate_count ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path namo:type ] ;
     sh:targetClass namo:Reproducibility .
 
 namo:StatisticalSignificance a sh:NodeShape ;
     rdfs:comment "Statistical measures of significance for molecular comparisons." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:description "Multiple testing corrected p-value." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:adjusted_p_value ],
+        [ sh:datatype xsd:string ;
             sh:description "Name of statistical test used." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path namo:statistical_test ],
+        [ sh:datatype xsd:float ;
+            sh:description "Statistical p-value." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:p_value ],
         [ sh:datatype xsd:float ;
             sh:description "Upper bound of confidence interval." ;
             sh:maxCount 1 ;
@@ -2458,49 +2470,37 @@ namo:StatisticalSignificance a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path namo:confidence_interval_lower ],
-        [ sh:datatype xsd:float ;
-            sh:description "Statistical p-value." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:p_value ],
-        [ sh:datatype xsd:float ;
-            sh:description "Multiple testing corrected p-value." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:adjusted_p_value ] ;
+            sh:path namo:confidence_interval_lower ] ;
     sh:targetClass namo:StatisticalSignificance .
 
 namo:StructuredConcordanceResult a sh:NodeShape ;
     rdfs:comment "Detailed structured assessment of concordance between model and biological systems with rich metadata, evidence, and quantitative measures." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class namo:MolecularSimilarity ;
-            sh:description "Detailed assessment of molecular-level similarity including gene expression, protein levels, and metabolic profiles." ;
+    sh:property [ sh:class namo:Reproducibility ;
+            sh:description "Assessment of experimental reproducibility and consistency." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path namo:molecular_similarity ],
-        [ sh:class namo:CellTypeCoverage ;
-            sh:description "Assessment of cell type representation and cellular diversity." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path namo:cell_type_coverage ],
+            sh:order 5 ;
+            sh:path namo:reproducibility ],
         [ sh:class namo:PathwayConcordance ;
             sh:description "Assessment of biological pathway conservation and activity levels." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path namo:pathway_concordance ],
-        [ sh:class namo:Reproducibility ;
-            sh:description "Assessment of experimental reproducibility and consistency." ;
+        [ sh:class namo:CellTypeCoverage ;
+            sh:description "Assessment of cell type representation and cellular diversity." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path namo:reproducibility ],
+            sh:order 3 ;
+            sh:path namo:cell_type_coverage ],
+        [ sh:class namo:MolecularSimilarity ;
+            sh:description "Detailed assessment of molecular-level similarity including gene expression, protein levels, and metabolic profiles." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path namo:molecular_similarity ],
         [ sh:class namo:PhenotypeOverlap ;
             sh:description "Comparison of phenotypic manifestations between model and biological system." ;
             sh:maxCount 1 ;
@@ -2520,23 +2520,23 @@ namo:Study a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "What decision will this inform? Care? Policy? Drug approval?" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path namo:context_of_use ],
+        [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "phenotypes, function (TEER/leak, beating rate), and multi-omics" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:endpoints ],
-        [ sh:datatype xsd:string ;
-            sh:description "exposure/dose/time; diet/drugs/toxicants" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:perturbations ],
         [ sh:datatype xsd:string ;
             sh:description "tissue/region (anatomy), cell types, sex/age equivalents, mechanics (e.g., cyclic stretch), microenvironment" ;
             sh:maxCount 1 ;
@@ -2549,23 +2549,23 @@ namo:Study a sh:NodeShape ;
             sh:order 5 ;
             sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
-            sh:description "What decision will this inform? Care? Policy? Drug approval?" ;
+            sh:description "exposure/dose/time; diet/drugs/toxicants" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:context_of_use ],
+            sh:order 2 ;
+            sh:path namo:perturbations ],
+        [ sh:datatype xsd:string ;
+            sh:description "phenotypes, function (TEER/leak, beating rate), and multi-omics" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path namo:endpoints ],
         [ sh:datatype xsd:string ;
             sh:description "human data, gold-standard assays, or high-quality animal references" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path namo:plan_comparators ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path schema1:description ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -2577,41 +2577,18 @@ namo:Gene a sh:NodeShape ;
     rdfs:comment "A gene entity with identifiers and expression information." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Standard gene symbol (e.g., HGNC symbol for human genes)." ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:description "Multiple testing corrected p-value." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:gene_symbol ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path schema1:identifier ],
+            sh:order 5 ;
+            sh:path namo:adjusted_p_value ],
         [ sh:datatype xsd:float ;
             sh:description "Fold change in expression compared to control or reference." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path namo:fold_change ],
-        [ sh:datatype xsd:float ;
-            sh:description "Multiple testing corrected p-value." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path namo:adjusted_p_value ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:float ;
-            sh:description "Statistical p-value for differential expression." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:p_value ],
         [ sh:datatype xsd:integer ;
             sh:description "NCBI Entrez gene identifier." ;
             sh:maxCount 1 ;
@@ -2623,6 +2600,29 @@ namo:Gene a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path namo:type ],
+        [ sh:datatype xsd:float ;
+            sh:description "Statistical p-value for differential expression." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:p_value ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Ensembl gene identifier." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:ensembl_id ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
@@ -2630,11 +2630,11 @@ namo:Gene a sh:NodeShape ;
             sh:order 7 ;
             sh:path schema1:name ],
         [ sh:datatype xsd:string ;
-            sh:description "Ensembl gene identifier." ;
+            sh:description "Standard gene symbol (e.g., HGNC symbol for human genes)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:ensembl_id ] ;
+            sh:order 0 ;
+            sh:path namo:gene_symbol ] ;
     sh:targetClass namo:Gene .
 
 namo:Pathway a sh:NodeShape ;
@@ -2647,46 +2647,46 @@ namo:Pathway a sh:NodeShape ;
             sh:order 7 ;
             sh:path namo:type ],
         [ sh:datatype xsd:string ;
-            sh:description "Database-specific pathway identifier." ;
+            sh:description "Source database (e.g., KEGG, Reactome, GO)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:pathway_id ],
-        [ sh:datatype xsd:float ;
-            sh:description "Quantitative measure of pathway activity." ;
+            sh:order 0 ;
+            sh:path namo:pathway_database ],
+        [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:activity_score ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:name ],
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
+        [ sh:datatype xsd:string ;
+            sh:description "Database-specific pathway identifier." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path schema1:identifier ],
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:pathway_id ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:float ;
+            sh:description "Quantitative measure of pathway activity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:activity_score ],
         [ sh:datatype xsd:float ;
             sh:description "Statistical enrichment score for the pathway." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path namo:enrichment_score ],
-        [ sh:datatype xsd:string ;
-            sh:description "Source database (e.g., KEGG, Reactome, GO)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path namo:pathway_database ] ;
+            sh:path namo:enrichment_score ] ;
     sh:targetClass namo:Pathway .
 
 biolink:GrossAnatomicalStructure a sh:NodeShape ;
@@ -2699,17 +2699,17 @@ biolink:GrossAnatomicalStructure a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path schema1:description ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path schema1:name ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path schema1:identifier ] ;
+            sh:path schema1:name ] ;
     sh:targetClass biolink:GrossAnatomicalStructure .
 
 biolink:OrganismTaxon a sh:NodeShape ;
@@ -2739,56 +2739,43 @@ biolink:PhenotypicFeature a sh:NodeShape ;
     rdfs:comment "A combination of entity and quality that makes up a phenotyping statement." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:name ],
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path schema1:identifier ] ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:name ] ;
     sh:targetClass biolink:PhenotypicFeature .
 
 namo:MechanicalStimulation a sh:NodeShape ;
     rdfs:comment "Specification of mechanical forces applied to the model system" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path schema1:description ],
-        [ sh:description "Type of mechanical stimulation applied" ;
-            sh:in ( "CYCLIC_STRETCH" EFO:0022075 "COMPRESSION" "TENSION" EFO:0000534 "PULSATILE_FLOW" "BREATHING_MOTION" "PERISTALTIC_MOTION" ) ;
-            sh:order 0 ;
-            sh:path namo:stimulation_type ],
-        [ sh:description "A unique identifier for a thing" ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path schema1:identifier ],
-        [ sh:datatype xsd:float ;
-            sh:description "Shear stress applied in dyn/cm²" ;
+        [ sh:description "Type of mechanical stimulation applied" ;
+            sh:in ( "CYCLIC_STRETCH" EFO:0022075 "COMPRESSION" "TENSION" EFO:0000534 "PULSATILE_FLOW" "BREATHING_MOTION" "PERISTALTIC_MOTION" ) ;
+            sh:order 0 ;
+            sh:path namo:stimulation_type ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path namo:shear_stress ],
+            sh:order 9 ;
+            sh:path namo:type ],
         [ sh:datatype xsd:float ;
             sh:description "Pressure applied in Pascals" ;
             sh:maxCount 1 ;
@@ -2796,118 +2783,131 @@ namo:MechanicalStimulation a sh:NodeShape ;
             sh:order 4 ;
             sh:path namo:pressure_pascal ],
         [ sh:datatype xsd:float ;
-            sh:description "Frequency of mechanical stimulation in Hertz" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:frequency_hz ],
-        [ sh:datatype xsd:float ;
             sh:description "Duration of mechanical stimulation in minutes" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path namo:duration_minutes ],
-        [ sh:datatype xsd:string ;
+        [ sh:datatype xsd:float ;
+            sh:description "Shear stress applied in dyn/cm²" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path namo:type ],
+            sh:order 3 ;
+            sh:path namo:shear_stress ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path schema1:description ],
         [ sh:datatype xsd:float ;
             sh:description "Percentage of cyclic stretch applied (if applicable)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path namo:cyclic_stretch_percent ] ;
+            sh:path namo:cyclic_stretch_percent ],
+        [ sh:datatype xsd:float ;
+            sh:description "Frequency of mechanical stimulation in Hertz" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:frequency_hz ] ;
     sh:targetClass namo:MechanicalStimulation .
 
 namo:MicrofluidicDesign a sh:NodeShape ;
     rdfs:comment "Detailed specification of a microfluidic device design including its architecture, materials, dimensions, and functional features. Terms aligned with ISO 10991:2023 Microfluidics Vocabulary standard." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Type of membrane used in the device if applicable" ;
-            sh:in ( "POROUS_POLYMER" "PDMS" "COLLAGEN" "ECM_COATED" "TRACK_ETCHED" "ELECTROSPUN" "HYDROGEL" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path namo:membrane_type ],
-        [ sh:class namo:ChannelDimensions ;
-            sh:description "Dimensions of the channels in the device" ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path namo:channel_dimensions ],
-        [ sh:description "A unique identifier for a thing" ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 13 ;
             sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path schema1:description ],
-        [ sh:description "Surface treatments or coatings applied to the device" ;
-            sh:in ( CHEBI:5058 CHEBI:3815 MESH:D007797 "MATRIGEL" CHEBI:53412 CHEBI:5291 NCIT:C13288 "ANTI_FOULING" "OXYGEN_PLASMA" ) ;
-            sh:order 9 ;
-            sh:path namo:surface_treatment ],
-        [ sh:datatype xsd:float ;
-            sh:description "Pore size of the membrane in micrometers" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:membrane_pore_size ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path schema1:name ],
-        [ sh:description "Configuration of channels (e.g., parallel, serial, branching)" ;
-            sh:in ( "PARALLEL" "SERIAL" "BRANCHING" "CIRCULAR" "SERPENTINE" "Y_SHAPED" "T_SHAPED" ) ;
-            sh:order 2 ;
-            sh:path namo:channel_configuration ],
-        [ sh:description "Methods used to control fluid flow in the device" ;
-            sh:in ( "SYRINGE_PUMP" "PERISTALTIC_PUMP" "GRAVITY_DRIVEN" "PRESSURE_DRIVEN" "ELECTROOSMOTIC" "CAPILLARY_ACTION" "PNEUMATIC_VALVES" "MICROVALVES" ) ;
-            sh:order 10 ;
-            sh:path namo:flow_control_method ],
         [ sh:datatype xsd:float ;
             sh:description "Thickness of the membrane in micrometers" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path namo:membrane_thickness ],
-        [ sh:datatype xsd:string ;
+        [ sh:datatype xsd:float ;
+            sh:description "Pore size of the membrane in micrometers" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path namo:type ],
+            sh:order 4 ;
+            sh:path namo:membrane_pore_size ],
+        [ sh:description "Sensors integrated into the device for monitoring" ;
+            sh:in ( "TEER" "OXYGEN" "PH" "TEMPERATURE" "PRESSURE" "FLOW_RATE" "ELECTROCHEMICAL" "OPTICAL" "IMPEDANCE" ) ;
+            sh:order 11 ;
+            sh:path namo:sensors_integrated ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path schema1:name ],
+        [ sh:class namo:ChannelDimensions ;
+            sh:description "Dimensions of the channels in the device" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path namo:channel_dimensions ],
+        [ sh:description "Configuration of channels (e.g., parallel, serial, branching)" ;
+            sh:in ( "PARALLEL" "SERIAL" "BRANCHING" "CIRCULAR" "SERPENTINE" "Y_SHAPED" "T_SHAPED" ) ;
+            sh:order 2 ;
+            sh:path namo:channel_configuration ],
+        [ sh:description "Materials used to construct the device" ;
+            sh:in ( "PDMS" "GLASS" "PLASTIC" "POLYSTYRENE" "POLYCARBONATE" "PMMA" "COC" "SILICON" "HYDROGEL" ) ;
+            sh:order 8 ;
+            sh:path namo:material ],
         [ sh:datatype xsd:integer ;
             sh:description "Total number of channels in the device" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path namo:number_of_channels ],
-        [ sh:description "Materials used to construct the device" ;
-            sh:in ( "PDMS" "GLASS" "PLASTIC" "POLYSTYRENE" "POLYCARBONATE" "PMMA" "COC" "SILICON" "HYDROGEL" ) ;
-            sh:order 8 ;
-            sh:path namo:material ],
-        [ sh:description "Sensors integrated into the device for monitoring" ;
-            sh:in ( "TEER" "OXYGEN" "PH" "TEMPERATURE" "PRESSURE" "FLOW_RATE" "ELECTROCHEMICAL" "OPTICAL" "IMPEDANCE" ) ;
-            sh:order 11 ;
-            sh:path namo:sensors_integrated ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path schema1:description ],
         [ sh:description "Type of interface(s) present in the device" ;
             sh:in ( "AIR_LIQUID" "LIQUID_LIQUID" "CELL_CELL" "TISSUE_TISSUE" "VASCULAR_EPITHELIAL" ) ;
             sh:order 6 ;
             sh:path namo:interface_type ],
+        [ sh:description "The overall architecture type of the microfluidic device" ;
+            sh:in ( "SINGLE_CHANNEL" "TWO_CHANNEL" "MULTI_CHANNEL" "LAYERED" "RADIAL" "NETWORK" ) ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path namo:architecture_type ],
         [ sh:datatype xsd:string ;
             sh:description "Additional special features of the device (e.g., valves, mixers, gradient generators)" ;
             sh:nodeKind sh:Literal ;
             sh:order 12 ;
             sh:path namo:special_features ],
-        [ sh:description "The overall architecture type of the microfluidic device" ;
-            sh:in ( "SINGLE_CHANNEL" "TWO_CHANNEL" "MULTI_CHANNEL" "LAYERED" "RADIAL" "NETWORK" ) ;
+        [ sh:description "Type of membrane used in the device if applicable" ;
+            sh:in ( "POROUS_POLYMER" "PDMS" "COLLAGEN" "ECM_COATED" "TRACK_ETCHED" "ELECTROSPUN" "HYDROGEL" ) ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path namo:architecture_type ] ;
+            sh:order 3 ;
+            sh:path namo:membrane_type ],
+        [ sh:description "Methods used to control fluid flow in the device" ;
+            sh:in ( "SYRINGE_PUMP" "PERISTALTIC_PUMP" "GRAVITY_DRIVEN" "PRESSURE_DRIVEN" "ELECTROOSMOTIC" "CAPILLARY_ACTION" "PNEUMATIC_VALVES" "MICROVALVES" ) ;
+            sh:order 10 ;
+            sh:path namo:flow_control_method ],
+        [ sh:description "Surface treatments or coatings applied to the device" ;
+            sh:in ( CHEBI:5058 CHEBI:3815 MESH:D007797 "MATRIGEL" CHEBI:53412 CHEBI:5291 NCIT:C13288 "ANTI_FOULING" "OXYGEN_PLASMA" ) ;
+            sh:order 9 ;
+            sh:path namo:surface_treatment ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path namo:type ] ;
     sh:targetClass namo:MicrofluidicDesign .
 
 biolink:Cell a sh:NodeShape ;
@@ -2937,16 +2937,17 @@ namo:Reference a sh:NodeShape ;
     rdfs:comment "A literature reference with identifier and title for citing published work." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URL to access the publication" ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Publication year" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path namo:year ],
+        [ sh:description "URL to access the publication" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path namo:url ],
-        [ sh:datatype xsd:string ;
-            sh:description "Authors of the publication" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path namo:authors ],
         [ sh:datatype xsd:string ;
             sh:description "Title of the referenced publication or dataset" ;
             sh:maxCount 1 ;
@@ -2954,40 +2955,39 @@ namo:Reference a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path namo:title ],
+        [ sh:description "Persistent identifier for the reference (DOI, PMID, PMCID, etc.)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path namo:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "Authors of the publication" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path namo:authors ],
         [ sh:datatype xsd:string ;
             sh:description "Journal or publication venue" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path namo:journal ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Publication year" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path namo:year ],
-        [ sh:description "Persistent identifier for the reference (DOI, PMID, PMCID, etc.)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path namo:id ] ;
+            sh:path namo:journal ] ;
     sh:targetClass namo:Reference .
 
 namo:ModelsRelationship a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Indicates whether the model is computed or derived from experimental data." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path namo:is_computed ],
-        [ sh:class namo:StructuredConcordanceResult ;
+    sh:property [ sh:class namo:StructuredConcordanceResult ;
             sh:description "Detailed structured assessment of concordance between the model system and the biological system, with rich metadata and supporting evidence." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path namo:structured_concordance ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Indicates whether the model is computed or derived from experimental data." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path namo:is_computed ],
         [ sh:class namo:ConcordanceResult ;
             sh:description "Metrics used to assess the concordance between the model system and the biological system, such as sensitivity, specificity, and accuracy." ;
             sh:maxCount 1 ;

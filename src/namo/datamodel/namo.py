@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-31T21:14:58
+# Generation date: 2026-07-31T22:51:20
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -2475,11 +2475,31 @@ class QuantityValue(YAMLRoot):
 # Enumerations
 class SpeciesEnum(EnumDefinitionImpl):
 
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['NCBITaxon:1']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
+
     _defn = EnumDefinition(
         name="SpeciesEnum",
     )
 
 class OrganEnum(EnumDefinitionImpl):
+
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['UBERON:0000062']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf', 'BFO:0000050']")
 
     _defn = EnumDefinition(
         name="OrganEnum",
@@ -2490,12 +2510,32 @@ class AnatomicalStructureEnum(EnumDefinitionImpl):
     Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's
     `gross anatomical structure` maps to.
     """
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['UBERON:0010000']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf', 'BFO:0000050']")
+
     _defn = EnumDefinition(
         name="AnatomicalStructureEnum",
         description="""Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.""",
     )
 
 class CellTypeEnum(EnumDefinitionImpl):
+
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['CL:0000000']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
 
     _defn = EnumDefinition(
         name="CellTypeEnum",
@@ -2550,17 +2590,47 @@ class CaseOrControlEnum(EnumDefinitionImpl):
 
 class StudyDesignEnum(EnumDefinitionImpl):
 
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['OBI:0500000']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
+
     _defn = EnumDefinition(
         name="StudyDesignEnum",
     )
 
 class InvestigativeProtocolEnum(EnumDefinitionImpl):
 
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['OBI:0000272']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
+
     _defn = EnumDefinition(
         name="InvestigativeProtocolEnum",
     )
 
 class SampleProcessingEnum(EnumDefinitionImpl):
+
+    source_nodes = PermissibleValue(
+        text="source_nodes",
+        description="['OBI:0000094']")
+    is_direct = PermissibleValue(
+        text="is_direct",
+        description="False")
+    relationship_types = PermissibleValue(
+        text="relationship_types",
+        description="['rdfs:subClassOf']")
 
     _defn = EnumDefinition(
         name="SampleProcessingEnum",

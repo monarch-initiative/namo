@@ -3577,6 +3577,8 @@ classes:
     from_schema: https://w3id.org/monarch-initiative/namo
     mappings:
     - schema:Thing
+    exact_mappings:
+    - biolink:NamedThing
     slots:
     - id
     - name
@@ -5572,7 +5574,7 @@ classes:
     class_uri: biolink:QuantityValue
 metamodel_version: 1.11.0
 source_file: namo.yaml
-source_file_date: '2026-07-31T21:01:30'
-source_file_size: 70105
-generation_date: '2026-07-31T21:13:52'
+source_file_date: '2026-07-31T22:45:36'
+source_file_size: 70144
+generation_date: '2026-07-31T22:46:59'
 

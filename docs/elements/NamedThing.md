@@ -139,6 +139,7 @@ URI: [schema:Thing](http://schema.org/Thing)
 | ---  | ---  |
 | self | schema:Thing |
 | native | namo:NamedThing |
+| exact | biolink:NamedThing |
 
 
 
@@ -156,6 +157,8 @@ URI: [schema:Thing](http://schema.org/Thing)
 name: NamedThing
 description: A generic grouping for any identifiable entity
 from_schema: https://w3id.org/monarch-initiative/namo
+exact_mappings:
+- biolink:NamedThing
 slots:
 - id
 - name
@@ -173,6 +176,8 @@ class_uri: schema:Thing
 name: NamedThing
 description: A generic grouping for any identifiable entity
 from_schema: https://w3id.org/monarch-initiative/namo
+exact_mappings:
+- biolink:NamedThing
 attributes:
   id:
     name: id

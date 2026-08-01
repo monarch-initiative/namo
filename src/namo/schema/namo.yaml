@@ -210,6 +210,7 @@ classes:
       - description
       - type
     class_uri: schema:Thing
+    exact_mappings: biolink:NamedThing
 
   Study:
     is_a: NamedThing
@@ -1564,7 +1565,7 @@ slots:
 enums:
 
   SpeciesEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
           - NCBITaxon:1
       is_direct: false
@@ -1572,7 +1573,7 @@ enums:
           - rdfs:subClassOf
 
   OrganEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - UBERON:0000062      # organ
       is_direct: false
@@ -1585,7 +1586,7 @@ enums:
       Multicellular anatomical structures — organs, tissues, tracts and
       barriers alike. Rooted at the term Biolink's `gross anatomical structure`
       maps to.
-    reachable_from:
+    permissible_values:
       source_nodes:
         - UBERON:0010000      # multicellular anatomical structure
       is_direct: false
@@ -1594,7 +1595,7 @@ enums:
         - BFO:0000050         # part_of
 
   CellTypeEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - CL:0000000
       is_direct: false
@@ -1609,19 +1610,19 @@ enums:
       its only ontology ancestor), so a UBERON-only root would reject the
       species-specific terms Biolink's `life stage` lists in its id_prefixes.
     include:
-      - reachable_from:
+      - permissible_values:
           source_nodes:
             - UBERON:0000105      # life cycle stage
           is_direct: false
           relationship_types:
             - rdfs:subClassOf
-      - reachable_from:
+      - permissible_values:
           source_nodes:
             - HsapDv:0000000      # human life cycle stage
           is_direct: false
           relationship_types:
             - rdfs:subClassOf
-      - reachable_from:
+      - permissible_values:
           source_nodes:
             - MmusDv:0000000      # mouse life cycle stage
           is_direct: false
@@ -1633,13 +1634,13 @@ enums:
       Phenotypic abnormalities across the human and mammalian phenotype
       ontologies, matching the span of Biolink's `phenotypic feature`.
     include:
-      - reachable_from:
+      - permissible_values:
           source_nodes:
             - HP:0000118          # phenotypic abnormality
           is_direct: false
           relationship_types:
             - rdfs:subClassOf
-      - reachable_from:
+      - permissible_values:
           source_nodes:
             - MP:0000001          # mammalian phenotype
           is_direct: false
@@ -1662,7 +1663,7 @@ enums:
         meaning: OBI:0002493
 
   StudyDesignEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - OBI:0500000
       is_direct: false
@@ -1670,7 +1671,7 @@ enums:
         - rdfs:subClassOf
 
   InvestigativeProtocolEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - OBI:0000272
       is_direct: false
@@ -1678,7 +1679,7 @@ enums:
         - rdfs:subClassOf
 
   SampleProcessingEnum:
-    reachable_from:
+    permissible_values:
       source_nodes:
         - OBI:0000094
       is_direct: false

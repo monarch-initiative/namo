@@ -355,23 +355,67 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
      'source_file': 'src/namo/schema/namo.yaml',
      'title': 'namo'} )
 
-class SpeciesEnum(str):
-    pass
+class SpeciesEnum(str, Enum):
+    source_nodes = "source_nodes"
+    """
+    ['NCBITaxon:1']
+    """
+    is_direct = "is_direct"
+    """
+    False
+    """
+    relationship_types = "relationship_types"
+    """
+    ['rdfs:subClassOf']
+    """
 
 
-class OrganEnum(str):
-    pass
+class OrganEnum(str, Enum):
+    source_nodes = "source_nodes"
+    """
+    ['UBERON:0000062']
+    """
+    is_direct = "is_direct"
+    """
+    False
+    """
+    relationship_types = "relationship_types"
+    """
+    ['rdfs:subClassOf', 'BFO:0000050']
+    """
 
 
-class AnatomicalStructureEnum(str):
+class AnatomicalStructureEnum(str, Enum):
     """
     Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.
     """
-    pass
+    source_nodes = "source_nodes"
+    """
+    ['UBERON:0010000']
+    """
+    is_direct = "is_direct"
+    """
+    False
+    """
+    relationship_types = "relationship_types"
+    """
+    ['rdfs:subClassOf', 'BFO:0000050']
+    """
 
 
-class CellTypeEnum(str):
-    pass
+class CellTypeEnum(str, Enum):
+    source_nodes = "source_nodes"
+    """
+    ['CL:0000000']
+    """
+    is_direct = "is_direct"
+    """
+    False
+    """
+    relationship_types = "relationship_types"
+    """
+    ['rdfs:subClassOf']
+    """
 
 
 class LifeStageEnum(str):
@@ -399,16 +443,49 @@ class CaseOrControlEnum(str, Enum):
     control_role_in_case_control_study = "CONTROL"
 
 
-class StudyDesignEnum(str):
-    pass
+class StudyDesignEnum(str, Enum):
+    source_nodes = "source_nodes"
+    """
+    ['OBI:0500000']
+    """
+    is_direct = "is_direct"
+    """
+    False
+    """
+    relationship_types = "relationship_types"
+    """
+    ['rdfs:subClassOf']
+    """
 
 
-class InvestigativeProtocolEnum(str):
-    pass
+class InvestigativeProtocolEnum(str, Enum):
+    source_nodes = "source_nodes"
+    """
+    ['OBI:0000272']
+    """
+    is_direct = "is_direct"
+    """
+    False
+    """
+    relationship_types = "relationship_types"
+    """
+    ['rdfs:subClassOf']
+    """
 
 
-class SampleProcessingEnum(str):
-    pass
+class SampleProcessingEnum(str, Enum):
+    source_nodes = "source_nodes"
+    """
+    ['OBI:0000094']
+    """
+    is_direct = "is_direct"
+    """
+    False
+    """
+    relationship_types = "relationship_types"
+    """
+    ['rdfs:subClassOf']
+    """
 
 
 class PresenceEnum(str, Enum):
@@ -1075,6 +1152,7 @@ class NamedThing(ConfiguredBaseModel):
     A generic grouping for any identifiable entity
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'schema:Thing',
+         'exact_mappings': ['biolink:NamedThing'],
          'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
     id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],

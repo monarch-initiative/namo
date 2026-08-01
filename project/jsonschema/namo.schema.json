@@ -2,6 +2,11 @@
     "$defs": {
         "AnatomicalStructureEnum": {
             "description": "Multicellular anatomical structures \u2014 organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "AnatomicalStructureEnum",
             "type": "string"
         },
@@ -464,6 +469,11 @@
         },
         "CellTypeEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "CellTypeEnum",
             "type": "string"
         },
@@ -1706,6 +1716,11 @@
         },
         "InvestigativeProtocolEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "InvestigativeProtocolEnum",
             "type": "string"
         },
@@ -2734,6 +2749,11 @@
         },
         "OrganEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "OrganEnum",
             "type": "string"
         },
@@ -3910,11 +3930,21 @@
         },
         "SampleProcessingEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "SampleProcessingEnum",
             "type": "string"
         },
         "SpeciesEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "SpeciesEnum",
             "type": "string"
         },
@@ -4110,6 +4140,11 @@
         },
         "StudyDesignEnum": {
             "description": "",
+            "enum": [
+                "source_nodes",
+                "is_direct",
+                "relationship_types"
+            ],
             "title": "StudyDesignEnum",
             "type": "string"
         },

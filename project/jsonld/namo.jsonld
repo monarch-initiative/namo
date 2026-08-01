@@ -461,56 +461,78 @@
       "name": "SpeciesEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/SpeciesEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "NCBITaxon:1"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['NCBITaxon:1']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "OrganEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/OrganEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "UBERON:0000062"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf",
-          "BFO:0000050"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['UBERON:0000062']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf', 'BFO:0000050']"
+        }
+      ]
     },
     {
       "name": "AnatomicalStructureEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/AnatomicalStructureEnum",
       "description": "Multicellular anatomical structures \u2014 organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "UBERON:0010000"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf",
-          "BFO:0000050"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['UBERON:0010000']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf', 'BFO:0000050']"
+        }
+      ]
     },
     {
       "name": "CellTypeEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/CellTypeEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "CL:0000000"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['CL:0000000']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "LifeStageEnum",
@@ -519,34 +541,52 @@
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "include": [
         {
-          "reachable_from": {
-            "source_nodes": [
-              "UBERON:0000105"
-            ],
-            "relationship_types": [
-              "rdfs:subClassOf"
-            ]
-          }
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['UBERON:0000105']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
         },
         {
-          "reachable_from": {
-            "source_nodes": [
-              "HsapDv:0000000"
-            ],
-            "relationship_types": [
-              "rdfs:subClassOf"
-            ]
-          }
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['HsapDv:0000000']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
         },
         {
-          "reachable_from": {
-            "source_nodes": [
-              "MmusDv:0000000"
-            ],
-            "relationship_types": [
-              "rdfs:subClassOf"
-            ]
-          }
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['MmusDv:0000000']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
         }
       ]
     },
@@ -557,24 +597,36 @@
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "include": [
         {
-          "reachable_from": {
-            "source_nodes": [
-              "HP:0000118"
-            ],
-            "relationship_types": [
-              "rdfs:subClassOf"
-            ]
-          }
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['HP:0000118']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
         },
         {
-          "reachable_from": {
-            "source_nodes": [
-              "MP:0000001"
-            ],
-            "relationship_types": [
-              "rdfs:subClassOf"
-            ]
-          }
+          "permissible_values": [
+            {
+              "text": "source_nodes",
+              "description": "['MP:0000001']"
+            },
+            {
+              "text": "is_direct",
+              "description": "False"
+            },
+            {
+              "text": "relationship_types",
+              "description": "['rdfs:subClassOf']"
+            }
+          ]
         }
       ]
     },
@@ -615,40 +667,58 @@
       "name": "StudyDesignEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/StudyDesignEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "OBI:0500000"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['OBI:0500000']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "InvestigativeProtocolEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/InvestigativeProtocolEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "OBI:0000272"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['OBI:0000272']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "SampleProcessingEnum",
       "definition_uri": "https://w3id.org/monarch-initiative/namo/SampleProcessingEnum",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
-      "reachable_from": {
-        "source_nodes": [
-          "OBI:0000094"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
+      "permissible_values": [
+        {
+          "text": "source_nodes",
+          "description": "['OBI:0000094']"
+        },
+        {
+          "text": "is_direct",
+          "description": "False"
+        },
+        {
+          "text": "relationship_types",
+          "description": "['rdfs:subClassOf']"
+        }
+      ]
     },
     {
       "name": "PresenceEnum",
@@ -4473,6 +4543,9 @@
       "mappings": [
         "schema:Thing"
       ],
+      "exact_mappings": [
+        "biolink:NamedThing"
+      ],
       "slots": [
         "id",
         "name",
@@ -7147,9 +7220,9 @@
   ],
   "metamodel_version": "1.11.0",
   "source_file": "namo.yaml",
-  "source_file_date": "2026-07-31T21:01:30",
-  "source_file_size": 70105,
-  "generation_date": "2026-07-31T21:02:31",
+  "source_file_date": "2026-07-31T22:51:10",
+  "source_file_size": 70192,
+  "generation_date": "2026-07-31T22:51:16",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/namo.context.jsonld",
