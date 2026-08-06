@@ -1,0 +1,291 @@
+id: "benchmarking:001"
+name: "Transcriptomic Benchmarking of Monocyte-Derived Macrophage Polarization Protocols"
+description: >-
+  A comprehensive transcriptomic study comparing multiple in vitro polarization 
+  methods for deriving macrophages from human monocytes. This study leverages 
+  an unbiased RNA-seq database to characterize gene expression profiles across 
+  commonly employed polarization protocols and assess their physiological relevance
+  compared to primary tissue macrophages.
+type: "ProtocolBenchmarkingStudy"
+
+context_of_use: >-
+  Protocol optimization for macrophage-based disease modeling, drug screening, 
+  and immunological research. Supports selection of optimal derivation methods 
+  for specific research applications.
+
+biological_context: >-
+  Human monocyte-to-macrophage differentiation and polarization represents a 
+  critical cellular transition in immune system function. Multiple in vitro 
+  protocols exist with varying degrees of physiological relevance.
+
+perturbations: >-
+  Different polarization cocktails including M-CSF, GM-CSF, IL-4, IL-13, 
+  LPS, IFN-γ, and various combinations applied over 5-7 day protocols.
+
+endpoints: >-
+  Bulk RNA-seq transcriptomic profiling, surface marker expression analysis,
+  functional cytokine secretion assays, and phagocytosis capacity measurements.
+
+plan_comparators: >-
+  Primary alveolar macrophages, tissue-resident macrophages from multiple organs,
+  and publicly available macrophage expression databases.
+
+protocols_compared:
+  - id: "protocol:mcsf-001"
+    name: "M-CSF Classical Activation Protocol"
+    description: >-
+      Standard M-CSF-driven monocyte differentiation followed by LPS/IFN-γ 
+      classical activation (M1-like polarization).
+    starting_cell_type:
+      id: "CL:0000576"
+      name: "monocyte"
+    target_cell_type:
+      id: "CL:0000235"
+      name: "macrophage"
+    duration_days: 7
+    efficiency_percentage: 85.2
+    protocol_steps:
+      - step_number: 1
+        step_name: "Monocyte isolation and seeding"
+        duration_hours: 4
+        reagents:
+          - reagent_name: "M-CSF"
+            concentration: "50 ng/ml"
+            reagent_role: "GROWTH_FACTOR"
+            supplier: "R&D Systems 216-MC"
+        culture_conditions: "RPMI-1640 + 10% FBS, 37°C, 5% CO2"
+        critical_parameters:
+          - "Monocyte purity >95%"
+          - "Seeding density 1x10^6 cells/ml"
+      - step_number: 2
+        step_name: "Differentiation phase"
+        duration_hours: 120
+        reagents:
+          - reagent_name: "M-CSF"
+            concentration: "50 ng/ml"
+            reagent_role: "GROWTH_FACTOR"
+        culture_conditions: "Media replacement every 48h"
+        critical_parameters:
+          - "Maintain M-CSF concentration"
+          - "Monitor cell adhesion"
+      - step_number: 3
+        step_name: "Classical activation"
+        duration_hours: 24
+        reagents:
+          - reagent_name: "LPS"
+            concentration: "100 ng/ml"
+            reagent_role: "ACTIVATOR"
+            supplier: "Sigma L4391"
+          - reagent_name: "IFN-γ"
+            concentration: "20 ng/ml"
+            reagent_role: "CYTOKINE"
+            supplier: "Peprotech 300-02"
+        critical_parameters:
+          - "Simultaneous addition of LPS and IFN-γ"
+          - "Incubation for exactly 24h"
+    success_criteria:
+      - "CD68+ CD163+ double positive cells >80%"
+      - "TNF-α secretion >500 pg/ml upon LPS stimulation"
+      - "Adherent macrophage morphology"
+    reproducibility_assessment:
+      inter_laboratory_variability: 0.15
+      batch_to_batch_consistency: 0.89
+      operator_dependence: "MODERATE"
+      equipment_sensitivity: "LOW"
+      cost_assessment: "MODERATE"
+      time_investment: "MODERATE"
+
+  - id: "protocol:gmcsf-001"
+    name: "GM-CSF Alternative Activation Protocol"
+    description: >-
+      GM-CSF-driven monocyte differentiation followed by IL-4/IL-13 alternative 
+      activation (M2-like polarization).
+    starting_cell_type:
+      id: "CL:0000576"
+      name: "monocyte"
+    target_cell_type:
+      id: "CL:0000235"
+      name: "macrophage"
+    duration_days: 6
+    efficiency_percentage: 78.9
+    protocol_steps:
+      - step_number: 1
+        step_name: "Monocyte isolation and GM-CSF priming"
+        duration_hours: 4
+        reagents:
+          - reagent_name: "GM-CSF"
+            concentration: "100 ng/ml"
+            reagent_role: "GROWTH_FACTOR"
+            supplier: "Peprotech 300-03"
+        culture_conditions: "RPMI-1640 + 10% FBS, 37°C, 5% CO2"
+      - step_number: 2
+        step_name: "Differentiation with GM-CSF"
+        duration_hours: 96
+        reagents:
+          - reagent_name: "GM-CSF"
+            concentration: "100 ng/ml"
+            reagent_role: "GROWTH_FACTOR"
+        culture_conditions: "Media replacement every 48h"
+      - step_number: 3
+        step_name: "Alternative activation"
+        duration_hours: 48
+        reagents:
+          - reagent_name: "IL-4"
+            concentration: "20 ng/ml"
+            reagent_role: "CYTOKINE"
+            supplier: "R&D Systems 204-IL"
+          - reagent_name: "IL-13"
+            concentration: "20 ng/ml"
+            reagent_role: "CYTOKINE"
+            supplier: "R&D Systems 213-IL"
+    success_criteria:
+      - "CD206+ Arg1+ double positive cells >70%"
+      - "IL-10 secretion >200 pg/ml"
+      - "Reduced TNF-α response to LPS"
+    reproducibility_assessment:
+      inter_laboratory_variability: 0.22
+      batch_to_batch_consistency: 0.83
+      operator_dependence: "MODERATE"
+      equipment_sensitivity: "LOW"
+      cost_assessment: "HIGH"
+      time_investment: "MODERATE"
+
+reference_datasets:
+  - id: "database:001"
+    name: "Human Tissue Macrophage Atlas"
+    description: >-
+      Comprehensive RNA-seq database of primary tissue-resident macrophages 
+      from multiple human organs including lung, liver, intestine, and brain.
+    database_type: "GENE_EXPRESSION"
+    data_source: "Primary human tissue samples from organ donors"
+    sample_size: 247
+    species:
+      id: "NCBITaxon:9606"
+      name: "Homo sapiens"
+    tissue_types:
+      - id: "UBERON:0002048"
+        name: "lung"
+      - id: "UBERON:0002107"
+        name: "liver"
+      - id: "UBERON:0000160"
+        name: "intestine"
+      - id: "UBERON:0000955"
+        name: "brain"
+    access_url: "https://www.immunologydb.org/tissue_macrophages"
+    data_processing: "DESeq2 normalization, batch correction with ComBat-seq"
+    quality_metrics:
+      - metric_name: "RNA integrity number"
+        metric_value: 8.2
+        quality_threshold: 7.0
+        passes_quality: true
+      - metric_name: "Mapping rate"
+        metric_value: 89.5
+        quality_threshold: 80.0
+        passes_quality: true
+
+comparison_methodology:
+  comparison_type: "TRANSCRIPTOMIC"
+  normalization_method: "DESeq2 variance stabilizing transformation"
+  statistical_approach: "limma-voom with empirical Bayes moderation"
+  similarity_metrics:
+    - "Pearson correlation coefficient"
+    - "Spearman rank correlation"
+    - "Principal component analysis distance"
+  multiple_testing_correction: "Benjamini-Hochberg FDR correction"
+  clustering_method: "Hierarchical clustering with Ward linkage"
+
+benchmarking_metrics:
+  - metric_name: "Transcriptomic Similarity to Primary Macrophages"
+    metric_type: "SIMILARITY"
+    metric_value: 0.73
+    metric_range: "0.0-1.0 (correlation coefficient)"
+    higher_is_better: true
+    calculation_method: "Pearson correlation with tissue macrophage signatures"
+    reference_standard: "Primary alveolar macrophages"
+
+  - metric_name: "Pathway Conservation Score"
+    metric_type: "FUNCTIONAL"
+    metric_value: 0.68
+    metric_range: "0.0-1.0 (GSEA enrichment)"
+    higher_is_better: true
+    calculation_method: "GSEA with hallmark gene sets"
+    reference_standard: "Canonical immune pathway signatures"
+
+  - metric_name: "Protocol Efficiency"
+    metric_type: "EFFICIENCY"
+    metric_value: 82.1
+    metric_range: "0-100 (percentage successful differentiation)"
+    higher_is_better: true
+    calculation_method: "Flow cytometry analysis of differentiation markers"
+    reference_standard: "Industry standard protocols"
+
+protocol_ranking:
+  - protocol:
+      id: "protocol:mcsf-001"
+      name: "M-CSF Classical Activation Protocol"
+    overall_rank: 1
+    overall_score: 8.2
+    category_scores:
+      - category_name: "Transcriptomic Similarity"
+        score: 8.5
+        rank_in_category: 1
+        weight: 0.4
+      - category_name: "Functional Relevance"
+        score: 7.8
+        rank_in_category: 1
+        weight: 0.3
+      - category_name: "Reproducibility"
+        score: 8.9
+        rank_in_category: 1
+        weight: 0.2
+      - category_name: "Cost-Effectiveness"
+        score: 7.2
+        rank_in_category: 2
+        weight: 0.1
+    strengths:
+      - "High transcriptomic similarity to primary M1 macrophages"
+      - "Excellent reproducibility across laboratories"
+      - "Well-established and standardized protocol"
+      - "Strong inflammatory response profile"
+    weaknesses:
+      - "Limited plasticity in activation states"
+      - "May not fully recapitulate tissue-specific signatures"
+    recommended_applications:
+      - "Pro-inflammatory disease modeling"
+      - "Anti-inflammatory drug screening"
+      - "Classical activation studies"
+
+  - protocol:
+      id: "protocol:gmcsf-001"
+      name: "GM-CSF Alternative Activation Protocol"
+    overall_rank: 2
+    overall_score: 7.1
+    category_scores:
+      - category_name: "Transcriptomic Similarity"
+        score: 6.8
+        rank_in_category: 2
+        weight: 0.4
+      - category_name: "Functional Relevance"
+        score: 7.2
+        rank_in_category: 2
+        weight: 0.3
+      - category_name: "Reproducibility"
+        score: 6.5
+        rank_in_category: 2
+        weight: 0.2
+      - category_name: "Cost-Effectiveness"
+        score: 8.5
+        rank_in_category: 1
+        weight: 0.1
+    strengths:
+      - "Good alternative activation profile"
+      - "Suitable for anti-inflammatory studies"
+      - "Reasonable cost-effectiveness"
+    weaknesses:
+      - "Higher variability between experiments"
+      - "Less similarity to primary tissue macrophages"
+      - "Moderate efficiency compared to M-CSF protocols"
+    recommended_applications:
+      - "Alternative activation studies"
+      - "Wound healing models"
+      - "Resolution of inflammation research"
