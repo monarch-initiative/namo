@@ -191,6 +191,7 @@ imports:
 classes:
 
   Dataset:
+    is_a: NamedThing
     attributes:
       model_systems:
         range: ModelSystem
@@ -685,6 +686,375 @@ classes:
     description: >-
       A model that simulates the metabolic processes of an organism or system.
       Examples: Virtual Physiological Human, ...
+
+  # ==========================================
+  # DERIVATION PROTOCOLS AND BENCHMARKING
+  # ==========================================
+
+  DerivationProtocol:
+    is_a: NamedThing
+    description: >-
+      A standardized procedure for differentiating or deriving specific cell types
+      from precursor cells (e.g., deriving macrophages from monocytes, neurons from iPSCs).
+      Includes detailed methodology, reagents, timing, and conditions.
+    attributes:
+      starting_cell_type:
+        range: Term
+        inlined: true
+        required: true
+        description: >-
+          The initial cell type or source for differentiation
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
+      target_cell_type:
+        range: Term
+        inlined: true
+        required: true
+        description: >-
+          The intended final differentiated cell type
+        bindings:
+          - binds_value_of: id
+            range: CellTypeEnum
+            obligation_level: REQUIRED
+      protocol_steps:
+        range: ProtocolStep
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Ordered list of protocol steps with timing and reagents
+      duration_days:
+        range: float
+        description: >-
+          Total protocol duration in days
+      success_criteria:
+        multivalued: true
+        description: >-
+          Criteria used to assess successful differentiation (markers, morphology, function)
+      efficiency_percentage:
+        range: float
+        description: >-
+          Typical efficiency of differentiation (0-100%)
+      reproducibility_assessment:
+        range: ProtocolReproducibility
+        inlined: true
+        description: >-
+          Assessment of protocol reproducibility across conditions
+      original_publication:
+        range: Reference
+        inlined: true
+        description: >-
+          Original publication describing this protocol
+      protocol_variants:
+        multivalued: true
+        description: >-
+          Known variants or modifications of this protocol
+
+  ProtocolStep:
+    is_a: NamedThing
+    description: >-
+      An individual step within a derivation protocol with specific conditions and timing.
+    attributes:
+      step_number:
+        range: integer
+        required: true
+        description: >-
+          Order of this step in the protocol (1, 2, 3, etc.)
+      step_name:
+        required: true
+        description: >-
+          Brief name describing this protocol step
+      duration_hours:
+        range: float
+        description: >-
+          Duration of this step in hours
+      reagents:
+        range: ProtocolReagent
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Reagents and their concentrations used in this step
+      culture_conditions:
+        description: >-
+          Specific culture conditions for this step (temperature, CO2, etc.)
+      critical_parameters:
+        multivalued: true
+        description: >-
+          Critical parameters that must be controlled in this step
+
+  ProtocolReagent:
+    is_a: NamedThing
+    description: >-
+      A reagent used in a protocol step with specific concentration and role.
+    attributes:
+      reagent_name:
+        required: true
+        description: >-
+          Name of the reagent (e.g., "IL-4", "M-CSF", "Retinoic acid")
+      concentration:
+        description: >-
+          Concentration of the reagent (include units)
+      reagent_role:
+        range: ReagentRoleEnum
+        description: >-
+          Role of the reagent in differentiation
+      supplier:
+        description: >-
+          Commercial supplier and catalog number if applicable
+
+  ProtocolReproducibility:
+    is_a: NamedThing
+    description: >-
+      Assessment of protocol reproducibility and robustness across different conditions.
+    attributes:
+      inter_laboratory_variability:
+        range: float
+        description: >-
+          Coefficient of variation across different laboratories (0-1)
+      batch_to_batch_consistency:
+        range: float
+        description: >-
+          Consistency score across different reagent batches (0-1)
+      operator_dependence:
+        range: OperatorDependenceEnum
+        description: >-
+          Level of dependence on operator skill and experience
+      equipment_sensitivity:
+        range: EquipmentSensitivityEnum
+        description: >-
+          Sensitivity to specific equipment or instrumentation
+      cost_assessment:
+        range: CostLevelEnum
+        description: >-
+          Relative cost level of the protocol
+      time_investment:
+        range: TimeInvestmentEnum
+        description: >-
+          Required time investment level
+
+  ProtocolBenchmarkingStudy:
+    is_a: Study
+    description: >-
+      A study that systematically compares multiple derivation protocols using
+      transcriptomic or other molecular analysis to assess their relative performance
+      and physiological relevance. Exemplified by studies comparing macrophage 
+      polarization methods using RNA-seq.
+    attributes:
+      protocols_compared:
+        range: DerivationProtocol
+        multivalued: true
+        inlined_as_list: true
+        required: true
+        description: >-
+          List of derivation protocols being compared in this study
+      reference_datasets:
+        range: ExternalDatabase
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          External databases or datasets used for comparison (e.g., primary tissue RNA-seq)
+      comparison_methodology:
+        range: ComparisonMethodology
+        inlined: true
+        description: >-
+          Methodology used for comparing protocols
+      benchmarking_metrics:
+        range: BenchmarkingMetric
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Specific metrics used to assess protocol performance
+      protocol_ranking:
+        range: ProtocolRanking
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Ranking of protocols based on benchmarking results
+
+  ExternalDatabase:
+    is_a: NamedThing
+    description: >-
+      External database or dataset used as reference for protocol benchmarking,
+      such as primary tissue gene expression databases or other reference datasets.
+    attributes:
+      database_type:
+        range: DatabaseTypeEnum
+        description: >-
+          Type of database (e.g., gene expression, proteomics, single-cell)
+      data_source:
+        description: >-
+          Source of the data (e.g., primary tissues, clinical samples, literature)
+      sample_size:
+        range: integer
+        description: >-
+          Number of samples in the database
+      species:
+        range: Term
+        inlined: true
+        description: >-
+          Species of samples in database
+        bindings:
+          - binds_value_of: id
+            range: SpeciesEnum
+            obligation_level: REQUIRED
+      tissue_types:
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Tissue types represented in the database
+      access_url:
+        range: uri
+        description: >-
+          URL to access the database
+      data_processing:
+        description: >-
+          Description of data processing and normalization methods
+      quality_metrics:
+        range: DataQualityMetric
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Quality assessment metrics for the database
+
+  ComparisonMethodology:
+    is_a: NamedThing
+    description: >-
+      Methodology used for comparing multiple derivation protocols in a benchmarking study.
+    attributes:
+      comparison_type:
+        range: ComparisonTypeEnum
+        description: >-
+          Type of comparison (transcriptomic, proteomic, functional, etc.)
+      normalization_method:
+        description: >-
+          Method used for data normalization across protocols
+      statistical_approach:
+        description: >-
+          Statistical methods used for comparison (e.g., DESeq2, edgeR, limma)
+      similarity_metrics:
+        multivalued: true
+        description: >-
+          Metrics used to assess similarity (correlation, distance measures, etc.)
+      multiple_testing_correction:
+        description: >-
+          Method used for multiple testing correction
+      clustering_method:
+        description: >-
+          Clustering or dimensionality reduction methods used
+
+  BenchmarkingMetric:
+    is_a: NamedThing
+    description: >-
+      Specific metric used to assess the performance of derivation protocols.
+    attributes:
+      metric_name:
+        required: true
+        description: >-
+          Name of the benchmarking metric
+      metric_type:
+        range: MetricTypeEnum
+        description: >-
+          Type of metric (similarity, functional, expression, etc.)
+      metric_value:
+        range: float
+        description: >-
+          Numerical value of the metric
+      metric_range:
+        description: >-
+          Expected range or scale of the metric
+      higher_is_better:
+        range: boolean
+        description: >-
+          Whether higher values indicate better performance
+      calculation_method:
+        description: >-
+          Method used to calculate this metric
+      reference_standard:
+        description: >-
+          What this metric is being compared against
+
+  ProtocolRanking:
+    is_a: NamedThing
+    description: >-
+      Ranking of a protocol based on benchmarking results.
+    attributes:
+      protocol:
+        range: DerivationProtocol
+        required: true
+        description: >-
+          The protocol being ranked
+      overall_rank:
+        range: integer
+        description: >-
+          Overall rank among compared protocols (1 = best)
+      overall_score:
+        range: float
+        description: >-
+          Overall composite score
+      category_scores:
+        range: CategoryScore
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Scores in specific categories (e.g., similarity, efficiency, cost)
+      strengths:
+        multivalued: true
+        description: >-
+          Identified strengths of this protocol
+      weaknesses:
+        multivalued: true
+        description: >-
+          Identified weaknesses or limitations
+      recommended_applications:
+        multivalued: true
+        description: >-
+          Recommended use cases for this protocol
+
+  CategoryScore:
+    description: >-
+      Score for a specific evaluation category in protocol benchmarking.
+    attributes:
+      category_name:
+        required: true
+        description: >-
+          Name of the evaluation category
+      score:
+        range: float
+        required: true
+        description: >-
+          Numerical score for this category
+      rank_in_category:
+        range: integer
+        description: >-
+          Rank within this specific category
+      weight:
+        range: float
+        description: >-
+          Weight of this category in overall scoring
+
+  DataQualityMetric:
+    is_a: NamedThing
+    description: >-
+      Quality assessment metric for external databases used in benchmarking.
+    attributes:
+      metric_name:
+        required: true
+        description: >-
+          Name of the quality metric
+      metric_value:
+        range: float
+        description: >-
+          Value of the quality metric
+      quality_threshold:
+        range: float
+        description: >-
+          Threshold for acceptable quality
+      passes_quality:
+        range: boolean
+        description: >-
+          Whether the data passes quality criteria
 
   # ==========================================
   # SUPPORTING CLASSES FOR NEW TAXONOMY
@@ -2125,6 +2495,139 @@ enums:
         description: Time series cross-validation
       MONTE_CARLO:
         description: Monte Carlo cross-validation
+
+  # ==========================================
+  # ENUMS FOR DERIVATION PROTOCOLS AND BENCHMARKING
+  # ==========================================
+
+  ReagentRoleEnum:
+    permissible_values:
+      GROWTH_FACTOR:
+        description: Growth factor promoting cell proliferation or differentiation
+      CYTOKINE:
+        description: Cytokine signaling molecule
+      HORMONE:
+        description: Hormone regulating cellular processes
+      SMALL_MOLECULE:
+        description: Small molecule compound (drugs, supplements)
+      MATRIX_COMPONENT:
+        description: Extracellular matrix component
+      BUFFER_COMPONENT:
+        description: Buffer or media component
+      INHIBITOR:
+        description: Pathway or enzyme inhibitor
+      ACTIVATOR:
+        description: Pathway or enzyme activator
+      SUBSTRATE:
+        description: Substrate for enzymatic reactions
+      SUPPLEMENT:
+        description: Media supplement or additive
+
+  OperatorDependenceEnum:
+    permissible_values:
+      LOW:
+        description: Minimal dependence on operator skill
+      MODERATE:
+        description: Some dependence on operator experience
+      HIGH:
+        description: High dependence on operator expertise
+      CRITICAL:
+        description: Critical dependence on specialized training
+
+  EquipmentSensitivityEnum:
+    permissible_values:
+      LOW:
+        description: Works with standard laboratory equipment
+      MODERATE:
+        description: Requires some specialized equipment
+      HIGH:
+        description: Requires specialized or expensive equipment
+      CRITICAL:
+        description: Requires highly specialized or custom equipment
+
+  CostLevelEnum:
+    permissible_values:
+      LOW:
+        description: Low cost, accessible to most laboratories
+      MODERATE:
+        description: Moderate cost, may require budget planning
+      HIGH:
+        description: High cost, significant investment required
+      VERY_HIGH:
+        description: Very high cost, specialized funding needed
+
+  TimeInvestmentEnum:
+    permissible_values:
+      SHORT:
+        description: Less than 1 week total time
+      MODERATE:
+        description: 1-4 weeks total time
+      LONG:
+        description: 1-3 months total time
+      VERY_LONG:
+        description: More than 3 months total time
+
+  DatabaseTypeEnum:
+    permissible_values:
+      GENE_EXPRESSION:
+        description: Gene expression database (RNA-seq, microarray)
+        meaning: EDAM:3308
+      SINGLE_CELL_RNA_SEQ:
+        description: Single-cell RNA sequencing database
+        meaning: EDAM:3933
+      PROTEOMICS:
+        description: Proteomics database
+        meaning: EDAM:0121
+      METABOLOMICS:
+        description: Metabolomics database
+        meaning: EDAM:3172
+      EPIGENOMICS:
+        description: Epigenomics database (ChIP-seq, ATAC-seq, etc.)
+      MULTI_OMICS:
+        description: Multi-omics integrated database
+      CLINICAL:
+        description: Clinical data database
+      PHENOTYPIC:
+        description: Phenotypic characterization database
+
+  ComparisonTypeEnum:
+    permissible_values:
+      TRANSCRIPTOMIC:
+        description: Gene expression comparison
+        meaning: EDAM:3308
+      PROTEOMIC:
+        description: Protein expression comparison
+        meaning: EDAM:0121
+      METABOLOMIC:
+        description: Metabolite comparison
+        meaning: EDAM:3172
+      FUNCTIONAL:
+        description: Functional assay comparison
+      MORPHOLOGICAL:
+        description: Morphological feature comparison
+      MULTI_OMICS:
+        description: Multiple omics data comparison
+      COMPUTATIONAL:
+        description: Computational model comparison
+
+  MetricTypeEnum:
+    permissible_values:
+      SIMILARITY:
+        description: Similarity metric to reference data
+      FUNCTIONAL:
+        description: Functional capability metric
+      EXPRESSION:
+        description: Gene/protein expression metric
+      EFFICIENCY:
+        description: Protocol efficiency metric
+      REPRODUCIBILITY:
+        description: Reproducibility metric
+      COST_EFFECTIVENESS:
+        description: Cost-effectiveness metric
+      TIME_EFFICIENCY:
+        description: Time efficiency metric
+      QUALITY:
+        description: Overall quality metric
 
 
 
