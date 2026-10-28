@@ -1,0 +1,16 @@
+name: Other input/issues
+description: Any other information/github issues not captured by the other options.
+title: Other input/issues
+labels: [ other ]
+assignees: dnlrkorn
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Other issues.
+  - type: textarea
+    id: comments
+    attributes:
+      label: Comments
+      description: |
+        Please provide any additional comments here.

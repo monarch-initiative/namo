@@ -1,0 +1,16 @@
+name: NAMO Feedback
+description: Tell us thoughts on NAMO and how we can best apply semantics to computational toxicology. 
+title: NAMO Feedback [ADD NAME HERE]
+labels: [ feedback ]
+assignees: dnlrkorn
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to submit some insights, tips, and recommendations to our team as we pursue the NAMO project.
+  - type: textarea
+    id: comments
+    attributes:
+      label: Comments
+      description: |
+        Please provide any additional comments here.

@@ -1,0 +1,16 @@
+name: Issues with NAMO schema.
+description: Please provide any found identified issues with the NAMO schema.
+title: Issue with NAMO schema.
+labels: [ schema ]
+assignees: dnlrkorn
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to provide us information on any issues inside of the NAMO data schema (YAMLs found in ./src/namo).
+  - type: textarea
+    id: comments
+    attributes:
+      label: Comments
+      description: |
+        Please provide any additional comments here.

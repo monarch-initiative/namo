@@ -1,0 +1,16 @@
+name: Specific NAM/model ideas 
+description: If you have a deep expertise in how some models may be difficult to model, tell us!
+title: Specific NAM/model ideas  [ADD NAME HERE]
+labels: [ specific ]
+assignees: dnlrkorn
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to submit some insights, tips, and recommendations to our team as we pursue the NAMO project.
+  - type: textarea
+    id: comments
+    attributes:
+      label: Comments
+      description: |
+        Please provide any additional comments here.

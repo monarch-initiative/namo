@@ -1,0 +1,16 @@
+name: Edge case NAMs
+description: If there are specific NAMs that defy categorization; please document them here.
+title: Edge case NAMs.
+labels: [ edgecase ]
+assignees: dnlrkorn
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to submit some information on models that may not be able .
+  - type: textarea
+    id: comments
+    attributes:
+      label: Comments
+      description: |
+        Please provide any additional comments here.
