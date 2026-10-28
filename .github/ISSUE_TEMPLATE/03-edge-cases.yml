@@ -1,6 +1,6 @@
 name: Edge case NAMs
 description: If there are specific NAMs that defy categorization; please document them here.
-title: Edge case NAMs.
+title: Edge case NAMs [ADD NAME HERE]
 labels: [ edgecase ]
 assignees: dnlrkorn
 body:

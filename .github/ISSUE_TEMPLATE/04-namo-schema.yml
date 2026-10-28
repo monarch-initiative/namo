@@ -1,6 +1,6 @@
 name: Issues with NAMO schema.
 description: Please provide any found identified issues with the NAMO schema.
-title: Issue with NAMO schema.
+title: Issue with NAMO schema [ADD NAME HERE]
 labels: [ schema ]
 assignees: dnlrkorn
 body:
