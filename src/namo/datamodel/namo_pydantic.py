@@ -355,67 +355,23 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
      'source_file': 'src/namo/schema/namo.yaml',
      'title': 'namo'} )
 
-class SpeciesEnum(str, Enum):
-    source_nodes = "source_nodes"
-    """
-    ['NCBITaxon:1']
-    """
-    is_direct = "is_direct"
-    """
-    False
-    """
-    relationship_types = "relationship_types"
-    """
-    ['rdfs:subClassOf']
-    """
+class SpeciesEnum(str):
+    pass
 
 
-class OrganEnum(str, Enum):
-    source_nodes = "source_nodes"
-    """
-    ['UBERON:0000062']
-    """
-    is_direct = "is_direct"
-    """
-    False
-    """
-    relationship_types = "relationship_types"
-    """
-    ['rdfs:subClassOf', 'BFO:0000050']
-    """
+class OrganEnum(str):
+    pass
 
 
-class AnatomicalStructureEnum(str, Enum):
+class AnatomicalStructureEnum(str):
     """
     Multicellular anatomical structures — organs, tissues, tracts and barriers alike. Rooted at the term Biolink's `gross anatomical structure` maps to.
     """
-    source_nodes = "source_nodes"
-    """
-    ['UBERON:0010000']
-    """
-    is_direct = "is_direct"
-    """
-    False
-    """
-    relationship_types = "relationship_types"
-    """
-    ['rdfs:subClassOf', 'BFO:0000050']
-    """
+    pass
 
 
-class CellTypeEnum(str, Enum):
-    source_nodes = "source_nodes"
-    """
-    ['CL:0000000']
-    """
-    is_direct = "is_direct"
-    """
-    False
-    """
-    relationship_types = "relationship_types"
-    """
-    ['rdfs:subClassOf']
-    """
+class CellTypeEnum(str):
+    pass
 
 
 class LifeStageEnum(str):
@@ -443,49 +399,16 @@ class CaseOrControlEnum(str, Enum):
     control_role_in_case_control_study = "CONTROL"
 
 
-class StudyDesignEnum(str, Enum):
-    source_nodes = "source_nodes"
-    """
-    ['OBI:0500000']
-    """
-    is_direct = "is_direct"
-    """
-    False
-    """
-    relationship_types = "relationship_types"
-    """
-    ['rdfs:subClassOf']
-    """
+class StudyDesignEnum(str):
+    pass
 
 
-class InvestigativeProtocolEnum(str, Enum):
-    source_nodes = "source_nodes"
-    """
-    ['OBI:0000272']
-    """
-    is_direct = "is_direct"
-    """
-    False
-    """
-    relationship_types = "relationship_types"
-    """
-    ['rdfs:subClassOf']
-    """
+class InvestigativeProtocolEnum(str):
+    pass
 
 
-class SampleProcessingEnum(str, Enum):
-    source_nodes = "source_nodes"
-    """
-    ['OBI:0000094']
-    """
-    is_direct = "is_direct"
-    """
-    False
-    """
-    relationship_types = "relationship_types"
-    """
-    ['rdfs:subClassOf']
-    """
+class SampleProcessingEnum(str):
+    pass
 
 
 class PresenceEnum(str, Enum):
