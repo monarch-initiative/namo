@@ -210,7 +210,8 @@ classes:
       - description
       - type
     class_uri: schema:Thing
-    exact_mappings: biolink:NamedThing
+    exact_mappings:
+      - biolink:NamedThing
 
   Study:
     is_a: NamedThing
