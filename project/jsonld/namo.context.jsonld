@@ -1028,8 +1028,8 @@
       "Reference": {
          "@id": "Reference"
       },
-      "Reproducibility": {
-         "@id": "Reproducibility"
+      "ReproducibilityAssessment": {
+         "@id": "ReproducibilityAssessment"
       },
       "StatisticalSignificance": {
          "@id": "StatisticalSignificance"

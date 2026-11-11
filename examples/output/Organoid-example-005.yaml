@@ -144,7 +144,7 @@ models:
       id: repro:013
       name: Cardiac Organoid Reproducibility
       description: Inter-batch and inter-laboratory consistency assessment
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.89
       coefficient_of_variation: 0.11
       batch_to_batch_variation: 0.13

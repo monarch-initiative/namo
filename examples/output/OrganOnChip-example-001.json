@@ -116,7 +116,7 @@
           "id": "repro:009",
           "name": "CF Airway Chip Reproducibility",
           "description": "Inter-chip consistency of CF phenotype",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.89,
           "coefficient_of_variation": 0.11,
           "batch_to_batch_variation": 0.13,

@@ -25,7 +25,7 @@ URI: [namo:replicate_count](https://w3id.org/monarch-initiative/namo/replicate_c
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Reproducibility](Reproducibility.md) | Assessment of experimental reproducibility and consistency of the model syste... |  no  |
+| [ReproducibilityAssessment](ReproducibilityAssessment.md) | Assessment of experimental reproducibility and consistency of the model syste... |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [namo:replicate_count](https://w3id.org/monarch-initiative/namo/replicate_c
 | Property | Value |
 | --- | --- |
 | Range | [Integer](Integer.md) |
-| Domain Of | [Reproducibility](Reproducibility.md) |
+| Domain Of | [ReproducibilityAssessment](ReproducibilityAssessment.md) |
 
 ### Cardinality and Requirements
 
@@ -49,7 +49,7 @@ URI: [namo:replicate_count](https://w3id.org/monarch-initiative/namo/replicate_c
 
 | Property | Value |
 | --- | --- |
-| Owner | [Reproducibility](Reproducibility.md) |
+| Owner | [ReproducibilityAssessment](ReproducibilityAssessment.md) |
 
 
 
@@ -94,9 +94,9 @@ name: replicate_count
 description: Number of experimental replicates used in assessment.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-owner: Reproducibility
+owner: ReproducibilityAssessment
 domain_of:
-- Reproducibility
+- ReproducibilityAssessment
 range: integer
 
 ```

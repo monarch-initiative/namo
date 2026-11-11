@@ -847,7 +847,7 @@ type Reference
     url: String
   }
 
-type Reproducibility
+type ReproducibilityAssessment
   {
     id: String!
     name: String
@@ -877,7 +877,7 @@ type StructuredConcordanceResult
     phenotypeOverlap: PhenotypeOverlap
     cellTypeCoverage: CellTypeCoverage
     functionalParity: FunctionalParity
-    reproducibility: Reproducibility
+    reproducibility: ReproducibilityAssessment
   }
 
 type Study

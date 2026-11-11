@@ -133,7 +133,7 @@
           "id": "repro:023",
           "name": "Model Validation Reproducibility",
           "description": "Cross-validation and external test set consistency",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.93,
           "coefficient_of_variation": 0.07,
           "batch_to_batch_variation": 0.04,

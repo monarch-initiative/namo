@@ -83,7 +83,7 @@ NAMO emphasizes validation through [structured concordance analysis](StructuredC
   and metabolomic signatures compared to reference biological systems
 - **[Functional Parity](FunctionalParity.md)**: Physiological responses, barrier functions,
   and cellular behaviors that match in vivo counterparts
-- **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch 
+- **[Reproducibility](ReproducibilityAssessment.md)**: Inter-laboratory consistency, batch-to-batch 
   variation, and quality control metrics
 
 #### Performance Metrics

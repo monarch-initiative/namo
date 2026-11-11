@@ -90,7 +90,7 @@
           "id": "repro:004",
           "name": "QSAR Model Reproducibility",
           "description": "Cross-validation and external validation consistency",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.89,
           "coefficient_of_variation": 0.04,
           "batch_to_batch_variation": 0.02,

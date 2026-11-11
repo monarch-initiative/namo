@@ -1,6 +1,6 @@
 {
   "name": "namo",
-  "description": "NAMO (New Approach Methodology Ontology) is a comprehensive schema for representing diverse \nin vitro and in silico model systems used as alternatives to traditional animal testing. \nIt supports organoids, organ-on-chip systems, 3D cell cultures, computational models, and \nother New Approach Methodologies (NAMs) used in toxicology, drug discovery, and biomedical research.\n\n## Schema Organization\n\nThe schema follows a hierarchical structure that mirrors how NAM research is organized and conducted:\n\nThe top-level entity is a [Dataset](Dataset.md), which serves as a container for related research\nactivities. A dataset might represent all NAM models from a specific laboratory, regulatory study, \nor collaborative research program.\n\nEach dataset contains one or more [Studies](Study.md), which are focused investigations using\nspecific NAM approaches. For example, a study might investigate \"Hepatotoxicity screening using\nliver organoids\" or \"Multi-organ drug ADMET assessment using microphysiological systems.\"\n\nWithin each study, you'll find:\n\n### Model Systems\nThe core of NAMO is the representation of different [NAM model types](NAMModel.md):\n\n- **[Organoids](Organoid.md)**: Self-organizing 3D tissue models derived from stem cells that \n  recapitulate organ-specific architecture and function. Examples include brain organoids for \n  neurotoxicity testing, intestinal organoids for drug absorption studies, and liver organoids \n  for metabolism research.\n\n- **[Organ-on-Chip Systems](OrganOnChip.md)**: Microfluidic devices that simulate organ-level \n  physiology with precise control over cellular microenvironment. These include lung-on-chip \n  for inhalation toxicology, heart-on-chip for cardiotoxicity assessment, and multi-organ \n  chips for systemic drug effects.\n\n- **[Tissue-on-Chip Systems](TissueOnChip.md)**: Microfluidic models focused on specific tissue\n  functions such as blood-brain barrier chips, skin models for dermatological testing, and \n  kidney proximal tubule chips for nephrotoxicity screening.\n\n- **[3D Cell Cultures](ThreeDCellCulture.md)**: Three-dimensional cell culture systems including\n  spheroids, scaffold-based cultures, and bioengineered tissues that provide more physiologically\n  relevant environments than traditional 2D cultures.\n\n- **[2D Cell Cultures](TwoDCellCulture.md)**: Monolayer cell culture systems with specialized\n  configurations, substrates, and culture conditions optimized for specific applications.\n\n- **[Co-Culture Systems](CoCulture.md)**: Multi-cell-type culture systems that model cellular\n  interactions, tissue interfaces, and organ-level communication pathways.\n\n### Computational Models\nNAMO supports various in silico approaches:\n\n- **[Machine Learning Models](MLModel.md)**: AI/ML systems for toxicity prediction, including\n  deep learning models for chemical structure-activity relationships, neural networks for \n  dose-response modeling, and ensemble methods for multi-endpoint prediction.\n\n- **[QSAR Models](QSARModel.md)**: Quantitative Structure-Activity Relationship models that\n  predict biological activity from molecular structure, including traditional statistical\n  approaches and modern machine learning implementations.\n\n- **[PBPK Models](PBPKModel.md)**: Physiologically-based pharmacokinetic models that simulate\n  drug absorption, distribution, metabolism, and excretion using mathematical representations\n  of biological processes.\n\n- **[Digital Twins](DigitalTwin.md)**: Integrated computational models that combine multiple\n  data sources and modeling approaches to create personalized, real-time simulations of \n  biological systems.\n\n- **[Metabolic Models](MetabolicModel.md)**: Systems biology models of cellular metabolism,\n  including flux balance analysis, kinetic modeling, and constraint-based approaches for\n  understanding metabolic perturbations.\n\n### Technical Specifications\n\n#### Microfluidic Design\nFor chip-based systems, detailed [microfluidic design](MicrofluidicDesign.md) specifications \ncapture device architecture, including channel configurations, flow control methods, sensor\nintegration, and material properties essential for reproducibility and standardization.\n\n#### Validation and Concordance\nNAMO emphasizes validation through [structured concordance analysis](StructuredConcordanceResult.md):\n\n- **[Molecular Similarity](MolecularSimilarity.md)**: Gene expression profiles, protein markers,\n  and metabolomic signatures compared to reference biological systems\n- **[Functional Parity](FunctionalParity.md)**: Physiological responses, barrier functions,\n  and cellular behaviors that match in vivo counterparts\n- **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch \n  variation, and quality control metrics\n\n#### Performance Metrics\nQuantitative assessment through standardized [functional assays](FunctionalAssay.md) that\nmeasure model performance, sensitivity, specificity, and predictive accuracy against known\noutcomes and regulatory endpoints.\n\n## Use Cases\n\nNAMO supports diverse applications across multiple domains:\n\n### Regulatory Toxicology\n- **Chemical Safety Assessment**: Systematic evaluation of chemical toxicity using integrated\n  NAM approaches, supporting regulatory submissions to EPA, FDA, and ECHA\n- **Cosmetics Testing**: Non-animal approaches for skin sensitization, eye irritation, and\n  systemic toxicity assessment as required by regulations worldwide\n- **Pesticide Evaluation**: Environmental and human health risk assessment using NAMs for \n  neurotoxicity, endocrine disruption, and developmental toxicity endpoints\n\n### Pharmaceutical Development\n- **Drug Discovery**: Early-stage compound screening using organ-specific models to identify\n  promising candidates and eliminate toxic compounds\n- **ADMET Profiling**: Absorption, Distribution, Metabolism, Excretion, and Toxicity assessment\n  using integrated organ-on-chip platforms and computational models\n- **Precision Medicine**: Patient-derived organoids and digital twins for personalized drug\n  selection and dosing strategies\n\n### Academic Research\n- **Disease Modeling**: Patient-specific organoids for studying rare diseases, cancer biology,\n  and genetic disorders in controlled laboratory environments\n- **Mechanistic Studies**: Investigation of toxicity pathways, cellular responses, and \n  molecular mechanisms using well-characterized NAM systems\n- **Method Development**: Innovation in NAM technologies, validation approaches, and \n  standardization protocols\n\n## Key Features\n\n- **Multi-Modal Integration**: Support for combining multiple NAM approaches in integrated\n  testing strategies (ITS) and adverse outcome pathways (AOPs)\n- **Standardization Focus**: Emphasis on reproducibility, quality control, and inter-laboratory\n  harmonization essential for regulatory acceptance\n- **Literature Integration**: Comprehensive [reference](Reference.md) system linking models\n  to peer-reviewed publications, regulatory guidance, and validation studies\n- **Ontology Alignment**: Integration with established ontologies including UBERON (anatomy),\n  CL (cell types), CHEBI (chemicals), and OBI (biomedical investigations)\n\nFor detailed curation guidelines, see:\n- [How to Curate Organoid Papers](https://monarch-initiative.github.io/namo/how-to/curate-organoid-paper/)\n- [How to Curate Organ-on-Chip Papers](https://monarch-initiative.github.io/namo/how-to/curate-organ-on-chip-paper/)\n\n## Community and Standards\n\nNAMO is developed in collaboration with the NAM research community, regulatory agencies, and \nstandards organizations including OECD, ICCVAM, and ESTIV. It supports the 3Rs principles \n(Replacement, Reduction, Refinement) and contributes to the transition toward animal-free \ntesting methodologies in safety assessment and biomedical research.\n",
+  "description": "NAMO (New Approach Methodology Ontology) is a comprehensive schema for representing diverse \nin vitro and in silico model systems used as alternatives to traditional animal testing. \nIt supports organoids, organ-on-chip systems, 3D cell cultures, computational models, and \nother New Approach Methodologies (NAMs) used in toxicology, drug discovery, and biomedical research.\n\n## Schema Organization\n\nThe schema follows a hierarchical structure that mirrors how NAM research is organized and conducted:\n\nThe top-level entity is a [Dataset](Dataset.md), which serves as a container for related research\nactivities. A dataset might represent all NAM models from a specific laboratory, regulatory study, \nor collaborative research program.\n\nEach dataset contains one or more [Studies](Study.md), which are focused investigations using\nspecific NAM approaches. For example, a study might investigate \"Hepatotoxicity screening using\nliver organoids\" or \"Multi-organ drug ADMET assessment using microphysiological systems.\"\n\nWithin each study, you'll find:\n\n### Model Systems\nThe core of NAMO is the representation of different [NAM model types](NAMModel.md):\n\n- **[Organoids](Organoid.md)**: Self-organizing 3D tissue models derived from stem cells that \n  recapitulate organ-specific architecture and function. Examples include brain organoids for \n  neurotoxicity testing, intestinal organoids for drug absorption studies, and liver organoids \n  for metabolism research.\n\n- **[Organ-on-Chip Systems](OrganOnChip.md)**: Microfluidic devices that simulate organ-level \n  physiology with precise control over cellular microenvironment. These include lung-on-chip \n  for inhalation toxicology, heart-on-chip for cardiotoxicity assessment, and multi-organ \n  chips for systemic drug effects.\n\n- **[Tissue-on-Chip Systems](TissueOnChip.md)**: Microfluidic models focused on specific tissue\n  functions such as blood-brain barrier chips, skin models for dermatological testing, and \n  kidney proximal tubule chips for nephrotoxicity screening.\n\n- **[3D Cell Cultures](ThreeDCellCulture.md)**: Three-dimensional cell culture systems including\n  spheroids, scaffold-based cultures, and bioengineered tissues that provide more physiologically\n  relevant environments than traditional 2D cultures.\n\n- **[2D Cell Cultures](TwoDCellCulture.md)**: Monolayer cell culture systems with specialized\n  configurations, substrates, and culture conditions optimized for specific applications.\n\n- **[Co-Culture Systems](CoCulture.md)**: Multi-cell-type culture systems that model cellular\n  interactions, tissue interfaces, and organ-level communication pathways.\n\n### Computational Models\nNAMO supports various in silico approaches:\n\n- **[Machine Learning Models](MLModel.md)**: AI/ML systems for toxicity prediction, including\n  deep learning models for chemical structure-activity relationships, neural networks for \n  dose-response modeling, and ensemble methods for multi-endpoint prediction.\n\n- **[QSAR Models](QSARModel.md)**: Quantitative Structure-Activity Relationship models that\n  predict biological activity from molecular structure, including traditional statistical\n  approaches and modern machine learning implementations.\n\n- **[PBPK Models](PBPKModel.md)**: Physiologically-based pharmacokinetic models that simulate\n  drug absorption, distribution, metabolism, and excretion using mathematical representations\n  of biological processes.\n\n- **[Digital Twins](DigitalTwin.md)**: Integrated computational models that combine multiple\n  data sources and modeling approaches to create personalized, real-time simulations of \n  biological systems.\n\n- **[Metabolic Models](MetabolicModel.md)**: Systems biology models of cellular metabolism,\n  including flux balance analysis, kinetic modeling, and constraint-based approaches for\n  understanding metabolic perturbations.\n\n### Technical Specifications\n\n#### Microfluidic Design\nFor chip-based systems, detailed [microfluidic design](MicrofluidicDesign.md) specifications \ncapture device architecture, including channel configurations, flow control methods, sensor\nintegration, and material properties essential for reproducibility and standardization.\n\n#### Validation and Concordance\nNAMO emphasizes validation through [structured concordance analysis](StructuredConcordanceResult.md):\n\n- **[Molecular Similarity](MolecularSimilarity.md)**: Gene expression profiles, protein markers,\n  and metabolomic signatures compared to reference biological systems\n- **[Functional Parity](FunctionalParity.md)**: Physiological responses, barrier functions,\n  and cellular behaviors that match in vivo counterparts\n- **[Reproducibility](ReproducibilityAssessment.md)**: Inter-laboratory consistency, batch-to-batch \n  variation, and quality control metrics\n\n#### Performance Metrics\nQuantitative assessment through standardized [functional assays](FunctionalAssay.md) that\nmeasure model performance, sensitivity, specificity, and predictive accuracy against known\noutcomes and regulatory endpoints.\n\n## Use Cases\n\nNAMO supports diverse applications across multiple domains:\n\n### Regulatory Toxicology\n- **Chemical Safety Assessment**: Systematic evaluation of chemical toxicity using integrated\n  NAM approaches, supporting regulatory submissions to EPA, FDA, and ECHA\n- **Cosmetics Testing**: Non-animal approaches for skin sensitization, eye irritation, and\n  systemic toxicity assessment as required by regulations worldwide\n- **Pesticide Evaluation**: Environmental and human health risk assessment using NAMs for \n  neurotoxicity, endocrine disruption, and developmental toxicity endpoints\n\n### Pharmaceutical Development\n- **Drug Discovery**: Early-stage compound screening using organ-specific models to identify\n  promising candidates and eliminate toxic compounds\n- **ADMET Profiling**: Absorption, Distribution, Metabolism, Excretion, and Toxicity assessment\n  using integrated organ-on-chip platforms and computational models\n- **Precision Medicine**: Patient-derived organoids and digital twins for personalized drug\n  selection and dosing strategies\n\n### Academic Research\n- **Disease Modeling**: Patient-specific organoids for studying rare diseases, cancer biology,\n  and genetic disorders in controlled laboratory environments\n- **Mechanistic Studies**: Investigation of toxicity pathways, cellular responses, and \n  molecular mechanisms using well-characterized NAM systems\n- **Method Development**: Innovation in NAM technologies, validation approaches, and \n  standardization protocols\n\n## Key Features\n\n- **Multi-Modal Integration**: Support for combining multiple NAM approaches in integrated\n  testing strategies (ITS) and adverse outcome pathways (AOPs)\n- **Standardization Focus**: Emphasis on reproducibility, quality control, and inter-laboratory\n  harmonization essential for regulatory acceptance\n- **Literature Integration**: Comprehensive [reference](Reference.md) system linking models\n  to peer-reviewed publications, regulatory guidance, and validation studies\n- **Ontology Alignment**: Integration with established ontologies including UBERON (anatomy),\n  CL (cell types), CHEBI (chemicals), and OBI (biomedical investigations)\n\nFor detailed curation guidelines, see:\n- [How to Curate Organoid Papers](https://monarch-initiative.github.io/namo/how-to/curate-organoid-paper/)\n- [How to Curate Organ-on-Chip Papers](https://monarch-initiative.github.io/namo/how-to/curate-organ-on-chip-paper/)\n\n## Community and Standards\n\nNAMO is developed in collaboration with the NAM research community, regulatory agencies, and \nstandards organizations including OECD, ICCVAM, and ESTIV. It supports the 3Rs principles \n(Replacement, Reduction, Refinement) and contributes to the transition toward animal-free \ntesting methodologies in safety assessment and biomedical research.\n",
   "title": "namo",
   "see_also": [
     "https://monarch-initiative.github.io/namo"
@@ -3312,7 +3312,7 @@
       "domain_of": [
         "StructuredConcordanceResult"
       ],
-      "range": "Reproducibility",
+      "range": "ReproducibilityAssessment",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -3751,79 +3751,79 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "reproducibility__reproducibility_score",
+      "name": "reproducibilityAssessment__reproducibility_score",
       "description": "Quantitative score (0.0-1.0) representing reproducibility.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/reproducibility_score",
       "alias": "reproducibility_score",
-      "owner": "Reproducibility",
+      "owner": "ReproducibilityAssessment",
       "domain_of": [
-        "Reproducibility"
+        "ReproducibilityAssessment"
       ],
       "range": "float",
       "@type": "SlotDefinition"
     },
     {
-      "name": "reproducibility__coefficient_of_variation",
+      "name": "reproducibilityAssessment__coefficient_of_variation",
       "description": "Coefficient of variation across experimental replicates.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/coefficient_of_variation",
       "alias": "coefficient_of_variation",
-      "owner": "Reproducibility",
+      "owner": "ReproducibilityAssessment",
       "domain_of": [
-        "Reproducibility"
+        "ReproducibilityAssessment"
       ],
       "range": "float",
       "@type": "SlotDefinition"
     },
     {
-      "name": "reproducibility__batch_to_batch_variation",
+      "name": "reproducibilityAssessment__batch_to_batch_variation",
       "description": "Measure of variation between different experimental batches.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/batch_to_batch_variation",
       "alias": "batch_to_batch_variation",
-      "owner": "Reproducibility",
+      "owner": "ReproducibilityAssessment",
       "domain_of": [
-        "Reproducibility"
+        "ReproducibilityAssessment"
       ],
       "range": "float",
       "@type": "SlotDefinition"
     },
     {
-      "name": "reproducibility__inter_laboratory_consistency",
+      "name": "reproducibilityAssessment__inter_laboratory_consistency",
       "description": "Measure of consistency across different laboratories.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/inter_laboratory_consistency",
       "alias": "inter_laboratory_consistency",
-      "owner": "Reproducibility",
+      "owner": "ReproducibilityAssessment",
       "domain_of": [
-        "Reproducibility"
+        "ReproducibilityAssessment"
       ],
       "range": "float",
       "@type": "SlotDefinition"
     },
     {
-      "name": "reproducibility__replicate_count",
+      "name": "reproducibilityAssessment__replicate_count",
       "description": "Number of experimental replicates used in assessment.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/replicate_count",
       "alias": "replicate_count",
-      "owner": "Reproducibility",
+      "owner": "ReproducibilityAssessment",
       "domain_of": [
-        "Reproducibility"
+        "ReproducibilityAssessment"
       ],
       "range": "integer",
       "@type": "SlotDefinition"
     },
     {
-      "name": "reproducibility__quality_control_metrics",
+      "name": "reproducibilityAssessment__quality_control_metrics",
       "description": "List of quality control measures and their values.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "slot_uri": "https://w3id.org/monarch-initiative/namo/quality_control_metrics",
       "alias": "quality_control_metrics",
-      "owner": "Reproducibility",
+      "owner": "ReproducibilityAssessment",
       "domain_of": [
-        "Reproducibility"
+        "ReproducibilityAssessment"
       ],
       "range": "QualityControlMetric",
       "multivalued": true,
@@ -6119,7 +6119,7 @@
         {
           "name": "reproducibility",
           "description": "Assessment of experimental reproducibility and consistency.",
-          "range": "Reproducibility",
+          "range": "ReproducibilityAssessment",
           "inlined": true,
           "@type": "SlotDefinition"
         }
@@ -6469,8 +6469,8 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "Reproducibility",
-      "definition_uri": "https://w3id.org/monarch-initiative/namo/Reproducibility",
+      "name": "ReproducibilityAssessment",
+      "definition_uri": "https://w3id.org/monarch-initiative/namo/ReproducibilityAssessment",
       "description": "Assessment of experimental reproducibility and consistency of the model system.",
       "from_schema": "https://w3id.org/monarch-initiative/namo",
       "is_a": "NamedThing",
@@ -6479,12 +6479,12 @@
         "name",
         "description",
         "type",
-        "reproducibility__reproducibility_score",
-        "reproducibility__coefficient_of_variation",
-        "reproducibility__batch_to_batch_variation",
-        "reproducibility__inter_laboratory_consistency",
-        "reproducibility__replicate_count",
-        "reproducibility__quality_control_metrics"
+        "reproducibilityAssessment__reproducibility_score",
+        "reproducibilityAssessment__coefficient_of_variation",
+        "reproducibilityAssessment__batch_to_batch_variation",
+        "reproducibilityAssessment__inter_laboratory_consistency",
+        "reproducibilityAssessment__replicate_count",
+        "reproducibilityAssessment__quality_control_metrics"
       ],
       "slot_usage": {},
       "attributes": [
@@ -6527,7 +6527,7 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://w3id.org/monarch-initiative/namo/Reproducibility",
+      "class_uri": "https://w3id.org/monarch-initiative/namo/ReproducibilityAssessment",
       "@type": "ClassDefinition"
     },
     {
@@ -7150,9 +7150,9 @@
   ],
   "metamodel_version": "1.11.0",
   "source_file": "namo.yaml",
-  "source_file_date": "2026-11-07T22:15:32",
-  "source_file_size": 70152,
-  "generation_date": "2026-11-11T12:18:50",
+  "source_file_date": "2026-11-11T16:17:47",
+  "source_file_size": 70182,
+  "generation_date": "2026-11-11T16:26:18",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/namo.context.jsonld",

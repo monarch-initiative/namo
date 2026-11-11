@@ -13,7 +13,7 @@ import lombok.*;
 **/
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Reproducibility extends NamedThing {
+public class ReproducibilityAssessment extends NamedThing {
 
   private Float reproducibilityScore;
   private Float coefficientOfVariation;

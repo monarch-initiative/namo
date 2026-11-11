@@ -85,7 +85,7 @@ description: |
     and metabolomic signatures compared to reference biological systems
   - **[Functional Parity](FunctionalParity.md)**: Physiological responses, barrier functions,
     and cellular behaviors that match in vivo counterparts
-  - **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch 
+  - **[Reproducibility](ReproducibilityAssessment.md)**: Inter-laboratory consistency, batch-to-batch 
     variation, and quality control metrics
 
   #### Performance Metrics
@@ -1003,7 +1003,7 @@ classes:
         description: >-
           Evaluation of functional capabilities and physiological responses.
       reproducibility:
-        range: Reproducibility
+        range: ReproducibilityAssessment
         inlined: true
         description: >-
           Assessment of experimental reproducibility and consistency.
@@ -1191,7 +1191,7 @@ classes:
         description: >-
           Comparison of dose-response relationships for therapeutic compounds.
 
-  Reproducibility:
+  ReproducibilityAssessment:
     is_a: NamedThing
     description: >-
       Assessment of experimental reproducibility and consistency of the model system.

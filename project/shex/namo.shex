@@ -541,7 +541,7 @@ linkml:Sparqlpath xsd:string
        )
     } OR @<BiologicalSystem> OR @<CellTypeCoverage> OR @<FunctionalAssay> OR @<FunctionalParity> OR @<Gene> OR
     @<MechanicalStimulation> OR @<MicrofluidicDesign> OR @<ModelSystem> OR @<MolecularSimilarity> OR @<PBPKCompartment> OR
-    @<Pathway> OR @<PathwayConcordance> OR @<PhenotypeOverlap> OR @<Reproducibility> OR @<Study>
+    @<Pathway> OR @<PathwayConcordance> OR @<PhenotypeOverlap> OR @<ReproducibilityAssessment> OR @<Study>
 )
 
 <NAMModel>  (
@@ -716,8 +716,8 @@ linkml:Sparqlpath xsd:string
     )
 }
 
-<Reproducibility> CLOSED {
-    (  $<Reproducibility_tes> (  &<NamedThing_tes> ;
+<ReproducibilityAssessment> CLOSED {
+    (  $<ReproducibilityAssessment_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
           <reproducibility_score> @linkml:Float ? ;
           <coefficient_of_variation> @linkml:Float ? ;
@@ -726,7 +726,7 @@ linkml:Sparqlpath xsd:string
           <replicate_count> @linkml:Integer ? ;
           <quality_control_metrics> @<QualityControlMetric> *
        ) ;
-       rdf:type [ <Reproducibility> ]
+       rdf:type [ <ReproducibilityAssessment> ]
     )
 }
 
@@ -747,7 +747,7 @@ linkml:Sparqlpath xsd:string
           <phenotype_overlap> @<PhenotypeOverlap> ? ;
           <cell_type_coverage> @<CellTypeCoverage> ? ;
           <functional_parity> @<FunctionalParity> ? ;
-          <reproducibility> @<Reproducibility> ?
+          <reproducibility> @<ReproducibilityAssessment> ?
        ) ;
        rdf:type [ <StructuredConcordanceResult> ] ?
     )

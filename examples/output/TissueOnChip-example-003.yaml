@@ -144,7 +144,7 @@ models:
       id: repro:018
       name: Skin Chip Reproducibility
       description: Inter-chip barrier function and response consistency
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.91
       coefficient_of_variation: 0.09
       batch_to_batch_variation: 0.11

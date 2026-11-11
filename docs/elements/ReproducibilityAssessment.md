@@ -3,7 +3,7 @@ search:
   boost: 10.0
 ---
 
-# Class: Reproducibility 
+# Class: ReproducibilityAssessment 
 
 
 _Assessment of experimental reproducibility and consistency of the model system._
@@ -14,7 +14,7 @@ _Assessment of experimental reproducibility and consistency of the model system.
 
 
 
-URI: [namo:Reproducibility](https://w3id.org/monarch-initiative/namo/Reproducibility)
+URI: [namo:ReproducibilityAssessment](https://w3id.org/monarch-initiative/namo/ReproducibilityAssessment)
 
 
 
@@ -22,39 +22,39 @@ URI: [namo:Reproducibility](https://w3id.org/monarch-initiative/namo/Reproducibi
 
 ```mermaid
  classDiagram
-    class Reproducibility
-    click Reproducibility href "../Reproducibility/"
-      NamedThing <|-- Reproducibility
+    class ReproducibilityAssessment
+    click ReproducibilityAssessment href "../ReproducibilityAssessment/"
+      NamedThing <|-- ReproducibilityAssessment
         click NamedThing href "../NamedThing/"
       
-      Reproducibility : batch_to_batch_variation
+      ReproducibilityAssessment : batch_to_batch_variation
         
-      Reproducibility : coefficient_of_variation
+      ReproducibilityAssessment : coefficient_of_variation
         
-      Reproducibility : description
+      ReproducibilityAssessment : description
         
-      Reproducibility : id
+      ReproducibilityAssessment : id
         
-      Reproducibility : inter_laboratory_consistency
+      ReproducibilityAssessment : inter_laboratory_consistency
         
-      Reproducibility : name
+      ReproducibilityAssessment : name
         
-      Reproducibility : quality_control_metrics
+      ReproducibilityAssessment : quality_control_metrics
         
           
     
         
         
-        Reproducibility --> "*" QualityControlMetric : quality_control_metrics
+        ReproducibilityAssessment --> "*" QualityControlMetric : quality_control_metrics
         click QualityControlMetric href "../QualityControlMetric/"
     
 
         
-      Reproducibility : replicate_count
+      ReproducibilityAssessment : replicate_count
         
-      Reproducibility : reproducibility_score
+      ReproducibilityAssessment : reproducibility_score
         
-      Reproducibility : type
+      ReproducibilityAssessment : type
         
       
 ```
@@ -65,7 +65,7 @@ URI: [namo:Reproducibility](https://w3id.org/monarch-initiative/namo/Reproducibi
 
 ## Inheritance
 * [NamedThing](NamedThing.md)
-    * **Reproducibility**
+    * **ReproducibilityAssessment**
 
 
 ## Slots
@@ -91,7 +91,7 @@ URI: [namo:Reproducibility](https://w3id.org/monarch-initiative/namo/Reproducibi
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [StructuredConcordanceResult](StructuredConcordanceResult.md) | [reproducibility](reproducibility.md) | range | [Reproducibility](Reproducibility.md) |
+| [StructuredConcordanceResult](StructuredConcordanceResult.md) | [reproducibility](reproducibility.md) | range | [ReproducibilityAssessment](ReproducibilityAssessment.md) |
 
 
 
@@ -122,8 +122,8 @@ URI: [namo:Reproducibility](https://w3id.org/monarch-initiative/namo/Reproducibi
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | namo:Reproducibility |
-| native | namo:Reproducibility |
+| self | namo:ReproducibilityAssessment |
+| native | namo:ReproducibilityAssessment |
 
 
 
@@ -138,7 +138,7 @@ URI: [namo:Reproducibility](https://w3id.org/monarch-initiative/namo/Reproducibi
 
 <details>
 ```yaml
-name: Reproducibility
+name: ReproducibilityAssessment
 description: Assessment of experimental reproducibility and consistency of the model
   system.
 from_schema: https://w3id.org/monarch-initiative/namo
@@ -150,7 +150,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
   coefficient_of_variation:
     name: coefficient_of_variation
@@ -158,7 +158,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
   batch_to_batch_variation:
     name: batch_to_batch_variation
@@ -166,7 +166,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
   inter_laboratory_consistency:
     name: inter_laboratory_consistency
@@ -174,7 +174,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
   replicate_count:
     name: replicate_count
@@ -182,7 +182,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: integer
   quality_control_metrics:
     name: quality_control_metrics
@@ -190,7 +190,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: QualityControlMetric
     multivalued: true
     inlined_as_list: true
@@ -202,7 +202,7 @@ attributes:
 
 <details>
 ```yaml
-name: Reproducibility
+name: ReproducibilityAssessment
 description: Assessment of experimental reproducibility and consistency of the model
   system.
 from_schema: https://w3id.org/monarch-initiative/namo
@@ -213,54 +213,54 @@ attributes:
     description: Quantitative score (0.0-1.0) representing reproducibility.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
   coefficient_of_variation:
     name: coefficient_of_variation
     description: Coefficient of variation across experimental replicates.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
   batch_to_batch_variation:
     name: batch_to_batch_variation
     description: Measure of variation between different experimental batches.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
   inter_laboratory_consistency:
     name: inter_laboratory_consistency
     description: Measure of consistency across different laboratories.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
   replicate_count:
     name: replicate_count
     description: Number of experimental replicates used in assessment.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: integer
   quality_control_metrics:
     name: quality_control_metrics
     description: List of quality control measures and their values.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: QualityControlMetric
     multivalued: true
     inlined: true
@@ -272,7 +272,7 @@ attributes:
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
     - NamedThing
     - Reference
@@ -285,7 +285,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:name
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
     - NamedThing
     - BiolinkEntity
@@ -296,7 +296,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     slot_uri: schema:description
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
     - NamedThing
     - BiolinkEntity
@@ -306,7 +306,7 @@ attributes:
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
     designates_type: true
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
     - NamedThing
     range: string

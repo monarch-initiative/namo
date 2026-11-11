@@ -128,7 +128,7 @@ models:
       id: repro:011
       name: COPD Bronchiole Chip Reproducibility
       description: Consistency of smoke exposure model
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.85
       coefficient_of_variation: 0.15
       batch_to_batch_variation: 0.18

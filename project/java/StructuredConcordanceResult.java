@@ -20,7 +20,7 @@ public class StructuredConcordanceResult  {
   private PhenotypeOverlap phenotypeOverlap;
   private CellTypeCoverage cellTypeCoverage;
   private FunctionalParity functionalParity;
-  private Reproducibility reproducibility;
+  private ReproducibilityAssessment reproducibility;
 
 
 }

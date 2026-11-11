@@ -2374,7 +2374,7 @@ namo:QualityControlMetric a sh:NodeShape ;
             sh:path namo:threshold ] ;
     sh:targetClass namo:QualityControlMetric .
 
-namo:Reproducibility a sh:NodeShape ;
+namo:ReproducibilityAssessment a sh:NodeShape ;
     rdfs:comment "Assessment of experimental reproducibility and consistency of the model system." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -2435,7 +2435,7 @@ namo:Reproducibility a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path namo:type ] ;
-    sh:targetClass namo:Reproducibility .
+    sh:targetClass namo:ReproducibilityAssessment .
 
 namo:StatisticalSignificance a sh:NodeShape ;
     rdfs:comment "Statistical measures of significance for molecular comparisons." ;
@@ -2477,7 +2477,7 @@ namo:StructuredConcordanceResult a sh:NodeShape ;
     rdfs:comment "Detailed structured assessment of concordance between model and biological systems with rich metadata, evidence, and quantitative measures." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class namo:Reproducibility ;
+    sh:property [ sh:class namo:ReproducibilityAssessment ;
             sh:description "Assessment of experimental reproducibility and consistency." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;

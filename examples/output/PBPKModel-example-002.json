@@ -122,7 +122,7 @@
           "id": "repro:016",
           "name": "PBPK Model Reproducibility",
           "description": "Cross-study validation and parameter sensitivity analysis",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.85,
           "coefficient_of_variation": 0.15,
           "batch_to_batch_variation": 0.12,

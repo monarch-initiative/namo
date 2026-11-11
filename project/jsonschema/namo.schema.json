@@ -3825,7 +3825,7 @@
             "title": "RelativeTimeEnum",
             "type": "string"
         },
-        "Reproducibility": {
+        "ReproducibilityAssessment": {
             "additionalProperties": false,
             "description": "Assessment of experimental reproducibility and consistency of the model system.",
             "properties": {
@@ -3894,7 +3894,7 @@
                 },
                 "type": {
                     "enum": [
-                        "Reproducibility"
+                        "ReproducibilityAssessment"
                     ],
                     "type": [
                         "string",
@@ -3905,7 +3905,7 @@
             "required": [
                 "id"
             ],
-            "title": "Reproducibility",
+            "title": "ReproducibilityAssessment",
             "type": "object"
         },
         "SampleProcessingEnum": {
@@ -4023,7 +4023,7 @@
                 "reproducibility": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/Reproducibility"
+                            "$ref": "#/$defs/ReproducibilityAssessment"
                         },
                         {
                             "type": "null"

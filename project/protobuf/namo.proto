@@ -521,7 +521,7 @@ message Reference
   uri url = 0
  }
 // Assessment of experimental reproducibility and consistency of the model system.
-message Reproducibility
+message ReproducibilityAssessment
  {
   uriorcurie id = 0
   string name = 0
@@ -551,7 +551,7 @@ message StructuredConcordanceResult
   phenotypeOverlap phenotypeOverlap = 0
   cellTypeCoverage cellTypeCoverage = 0
   functionalParity functionalParity = 0
-  reproducibility reproducibility = 0
+  reproducibilityAssessment reproducibility = 0
  }
 // A study is a structured investigation or analysis, often involving the collection and interpretation of data, to answer specific research questions or test hypotheses.
 message Study

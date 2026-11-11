@@ -56,19 +56,19 @@ description: "NAMO (New Approach Methodology Ontology) is a comprehensive schema
   \ protein markers,\n  and metabolomic signatures compared to reference biological\
   \ systems\n- **[Functional Parity](FunctionalParity.md)**: Physiological responses,\
   \ barrier functions,\n  and cellular behaviors that match in vivo counterparts\n\
-  - **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch\
-  \ \n  variation, and quality control metrics\n\n#### Performance Metrics\nQuantitative\
-  \ assessment through standardized [functional assays](FunctionalAssay.md) that\n\
-  measure model performance, sensitivity, specificity, and predictive accuracy against\
-  \ known\noutcomes and regulatory endpoints.\n\n## Use Cases\n\nNAMO supports diverse\
-  \ applications across multiple domains:\n\n### Regulatory Toxicology\n- **Chemical\
-  \ Safety Assessment**: Systematic evaluation of chemical toxicity using integrated\n\
-  \  NAM approaches, supporting regulatory submissions to EPA, FDA, and ECHA\n- **Cosmetics\
-  \ Testing**: Non-animal approaches for skin sensitization, eye irritation, and\n\
-  \  systemic toxicity assessment as required by regulations worldwide\n- **Pesticide\
-  \ Evaluation**: Environmental and human health risk assessment using NAMs for \n\
-  \  neurotoxicity, endocrine disruption, and developmental toxicity endpoints\n\n\
-  ### Pharmaceutical Development\n- **Drug Discovery**: Early-stage compound screening\
+  - **[Reproducibility](ReproducibilityAssessment.md)**: Inter-laboratory consistency,\
+  \ batch-to-batch \n  variation, and quality control metrics\n\n#### Performance\
+  \ Metrics\nQuantitative assessment through standardized [functional assays](FunctionalAssay.md)\
+  \ that\nmeasure model performance, sensitivity, specificity, and predictive accuracy\
+  \ against known\noutcomes and regulatory endpoints.\n\n## Use Cases\n\nNAMO supports\
+  \ diverse applications across multiple domains:\n\n### Regulatory Toxicology\n-\
+  \ **Chemical Safety Assessment**: Systematic evaluation of chemical toxicity using\
+  \ integrated\n  NAM approaches, supporting regulatory submissions to EPA, FDA, and\
+  \ ECHA\n- **Cosmetics Testing**: Non-animal approaches for skin sensitization, eye\
+  \ irritation, and\n  systemic toxicity assessment as required by regulations worldwide\n\
+  - **Pesticide Evaluation**: Environmental and human health risk assessment using\
+  \ NAMs for \n  neurotoxicity, endocrine disruption, and developmental toxicity endpoints\n\
+  \n### Pharmaceutical Development\n- **Drug Discovery**: Early-stage compound screening\
   \ using organ-specific models to identify\n  promising candidates and eliminate\
   \ toxic compounds\n- **ADMET Profiling**: Absorption, Distribution, Metabolism,\
   \ Excretion, and Toxicity assessment\n  using integrated organ-on-chip platforms\
@@ -2682,7 +2682,7 @@ slots:
     owner: StructuredConcordanceResult
     domain_of:
     - StructuredConcordanceResult
-    range: Reproducibility
+    range: ReproducibilityAssessment
     inlined: true
     inlined_as_list: false
   molecularSimilarity__similarity_score:
@@ -3023,65 +3023,65 @@ slots:
     range: DoseResponseSimilarity
     inlined: true
     inlined_as_list: true
-  reproducibility__reproducibility_score:
-    name: reproducibility__reproducibility_score
+  reproducibilityAssessment__reproducibility_score:
+    name: reproducibilityAssessment__reproducibility_score
     description: Quantitative score (0.0-1.0) representing reproducibility.
     from_schema: https://w3id.org/monarch-initiative/namo
     slot_uri: namo:reproducibility_score
     alias: reproducibility_score
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
-  reproducibility__coefficient_of_variation:
-    name: reproducibility__coefficient_of_variation
+  reproducibilityAssessment__coefficient_of_variation:
+    name: reproducibilityAssessment__coefficient_of_variation
     description: Coefficient of variation across experimental replicates.
     from_schema: https://w3id.org/monarch-initiative/namo
     slot_uri: namo:coefficient_of_variation
     alias: coefficient_of_variation
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
-  reproducibility__batch_to_batch_variation:
-    name: reproducibility__batch_to_batch_variation
+  reproducibilityAssessment__batch_to_batch_variation:
+    name: reproducibilityAssessment__batch_to_batch_variation
     description: Measure of variation between different experimental batches.
     from_schema: https://w3id.org/monarch-initiative/namo
     slot_uri: namo:batch_to_batch_variation
     alias: batch_to_batch_variation
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
-  reproducibility__inter_laboratory_consistency:
-    name: reproducibility__inter_laboratory_consistency
+  reproducibilityAssessment__inter_laboratory_consistency:
+    name: reproducibilityAssessment__inter_laboratory_consistency
     description: Measure of consistency across different laboratories.
     from_schema: https://w3id.org/monarch-initiative/namo
     slot_uri: namo:inter_laboratory_consistency
     alias: inter_laboratory_consistency
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: float
-  reproducibility__replicate_count:
-    name: reproducibility__replicate_count
+  reproducibilityAssessment__replicate_count:
+    name: reproducibilityAssessment__replicate_count
     description: Number of experimental replicates used in assessment.
     from_schema: https://w3id.org/monarch-initiative/namo
     slot_uri: namo:replicate_count
     alias: replicate_count
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: integer
-  reproducibility__quality_control_metrics:
-    name: reproducibility__quality_control_metrics
+  reproducibilityAssessment__quality_control_metrics:
+    name: reproducibilityAssessment__quality_control_metrics
     description: List of quality control measures and their values.
     from_schema: https://w3id.org/monarch-initiative/namo
     slot_uri: namo:quality_control_metrics
     alias: quality_control_metrics
-    owner: Reproducibility
+    owner: ReproducibilityAssessment
     domain_of:
-    - Reproducibility
+    - ReproducibilityAssessment
     range: QualityControlMetric
     multivalued: true
     inlined: true
@@ -4826,7 +4826,7 @@ classes:
       reproducibility:
         name: reproducibility
         description: Assessment of experimental reproducibility and consistency.
-        range: Reproducibility
+        range: ReproducibilityAssessment
         inlined: true
     class_uri: namo:StructuredConcordanceResult
   MolecularSimilarity:
@@ -5083,9 +5083,9 @@ classes:
         range: DoseResponseSimilarity
         inlined: true
     class_uri: namo:FunctionalParity
-  Reproducibility:
-    name: Reproducibility
-    definition_uri: https://w3id.org/monarch-initiative/namo/Reproducibility
+  ReproducibilityAssessment:
+    name: ReproducibilityAssessment
+    definition_uri: https://w3id.org/monarch-initiative/namo/ReproducibilityAssessment
     description: Assessment of experimental reproducibility and consistency of the
       model system.
     from_schema: https://w3id.org/monarch-initiative/namo
@@ -5095,12 +5095,12 @@ classes:
     - name
     - description
     - type
-    - reproducibility__reproducibility_score
-    - reproducibility__coefficient_of_variation
-    - reproducibility__batch_to_batch_variation
-    - reproducibility__inter_laboratory_consistency
-    - reproducibility__replicate_count
-    - reproducibility__quality_control_metrics
+    - reproducibilityAssessment__reproducibility_score
+    - reproducibilityAssessment__coefficient_of_variation
+    - reproducibilityAssessment__batch_to_batch_variation
+    - reproducibilityAssessment__inter_laboratory_consistency
+    - reproducibilityAssessment__replicate_count
+    - reproducibilityAssessment__quality_control_metrics
     attributes:
       reproducibility_score:
         name: reproducibility_score
@@ -5128,7 +5128,7 @@ classes:
         range: QualityControlMetric
         multivalued: true
         inlined_as_list: true
-    class_uri: namo:Reproducibility
+    class_uri: namo:ReproducibilityAssessment
   Gene:
     name: Gene
     definition_uri: https://w3id.org/monarch-initiative/namo/Gene
@@ -5574,7 +5574,7 @@ classes:
     class_uri: biolink:QuantityValue
 metamodel_version: 1.11.0
 source_file: namo.yaml
-source_file_date: '2026-07-31T22:45:36'
-source_file_size: 70144
-generation_date: '2026-07-31T22:46:59'
+source_file_date: '2026-11-11T16:17:47'
+source_file_size: 70182
+generation_date: '2026-11-11T16:18:04'
 

@@ -143,7 +143,7 @@ models:
       id: repro:014
       name: Gut Chip Reproducibility
       description: Inter-chip consistency and functional stability
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.86
       coefficient_of_variation: 0.14
       batch_to_batch_variation: 0.16
