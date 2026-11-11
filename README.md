@@ -19,7 +19,7 @@ NAMO is a semantic data model with ontology-like elements. We export it as an on
 * [docs/](docs/) - mkdocs-managed documentation
   * [elements/](docs/elements/) - generated schema documentation (do not edit)
 * [examples/](examples/) - Examples of using the schema
-* [project/](project/) - project files (these files are auto-generated, do not edit)
+* `project/` - generated project files (OWL, SHACL, JSON Schema, etc.); not tracked, run `just gen-project` to build them
 * [src/](src/) - source files (edit these)
   * [namo](src/namo)
     * [schema/](src/namo/schema) -- LinkML schema
