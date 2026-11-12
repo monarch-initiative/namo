@@ -53,21 +53,16 @@ skip = [
   "project/*",
   "src/namo/datamodel/namo_pydantic.py",
   "src/namo/datamodel/namo.py",
+  # Generated docs (`just gen-doc`) and example outputs (`just test`).
+  # Spell-check the schema and the records in tests/data/ instead; a hit in
+  # these copies would have to be fixed at the source anyway.
+  "docs/elements/*",
+  "docs/schema/*",
+  "examples/output/*",
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
-ignore-words-list = "linke"
+# Scientific terms that codespell misidentifies:
+# villin (intestinal epithelial marker protein)
+ignore-words-list = "linke,villin"
 quiet-level = 3
-
-# Ref.: https://github.com/crate-ci/typos (spell checker)
-[tool.typos.default.extend-words]
-linke = "linke"
-[tool.typos.files]
-extend-exclude = [
-  "LICENSE",
-  "uv.lock",
-  "pyproject.toml",
-  "project/*",
-  "src/namo/datamodel/namo_pydantic.py",
-  "src/namo/datamodel/namo.py",
-]

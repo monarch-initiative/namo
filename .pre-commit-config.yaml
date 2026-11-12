@@ -6,15 +6,21 @@ repos:
     hooks:
       - id: check-toml
       - id: check-yaml
+      # Generated docs and example outputs are excluded from the whitespace
+      # fixers. A hook rewrite would make them differ from what the generators
+      # produce. Fix the generator or the source record, not the committed copy.
       - id: end-of-file-fixer
+        exclude: &generated ^(docs/elements|docs/schema|examples/output)/
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
+        exclude: *generated
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.37.0
     hooks:
       - id: yamllint
         args: [-c=.yamllint.yaml]
+        exclude: *generated
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
@@ -22,11 +28,6 @@ repos:
       - id: codespell
         additional_dependencies:
           - tomli
-
-  - repo: https://github.com/crate-ci/typos
-    rev: v1.31.1
-    hooks:
-      - id: typos
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.

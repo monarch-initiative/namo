@@ -9,7 +9,7 @@ This example demonstrates how to model an intestinal organoid-derived monolayer 
 
 The example models the workflow shown in your diagram:
 
-1. **Donor → Mixed cell types → Organoids → Monolayers** 
+1. **Donor → Mixed cell types → Organoids → Monolayers**
 2. **Accessible apical and basal compartments**
 3. **Multi-throughput readouts of epithelial damage**
 
