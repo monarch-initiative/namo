@@ -133,7 +133,7 @@
           "id": "repro:024",
           "name": "Digital Twin Reproducibility",
           "description": "Cross-patient and cross-study validation performance",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.9,
           "coefficient_of_variation": 0.1,
           "batch_to_batch_variation": 0.08,

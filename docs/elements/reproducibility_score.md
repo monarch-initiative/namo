@@ -25,7 +25,7 @@ URI: [namo:reproducibility_score](https://w3id.org/monarch-initiative/namo/repro
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Reproducibility](Reproducibility.md) | Assessment of experimental reproducibility and consistency of the model syste... |  no  |
+| [ReproducibilityAssessment](ReproducibilityAssessment.md) | Assessment of experimental reproducibility and consistency of the model syste... |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [namo:reproducibility_score](https://w3id.org/monarch-initiative/namo/repro
 | Property | Value |
 | --- | --- |
 | Range | [Float](Float.md) |
-| Domain Of | [Reproducibility](Reproducibility.md) |
+| Domain Of | [ReproducibilityAssessment](ReproducibilityAssessment.md) |
 
 ### Cardinality and Requirements
 
@@ -49,7 +49,7 @@ URI: [namo:reproducibility_score](https://w3id.org/monarch-initiative/namo/repro
 
 | Property | Value |
 | --- | --- |
-| Owner | [Reproducibility](Reproducibility.md) |
+| Owner | [ReproducibilityAssessment](ReproducibilityAssessment.md) |
 
 
 
@@ -94,9 +94,9 @@ name: reproducibility_score
 description: Quantitative score (0.0-1.0) representing reproducibility.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
-owner: Reproducibility
+owner: ReproducibilityAssessment
 domain_of:
-- Reproducibility
+- ReproducibilityAssessment
 range: float
 
 ```

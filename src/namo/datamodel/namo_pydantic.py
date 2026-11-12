@@ -194,8 +194,8 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     '- **[Functional Parity](FunctionalParity.md)**: Physiological '
                     'responses, barrier functions,\n'
                     '  and cellular behaviors that match in vivo counterparts\n'
-                    '- **[Reproducibility](Reproducibility.md)**: Inter-laboratory '
-                    'consistency, batch-to-batch \n'
+                    '- **[Reproducibility](ReproducibilityAssessment.md)**: '
+                    'Inter-laboratory consistency, batch-to-batch \n'
                     '  variation, and quality control metrics\n'
                     '\n'
                     '#### Performance Metrics\n'
@@ -1743,7 +1743,7 @@ class StructuredConcordanceResult(ConfiguredBaseModel):
     phenotype_overlap: Optional[PhenotypeOverlap] = Field(default=None, description="""Comparison of phenotypic manifestations between model and biological system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConcordanceResult', 'StructuredConcordanceResult']} })
     cell_type_coverage: Optional[CellTypeCoverage] = Field(default=None, description="""Assessment of cell type representation and cellular diversity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConcordanceResult', 'StructuredConcordanceResult']} })
     functional_parity: Optional[FunctionalParity] = Field(default=None, description="""Evaluation of functional capabilities and physiological responses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConcordanceResult', 'StructuredConcordanceResult']} })
-    reproducibility: Optional[Reproducibility] = Field(default=None, description="""Assessment of experimental reproducibility and consistency.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConcordanceResult', 'StructuredConcordanceResult']} })
+    reproducibility: Optional[ReproducibilityAssessment] = Field(default=None, description="""Assessment of experimental reproducibility and consistency.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConcordanceResult', 'StructuredConcordanceResult']} })
 
 
 class MolecularSimilarity(NamedThing):
@@ -1856,23 +1856,23 @@ class FunctionalParity(NamedThing):
     type: Literal["FunctionalParity"] = Field(default="FunctionalParity", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
 
 
-class Reproducibility(NamedThing):
+class ReproducibilityAssessment(NamedThing):
     """
     Assessment of experimental reproducibility and consistency of the model system.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
-    reproducibility_score: Optional[float] = Field(default=None, description="""Quantitative score (0.0-1.0) representing reproducibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reproducibility']} })
-    coefficient_of_variation: Optional[float] = Field(default=None, description="""Coefficient of variation across experimental replicates.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reproducibility']} })
-    batch_to_batch_variation: Optional[float] = Field(default=None, description="""Measure of variation between different experimental batches.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reproducibility']} })
-    inter_laboratory_consistency: Optional[float] = Field(default=None, description="""Measure of consistency across different laboratories.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reproducibility']} })
-    replicate_count: Optional[int] = Field(default=None, description="""Number of experimental replicates used in assessment.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reproducibility']} })
-    quality_control_metrics: Optional[list[QualityControlMetric]] = Field(default=None, description="""List of quality control measures and their values.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reproducibility']} })
+    reproducibility_score: Optional[float] = Field(default=None, description="""Quantitative score (0.0-1.0) representing reproducibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReproducibilityAssessment']} })
+    coefficient_of_variation: Optional[float] = Field(default=None, description="""Coefficient of variation across experimental replicates.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReproducibilityAssessment']} })
+    batch_to_batch_variation: Optional[float] = Field(default=None, description="""Measure of variation between different experimental batches.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReproducibilityAssessment']} })
+    inter_laboratory_consistency: Optional[float] = Field(default=None, description="""Measure of consistency across different laboratories.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReproducibilityAssessment']} })
+    replicate_count: Optional[int] = Field(default=None, description="""Number of experimental replicates used in assessment.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReproducibilityAssessment']} })
+    quality_control_metrics: Optional[list[QualityControlMetric]] = Field(default=None, description="""List of quality control measures and their values.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReproducibilityAssessment']} })
     id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
          'slot_uri': 'schema:identifier'} })
     name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
     description: Optional[str] = Field(default=None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:description'} })
-    type: Literal["Reproducibility"] = Field(default="Reproducibility", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
+    type: Literal["ReproducibilityAssessment"] = Field(default="ReproducibilityAssessment", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
 
 
 class Gene(NamedThing):
@@ -2155,7 +2155,7 @@ PathwayConcordance.model_rebuild()
 PhenotypeOverlap.model_rebuild()
 CellTypeCoverage.model_rebuild()
 FunctionalParity.model_rebuild()
-Reproducibility.model_rebuild()
+ReproducibilityAssessment.model_rebuild()
 Gene.model_rebuild()
 Pathway.model_rebuild()
 StatisticalSignificance.model_rebuild()

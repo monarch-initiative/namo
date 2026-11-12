@@ -111,7 +111,7 @@ models:
       id: repro:025
       name: FBA Model Reproducibility
       description: Cross-validation and multi-dataset consistency
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.85
       coefficient_of_variation: 0.15
       batch_to_batch_variation: 0.12

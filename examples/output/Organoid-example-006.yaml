@@ -146,7 +146,7 @@ models:
       id: repro:019
       name: Brain Organoid Reproducibility
       description: Inter-batch neural development and toxicity response consistency
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.84
       coefficient_of_variation: 0.16
       batch_to_batch_variation: 0.18

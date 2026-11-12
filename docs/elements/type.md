@@ -49,7 +49,7 @@ URI: [namo:type](https://w3id.org/monarch-initiative/namo/type)
 | [PhenotypeOverlap](PhenotypeOverlap.md) | Comparison of phenotypic manifestations between model and biological systems |  no  |
 | [CellTypeCoverage](CellTypeCoverage.md) | Assessment of cell type representation and cellular diversity between systems |  no  |
 | [FunctionalParity](FunctionalParity.md) | Evaluation of functional capabilities and physiological responses between sys... |  no  |
-| [Reproducibility](Reproducibility.md) | Assessment of experimental reproducibility and consistency of the model syste... |  no  |
+| [ReproducibilityAssessment](ReproducibilityAssessment.md) | Assessment of experimental reproducibility and consistency of the model syste... |  no  |
 | [Gene](Gene.md) | A gene entity with identifiers and expression information |  no  |
 | [Pathway](Pathway.md) | A biological pathway with activity and enrichment information |  no  |
 | [FunctionalAssay](FunctionalAssay.md) | A functional assay used to assess biological capabilities |  no  |

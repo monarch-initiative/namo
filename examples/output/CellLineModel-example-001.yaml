@@ -116,7 +116,7 @@ models:
       id: repro:002
       name: HepG2 Model Reproducibility
       description: Inter-laboratory and inter-passage consistency
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.91
       coefficient_of_variation: 0.08
       batch_to_batch_variation: 0.12

@@ -75,7 +75,7 @@ models:
       id: repro:006
       name: PBPK Model Reproducibility
       description: Model consistency across different populations and scenarios
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.87
       coefficient_of_variation: 0.15
       batch_to_batch_variation: 0.08

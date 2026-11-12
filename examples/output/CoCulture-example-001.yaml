@@ -116,7 +116,7 @@ models:
       id: repro:003
       name: Co-culture Reproducibility
       description: Inter-experimental and inter-laboratory consistency
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.86
       coefficient_of_variation: 0.14
       batch_to_batch_variation: 0.18

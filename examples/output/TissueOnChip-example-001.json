@@ -166,7 +166,7 @@
           "id": "repro:005",
           "name": "BBB Chip Reproducibility",
           "description": "Inter-chip and inter-batch consistency assessment",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.91,
           "coefficient_of_variation": 0.09,
           "batch_to_batch_variation": 0.12,

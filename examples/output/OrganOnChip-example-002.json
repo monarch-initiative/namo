@@ -143,7 +143,7 @@
           "id": "repro:010",
           "name": "COVID-19 Lung Chip Reproducibility",
           "description": "Consistency of viral infection model",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.87,
           "coefficient_of_variation": 0.13,
           "batch_to_batch_variation": 0.16,

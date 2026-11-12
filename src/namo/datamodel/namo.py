@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-07T21:38:02
+# Generation date: 2026-11-11T16:26:56
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -86,7 +86,7 @@
 #     and metabolomic signatures compared to reference biological systems
 #   - **[Functional Parity](FunctionalParity.md)**: Physiological responses, barrier functions,
 #     and cellular behaviors that match in vivo counterparts
-#   - **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch
+#   - **[Reproducibility](ReproducibilityAssessment.md)**: Inter-laboratory consistency, batch-to-batch
 #     variation, and quality control metrics
 #
 #   #### Performance Metrics
@@ -358,7 +358,7 @@ class FunctionalParityId(NamedThingId):
     pass
 
 
-class ReproducibilityId(NamedThingId):
+class ReproducibilityAssessmentId(NamedThingId):
     pass
 
 
@@ -1629,7 +1629,7 @@ class StructuredConcordanceResult(YAMLRoot):
     phenotype_overlap: Optional[Union[dict, "PhenotypeOverlap"]] = None
     cell_type_coverage: Optional[Union[dict, "CellTypeCoverage"]] = None
     functional_parity: Optional[Union[dict, "FunctionalParity"]] = None
-    reproducibility: Optional[Union[dict, "Reproducibility"]] = None
+    reproducibility: Optional[Union[dict, "ReproducibilityAssessment"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.molecular_similarity is not None and not isinstance(self.molecular_similarity, MolecularSimilarity):
@@ -1647,8 +1647,8 @@ class StructuredConcordanceResult(YAMLRoot):
         if self.functional_parity is not None and not isinstance(self.functional_parity, FunctionalParity):
             self.functional_parity = FunctionalParity(**as_dict(self.functional_parity))
 
-        if self.reproducibility is not None and not isinstance(self.reproducibility, Reproducibility):
-            self.reproducibility = Reproducibility(**as_dict(self.reproducibility))
+        if self.reproducibility is not None and not isinstance(self.reproducibility, ReproducibilityAssessment):
+            self.reproducibility = ReproducibilityAssessment(**as_dict(self.reproducibility))
 
         super().__post_init__(**kwargs)
 
@@ -1876,18 +1876,18 @@ class FunctionalParity(NamedThing):
 
 
 @dataclass(repr=False)
-class Reproducibility(NamedThing):
+class ReproducibilityAssessment(NamedThing):
     """
     Assessment of experimental reproducibility and consistency of the model system.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NAMO["Reproducibility"]
-    class_class_curie: ClassVar[str] = "namo:Reproducibility"
-    class_name: ClassVar[str] = "Reproducibility"
-    class_model_uri: ClassVar[URIRef] = NAMO.Reproducibility
+    class_class_uri: ClassVar[URIRef] = NAMO["ReproducibilityAssessment"]
+    class_class_curie: ClassVar[str] = "namo:ReproducibilityAssessment"
+    class_name: ClassVar[str] = "ReproducibilityAssessment"
+    class_model_uri: ClassVar[URIRef] = NAMO.ReproducibilityAssessment
 
-    id: Union[str, ReproducibilityId] = None
+    id: Union[str, ReproducibilityAssessmentId] = None
     reproducibility_score: Optional[float] = None
     coefficient_of_variation: Optional[float] = None
     batch_to_batch_variation: Optional[float] = None
@@ -1898,8 +1898,8 @@ class Reproducibility(NamedThing):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, ReproducibilityId):
-            self.id = ReproducibilityId(self.id)
+        if not isinstance(self.id, ReproducibilityAssessmentId):
+            self.id = ReproducibilityAssessmentId(self.id)
 
         if self.reproducibility_score is not None and not isinstance(self.reproducibility_score, float):
             self.reproducibility_score = float(self.reproducibility_score)
@@ -3581,7 +3581,7 @@ slots.structuredConcordanceResult__functional_parity = Slot(uri=NAMO.functional_
                    model_uri=NAMO.structuredConcordanceResult__functional_parity, domain=None, range=Optional[Union[dict, FunctionalParity]])
 
 slots.structuredConcordanceResult__reproducibility = Slot(uri=NAMO.reproducibility, name="structuredConcordanceResult__reproducibility", curie=NAMO.curie('reproducibility'),
-                   model_uri=NAMO.structuredConcordanceResult__reproducibility, domain=None, range=Optional[Union[dict, Reproducibility]])
+                   model_uri=NAMO.structuredConcordanceResult__reproducibility, domain=None, range=Optional[Union[dict, ReproducibilityAssessment]])
 
 slots.molecularSimilarity__similarity_score = Slot(uri=NAMO.similarity_score, name="molecularSimilarity__similarity_score", curie=NAMO.curie('similarity_score'),
                    model_uri=NAMO.molecularSimilarity__similarity_score, domain=None, range=Optional[float])
@@ -3664,23 +3664,23 @@ slots.functionalParity__functional_assays = Slot(uri=NAMO.functional_assays, nam
 slots.functionalParity__dose_response_similarity = Slot(uri=NAMO.dose_response_similarity, name="functionalParity__dose_response_similarity", curie=NAMO.curie('dose_response_similarity'),
                    model_uri=NAMO.functionalParity__dose_response_similarity, domain=None, range=Optional[Union[dict, DoseResponseSimilarity]])
 
-slots.reproducibility__reproducibility_score = Slot(uri=NAMO.reproducibility_score, name="reproducibility__reproducibility_score", curie=NAMO.curie('reproducibility_score'),
-                   model_uri=NAMO.reproducibility__reproducibility_score, domain=None, range=Optional[float])
+slots.reproducibilityAssessment__reproducibility_score = Slot(uri=NAMO.reproducibility_score, name="reproducibilityAssessment__reproducibility_score", curie=NAMO.curie('reproducibility_score'),
+                   model_uri=NAMO.reproducibilityAssessment__reproducibility_score, domain=None, range=Optional[float])
 
-slots.reproducibility__coefficient_of_variation = Slot(uri=NAMO.coefficient_of_variation, name="reproducibility__coefficient_of_variation", curie=NAMO.curie('coefficient_of_variation'),
-                   model_uri=NAMO.reproducibility__coefficient_of_variation, domain=None, range=Optional[float])
+slots.reproducibilityAssessment__coefficient_of_variation = Slot(uri=NAMO.coefficient_of_variation, name="reproducibilityAssessment__coefficient_of_variation", curie=NAMO.curie('coefficient_of_variation'),
+                   model_uri=NAMO.reproducibilityAssessment__coefficient_of_variation, domain=None, range=Optional[float])
 
-slots.reproducibility__batch_to_batch_variation = Slot(uri=NAMO.batch_to_batch_variation, name="reproducibility__batch_to_batch_variation", curie=NAMO.curie('batch_to_batch_variation'),
-                   model_uri=NAMO.reproducibility__batch_to_batch_variation, domain=None, range=Optional[float])
+slots.reproducibilityAssessment__batch_to_batch_variation = Slot(uri=NAMO.batch_to_batch_variation, name="reproducibilityAssessment__batch_to_batch_variation", curie=NAMO.curie('batch_to_batch_variation'),
+                   model_uri=NAMO.reproducibilityAssessment__batch_to_batch_variation, domain=None, range=Optional[float])
 
-slots.reproducibility__inter_laboratory_consistency = Slot(uri=NAMO.inter_laboratory_consistency, name="reproducibility__inter_laboratory_consistency", curie=NAMO.curie('inter_laboratory_consistency'),
-                   model_uri=NAMO.reproducibility__inter_laboratory_consistency, domain=None, range=Optional[float])
+slots.reproducibilityAssessment__inter_laboratory_consistency = Slot(uri=NAMO.inter_laboratory_consistency, name="reproducibilityAssessment__inter_laboratory_consistency", curie=NAMO.curie('inter_laboratory_consistency'),
+                   model_uri=NAMO.reproducibilityAssessment__inter_laboratory_consistency, domain=None, range=Optional[float])
 
-slots.reproducibility__replicate_count = Slot(uri=NAMO.replicate_count, name="reproducibility__replicate_count", curie=NAMO.curie('replicate_count'),
-                   model_uri=NAMO.reproducibility__replicate_count, domain=None, range=Optional[int])
+slots.reproducibilityAssessment__replicate_count = Slot(uri=NAMO.replicate_count, name="reproducibilityAssessment__replicate_count", curie=NAMO.curie('replicate_count'),
+                   model_uri=NAMO.reproducibilityAssessment__replicate_count, domain=None, range=Optional[int])
 
-slots.reproducibility__quality_control_metrics = Slot(uri=NAMO.quality_control_metrics, name="reproducibility__quality_control_metrics", curie=NAMO.curie('quality_control_metrics'),
-                   model_uri=NAMO.reproducibility__quality_control_metrics, domain=None, range=Optional[Union[Union[dict, QualityControlMetric], list[Union[dict, QualityControlMetric]]]])
+slots.reproducibilityAssessment__quality_control_metrics = Slot(uri=NAMO.quality_control_metrics, name="reproducibilityAssessment__quality_control_metrics", curie=NAMO.curie('quality_control_metrics'),
+                   model_uri=NAMO.reproducibilityAssessment__quality_control_metrics, domain=None, range=Optional[Union[Union[dict, QualityControlMetric], list[Union[dict, QualityControlMetric]]]])
 
 slots.gene__gene_symbol = Slot(uri=NAMO.gene_symbol, name="gene__gene_symbol", curie=NAMO.curie('gene_symbol'),
                    model_uri=NAMO.gene__gene_symbol, domain=None, range=Optional[str])

@@ -145,7 +145,7 @@ models:
       id: repro:zhu_001
       name: High-Throughput Platform Reproducibility
       description: Consistency across 304 spheroids and multiple drug screening runs
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.91
       coefficient_of_variation: 0.09
       batch_to_batch_variation: 0.08

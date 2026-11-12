@@ -85,8 +85,8 @@ URI: [namo:StructuredConcordanceResult](https://w3id.org/monarch-initiative/namo
     
         
         
-        StructuredConcordanceResult --> "0..1" Reproducibility : reproducibility
-        click Reproducibility href "../Reproducibility/"
+        StructuredConcordanceResult --> "0..1" ReproducibilityAssessment : reproducibility
+        click ReproducibilityAssessment href "../ReproducibilityAssessment/"
     
 
         
@@ -107,7 +107,7 @@ URI: [namo:StructuredConcordanceResult](https://w3id.org/monarch-initiative/namo
 | [phenotype_overlap](phenotype_overlap.md) | 0..1 <br/> [PhenotypeOverlap](PhenotypeOverlap.md) | Comparison of phenotypic manifestations between model and biological system | direct |
 | [cell_type_coverage](cell_type_coverage.md) | 0..1 <br/> [CellTypeCoverage](CellTypeCoverage.md) | Assessment of cell type representation and cellular diversity | direct |
 | [functional_parity](functional_parity.md) | 0..1 <br/> [FunctionalParity](FunctionalParity.md) | Evaluation of functional capabilities and physiological responses | direct |
-| [reproducibility](reproducibility.md) | 0..1 <br/> [Reproducibility](Reproducibility.md) | Assessment of experimental reproducibility and consistency | direct |
+| [reproducibility](reproducibility.md) | 0..1 <br/> [ReproducibilityAssessment](ReproducibilityAssessment.md) | Assessment of experimental reproducibility and consistency | direct |
 
 
 
@@ -223,7 +223,7 @@ attributes:
     domain_of:
     - ConcordanceResult
     - StructuredConcordanceResult
-    range: Reproducibility
+    range: ReproducibilityAssessment
     inlined: true
 
 ```
@@ -298,7 +298,7 @@ attributes:
     domain_of:
     - ConcordanceResult
     - StructuredConcordanceResult
-    range: Reproducibility
+    range: ReproducibilityAssessment
     inlined: true
 
 ```

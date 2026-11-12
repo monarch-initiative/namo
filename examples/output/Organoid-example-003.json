@@ -198,7 +198,7 @@
           "id": "repro:008",
           "name": "Intestinal Organoid Reproducibility",
           "description": "Consistency of organoid formation and differentiation",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.88,
           "coefficient_of_variation": 0.12,
           "batch_to_batch_variation": 0.15,

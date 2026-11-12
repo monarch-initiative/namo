@@ -83,7 +83,7 @@ NAMO emphasizes validation through [structured concordance analysis](StructuredC
   and metabolomic signatures compared to reference biological systems
 - **[Functional Parity](FunctionalParity.md)**: Physiological responses, barrier functions,
   and cellular behaviors that match in vivo counterparts
-- **[Reproducibility](Reproducibility.md)**: Inter-laboratory consistency, batch-to-batch 
+- **[Reproducibility](ReproducibilityAssessment.md)**: Inter-laboratory consistency, batch-to-batch 
   variation, and quality control metrics
 
 #### Performance Metrics
@@ -201,7 +201,7 @@ Name: namo
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PathwayConcordance](PathwayConcordance.md) | Assessment of biological pathway conservation and activity between model and ... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PBPKCompartment](PBPKCompartment.md) | A physiological compartment in a PBPK model |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PhenotypeOverlap](PhenotypeOverlap.md) | Comparison of phenotypic manifestations between model and biological systems |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Reproducibility](Reproducibility.md) | Assessment of experimental reproducibility and consistency of the model syste... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ReproducibilityAssessment](ReproducibilityAssessment.md) | Assessment of experimental reproducibility and consistency of the model syste... |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Study](Study.md) | A study is a structured investigation or analysis, often involving the collec... |
 | [QualityControlMetric](QualityControlMetric.md) | A quality control measure and its associated value |
 | [QuantityValue](QuantityValue.md) | A value of an attribute that is quantitative and measurable, expressed as a c... |

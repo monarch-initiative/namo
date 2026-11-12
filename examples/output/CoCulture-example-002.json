@@ -181,7 +181,7 @@
           "id": "repro:022",
           "name": "Co-Culture Reproducibility",
           "description": "Inter-batch consistency of co-culture establishment",
-          "type": "Reproducibility",
+          "type": "ReproducibilityAssessment",
           "reproducibility_score": 0.82,
           "coefficient_of_variation": 0.18,
           "batch_to_batch_variation": 0.2,

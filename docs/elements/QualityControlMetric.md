@@ -57,7 +57,7 @@ URI: [namo:QualityControlMetric](https://w3id.org/monarch-initiative/namo/Qualit
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Reproducibility](Reproducibility.md) | [quality_control_metrics](quality_control_metrics.md) | range | [QualityControlMetric](QualityControlMetric.md) |
+| [ReproducibilityAssessment](ReproducibilityAssessment.md) | [quality_control_metrics](quality_control_metrics.md) | range | [QualityControlMetric](QualityControlMetric.md) |
 
 
 

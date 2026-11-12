@@ -102,7 +102,7 @@ models:
       id: repro:015
       name: Model Validation Reproducibility
       description: Cross-validation and external test set performance
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.92
       coefficient_of_variation: 0.08
       batch_to_batch_variation: 0.05

@@ -134,7 +134,7 @@ models:
       id: repro:026
       name: Primary Hepatocyte Culture Reproducibility
       description: Inter-donor and inter-batch functional consistency
-      type: Reproducibility
+      type: ReproducibilityAssessment
       reproducibility_score: 0.87
       coefficient_of_variation: 0.13
       batch_to_batch_variation: 0.16

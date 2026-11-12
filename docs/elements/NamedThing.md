@@ -46,8 +46,8 @@ URI: [schema:Thing](http://schema.org/Thing)
         click CellTypeCoverage href "../CellTypeCoverage/"
       NamedThing <|-- FunctionalParity
         click FunctionalParity href "../FunctionalParity/"
-      NamedThing <|-- Reproducibility
-        click Reproducibility href "../Reproducibility/"
+      NamedThing <|-- ReproducibilityAssessment
+        click ReproducibilityAssessment href "../ReproducibilityAssessment/"
       NamedThing <|-- Gene
         click Gene href "../Gene/"
       NamedThing <|-- Pathway
@@ -83,7 +83,7 @@ URI: [schema:Thing](http://schema.org/Thing)
     * [PhenotypeOverlap](PhenotypeOverlap.md)
     * [CellTypeCoverage](CellTypeCoverage.md)
     * [FunctionalParity](FunctionalParity.md)
-    * [Reproducibility](Reproducibility.md)
+    * [ReproducibilityAssessment](ReproducibilityAssessment.md)
     * [Gene](Gene.md)
     * [Pathway](Pathway.md)
     * [FunctionalAssay](FunctionalAssay.md)
