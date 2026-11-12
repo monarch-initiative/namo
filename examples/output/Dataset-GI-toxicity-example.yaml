@@ -96,35 +96,27 @@ model_systems:
         represented_cell_types:
         - id: CL:0000584
           name: enterocyte
-          type: Term
         - id: CL:0000160
           name: goblet cell
-          type: Term
         - id: CL:0000678
           name: Paneth cell
-          type: Term
         - id: CL:0000683
           name: enteroendocrine cell
-          type: Term
         missing_cell_types:
         - id: CL:0002250
           name: M cell
-          type: Term
         - id: CL:0009003
           name: tuft cell
-          type: Term
         cell_type_proportions:
         - cell_type:
             id: CL:0000584
             name: enterocyte
-            type: Term
           model_proportion: 0.68
           biological_proportion: 0.75
           proportion_ratio: 0.91
         - cell_type:
             id: CL:0000160
             name: goblet cell
-            type: Term
           model_proportion: 0.18
           biological_proportion: 0.15
           proportion_ratio: 1.2
@@ -182,7 +174,7 @@ model_systems:
           assay_type: Calcium imaging - plate reader
           assay_result: 1.8
           reference_value: 1.0
-          units: Fold change in calcium fluorescence (F/F₀)
+          units: Fold change in calcium fluorescence (F/F0)
           methodology: Fluo-4 AM or Calcium 5 dye loading followed by fluorescence
             measurement (ex/em 485/525 nm) on plate reader; captures changes in cytosolic
             calcium concentration
@@ -296,7 +288,7 @@ model_systems:
           assay_type: Time-lapse calcium imaging
           assay_result: 4.5
           reference_value: 1.2
-          units: Peak ΔF/F₀ amplitude
+          units: Peak ΔF/F0 amplitude
           methodology: Live cell time-lapse imaging with Fluo-4 or GCaMP calcium indicators;
             temporal analysis of calcium oscillations, transient frequency, amplitude,
             and duration. Captures dynamic calcium signaling responses to metabolite
@@ -349,7 +341,7 @@ model_systems:
         name: Intestinal Monolayer Reproducibility and QC
         description: Assessment of experimental reproducibility, consistency across
           organoid batches and donor lines, and quality control metrics
-        type: Reproducibility
+        type: ReproducibilityAssessment
         reproducibility_score: 0.85
         coefficient_of_variation: 0.15
         batch_to_batch_variation: 0.18
@@ -420,23 +412,17 @@ model_systems:
   organ_modeled:
     id: UBERON:0000160
     name: intestine
-    type: Term
   cell_types:
   - id: CL:0000066
     name: epithelial cell
-    type: Term
   - id: CL:0000584
     name: enterocyte
-    type: Term
   - id: CL:0000160
     name: goblet cell
-    type: Term
   - id: CL:0000678
     name: Paneth cell
-    type: Term
   - id: CL:0000683
     name: enteroendocrine cell
-    type: Term
   cell_source: Human donor-derived intestinal organoids generated from tissue biopsy.
     Organoids contain mixed epithelial cell types and are expanded through multiple
     passages, then dissociated and seeded as polarized epithelial monolayers on porous
