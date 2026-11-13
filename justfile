@@ -87,6 +87,26 @@ deploy: site
 [group('model development')]
 test: _test-schema _test-python _test-examples _test-references
 
+# Check ontology terms in the schema and examples; adds new lookups to cache/ (commit them)
+[group('model development')]
+validate-terms:
+  #!/usr/bin/env bash
+  # Looks up each `meaning` in the schema's enums and each ontology term in the
+  # examples (linkml-term-validator), as tests/test_terms.py checks them
+  # offline in `just test`. Run it after adding a term, then commit cache/.
+  # Known problems fail here too; tests/test_terms.py lists them. Each example
+  # file is checked as the class named before the first "-" in its file name.
+  set -uo pipefail
+  failed=0
+  uv run linkml-term-validator validate-schema \
+    --config conf/oak_config.yaml --cache-dir cache {{source_schema_path}} || failed=1
+  for cls in $(ls tests/data/valid/*.yaml | xargs -n1 basename | cut -d- -f1 | sort -u); do
+    uv run linkml-term-validator validate-data tests/data/valid/"$cls"-*.yaml \
+      --schema {{source_schema_path}} --target-class "$cls" \
+      --config conf/oak_config.yaml --cache-dir cache || failed=1
+  done
+  exit $failed
+
 # Run linting
 [group('model development')]
 lint:

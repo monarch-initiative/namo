@@ -1,0 +1,9 @@
+curie,label,retrieved_at
+OBI:0000700,support vector machine,2026-11-13T17:13:13.897847
+OBI:0002492,case role in case-control study,2026-11-13T17:12:17.057985
+OBI:0002493,control role in case-control study,2026-11-13T17:12:17.059568
+OBI:0200002,logistic-log curve fitting,2026-11-13T17:14:02.366533
+OBI:0200032,K-fold cross validation method,2026-11-13T17:14:10.082901
+OBI:0200033,leave one out cross validation method,2026-11-13T17:14:10.083583
+OBI:0200041,k-means clustering,2026-11-13T17:14:02.367132
+OBI:0200103,multiple linear regression analysis,2026-11-13T17:14:02.365344

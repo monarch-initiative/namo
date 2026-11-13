@@ -1,0 +1,30 @@
+# Where linkml-term-validator looks up each ontology, keyed by CURIE prefix.
+# `just validate-terms` uses it, and `just test` (_test-terms) checks against
+# the answers it keeps in cache/. The format follows nams-registry's and
+# mechmaker's conf/oak_config.yaml.
+#
+#   sqlite:obo:<name>   A prebuilt SQLite file from the OBO Foundry, downloaded
+#                       once into ~/.data/oaklib, then used offline.
+#   ols:<name>          EBI's Ontology Lookup Service. Nothing to download.
+#
+# A prefix that is not listed here is never checked. List every prefix the
+# schema uses in an enum's `meaning` or `source_nodes`, or that a NAMO enum
+# binds data to.
+
+ontology_adapters:
+  # Bound by the dynamic enums (reachable_from)
+  CL: "sqlite:obo:cl"
+  UBERON: "sqlite:obo:uberon"
+  # NCBITaxon is too large to download comfortably.
+  NCBITaxon: "ols:ncbitaxon"
+  HsapDv: "sqlite:obo:hsapdv"
+  MmusDv: "sqlite:obo:mmusdv"
+  HP: "sqlite:obo:hp"
+  MP: "sqlite:obo:mp"
+  OBI: "sqlite:obo:obi"
+  # Used only in the `meaning` of static enum values
+  CHEBI: "sqlite:obo:chebi"
+  NCIT: "sqlite:obo:ncit"
+  EDAM: "ols:edam"
+  EFO: "ols:efo"
+  STATO: "sqlite:obo:stato"

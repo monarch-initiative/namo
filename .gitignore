@@ -142,3 +142,6 @@ dmypy.json
 
 docs/elements/
 docs/schema/
+
+# Lock files linkml-term-validator leaves beside its cache
+cache/**/*.lock

@@ -1,0 +1,57 @@
+curie,label,retrieved_at
+CL:0000036,epithelial fate stem cell,2026-11-13T17:14:52.111922
+CL:0000057,fibroblast,2026-11-13T17:14:56.098769
+CL:0000066,epithelial cell,2026-11-13T17:14:51.061197
+CL:0000071,blood vessel endothelial cell,2026-11-13T17:14:51.064306
+CL:0000084,T cell,2026-11-13T17:14:55.094048
+CL:0000091,Kupffer cell,2026-11-13T17:14:44.140560
+CL:0000115,endothelial cell,2026-11-13T17:14:51.065662
+CL:0000125,glial cell,2026-11-13T17:14:52.056270
+CL:0000127,astrocyte,2026-11-13T17:14:45.124513
+CL:0000128,oligodendrocyte,2026-11-13T17:14:45.125934
+CL:0000129,microglial cell,2026-11-13T17:14:45.126990
+CL:0000148,melanocyte,2026-11-13T17:14:56.100626
+CL:0000160,goblet cell,2026-11-13T17:14:46.107340
+CL:0000182,hepatocyte,2026-11-13T17:14:44.137946
+CL:0000183,contractile cell,2026-11-13T17:14:52.062322
+CL:0000235,macrophage,2026-11-13T17:14:52.115543
+CL:0000312,keratinocyte,2026-11-13T17:14:56.097214
+CL:0000451,dendritic cell,2026-11-13T17:14:52.113742
+CL:0000510,paneth cell,2026-11-13T17:14:52.069519
+CL:0000540,neuron,2026-11-13T17:14:45.121831
+CL:0000576,monocyte,2026-11-13T17:14:55.092535
+CL:0000584,enterocyte,2026-11-13T17:14:46.105167
+CL:0000653,podocyte,2026-11-13T17:14:52.080560
+CL:0000669,pericyte,2026-11-13T17:14:56.082519
+CL:0000678,commissural neuron,2026-11-13T17:14:46.108896
+CL:0000683,ependymoglial cell,2026-11-13T17:14:46.110445
+CL:0000738,leukocyte,2026-11-13T17:14:55.084642
+CL:0000746,cardiac muscle cell,2026-11-13T17:14:51.062722
+CL:0000771,eosinophil,2026-11-13T17:14:56.102427
+CL:0000775,neutrophil,2026-11-13T17:14:51.031648
+CL:0002062,pulmonary alveolar type 1 cell,2026-11-13T17:14:51.040648
+CL:0002063,pulmonary alveolar type 2 cell,2026-11-13T17:14:51.039207
+CL:0002072,nodal myocyte,2026-11-13T17:14:52.098955
+CL:0002138,endothelial cell of lymphatic vessel,2026-11-13T17:14:44.142596
+CL:0002139,endothelial cell of vascular tree,2026-11-13T17:14:51.030338
+CL:0002145,multiciliated columnar cell of tracheobronchial tree,2026-11-13T17:14:51.050143
+CL:0002250,intestinal crypt stem cell,2026-11-13T17:14:46.112211
+CL:0002293,epithelial cell of thymus,2026-11-13T17:14:55.081962
+CL:0002370,respiratory tract goblet cell,2026-11-13T17:14:51.051640
+CL:0002418,hemangioblast,2026-11-13T17:14:55.090590
+CL:0002494,cardiocyte,2026-11-13T17:14:52.096007
+CL:0002543,vein endothelial cell,2026-11-13T17:14:51.042072
+CL:0002548,fibroblast of cardiac tissue,2026-11-13T17:14:52.097405
+CL:0002563,intestinal epithelial cell,2026-11-13T17:14:52.110455
+CL:0002632,epithelial cell of lower respiratory tract,2026-11-13T17:14:51.028806
+CL:0002633,respiratory basal cell,2026-11-13T17:14:51.048925
+CL:0009003,larval midgut cell,2026-11-13T17:14:46.114122
+CL:0009019,nephrogenic zone cell,2026-11-13T17:14:52.072993
+CL:0011020,neural progenitor cell,2026-11-13T17:14:52.054503
+CL:0019018,blood vessel smooth muscle cell,2026-11-13T17:14:51.053304
+CL:1000452,parietal epithelial cell,2026-11-13T17:14:52.087451
+CL:1000453,epithelial cell of intermediate tubule,2026-11-13T17:14:52.089053
+CL:1000507,kidney tubule cell,2026-11-13T17:14:52.085199
+CL:1000849,kidney distal convoluted tubule epithelial cell,2026-11-13T17:14:52.082085
+CL:1001431,kidney collecting duct principal cell,2026-11-13T17:14:52.083522
+CL:1001516,intestinal enteroendocrine cell,2026-11-13T17:14:52.071175
