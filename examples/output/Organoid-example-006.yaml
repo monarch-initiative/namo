@@ -208,13 +208,13 @@ cell_types:
   name: neural progenitor cell
 cell_source: Human induced pluripotent stem cells from healthy donors and neurodevelopmental
   disorder patients
-organ_modeled:
-  id: UBERON:0000955
-  name: brain
 differentiation_method: Dual SMAD inhibition protocol using Dorsomorphin and SB431542
   to promote neural induction, followed by 3D aggregation and long-term culture with
   growth factors to promote regional specification and maturation. Organoids cultured
   for 60-120 days to achieve neural network formation.
+organ_modeled:
+  id: UBERON:0000955
+  name: brain
 culture_system: Spinner flask culture with neural differentiation medium containing
   BDNF, GDNF, and other neurotrophic factors. Organoids maintained in controlled oxygen
   environment (5% O2) to prevent oxidative stress and support physiological development.

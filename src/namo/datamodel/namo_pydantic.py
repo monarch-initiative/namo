@@ -1180,6 +1180,7 @@ class CellularSystem(NAMModel):
                        'range': 'CellTypeEnum'}],
          'domain_of': ['CellularSystem', 'OrganOnChip']} })
     cell_source: Optional[str] = Field(default=None, description="""Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem', 'OrganOnChip']} })
+    differentiation_method: Optional[str] = Field(default=None, description="""Method used to differentiate the cells into the cell type or structure being modeled (e.g., directed differentiation protocol)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     culture_conditions: Optional[str] = Field(default=None, description="""Standard culture conditions and media used""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
     spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
@@ -1207,6 +1208,7 @@ class TwoDCellCulture(CellularSystem):
                        'range': 'CellTypeEnum'}],
          'domain_of': ['CellularSystem', 'OrganOnChip']} })
     cell_source: Optional[str] = Field(default=None, description="""Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem', 'OrganOnChip']} })
+    differentiation_method: Optional[str] = Field(default=None, description="""Method used to differentiate the cells into the cell type or structure being modeled (e.g., directed differentiation protocol)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     culture_conditions: Optional[str] = Field(default=None, description="""Standard culture conditions and media used""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
     spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
@@ -1234,6 +1236,7 @@ class ThreeDCellCulture(CellularSystem):
                        'range': 'CellTypeEnum'}],
          'domain_of': ['CellularSystem', 'OrganOnChip']} })
     cell_source: Optional[str] = Field(default=None, description="""Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem', 'OrganOnChip']} })
+    differentiation_method: Optional[str] = Field(default=None, description="""Method used to differentiate the cells into the cell type or structure being modeled (e.g., directed differentiation protocol)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     culture_conditions: Optional[str] = Field(default=None, description="""Standard culture conditions and media used""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
     spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
@@ -1261,6 +1264,7 @@ class CoCulture(CellularSystem):
                        'range': 'CellTypeEnum'}],
          'domain_of': ['CellularSystem', 'OrganOnChip']} })
     cell_source: Optional[str] = Field(default=None, description="""Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem', 'OrganOnChip']} })
+    differentiation_method: Optional[str] = Field(default=None, description="""Method used to differentiate the cells into the cell type or structure being modeled (e.g., directed differentiation protocol)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     culture_conditions: Optional[str] = Field(default=None, description="""Standard culture conditions and media used""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
     spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
@@ -1286,7 +1290,6 @@ class Organoid(ThreeDCellCulture):
                        'obligation_level': 'REQUIRED',
                        'range': 'OrganEnum'}],
          'domain_of': ['Organoid', 'OrganOnChip']} })
-    differentiation_method: Optional[str] = Field(default=None, description="""Method used to differentiate cells into organoid (e.g., directed differentiation protocol)""", json_schema_extra = { "linkml_meta": {'domain_of': ['Organoid']} })
     culture_system: Optional[str] = Field(default=None, description="""Culture system used (e.g., Matrigel dome, suspension culture, air-liquid interface)""", json_schema_extra = { "linkml_meta": {'domain_of': ['Organoid']} })
     three_d_architecture: Optional[ThreeDArchitectureEnum] = Field(default=None, description="""Type of 3D architecture (spheroid, organoid, scaffold-based, etc.)""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThreeDCellCulture']} })
     matrix_composition: Optional[str] = Field(default=None, description="""Composition of extracellular matrix or scaffold material""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThreeDCellCulture']} })
@@ -1296,6 +1299,7 @@ class Organoid(ThreeDCellCulture):
                        'range': 'CellTypeEnum'}],
          'domain_of': ['CellularSystem', 'OrganOnChip']} })
     cell_source: Optional[str] = Field(default=None, description="""Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem', 'OrganOnChip']} })
+    differentiation_method: Optional[str] = Field(default=None, description="""Method used to differentiate the cells into the cell type or structure being modeled (e.g., directed differentiation protocol)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     culture_conditions: Optional[str] = Field(default=None, description="""Standard culture conditions and media used""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
     spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
@@ -1325,6 +1329,7 @@ class CellLineModel(TwoDCellCulture):
                        'range': 'CellTypeEnum'}],
          'domain_of': ['CellularSystem', 'OrganOnChip']} })
     cell_source: Optional[str] = Field(default=None, description="""Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem', 'OrganOnChip']} })
+    differentiation_method: Optional[str] = Field(default=None, description="""Method used to differentiate the cells into the cell type or structure being modeled (e.g., directed differentiation protocol)""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     culture_conditions: Optional[str] = Field(default=None, description="""Standard culture conditions and media used""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellularSystem']} })
     biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
     spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })

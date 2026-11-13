@@ -213,13 +213,13 @@ cell_types:
   name: blood vessel endothelial cell
 cell_source: Human induced pluripotent stem cells (iPSCs) from healthy donors and
   cardiac disease patients
-organ_modeled:
-  id: UBERON:0000948
-  name: heart
 differentiation_method: Cardiac differentiation protocol using temporal modulation
   of Wnt signaling with CHIR99021 and IWP2, followed by metabolic selection with lactate
   medium to enrich for cardiomyocytes. Self-assembly into 3D organoids through hanging
   drop aggregation.
+organ_modeled:
+  id: UBERON:0000948
+  name: heart
 culture_system: Hanging drop culture followed by suspension culture in cardiac differentiation
   medium. Organoids maintained for 14-21 days with regular medium changes and monitoring
   of spontaneous contractile activity.

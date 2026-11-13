@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-13T16:29:06
+# Generation date: 2026-11-13T16:43:36
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -644,6 +644,7 @@ class CellularSystem(NAMModel):
     id: Union[str, CellularSystemId] = None
     cell_types: Optional[Union[dict[Union[str, CellId], Union[dict, "Cell"]], list[Union[dict, "Cell"]]]] = empty_dict()
     cell_source: Optional[str] = None
+    differentiation_method: Optional[str] = None
     culture_conditions: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -651,6 +652,9 @@ class CellularSystem(NAMModel):
 
         if self.cell_source is not None and not isinstance(self.cell_source, str):
             self.cell_source = str(self.cell_source)
+
+        if self.differentiation_method is not None and not isinstance(self.differentiation_method, str):
+            self.differentiation_method = str(self.differentiation_method)
 
         if self.culture_conditions is not None and not isinstance(self.culture_conditions, str):
             self.culture_conditions = str(self.culture_conditions)
@@ -785,7 +789,6 @@ class Organoid(ThreeDCellCulture):
 
     id: Union[str, OrganoidId] = None
     organ_modeled: Optional[Union[dict, "GrossAnatomicalStructure"]] = None
-    differentiation_method: Optional[str] = None
     culture_system: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -796,9 +799,6 @@ class Organoid(ThreeDCellCulture):
 
         if self.organ_modeled is not None and not isinstance(self.organ_modeled, GrossAnatomicalStructure):
             self.organ_modeled = GrossAnatomicalStructure(**as_dict(self.organ_modeled))
-
-        if self.differentiation_method is not None and not isinstance(self.differentiation_method, str):
-            self.differentiation_method = str(self.differentiation_method)
 
         if self.culture_system is not None and not isinstance(self.culture_system, str):
             self.culture_system = str(self.culture_system)
@@ -3316,6 +3316,9 @@ slots.cellularSystem__cell_types = Slot(uri=NAMO.cell_types, name="cellularSyste
 slots.cellularSystem__cell_source = Slot(uri=NAMO.cell_source, name="cellularSystem__cell_source", curie=NAMO.curie('cell_source'),
                    model_uri=NAMO.cellularSystem__cell_source, domain=None, range=Optional[str])
 
+slots.cellularSystem__differentiation_method = Slot(uri=NAMO.differentiation_method, name="cellularSystem__differentiation_method", curie=NAMO.curie('differentiation_method'),
+                   model_uri=NAMO.cellularSystem__differentiation_method, domain=None, range=Optional[str])
+
 slots.cellularSystem__culture_conditions = Slot(uri=NAMO.culture_conditions, name="cellularSystem__culture_conditions", curie=NAMO.curie('culture_conditions'),
                    model_uri=NAMO.cellularSystem__culture_conditions, domain=None, range=Optional[str])
 
@@ -3348,9 +3351,6 @@ slots.coCulture__interaction_mechanisms = Slot(uri=NAMO.interaction_mechanisms, 
 
 slots.organoid__organ_modeled = Slot(uri=NAMO.organ_modeled, name="organoid__organ_modeled", curie=NAMO.curie('organ_modeled'),
                    model_uri=NAMO.organoid__organ_modeled, domain=None, range=Optional[Union[dict, GrossAnatomicalStructure]])
-
-slots.organoid__differentiation_method = Slot(uri=NAMO.differentiation_method, name="organoid__differentiation_method", curie=NAMO.curie('differentiation_method'),
-                   model_uri=NAMO.organoid__differentiation_method, domain=None, range=Optional[str])
 
 slots.organoid__culture_system = Slot(uri=NAMO.culture_system, name="organoid__culture_system", curie=NAMO.curie('culture_system'),
                    model_uri=NAMO.organoid__culture_system, domain=None, range=Optional[str])

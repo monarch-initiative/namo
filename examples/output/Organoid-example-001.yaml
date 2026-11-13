@@ -169,12 +169,12 @@ cell_types:
 - id: CL:0000125
   name: glial cell
 cell_source: Human induced pluripotent stem cells (iPSCs) from healthy donors
-organ_modeled:
-  id: UBERON:0000955
-  name: brain
 differentiation_method: Dual SMAD inhibition protocol with LDN193189 and SB431542
   followed by  neural induction using N2B27 medium. Organoids are generated using  hanging
   drop method followed by embedding in Matrigel droplets.
+organ_modeled:
+  id: UBERON:0000955
+  name: brain
 culture_system: Matrigel dome culture with orbital shaking at 80 rpm. Organoids are  maintained
   in neural differentiation medium with regular feeding every  3-4 days for up to
   60 days.

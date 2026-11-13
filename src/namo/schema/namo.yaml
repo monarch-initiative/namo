@@ -360,6 +360,10 @@ classes:
       cell_source:
         description: >-
           Source of cells (e.g., primary, iPSC-derived, immortalized cell lines)
+      differentiation_method:
+        description: >-
+          Method used to differentiate the cells into the cell type or structure
+          being modeled (e.g., directed differentiation protocol)
       culture_conditions:
         description: >-
           Standard culture conditions and media used
@@ -440,9 +444,6 @@ classes:
           - binds_value_of: id
             range: OrganEnum
             obligation_level: REQUIRED
-      differentiation_method:
-        description: >-
-          Method used to differentiate cells into organoid (e.g., directed differentiation protocol)
       culture_system:
         description: >-
           Culture system used (e.g., Matrigel dome, suspension culture, air-liquid interface)

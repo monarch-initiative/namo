@@ -193,13 +193,13 @@ cell_types:
   name: enterocyte
 cell_source: Human induced pluripotent stem cells differentiated using established
   protocol
-organ_modeled:
-  id: UBERON:0000160
-  name: intestine
 differentiation_method: Multi-step endoderm and intestinal lineage induction from
   human iPS cells. Initial endoderm differentiation followed by intestinal specification
   using growth factors in defined medium conditions. Cost-reduced protocol utilizing
   L-WRNH conditioned medium and collagen gel matrix instead of expensive Matrigel.
+organ_modeled:
+  id: UBERON:0000160
+  name: intestine
 culture_system: Cost-reduced culture system using type I collagen gel instead of Matrigel.
   Advanced DMEM/F12 medium supplemented with L-WRNH conditioned medium to reduce growth
   factor costs. Organoids maintained at 37°C in 5% CO2 incubator with medium changes

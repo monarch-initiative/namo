@@ -245,11 +245,11 @@
     }
   ],
   "cell_source": "Human small intestinal crypts isolated from biopsy samples",
+  "differentiation_method": "Intestinal stem cells are embedded in Matrigel and cultured in  IntestiCult medium containing Wnt3a, R-spondin1, Noggin, and EGF.  Organoids develop crypt-villus architecture through self-organization  over 5-7 days.",
   "organ_modeled": {
     "id": "UBERON:0002108",
     "name": "small intestine"
   },
-  "differentiation_method": "Intestinal stem cells are embedded in Matrigel and cultured in  IntestiCult medium containing Wnt3a, R-spondin1, Noggin, and EGF.  Organoids develop crypt-villus architecture through self-organization  over 5-7 days.",
   "culture_system": "Matrigel dome culture in 24-well plates with IntestiCult Organoid  Growth Medium. Cultures maintained at 37°C with 5% CO2, passaged  every 7-10 days by mechanical dissociation.",
   "@type": "Organoid"
 }
