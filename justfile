@@ -192,13 +192,31 @@ _test-python: gen-python
 # --no-full-text: a title needs only the publication's metadata, which keeps the
 # committed references_cache/ small. (The CLI's default overrides the config
 # file, so it is set here.) Drop it if quotes are added to references.
+# Some classes' examples have no references, so a class that checks no titles
+# passes. If the whole run checks no titles, the validator found no reference
+# fields (e.g. the `implements` and `slot_uri` tags on Reference were lost) and
+# the check fails rather than passing with nothing checked.
 _test-references:
   #!/usr/bin/env bash
   set -euo pipefail
+  total=0
   for cls in $(ls tests/data/valid/*.yaml | xargs -n1 basename | cut -d- -f1 | sort -u); do
-    uv run linkml-reference-validator validate data tests/data/valid/"$cls"-*.yaml \
-      --schema {{source_schema_path}} --target-class "$cls" --no-full-text
+    out=$(uv run linkml-reference-validator validate data tests/data/valid/"$cls"-*.yaml \
+      --schema {{source_schema_path}} --target-class "$cls" --no-full-text 2>&1) \
+      || { echo "$out"; exit 1; }
+    echo "$out"
+    checked=$(echo "$out" | sed -n 's/^ *Titles checked: *\([0-9][0-9]*\)$/\1/p')
+    if [ -z "$checked" ]; then
+      echo "error: no \"Titles checked\" line in the validator's summary for $cls" >&2
+      exit 1
+    fi
+    total=$((total + checked))
   done
+  if [ "$total" -eq 0 ]; then
+    echo "error: no reference titles were checked; are Reference.id and Reference.title still tagged?" >&2
+    exit 1
+  fi
+  echo "Reference titles checked across all examples: $total"
 
 # Run example tests
 _test-examples: _ensure_examples_output
