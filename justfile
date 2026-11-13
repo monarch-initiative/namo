@@ -187,35 +187,42 @@ _test-python: gen-python
   uv run python -m pytest
 
 # Check that every reference in the examples exists and that its title is the
-# publication's own (linkml-reference-validator). Each example file is
-# validated as the class named before the first "-" in its file name.
+# publication's own (linkml-reference-validator). scripts/reference_check_plan.py
+# groups the example files by class (the name before the first "-") and counts
+# the titled references in each group. The validator does not reach the
+# references inside a Dataset's model_systems, so the script writes each model
+# system to tmp/reference-check/ to be validated as the class its `type` names.
 # --no-full-text: a title needs only the publication's metadata, which keeps the
 # committed references_cache/ small. (The CLI's default overrides the config
 # file, so it is set here.) Drop it if quotes are added to references.
-# Some classes' examples have no references, so a class that checks no titles
-# passes. If the whole run checks no titles, the validator found no reference
-# fields (e.g. the `implements` and `slot_uri` tags on Reference were lost) and
-# the check fails rather than passing with nothing checked.
+# Each class must check as many titles as its files hold. Fewer means some
+# references were never checked: they sit where the validator does not look
+# (a slot whose range is an abstract class), or the `implements` and `slot_uri`
+# tags on Reference were lost. The check then fails rather than passing.
 _test-references:
   #!/usr/bin/env bash
   set -euo pipefail
+  plan=$(uv run python scripts/reference_check_plan.py tests/data/valid tmp/reference-check)
   total=0
-  for cls in $(ls tests/data/valid/*.yaml | xargs -n1 basename | cut -d- -f1 | sort -u); do
-    out=$(uv run linkml-reference-validator validate data tests/data/valid/"$cls"-*.yaml \
+  while IFS=$'\t' read -r cls expected files; do
+    # shellcheck disable=SC2086  # $files is a space-separated list of paths
+    out=$(uv run linkml-reference-validator validate data $files \
       --schema {{source_schema_path}} --target-class "$cls" --no-full-text 2>&1) \
       || { echo "$out"; exit 1; }
     echo "$out"
-    checked=$(echo "$out" | sed -n 's/^ *Titles checked: *\([0-9][0-9]*\)$/\1/p')
+    checked=$(echo "$out" | sed -n 's/^ *Titles checked: *\([0-9][0-9,]*\)$/\1/p' | tr -d ,)
     if [ -z "$checked" ]; then
       echo "error: no \"Titles checked\" line in the validator's summary for $cls" >&2
       exit 1
     fi
+    if [ "$checked" -ne "$expected" ]; then
+      echo "error: $cls examples hold $expected titled references but the validator checked $checked;" \
+        "the rest were never checked (are Reference.id and Reference.title still tagged?" \
+        "is a reference under a slot whose range is an abstract class?)" >&2
+      exit 1
+    fi
     total=$((total + checked))
-  done
-  if [ "$total" -eq 0 ]; then
-    echo "error: no reference titles were checked; are Reference.id and Reference.title still tagged?" >&2
-    exit 1
-  fi
+  done <<< "$plan"
   echo "Reference titles checked across all examples: $total"
 
 # Run example tests
