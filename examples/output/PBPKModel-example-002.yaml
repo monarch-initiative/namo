@@ -1,9 +1,9 @@
 id: pbpkmodel:002
 name: Multi-Species Developmental Toxicity PBPK Model
-description: A physiologically-based pharmacokinetic model for predicting developmental  toxicity
-  across multiple species (human, rat, rabbit) during pregnancy.  The model incorporates
-  maternal-fetal transfer, placental metabolism, and  developmental stage-specific
-  pharmacokinetics to predict teratogenic risk  for pharmaceutical compounds and environmental
+description: A physiologically-based pharmacokinetic model for predicting developmental
+  toxicity across multiple species (human, rat, rabbit) during pregnancy. The model
+  incorporates maternal-fetal transfer, placental metabolism, and developmental stage-specific
+  pharmacokinetics to predict teratogenic risk for pharmaceutical compounds and environmental
   chemicals.
 type: PBPKModel
 models:

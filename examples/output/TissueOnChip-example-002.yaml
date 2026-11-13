@@ -1,9 +1,9 @@
 id: tissueonchip:002
 name: Human Intestinal Barrier Gut-On-Chip
 description: A microfluidic intestinal barrier model that recreates the human small
-  intestine  environment using primary human intestinal epithelial cells and immune
-  cells.  The model features physiological peristalsis-like motion, mucus production,
-  and  intestinal barrier function for drug permeability and inflammation studies.
+  intestine environment using primary human intestinal epithelial cells and immune
+  cells. The model features physiological peristalsis-like motion, mucus production,
+  and intestinal barrier function for drug permeability and inflammation studies.
 type: TissueOnChip
 models:
 - biological_system_modeled: intestinal_absorption:001

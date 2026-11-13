@@ -1,9 +1,9 @@
 id: spheroid:001
 name: 3D Multicellular Ovarian Cancer Spheroid Model
 description: A three-dimensional multicellular tumor spheroid model that recapitulates
-  the  complex heterogeneity of ovarian cancer tumors. The spheroid contains cancer
-  cells,  cancer-associated fibroblasts, and endothelial cells to mimic the tumor  microenvironment.
-  Used for high-throughput drug screening and studying  drug resistance mechanisms
+  the complex heterogeneity of ovarian cancer tumors. The spheroid contains cancer
+  cells, cancer-associated fibroblasts, and endothelial cells to mimic the tumor microenvironment.
+  Used for high-throughput drug screening and studying drug resistance mechanisms
   in ovarian cancer.
 type: ThreeDCellCulture
 models:

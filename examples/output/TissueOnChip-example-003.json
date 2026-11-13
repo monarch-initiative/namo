@@ -1,7 +1,7 @@
 {
   "id": "tissueonchip:003",
   "name": "Human Skin-On-Chip Dermatotoxicity Model",
-  "description": "A microfluidic skin-on-chip model that recreates the human skin barrier function  using primary human keratinocytes, fibroblasts, and melanocytes in a 3D configuration.  The model features an air-liquid interface, physiological skin architecture, and  real-time monitoring capabilities for cosmetics safety testing and dermatotoxicity  assessment without animal testing.",
+  "description": "A microfluidic skin-on-chip model that recreates the human skin barrier function using primary human keratinocytes, fibroblasts, and melanocytes in a 3D configuration. The model features an air-liquid interface, physiological skin architecture, and real-time monitoring capabilities for cosmetics safety testing and dermatotoxicity assessment without animal testing.",
   "type": "TissueOnChip",
   "models": [
     {

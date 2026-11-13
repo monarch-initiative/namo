@@ -1,7 +1,7 @@
 {
   "id": "organoid:005",
   "name": "Human Cardiac Organoid Cardiotoxicity Model",
-  "description": "A 3D cardiac organoid derived from human induced pluripotent stem cells that  recapitulates key aspects of human heart development and function. The organoid  contains cardiomyocytes, cardiac fibroblasts, and endothelial cells organized  in chamber-like structures with spontaneous contractile activity. Used for  cardiotoxicity screening, particularly doxorubicin-induced cardiomyopathy  and drug safety assessment.",
+  "description": "A 3D cardiac organoid derived from human induced pluripotent stem cells that recapitulates key aspects of human heart development and function. The organoid contains cardiomyocytes, cardiac fibroblasts, and endothelial cells organized in chamber-like structures with spontaneous contractile activity. Used for cardiotoxicity screening, particularly doxorubicin-induced cardiomyopathy and drug safety assessment.",
   "type": "Organoid",
   "models": [
     {
@@ -282,7 +282,7 @@
     "id": "UBERON:0000948",
     "name": "heart"
   },
-  "differentiation_method": "Cardiac differentiation protocol using temporal modulation of Wnt signaling  with CHIR99021 and IWP2, followed by metabolic selection with lactate medium  to enrich for cardiomyocytes. Self-assembly into 3D organoids through  hanging drop aggregation.",
-  "culture_system": "Hanging drop culture followed by suspension culture in cardiac differentiation  medium. Organoids maintained for 14-21 days with regular medium changes and  monitoring of spontaneous contractile activity.",
+  "differentiation_method": "Cardiac differentiation protocol using temporal modulation of Wnt signaling with CHIR99021 and IWP2, followed by metabolic selection with lactate medium to enrich for cardiomyocytes. Self-assembly into 3D organoids through hanging drop aggregation.",
+  "culture_system": "Hanging drop culture followed by suspension culture in cardiac differentiation medium. Organoids maintained for 14-21 days with regular medium changes and monitoring of spontaneous contractile activity.",
   "@type": "Organoid"
 }

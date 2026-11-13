@@ -1,7 +1,7 @@
 {
   "id": "twodcellculture:001",
   "name": "Primary Human Hepatocyte Monolayer Drug Screening Model",
-  "description": "A two-dimensional cell culture system using primary human hepatocytes in monolayer  configuration for high-throughput drug metabolism and hepatotoxicity screening.  The model maintains hepatocyte-specific functions including CYP enzyme activity,  albumin production, and bile acid synthesis for pharmaceutical safety assessment  and drug-drug interaction studies.",
+  "description": "A two-dimensional cell culture system using primary human hepatocytes in monolayer configuration for high-throughput drug metabolism and hepatotoxicity screening. The model maintains hepatocyte-specific functions including CYP enzyme activity, albumin production, and bile acid synthesis for pharmaceutical safety assessment and drug-drug interaction studies.",
   "type": "TwoDCellCulture",
   "models": [
     {

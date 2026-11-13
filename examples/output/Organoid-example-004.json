@@ -1,7 +1,7 @@
 {
   "id": "organoid:004",
   "name": "Human Kidney Organoid Nephrotoxicity Model",
-  "description": "A 3D kidney organoid derived from human pluripotent stem cells that recapitulates  key aspects of human kidney development and function. The organoid contains podocytes,  proximal tubule cells, distal tubule cells, and endothelial cells organized in  nephron-like structures. Used for nephrotoxicity screening and modeling acute  kidney injury, particularly cisplatin-induced nephrotoxicity.",
+  "description": "A 3D kidney organoid derived from human pluripotent stem cells that recapitulates key aspects of human kidney development and function. The organoid contains podocytes, proximal tubule cells, distal tubule cells, and endothelial cells organized in nephron-like structures. Used for nephrotoxicity screening and modeling acute kidney injury, particularly cisplatin-induced nephrotoxicity.",
   "type": "Organoid",
   "models": [
     {
@@ -272,7 +272,7 @@
     "id": "UBERON:0002113",
     "name": "kidney"
   },
-  "differentiation_method": "Protocol based on developmental kidney organogenesis using sequential growth  factor treatment including activating canonical Wnt signaling, followed by  FGF9 and BMP signaling to induce metanephric mesenchyme and nephron progenitors.",
-  "culture_system": "Suspension culture in ultra-low attachment plates with nephron differentiation  medium. Organoids maintained for 18-25 days with medium changes every 2-3 days  to allow full nephron maturation.",
+  "differentiation_method": "Protocol based on developmental kidney organogenesis using sequential growth factor treatment including activating canonical Wnt signaling, followed by FGF9 and BMP signaling to induce metanephric mesenchyme and nephron progenitors.",
+  "culture_system": "Suspension culture in ultra-low attachment plates with nephron differentiation medium. Organoids maintained for 18-25 days with medium changes every 2-3 days to allow full nephron maturation.",
   "@type": "Organoid"
 }

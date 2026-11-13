@@ -1,7 +1,7 @@
 {
   "id": "threedcellculture:001",
   "name": "3D Bioprinted Liver Tissue Model",
-  "description": "A three-dimensional bioprinted liver tissue construct created using bioink containing  primary human hepatocytes, hepatic stellate cells, and Kupffer cells. The tissue is  printed with precise spatial organization to mimic liver lobule architecture and  includes perfusable vascular channels. Used for drug metabolism studies,  hepatotoxicity screening, and disease modeling.",
+  "description": "A three-dimensional bioprinted liver tissue construct created using bioink containing primary human hepatocytes, hepatic stellate cells, and Kupffer cells. The tissue is printed with precise spatial organization to mimic liver lobule architecture and includes perfusable vascular channels. Used for drug metabolism studies, hepatotoxicity screening, and disease modeling.",
   "type": "ThreeDCellCulture",
   "models": [
     {
@@ -267,7 +267,7 @@
   ],
   "cell_source": "Primary human hepatocytes, hepatic stellate cells, and Kupffer cells from healthy donors",
   "three_d_architecture": "SCAFFOLD_BASED",
-  "matrix_composition": "Alginate-gelatin methacrylate bioink with collagen Type I, crosslinked with  calcium chloride and UV exposure. Includes sacrificial gelatin channels for  vascularization and perfusion network.",
+  "matrix_composition": "Alginate-gelatin methacrylate bioink with collagen Type I, crosslinked with calcium chloride and UV exposure. Includes sacrificial gelatin channels for vascularization and perfusion network.",
   "size_range": "10 x 10 x 2 mm tissue constructs",
   "@type": "ThreeDCellCulture"
 }

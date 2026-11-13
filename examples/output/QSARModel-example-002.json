@@ -1,7 +1,7 @@
 {
   "id": "qsarmodel:002",
   "name": "Deep Learning ADMET Prediction Model",
-  "description": "A deep neural network model for predicting multiple ADMET (Absorption, Distribution,  Metabolism, Excretion, Toxicity) endpoints using molecular descriptors and fingerprints.  The model integrates multiple data sources and uses transfer learning from large  chemical databases to predict drug-drug interactions, cytotoxicity, and  pharmacokinetic properties across multiple species.",
+  "description": "A deep neural network model for predicting multiple ADMET (Absorption, Distribution, Metabolism, Excretion, Toxicity) endpoints using molecular descriptors and fingerprints. The model integrates multiple data sources and uses transfer learning from large chemical databases to predict drug-drug interactions, cytotoxicity, and pharmacokinetic properties across multiple species.",
   "type": "QSARModel",
   "models": [
     {

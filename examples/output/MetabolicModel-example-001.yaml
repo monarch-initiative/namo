@@ -1,10 +1,10 @@
 id: metabolicmodel:001
 name: Flux Balance Analysis Cancer Metabolism Model
 description: A genome-scale metabolic network model using flux balance analysis to
-  identify  metabolic vulnerabilities in cancer cells. The model integrates transcriptomic  data
-  from cancer patients with metabolic pathway databases to predict optimal  drug targets
-  with minimal side effects. Used for systematic identification  of anti-cancer therapeutic
-  targets and metabolic biomarkers.
+  identify metabolic vulnerabilities in cancer cells. The model integrates transcriptomic
+  data from cancer patients with metabolic pathway databases to predict optimal drug
+  targets with minimal side effects. Used for systematic identification of anti-cancer
+  therapeutic targets and metabolic biomarkers.
 type: MetabolicModel
 models:
 - biological_system_modeled: cancer_metabolism:001

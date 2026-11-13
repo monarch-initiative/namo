@@ -1,9 +1,9 @@
 id: coculture:002
 name: Neuron-Glial Co-Culture Neurotoxicity Model
 description: A two-dimensional co-culture system containing primary human neurons
-  and  astrocytes to model neuron-glial interactions and assess neurotoxicity of  environmental
-  chemicals and pharmaceuticals. The model maintains physiological  ratios of cell
-  types and demonstrates synaptic activity for mechanistic  neurotoxicity studies.
+  and astrocytes to model neuron-glial interactions and assess neurotoxicity of environmental
+  chemicals and pharmaceuticals. The model maintains physiological ratios of cell
+  types and demonstrates synaptic activity for mechanistic neurotoxicity studies.
 type: CoCulture
 models:
 - biological_system_modeled: neurotoxicity:001

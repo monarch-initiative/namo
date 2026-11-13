@@ -1,7 +1,7 @@
 {
   "id": "digitaltwin:001",
   "name": "Maternal-Fetal Pharmacokinetic Digital Twin",
-  "description": "A digital twin model integrating gut-liver-placenta microphysiological systems  to simulate drug pharmacokinetics in pregnant women. The model combines real-time  physiological data with mechanistic simulations to predict drug absorption,  distribution, metabolism, and placental transfer. Used for personalized dosing  recommendations and fetal safety assessment during pregnancy.",
+  "description": "A digital twin model integrating gut-liver-placenta microphysiological systems to simulate drug pharmacokinetics in pregnant women. The model combines real-time physiological data with mechanistic simulations to predict drug absorption, distribution, metabolism, and placental transfer. Used for personalized dosing recommendations and fetal safety assessment during pregnancy.",
   "type": "DigitalTwin",
   "models": [
     {

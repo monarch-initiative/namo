@@ -1,7 +1,7 @@
 {
   "id": "mlmodel:001",
   "name": "Deep Learning Cardiotoxicity Prediction Model",
-  "description": "A deep neural network model for predicting cardiotoxicity from chemical structure  and molecular descriptors. The model uses transfer learning from large chemical  databases and incorporates multiple endpoints including QT prolongation,  arrhythmia risk, and cardiomyocyte viability. Designed for early-stage  drug development and regulatory safety assessment.",
+  "description": "A deep neural network model for predicting cardiotoxicity from chemical structure and molecular descriptors. The model uses transfer learning from large chemical databases and incorporates multiple endpoints including QT prolongation, arrhythmia risk, and cardiomyocyte viability. Designed for early-stage drug development and regulatory safety assessment.",
   "type": "MLModel",
   "models": [
     {
