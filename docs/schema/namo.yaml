@@ -63,38 +63,35 @@ description: "NAMO (New Approach Methodology Ontology) is a comprehensive schema
   \ against known\noutcomes and regulatory endpoints.\n\n## Use Cases\n\nNAMO supports\
   \ diverse applications across multiple domains:\n\n### Regulatory Toxicology\n-\
   \ **Chemical Safety Assessment**: Systematic evaluation of chemical toxicity using\
-  \ integrated\n  NAM approaches, supporting regulatory submissions to EPA, FDA, and\
-  \ ECHA\n- **Cosmetics Testing**: Non-animal approaches for skin sensitization, eye\
-  \ irritation, and\n  systemic toxicity assessment as required by regulations worldwide\n\
-  - **Pesticide Evaluation**: Environmental and human health risk assessment using\
-  \ NAMs for \n  neurotoxicity, endocrine disruption, and developmental toxicity endpoints\n\
-  \n### Pharmaceutical Development\n- **Drug Discovery**: Early-stage compound screening\
-  \ using organ-specific models to identify\n  promising candidates and eliminate\
-  \ toxic compounds\n- **ADMET Profiling**: Absorption, Distribution, Metabolism,\
-  \ Excretion, and Toxicity assessment\n  using integrated organ-on-chip platforms\
-  \ and computational models\n- **Precision Medicine**: Patient-derived organoids\
-  \ and digital twins for personalized drug\n  selection and dosing strategies\n\n\
-  ### Academic Research\n- **Disease Modeling**: Patient-specific organoids for studying\
-  \ rare diseases, cancer biology,\n  and genetic disorders in controlled laboratory\
-  \ environments\n- **Mechanistic Studies**: Investigation of toxicity pathways, cellular\
-  \ responses, and \n  molecular mechanisms using well-characterized NAM systems\n\
-  - **Method Development**: Innovation in NAM technologies, validation approaches,\
-  \ and \n  standardization protocols\n\n## Key Features\n\n- **Multi-Modal Integration**:\
-  \ Support for combining multiple NAM approaches in integrated\n  testing strategies\
-  \ (ITS) and adverse outcome pathways (AOPs)\n- **Standardization Focus**: Emphasis\
-  \ on reproducibility, quality control, and inter-laboratory\n  harmonization essential\
-  \ for regulatory acceptance\n- **Literature Integration**: Comprehensive [reference](Reference.md)\
-  \ system linking models\n  to peer-reviewed publications, regulatory guidance, and\
-  \ validation studies\n- **Ontology Alignment**: Integration with established ontologies\
-  \ including UBERON (anatomy),\n  CL (cell types), CHEBI (chemicals), and OBI (biomedical\
-  \ investigations)\n\nFor detailed curation guidelines, see:\n- [How to Curate Organoid\
-  \ Papers](https://monarch-initiative.github.io/namo/how-to/curate-organoid-paper/)\n\
+  \ integrated\n  NAM approaches\n- **Cosmetics Testing**: Non-animal approaches for\
+  \ skin sensitization, eye irritation, and\n  systemic toxicity assessment as required\
+  \ by regulations worldwide\n- **Pesticide Evaluation**: Environmental and human\
+  \ health risk assessment using NAMs for \n  neurotoxicity, endocrine disruption,\
+  \ and developmental toxicity endpoints\n\n### Pharmaceutical Development\n- **Drug\
+  \ Discovery**: Early-stage compound screening using organ-specific models to identify\n\
+  \  promising candidates and eliminate toxic compounds\n- **ADMET Profiling**: Absorption,\
+  \ Distribution, Metabolism, Excretion, and Toxicity assessment\n  using integrated\
+  \ organ-on-chip platforms and computational models\n- **Precision Medicine**: Patient-derived\
+  \ organoids and digital twins for personalized drug\n  selection and dosing strategies\n\
+  \n### Academic Research\n- **Disease Modeling**: Patient-specific organoids for\
+  \ studying rare diseases, cancer biology,\n  and genetic disorders in controlled\
+  \ laboratory environments\n- **Mechanistic Studies**: Investigation of toxicity\
+  \ pathways, cellular responses, and \n  molecular mechanisms using well-characterized\
+  \ NAM systems\n- **Method Development**: Innovation in NAM technologies, validation\
+  \ approaches, and \n  standardization protocols\n\n## Key Features\n\n- **Multi-Modal\
+  \ Integration**: Support for combining multiple NAM approaches in integrated\n \
+  \ testing strategies (ITS) and adverse outcome pathways (AOPs)\n- **Standardization\
+  \ Focus**: Emphasis on reproducibility, quality control, and inter-laboratory\n\
+  \  harmonization essential for regulatory acceptance\n- **Literature Integration**:\
+  \ Comprehensive [reference](Reference.md) system linking models\n  to peer-reviewed\
+  \ publications, regulatory guidance, and validation studies\n- **Ontology Alignment**:\
+  \ Integration with established ontologies including UBERON (anatomy),\n  CL (cell\
+  \ types), CHEBI (chemicals), and OBI (biomedical investigations)\n\nFor detailed\
+  \ curation guidelines, see:\n- [How to Curate Organoid Papers](https://monarch-initiative.github.io/namo/how-to/curate-organoid-paper/)\n\
   - [How to Curate Organ-on-Chip Papers](https://monarch-initiative.github.io/namo/how-to/curate-organ-on-chip-paper/)\n\
-  \n## Community and Standards\n\nNAMO is developed in collaboration with the NAM\
-  \ research community, regulatory agencies, and \nstandards organizations including\
-  \ OECD, ICCVAM, and ESTIV. It supports the 3Rs principles \n(Replacement, Reduction,\
-  \ Refinement) and contributes to the transition toward animal-free \ntesting methodologies\
-  \ in safety assessment and biomedical research.\n"
+  \n## Community and Standards\n\nNAMO supports the 3Rs principles\n(Replacement,\
+  \ Reduction, Refinement) and contributes to the transition toward animal-free \n\
+  testing methodologies in safety assessment and biomedical research.\n"
 title: namo
 see_also:
 - https://monarch-initiative.github.io/namo
@@ -5586,7 +5583,7 @@ classes:
     class_uri: biolink:QuantityValue
 metamodel_version: 1.11.0
 source_file: namo.yaml
-source_file_date: '2026-11-12T22:22:57'
-source_file_size: 70538
-generation_date: '2026-11-12T22:27:33'
+source_file_date: '2026-11-13T15:40:09'
+source_file_size: 70327
+generation_date: '2026-11-13T15:44:32'
 

@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-12T22:27:36
+# Generation date: 2026-11-13T15:44:58
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -100,7 +100,7 @@
 #
 #   ### Regulatory Toxicology
 #   - **Chemical Safety Assessment**: Systematic evaluation of chemical toxicity using integrated
-#     NAM approaches, supporting regulatory submissions to EPA, FDA, and ECHA
+#     NAM approaches
 #   - **Cosmetics Testing**: Non-animal approaches for skin sensitization, eye irritation, and
 #     systemic toxicity assessment as required by regulations worldwide
 #   - **Pesticide Evaluation**: Environmental and human health risk assessment using NAMs for
@@ -139,8 +139,7 @@
 #
 #   ## Community and Standards
 #
-#   NAMO is developed in collaboration with the NAM research community, regulatory agencies, and
-#   standards organizations including OECD, ICCVAM, and ESTIV. It supports the 3Rs principles
+#   NAMO supports the 3Rs principles
 #   (Replacement, Reduction, Refinement) and contributes to the transition toward animal-free
 #   testing methodologies in safety assessment and biomedical research.
 #
