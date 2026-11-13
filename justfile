@@ -225,8 +225,10 @@ _test-references:
   done <<< "$plan"
   echo "Reference titles checked across all examples: $total"
 
-# Run example tests
+# Run example tests. The console output (each example's input and re-emitted
+# output, in no fixed order) is a log, so it goes to tmp/, which is not tracked.
 _test-examples: _ensure_examples_output
+  mkdir -p tmp
   uv run linkml-run-examples \
     --input-formats json \
     --input-formats yaml \
@@ -235,7 +237,7 @@ _test-examples: _ensure_examples_output
     --counter-example-input-directory tests/data/invalid \
     --input-directory tests/data/valid \
     --output-directory examples/output \
-    --schema {{source_schema_path}} > examples/output/README.md
+    --schema {{source_schema_path}} > tmp/linkml-run-examples.md
 
 # Generate merged model
 _gen-yaml:
