@@ -909,6 +909,14 @@ class PBPKCompartmentEnum(str, Enum):
     """
     Gastrointestinal tract compartment
     """
+    UTERUS = "UTERUS"
+    """
+    Uterine compartment. In a pregnancy model this is the compartment holding the conceptus before the placenta forms, and the target compartment for a developmental exposure estimate.
+    """
+    PLACENTA = "PLACENTA"
+    """
+    Placental compartment, for models of maternal-fetal transfer after placentation.
+    """
     PLASMA = "PLASMA"
     """
     Plasma compartment
@@ -916,6 +924,10 @@ class PBPKCompartmentEnum(str, Enum):
     BLOOD = "BLOOD"
     """
     Blood compartment
+    """
+    REST_OF_BODY = "REST_OF_BODY"
+    """
+    The lumped remainder of the body, carrying whatever tissue the model does not represent explicitly. This is a feature of the model's structure rather than an anatomical entity, so it has no ontology meaning.
     """
 
 

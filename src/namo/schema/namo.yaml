@@ -2063,17 +2063,39 @@ enums:
         meaning: UBERON:0001134
       FAT:
         description: Adipose tissue compartment
+        meaning: UBERON:0001013
       SKIN:
         description: Dermal compartment
+        meaning: UBERON:0002097
       BONE:
         description: Bone tissue compartment
+        meaning: UBERON:0002481
       GI_TRACT:
         description: Gastrointestinal tract compartment
+        meaning: UBERON:0005409
+      UTERUS:
+        description: >-
+          Uterine compartment. In a pregnancy model this is the compartment
+          holding the conceptus before the placenta forms, and the target
+          compartment for a developmental exposure estimate.
+        meaning: UBERON:0000995
+      PLACENTA:
+        description: >-
+          Placental compartment, for models of maternal-fetal transfer after
+          placentation.
+        meaning: UBERON:0001987
       PLASMA:
         description: Plasma compartment
         meaning: UBERON:0001969
       BLOOD:
         description: Blood compartment
+        meaning: UBERON:0000178
+      REST_OF_BODY:
+        description: >-
+          The lumped remainder of the body, carrying whatever tissue the model
+          does not represent explicitly. This is a feature of the model's
+          structure rather than an anatomical entity, so it has no ontology
+          meaning.
 
   DigitalTwinScopeEnum:
     permissible_values:

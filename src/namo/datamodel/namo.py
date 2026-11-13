@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-13T16:43:36
+# Generation date: 2026-11-13T17:01:44
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -3075,23 +3075,39 @@ class PBPKCompartmentEnum(EnumDefinitionImpl):
         meaning=UBERON["0001134"])
     FAT = PermissibleValue(
         text="FAT",
-        description="Adipose tissue compartment")
+        description="Adipose tissue compartment",
+        meaning=UBERON["0001013"])
     SKIN = PermissibleValue(
         text="SKIN",
-        description="Dermal compartment")
+        description="Dermal compartment",
+        meaning=UBERON["0002097"])
     BONE = PermissibleValue(
         text="BONE",
-        description="Bone tissue compartment")
+        description="Bone tissue compartment",
+        meaning=UBERON["0002481"])
     GI_TRACT = PermissibleValue(
         text="GI_TRACT",
-        description="Gastrointestinal tract compartment")
+        description="Gastrointestinal tract compartment",
+        meaning=UBERON["0005409"])
+    UTERUS = PermissibleValue(
+        text="UTERUS",
+        description="""Uterine compartment. In a pregnancy model this is the compartment holding the conceptus before the placenta forms, and the target compartment for a developmental exposure estimate.""",
+        meaning=UBERON["0000995"])
+    PLACENTA = PermissibleValue(
+        text="PLACENTA",
+        description="Placental compartment, for models of maternal-fetal transfer after placentation.",
+        meaning=UBERON["0001987"])
     PLASMA = PermissibleValue(
         text="PLASMA",
         description="Plasma compartment",
         meaning=UBERON["0001969"])
     BLOOD = PermissibleValue(
         text="BLOOD",
-        description="Blood compartment")
+        description="Blood compartment",
+        meaning=UBERON["0000178"])
+    REST_OF_BODY = PermissibleValue(
+        text="REST_OF_BODY",
+        description="""The lumped remainder of the body, carrying whatever tissue the model does not represent explicitly. This is a feature of the model's structure rather than an anatomical entity, so it has no ontology meaning.""")
 
     _defn = EnumDefinition(
         name="PBPKCompartmentEnum",
