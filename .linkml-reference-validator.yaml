@@ -1,0 +1,10 @@
+# Configuration for linkml-reference-validator, run by `just test`
+# (_test-references). See https://linkml.github.io/linkml-reference-validator/
+validation:
+  # Fetched references are committed, so the check gives the same result
+  # offline and does not change when a publisher's page does. A new reference
+  # is fetched once and its cache file should be committed with it.
+  cache_dir: references_cache
+  # A reference that cannot be fetched is unverified and must fail, not pass
+  # with a warning.
+  unknown_prefix_severity: ERROR

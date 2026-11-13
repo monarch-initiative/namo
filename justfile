@@ -85,7 +85,7 @@ deploy: site
 
 # Run all tests
 [group('model development')]
-test: _test-schema _test-python _test-examples
+test: _test-schema _test-python _test-examples _test-references
 
 # Run linting
 [group('model development')]
@@ -185,6 +185,20 @@ _test-schema:
 # Run Python unit tests with pytest
 _test-python: gen-python
   uv run python -m pytest
+
+# Check that every reference in the examples exists and that its title is the
+# publication's own (linkml-reference-validator). Each example file is
+# validated as the class named before the first "-" in its file name.
+# --no-full-text: a title needs only the publication's metadata, which keeps the
+# committed references_cache/ small. (The CLI's default overrides the config
+# file, so it is set here.) Drop it if quotes are added to references.
+_test-references:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  for cls in $(ls tests/data/valid/*.yaml | xargs -n1 basename | cut -d- -f1 | sort -u); do
+    uv run linkml-reference-validator validate data tests/data/valid/"$cls"-*.yaml \
+      --schema {{source_schema_path}} --target-class "$cls" --no-full-text
+  done
 
 # Run example tests
 _test-examples: _ensure_examples_output

@@ -6,11 +6,12 @@ repos:
     hooks:
       - id: check-toml
       - id: check-yaml
-      # Generated docs and example outputs are excluded from the whitespace
+      # Generated docs, example outputs and the reference cache (written by
+      # linkml-reference-validator) are excluded from the whitespace
       # fixers. A hook rewrite would make them differ from what the generators
       # produce. Fix the generator or the source record, not the committed copy.
       - id: end-of-file-fixer
-        exclude: &generated ^(docs/elements|docs/schema|examples/output)/
+        exclude: &generated ^(docs/elements|docs/schema|examples/output|references_cache)/
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
         exclude: *generated

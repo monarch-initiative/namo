@@ -26,6 +26,7 @@ dev = [
     "mknotebooks>= 0.8.0",
     "matplotlib>=3.9.4",
     "numpy>=2.0.2",
+    "linkml-reference-validator>=0.5.1",
 ]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to
@@ -59,6 +60,8 @@ skip = [
   "docs/elements/*",
   "docs/schema/*",
   "examples/output/*",
+  # Publication metadata fetched by linkml-reference-validator (`just test`).
+  "references_cache/*",
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
