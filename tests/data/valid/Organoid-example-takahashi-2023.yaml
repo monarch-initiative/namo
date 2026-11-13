@@ -35,7 +35,7 @@ culture_system: >-
 references:
   - id: "doi:10.1038/s41598-023-32438-2"
     title: "Drug cytotoxicity screening using human intestinal organoids propagated with extensive cost-reduction strategies"
-    authors: ["Takahashi Y", "Mizuno T", "Morikawa Y", "Fukuda K"]
+    authors: ["Takahashi Y", "Inoue Y", "Sato S", "Okabe T", "Kojima H", "Kiyono H", "Shimizu M", "Yamauchi Y", "Sato R"]
     journal: "Scientific Reports"
     year: 2023
     url: "https://www.nature.com/articles/s41598-023-32438-2"

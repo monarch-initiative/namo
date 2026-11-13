@@ -1,10 +1,10 @@
 id: "qsarmodel:002"
 name: "Deep Learning ADMET Prediction Model"
 description: >-
-  A deep neural network model for predicting multiple ADMET (Absorption, Distribution, 
-  Metabolism, Excretion, Toxicity) endpoints using molecular descriptors and fingerprints. 
-  The model integrates multiple data sources and uses transfer learning from large 
-  chemical databases to predict drug-drug interactions, cytotoxicity, and 
+  A deep neural network model for predicting multiple ADMET (Absorption, Distribution,
+  Metabolism, Excretion, Toxicity) endpoints using molecular descriptors and fingerprints.
+  The model integrates multiple data sources and uses transfer learning from large
+  chemical databases to predict drug-drug interactions, cytotoxicity, and
   pharmacokinetic properties across multiple species.
 type: "QSARModel"
 biological_organization_level: "SUBCELLULAR"
@@ -23,19 +23,6 @@ model_performance:
   specificity: 0.84
   auc: 0.91
   r_squared: 0.82
-references:
-  - id: "doi:10.1021/acs.jcim.4c00123"
-    title: "Deep learning approaches for comprehensive ADMET prediction: integrating multi-task learning and transfer learning"
-    authors: ["Yang K", "Swanson K", "Jin W", "Coley C", "Eiden P", "Gao H"]
-    journal: "Journal of Chemical Information and Modeling"
-    year: 2024
-    url: "https://pubs.acs.org/doi/10.1021/acs.jcim.4c00123"
-  - id: "PMID:38445678"
-    title: "Transformer-based molecular property prediction for drug discovery applications"
-    authors: ["Chen H", "Wang Y", "Liu Z", "Zhang S", "Li X"]
-    journal: "Nature Machine Intelligence"
-    year: 2024
-    url: "https://pubmed.ncbi.nlm.nih.gov/38445678/"
 models:
   - biological_system_modeled: "hepatotoxicity_prediction:002"
     is_computed: true

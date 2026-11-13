@@ -125,31 +125,6 @@ biological_organization_level: SUBCELLULAR
 spatial_context: Chemical space defined by molecular descriptors and pharmacophore
   features
 complexity_level: HIGH
-references:
-- id: doi:10.1021/acs.jcim.4c00123
-  title: 'Deep learning approaches for comprehensive ADMET prediction: integrating
-    multi-task learning and transfer learning'
-  authors:
-  - Yang K
-  - Swanson K
-  - Jin W
-  - Coley C
-  - Eiden P
-  - Gao H
-  journal: Journal of Chemical Information and Modeling
-  year: 2024
-  url: https://pubs.acs.org/doi/10.1021/acs.jcim.4c00123
-- id: PMID:38445678
-  title: Transformer-based molecular property prediction for drug discovery applications
-  authors:
-  - Chen H
-  - Wang Y
-  - Liu Z
-  - Zhang S
-  - Li X
-  journal: Nature Machine Intelligence
-  year: 2024
-  url: https://pubmed.ncbi.nlm.nih.gov/38445678/
 molecular_descriptors:
 - MORGAN_FINGERPRINTS
 - RDKIT_DESCRIPTORS

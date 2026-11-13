@@ -166,29 +166,6 @@ biological_organization_level: TISSUE
 spatial_context: 3D intestinal villus-like architecture with apical-basal polarity
   and tight junctions
 complexity_level: HIGH
-references:
-- id: PMID:38112345
-  title: Gut-on-chip models for investigating intestinal drug absorption and barrier
-    function
-  authors:
-  - Kim HJ
-  - Li H
-  - Collins JJ
-  - Ingber DE
-  journal: Nature Protocols
-  year: 2024
-  url: https://pubmed.ncbi.nlm.nih.gov/38112345/
-- id: doi:10.1038/s41587-024-02156-x
-  title: Human organ-on-chip models of intestinal inflammation and drug transport
-  authors:
-  - Workman MJ
-  - Gleeson JP
-  - Troisi EJ
-  - Estrada HQ
-  - Kerns SJ
-  journal: Nature Biotechnology
-  year: 2024
-  url: https://www.nature.com/articles/s41587-024-02156-x
 microfluidic_design:
   id: microfluidic:004
   name: Gut-On-Chip Design

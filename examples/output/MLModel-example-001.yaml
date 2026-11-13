@@ -134,29 +134,6 @@ models:
 biological_organization_level: SUBCELLULAR
 spatial_context: Chemical-biological interaction space with molecular target predictions
 complexity_level: HIGH
-references:
-- id: doi:10.1016/j.compbiomed.2024.108445
-  title: 'Deep learning for cardiotoxicity prediction: integrating molecular descriptors
-    and biological pathways'
-  authors:
-  - Chen X
-  - Liu Y
-  - Wang Z
-  - Zhang H
-  journal: Computers in Biology and Medicine
-  year: 2024
-  url: https://www.sciencedirect.com/science/article/pii/S001048252400123X
-- id: doi:10.1021/acs.jcim.4c00789
-  title: Multi-task learning for comprehensive cardiotoxicity assessment using chemical
-    structure information
-  authors:
-  - Rodriguez M
-  - Kim J
-  - Anderson L
-  - Thompson R
-  journal: Journal of Chemical Information and Modeling
-  year: 2024
-  url: https://pubs.acs.org/doi/10.1021/acs.jcim.4c00789
 ml_algorithm: DEEP_LEARNING
 feature_types:
 - MOLECULAR

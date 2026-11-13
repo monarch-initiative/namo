@@ -166,19 +166,16 @@ references:
 - id: doi:10.1007/s43188-025-00279-y
   title: 'Toxicity assessment using neural organoids: innovative approaches and challenges'
   authors:
-  - Kim YH
-  - Park SJ
-  - Lee JH
-  - Choi MK
+  - Park SH
+  - Sun W
   journal: Toxicological Research
   year: 2025
   url: https://link.springer.com/article/10.1007/s43188-025-00279-y
 - id: doi:10.3389/ftox.2024.1402630
   title: Stem cell-based approaches for developmental neurotoxicity testing
   authors:
-  - Roberts AL
-  - Thompson K
-  - Martinez R
+  - Ku J
+  - Asuri P
   journal: Frontiers in Toxicology
   year: 2024
   url: https://www.frontiersin.org/journals/toxicology/articles/10.3389/ftox.2024.1402630/full

@@ -52,12 +52,12 @@ cell_types:
   - id: "CL:0000746"
     name: "cardiac muscle cell"
 references:
-  - id: "doi:10.1016/j.bioactmat.2024.05.028"
+  - id: "doi:10.1016/j.bioactmat.2024.05.019"
     title: "Dynamic microphysiological system chip platform for high-throughput, customizable, and multi-dimensional drug screening"
-    authors: ["Zhu Y", "Wang J", "Li H", "Chen X"]
+    authors: ["Zhu Y", "Jiang D", "Qiu Y", "Liu X", "Bian Y", "Tian S", "Wang X", "Hsia KJ", "Wan H", "Zhuang L", "Wang P"]
     journal: "Bioactive Materials"
     year: 2024
-    url: "https://www.sciencedirect.com/science/article/pii/S2452199X24001853"
+    url: "https://doi.org/10.1016/j.bioactmat.2024.05.019"
 models:
   - biological_system_modeled: "multi_organ_drug_screening:001"
     is_computed: false

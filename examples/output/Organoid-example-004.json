@@ -218,11 +218,15 @@
   "references": [
     {
       "id": "doi:10.1101/2025.04.30.651410",
-      "title": "Development and Validation of a Stem Cell-Based Kidney Organoid Platform for Nephrotoxicity Assessment",
+      "title": "Elucidation of Puberulic Acid–Induced Nephrotoxicity Using Stem Cell-based Kidney Organoids",
       "authors": [
-        "Nakanoh S",
-        "Takasato M",
-        "Little MH"
+        "Nakanoh H",
+        "Tsuji K",
+        "Uchida N",
+        "Fukushima K",
+        "Haraguchi S",
+        "Kitamura S",
+        "Wada J"
       ],
       "journal": "bioRxiv",
       "year": 2025,
@@ -232,13 +236,11 @@
       "id": "PMID:38547531",
       "title": "Advancing preclinical drug evaluation through automated 3D imaging for high-throughput screening with kidney organoids",
       "authors": [
-        "Ramzy A",
-        "Tomov ML",
-        "Tran TT",
-        "Sharma AD",
-        "Feric NT"
+        "Oishi H",
+        "Tabibzadeh N",
+        "Morizane R"
       ],
-      "journal": "Cell Reports Medicine",
+      "journal": "Biofabrication",
       "year": 2024,
       "url": "https://pubmed.ncbi.nlm.nih.gov/38547531/"
     }

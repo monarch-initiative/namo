@@ -1,10 +1,10 @@
 id: "organoid:004"
 name: "Human Kidney Organoid Nephrotoxicity Model"
 description: >-
-  A 3D kidney organoid derived from human pluripotent stem cells that recapitulates 
-  key aspects of human kidney development and function. The organoid contains podocytes, 
-  proximal tubule cells, distal tubule cells, and endothelial cells organized in 
-  nephron-like structures. Used for nephrotoxicity screening and modeling acute 
+  A 3D kidney organoid derived from human pluripotent stem cells that recapitulates
+  key aspects of human kidney development and function. The organoid contains podocytes,
+  proximal tubule cells, distal tubule cells, and endothelial cells organized in
+  nephron-like structures. Used for nephrotoxicity screening and modeling acute
   kidney injury, particularly cisplatin-induced nephrotoxicity.
 type: "Organoid"
 biological_organization_level: "ORGAN"
@@ -26,24 +26,24 @@ cell_types:
     name: "kidney interstitial fibroblast"
 cell_source: "Human induced pluripotent stem cells (iPSCs) from healthy donors"
 differentiation_method: >-
-  Protocol based on developmental kidney organogenesis using sequential growth 
-  factor treatment including activating canonical Wnt signaling, followed by 
+  Protocol based on developmental kidney organogenesis using sequential growth
+  factor treatment including activating canonical Wnt signaling, followed by
   FGF9 and BMP signaling to induce metanephric mesenchyme and nephron progenitors.
 culture_system: >-
-  Suspension culture in ultra-low attachment plates with nephron differentiation 
-  medium. Organoids maintained for 18-25 days with medium changes every 2-3 days 
+  Suspension culture in ultra-low attachment plates with nephron differentiation
+  medium. Organoids maintained for 18-25 days with medium changes every 2-3 days
   to allow full nephron maturation.
 references:
   - id: "doi:10.1101/2025.04.30.651410"
-    title: "Development and Validation of a Stem Cell-Based Kidney Organoid Platform for Nephrotoxicity Assessment"
-    authors: ["Nakanoh S", "Takasato M", "Little MH"]
+    title: "Elucidation of Puberulic Acid–Induced Nephrotoxicity Using Stem Cell-based Kidney Organoids"
+    authors: ["Nakanoh H", "Tsuji K", "Uchida N", "Fukushima K", "Haraguchi S", "Kitamura S", "Wada J"]
     journal: "bioRxiv"
     year: 2025
     url: "https://www.biorxiv.org/content/10.1101/2025.04.30.651410v1"
   - id: "PMID:38547531"
     title: "Advancing preclinical drug evaluation through automated 3D imaging for high-throughput screening with kidney organoids"
-    authors: ["Ramzy A", "Tomov ML", "Tran TT", "Sharma AD", "Feric NT"]
-    journal: "Cell Reports Medicine"
+    authors: ["Oishi H", "Tabibzadeh N", "Morizane R"]
+    journal: "Biofabrication"
     year: 2024
     url: "https://pubmed.ncbi.nlm.nih.gov/38547531/"
 models:

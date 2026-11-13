@@ -1,10 +1,10 @@
 id: "pbpkmodel:002"
 name: "Multi-Species Developmental Toxicity PBPK Model"
 description: >-
-  A physiologically-based pharmacokinetic model for predicting developmental 
-  toxicity across multiple species (human, rat, rabbit) during pregnancy. 
-  The model incorporates maternal-fetal transfer, placental metabolism, and 
-  developmental stage-specific pharmacokinetics to predict teratogenic risk 
+  A physiologically-based pharmacokinetic model for predicting developmental
+  toxicity across multiple species (human, rat, rabbit) during pregnancy.
+  The model incorporates maternal-fetal transfer, placental metabolism, and
+  developmental stage-specific pharmacokinetics to predict teratogenic risk
   for pharmaceutical compounds and environmental chemicals.
 type: "PBPKModel"
 biological_organization_level: "SYSTEM"
@@ -34,19 +34,6 @@ compartments:
     description: "Fetal circulatory system"
     volume: 0.3
     blood_flow: 0.2
-references:
-  - id: "doi:10.1016/j.reprotox.2024.108456"
-    title: "PBPK modeling for developmental and reproductive toxicity: recent advances and regulatory applications"
-    authors: ["Kapraun DF", "Wambaugh JF", "Ring CL", "Tornero-Velez R"]
-    journal: "Reproductive Toxicology"
-    year: 2024
-    url: "https://www.sciencedirect.com/science/article/pii/S0890623824001023"
-  - id: "PMID:38234567"
-    title: "Maternal-fetal PBPK models for risk assessment: a comprehensive review and future directions"
-    authors: ["Zhang Q", "Fisher JW", "Louisse J", "Bois FY"]
-    journal: "Critical Reviews in Toxicology"
-    year: 2024
-    url: "https://pubmed.ncbi.nlm.nih.gov/38234567/"
 models:
   - biological_system_modeled: "developmental_toxicity:001"
     is_computed: true
@@ -73,7 +60,7 @@ models:
             adjusted_p_value: 0.01
           - id: "gene:045"
             name: "UGT1A1"
-            gene_symbol: "UGT1A1" 
+            gene_symbol: "UGT1A1"
             ensembl_id: "ENSG00000241635"
             fold_change: 1.8
             p_value: 0.002

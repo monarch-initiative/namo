@@ -1,10 +1,10 @@
 id: "mlmodel:001"
 name: "Deep Learning Cardiotoxicity Prediction Model"
 description: >-
-  A deep neural network model for predicting cardiotoxicity from chemical structure 
-  and molecular descriptors. The model uses transfer learning from large chemical 
-  databases and incorporates multiple endpoints including QT prolongation, 
-  arrhythmia risk, and cardiomyocyte viability. Designed for early-stage 
+  A deep neural network model for predicting cardiotoxicity from chemical structure
+  and molecular descriptors. The model uses transfer learning from large chemical
+  databases and incorporates multiple endpoints including QT prolongation,
+  arrhythmia risk, and cardiomyocyte viability. Designed for early-stage
   drug development and regulatory safety assessment.
 type: "MLModel"
 biological_organization_level: "SUBCELLULAR"
@@ -21,19 +21,6 @@ cross_validation:
   n_folds: 5
   cv_score: 0.89
 model_interpretability: "INTERPRETABLE"
-references:
-  - id: "doi:10.1016/j.compbiomed.2024.108445"
-    title: "Deep learning for cardiotoxicity prediction: integrating molecular descriptors and biological pathways"
-    authors: ["Chen X", "Liu Y", "Wang Z", "Zhang H"]
-    journal: "Computers in Biology and Medicine"
-    year: 2024
-    url: "https://www.sciencedirect.com/science/article/pii/S001048252400123X"
-  - id: "doi:10.1021/acs.jcim.4c00789"
-    title: "Multi-task learning for comprehensive cardiotoxicity assessment using chemical structure information"
-    authors: ["Rodriguez M", "Kim J", "Anderson L", "Thompson R"]
-    journal: "Journal of Chemical Information and Modeling"
-    year: 2024
-    url: "https://pubs.acs.org/doi/10.1021/acs.jcim.4c00789"
 models:
   - biological_system_modeled: "cardiotoxicity_prediction:001"
     is_computed: true

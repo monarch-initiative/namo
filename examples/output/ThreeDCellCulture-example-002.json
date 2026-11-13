@@ -222,10 +222,17 @@
       "id": "doi:10.1038/s41598-024-73680-6",
       "title": "Multicellular ovarian cancer spheroids: novel 3D model to mimic tumour complexity",
       "authors": [
-        "Smith JA",
-        "Johnson MD",
-        "Brown KL",
-        "Davis RT"
+        "Flörkemeier I",
+        "Antons LK",
+        "Weimer JP",
+        "Hedemann N",
+        "Rogmans C",
+        "Krüger S",
+        "Scherließ R",
+        "Dempfle A",
+        "Arnold N",
+        "Maass N",
+        "Bauerschlag DO"
       ],
       "journal": "Scientific Reports",
       "year": 2024,
@@ -235,9 +242,10 @@
       "id": "doi:10.1002/cai2.102",
       "title": "A comprehensive review of 3D cancer models for drug screening and translational research",
       "authors": [
-        "Sharma P",
-        "Kumar A",
-        "Singh R"
+        "Sharma K",
+        "Dey S",
+        "Karmakar R",
+        "Rengan AK"
       ],
       "journal": "Cancer Innovation",
       "year": 2024,

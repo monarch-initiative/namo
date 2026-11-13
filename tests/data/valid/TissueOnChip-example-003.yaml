@@ -1,10 +1,10 @@
 id: "tissueonchip:003"
 name: "Human Skin-On-Chip Dermatotoxicity Model"
 description: >-
-  A microfluidic skin-on-chip model that recreates the human skin barrier function 
-  using primary human keratinocytes, fibroblasts, and melanocytes in a 3D configuration. 
-  The model features an air-liquid interface, physiological skin architecture, and 
-  real-time monitoring capabilities for cosmetics safety testing and dermatotoxicity 
+  A microfluidic skin-on-chip model that recreates the human skin barrier function
+  using primary human keratinocytes, fibroblasts, and melanocytes in a 3D configuration.
+  The model features an air-liquid interface, physiological skin architecture, and
+  real-time monitoring capabilities for cosmetics safety testing and dermatotoxicity
   assessment without animal testing.
 type: "TissueOnChip"
 biological_organization_level: "TISSUE"
@@ -71,9 +71,9 @@ sensor_integration:
 references:
   - id: "PMID:37938128"
     title: "Towards skin-on-a-chip for screening the dermal absorption of cosmetics"
-    authors: ["Chen L", "Wang H", "Liu Y", "Zhang M"]
-    journal: "Lab on a Chip"
-    year: 2024
+    authors: ["Govey-Scotland J", "Johnstone L", "Myant C", "Friddin MS"]
+    journal: "Lab on a chip"
+    year: 2023
     url: "https://pubmed.ncbi.nlm.nih.gov/37938128/"
   - id: "doi:10.1177/09636897241235464"
     title: "Applications of Engineered Skin Tissue for Cosmetic Component and Toxicology Detection"

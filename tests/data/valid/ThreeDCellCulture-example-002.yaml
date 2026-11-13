@@ -1,10 +1,10 @@
 id: "spheroid:001"
 name: "3D Multicellular Ovarian Cancer Spheroid Model"
 description: >-
-  A three-dimensional multicellular tumor spheroid model that recapitulates the 
-  complex heterogeneity of ovarian cancer tumors. The spheroid contains cancer cells, 
-  cancer-associated fibroblasts, and endothelial cells to mimic the tumor 
-  microenvironment. Used for high-throughput drug screening and studying 
+  A three-dimensional multicellular tumor spheroid model that recapitulates the
+  complex heterogeneity of ovarian cancer tumors. The spheroid contains cancer cells,
+  cancer-associated fibroblasts, and endothelial cells to mimic the tumor
+  microenvironment. Used for high-throughput drug screening and studying
   drug resistance mechanisms in ovarian cancer.
 type: "ThreeDCellCulture"
 biological_organization_level: "CELLULAR_NEIGHBORHOOD"
@@ -24,13 +24,13 @@ cell_source: "Primary ovarian cancer cells, cancer-associated fibroblasts, and e
 references:
   - id: "doi:10.1038/s41598-024-73680-6"
     title: "Multicellular ovarian cancer spheroids: novel 3D model to mimic tumour complexity"
-    authors: ["Smith JA", "Johnson MD", "Brown KL", "Davis RT"]
+    authors: ["Flörkemeier I", "Antons LK", "Weimer JP", "Hedemann N", "Rogmans C", "Krüger S", "Scherließ R", "Dempfle A", "Arnold N", "Maass N", "Bauerschlag DO"]
     journal: "Scientific Reports"
     year: 2024
     url: "https://www.nature.com/articles/s41598-024-73680-6"
   - id: "doi:10.1002/cai2.102"
     title: "A comprehensive review of 3D cancer models for drug screening and translational research"
-    authors: ["Sharma P", "Kumar A", "Singh R"]
+    authors: ["Sharma K", "Dey S", "Karmakar R", "Rengan AK"]
     journal: "Cancer Innovation"
     year: 2024
     url: "https://onlinelibrary.wiley.com/doi/10.1002/cai2.102"

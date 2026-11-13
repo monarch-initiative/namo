@@ -1,10 +1,10 @@
 id: "coculture:002"
 name: "Neuron-Glial Co-Culture Neurotoxicity Model"
 description: >-
-  A two-dimensional co-culture system containing primary human neurons and 
-  astrocytes to model neuron-glial interactions and assess neurotoxicity of 
-  environmental chemicals and pharmaceuticals. The model maintains physiological 
-  ratios of cell types and demonstrates synaptic activity for mechanistic 
+  A two-dimensional co-culture system containing primary human neurons and
+  astrocytes to model neuron-glial interactions and assess neurotoxicity of
+  environmental chemicals and pharmaceuticals. The model maintains physiological
+  ratios of cell types and demonstrates synaptic activity for mechanistic
   neurotoxicity studies.
 type: "CoCulture"
 biological_organization_level: "CELLULAR_NEIGHBORHOOD"
@@ -36,13 +36,13 @@ interaction_mechanisms:
 references:
   - id: "doi:10.1007/s43188-025-00279-y"
     title: "Toxicity assessment using neural organoids: innovative approaches and challenges"
-    authors: ["Kim YH", "Park SJ", "Lee JH", "Choi MK"]
+    authors: ["Park SH", "Sun W"]
     journal: "Toxicological Research"
     year: 2025
     url: "https://link.springer.com/article/10.1007/s43188-025-00279-y"
   - id: "doi:10.3389/ftox.2024.1402630"
     title: "Stem cell-based approaches for developmental neurotoxicity testing"
-    authors: ["Roberts AL", "Thompson K", "Martinez R"]
+    authors: ["Ku J", "Asuri P"]
     journal: "Frontiers in Toxicology"
     year: 2024
     url: "https://www.frontiersin.org/journals/toxicology/articles/10.3389/ftox.2024.1402630/full"

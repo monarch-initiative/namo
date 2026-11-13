@@ -171,22 +171,20 @@
       "id": "doi:10.1186/1752-0509-5-S1-S11",
       "title": "Two-stage flux balance analysis of metabolic networks for drug target identification",
       "authors": [
-        "Liu L",
-        "Zhou X",
-        "Chen L",
-        "Wang Y"
+        "Li Z",
+        "Wang RS",
+        "Zhang XS"
       ],
       "journal": "BMC Systems Biology",
-      "year": 2024,
+      "year": 2011,
       "url": "https://bmcsystbiol.biomedcentral.com/articles/10.1186/1752-0509-5-S1-S11"
     },
     {
       "id": "doi:10.1002/btpr.3413",
       "title": "Model validation and selection in metabolic flux analysis and flux balance analysis",
       "authors": [
-        "Kaste JAV",
-        "Campos AD",
-        "Navid A"
+        "Kaste JAM",
+        "Shachar‐Hill Y"
       ],
       "journal": "Biotechnology Progress",
       "year": 2024,

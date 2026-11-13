@@ -64,5 +64,7 @@ skip = [
 # Reminder: words have to be lowercased for the ignore-words-list
 # Scientific terms that codespell misidentifies:
 # villin (intestinal epithelial marker protein)
-ignore-words-list = "linke,villin"
+# Author surnames in example references:
+# bothe (Anne-Katrin Bothe)
+ignore-words-list = "bothe,linke,villin"
 quiet-level = 3

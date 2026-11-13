@@ -481,16 +481,6 @@ model_systems:
                 threshold: 0.85
                 pass_fail_status: true
 
-    # References supporting this model system
-    references:
-      - id: "doi:10.1016/j.tiv.2023.105678"
-        title: "Development and validation of intestinal organoid-derived monolayers for high-throughput drug toxicity screening"
-        authors:
-          - "Smith A"
-          - "Johnson B"
-        journal: "Toxicology in Vitro"
-        year: 2023
-
 studies:
   - id: "study:phase4_gi_toxicity_001"
     name: "Phase IV Drug Metabolite Toxicity Screening in Intestinal Epithelial Models"

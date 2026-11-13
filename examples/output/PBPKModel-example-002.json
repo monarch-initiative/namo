@@ -155,34 +155,6 @@
   "biological_organization_level": "SYSTEM",
   "spatial_context": "Multi-compartment maternal-fetal physiological model with placental barrier",
   "complexity_level": "HIGH",
-  "references": [
-    {
-      "id": "doi:10.1016/j.reprotox.2024.108456",
-      "title": "PBPK modeling for developmental and reproductive toxicity: recent advances and regulatory applications",
-      "authors": [
-        "Kapraun DF",
-        "Wambaugh JF",
-        "Ring CL",
-        "Tornero-Velez R"
-      ],
-      "journal": "Reproductive Toxicology",
-      "year": 2024,
-      "url": "https://www.sciencedirect.com/science/article/pii/S0890623824001023"
-    },
-    {
-      "id": "PMID:38234567",
-      "title": "Maternal-fetal PBPK models for risk assessment: a comprehensive review and future directions",
-      "authors": [
-        "Zhang Q",
-        "Fisher JW",
-        "Louisse J",
-        "Bois FY"
-      ],
-      "journal": "Critical Reviews in Toxicology",
-      "year": 2024,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38234567/"
-    }
-  ],
   "compartments": [
     {
       "id": "pbpk_comp:001",

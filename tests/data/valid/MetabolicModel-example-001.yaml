@@ -1,10 +1,10 @@
 id: "metabolicmodel:001"
 name: "Flux Balance Analysis Cancer Metabolism Model"
 description: >-
-  A genome-scale metabolic network model using flux balance analysis to identify 
-  metabolic vulnerabilities in cancer cells. The model integrates transcriptomic 
-  data from cancer patients with metabolic pathway databases to predict optimal 
-  drug targets with minimal side effects. Used for systematic identification 
+  A genome-scale metabolic network model using flux balance analysis to identify
+  metabolic vulnerabilities in cancer cells. The model integrates transcriptomic
+  data from cancer patients with metabolic pathway databases to predict optimal
+  drug targets with minimal side effects. Used for systematic identification
   of anti-cancer therapeutic targets and metabolic biomarkers.
 type: "MetabolicModel"
 biological_organization_level: "CELLULAR"
@@ -13,13 +13,13 @@ complexity_level: "HIGH"
 references:
   - id: "doi:10.1186/1752-0509-5-S1-S11"
     title: "Two-stage flux balance analysis of metabolic networks for drug target identification"
-    authors: ["Liu L", "Zhou X", "Chen L", "Wang Y"]
+    authors: ["Li Z", "Wang RS", "Zhang XS"]
     journal: "BMC Systems Biology"
-    year: 2024
+    year: 2011
     url: "https://bmcsystbiol.biomedcentral.com/articles/10.1186/1752-0509-5-S1-S11"
   - id: "doi:10.1002/btpr.3413"
     title: "Model validation and selection in metabolic flux analysis and flux balance analysis"
-    authors: ["Kaste JAV", "Campos AD", "Navid A"]
+    authors: ["Kaste JAM", "Shachar‐Hill Y"]
     journal: "Biotechnology Progress"
     year: 2024
     url: "https://aiche.onlinelibrary.wiley.com/doi/10.1002/btpr.3413"

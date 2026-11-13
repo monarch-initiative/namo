@@ -388,18 +388,6 @@
           }
         }
       ],
-      "references": [
-        {
-          "id": "doi:10.1016/j.tiv.2023.105678",
-          "title": "Development and validation of intestinal organoid-derived monolayers for high-throughput drug toxicity screening",
-          "authors": [
-            "Smith A",
-            "Johnson B"
-          ],
-          "journal": "Toxicology in Vitro",
-          "year": 2023
-        }
-      ],
       "microfluidic_design": {
         "id": "microfluidic:intestinal_dual_chamber_001",
         "name": "Dual Chamber Intestinal Epithelial Chip",

@@ -1,10 +1,10 @@
 id: "digitaltwin:001"
 name: "Maternal-Fetal Pharmacokinetic Digital Twin"
 description: >-
-  A digital twin model integrating gut-liver-placenta microphysiological systems 
-  to simulate drug pharmacokinetics in pregnant women. The model combines real-time 
-  physiological data with mechanistic simulations to predict drug absorption, 
-  distribution, metabolism, and placental transfer. Used for personalized dosing 
+  A digital twin model integrating gut-liver-placenta microphysiological systems
+  to simulate drug pharmacokinetics in pregnant women. The model combines real-time
+  physiological data with mechanistic simulations to predict drug absorption,
+  distribution, metabolism, and placental transfer. Used for personalized dosing
   recommendations and fetal safety assessment during pregnancy.
 type: "DigitalTwin"
 biological_organization_level: "SYSTEM"
@@ -26,15 +26,15 @@ update_frequency: "Continuous real-time updating with clinical data integration"
 references:
   - id: "doi:10.3389/fphar.2025.1528748"
     title: "Digital twin-enhanced three-organ microphysiological system for studying drug pharmacokinetics in pregnant women"
-    authors: ["Zhang L", "Chen M", "Wang Y", "Liu X"]
+    authors: ["Graf K", "Murrieta-Coxca JM", "Vogt T", "Besser S", "Geilen D", "Kaden T", "Bothe AK", "Morales-Prieto DM", "Amiri B", "Schaller S", "Kaufmann L", "Raasch M", "Ammar RM", "Maass C"]
     journal: "Frontiers in Pharmacology"
     year: 2025
     url: "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2025.1528748/full"
   - id: "doi:10.1038/s41746-024-01402-3"
     title: "Challenges and opportunities for digital twins in precision medicine from a complex systems perspective"
-    authors: ["Kumar A", "Smith R", "Johnson K", "Davis M"]
+    authors: ["De Domenico M", "Allegri L", "Caldarelli G", "d’Andrea V", "Di Camillo B", "Rocha LM", "Rozum J", "Sbarbati R", "Zambelli F"]
     journal: "npj Digital Medicine"
-    year: 2024
+    year: 2025
     url: "https://www.nature.com/articles/s41746-024-01402-3"
 models:
   - biological_system_modeled: "maternal_fetal_pharmacokinetics:001"

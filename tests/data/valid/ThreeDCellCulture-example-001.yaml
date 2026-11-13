@@ -1,10 +1,10 @@
 id: "threedcellculture:001"
 name: "3D Bioprinted Liver Tissue Model"
 description: >-
-  A three-dimensional bioprinted liver tissue construct created using bioink containing 
-  primary human hepatocytes, hepatic stellate cells, and Kupffer cells. The tissue is 
-  printed with precise spatial organization to mimic liver lobule architecture and 
-  includes perfusable vascular channels. Used for drug metabolism studies, 
+  A three-dimensional bioprinted liver tissue construct created using bioink containing
+  primary human hepatocytes, hepatic stellate cells, and Kupffer cells. The tissue is
+  printed with precise spatial organization to mimic liver lobule architecture and
+  includes perfusable vascular channels. Used for drug metabolism studies,
   hepatotoxicity screening, and disease modeling.
 type: "ThreeDCellCulture"
 biological_organization_level: "TISSUE"
@@ -12,8 +12,8 @@ spatial_context: "3D liver lobule architecture with hepatocyte cords and sinusoi
 complexity_level: "HIGH"
 three_d_architecture: "SCAFFOLD_BASED"
 matrix_composition: >-
-  Alginate-gelatin methacrylate bioink with collagen Type I, crosslinked with 
-  calcium chloride and UV exposure. Includes sacrificial gelatin channels for 
+  Alginate-gelatin methacrylate bioink with collagen Type I, crosslinked with
+  calcium chloride and UV exposure. Includes sacrificial gelatin channels for
   vascularization and perfusion network.
 size_range: "10 x 10 x 2 mm tissue constructs"
 cell_types:
@@ -27,13 +27,13 @@ cell_source: "Primary human hepatocytes, hepatic stellate cells, and Kupffer cel
 references:
   - id: "doi:10.1080/17452759.2024.2384662"
     title: "Recent advances in 3D bioprinting of tissues and organs for transplantation and drug screening"
-    authors: ["Zhang W", "Liu H", "Chen Y", "Wang X"]
+    authors: ["Sun X", "Ren W", "Xie L", "Ren Q", "Zhu Z", "Jia Q", "Jiang W", "Jin Z", "Yu Y"]
     journal: "Virtual and Physical Prototyping"
     year: 2024
     url: "https://www.tandfonline.com/doi/full/10.1080/17452759.2024.2384662"
   - id: "doi:10.3389/fbioe.2025.1457872"
     title: "3D bioprinting for the construction of drug testing models-development strategies and regulatory concerns"
-    authors: ["Kim SH", "Park JY", "Lee MK", "Cho DW"]
+    authors: ["Mallya D", "Gadre MA", "Varadharajan S", "Vasanthan KS"]
     journal: "Frontiers in Bioengineering and Biotechnology"
     year: 2025
     url: "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2025.1457872/full"

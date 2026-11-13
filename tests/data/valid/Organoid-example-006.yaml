@@ -1,11 +1,11 @@
 id: "organoid:006"
 name: "Human Brain Organoid Neurotoxicity Model"
 description: >-
-  A three-dimensional brain organoid derived from human induced pluripotent stem cells 
-  that recapitulates early human brain development and neural circuit formation. 
-  The organoid contains multiple brain cell types including neurons, astrocytes, 
-  oligodendrocytes, and microglia. Used for developmental neurotoxicity testing, 
-  organoid intelligence research, and screening environmental chemicals for 
+  A three-dimensional brain organoid derived from human induced pluripotent stem cells
+  that recapitulates early human brain development and neural circuit formation.
+  The organoid contains multiple brain cell types including neurons, astrocytes,
+  oligodendrocytes, and microglia. Used for developmental neurotoxicity testing,
+  organoid intelligence research, and screening environmental chemicals for
   neurodevelopmental effects.
 type: "Organoid"
 biological_organization_level: "ORGAN"
@@ -27,24 +27,24 @@ cell_types:
     name: "neural progenitor cell"
 cell_source: "Human induced pluripotent stem cells from healthy donors and neurodevelopmental disorder patients"
 differentiation_method: >-
-  Dual SMAD inhibition protocol using Dorsomorphin and SB431542 to promote neural 
-  induction, followed by 3D aggregation and long-term culture with growth factors 
-  to promote regional specification and maturation. Organoids cultured for 60-120 days 
+  Dual SMAD inhibition protocol using Dorsomorphin and SB431542 to promote neural
+  induction, followed by 3D aggregation and long-term culture with growth factors
+  to promote regional specification and maturation. Organoids cultured for 60-120 days
   to achieve neural network formation.
 culture_system: >-
-  Spinner flask culture with neural differentiation medium containing BDNF, GDNF, 
-  and other neurotrophic factors. Organoids maintained in controlled oxygen environment 
+  Spinner flask culture with neural differentiation medium containing BDNF, GDNF,
+  and other neurotrophic factors. Organoids maintained in controlled oxygen environment
   (5% O2) to prevent oxidative stress and support physiological development.
 references:
   - id: "doi:10.3389/fncel.2024.1480845"
     title: "Organoid intelligence for developmental neurotoxicity testing"
-    authors: ["Johnson KL", "Smith RA", "Brown TM", "Davis JH"]
+    authors: ["Alam El Din DM", "Shin J", "Lysinger A", "Roos MJ", "Johnson EC", "Shafer TJ", "Hartung T", "Smirnova L"]
     journal: "Frontiers in Cellular Neuroscience"
     year: 2024
     url: "https://www.frontiersin.org/journals/cellular-neuroscience/articles/10.3389/fncel.2024.1480845/full"
-  - id: "doi:10.3390/ijms25231252"
+  - id: "doi:10.3390/ijms252312523"
     title: "Human-Induced Pluripotent Stem Cell-Derived Neural Organoids as a Novel In Vitro Platform for Developmental Neurotoxicity Assessment"
-    authors: ["Lee SJ", "Park MH", "Kim YW", "Choi HJ"]
+    authors: ["Hongen T", "Sakai K", "Ito T", "Qin XY", "Sone H"]
     journal: "International Journal of Molecular Sciences"
     year: 2024
     url: "https://www.mdpi.com/1422-0067/25/23/12523"

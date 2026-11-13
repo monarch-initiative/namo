@@ -1,11 +1,11 @@
 id: "organoid:005"
 name: "Human Cardiac Organoid Cardiotoxicity Model"
 description: >-
-  A 3D cardiac organoid derived from human induced pluripotent stem cells that 
-  recapitulates key aspects of human heart development and function. The organoid 
-  contains cardiomyocytes, cardiac fibroblasts, and endothelial cells organized 
-  in chamber-like structures with spontaneous contractile activity. Used for 
-  cardiotoxicity screening, particularly doxorubicin-induced cardiomyopathy 
+  A 3D cardiac organoid derived from human induced pluripotent stem cells that
+  recapitulates key aspects of human heart development and function. The organoid
+  contains cardiomyocytes, cardiac fibroblasts, and endothelial cells organized
+  in chamber-like structures with spontaneous contractile activity. Used for
+  cardiotoxicity screening, particularly doxorubicin-induced cardiomyopathy
   and drug safety assessment.
 type: "Organoid"
 biological_organization_level: "ORGAN"
@@ -25,24 +25,24 @@ cell_types:
     name: "blood vessel endothelial cell"
 cell_source: "Human induced pluripotent stem cells (iPSCs) from healthy donors and cardiac disease patients"
 differentiation_method: >-
-  Cardiac differentiation protocol using temporal modulation of Wnt signaling 
-  with CHIR99021 and IWP2, followed by metabolic selection with lactate medium 
-  to enrich for cardiomyocytes. Self-assembly into 3D organoids through 
+  Cardiac differentiation protocol using temporal modulation of Wnt signaling
+  with CHIR99021 and IWP2, followed by metabolic selection with lactate medium
+  to enrich for cardiomyocytes. Self-assembly into 3D organoids through
   hanging drop aggregation.
 culture_system: >-
-  Hanging drop culture followed by suspension culture in cardiac differentiation 
-  medium. Organoids maintained for 14-21 days with regular medium changes and 
+  Hanging drop culture followed by suspension culture in cardiac differentiation
+  medium. Organoids maintained for 14-21 days with regular medium changes and
   monitoring of spontaneous contractile activity.
 references:
   - id: "PMID:37879593"
     title: "Assessment of doxorubicin toxicity using human cardiac organoids: A novel model for evaluating drug cardiotoxicity"
-    authors: ["Chen X", "Li Y", "Wang H", "Zhang L"]
-    journal: "Heliyon"
+    authors: ["Chen X", "Lu N", "Huang S", "Zhang Y", "Liu Z", "Wang X"]
+    journal: "Chemico-biological interactions"
     year: 2023
     url: "https://pubmed.ncbi.nlm.nih.gov/37879593/"
   - id: "doi:10.3389/fcvm.2025.1537730"
     title: "Cardiac organoids: a new tool for disease modeling and drug screening applications"
-    authors: ["Rodriguez-Gonzalez M", "Martinez-Sanchez A"]
+    authors: ["Yaqinuddin A", "Jabri A", "Mhannayeh A", "Taftafa B", "Alsharif M", "Abbad T", "Khan J", "Elsalti A", "Chinnappan R", "Alshehri EA", "Alzhrani A", "Obeid DA", "Fujitsuka I", "Khan M", "Rehman Mu", "Mir TA"]
     journal: "Frontiers in Cardiovascular Medicine"
     year: 2025
     url: "https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1537730/full"

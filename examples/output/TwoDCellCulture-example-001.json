@@ -202,34 +202,6 @@
   "biological_organization_level": "CELLULAR",
   "spatial_context": "2D monolayer culture with hepatocyte polarization and bile canaliculi formation",
   "complexity_level": "MODERATE",
-  "references": [
-    {
-      "id": "doi:10.1016/j.tox.2024.153456",
-      "title": "Primary human hepatocyte culture systems for drug safety assessment: current practices and future directions",
-      "authors": [
-        "Anderson K",
-        "Williams J",
-        "Brown M",
-        "Davis L"
-      ],
-      "journal": "Toxicology",
-      "year": 2024,
-      "url": "https://www.sciencedirect.com/science/article/pii/S0300483X24001234"
-    },
-    {
-      "id": "doi:10.1007/s00204-024-03567-2",
-      "title": "Advances in hepatotoxicity screening using primary human hepatocyte models",
-      "authors": [
-        "Mueller R",
-        "Schmidt T",
-        "Weber H",
-        "Koch S"
-      ],
-      "journal": "Archives of Toxicology",
-      "year": 2024,
-      "url": "https://link.springer.com/article/10.1007/s00204-024-03567-2"
-    }
-  ],
   "cell_types": [
     {
       "id": "CL:0000182",
