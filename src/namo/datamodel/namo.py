@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-13T17:01:44
+# Generation date: 2026-11-13T17:54:17
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -231,6 +231,7 @@ NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 OBI = CurieNamespace('OBI', 'http://purl.obolibrary.org/obo/OBI_')
 OECD = CurieNamespace('OECD', 'https://www.oecd.org/chemicalsafety/testing/')
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
+STATO = CurieNamespace('STATO', 'http://purl.obolibrary.org/obo/STATO_')
 UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
 UO = CurieNamespace('UO', 'http://purl.obolibrary.org/obo/UO_')
 UPHENO = CurieNamespace('UPHENO', 'http://purl.obolibrary.org/obo/UPHENO_')
@@ -2815,7 +2816,7 @@ class SurfaceCoatingEnum(EnumDefinitionImpl):
     LAMININ = PermissibleValue(
         text="LAMININ",
         description="Laminin coating",
-        meaning=MESH["D007797"])
+        meaning=NCIT["C16778"])
     MATRIGEL = PermissibleValue(
         text="MATRIGEL",
         description="Matrigel coating")
@@ -3123,8 +3124,7 @@ class DigitalTwinScopeEnum(EnumDefinitionImpl):
         description="Digital twin of an individual patient")
     POPULATION = PermissibleValue(
         text="POPULATION",
-        description="Digital twin representing a population",
-        meaning=MAMO["0000028"])
+        description="Digital twin representing a population")
     PATHWAY = PermissibleValue(
         text="PATHWAY",
         description="Digital twin of biological pathways")
@@ -3153,16 +3153,15 @@ class MLAlgorithmEnum(EnumDefinitionImpl):
         description="Deep learning models")
     GRADIENT_BOOSTING = PermissibleValue(
         text="GRADIENT_BOOSTING",
-        description="Gradient boosting methods",
-        meaning=MESH["D000098404"])
+        description="Gradient boosting methods")
     LINEAR_REGRESSION = PermissibleValue(
         text="LINEAR_REGRESSION",
         description="Linear regression models",
-        meaning=OBI["0200103"])
+        meaning=STATO["0000108"])
     LOGISTIC_REGRESSION = PermissibleValue(
         text="LOGISTIC_REGRESSION",
         description="Logistic regression models",
-        meaning=OBI["0200002"])
+        meaning=STATO["0000149"])
     NAIVE_BAYES = PermissibleValue(
         text="NAIVE_BAYES",
         description="Naive Bayes classifier")

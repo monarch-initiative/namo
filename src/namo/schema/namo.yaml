@@ -178,6 +178,7 @@ prefixes:
   MESH: http://id.nlm.nih.gov/mesh/
   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
+  STATO: http://purl.obolibrary.org/obo/STATO_
   ISO10991: https://www.iso.org/standard/82146.html#
   ISO22916: https://www.iso.org/standard/74157.html#
   ASTM: https://www.astm.org/standards/
@@ -1878,7 +1879,7 @@ enums:
         meaning: CHEBI:3815
       LAMININ:
         description: Laminin coating
-        meaning: MESH:D007797
+        meaning: NCIT:C16778
       MATRIGEL:
         description: Matrigel coating
       POLY_L_LYSINE:
@@ -2105,7 +2106,6 @@ enums:
         description: Digital twin of an individual patient
       POPULATION:
         description: Digital twin representing a population
-        meaning: MAMO:0000028
       PATHWAY:
         description: Digital twin of biological pathways
       DISEASE:
@@ -2124,13 +2124,16 @@ enums:
         description: Deep learning models
       GRADIENT_BOOSTING:
         description: Gradient boosting methods
-        meaning: MESH:D000098404
       LINEAR_REGRESSION:
         description: Linear regression models
-        meaning: OBI:0200103
+        meaning: STATO:0000108
+        aliases:
+          - linear regression for analysis of continuous dependent variable
       LOGISTIC_REGRESSION:
         description: Logistic regression models
-        meaning: OBI:0200002
+        meaning: STATO:0000149
+        aliases:
+          - binomial logistic regression for analysis of dichotomous dependent variable
       NAIVE_BAYES:
         description: Naive Bayes classifier
       K_MEANS:
