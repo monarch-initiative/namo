@@ -115,6 +115,9 @@ prefixes:
   schema:
     prefix_prefix: schema
     prefix_reference: http://schema.org/
+  dcterms:
+    prefix_prefix: dcterms
+    prefix_reference: http://purl.org/dc/terms/
   PATO:
     prefix_prefix: PATO
     prefix_reference: http://purl.obolibrary.org/obo/PATO_
@@ -3464,6 +3467,8 @@ slots:
     range: boolean
   reference__id:
     name: reference__id
+    implements:
+    - dcterms:references
     description: Persistent identifier for the reference (DOI, PMID, PMCID, etc.)
     from_schema: https://w3id.org/monarch-initiative/namo
     slot_uri: namo:id
@@ -3476,9 +3481,12 @@ slots:
     required: true
   reference__title:
     name: reference__title
-    description: Title of the referenced publication or dataset
+    description: Title of the referenced publication or dataset. Checked against the
+      title the publisher or PubMed gives for the reference's id.
     from_schema: https://w3id.org/monarch-initiative/namo
-    slot_uri: namo:title
+    mappings:
+    - dcterms:title
+    slot_uri: dcterms:title
     alias: title
     owner: Reference
     domain_of:
@@ -5406,13 +5414,17 @@ classes:
     attributes:
       id:
         name: id
+        implements:
+        - dcterms:references
         description: Persistent identifier for the reference (DOI, PMID, PMCID, etc.)
         identifier: true
         range: uriorcurie
         required: true
       title:
         name: title
-        description: Title of the referenced publication or dataset
+        description: Title of the referenced publication or dataset. Checked against
+          the title the publisher or PubMed gives for the reference's id.
+        slot_uri: dcterms:title
         required: true
       authors:
         name: authors
@@ -5574,7 +5586,7 @@ classes:
     class_uri: biolink:QuantityValue
 metamodel_version: 1.11.0
 source_file: namo.yaml
-source_file_date: '2026-11-11T16:17:47'
-source_file_size: 70182
-generation_date: '2026-11-11T16:18:04'
+source_file_date: '2026-11-12T22:22:57'
+source_file_size: 70538
+generation_date: '2026-11-12T22:27:33'
 

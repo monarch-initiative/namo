@@ -132,6 +132,8 @@ from_schema: https://w3id.org/monarch-initiative/namo
 attributes:
   id:
     name: id
+    implements:
+    - dcterms:references
     description: Persistent identifier for the reference (DOI, PMID, PMCID, etc.)
     from_schema: https://w3id.org/monarch-initiative/namo
     identifier: true
@@ -143,9 +145,11 @@ attributes:
     required: true
   title:
     name: title
-    description: Title of the referenced publication or dataset
+    description: Title of the referenced publication or dataset. Checked against the
+      title the publisher or PubMed gives for the reference's id.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
+    slot_uri: dcterms:title
     domain_of:
     - Reference
     required: true
@@ -195,6 +199,8 @@ from_schema: https://w3id.org/monarch-initiative/namo
 attributes:
   id:
     name: id
+    implements:
+    - dcterms:references
     description: Persistent identifier for the reference (DOI, PMID, PMCID, etc.)
     from_schema: https://w3id.org/monarch-initiative/namo
     identifier: true
@@ -207,9 +213,11 @@ attributes:
     required: true
   title:
     name: title
-    description: Title of the referenced publication or dataset
+    description: Title of the referenced publication or dataset. Checked against the
+      title the publisher or PubMed gives for the reference's id.
     from_schema: https://w3id.org/monarch-initiative/namo
     rank: 1000
+    slot_uri: dcterms:title
     owner: Reference
     domain_of:
     - Reference

@@ -153,6 +153,7 @@ prefixes:
   # https://w3id.org/biolink/vocab/, but that form 404s; do not "correct" this.
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
+  dcterms: http://purl.org/dc/terms/
   PATO: http://purl.obolibrary.org/obo/PATO_
   example: https://example.org/
   OBI: http://purl.obolibrary.org/obo/OBI_
@@ -1419,10 +1420,16 @@ classes:
         identifier: true
         range: uriorcurie
         required: true
+        # Marks this slot as the citation linkml-reference-validator looks up
+        # (`just test`); it then checks that the reference exists.
+        implements:
+          - dcterms:references
       title:
         description: >-
-          Title of the referenced publication or dataset
+          Title of the referenced publication or dataset. Checked against the
+          title the publisher or PubMed gives for the reference's id.
         required: true
+        slot_uri: dcterms:title
       authors:
         description: >-
           Authors of the publication

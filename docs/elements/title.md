@@ -6,7 +6,7 @@ search:
 # Slot: title 
 
 
-_Title of the referenced publication or dataset_
+_Title of the referenced publication or dataset. Checked against the title the publisher or PubMed gives for the reference's id._
 
 
 
@@ -14,7 +14,7 @@ _Title of the referenced publication or dataset_
 
 
 
-URI: [namo:title](https://w3id.org/monarch-initiative/namo/title)
+URI: [dcterms:title](http://purl.org/dc/terms/title)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,6 +40,7 @@ URI: [namo:title](https://w3id.org/monarch-initiative/namo/title)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [Reference](Reference.md) |
+| Slot URI | [dcterms:title](http://purl.org/dc/terms/title) |
 
 ### Cardinality and Requirements
 
@@ -81,7 +82,7 @@ URI: [namo:title](https://w3id.org/monarch-initiative/namo/title)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | namo:title |
+| self | dcterms:title |
 | native | namo:title |
 
 
@@ -92,9 +93,11 @@ URI: [namo:title](https://w3id.org/monarch-initiative/namo/title)
 <details>
 ```yaml
 name: title
-description: Title of the referenced publication or dataset
+description: Title of the referenced publication or dataset. Checked against the title
+  the publisher or PubMed gives for the reference's id.
 from_schema: https://w3id.org/monarch-initiative/namo
 rank: 1000
+slot_uri: dcterms:title
 owner: Reference
 domain_of:
 - Reference

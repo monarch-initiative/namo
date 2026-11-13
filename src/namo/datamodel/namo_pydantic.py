@@ -343,6 +343,8 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                              'prefix_reference': 'http://purl.obolibrary.org/obo/UPHENO_'},
                   'biolink': {'prefix_prefix': 'biolink',
                               'prefix_reference': 'https://w3id.org/biolink/'},
+                  'dcterms': {'prefix_prefix': 'dcterms',
+                              'prefix_reference': 'http://purl.org/dc/terms/'},
                   'example': {'prefix_prefix': 'example',
                               'prefix_reference': 'https://example.org/'},
                   'linkml': {'prefix_prefix': 'linkml',
@@ -2000,8 +2002,9 @@ class Reference(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
-    id: str = Field(default=..., description="""Persistent identifier for the reference (DOI, PMID, PMCID, etc.)""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity']} })
-    title: str = Field(default=..., description="""Title of the referenced publication or dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reference']} })
+    id: str = Field(default=..., description="""Persistent identifier for the reference (DOI, PMID, PMCID, etc.)""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
+         'implements': ['dcterms:references']} })
+    title: str = Field(default=..., description="""Title of the referenced publication or dataset. Checked against the title the publisher or PubMed gives for the reference's id.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reference'], 'slot_uri': 'dcterms:title'} })
     authors: Optional[list[str]] = Field(default=None, description="""Authors of the publication""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reference']} })
     journal: Optional[str] = Field(default=None, description="""Journal or publication venue""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reference']} })
     year: Optional[int] = Field(default=None, description="""Publication year""", json_schema_extra = { "linkml_meta": {'domain_of': ['Reference']} })

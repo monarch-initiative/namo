@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-11T16:26:56
+# Generation date: 2026-11-12T22:27:36
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -232,6 +232,7 @@ UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
 UO = CurieNamespace('UO', 'http://purl.obolibrary.org/obo/UO_')
 UPHENO = CurieNamespace('UPHENO', 'http://purl.obolibrary.org/obo/UPHENO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
+DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 NAMO = CurieNamespace('namo', 'https://w3id.org/monarch-initiative/namo/')
@@ -3796,7 +3797,7 @@ slots.qualityControlMetric__pass_fail_status = Slot(uri=NAMO.pass_fail_status, n
 slots.reference__id = Slot(uri=NAMO.id, name="reference__id", curie=NAMO.curie('id'),
                    model_uri=NAMO.reference__id, domain=None, range=URIRef)
 
-slots.reference__title = Slot(uri=NAMO.title, name="reference__title", curie=NAMO.curie('title'),
+slots.reference__title = Slot(uri=DCTERMS.title, name="reference__title", curie=DCTERMS.curie('title'),
                    model_uri=NAMO.reference__title, domain=None, range=str)
 
 slots.reference__authors = Slot(uri=NAMO.authors, name="reference__authors", curie=NAMO.curie('authors'),
