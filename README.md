@@ -17,7 +17,7 @@ NAMO is a semantic data model with ontology-like elements. We export it as an on
 ## Repository Structure
 
 * [docs/](docs/) - mkdocs-managed documentation
-  * [elements/](docs/elements/) - generated schema documentation (do not edit)
+  * `elements/` and `schema/` - generated schema documentation and merged schema; not tracked, run `just gen-doc` to build them (the deploy workflow builds them for the [website](https://monarch-initiative.github.io/namo))
 * [examples/](examples/) - Examples of using the schema
 * `project/` - generated project files (OWL, SHACL, JSON Schema, etc.); not tracked, run `just gen-project` to build them
 * [src/](src/) - source files (edit these)
