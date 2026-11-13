@@ -2734,6 +2734,53 @@ spatial_context: Hepatocytes and stellate cells in defined spatial arrangement w
 type: CoCulture
 
 ```
+## MolecularModel-example-001
+### Input
+```yaml
+biological_organization_level: SUBCELLULAR
+complexity_level: LOW
+computational_method: Homology/3D molecular modelling with ligand docking
+description: A structure-based in silico model of human aromatase (CYP19A1) used to
+  predict whether reported sequence variants of the enzyme change its susceptibility
+  to inhibition by the mycoestrogen zearalenone and its phase I metabolite alpha-zearalenol.
+  A three-dimensional model of the enzyme is built and the ligands are docked into
+  the active site across 434 reported single nucleotide variants, scoring each variant's
+  predicted inhibitory potential. The output is a prediction prioritising variants
+  for later experimental work, not a measured enzyme activity.
+id: molmodel:001
+modeling_approach:
+- comparative/homology modelling
+- molecular docking
+molecular_target: Human aromatase (CYP19A1)
+name: Aromatase (CYP19A1) zearalenone-inhibition molecular model
+prediction_scope: Predicted inhibitory potential of zearalenone and alpha-zearalenol
+  against wild-type and variant aromatase. An in silico prediction with no wet-lab
+  confirmation.
+references:
+- authors:
+  - Perugino F
+  - Pedroni L
+  - Galaverna G
+  - Dall'Asta C
+  - Dellafiora L
+  id: doi:10.1016/j.tox.2023.153686
+  journal: Toxicology
+  title: 'A mechanistic toxicology study to grasp the mechanics of zearalenone estrogenicity:
+    Spotlighting aromatase and the effects of its genetic variability.'
+  year: 2024
+sequence_variants:
+- 434 reported CYP19A1 single nucleotide variants
+- T310S (predicted more susceptible to inhibition)
+- D309G (possibly inactive variant)
+- S478F (possibly inactive variant)
+software_platform: Molecular modelling and docking software
+spatial_context: The three-dimensional structure of a single protein and its ligand-binding
+  site; no cellular, tissue, or organ context is represented.
+structural_sources:
+- Three-dimensional structure of human aromatase (CYP19A1)
+type: MolecularModel
+
+```
 ## CoCulture-example-002
 ### Input
 ```yaml

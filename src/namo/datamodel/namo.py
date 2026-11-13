@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-13T15:44:58
+# Generation date: 2026-11-13T16:29:06
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -59,6 +59,10 @@
 #   - **[QSAR Models](QSARModel.md)**: Quantitative Structure-Activity Relationship models that
 #     predict biological activity from molecular structure, including traditional statistical
 #     approaches and modern machine learning implementations.
+#
+#   - **[Molecular Models](MolecularModel.md)**: Structure-based models of a specific biomolecule
+#     built from its three-dimensional structure, including homology modelling, molecular docking,
+#     and molecular dynamics simulations.
 #
 #   - **[PBPK Models](PBPKModel.md)**: Physiologically-based pharmacokinetic models that simulate
 #     drug absorption, distribution, metabolism, and excretion using mathematical representations
@@ -303,6 +307,10 @@ class InSilicoModelId(NAMModelId):
 
 
 class QSARModelId(InSilicoModelId):
+    pass
+
+
+class MolecularModelId(InSilicoModelId):
     pass
 
 
@@ -1017,6 +1025,52 @@ class QSARModel(InSilicoModel):
 
         if self.model_performance is not None and not isinstance(self.model_performance, ModelPerformance):
             self.model_performance = ModelPerformance(**as_dict(self.model_performance))
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class MolecularModel(InSilicoModel):
+    """
+    Structure-based in silico model of a specific biomolecule and its interactions, built from a three-dimensional
+    molecular structure rather than from a statistical structure-activity relationship over a compound set. Covers
+    comparative/homology modelling, molecular docking, and molecular dynamics. Distinct from QSARModel, which predicts
+    activity from molecular descriptors with no explicit 3D structure, and from MLModel.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["MolecularModel"]
+    class_class_curie: ClassVar[str] = "namo:MolecularModel"
+    class_name: ClassVar[str] = "MolecularModel"
+    class_model_uri: ClassVar[URIRef] = NAMO.MolecularModel
+
+    id: Union[str, MolecularModelId] = None
+    molecular_target: Optional[str] = None
+    modeling_approach: Optional[Union[str, list[str]]] = empty_list()
+    structural_sources: Optional[Union[str, list[str]]] = empty_list()
+    sequence_variants: Optional[Union[str, list[str]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MolecularModelId):
+            self.id = MolecularModelId(self.id)
+
+        if self.molecular_target is not None and not isinstance(self.molecular_target, str):
+            self.molecular_target = str(self.molecular_target)
+
+        if not isinstance(self.modeling_approach, list):
+            self.modeling_approach = [self.modeling_approach] if self.modeling_approach is not None else []
+        self.modeling_approach = [v if isinstance(v, str) else str(v) for v in self.modeling_approach]
+
+        if not isinstance(self.structural_sources, list):
+            self.structural_sources = [self.structural_sources] if self.structural_sources is not None else []
+        self.structural_sources = [v if isinstance(v, str) else str(v) for v in self.structural_sources]
+
+        if not isinstance(self.sequence_variants, list):
+            self.sequence_variants = [self.sequence_variants] if self.sequence_variants is not None else []
+        self.sequence_variants = [v if isinstance(v, str) else str(v) for v in self.sequence_variants]
 
         super().__post_init__(**kwargs)
         self.type = str(self.class_name)
@@ -3360,6 +3414,18 @@ slots.qSARModel__training_dataset_size = Slot(uri=NAMO.training_dataset_size, na
 
 slots.qSARModel__model_performance = Slot(uri=NAMO.model_performance, name="qSARModel__model_performance", curie=NAMO.curie('model_performance'),
                    model_uri=NAMO.qSARModel__model_performance, domain=None, range=Optional[Union[dict, ModelPerformance]])
+
+slots.molecularModel__molecular_target = Slot(uri=NAMO.molecular_target, name="molecularModel__molecular_target", curie=NAMO.curie('molecular_target'),
+                   model_uri=NAMO.molecularModel__molecular_target, domain=None, range=Optional[str])
+
+slots.molecularModel__modeling_approach = Slot(uri=NAMO.modeling_approach, name="molecularModel__modeling_approach", curie=NAMO.curie('modeling_approach'),
+                   model_uri=NAMO.molecularModel__modeling_approach, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.molecularModel__structural_sources = Slot(uri=NAMO.structural_sources, name="molecularModel__structural_sources", curie=NAMO.curie('structural_sources'),
+                   model_uri=NAMO.molecularModel__structural_sources, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.molecularModel__sequence_variants = Slot(uri=NAMO.sequence_variants, name="molecularModel__sequence_variants", curie=NAMO.curie('sequence_variants'),
+                   model_uri=NAMO.molecularModel__sequence_variants, domain=None, range=Optional[Union[str, list[str]]])
 
 slots.pBPKModel__compartments = Slot(uri=NAMO.compartments, name="pBPKModel__compartments", curie=NAMO.curie('compartments'),
                    model_uri=NAMO.pBPKModel__compartments, domain=None, range=Optional[Union[dict[Union[str, PBPKCompartmentId], Union[dict, PBPKCompartment]], list[Union[dict, PBPKCompartment]]]])

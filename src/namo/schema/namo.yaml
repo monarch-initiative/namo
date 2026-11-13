@@ -59,6 +59,10 @@ description: |
     predict biological activity from molecular structure, including traditional statistical
     approaches and modern machine learning implementations.
 
+  - **[Molecular Models](MolecularModel.md)**: Structure-based models of a specific biomolecule
+    built from its three-dimensional structure, including homology modelling, molecular docking,
+    and molecular dynamics simulations.
+
   - **[PBPK Models](PBPKModel.md)**: Physiologically-based pharmacokinetic models that simulate
     drug absorption, distribution, metabolism, and excretion using mathematical representations
     of biological processes.
@@ -601,6 +605,36 @@ classes:
         inlined: true
         description: >-
           Statistical performance metrics of the model
+
+  MolecularModel:
+    is_a: InSilicoModel
+    description: >-
+      Structure-based in silico model of a specific biomolecule and its
+      interactions, built from a three-dimensional molecular structure rather
+      than from a statistical structure-activity relationship over a compound
+      set. Covers comparative/homology modelling, molecular docking, and
+      molecular dynamics. Distinct from QSARModel, which predicts activity from
+      molecular descriptors with no explicit 3D structure, and from MLModel.
+    attributes:
+      molecular_target:
+        description: >-
+          The biomolecule whose three-dimensional structure is modelled, e.g.
+          an enzyme or receptor. Name the gene or protein where one applies.
+      modeling_approach:
+        multivalued: true
+        description: >-
+          The structure-based technique(s) used, e.g. homology modelling,
+          molecular docking, molecular dynamics.
+      structural_sources:
+        multivalued: true
+        description: >-
+          The experimental or predicted three-dimensional structures the model
+          is built on, e.g. a PDB entry or an AlphaFold model.
+      sequence_variants:
+        multivalued: true
+        description: >-
+          Sequence variants of the target whose structures the model screens,
+          e.g. reported single nucleotide variants of the target gene.
 
   PBPKModel:
     is_a: InSilicoModel

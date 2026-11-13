@@ -155,6 +155,12 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     'including traditional statistical\n'
                     '  approaches and modern machine learning implementations.\n'
                     '\n'
+                    '- **[Molecular Models](MolecularModel.md)**: Structure-based '
+                    'models of a specific biomolecule\n'
+                    '  built from its three-dimensional structure, including '
+                    'homology modelling, molecular docking,\n'
+                    '  and molecular dynamics simulations.\n'
+                    '\n'
                     '- **[PBPK Models](PBPKModel.md)**: Physiologically-based '
                     'pharmacokinetic models that simulate\n'
                     '  drug absorption, distribution, metabolism, and excretion '
@@ -1064,7 +1070,7 @@ class CrossValidationMethodEnum(str, Enum):
 class Dataset(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
-    model_systems: Optional[list[Union[ModelSystem,AnimalModel,NAMModel,CellularSystem,MicrophysiologicalSystem,InSilicoModel,QSARModel,PBPKModel,DigitalTwin,MLModel,MetabolicModel,OrganOnChip,TissueOnChip,TwoDCellCulture,ThreeDCellCulture,CoCulture,Organoid,CellLineModel]]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
+    model_systems: Optional[list[Union[ModelSystem,AnimalModel,NAMModel,CellularSystem,MicrophysiologicalSystem,InSilicoModel,QSARModel,MolecularModel,PBPKModel,DigitalTwin,MLModel,MetabolicModel,OrganOnChip,TissueOnChip,TwoDCellCulture,ThreeDCellCulture,CoCulture,Organoid,CellLineModel]]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
     studies: Optional[list[Study]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
 
 
@@ -1466,6 +1472,32 @@ class QSARModel(InSilicoModel):
     name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
     description: Optional[str] = Field(default=None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:description'} })
     type: Literal["QSARModel"] = Field(default="QSARModel", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
+
+
+class MolecularModel(InSilicoModel):
+    """
+    Structure-based in silico model of a specific biomolecule and its interactions, built from a three-dimensional molecular structure rather than from a statistical structure-activity relationship over a compound set. Covers comparative/homology modelling, molecular docking, and molecular dynamics. Distinct from QSARModel, which predicts activity from molecular descriptors with no explicit 3D structure, and from MLModel.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+
+    molecular_target: Optional[str] = Field(default=None, description="""The biomolecule whose three-dimensional structure is modelled, e.g. an enzyme or receptor. Name the gene or protein where one applies.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularModel']} })
+    modeling_approach: Optional[list[str]] = Field(default=None, description="""The structure-based technique(s) used, e.g. homology modelling, molecular docking, molecular dynamics.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularModel']} })
+    structural_sources: Optional[list[str]] = Field(default=None, description="""The experimental or predicted three-dimensional structures the model is built on, e.g. a PDB entry or an AlphaFold model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularModel']} })
+    sequence_variants: Optional[list[str]] = Field(default=None, description="""Sequence variants of the target whose structures the model screens, e.g. reported single nucleotide variants of the target gene.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MolecularModel']} })
+    computational_method: Optional[str] = Field(default=None, description="""Primary computational method or algorithm used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    software_platform: Optional[str] = Field(default=None, description="""Software platform or programming language used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    validation_datasets: Optional[list[str]] = Field(default=None, description="""Datasets used for model training and validation""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    prediction_scope: Optional[str] = Field(default=None, description="""Scope and limitations of model predictions""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    complexity_level: Optional[ComplexityLevelEnum] = Field(default=None, description="""Level of biological complexity represented (subcellular, cellular, tissue, organ, system)""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    references: Optional[list[Reference]] = Field(default=None, description="""Literature references that describe, validate, or support this model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    models: Optional[list[ModelsRelationship]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
+         'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:description'} })
+    type: Literal["MolecularModel"] = Field(default="MolecularModel", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
 
 
 class PBPKModel(InSilicoModel):
@@ -2133,6 +2165,7 @@ OrganOnChip.model_rebuild()
 TissueOnChip.model_rebuild()
 InSilicoModel.model_rebuild()
 QSARModel.model_rebuild()
+MolecularModel.model_rebuild()
 PBPKModel.model_rebuild()
 DigitalTwin.model_rebuild()
 MLModel.model_rebuild()
