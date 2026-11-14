@@ -255,6 +255,30 @@ classes:
       models:
         range: ModelsRelationship
         multivalued: true
+      description_scope:
+        range: DescriptionScopeEnum
+        description: >-
+          Whether this record describes a method in general or one study's use
+          of a method. Where a record comes from does not settle this: a review
+          can describe methods, and a paper comparing two assays can describe
+          the assays rather than its own use of them.
+      method:
+        range: ModelSystem
+        inlined: false
+        description: >-
+          For a record of one study's use, the id of the record that describes
+          the method it is a use of. The method record stands on its own; the
+          use record holds what is specific to the use, such as the cell line,
+          the differentiation day or the treatment. Leave it empty if no record
+          describes the method yet.
+      studies:
+        range: Study
+        multivalued: true
+        inlined: false
+        description: >-
+          For a record of one study's use, the ids of the studies it comes
+          from. Each study holds what the use was for: its context of use,
+          perturbations and endpoints.
 
   AnimalModel:
     is_a: ModelSystem
@@ -1980,6 +2004,21 @@ enums:
   # ==========================================
   # NEW ENUMS FOR ENHANCED NAM TAXONOMY
   # ==========================================
+
+  DescriptionScopeEnum:
+    description: >-
+      What a model system record describes: a method in general, or one study's
+      use of it.
+    permissible_values:
+      METHOD:
+        description: >-
+          The method in general: how the model is made and what it represents,
+          independent of any one study, as a protocol, a product page or a
+          review describes it.
+      USE:
+        description: >-
+          One study's use of a method: the cells, conditions and treatments
+          that study used, as its paper reports them.
 
   BiologicalOrganizationLevelEnum:
     permissible_values:

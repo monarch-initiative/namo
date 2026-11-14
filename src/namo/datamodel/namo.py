@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-13T17:54:17
+# Generation date: 2026-11-13T20:45:43
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -542,11 +542,24 @@ class ModelSystem(NamedThing):
 
     id: Union[str, ModelSystemId] = None
     models: Optional[Union[Union[dict, "ModelsRelationship"], list[Union[dict, "ModelsRelationship"]]]] = empty_list()
+    description_scope: Optional[Union[str, "DescriptionScopeEnum"]] = None
+    method: Optional[Union[str, ModelSystemId]] = None
+    studies: Optional[Union[Union[str, StudyId], list[Union[str, StudyId]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if not isinstance(self.models, list):
             self.models = [self.models] if self.models is not None else []
         self.models = [v if isinstance(v, ModelsRelationship) else ModelsRelationship(**as_dict(v)) for v in self.models]
+
+        if self.description_scope is not None and not isinstance(self.description_scope, DescriptionScopeEnum):
+            self.description_scope = DescriptionScopeEnum(self.description_scope)
+
+        if self.method is not None and not isinstance(self.method, ModelSystemId):
+            self.method = ModelSystemId(self.method)
+
+        if not isinstance(self.studies, list):
+            self.studies = [self.studies] if self.studies is not None else []
+        self.studies = [v if isinstance(v, StudyId) else StudyId(v) for v in self.studies]
 
         super().__post_init__(**kwargs)
         self.type = str(self.class_name)
@@ -2944,6 +2957,22 @@ class MechanicalStimulationTypeEnum(EnumDefinitionImpl):
         name="MechanicalStimulationTypeEnum",
     )
 
+class DescriptionScopeEnum(EnumDefinitionImpl):
+    """
+    What a model system record describes: a method in general, or one study's use of it.
+    """
+    METHOD = PermissibleValue(
+        text="METHOD",
+        description="""The method in general: how the model is made and what it represents, independent of any one study, as a protocol, a product page or a review describes it.""")
+    USE = PermissibleValue(
+        text="USE",
+        description="""One study's use of a method: the cells, conditions and treatments that study used, as its paper reports them.""")
+
+    _defn = EnumDefinition(
+        name="DescriptionScopeEnum",
+        description="What a model system record describes: a method in general, or one study's use of it.",
+    )
+
 class BiologicalOrganizationLevelEnum(EnumDefinitionImpl):
 
     SUBCELLULAR = PermissibleValue(
@@ -3297,6 +3326,15 @@ slots.study__plan_comparators = Slot(uri=NAMO.plan_comparators, name="study__pla
 
 slots.modelSystem__models = Slot(uri=NAMO.models, name="modelSystem__models", curie=NAMO.curie('models'),
                    model_uri=NAMO.modelSystem__models, domain=None, range=Optional[Union[Union[dict, ModelsRelationship], list[Union[dict, ModelsRelationship]]]])
+
+slots.modelSystem__description_scope = Slot(uri=NAMO.description_scope, name="modelSystem__description_scope", curie=NAMO.curie('description_scope'),
+                   model_uri=NAMO.modelSystem__description_scope, domain=None, range=Optional[Union[str, "DescriptionScopeEnum"]])
+
+slots.modelSystem__method = Slot(uri=NAMO.method, name="modelSystem__method", curie=NAMO.curie('method'),
+                   model_uri=NAMO.modelSystem__method, domain=None, range=Optional[Union[str, ModelSystemId]])
+
+slots.modelSystem__studies = Slot(uri=NAMO.studies, name="modelSystem__studies", curie=NAMO.curie('studies'),
+                   model_uri=NAMO.modelSystem__studies, domain=None, range=Optional[Union[Union[str, StudyId], list[Union[str, StudyId]]]])
 
 slots.animalModel__species = Slot(uri=NAMO.species, name="animalModel__species", curie=NAMO.curie('species'),
                    model_uri=NAMO.animalModel__species, domain=None, range=Union[dict, OrganismTaxon])

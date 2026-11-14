@@ -1,0 +1,104 @@
+{
+  "model_systems": [
+    {
+      "id": "organoid:retinal-organoid-ipsc",
+      "name": "iPSC-derived retinal organoid",
+      "description": "Three-dimensional retinal tissue differentiated in vitro from human induced pluripotent stem cells, used to study retinal neuron differentiation, including of retinal ganglion cells and photoreceptors, and to model retinal disease.",
+      "type": "Organoid",
+      "description_scope": "METHOD",
+      "biological_organization_level": "TISSUE",
+      "references": [
+        {
+          "id": "PMID:37686457",
+          "title": "Establishing Functional Retina in a Dish: Progress and Promises of Induced Pluripotent Stem Cell-Based Retinal Neuron Differentiation",
+          "authors": [
+            "Wong NK",
+            "Yip SP",
+            "Huang CL"
+          ],
+          "journal": "International Journal of Molecular Sciences",
+          "year": 2023
+        }
+      ],
+      "cell_types": [
+        {
+          "id": "CL:0000210",
+          "name": "photoreceptor cell"
+        },
+        {
+          "id": "CL:0000740",
+          "name": "retinal ganglion cell"
+        }
+      ],
+      "cell_source": "Human induced pluripotent stem cells",
+      "organ_modeled": {
+        "id": "UBERON:0000966",
+        "name": "retina"
+      }
+    },
+    {
+      "id": "organoid:lca10-cep290-retinal-organoid-qr110",
+      "name": "LCA10 patient iPSC-derived retinal organoids treated with QR-110",
+      "description": "Three-dimensional retinal organoids from induced pluripotent stem cells of a Leber congenital amaurosis type 10 patient homozygous for the deep intronic CEP290 c.2991+1655A>G mutation, treated with the splice-modulating oligonucleotide QR-110 across a dose series.",
+      "type": "Organoid",
+      "description_scope": "USE",
+      "method": "organoid:retinal-organoid-ipsc",
+      "studies": [
+        "study:dulla-2018-qr110"
+      ],
+      "biological_organization_level": "TISSUE",
+      "references": [
+        {
+          "id": "PMID:30114557",
+          "title": "Splice-Modulating Oligonucleotide QR-110 Restores CEP290 mRNA and Function in Human c.2991+1655A>G LCA10 Models",
+          "authors": [
+            "Dulla K",
+            "Aguila M",
+            "Lane A",
+            "Jovanovic K",
+            "Parfitt DA",
+            "Schulkens I",
+            "Chan HL",
+            "Schmidt I",
+            "Beumer W",
+            "Vorthoren L",
+            "Collin RWJ",
+            "Garanto A",
+            "Duijkers L",
+            "Brugulat-Panes A",
+            "Semo M",
+            "Vugler AA",
+            "Biasutto P",
+            "Adamson P",
+            "Cheetham ME"
+          ],
+          "journal": "Molecular Therapy. Nucleic Acids",
+          "year": 2018
+        }
+      ],
+      "cell_types": [
+        {
+          "id": "CL:0000210",
+          "name": "photoreceptor cell"
+        }
+      ],
+      "cell_source": "Induced pluripotent stem cells from a Leber congenital amaurosis type 10 patient homozygous for CEP290 c.2991+1655A>G",
+      "organ_modeled": {
+        "id": "UBERON:0000966",
+        "name": "retina"
+      }
+    }
+  ],
+  "studies": [
+    {
+      "id": "study:dulla-2018-qr110",
+      "name": "QR-110 in CEP290 c.2991+1655A>G LCA10 models",
+      "description": "Screening of antisense oligonucleotides designed to correct the splicing defect of CEP290 c.2991+1655A>G, testing the best performer, QR-110, in patient fibroblasts and patient iPSC-derived retinal organoids.",
+      "type": "Study",
+      "context_of_use": "Preclinical efficacy of QR-110 as a candidate treatment for Leber congenital amaurosis type 10 caused by CEP290 c.2991+1655A>G.",
+      "perturbations": "QR-110, applied to the retinal organoids across a dose series",
+      "endpoints": "CEP290 mRNA and protein function, measured in the retinal organoids as the percentage and length of photoreceptor cilia"
+    }
+  ],
+  "@type": "Dataset"
+}
