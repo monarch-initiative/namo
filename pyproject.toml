@@ -70,7 +70,8 @@ skip = [
 # Reminder: words have to be lowercased for the ignore-words-list
 # Scientific terms that codespell misidentifies:
 # villin (intestinal epithelial marker protein)
+# nam, nams (New Approach Methodology)
 # Author surnames in example references:
 # bothe (Anne-Katrin Bothe)
-ignore-words-list = "bothe,linke,villin"
+ignore-words-list = "bothe,linke,nam,nams,villin"
 quiet-level = 3
