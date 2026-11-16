@@ -17,11 +17,13 @@ permissions: {}
 jobs:
   claude-review:
     # Draft PRs are reviewed when they are marked ready. PRs from forks
-    # cannot read the token, so they are skipped. To review a PR again,
-    # re-run this job from the PR's checks.
+    # cannot read the token, so they are skipped, and so are Dependabot's:
+    # GitHub does not give workflows that Dependabot triggers the repository
+    # secrets. To review a PR again, re-run this job from the PR's checks.
     if: >-
       github.event.pull_request.draft == false &&
-      github.event.pull_request.head.repo.full_name == github.repository
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.actor != 'dependabot[bot]'
 
     runs-on: ubuntu-latest
     permissions:

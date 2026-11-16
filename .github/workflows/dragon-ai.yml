@@ -16,6 +16,9 @@ on:
 
 jobs:
   check-mention:
+    # GitHub does not give workflows that Dependabot triggers the repository
+    # secrets, so this job cannot read PAT_FOR_PR on Dependabot's PRs.
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     outputs:
       result: ${{ steps.check.outputs.result }}
