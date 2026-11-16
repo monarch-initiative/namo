@@ -25,6 +25,8 @@ ontology_adapters:
   # Used only in the `meaning` of static enum values
   CHEBI: "sqlite:obo:chebi"
   NCIT: "sqlite:obo:ncit"
-  EDAM: "ols:edam"
+  # Not ols:edam: OAK's OLS adapter cannot expand the EDAM prefix, so every
+  # EDAM CURIE came back labelled "Resource type".
+  EDAM: "sqlite:obo:edam"
   EFO: "ols:efo"
   STATO: "sqlite:obo:stato"

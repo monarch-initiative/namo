@@ -1909,6 +1909,8 @@ enums:
       POLY_L_LYSINE:
         description: Poly-L-lysine coating
         meaning: CHEBI:53412
+        aliases:
+          - poly(L-lysine) macromolecule
       GELATIN:
         description: Gelatin coating
         meaning: CHEBI:5291
@@ -2101,18 +2103,28 @@ enums:
       MUSCLE:
         description: Skeletal muscle compartment
         meaning: UBERON:0001134
+        aliases:
+          - skeletal muscle tissue
       FAT:
         description: Adipose tissue compartment
         meaning: UBERON:0001013
+        aliases:
+          - adipose tissue
       SKIN:
         description: Dermal compartment
         meaning: UBERON:0002097
+        aliases:
+          - skin of body
       BONE:
         description: Bone tissue compartment
         meaning: UBERON:0002481
+        aliases:
+          - bone tissue
       GI_TRACT:
         description: Gastrointestinal tract compartment
         meaning: UBERON:0005409
+        aliases:
+          - alimentary part of gastrointestinal system
       UTERUS:
         description: >-
           Uterine compartment. In a pregnancy model this is the compartment
@@ -2127,6 +2139,8 @@ enums:
       PLASMA:
         description: Plasma compartment
         meaning: UBERON:0001969
+        aliases:
+          - blood plasma
       BLOOD:
         description: Blood compartment
         meaning: UBERON:0000178
@@ -2191,16 +2205,24 @@ enums:
         description: Genomic and genetic features
       TRANSCRIPTOMIC:
         description: Gene expression features
-        meaning: EDAM:3308
+        meaning: EDAM:topic_3308
+        aliases:
+          - Transcriptomics
       PROTEOMIC:
         description: Protein abundance and modification features
-        meaning: EDAM:0121
+        meaning: EDAM:topic_0121
+        aliases:
+          - Proteomics
       METABOLOMIC:
         description: Metabolite concentration features
-        meaning: EDAM:3172
+        meaning: EDAM:topic_3172
+        aliases:
+          - Metabolomics
       IMAGING:
         description: Image-derived features
-        meaning: EDAM:3382
+        meaning: EDAM:topic_3382
+        aliases:
+          - Imaging
       CLINICAL:
         description: Clinical and demographic features
       TEMPORAL:
@@ -2222,11 +2244,15 @@ enums:
       K_FOLD:
         description: K-fold cross-validation
         meaning: OBI:0200032
+        aliases:
+          - K-fold cross validation method
       STRATIFIED_K_FOLD:
         description: Stratified k-fold cross-validation
       LEAVE_ONE_OUT:
         description: Leave-one-out cross-validation
         meaning: OBI:0200033
+        aliases:
+          - leave one out cross validation method
       TIME_SERIES_SPLIT:
         description: Time series cross-validation
       MONTE_CARLO:

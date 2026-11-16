@@ -31,20 +31,7 @@ ISSUE = "see https://github.com/monarch-initiative/namo/issues/51"
 # (not a title: gen-pydantic names the Python enum member after the title);
 # and the EDAM values, whose CURIEs should be written EDAM:topic_NNNN.
 SCHEMA_TERM_GAPS = {
-    "SurfaceCoatingEnum.POLY_L_LYSINE": "needs alias: poly(L-lysine) macromolecule",
     "SurfaceCoatingEnum.RGD_PEPTIDE": "NCIT:C13288 is RGD Motif; needs an alias or another term",
-    "PBPKCompartmentEnum.MUSCLE": "needs alias: skeletal muscle tissue",
-    "PBPKCompartmentEnum.FAT": "needs alias: adipose tissue",
-    "PBPKCompartmentEnum.SKIN": "needs alias: skin of body",
-    "PBPKCompartmentEnum.BONE": "needs alias: bone tissue",
-    "PBPKCompartmentEnum.GI_TRACT": "needs alias: alimentary part of gastrointestinal system",
-    "PBPKCompartmentEnum.PLASMA": "needs alias: blood plasma",
-    "FeatureTypeEnum.TRANSCRIPTOMIC": "EDAM:3308 should be EDAM:topic_3308 (Transcriptomics)",
-    "FeatureTypeEnum.PROTEOMIC": "EDAM:0121 should be EDAM:topic_0121 (Proteomics)",
-    "FeatureTypeEnum.METABOLOMIC": "EDAM:3172 should be EDAM:topic_3172 (Metabolomics)",
-    "FeatureTypeEnum.IMAGING": "EDAM:3382 should be EDAM:topic_3382 (Imaging)",
-    "CrossValidationMethodEnum.K_FOLD": "needs alias: K-fold cross validation method",
-    "CrossValidationMethodEnum.LEAVE_ONE_OUT": "needs alias: leave one out cross validation method",
 }
 
 # Example files with a CL id whose label is not the one given: either the id is

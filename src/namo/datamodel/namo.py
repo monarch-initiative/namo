@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-13T20:45:43
+# Generation date: 2026-11-16T09:10:11
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -3220,19 +3220,19 @@ class FeatureTypeEnum(EnumDefinitionImpl):
     TRANSCRIPTOMIC = PermissibleValue(
         text="TRANSCRIPTOMIC",
         description="Gene expression features",
-        meaning=EDAM["3308"])
+        meaning=EDAM["topic_3308"])
     PROTEOMIC = PermissibleValue(
         text="PROTEOMIC",
         description="Protein abundance and modification features",
-        meaning=EDAM["0121"])
+        meaning=EDAM["topic_0121"])
     METABOLOMIC = PermissibleValue(
         text="METABOLOMIC",
         description="Metabolite concentration features",
-        meaning=EDAM["3172"])
+        meaning=EDAM["topic_3172"])
     IMAGING = PermissibleValue(
         text="IMAGING",
         description="Image-derived features",
-        meaning=EDAM["3382"])
+        meaning=EDAM["topic_3382"])
     CLINICAL = PermissibleValue(
         text="CLINICAL",
         description="Clinical and demographic features")
