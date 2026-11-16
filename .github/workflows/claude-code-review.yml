@@ -33,14 +33,14 @@ jobs:
 
       # https://github.com/actions/checkout
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           persist-credentials: false
 
       # https://github.com/anthropics/claude-code-action
       - name: Review the pull request
-        uses: anthropics/claude-code-action@v1.0.271
+        uses: anthropics/claude-code-action@v1.0.275
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Post as github-actions[bot] with this job's token, so the
