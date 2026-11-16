@@ -86,8 +86,8 @@
               "name": "epithelial cell of ovary"
             },
             {
-              "id": "CL:0002548",
-              "name": "fibroblast of cardiac tissue"
+              "id": "CL:2000063",
+              "name": "ovarian fibroblast"
             },
             {
               "id": "CL:0000071",
@@ -116,8 +116,8 @@
             },
             {
               "cell_type": {
-                "id": "CL:0002548",
-                "name": "fibroblast of cardiac tissue"
+                "id": "CL:2000063",
+                "name": "ovarian fibroblast"
               },
               "model_proportion": 0.2,
               "biological_proportion": 0.25,
@@ -258,8 +258,8 @@
       "name": "epithelial cell of ovary"
     },
     {
-      "id": "CL:0002548",
-      "name": "fibroblast of cardiac tissue"
+      "id": "CL:2000063",
+      "name": "ovarian fibroblast"
     },
     {
       "id": "CL:0000071",

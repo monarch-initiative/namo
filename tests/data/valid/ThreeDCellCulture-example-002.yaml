@@ -16,8 +16,8 @@ size_range: "200-500 micrometers diameter"
 cell_types:
   - id: "CL:0002418"
     name: "epithelial cell of ovary"
-  - id: "CL:0002548"
-    name: "fibroblast of cardiac tissue"
+  - id: "CL:2000063"
+    name: "ovarian fibroblast"
   - id: "CL:0000071"
     name: "blood vessel endothelial cell"
 cell_source: "Primary ovarian cancer cells, cancer-associated fibroblasts, and endothelial cells"
@@ -134,8 +134,8 @@ models:
         represented_cell_types:
           - id: "CL:0002418"
             name: "epithelial cell of ovary"
-          - id: "CL:0002548"
-            name: "fibroblast of cardiac tissue"
+          - id: "CL:2000063"
+            name: "ovarian fibroblast"
           - id: "CL:0000071"
             name: "blood vessel endothelial cell"
         missing_cell_types:
@@ -151,8 +151,8 @@ models:
             biological_proportion: 0.65
             proportion_ratio: 1.08
           - cell_type:
-              id: "CL:0002548"
-              name: "fibroblast of cardiac tissue"
+              id: "CL:2000063"
+              name: "ovarian fibroblast"
             model_proportion: 0.20
             biological_proportion: 0.25
             proportion_ratio: 0.80

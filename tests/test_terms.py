@@ -31,13 +31,13 @@ ISSUE = "see https://github.com/monarch-initiative/namo/issues/51"
 # (not a title: gen-pydantic names the Python enum member after the title);
 # and the EDAM values, whose CURIEs should be written EDAM:topic_NNNN.
 SCHEMA_TERM_GAPS = {
-    "SurfaceCoatingEnum.RGD_PEPTIDE": "NCIT:C13288 is RGD Motif; needs an alias or another term",
 }
 
 # Example files with a CL id whose label is not the one given: either the id is
 # for another cell type, or the label is an outdated one.
 DATA_TERM_GAPS = {
-    "ThreeDCellCulture-example-002": "CL:0002418 is not epithelial cell of ovary",
+    "ThreeDCellCulture-example-002": "CL:0002418 is not epithelial cell of ovary; the term is being chosen in "
+    "https://github.com/monarch-initiative/namo/issues/64",
 }
 
 
