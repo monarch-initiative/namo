@@ -16,7 +16,7 @@ organ_modeled:
 cell_types:
   - id: "CL:0002563"
     name: "intestinal epithelial cell"
-  - id: "CL:0000036"
+  - id: "CL:0000066"
     name: "epithelial cell"
   - id: "CL:0000584"
     name: "enterocyte"

@@ -176,7 +176,7 @@
       "name": "hepatocyte"
     },
     {
-      "id": "CL:0002138",
+      "id": "CL:0000632",
       "name": "hepatic stellate cell"
     }
   ],
@@ -194,7 +194,7 @@
     },
     {
       "cell_type": {
-        "id": "CL:0002138",
+        "id": "CL:0000632",
         "name": "hepatic stellate cell"
       },
       "ratio": 0.2,

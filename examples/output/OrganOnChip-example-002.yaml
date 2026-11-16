@@ -182,9 +182,9 @@ organ_modeled:
   name: alveolus of lung
 cell_types:
 - id: CL:0002063
-  name: type II pneumocyte
+  name: pulmonary alveolar type 2 cell
 - id: CL:0002062
-  name: type I pneumocyte
+  name: pulmonary alveolar type 1 cell
 - id: CL:0002543
   name: vein endothelial cell
 cell_source: Primary human alveolar epithelial cells and lung microvascular endothelial

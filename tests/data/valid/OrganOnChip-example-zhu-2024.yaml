@@ -46,7 +46,7 @@ cell_types:
   - id: "CL:0000066"
     name: "epithelial cell"
   - id: "CL:0002062"
-    name: "type I pneumocyte"
+    name: "pulmonary alveolar type 1 cell"
   - id: "CL:0000182"
     name: "hepatocyte"
   - id: "CL:0000746"
@@ -160,7 +160,7 @@ models:
           - id: "CL:0000066"
             name: "epithelial cell"
           - id: "CL:0002062"
-            name: "type I pneumocyte"
+            name: "pulmonary alveolar type 1 cell"
           - id: "CL:0000182"
             name: "hepatocyte"
           - id: "CL:0000746"
@@ -173,7 +173,7 @@ models:
         cell_type_proportions:
           - cell_type:
               id: "CL:0002062"
-              name: "type I pneumocyte"
+              name: "pulmonary alveolar type 1 cell"
             model_proportion: 0.25
             biological_proportion: 0.30
             proportion_ratio: 0.83

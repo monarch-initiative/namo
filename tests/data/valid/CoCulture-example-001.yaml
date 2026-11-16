@@ -12,7 +12,7 @@ complexity_level: "MODERATE"
 cell_types:
   - id: "CL:0000182"
     name: "hepatocyte"
-  - id: "CL:0002138"
+  - id: "CL:0000632"
     name: "hepatic stellate cell"
 cell_source: "Primary human hepatocytes and hepatic stellate cells from liver donors"
 culture_conditions: "Williams E medium + hepatocyte supplements, 37°C, 5% CO2"
@@ -24,7 +24,7 @@ cell_ratios:
     ratio: 0.8
     ratio_type: "PERCENTAGE"
   - cell_type:
-      id: "CL:0002138"
+      id: "CL:0000632"
       name: "hepatic stellate cell"
     ratio: 0.2
     ratio_type: "PERCENTAGE"

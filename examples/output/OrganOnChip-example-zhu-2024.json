@@ -87,7 +87,7 @@
             },
             {
               "id": "CL:0002062",
-              "name": "type I pneumocyte"
+              "name": "pulmonary alveolar type 1 cell"
             },
             {
               "id": "CL:0000182",
@@ -112,7 +112,7 @@
             {
               "cell_type": {
                 "id": "CL:0002062",
-                "name": "type I pneumocyte"
+                "name": "pulmonary alveolar type 1 cell"
               },
               "model_proportion": 0.25,
               "biological_proportion": 0.3,
@@ -292,7 +292,7 @@
     },
     {
       "id": "CL:0002062",
-      "name": "type I pneumocyte"
+      "name": "pulmonary alveolar type 1 cell"
     },
     {
       "id": "CL:0000182",

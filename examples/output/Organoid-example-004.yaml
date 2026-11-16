@@ -73,16 +73,16 @@ models:
       represented_cell_types:
       - id: CL:0000653
         name: podocyte
-      - id: CL:1000849
-        name: kidney proximal tubule epithelial cell
-      - id: CL:1001431
-        name: kidney distal tubule epithelial cell
+      - id: CL:0002306
+        name: epithelial cell of proximal tubule
+      - id: CL:0002305
+        name: epithelial cell of distal tubule
       - id: CL:0000071
         name: blood vessel endothelial cell
       missing_cell_types:
-      - id: CL:1000452
+      - id: CL:1001431
         name: kidney collecting duct principal cell
-      - id: CL:1000453
+      - id: CL:1001432
         name: kidney collecting duct intercalated cell
       cell_type_proportions:
       - cell_type:
@@ -92,8 +92,8 @@ models:
         biological_proportion: 0.12
         proportion_ratio: 1.25
       - cell_type:
-          id: CL:1000849
-          name: kidney proximal tubule epithelial cell
+          id: CL:0002306
+          name: epithelial cell of proximal tubule
         model_proportion: 0.55
         biological_proportion: 0.62
         proportion_ratio: 0.89
@@ -191,13 +191,13 @@ references:
 cell_types:
 - id: CL:0000653
   name: podocyte
-- id: CL:1000849
-  name: kidney proximal tubule epithelial cell
-- id: CL:1001431
-  name: kidney distal tubule epithelial cell
+- id: CL:0002306
+  name: epithelial cell of proximal tubule
+- id: CL:0002305
+  name: epithelial cell of distal tubule
 - id: CL:0000071
   name: blood vessel endothelial cell
-- id: CL:1000507
+- id: CL:1000692
   name: kidney interstitial fibroblast
 cell_source: Human induced pluripotent stem cells (iPSCs) from healthy donors
 differentiation_method: Protocol based on developmental kidney organogenesis using

@@ -13,9 +13,9 @@ organ_modeled:
 cell_types:
   - id: "CL:0000182"
     name: "hepatocyte"
-  - id: "CL:0000183"
+  - id: "CL:1000488"
     name: "cholangiocyte"
-  - id: "CL:0002138"
+  - id: "CL:0000632"
     name: "hepatic stellate cell"
   - id: "CL:0000091"
     name: "Kupffer cell"

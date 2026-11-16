@@ -37,18 +37,7 @@ SCHEMA_TERM_GAPS = {
 # Example files with a CL id whose label is not the one given: either the id is
 # for another cell type, or the label is an outdated one.
 DATA_TERM_GAPS = {
-    "CellLineModel-example-001": "CL:0002138 is not hepatic stellate cell",
-    "CoCulture-example-001": "CL:0002138 is not hepatic stellate cell",
-    "Dataset-GI-toxicity-example": "CL:0000678, CL:0000683, CL:0002250, CL:0009003 are other cell types",
-    "OrganOnChip-example-002": "CL:0002062, CL:0002063 labels are outdated",
-    "OrganOnChip-example-003": "CL:0002145, CL:0002370 labels are outdated",
-    "OrganOnChip-example-zhu-2024": "CL:0002062 label is outdated",
-    "Organoid-example-002": "CL:0000183 is not cholangiocyte; CL:0002138 is not hepatic stellate cell",
-    "Organoid-example-003": "CL:0009019 is not tuft cell",
-    "Organoid-example-004": "the kidney tubule CL ids are for other cell types",
-    "Organoid-example-takahashi-2023": "CL:0000036 is not epithelial cell",
     "ThreeDCellCulture-example-002": "CL:0002418 is not epithelial cell of ovary",
-    "TissueOnChip-example-002": "CL:0009019 is not tuft cell",
 }
 
 
