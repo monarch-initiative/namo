@@ -25,8 +25,8 @@ model_systems:
         name: "goblet cell"
       - id: "CL:0000510"  # paneth cell
         name: "paneth cell"
-      - id: "CL:0000164"  # enteroendocrine cell
-        name: "enteroendocrine cell"
+      - id: "CL:1001516"  # intestinal enteroendocrine cell
+        name: "intestinal enteroendocrine cell"
 
     cell_source: >-
       Human donor-derived intestinal organoids generated from tissue biopsy.
@@ -432,8 +432,8 @@ model_systems:
                 name: "goblet cell"
               - id: "CL:0000510"
                 name: "paneth cell"
-              - id: "CL:0000164"
-                name: "enteroendocrine cell"
+              - id: "CL:1001516"
+                name: "intestinal enteroendocrine cell"
             missing_cell_types:
               - id: "CL:0000682"
                 name: "M cell of gut"

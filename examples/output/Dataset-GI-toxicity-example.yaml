@@ -100,8 +100,8 @@ model_systems:
           name: goblet cell
         - id: CL:0000510
           name: paneth cell
-        - id: CL:0000164
-          name: enteroendocrine cell
+        - id: CL:1001516
+          name: intestinal enteroendocrine cell
         missing_cell_types:
         - id: CL:0000682
           name: M cell of gut
@@ -412,8 +412,8 @@ model_systems:
     name: goblet cell
   - id: CL:0000510
     name: paneth cell
-  - id: CL:0000164
-    name: enteroendocrine cell
+  - id: CL:1001516
+    name: intestinal enteroendocrine cell
   cell_source: Human donor-derived intestinal organoids generated from tissue biopsy.
     Organoids contain mixed epithelial cell types and are expanded through multiple
     passages, then dissociated and seeded as polarized epithelial monolayers on porous
