@@ -75,6 +75,21 @@ description: |
     including flux balance analysis, kinetic modeling, and constraint-based approaches for
     understanding metabolic perturbations.
 
+  - **[Kinetic Models](KineticModel.md)**: Mechanistic models whose state variables change
+    over time by rate equations, usually ordinary differential equations, such as models of
+    hormone feedback, cardiac action potentials or viral dynamics.
+
+  - **[Logical Models](LogicalModel.md)**: Boolean and other discrete network models in which
+    each component is updated by logical rules over its regulators, often derived from
+    molecular interaction maps.
+
+  - **[Agent-Based Models](AgentBasedModel.md)**: Simulations of individual cells or other
+    agents, each following its own rules, from whose interactions tissue-level behaviour
+    emerges.
+
+  - **[Biomechanical Models](BiomechanicalModel.md)**: Continuum-mechanics models, usually
+    finite element models, of how a tissue or organ deforms under load.
+
   ### Technical Specifications
 
   #### Microfluidic Design
@@ -739,6 +754,77 @@ classes:
         inlined: true
         description: >-
           Cross-validation strategy and results
+
+  # Mechanistic in silico models. Each class below corresponds to a value of
+  # DisMech's ComputationalModelTypeEnum that had no NAMO class; the comment on
+  # each names it, so the two schemas can be crosswalked.
+  KineticModel:
+    is_a: InSilicoModel
+    description: >-
+      A mechanistic model whose state variables, such as concentrations, cell
+      counts or membrane potentials, change over time according to rate
+      equations. Usually a system of ordinary differential equations, but
+      stochastic kinetic formulations are included. Examples: a model of
+      calcium homeostasis and bone remodelling, a human ventricular action
+      potential model, a within-host viral dynamics model.
+    comments:
+      - >-
+        Corresponds to KINETIC in DisMech's ComputationalModelTypeEnum.
+      - >-
+        A kinetic model that simulates the absorption, distribution, metabolism
+        and excretion of a substance across body compartments is a PBPKModel;
+        one that represents a metabolic network at genome scale is a
+        MetabolicModel.
+    narrow_mappings:
+      - MAMO:0000046  # ordinary differential equation model
+      - MAMO:0000047  # stochastic differential equation model
+  LogicalModel:
+    is_a: InSilicoModel
+    description: >-
+      A network model in which each component takes one of a small number of
+      discrete activity levels, and is updated by logical rules over the levels
+      of its regulators. Boolean models, where each component is on or off, are
+      the commonest kind; multi-valued and probabilistic Boolean models are
+      included. Often derived from a molecular interaction map and exchanged as
+      SBML-qual.
+    comments:
+      - >-
+        Corresponds to BOOLEAN_NETWORK in DisMech's ComputationalModelTypeEnum.
+    exact_mappings:
+      - MAMO:0000030  # logical model
+    narrow_mappings:
+      - MAMO:0000053  # boolean model
+  AgentBasedModel:
+    is_a: InSilicoModel
+    description: >-
+      A model that simulates individual agents, usually cells, each following
+      its own rules for behaviours such as division, migration, death and
+      signalling, so that tissue-level behaviour emerges from their
+      interactions. Often spatial and stochastic. Examples: a model of skeletal
+      muscle regeneration after injury, a model of tumour cells and immune
+      cells in a tumour microenvironment.
+    comments:
+      - >-
+        Corresponds to AGENT_BASED in DisMech's ComputationalModelTypeEnum.
+    exact_mappings:
+      - MAMO:0000024  # agent-based model
+  BiomechanicalModel:
+    is_a: InSilicoModel
+    description: >-
+      A continuum-mechanics model of how a tissue, organ or body region deforms
+      or carries load, usually solved by the finite element method on a mesh of
+      the anatomy. Its outputs are mechanical quantities such as stress, strain
+      and strain rate. Example: a finite element model of the human head that
+      predicts where brain tissue strain is highest during an impact.
+    comments:
+      - >-
+        Corresponds to BIOMECHANICAL in DisMech's ComputationalModelTypeEnum.
+      - >-
+        Its outputs are mechanical, so a claim that the model predicts a
+        cellular or tissue injury rests on a threshold or correlation linking
+        that mechanical quantity to the injury.
+    related_mappings:
+      - MAMO:0000034  # finite element spatial model
 
   # Legacy for backward compatibility
   MetabolicModel:

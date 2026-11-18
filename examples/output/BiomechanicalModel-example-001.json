@@ -1,0 +1,25 @@
+{
+  "id": "biomechanicalmodel:001",
+  "name": "Finite element head model of brain injury biomechanics",
+  "description": "A high-fidelity three-dimensional computational model of brain injury biomechanics, used to map strain and strain rate at the grey matter-white matter boundary for three head impacts: a helmet-to-helmet impact in American football, an occipital impact from a fall, and a helmeted impact in a road traffic accident. It predicted that strain is largest at the depths of sulci, where chronic traumatic encephalopathy pathology is seen.",
+  "type": "BiomechanicalModel",
+  "biological_organization_level": "ORGAN",
+  "spatial_context": "Three-dimensional anatomy of the human head and brain, including the grey matter-white matter boundary.",
+  "complexity_level": "HIGH",
+  "references": [
+    {
+      "id": "PMID:28043957",
+      "title": "Computational modelling of traumatic brain injury predicts the location of chronic traumatic encephalopathy pathology.",
+      "authors": [
+        "Ghajari M",
+        "Hellyer PJ",
+        "Sharp DJ"
+      ],
+      "journal": "Brain",
+      "year": 2017
+    }
+  ],
+  "computational_method": "Finite element analysis",
+  "prediction_scope": "Brain tissue strain and strain rate under a given head impact, and the fraction of sulcal and gyral regions exceeding brain injury thresholds. It does not model cellular injury or neurodegeneration.",
+  "@type": "BiomechanicalModel"
+}

@@ -1,0 +1,35 @@
+# An agent-based model, taken from DisMech's Duchenne_Muscular_Dystrophy
+# entry, where it carries model_type AGENT_BASED.
+id: "agentbasedmodel:001"
+name: "Agent-based model of regeneration in healthy and mdx skeletal muscle"
+description: >-
+  An agent-based model of skeletal muscle that predicts the regenerative
+  response of muscle cells, fibroblasts, satellite stem cells and inflammatory
+  cells to contraction-induced injury. Parameters were calibrated and
+  validated against published experimental measurements, and the model was
+  used to test how factors associated with Duchenne muscular dystrophy, such
+  as altered fibroblast or satellite stem cell behaviour, influence
+  regeneration in healthy and mdx mouse muscle.
+type: "AgentBasedModel"
+biological_organization_level: "TISSUE"
+spatial_context: >-
+  A two-dimensional cross-section of injured skeletal muscle in which
+  individual cells interact.
+complexity_level: "HIGH"
+computational_method: "Agent-based simulation"
+software_platform: "Repast"
+prediction_scope: >-
+  Satellite stem cell counts and recovery of muscle cross-sectional area over
+  the 28 days after injury.
+references:
+  - id: "PMID:30070607"
+    title: >-
+      Agent-based model illustrates the role of the microenvironment in
+      regeneration in healthy and mdx skeletal muscle.
+    authors:
+      - "Virgilio KM"
+      - "Martin KS"
+      - "Peirce SM"
+      - "Blemker SS"
+    journal: "J Appl Physiol (1985)"
+    year: 2018

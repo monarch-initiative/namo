@@ -179,6 +179,30 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     'constraint-based approaches for\n'
                     '  understanding metabolic perturbations.\n'
                     '\n'
+                    '- **[Kinetic Models](KineticModel.md)**: Mechanistic models '
+                    'whose state variables change\n'
+                    '  over time by rate equations, usually ordinary differential '
+                    'equations, such as models of\n'
+                    '  hormone feedback, cardiac action potentials or viral '
+                    'dynamics.\n'
+                    '\n'
+                    '- **[Logical Models](LogicalModel.md)**: Boolean and other '
+                    'discrete network models in which\n'
+                    '  each component is updated by logical rules over its '
+                    'regulators, often derived from\n'
+                    '  molecular interaction maps.\n'
+                    '\n'
+                    '- **[Agent-Based Models](AgentBasedModel.md)**: Simulations '
+                    'of individual cells or other\n'
+                    '  agents, each following its own rules, from whose '
+                    'interactions tissue-level behaviour\n'
+                    '  emerges.\n'
+                    '\n'
+                    '- **[Biomechanical Models](BiomechanicalModel.md)**: '
+                    'Continuum-mechanics models, usually\n'
+                    '  finite element models, of how a tissue or organ deforms '
+                    'under load.\n'
+                    '\n'
                     '### Technical Specifications\n'
                     '\n'
                     '#### Microfluidic Design\n'
@@ -1098,7 +1122,7 @@ class CrossValidationMethodEnum(str, Enum):
 class Dataset(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
-    model_systems: Optional[list[Union[ModelSystem,AnimalModel,NAMModel,CellularSystem,MicrophysiologicalSystem,InSilicoModel,QSARModel,MolecularModel,PBPKModel,DigitalTwin,MLModel,MetabolicModel,OrganOnChip,TissueOnChip,TwoDCellCulture,ThreeDCellCulture,CoCulture,Organoid,CellLineModel]]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
+    model_systems: Optional[list[Union[ModelSystem,AnimalModel,NAMModel,CellularSystem,MicrophysiologicalSystem,InSilicoModel,QSARModel,MolecularModel,PBPKModel,DigitalTwin,MLModel,KineticModel,LogicalModel,AgentBasedModel,BiomechanicalModel,MetabolicModel,OrganOnChip,TissueOnChip,TwoDCellCulture,ThreeDCellCulture,CoCulture,Organoid,CellLineModel]]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
     studies: Optional[list[Study]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'ModelSystem']} })
 
 
@@ -1664,6 +1688,125 @@ class MLModel(InSilicoModel):
     name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
     description: Optional[str] = Field(default=None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:description'} })
     type: Literal["MLModel"] = Field(default="MLModel", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
+
+
+class KineticModel(InSilicoModel):
+    """
+    A mechanistic model whose state variables, such as concentrations, cell counts or membrane potentials, change over time according to rate equations. Usually a system of ordinary differential equations, but stochastic kinetic formulations are included. Examples: a model of calcium homeostasis and bone remodelling, a human ventricular action potential model, a within-host viral dynamics model.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ["Corresponds to KINETIC in DisMech's ComputationalModelTypeEnum.",
+                      'A kinetic model that simulates the absorption, distribution, '
+                      'metabolism and excretion of a substance across body '
+                      'compartments is a PBPKModel; one that represents a metabolic '
+                      'network at genome scale is a MetabolicModel.'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'narrow_mappings': ['MAMO:0000046', 'MAMO:0000047']})
+
+    computational_method: Optional[str] = Field(default=None, description="""Primary computational method or algorithm used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    software_platform: Optional[str] = Field(default=None, description="""Software platform or programming language used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    validation_datasets: Optional[list[str]] = Field(default=None, description="""Datasets used for model training and validation""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    prediction_scope: Optional[str] = Field(default=None, description="""Scope and limitations of model predictions""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    complexity_level: Optional[ComplexityLevelEnum] = Field(default=None, description="""Level of biological complexity represented (subcellular, cellular, tissue, organ, system)""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    references: Optional[list[Reference]] = Field(default=None, description="""Literature references that describe, validate, or support this model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    models: Optional[list[ModelsRelationship]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    description_scope: Optional[DescriptionScopeEnum] = Field(default=None, description="""Whether this record describes a method in general or one study's use of a method. Where a record comes from does not settle this: a review can describe methods, and a paper comparing two assays can describe the assays rather than its own use of them.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    method: Optional[str] = Field(default=None, description="""For a record of one study's use, the id of the record that describes the method it is a use of. The method record stands on its own; the use record holds what is specific to the use, such as the cell line, the differentiation day or the treatment. Leave it empty if no record describes the method yet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    studies: Optional[list[str]] = Field(default=None, description="""For a record of one study's use, the ids of the studies it comes from. Each study holds what the use was for: its context of use, perturbations and endpoints.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'ModelSystem']} })
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
+         'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:description'} })
+    type: Literal["KineticModel"] = Field(default="KineticModel", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
+
+
+class LogicalModel(InSilicoModel):
+    """
+    A network model in which each component takes one of a small number of discrete activity levels, and is updated by logical rules over the levels of its regulators. Boolean models, where each component is on or off, are the commonest kind; multi-valued and probabilistic Boolean models are included. Often derived from a molecular interaction map and exchanged as SBML-qual.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ["Corresponds to BOOLEAN_NETWORK in DisMech's "
+                      'ComputationalModelTypeEnum.'],
+         'exact_mappings': ['MAMO:0000030'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'narrow_mappings': ['MAMO:0000053']})
+
+    computational_method: Optional[str] = Field(default=None, description="""Primary computational method or algorithm used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    software_platform: Optional[str] = Field(default=None, description="""Software platform or programming language used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    validation_datasets: Optional[list[str]] = Field(default=None, description="""Datasets used for model training and validation""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    prediction_scope: Optional[str] = Field(default=None, description="""Scope and limitations of model predictions""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    complexity_level: Optional[ComplexityLevelEnum] = Field(default=None, description="""Level of biological complexity represented (subcellular, cellular, tissue, organ, system)""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    references: Optional[list[Reference]] = Field(default=None, description="""Literature references that describe, validate, or support this model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    models: Optional[list[ModelsRelationship]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    description_scope: Optional[DescriptionScopeEnum] = Field(default=None, description="""Whether this record describes a method in general or one study's use of a method. Where a record comes from does not settle this: a review can describe methods, and a paper comparing two assays can describe the assays rather than its own use of them.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    method: Optional[str] = Field(default=None, description="""For a record of one study's use, the id of the record that describes the method it is a use of. The method record stands on its own; the use record holds what is specific to the use, such as the cell line, the differentiation day or the treatment. Leave it empty if no record describes the method yet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    studies: Optional[list[str]] = Field(default=None, description="""For a record of one study's use, the ids of the studies it comes from. Each study holds what the use was for: its context of use, perturbations and endpoints.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'ModelSystem']} })
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
+         'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:description'} })
+    type: Literal["LogicalModel"] = Field(default="LogicalModel", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
+
+
+class AgentBasedModel(InSilicoModel):
+    """
+    A model that simulates individual agents, usually cells, each following its own rules for behaviours such as division, migration, death and signalling, so that tissue-level behaviour emerges from their interactions. Often spatial and stochastic. Examples: a model of skeletal muscle regeneration after injury, a model of tumour cells and immune cells in a tumour microenvironment.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ["Corresponds to AGENT_BASED in DisMech's "
+                      'ComputationalModelTypeEnum.'],
+         'exact_mappings': ['MAMO:0000024'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo'})
+
+    computational_method: Optional[str] = Field(default=None, description="""Primary computational method or algorithm used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    software_platform: Optional[str] = Field(default=None, description="""Software platform or programming language used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    validation_datasets: Optional[list[str]] = Field(default=None, description="""Datasets used for model training and validation""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    prediction_scope: Optional[str] = Field(default=None, description="""Scope and limitations of model predictions""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    complexity_level: Optional[ComplexityLevelEnum] = Field(default=None, description="""Level of biological complexity represented (subcellular, cellular, tissue, organ, system)""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    references: Optional[list[Reference]] = Field(default=None, description="""Literature references that describe, validate, or support this model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    models: Optional[list[ModelsRelationship]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    description_scope: Optional[DescriptionScopeEnum] = Field(default=None, description="""Whether this record describes a method in general or one study's use of a method. Where a record comes from does not settle this: a review can describe methods, and a paper comparing two assays can describe the assays rather than its own use of them.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    method: Optional[str] = Field(default=None, description="""For a record of one study's use, the id of the record that describes the method it is a use of. The method record stands on its own; the use record holds what is specific to the use, such as the cell line, the differentiation day or the treatment. Leave it empty if no record describes the method yet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    studies: Optional[list[str]] = Field(default=None, description="""For a record of one study's use, the ids of the studies it comes from. Each study holds what the use was for: its context of use, perturbations and endpoints.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'ModelSystem']} })
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
+         'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:description'} })
+    type: Literal["AgentBasedModel"] = Field(default="AgentBasedModel", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
+
+
+class BiomechanicalModel(InSilicoModel):
+    """
+    A continuum-mechanics model of how a tissue, organ or body region deforms or carries load, usually solved by the finite element method on a mesh of the anatomy. Its outputs are mechanical quantities such as stress, strain and strain rate. Example: a finite element model of the human head that predicts where brain tissue strain is highest during an impact.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ["Corresponds to BIOMECHANICAL in DisMech's "
+                      'ComputationalModelTypeEnum.',
+                      'Its outputs are mechanical, so a claim that the model predicts '
+                      'a cellular or tissue injury rests on a threshold or correlation '
+                      'linking that mechanical quantity to the injury.'],
+         'from_schema': 'https://w3id.org/monarch-initiative/namo',
+         'related_mappings': ['MAMO:0000034']})
+
+    computational_method: Optional[str] = Field(default=None, description="""Primary computational method or algorithm used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    software_platform: Optional[str] = Field(default=None, description="""Software platform or programming language used""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    validation_datasets: Optional[list[str]] = Field(default=None, description="""Datasets used for model training and validation""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    prediction_scope: Optional[str] = Field(default=None, description="""Scope and limitations of model predictions""", json_schema_extra = { "linkml_meta": {'domain_of': ['InSilicoModel']} })
+    biological_organization_level: Optional[BiologicalOrganizationLevelEnum] = Field(default=None, description="""The level of biological organization represented by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    spatial_context: Optional[str] = Field(default=None, description="""Description of spatial organization and context captured by the model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    complexity_level: Optional[ComplexityLevelEnum] = Field(default=None, description="""Level of biological complexity represented (subcellular, cellular, tissue, organ, system)""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    references: Optional[list[Reference]] = Field(default=None, description="""Literature references that describe, validate, or support this model""", json_schema_extra = { "linkml_meta": {'domain_of': ['NAMModel']} })
+    models: Optional[list[ModelsRelationship]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    description_scope: Optional[DescriptionScopeEnum] = Field(default=None, description="""Whether this record describes a method in general or one study's use of a method. Where a record comes from does not settle this: a review can describe methods, and a paper comparing two assays can describe the assays rather than its own use of them.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    method: Optional[str] = Field(default=None, description="""For a record of one study's use, the id of the record that describes the method it is a use of. The method record stands on its own; the use record holds what is specific to the use, such as the cell line, the differentiation day or the treatment. Leave it empty if no record describes the method yet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ModelSystem']} })
+    studies: Optional[list[str]] = Field(default=None, description="""For a record of one study's use, the ids of the studies it comes from. Each study holds what the use was for: its context of use, perturbations and endpoints.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'ModelSystem']} })
+    id: str = Field(default=..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'Reference', 'BiolinkEntity'],
+         'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(default=None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedThing', 'BiolinkEntity'], 'slot_uri': 'schema:description'} })
+    type: Literal["BiomechanicalModel"] = Field(default="BiomechanicalModel", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['NamedThing']} })
 
 
 class MetabolicModel(InSilicoModel):
@@ -2259,6 +2402,10 @@ MolecularModel.model_rebuild()
 PBPKModel.model_rebuild()
 DigitalTwin.model_rebuild()
 MLModel.model_rebuild()
+KineticModel.model_rebuild()
+LogicalModel.model_rebuild()
+AgentBasedModel.model_rebuild()
+BiomechanicalModel.model_rebuild()
 MetabolicModel.model_rebuild()
 CellRatio.model_rebuild()
 ModelPerformance.model_rebuild()
