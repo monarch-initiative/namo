@@ -1917,8 +1917,6 @@ enums:
       RGD_PEPTIDE:
         description: RGD peptide coating
         meaning: NCIT:C13288
-        aliases:
-          - RGD Motif
       ANTI_FOULING:
         description: Anti-fouling coating
       OXYGEN_PLASMA:

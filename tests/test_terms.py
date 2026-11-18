@@ -26,11 +26,13 @@ ISSUE = "see https://github.com/monarch-initiative/namo/issues/51"
 # Known problems, until they are fixed. strict: a test fails once its problem is
 # fixed, so the entry is removed here when the fix lands.
 
-# Enum values whose `meaning` is right but whose name, title, description and
-# aliases do not match the term's label, so each needs the label as an alias
-# (not a title: gen-pydantic names the Python enum member after the title);
-# and the EDAM values, whose CURIEs should be written EDAM:topic_NNNN.
+# Enum values whose `meaning` label matches none of the value's name, title,
+# description or aliases, while the right term is still being chosen. Add the
+# term's label as an alias only when the term is right (not as a title:
+# gen-pydantic names the Python enum member after the title).
 SCHEMA_TERM_GAPS = {
+    "SurfaceCoatingEnum.RGD_PEPTIDE": "NCIT:C13288 is RGD Motif; the term is being chosen in "
+    "https://github.com/monarch-initiative/namo/issues/63",
 }
 
 # Example files with a CL id whose label is not the one given: either the id is
