@@ -8,8 +8,8 @@ description: An agent-based model of skeletal muscle that predicts the regenerat
   stem cell behaviour, influence regeneration in healthy and mdx mouse muscle.
 type: AgentBasedModel
 biological_organization_level: TISSUE
-spatial_context: A two-dimensional cross-section of injured skeletal muscle in which
-  individual cells interact.
+spatial_context: Injured skeletal muscle in which individual cells interact; recovery
+  is measured as muscle cross-sectional area.
 complexity_level: HIGH
 references:
 - id: PMID:30070607
@@ -23,6 +23,5 @@ references:
   journal: J Appl Physiol (1985)
   year: 2018
 computational_method: Agent-based simulation
-software_platform: Repast
 prediction_scope: Satellite stem cell counts and recovery of muscle cross-sectional
   area over the 28 days after injury.

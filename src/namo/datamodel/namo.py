@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-17T23:08:32
+# Generation date: 2026-11-18T00:44:39
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -73,7 +73,7 @@
 #     biological systems.
 #
 #   - **[Metabolic Models](MetabolicModel.md)**: Systems biology models of cellular metabolism,
-#     including flux balance analysis, kinetic modeling, and constraint-based approaches for
+#     including flux balance analysis and constraint-based approaches for
 #     understanding metabolic perturbations.
 #
 #   - **[Kinetic Models](KineticModel.md)**: Mechanistic models whose state variables change
@@ -784,7 +784,7 @@ class ThreeDCellCulture(CellularSystem):
 @dataclass(repr=False)
 class CoCulture(CellularSystem):
     """
-    Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions.
+    Co-culture systems combining multiple cell types to mimic microenvironments and cell-cell interactions.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -1335,8 +1335,8 @@ class BiomechanicalModel(InSilicoModel):
     """
     A continuum-mechanics model of how a tissue, organ or body region deforms or carries load, usually solved by the
     finite element method on a mesh of the anatomy. Its outputs are mechanical quantities such as stress, strain and
-    strain rate. Example: a finite element model of the human head that predicts where brain tissue strain is highest
-    during an impact.
+    strain rate. Example: a three-dimensional computational model of the human head that predicts where brain tissue
+    strain is highest during an impact.
     """
     _inherited_slots: ClassVar[list[str]] = []
 

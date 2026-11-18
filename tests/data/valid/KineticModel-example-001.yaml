@@ -1,4 +1,4 @@
-# A kinetic (ODE) model, taken from DisMech's CKD-Mineral_Bone_Disorder entry,
+# A kinetic model, taken from DisMech's CKD-Mineral_Bone_Disorder entry,
 # where it carries model_type KINETIC.
 id: "kineticmodel:001"
 name: "Peterson-Riggs calcium homeostasis and bone remodeling model"
@@ -9,16 +9,14 @@ description: >-
   homeostasis, and describes plasma parathyroid hormone (PTH), calcitriol,
   calcium and phosphate, and bone-remodeling markers across
   hypoparathyroidism, hyperparathyroidism, renal insufficiency, daily
-  PTH 1-34 administration and RANKL inhibition. Deposited in BioModels as
-  BIOMD0000000613.
+  PTH 1-34 administration and RANKL inhibition.
 type: "KineticModel"
 biological_organization_level: "SYSTEM"
 spatial_context: >-
   Whole-body calcium and phosphate balance coupled to bone remodeling; no
   spatial structure is represented.
 complexity_level: "HIGH"
-computational_method: "Ordinary differential equations"
-software_platform: "SBML (BioModels BIOMD0000000613)"
+computational_method: "Physiologically based mathematical model"
 prediction_scope: >-
   Plasma PTH, calcitriol, calcium and phosphate, and bone-remodeling markers
   under the clinical and therapeutic conditions listed in the description.

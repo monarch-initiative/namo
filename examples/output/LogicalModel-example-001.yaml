@@ -22,6 +22,5 @@ references:
   journal: NPJ Syst Biol Appl
   year: 2023
 computational_method: Boolean network simulation and perturbation
-software_platform: SBML-qual; CaSQ, GINsim, bioLQM, MaBoSS
 prediction_scope: Whether the apoptosis, proliferation, matrix degradation, bone erosion
   and inflammation phenotypes are on or off under given inputs and perturbations.

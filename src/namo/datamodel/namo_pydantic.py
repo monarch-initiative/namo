@@ -69,11 +69,11 @@ class LinkMLMeta(RootModel):
 linkml_meta = LinkMLMeta({'default_prefix': 'namo',
      'default_range': 'string',
      'description': 'NAMO (New Approach Methodology Ontology) is a comprehensive '
-                    'schema for representing diverse \n'
+                    'schema for representing diverse\n'
                     'in vitro and in silico model systems used as alternatives to '
-                    'traditional animal testing. \n'
+                    'traditional animal testing.\n'
                     'It supports organoids, organ-on-chip systems, 3D cell '
-                    'cultures, computational models, and \n'
+                    'cultures, computational models, and\n'
                     'other New Approach Methodologies (NAMs) used in toxicology, '
                     'drug discovery, and biomedical research.\n'
                     '\n'
@@ -85,7 +85,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     'The top-level entity is a [Dataset](Dataset.md), which serves '
                     'as a container for related research\n'
                     'activities. A dataset might represent all NAM models from a '
-                    'specific laboratory, regulatory study, \n'
+                    'specific laboratory, regulatory study,\n'
                     'or collaborative research program.\n'
                     '\n'
                     'Each dataset contains one or more [Studies](Study.md), which '
@@ -102,25 +102,25 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     'model types](NAMModel.md):\n'
                     '\n'
                     '- **[Organoids](Organoid.md)**: Self-organizing 3D tissue '
-                    'models derived from stem cells that \n'
+                    'models derived from stem cells that\n'
                     '  recapitulate organ-specific architecture and function. '
-                    'Examples include brain organoids for \n'
+                    'Examples include brain organoids for\n'
                     '  neurotoxicity testing, intestinal organoids for drug '
-                    'absorption studies, and liver organoids \n'
+                    'absorption studies, and liver organoids\n'
                     '  for metabolism research.\n'
                     '\n'
                     '- **[Organ-on-Chip Systems](OrganOnChip.md)**: Microfluidic '
-                    'devices that simulate organ-level \n'
+                    'devices that simulate organ-level\n'
                     '  physiology with precise control over cellular '
-                    'microenvironment. These include lung-on-chip \n'
+                    'microenvironment. These include lung-on-chip\n'
                     '  for inhalation toxicology, heart-on-chip for cardiotoxicity '
-                    'assessment, and multi-organ \n'
+                    'assessment, and multi-organ\n'
                     '  chips for systemic drug effects.\n'
                     '\n'
                     '- **[Tissue-on-Chip Systems](TissueOnChip.md)**: Microfluidic '
                     'models focused on specific tissue\n'
                     '  functions such as blood-brain barrier chips, skin models '
-                    'for dermatological testing, and \n'
+                    'for dermatological testing, and\n'
                     '  kidney proximal tubule chips for nephrotoxicity screening.\n'
                     '\n'
                     '- **[3D Cell Cultures](ThreeDCellCulture.md)**: '
@@ -145,7 +145,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     '- **[Machine Learning Models](MLModel.md)**: AI/ML systems '
                     'for toxicity prediction, including\n'
                     '  deep learning models for chemical structure-activity '
-                    'relationships, neural networks for \n'
+                    'relationships, neural networks for\n'
                     '  dose-response modeling, and ensemble methods for '
                     'multi-endpoint prediction.\n'
                     '\n'
@@ -170,13 +170,13 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     '- **[Digital Twins](DigitalTwin.md)**: Integrated '
                     'computational models that combine multiple\n'
                     '  data sources and modeling approaches to create '
-                    'personalized, real-time simulations of \n'
+                    'personalized, real-time simulations of\n'
                     '  biological systems.\n'
                     '\n'
                     '- **[Metabolic Models](MetabolicModel.md)**: Systems biology '
                     'models of cellular metabolism,\n'
-                    '  including flux balance analysis, kinetic modeling, and '
-                    'constraint-based approaches for\n'
+                    '  including flux balance analysis and constraint-based '
+                    'approaches for\n'
                     '  understanding metabolic perturbations.\n'
                     '\n'
                     '- **[Kinetic Models](KineticModel.md)**: Mechanistic models '
@@ -207,7 +207,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     '\n'
                     '#### Microfluidic Design\n'
                     'For chip-based systems, detailed [microfluidic '
-                    'design](MicrofluidicDesign.md) specifications \n'
+                    'design](MicrofluidicDesign.md) specifications\n'
                     'capture device architecture, including channel '
                     'configurations, flow control methods, sensor\n'
                     'integration, and material properties essential for '
@@ -225,7 +225,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     'responses, barrier functions,\n'
                     '  and cellular behaviors that match in vivo counterparts\n'
                     '- **[Reproducibility](ReproducibilityAssessment.md)**: '
-                    'Inter-laboratory consistency, batch-to-batch \n'
+                    'Inter-laboratory consistency, batch-to-batch\n'
                     '  variation, and quality control metrics\n'
                     '\n'
                     '#### Performance Metrics\n'
@@ -248,7 +248,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     '  systemic toxicity assessment as required by regulations '
                     'worldwide\n'
                     '- **Pesticide Evaluation**: Environmental and human health '
-                    'risk assessment using NAMs for \n'
+                    'risk assessment using NAMs for\n'
                     '  neurotoxicity, endocrine disruption, and developmental '
                     'toxicity endpoints\n'
                     '\n'
@@ -270,10 +270,10 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     '  and genetic disorders in controlled laboratory '
                     'environments\n'
                     '- **Mechanistic Studies**: Investigation of toxicity '
-                    'pathways, cellular responses, and \n'
+                    'pathways, cellular responses, and\n'
                     '  molecular mechanisms using well-characterized NAM systems\n'
                     '- **Method Development**: Innovation in NAM technologies, '
-                    'validation approaches, and \n'
+                    'validation approaches, and\n'
                     '  standardization protocols\n'
                     '\n'
                     '## Key Features\n'
@@ -304,7 +304,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'namo',
                     '\n'
                     'NAMO supports the 3Rs principles\n'
                     '(Replacement, Reduction, Refinement) and contributes to the '
-                    'transition toward animal-free \n'
+                    'transition toward animal-free\n'
                     'testing methodologies in safety assessment and biomedical '
                     'research.\n',
      'id': 'https://w3id.org/monarch-initiative/namo',
@@ -1322,7 +1322,7 @@ class ThreeDCellCulture(CellularSystem):
 
 class CoCulture(CellularSystem):
     """
-    Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions.
+    Co-culture systems combining multiple cell types to mimic microenvironments and cell-cell interactions.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
@@ -1546,7 +1546,7 @@ class InSilicoModel(NAMModel):
 
 class QSARModel(InSilicoModel):
     """
-    Quantitative Structure-Activity Relationship models that predict  chemical/biological activity from molecular structure.
+    Quantitative Structure-Activity Relationship models that predict chemical/biological activity from molecular structure.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
@@ -1604,7 +1604,7 @@ class MolecularModel(InSilicoModel):
 
 class PBPKModel(InSilicoModel):
     """
-    Physiologically Based Pharmacokinetic models that simulate drug  absorption, distribution, metabolism, and excretion.
+    Physiologically Based Pharmacokinetic models that simulate drug absorption, distribution, metabolism, and excretion.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/monarch-initiative/namo'})
 
@@ -1725,9 +1725,9 @@ class LogicalModel(InSilicoModel):
     """
     A network model in which each component takes one of a small number of discrete activity levels, and is updated by logical rules over the levels of its regulators. Boolean models, where each component is on or off, are the commonest kind; multi-valued and probabilistic Boolean models are included. Often derived from a molecular interaction map and exchanged as SBML-qual.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ["Corresponds to BOOLEAN_NETWORK in DisMech's "
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['MAMO:0000030'],
+         'comments': ["Corresponds to BOOLEAN_NETWORK in DisMech's "
                       'ComputationalModelTypeEnum.'],
-         'exact_mappings': ['MAMO:0000030'],
          'from_schema': 'https://w3id.org/monarch-initiative/namo',
          'narrow_mappings': ['MAMO:0000053']})
 
@@ -1780,7 +1780,7 @@ class AgentBasedModel(InSilicoModel):
 
 class BiomechanicalModel(InSilicoModel):
     """
-    A continuum-mechanics model of how a tissue, organ or body region deforms or carries load, usually solved by the finite element method on a mesh of the anatomy. Its outputs are mechanical quantities such as stress, strain and strain rate. Example: a finite element model of the human head that predicts where brain tissue strain is highest during an impact.
+    A continuum-mechanics model of how a tissue, organ or body region deforms or carries load, usually solved by the finite element method on a mesh of the anatomy. Its outputs are mechanical quantities such as stress, strain and strain rate. Example: a three-dimensional computational model of the human head that predicts where brain tissue strain is highest during an impact.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ["Corresponds to BIOMECHANICAL in DisMech's "
                       'ComputationalModelTypeEnum.',

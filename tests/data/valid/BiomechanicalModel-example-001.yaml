@@ -1,7 +1,7 @@
 # A biomechanical model, taken from DisMech's Traumatic_Brain_Injury entry,
 # where it carries model_type BIOMECHANICAL.
 id: "biomechanicalmodel:001"
-name: "Finite element head model of brain injury biomechanics"
+name: "Three-dimensional computational model of brain injury biomechanics"
 description: >-
   A high-fidelity three-dimensional computational model of brain injury
   biomechanics, used to map strain and strain rate at the grey matter-white
@@ -15,7 +15,7 @@ spatial_context: >-
   Three-dimensional anatomy of the human head and brain, including the
   grey matter-white matter boundary.
 complexity_level: "HIGH"
-computational_method: "Finite element analysis"
+computational_method: "Three-dimensional computational modelling of head impact"
 prediction_scope: >-
   Brain tissue strain and strain rate under a given head impact, and the
   fraction of sulcal and gyral regions exceeding brain injury thresholds. It
