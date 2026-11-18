@@ -1,0 +1,24 @@
+{
+  "id": "kineticmodel:001",
+  "name": "Peterson-Riggs calcium homeostasis and bone remodeling model",
+  "description": "A physiologically based mathematical model of integrated calcium homeostasis and bone remodeling, built from literature data. It includes the cellular aspects and major controlling mechanisms of bone remodeling and calcium homeostasis, and describes plasma parathyroid hormone (PTH), calcitriol, calcium and phosphate, and bone-remodeling markers across hypoparathyroidism, hyperparathyroidism, renal insufficiency, daily PTH 1-34 administration and RANKL inhibition.",
+  "type": "KineticModel",
+  "biological_organization_level": "SYSTEM",
+  "spatial_context": "Whole-body calcium and phosphate balance coupled to bone remodeling; no spatial structure is represented.",
+  "complexity_level": "HIGH",
+  "references": [
+    {
+      "id": "PMID:19732857",
+      "title": "A physiologically based mathematical model of integrated calcium homeostasis and bone remodeling.",
+      "authors": [
+        "Peterson MC",
+        "Riggs MM"
+      ],
+      "journal": "Bone",
+      "year": 2010
+    }
+  ],
+  "computational_method": "Physiologically based mathematical model",
+  "prediction_scope": "Plasma PTH, calcitriol, calcium and phosphate, and bone-remodeling markers under the clinical and therapeutic conditions listed in the description.",
+  "@type": "KineticModel"
+}

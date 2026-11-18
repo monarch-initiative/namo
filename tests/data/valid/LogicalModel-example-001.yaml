@@ -1,0 +1,33 @@
+# A Boolean model, taken from DisMech's Rheumatoid_Arthritis entry, where it
+# carries model_type BOOLEAN_NETWORK.
+id: "logicalmodel:001"
+name: "RA-FLS large-scale Boolean model"
+description: >-
+  A large-scale Boolean model of rheumatoid arthritis fibroblast-like
+  synoviocytes (RA-FLS), made of five submodels for apoptosis, cell
+  proliferation, matrix degradation, bone erosion and inflammation. The
+  submodels can be simulated independently or as one global model. Used to
+  mimic mono and combination treatments and to propose targets and drug
+  candidates for repurposing.
+type: "LogicalModel"
+biological_organization_level: "CELLULAR"
+spatial_context: >-
+  Intracellular signalling and regulatory network of a single cell type; no
+  spatial structure is represented.
+complexity_level: "HIGH"
+computational_method: "Boolean network simulation and perturbation"
+prediction_scope: >-
+  Whether the apoptosis, proliferation, matrix degradation, bone erosion and
+  inflammation phenotypes are on or off under given inputs and perturbations.
+references:
+  - id: "PMID:37454172"
+    title: >-
+      A large-scale Boolean model of the rheumatoid arthritis fibroblast-like
+      synoviocytes predicts drug synergies in the arthritic joint.
+    authors:
+      - "Singh V"
+      - "Naldi A"
+      - "Soliman S"
+      - "Niarakis A"
+    journal: "NPJ Syst Biol Appl"
+    year: 2023

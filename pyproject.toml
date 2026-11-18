@@ -72,5 +72,6 @@ skip = [
 # villin (intestinal epithelial marker protein)
 # Author surnames in example references:
 # bothe (Anne-Katrin Bothe)
-ignore-words-list = "bothe,linke,villin"
+# NAM, NAMs (New Approach Methodology, the subject of this schema)
+ignore-words-list = "bothe,linke,nam,nams,villin"
 quiet-level = 3

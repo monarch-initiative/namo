@@ -35,11 +35,15 @@ repos:
     # Ruff version.
     rev: v0.11.3
     hooks:
+      # The datamodel is generated from the schema by `just gen-python`;
+      # reformatting it would only be undone by the next regeneration.
       # Run the linter.
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
+        exclude: ^src/namo/datamodel/
       # Run the formatter.
       - id: ruff-format
+        exclude: ^src/namo/datamodel/
 
   - repo: https://github.com/astral-sh/uv-pre-commit
     # uv version.

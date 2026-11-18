@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-13T20:45:43
+# Generation date: 2026-11-18T00:44:39
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -73,8 +73,23 @@
 #     biological systems.
 #
 #   - **[Metabolic Models](MetabolicModel.md)**: Systems biology models of cellular metabolism,
-#     including flux balance analysis, kinetic modeling, and constraint-based approaches for
+#     including flux balance analysis and constraint-based approaches for
 #     understanding metabolic perturbations.
+#
+#   - **[Kinetic Models](KineticModel.md)**: Mechanistic models whose state variables change
+#     over time by rate equations, usually ordinary differential equations, such as models of
+#     hormone feedback, cardiac action potentials or viral dynamics.
+#
+#   - **[Logical Models](LogicalModel.md)**: Boolean and other discrete network models in which
+#     each component is updated by logical rules over its regulators, often derived from
+#     molecular interaction maps.
+#
+#   - **[Agent-Based Models](AgentBasedModel.md)**: Simulations of individual cells or other
+#     agents, each following its own rules, from whose interactions tissue-level behaviour
+#     emerges.
+#
+#   - **[Biomechanical Models](BiomechanicalModel.md)**: Continuum-mechanics models, usually
+#     finite element models, of how a tissue or organ deforms under load.
 #
 #   ### Technical Specifications
 #
@@ -324,6 +339,22 @@ class DigitalTwinId(InSilicoModelId):
 
 
 class MLModelId(InSilicoModelId):
+    pass
+
+
+class KineticModelId(InSilicoModelId):
+    pass
+
+
+class LogicalModelId(InSilicoModelId):
+    pass
+
+
+class AgentBasedModelId(InSilicoModelId):
+    pass
+
+
+class BiomechanicalModelId(InSilicoModelId):
     pass
 
 
@@ -753,7 +784,7 @@ class ThreeDCellCulture(CellularSystem):
 @dataclass(repr=False)
 class CoCulture(CellularSystem):
     """
-    Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions.
+    Co-culture systems combining multiple cell types to mimic microenvironments and cell-cell interactions.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -1213,6 +1244,114 @@ class MLModel(InSilicoModel):
 
         if self.cross_validation is not None and not isinstance(self.cross_validation, CrossValidation):
             self.cross_validation = CrossValidation(**as_dict(self.cross_validation))
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class KineticModel(InSilicoModel):
+    """
+    A mechanistic model whose state variables, such as concentrations, cell counts or membrane potentials, change over
+    time according to rate equations. Usually a system of ordinary differential equations, but stochastic kinetic
+    formulations are included. Examples: a model of calcium homeostasis and bone remodelling, a human ventricular
+    action potential model, a within-host viral dynamics model.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["KineticModel"]
+    class_class_curie: ClassVar[str] = "namo:KineticModel"
+    class_name: ClassVar[str] = "KineticModel"
+    class_model_uri: ClassVar[URIRef] = NAMO.KineticModel
+
+    id: Union[str, KineticModelId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, KineticModelId):
+            self.id = KineticModelId(self.id)
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class LogicalModel(InSilicoModel):
+    """
+    A network model in which each component takes one of a small number of discrete activity levels, and is updated by
+    logical rules over the levels of its regulators. Boolean models, where each component is on or off, are the
+    commonest kind; multi-valued and probabilistic Boolean models are included. Often derived from a molecular
+    interaction map and exchanged as SBML-qual.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["LogicalModel"]
+    class_class_curie: ClassVar[str] = "namo:LogicalModel"
+    class_name: ClassVar[str] = "LogicalModel"
+    class_model_uri: ClassVar[URIRef] = NAMO.LogicalModel
+
+    id: Union[str, LogicalModelId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, LogicalModelId):
+            self.id = LogicalModelId(self.id)
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class AgentBasedModel(InSilicoModel):
+    """
+    A model that simulates individual agents, usually cells, each following its own rules for behaviours such as
+    division, migration, death and signalling, so that tissue-level behaviour emerges from their interactions. Often
+    spatial and stochastic. Examples: a model of skeletal muscle regeneration after injury, a model of tumour cells
+    and immune cells in a tumour microenvironment.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["AgentBasedModel"]
+    class_class_curie: ClassVar[str] = "namo:AgentBasedModel"
+    class_name: ClassVar[str] = "AgentBasedModel"
+    class_model_uri: ClassVar[URIRef] = NAMO.AgentBasedModel
+
+    id: Union[str, AgentBasedModelId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AgentBasedModelId):
+            self.id = AgentBasedModelId(self.id)
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class BiomechanicalModel(InSilicoModel):
+    """
+    A continuum-mechanics model of how a tissue, organ or body region deforms or carries load, usually solved by the
+    finite element method on a mesh of the anatomy. Its outputs are mechanical quantities such as stress, strain and
+    strain rate. Example: a three-dimensional computational model of the human head that predicts where brain tissue
+    strain is highest during an impact.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["BiomechanicalModel"]
+    class_class_curie: ClassVar[str] = "namo:BiomechanicalModel"
+    class_name: ClassVar[str] = "BiomechanicalModel"
+    class_model_uri: ClassVar[URIRef] = NAMO.BiomechanicalModel
+
+    id: Union[str, BiomechanicalModelId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, BiomechanicalModelId):
+            self.id = BiomechanicalModelId(self.id)
 
         super().__post_init__(**kwargs)
         self.type = str(self.class_name)
