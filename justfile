@@ -209,9 +209,8 @@ _test-python: gen-python
 # Check that every reference in the examples exists and that its title is the
 # publication's own (linkml-reference-validator). scripts/reference_check_plan.py
 # groups the example files by class (the name before the first "-") and counts
-# the titled references in each group. The validator does not reach the
-# references inside a Dataset's model_systems, so the script writes each model
-# system to tmp/reference-check/ to be validated as the class its `type` names.
+# the titled references in each group. The validator reaches the references in
+# a Dataset's model_systems because `references` is declared on ModelSystem.
 # --no-full-text: a title needs only the publication's metadata, which keeps the
 # committed references_cache/ small. (The CLI's default overrides the config
 # file, so it is set here.) Drop it if quotes are added to references.
@@ -222,7 +221,7 @@ _test-python: gen-python
 _test-references:
   #!/usr/bin/env bash
   set -euo pipefail
-  plan=$(uv run python scripts/reference_check_plan.py tests/data/valid tmp/reference-check)
+  plan=$(uv run python scripts/reference_check_plan.py tests/data/valid)
   total=0
   while IFS=$'\t' read -r cls expected files; do
     # shellcheck disable=SC2086  # $files is a space-separated list of paths
