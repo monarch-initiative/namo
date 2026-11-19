@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-16T09:10:11
+# Generation date: 2026-11-19T15:45:50
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -545,6 +545,7 @@ class ModelSystem(NamedThing):
     description_scope: Optional[Union[str, "DescriptionScopeEnum"]] = None
     method: Optional[Union[str, ModelSystemId]] = None
     studies: Optional[Union[Union[str, StudyId], list[Union[str, StudyId]]]] = empty_list()
+    references: Optional[Union[dict[Union[str, ReferenceId], Union[dict, "Reference"]], list[Union[dict, "Reference"]]]] = empty_dict()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if not isinstance(self.models, list):
@@ -560,6 +561,8 @@ class ModelSystem(NamedThing):
         if not isinstance(self.studies, list):
             self.studies = [self.studies] if self.studies is not None else []
         self.studies = [v if isinstance(v, StudyId) else StudyId(v) for v in self.studies]
+
+        self._normalize_inlined_as_list(slot_name="references", slot_type=Reference, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
         self.type = str(self.class_name)
@@ -624,7 +627,6 @@ class NAMModel(ModelSystem):
     biological_organization_level: Optional[Union[str, "BiologicalOrganizationLevelEnum"]] = None
     spatial_context: Optional[str] = None
     complexity_level: Optional[Union[str, "ComplexityLevelEnum"]] = None
-    references: Optional[Union[dict[Union[str, ReferenceId], Union[dict, "Reference"]], list[Union[dict, "Reference"]]]] = empty_dict()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.biological_organization_level is not None and not isinstance(self.biological_organization_level, BiologicalOrganizationLevelEnum):
@@ -635,8 +637,6 @@ class NAMModel(ModelSystem):
 
         if self.complexity_level is not None and not isinstance(self.complexity_level, ComplexityLevelEnum):
             self.complexity_level = ComplexityLevelEnum(self.complexity_level)
-
-        self._normalize_inlined_as_list(slot_name="references", slot_type=Reference, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
         self.type = str(self.class_name)
@@ -3336,6 +3336,9 @@ slots.modelSystem__method = Slot(uri=NAMO.method, name="modelSystem__method", cu
 slots.modelSystem__studies = Slot(uri=NAMO.studies, name="modelSystem__studies", curie=NAMO.curie('studies'),
                    model_uri=NAMO.modelSystem__studies, domain=None, range=Optional[Union[Union[str, StudyId], list[Union[str, StudyId]]]])
 
+slots.modelSystem__references = Slot(uri=NAMO.references, name="modelSystem__references", curie=NAMO.curie('references'),
+                   model_uri=NAMO.modelSystem__references, domain=None, range=Optional[Union[dict[Union[str, ReferenceId], Union[dict, Reference]], list[Union[dict, Reference]]]])
+
 slots.animalModel__species = Slot(uri=NAMO.species, name="animalModel__species", curie=NAMO.curie('species'),
                    model_uri=NAMO.animalModel__species, domain=None, range=Union[dict, OrganismTaxon])
 
@@ -3359,9 +3362,6 @@ slots.nAMModel__spatial_context = Slot(uri=NAMO.spatial_context, name="nAMModel_
 
 slots.nAMModel__complexity_level = Slot(uri=NAMO.complexity_level, name="nAMModel__complexity_level", curie=NAMO.curie('complexity_level'),
                    model_uri=NAMO.nAMModel__complexity_level, domain=None, range=Optional[Union[str, "ComplexityLevelEnum"]])
-
-slots.nAMModel__references = Slot(uri=NAMO.references, name="nAMModel__references", curie=NAMO.curie('references'),
-                   model_uri=NAMO.nAMModel__references, domain=None, range=Optional[Union[dict[Union[str, ReferenceId], Union[dict, Reference]], list[Union[dict, Reference]]]])
 
 slots.cellularSystem__cell_types = Slot(uri=NAMO.cell_types, name="cellularSystem__cell_types", curie=NAMO.curie('cell_types'),
                    model_uri=NAMO.cellularSystem__cell_types, domain=None, range=Optional[Union[dict[Union[str, CellId], Union[dict, Cell]], list[Union[dict, Cell]]]])
