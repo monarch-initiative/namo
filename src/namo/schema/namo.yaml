@@ -279,6 +279,13 @@ classes:
           For a record of one study's use, the ids of the studies it comes
           from. Each study holds what the use was for: its context of use,
           perturbations and endpoints.
+      references:
+        range: Reference
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          Literature references that describe, validate, or support this model
+          system
 
   AnimalModel:
     is_a: ModelSystem
@@ -349,12 +356,6 @@ classes:
         range: ComplexityLevelEnum
         description: >-
           Level of biological complexity represented (subcellular, cellular, tissue, organ, system)
-      references:
-        range: Reference
-        multivalued: true
-        inlined_as_list: true
-        description: >-
-          Literature references that describe, validate, or support this model
 
   # ==========================================
   # CELLULAR SYSTEMS - Category 1
