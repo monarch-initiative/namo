@@ -35,11 +35,16 @@ repos:
     # Ruff version.
     rev: v0.11.3
     hooks:
-      # Run the linter.
+      # Run the linter. The generated LinkML datamodels are excluded: ruff
+      # would reformat what `just gen-project` writes, making the committed
+      # copy differ from the generator's output. Fix the generator or the
+      # schema, not the committed file (as with the generated docs above).
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
+        exclude: &generated_datamodels ^src/namo/datamodel/namo(_pydantic)?\.py$
       # Run the formatter.
       - id: ruff-format
+        exclude: *generated_datamodels
 
   - repo: https://github.com/astral-sh/uv-pre-commit
     # uv version.
