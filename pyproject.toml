@@ -69,9 +69,12 @@ skip = [
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
+# Domain acronyms codespell reads as typos:
+# nam / nams (New Approach Methodology; codespell -> name / names)
+# namo (this project: New Approach Methodology Ontology)
 # Scientific terms that codespell misidentifies:
 # villin (intestinal epithelial marker protein)
 # Author surnames in example references:
 # bothe (Anne-Katrin Bothe)
-ignore-words-list = "bothe,linke,villin"
+ignore-words-list = "bothe,linke,nam,namo,nams,villin"
 quiet-level = 3
