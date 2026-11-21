@@ -1,0 +1,42 @@
+# The public, consensus simulated-digestion method (INFOGEST 2.0) that the NAMs
+# registry's "simulated human digestive system" records are built on.
+id: "simulatedfluidsystem:001"
+name: "INFOGEST static in vitro simulation of gastrointestinal digestion"
+description: >-
+  A standardized cell-free method that subjects a food or test sample to
+  sequential oral, gastric and intestinal digestion using simulated salivary,
+  gastric and intestinal fluids. Electrolytes, enzymes, bile, dilution, pH and
+  time are fixed at values based on available physiological data, with
+  constant ratios of sample to digestive fluid and a constant pH per step. It
+  is static, so it reproduces the conditions of each phase but not digestion
+  kinetics. No cells or tissue are present: the gastrointestinal tract is
+  represented only by the fluids and conditions. The digested sample is then
+  analysed downstream for digestion products and the release of nutrients or
+  other substances from the matrix.
+type: "SimulatedFluidSystem"
+description_scope: "METHOD"
+complexity_level: "MODERATE"
+test_system_components:
+  - "Simulated salivary fluid with alpha-amylase (oral phase)"
+  - "Simulated gastric fluid with pepsin and gastric lipase (gastric phase)"
+  - "Simulated intestinal fluid with pancreatin and bile (intestinal phase)"
+reaction_conditions: >-
+  Three sequential phases at 37 C, each at a physiologically based pH, with
+  fixed enzyme activities, bile concentration, electrolytes and incubation
+  times
+readout_method: >-
+  Downstream analysis of the digesta, e.g. peptides and amino acids, fatty
+  acids, simple sugars, and the bioaccessible fraction released from the
+  sample
+references:
+  - id: "PMID:30886367"
+    title: "INFOGEST static in vitro simulation of gastrointestinal food digestion."
+    authors:
+      - "Brodkorb A"
+      - "Egger L"
+      - "Alminger M"
+      - "Alvito P"
+      - "Assunção R"
+      - "Recio I"
+    journal: "Nat Protoc"
+    year: 2019

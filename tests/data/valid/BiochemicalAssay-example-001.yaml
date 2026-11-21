@@ -1,0 +1,20 @@
+# A ToxCast cell-free assay from the NAMs registry (nams/ccte-glted-htpo.yaml,
+# ToxCast aeid 3090). Described only from the ToxCast assay annotation, which
+# cites no paper.
+id: "biochemicalassay:001"
+name: "CCTE_GLTED_hTPO"
+description: >-
+  A cell-free, single-readout assay of chemical inhibition of human
+  thyroperoxidase (TPO), an enzyme of thyroid hormone synthesis. Active
+  enzyme converts Amplex UltraRed to a fluorescent product, so inhibition is
+  read as lower fluorescence. Measurements are taken 0.5 hours after dosing
+  in a 96-well plate.
+type: "BiochemicalAssay"
+description_scope: "METHOD"
+biological_organization_level: "SUBCELLULAR"
+complexity_level: "LOW"
+test_system_components:
+  - "Human thyroperoxidase (TPO) protein"
+  - "Amplex UltraRed substrate"
+reaction_conditions: "0.5 hours after dosing, 96-well plate"
+readout_method: "Fluorescence of the Amplex UltraRed product"

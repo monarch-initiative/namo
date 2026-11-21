@@ -175,6 +175,7 @@ prefixes:
   UO: http://purl.obolibrary.org/obo/UO_
   EFO: http://www.ebi.ac.uk/efo/EFO_
   MAMO: http://identifiers.org/mamo/MAMO_
+  BAO: http://www.bioassayontology.org/bao#BAO_
   MESH: http://id.nlm.nih.gov/mesh/
   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
@@ -584,6 +585,131 @@ classes:
         multivalued: true
         description: >-
           Tissue barrier functions modeled (epithelial, endothelial, etc.)
+
+  # ==========================================
+  # CELL-FREE (IN CHEMICO) SYSTEMS
+  #
+  # The test is one question: were intact cells present during the
+  # measurement? Not whether a cell was used anywhere in the workflow: a
+  # protein expressed in E. coli or in a stable cell line and then purified
+  # is measured cell-free. Tissue that is permeabilized or demembranated but
+  # still intact is not cell-free. (namo#55)
+  # ==========================================
+
+  CellFreeSystem:
+    is_a: NAMModel
+    description: >-
+      A test system with no intact cells present during the measurement: a
+      reaction between the test substance and defined chemical or biological
+      components, such as synthetic peptides, a purified or recombinant
+      protein, a subcellular fraction, simulated physiological fluids or an
+      artificial membrane. Includes the methods OECD calls in chemico, and
+      biochemical reconstitution assays that have nothing to do with a test
+      guideline. Use this class directly for a cell-free system that none of
+      its subclasses fits, or when the source says only that a method is in
+      chemico. Because there are no cells, there is no metabolism, transport
+      or cellular context unless they are added to the system, so a negative
+      result can mean the system cannot host the mechanism rather than that
+      the mechanism is absent; record this in the record's limitations.
+    aliases:
+      - in chemico system
+      - in chemico method
+      - acellular system
+    comments:
+      - >-
+        Named for what the system is made of, as CellularSystem is, rather
+        than for the regulatory category.
+      - >-
+        A single cell-free test system, not a battery of assays nor a defined
+        approach that integrates several methods under a fixed interpretation
+        rule. How those are recorded is open in namo#77; do not type them
+        here.
+      - >-
+        In a cell-free system the measurement is part of the model rather than
+        a separate readout on it (unlike CellularSystem and AnimalModel), so
+        readout_method and reaction_conditions sit on the model. This is the
+        position namo#77 records for cell-free and in silico models.
+    attributes:
+      test_system_components:
+        multivalued: true
+        description: >-
+          The defined components the test system is built from, e.g. a
+          cysteine-containing synthetic peptide, recombinant human
+          thyroperoxidase, simulated gastric fluid with pepsin, or a
+          hexadecane artificial membrane.
+      reaction_conditions:
+        description: >-
+          Conditions under which the test substance meets the system, such
+          as buffer, pH, temperature, test substance concentration, solvent
+          and incubation time.
+      readout_method:
+        description: >-
+          How the result is measured, e.g. HPLC-UV quantification of the
+          remaining peptide, fluorescence of an enzyme product, or LC-MS of
+          the acceptor compartment. Free text for now; a structured
+          representation of what a model measures is being worked out in
+          namo#59.
+      metabolic_activation_system:
+        description: >-
+          Exogenous metabolic activation added to the system, such as liver
+          S9 fraction or a peroxidase. Leave empty if there is none. Without
+          one, a cell-free system cannot detect substances that act only
+          after bioactivation, such as pro-haptens.
+
+  BiochemicalAssay:
+    is_a: CellFreeSystem
+    description: >-
+      A cell-free assay that measures how a test substance interacts with a
+      defined biological molecule: the activity or ligand binding of a
+      purified or recombinant enzyme, receptor, transporter or binding
+      protein, or of a subcellular fraction such as a tissue membrane
+      preparation or microsomes that carries one, or the substance's
+      reaction with a synthetic peptide (see PeptideReactivityAssay). Most of
+      ToxCast's cell-free assays are of this kind, as are purified-protein
+      and reconstitution experiments in mechanistic studies of disease.
+    narrow_mappings:
+      - BAO:0000217  # biochemical format (purified protein or nucleic acid)
+      - BAO:0000366  # cell-free format (subcellular fractions)
+
+  PeptideReactivityAssay:
+    is_a: BiochemicalAssay
+    description: >-
+      A biochemical assay whose target is a synthetic peptide or amino acid
+      derivative standing in for the nucleophilic residues of proteins,
+      typically cysteine and lysine. It measures how much a test substance
+      reacts with the peptide, read as depletion of the peptide: covalent
+      binding to protein, the molecular initiating event of skin
+      sensitization (AOP 40). The DPRA, kinetic DPRA and ADRA of OECD Test
+      Guideline 442C are examples.
+    see_also:
+      - https://doi.org/10.1787/9789264229709-en
+
+  SimulatedFluidSystem:
+    is_a: CellFreeSystem
+    description: >-
+      A system that exposes a test substance to simulated physiological
+      fluids, such as saliva, gastric, intestinal, lung lining or lysosomal
+      fluid, statically or in a dynamic, multi-compartment apparatus, to
+      measure what happens to the substance: its digestion, dissolution,
+      biotransformation or stability. Used for food, nanomaterials and oral
+      or inhaled exposures. Some dynamic gastrointestinal simulators add a
+      colon compartment inoculated with faecal microbiota; they are recorded
+      here as well, since the host is represented only by fluids and
+      conditions, and the microbial community belongs in the record's
+      description and test_system_components.
+    related_mappings:
+      - BAO:0010104  # simulated gastric fluid stability assay
+
+  PhysicochemicalAssay:
+    is_a: CellFreeSystem
+    description: >-
+      A cell-free assay that measures a physical or chemical property of the
+      test substance itself, such as water solubility, octanol-water
+      partition, passive permeability across an artificial membrane, or
+      photoreactivity. The result describes the substance, not a biological
+      response, and feeds exposure, kinetic or read-across models.
+    close_mappings:
+      - BAO:0000100  # small-molecule physicochemical format
 
   # ==========================================
   # IN SILICO MODELS - Category 3

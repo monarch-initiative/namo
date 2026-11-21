@@ -1,0 +1,48 @@
+# An in chemico method from the NAMs registry
+# (nams/the-direct-peptide-reactivity-assay-dpra.yaml). DisMech's
+# Contact_Dermatitis entry names the DPRA as an input to its SARA-ICE and
+# decision-tree defined-approach models, but has no experimental model type
+# that fits it (dismech#16000).
+id: "peptidereactivity:001"
+name: "Direct Peptide Reactivity Assay (DPRA)"
+description: >-
+  A cell-free assay for skin sensitization that measures a test chemical's
+  reactivity towards synthetic peptides standing in for the nucleophilic
+  amino acids of skin proteins. Most chemical allergens are electrophiles that
+  react with cysteine or lysine before sensitization is induced, so covalent
+  binding to protein, the molecular initiating event of the skin
+  sensitization adverse outcome pathway (AOP 40), is read as depletion of the
+  peptide. In the method paper, 38 chemicals were tested against glutathione
+  and three peptides containing cysteine, lysine or histidine; depletion of
+  glutathione, cysteine and lysine correlated with allergen potency, and
+  histidine did not. The assay as later standardised in OECD Test Guideline
+  442C uses the cysteine and lysine peptides.
+type: "PeptideReactivityAssay"
+description_scope: "METHOD"
+biological_organization_level: "SUBCELLULAR"
+complexity_level: "LOW"
+test_system_components:
+  - "Cysteine-containing synthetic peptide"
+  - "Lysine-containing synthetic peptide"
+reaction_conditions: "24-hour incubation of the test chemical with each peptide"
+readout_method: >-
+  HPLC with UV detection of the remaining, unreacted peptide; percent
+  depletion relative to controls
+references:
+  - id: "PMID:15254333"
+    title: "Development of a peptide reactivity assay for screening contact allergens."
+    authors:
+      - "Gerberick GF"
+      - "Vassallo JD"
+      - "Bailey RE"
+      - "Chaney JG"
+      - "Morrall SW"
+      - "Lepoittevin JP"
+    journal: "Toxicol Sci"
+    year: 2004
+  - id: "PMID:27070937"
+    title: >-
+      Assessment of Pre- and Pro-haptens Using Nonanimal Test Methods for
+      Skin Sensitization.
+    journal: "Chem Res Toxicol"
+    year: 2016

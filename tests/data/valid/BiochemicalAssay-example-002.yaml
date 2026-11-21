@@ -1,0 +1,39 @@
+# A purified-protein experiment from DisMech's AHCY_Deficiency entry, where it
+# is typed experimental_model_type OTHER for want of a cell-free class
+# (dismech#16000). Described only from the paper's abstract. A BiochemicalAssay
+# whose target is a specific named protein, contrasted with the first example's
+# ToxCast enzyme assay.
+id: "biochemicalassay:002"
+name: "Recombinant p.Arg49Cys and p.Asp86Gly AHCY proteins"
+description: >-
+  Recombinant S-adenosylhomocysteine hydrolase (AHCY) carrying two missense
+  variants found in a patient with AHCY deficiency, expressed in E. coli and
+  studied as purified protein. Both variants sharply reduce enzyme activity.
+  The p.Arg49Cys protein forms intermolecular disulphide bonds, which the
+  reducing agent DTT prevents, and the p.Asp86Gly protein tends to form
+  inactive aggregates; replacing Gly86 with a negatively charged Glu restores
+  activity to 70% of wild type. The protein is expressed in cells but measured
+  as purified protein with no cells present, so it is a cell-free system.
+type: "BiochemicalAssay"
+description_scope: "METHOD"
+biological_organization_level: "SUBCELLULAR"
+complexity_level: "LOW"
+test_system_components:
+  - "Recombinant wild-type AHCY"
+  - "Recombinant p.Arg49Cys AHCY"
+  - "Recombinant p.Asp86Gly AHCY"
+readout_method: >-
+  AHCY enzyme activity, plus native electrophoresis and gel filtration of the
+  purified variant proteins
+references:
+  - id: "PMID:19177456"
+    title: >-
+      S-adenosylhomocysteine hydrolase (AHCY) deficiency: two novel mutations
+      with lethal outcome.
+    authors:
+      - "Vugrek O"
+      - "Beluzić R"
+      - "Nakić N"
+      - "Mudd SH"
+    journal: "Hum Mutat"
+    year: 2009

@@ -1,5 +1,5 @@
 # Auto generated from namo.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-19T15:45:50
+# Generation date: 2026-11-21T13:04:03
 # Schema: namo
 #
 # id: https://w3id.org/monarch-initiative/namo
@@ -208,6 +208,7 @@ version = None
 # Namespaces
 ARRIVE = CurieNamespace('ARRIVE', 'https://doi.org/10.1371/journal.pbio.3000410#')
 ASTM = CurieNamespace('ASTM', 'https://www.astm.org/standards/')
+BAO = CurieNamespace('BAO', 'http://www.bioassayontology.org/bao#BAO_')
 BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
 CHEBI = CurieNamespace('CHEBI', 'http://purl.obolibrary.org/obo/CHEBI_')
 CL = CurieNamespace('CL', 'http://purl.obolibrary.org/obo/CL_')
@@ -300,6 +301,26 @@ class OrganOnChipId(MicrophysiologicalSystemId):
 
 
 class TissueOnChipId(MicrophysiologicalSystemId):
+    pass
+
+
+class CellFreeSystemId(NAMModelId):
+    pass
+
+
+class BiochemicalAssayId(CellFreeSystemId):
+    pass
+
+
+class PeptideReactivityAssayId(BiochemicalAssayId):
+    pass
+
+
+class SimulatedFluidSystemId(CellFreeSystemId):
+    pass
+
+
+class PhysicochemicalAssayId(CellFreeSystemId):
     pass
 
 
@@ -753,7 +774,7 @@ class ThreeDCellCulture(CellularSystem):
 @dataclass(repr=False)
 class CoCulture(CellularSystem):
     """
-    Co-culture systems combining multiple cell types to mimic  microenvironments and cell-cell interactions.
+    Co-culture systems combining multiple cell types to mimic microenvironments and cell-cell interactions.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -961,6 +982,164 @@ class TissueOnChip(MicrophysiologicalSystem):
         if not isinstance(self.barrier_functions, list):
             self.barrier_functions = [self.barrier_functions] if self.barrier_functions is not None else []
         self.barrier_functions = [v if isinstance(v, str) else str(v) for v in self.barrier_functions]
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class CellFreeSystem(NAMModel):
+    """
+    A test system with no intact cells present during the measurement: a reaction between the test substance and
+    defined chemical or biological components, such as synthetic peptides, a purified or recombinant protein, a
+    subcellular fraction, simulated physiological fluids or an artificial membrane. Includes the methods OECD calls in
+    chemico, and biochemical reconstitution assays that have nothing to do with a test guideline. Use this class
+    directly for a cell-free system that none of its subclasses fits, or when the source says only that a method is in
+    chemico. Because there are no cells, there is no metabolism, transport or cellular context unless they are added
+    to the system, so a negative result can mean the system cannot host the mechanism rather than that the mechanism
+    is absent; record this in the record's limitations.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["CellFreeSystem"]
+    class_class_curie: ClassVar[str] = "namo:CellFreeSystem"
+    class_name: ClassVar[str] = "CellFreeSystem"
+    class_model_uri: ClassVar[URIRef] = NAMO.CellFreeSystem
+
+    id: Union[str, CellFreeSystemId] = None
+    test_system_components: Optional[Union[str, list[str]]] = empty_list()
+    reaction_conditions: Optional[str] = None
+    readout_method: Optional[str] = None
+    metabolic_activation_system: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, CellFreeSystemId):
+            self.id = CellFreeSystemId(self.id)
+
+        if not isinstance(self.test_system_components, list):
+            self.test_system_components = [self.test_system_components] if self.test_system_components is not None else []
+        self.test_system_components = [v if isinstance(v, str) else str(v) for v in self.test_system_components]
+
+        if self.reaction_conditions is not None and not isinstance(self.reaction_conditions, str):
+            self.reaction_conditions = str(self.reaction_conditions)
+
+        if self.readout_method is not None and not isinstance(self.readout_method, str):
+            self.readout_method = str(self.readout_method)
+
+        if self.metabolic_activation_system is not None and not isinstance(self.metabolic_activation_system, str):
+            self.metabolic_activation_system = str(self.metabolic_activation_system)
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class BiochemicalAssay(CellFreeSystem):
+    """
+    A cell-free assay that measures how a test substance interacts with a defined biological molecule: the activity or
+    ligand binding of a purified or recombinant enzyme, receptor, transporter or binding protein, or of a subcellular
+    fraction such as a tissue membrane preparation or microsomes that carries one, or the substance's reaction with a
+    synthetic peptide (see PeptideReactivityAssay). Most of ToxCast's cell-free assays are of this kind, as are
+    purified-protein and reconstitution experiments in mechanistic studies of disease.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["BiochemicalAssay"]
+    class_class_curie: ClassVar[str] = "namo:BiochemicalAssay"
+    class_name: ClassVar[str] = "BiochemicalAssay"
+    class_model_uri: ClassVar[URIRef] = NAMO.BiochemicalAssay
+
+    id: Union[str, BiochemicalAssayId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, BiochemicalAssayId):
+            self.id = BiochemicalAssayId(self.id)
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class PeptideReactivityAssay(BiochemicalAssay):
+    """
+    A biochemical assay whose target is a synthetic peptide or amino acid derivative standing in for the nucleophilic
+    residues of proteins, typically cysteine and lysine. It measures how much a test substance reacts with the
+    peptide, read as depletion of the peptide: covalent binding to protein, the molecular initiating event of skin
+    sensitization (AOP 40). The DPRA, kinetic DPRA and ADRA of OECD Test Guideline 442C are examples.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["PeptideReactivityAssay"]
+    class_class_curie: ClassVar[str] = "namo:PeptideReactivityAssay"
+    class_name: ClassVar[str] = "PeptideReactivityAssay"
+    class_model_uri: ClassVar[URIRef] = NAMO.PeptideReactivityAssay
+
+    id: Union[str, PeptideReactivityAssayId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, PeptideReactivityAssayId):
+            self.id = PeptideReactivityAssayId(self.id)
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class SimulatedFluidSystem(CellFreeSystem):
+    """
+    A system that exposes a test substance to simulated physiological fluids, such as saliva, gastric, intestinal,
+    lung lining or lysosomal fluid, statically or in a dynamic, multi-compartment apparatus, to measure what happens
+    to the substance: its digestion, dissolution, biotransformation or stability. Used for food, nanomaterials and
+    oral or inhaled exposures. Some dynamic gastrointestinal simulators add a colon compartment inoculated with faecal
+    microbiota; they are recorded here as well, since the host is represented only by fluids and conditions, and the
+    microbial community belongs in the record's description and test_system_components.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["SimulatedFluidSystem"]
+    class_class_curie: ClassVar[str] = "namo:SimulatedFluidSystem"
+    class_name: ClassVar[str] = "SimulatedFluidSystem"
+    class_model_uri: ClassVar[URIRef] = NAMO.SimulatedFluidSystem
+
+    id: Union[str, SimulatedFluidSystemId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SimulatedFluidSystemId):
+            self.id = SimulatedFluidSystemId(self.id)
+
+        super().__post_init__(**kwargs)
+        self.type = str(self.class_name)
+
+
+@dataclass(repr=False)
+class PhysicochemicalAssay(CellFreeSystem):
+    """
+    A cell-free assay that measures a physical or chemical property of the test substance itself, such as water
+    solubility, octanol-water partition, passive permeability across an artificial membrane, or photoreactivity. The
+    result describes the substance, not a biological response, and feeds exposure, kinetic or read-across models.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NAMO["PhysicochemicalAssay"]
+    class_class_curie: ClassVar[str] = "namo:PhysicochemicalAssay"
+    class_name: ClassVar[str] = "PhysicochemicalAssay"
+    class_model_uri: ClassVar[URIRef] = NAMO.PhysicochemicalAssay
+
+    id: Union[str, PhysicochemicalAssayId] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, PhysicochemicalAssayId):
+            self.id = PhysicochemicalAssayId(self.id)
 
         super().__post_init__(**kwargs)
         self.type = str(self.class_name)
@@ -3443,6 +3622,18 @@ slots.tissueOnChip__tissue_architecture = Slot(uri=NAMO.tissue_architecture, nam
 
 slots.tissueOnChip__barrier_functions = Slot(uri=NAMO.barrier_functions, name="tissueOnChip__barrier_functions", curie=NAMO.curie('barrier_functions'),
                    model_uri=NAMO.tissueOnChip__barrier_functions, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.cellFreeSystem__test_system_components = Slot(uri=NAMO.test_system_components, name="cellFreeSystem__test_system_components", curie=NAMO.curie('test_system_components'),
+                   model_uri=NAMO.cellFreeSystem__test_system_components, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.cellFreeSystem__reaction_conditions = Slot(uri=NAMO.reaction_conditions, name="cellFreeSystem__reaction_conditions", curie=NAMO.curie('reaction_conditions'),
+                   model_uri=NAMO.cellFreeSystem__reaction_conditions, domain=None, range=Optional[str])
+
+slots.cellFreeSystem__readout_method = Slot(uri=NAMO.readout_method, name="cellFreeSystem__readout_method", curie=NAMO.curie('readout_method'),
+                   model_uri=NAMO.cellFreeSystem__readout_method, domain=None, range=Optional[str])
+
+slots.cellFreeSystem__metabolic_activation_system = Slot(uri=NAMO.metabolic_activation_system, name="cellFreeSystem__metabolic_activation_system", curie=NAMO.curie('metabolic_activation_system'),
+                   model_uri=NAMO.cellFreeSystem__metabolic_activation_system, domain=None, range=Optional[str])
 
 slots.inSilicoModel__computational_method = Slot(uri=NAMO.computational_method, name="inSilicoModel__computational_method", curie=NAMO.curie('computational_method'),
                    model_uri=NAMO.inSilicoModel__computational_method, domain=None, range=Optional[str])

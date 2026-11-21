@@ -1,0 +1,49 @@
+# A cell-free in chemico method the NAMs registry holds as the Reactive Oxygen
+# Species Assay for Photoreactivity (OECD TG 495). A PhysicochemicalAssay
+# because it measures a photoreactive property of the test substance itself,
+# with no cells and no biological target.
+id: "physicochemicalassay:001"
+name: "Reactive oxygen species (ROS) assay for photoreactivity"
+description: >-
+  A cell-free assay that measures whether a test substance generates reactive
+  oxygen species when irradiated with simulated sunlight: singlet oxygen (a
+  type II photochemical reaction) and superoxide anion (type I). The substance
+  is dissolved in buffer, exposed to a defined dose of simulated solar light,
+  and the two species are read spectrophotometrically against detection
+  reagents. The amount of ROS generated is compared with classification
+  criteria established from phototoxic and non-phototoxic reference drugs, to
+  flag a substance's phototoxic potential without cells or animals. It is the
+  in chemico first tier of photosafety testing and underlies OECD Test
+  Guideline 495.
+type: "PhysicochemicalAssay"
+description_scope: "METHOD"
+complexity_level: "LOW"
+test_system_components:
+  - "Test substance in aqueous buffer"
+  - "p-Nitrosodimethylaniline and imidazole (singlet-oxygen detection)"
+  - "Nitroblue tetrazolium (superoxide detection)"
+reaction_conditions: >-
+  Irradiation with a defined dose of simulated solar light in buffer, against
+  non-irradiated and reference controls run in the same format
+readout_method: >-
+  Spectrophotometric: decrease in p-nitrosodimethylaniline absorbance at
+  440 nm for singlet oxygen, and increase in reduced nitroblue tetrazolium at
+  560 nm for superoxide
+references:
+  - id: "PMID:18455898"
+    title: >-
+      Reactive oxygen species assay-based risk assessment of drug-induced
+      phototoxicity: classification criteria and application to drug
+      candidates.
+    authors:
+      - "Onoue S"
+      - "Kawamura K"
+      - "Igarashi N"
+      - "Zhou Y"
+      - "Fujikawa M"
+      - "Yamada H"
+      - "Tsuda Y"
+      - "Seto Y"
+      - "Yamada S"
+    journal: "J Pharm Biomed Anal"
+    year: 2008

@@ -1,0 +1,48 @@
+# A direct CellFreeSystem instance: a cell-free system that none of the four
+# subclasses fits. It is a reconstituted multi-component assay measuring an
+# emergent process (membrane fusion), not one macromolecule's activity or
+# binding (BiochemicalAssay), a synthetic peptide's reactivity
+# (PeptideReactivityAssay), a simulated physiological fluid (SimulatedFluidSystem),
+# or a physicochemical property of the test substance (PhysicochemicalAssay).
+# From DisMech's VAMP2-Related_Disorder entry, where #16000 flags it as typed
+# OTHER for want of a cell-free class. Described from the paper's abstract.
+id: "cellfreesystem:001"
+name: "Reconstituted SNARE liposome lipid-mixing (fusion) assay"
+description: >-
+  A cell-free reconstitution in which purified SNARE proteins, including
+  wild-type or variant VAMP2, are incorporated into donor and acceptor
+  liposomes, and membrane fusion is read as lipid mixing between the two
+  populations. It measures the emergent function of the assembled SNARE
+  complex rather than any single protein's activity. Mixing wild-type and
+  p.Ser75Pro VAMP2 at 50:50 in the donor liposomes gave the same fusion
+  profile as mutant protein alone, the signature of a dominant-negative
+  effect and a direct explanation for dominant inheritance of a heterozygous
+  variant.
+type: "CellFreeSystem"
+description_scope: "METHOD"
+biological_organization_level: "SUBCELLULAR"
+complexity_level: "MODERATE"
+test_system_components:
+  - "Purified wild-type or variant VAMP2"
+  - "Partner SNARE proteins (syntaxin-1, SNAP-25)"
+  - "Donor and acceptor liposomes with fluorescent lipid reporters"
+reaction_conditions: >-
+  Donor and acceptor liposomes combined and incubated so assembled SNARE
+  complexes drive fusion; variant and wild-type/variant mixed preparations
+  compared in the same format
+readout_method: >-
+  Fluorescent lipid-mixing (dequenching) between donor and acceptor
+  liposomes, reported as a fusion profile over time
+references:
+  - id: "PMID:30929742"
+    title: >-
+      Mutations in the Neuronal Vesicular SNARE VAMP2 Affect Synaptic Membrane
+      Fusion and Impair Human Neurodevelopment.
+    authors:
+      - "Salpietro V"
+      - "Malintan NT"
+      - "Llano-Rivas I"
+      - "Spaeth CG"
+      - "Efthymiou S"
+    journal: "Am J Hum Genet"
+    year: 2019
