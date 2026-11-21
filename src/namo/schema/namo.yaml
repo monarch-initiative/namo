@@ -1635,10 +1635,10 @@ enums:
   SpeciesEnum:
     reachable_from:
       source_nodes:
-          - NCBITaxon:1
+        - NCBITaxon:1
       is_direct: false
       relationship_types:
-          - rdfs:subClassOf
+        - rdfs:subClassOf
 
   OrganEnum:
     reachable_from:
